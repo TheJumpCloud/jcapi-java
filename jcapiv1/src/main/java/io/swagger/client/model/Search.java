@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Search
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T19:50:51.514Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
 public class Search {
   @SerializedName("filter")
   private String filter = null;

@@ -2,8 +2,15 @@
   "packageName": "jcapiv1",
   "packageVersion": "1.0.0",
   "groupId": "com.jumpcloud",
-  "artifactId": "jcapi-java-client",
   "name": "jcapi-java-client",
-  "url": "https://github.com/TheJumpCloud/jcapi-java",
-  "description": "JumpCloud API v1 Java Client"
+  "artifactId": "jcapi-java-client",
+  "artifactUrl": "https://github.com/TheJumpCloud/jcapi-java",
+  "artifactDescription": "JumpCloud API v1 Java Client",
+  "scmConnection": "scm:git:git@github.com:TheJumpCloud/jcapi-java",
+  "scmDeveloperConnection": "scm:git:git@github.com:TheJumpCloud/jcapi-java",
+  "scmUrl": "https://github.com/TheJumpCloud/jcapi-java",
+  "developerName": "JumpCloud",
+  "developerEmail": "support@jumpcloud.com",
+  "developerOrganization": "JumpCloud",
+  "developerOrganizationUrl": "https://jumpcloud.com"
 }

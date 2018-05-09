@@ -6,12 +6,12 @@
     <packaging>jar</packaging>
     <name>jcapi-java-client</name>
     <version>1.0.0</version>
-    <url>https://github.com/swagger-api/swagger-codegen</url>
-    <description>Swagger Java</description>
+    <url>https://github.com/TheJumpCloud/jcapi-java</url>
+    <description>JumpCloud API v2 Java Client</description>
     <scm>
-        <connection>scm:git:git@github.com:swagger-api/swagger-codegen.git</connection>
-        <developerConnection>scm:git:git@github.com:swagger-api/swagger-codegen.git</developerConnection>
-        <url>https://github.com/swagger-api/swagger-codegen</url>
+        <connection>scm:git:git@github.com:TheJumpCloud/jcapi-java</connection>
+        <developerConnection>scm:git:git@github.com:TheJumpCloud/jcapi-java</developerConnection>
+        <url>https://github.com/TheJumpCloud/jcapi-java</url>
     </scm>
 
     <licenses>
@@ -24,10 +24,10 @@
 
     <developers>
         <developer>
-            <name>Swagger</name>
-            <email>apiteam@swagger.io</email>
-            <organization>Swagger</organization>
-            <organizationUrl>http://swagger.io</organizationUrl>
+            <name>JumpCloud</name>
+            <email>support@jumpcloud.com</email>
+            <organization>JumpCloud</organization>
+            <organizationUrl>https://jumpcloud.com</organizationUrl>
         </developer>
     </developers>
 
