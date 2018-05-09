@@ -30,7 +30,7 @@ import java.util.List;
  * The shallow information about a Policy Template.
  */
 @ApiModel(description = "The shallow information about a Policy Template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-08T19:05:12.311Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T19:52:32.725Z")
 public class PolicyTemplateWithDetails {
   @SerializedName("id")
   private String id = null;

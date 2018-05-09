@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemGraphManagementReqAttributesSudo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-08T19:05:12.311Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T19:52:32.725Z")
 public class SystemGraphManagementReqAttributesSudo {
   @SerializedName("enabled")
   private Boolean enabled = null;

@@ -1,4 +1,9 @@
 {
   "packageName": "jcapiv1",
-  "packageVersion": "1.0.0"
+  "packageVersion": "1.0.0",
+  "groupId": "com.jumpcloud",
+  "artifactId": "jcapi-java-client",
+  "name": "jcapi-java-client",
+  "url": "https://github.com/TheJumpCloud/jcapi-java",
+  "description": "JumpCloud API v1 Java Client"
 }

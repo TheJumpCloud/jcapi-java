@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * InlineResponse200ConfigConstantAttributesValue
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-08T19:04:49.654Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T19:50:51.514Z")
 public class InlineResponse200ConfigConstantAttributesValue {
   @SerializedName("visible")
   private Boolean visible = null;
