@@ -24,17 +24,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse200ConfigIdpEntityIdTooltipVariables
+ * ApplicationConfigIdpEntityIdTooltipVariables
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
-public class InlineResponse200ConfigIdpEntityIdTooltipVariables {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:05:15.891Z")
+public class ApplicationConfigIdpEntityIdTooltipVariables {
   @SerializedName("icon")
   private String icon = null;
 
   @SerializedName("message")
   private String message = null;
 
-  public InlineResponse200ConfigIdpEntityIdTooltipVariables icon(String icon) {
+  public ApplicationConfigIdpEntityIdTooltipVariables icon(String icon) {
     this.icon = icon;
     return this;
   }
@@ -52,7 +52,7 @@ public class InlineResponse200ConfigIdpEntityIdTooltipVariables {
     this.icon = icon;
   }
 
-  public InlineResponse200ConfigIdpEntityIdTooltipVariables message(String message) {
+  public ApplicationConfigIdpEntityIdTooltipVariables message(String message) {
     this.message = message;
     return this;
   }
@@ -79,9 +79,9 @@ public class InlineResponse200ConfigIdpEntityIdTooltipVariables {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200ConfigIdpEntityIdTooltipVariables inlineResponse200ConfigIdpEntityIdTooltipVariables = (InlineResponse200ConfigIdpEntityIdTooltipVariables) o;
-    return Objects.equals(this.icon, inlineResponse200ConfigIdpEntityIdTooltipVariables.icon) &&
-        Objects.equals(this.message, inlineResponse200ConfigIdpEntityIdTooltipVariables.message);
+    ApplicationConfigIdpEntityIdTooltipVariables applicationConfigIdpEntityIdTooltipVariables = (ApplicationConfigIdpEntityIdTooltipVariables) o;
+    return Objects.equals(this.icon, applicationConfigIdpEntityIdTooltipVariables.icon) &&
+        Objects.equals(this.message, applicationConfigIdpEntityIdTooltipVariables.message);
   }
 
   @Override
@@ -93,7 +93,7 @@ public class InlineResponse200ConfigIdpEntityIdTooltipVariables {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200ConfigIdpEntityIdTooltipVariables {\n");
+    sb.append("class ApplicationConfigIdpEntityIdTooltipVariables {\n");
     
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");

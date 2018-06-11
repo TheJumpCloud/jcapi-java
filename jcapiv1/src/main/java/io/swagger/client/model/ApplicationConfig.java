@@ -22,34 +22,34 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.ApplicationConfigConstantAttributes;
-import io.swagger.client.model.InlineResponse200ConfigDatabaseAttributes;
-import io.swagger.client.model.InlineResponse200ConfigIdpEntityId;
+import io.swagger.client.model.ApplicationConfigDatabaseAttributes;
+import io.swagger.client.model.ApplicationConfigIdpEntityId;
 import java.io.IOException;
 
 /**
  * ApplicationConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:05:15.891Z")
 public class ApplicationConfig {
   @SerializedName("idpEntityId")
-  private InlineResponse200ConfigIdpEntityId idpEntityId = null;
+  private ApplicationConfigIdpEntityId idpEntityId = null;
 
   @SerializedName("idpCertificate")
-  private InlineResponse200ConfigIdpEntityId idpCertificate = null;
+  private ApplicationConfigIdpEntityId idpCertificate = null;
 
   @SerializedName("spEntityId")
-  private InlineResponse200ConfigIdpEntityId spEntityId = null;
+  private ApplicationConfigIdpEntityId spEntityId = null;
 
   @SerializedName("acsUrl")
-  private InlineResponse200ConfigIdpEntityId acsUrl = null;
+  private ApplicationConfigIdpEntityId acsUrl = null;
 
   @SerializedName("constantAttributes")
   private ApplicationConfigConstantAttributes constantAttributes = null;
 
   @SerializedName("databaseAttributes")
-  private InlineResponse200ConfigDatabaseAttributes databaseAttributes = null;
+  private ApplicationConfigDatabaseAttributes databaseAttributes = null;
 
-  public ApplicationConfig idpEntityId(InlineResponse200ConfigIdpEntityId idpEntityId) {
+  public ApplicationConfig idpEntityId(ApplicationConfigIdpEntityId idpEntityId) {
     this.idpEntityId = idpEntityId;
     return this;
   }
@@ -59,15 +59,15 @@ public class ApplicationConfig {
    * @return idpEntityId
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigIdpEntityId getIdpEntityId() {
+  public ApplicationConfigIdpEntityId getIdpEntityId() {
     return idpEntityId;
   }
 
-  public void setIdpEntityId(InlineResponse200ConfigIdpEntityId idpEntityId) {
+  public void setIdpEntityId(ApplicationConfigIdpEntityId idpEntityId) {
     this.idpEntityId = idpEntityId;
   }
 
-  public ApplicationConfig idpCertificate(InlineResponse200ConfigIdpEntityId idpCertificate) {
+  public ApplicationConfig idpCertificate(ApplicationConfigIdpEntityId idpCertificate) {
     this.idpCertificate = idpCertificate;
     return this;
   }
@@ -77,15 +77,15 @@ public class ApplicationConfig {
    * @return idpCertificate
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigIdpEntityId getIdpCertificate() {
+  public ApplicationConfigIdpEntityId getIdpCertificate() {
     return idpCertificate;
   }
 
-  public void setIdpCertificate(InlineResponse200ConfigIdpEntityId idpCertificate) {
+  public void setIdpCertificate(ApplicationConfigIdpEntityId idpCertificate) {
     this.idpCertificate = idpCertificate;
   }
 
-  public ApplicationConfig spEntityId(InlineResponse200ConfigIdpEntityId spEntityId) {
+  public ApplicationConfig spEntityId(ApplicationConfigIdpEntityId spEntityId) {
     this.spEntityId = spEntityId;
     return this;
   }
@@ -95,15 +95,15 @@ public class ApplicationConfig {
    * @return spEntityId
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigIdpEntityId getSpEntityId() {
+  public ApplicationConfigIdpEntityId getSpEntityId() {
     return spEntityId;
   }
 
-  public void setSpEntityId(InlineResponse200ConfigIdpEntityId spEntityId) {
+  public void setSpEntityId(ApplicationConfigIdpEntityId spEntityId) {
     this.spEntityId = spEntityId;
   }
 
-  public ApplicationConfig acsUrl(InlineResponse200ConfigIdpEntityId acsUrl) {
+  public ApplicationConfig acsUrl(ApplicationConfigIdpEntityId acsUrl) {
     this.acsUrl = acsUrl;
     return this;
   }
@@ -113,11 +113,11 @@ public class ApplicationConfig {
    * @return acsUrl
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigIdpEntityId getAcsUrl() {
+  public ApplicationConfigIdpEntityId getAcsUrl() {
     return acsUrl;
   }
 
-  public void setAcsUrl(InlineResponse200ConfigIdpEntityId acsUrl) {
+  public void setAcsUrl(ApplicationConfigIdpEntityId acsUrl) {
     this.acsUrl = acsUrl;
   }
 
@@ -139,7 +139,7 @@ public class ApplicationConfig {
     this.constantAttributes = constantAttributes;
   }
 
-  public ApplicationConfig databaseAttributes(InlineResponse200ConfigDatabaseAttributes databaseAttributes) {
+  public ApplicationConfig databaseAttributes(ApplicationConfigDatabaseAttributes databaseAttributes) {
     this.databaseAttributes = databaseAttributes;
     return this;
   }
@@ -149,11 +149,11 @@ public class ApplicationConfig {
    * @return databaseAttributes
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigDatabaseAttributes getDatabaseAttributes() {
+  public ApplicationConfigDatabaseAttributes getDatabaseAttributes() {
     return databaseAttributes;
   }
 
-  public void setDatabaseAttributes(InlineResponse200ConfigDatabaseAttributes databaseAttributes) {
+  public void setDatabaseAttributes(ApplicationConfigDatabaseAttributes databaseAttributes) {
     this.databaseAttributes = databaseAttributes;
   }
 

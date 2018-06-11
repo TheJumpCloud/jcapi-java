@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**systemusersList**](SystemusersApi.md#systemusersList) | **GET** /systemusers | List all system users
 [**systemusersPost**](SystemusersApi.md#systemusersPost) | **POST** /systemusers | Create a system user
 [**systemusersPut**](SystemusersApi.md#systemusersPut) | **PUT** /systemusers/{id} | Update a system user
+[**systemusersResetmfa**](SystemusersApi.md#systemusersResetmfa) | **POST** /systemusers/{id}/resetmfa | Reset a system user&#39;s MFA token
 [**systemusersSystemsBindingList**](SystemusersApi.md#systemusersSystemsBindingList) | **GET** /systemusers/{id}/systems | List system user binding
 [**systemusersSystemsBindingPut**](SystemusersApi.md#systemusersSystemsBindingPut) | **PUT** /systemusers/{id}/systems | Update a system user binding
 
@@ -316,6 +317,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Systemuserreturn**](Systemuserreturn.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+<a name="systemusersResetmfa"></a>
+# **systemusersResetmfa**
+> String systemusersResetmfa(id, xApiKey)
+
+Reset a system user&#39;s MFA token
+
+This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemusersApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x-api-key.setApiKeyPrefix("Token");
+
+SystemusersApi apiInstance = new SystemusersApi();
+String id = "id_example"; // String | 
+String xApiKey = "xApiKey_example"; // String | 
+try {
+    String result = apiInstance.systemusersResetmfa(id, xApiKey);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemusersApi#systemusersResetmfa");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **xApiKey** | **String**|  |
+
+### Return type
+
+**String**
 
 ### Authorization
 

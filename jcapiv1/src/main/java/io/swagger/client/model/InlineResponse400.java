@@ -24,29 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse200ConfigDatabaseAttributes
+ * InlineResponse400
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
-public class InlineResponse200ConfigDatabaseAttributes {
-  @SerializedName("position")
-  private Integer position = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:05:15.891Z")
+public class InlineResponse400 {
+  @SerializedName("message")
+  private String message = null;
 
-  public InlineResponse200ConfigDatabaseAttributes position(Integer position) {
-    this.position = position;
+  public InlineResponse400 message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get position
-   * @return position
+   * Get message
+   * @return message
   **/
   @ApiModelProperty(value = "")
-  public Integer getPosition() {
-    return position;
+  public String getMessage() {
+    return message;
   }
 
-  public void setPosition(Integer position) {
-    this.position = position;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -58,22 +58,22 @@ public class InlineResponse200ConfigDatabaseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200ConfigDatabaseAttributes inlineResponse200ConfigDatabaseAttributes = (InlineResponse200ConfigDatabaseAttributes) o;
-    return Objects.equals(this.position, inlineResponse200ConfigDatabaseAttributes.position);
+    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
+    return Objects.equals(this.message, inlineResponse400.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(position);
+    return Objects.hash(message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200ConfigDatabaseAttributes {\n");
+    sb.append("class InlineResponse400 {\n");
     
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }
