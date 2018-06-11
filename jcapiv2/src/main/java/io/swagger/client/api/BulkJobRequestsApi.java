@@ -136,8 +136,8 @@ public class BulkJobRequestsApi {
     }
 
     /**
-     * Get Job
-     * Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+     * Get Job (incomplete)
+     * **This endpoint is not complete and should remain hidden as it&#39;s not functional yet.**
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -150,8 +150,8 @@ public class BulkJobRequestsApi {
     }
 
     /**
-     * Get Job
-     * Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+     * Get Job (incomplete)
+     * **This endpoint is not complete and should remain hidden as it&#39;s not functional yet.**
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -165,8 +165,8 @@ public class BulkJobRequestsApi {
     }
 
     /**
-     * Get Job (asynchronously)
-     * Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+     * Get Job (incomplete) (asynchronously)
+     * **This endpoint is not complete and should remain hidden as it&#39;s not functional yet.**
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -288,7 +288,7 @@ public class BulkJobRequestsApi {
 
     /**
      * List Job Results
-     * Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+     * This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -304,7 +304,7 @@ public class BulkJobRequestsApi {
 
     /**
      * List Job Results
-     * Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+     * This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -321,7 +321,7 @@ public class BulkJobRequestsApi {
 
     /**
      * List Job Results (asynchronously)
-     * Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+     * This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)

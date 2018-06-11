@@ -4,7 +4,7 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**jobsGet**](BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job
+[**jobsGet**](BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job (incomplete)
 [**jobsResults**](BulkJobRequestsApi.md#jobsResults) | **GET** /jobs/{id}/results | List Job Results
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 # **jobsGet**
 > JobDetails jobsGet(id, contentType, accept)
 
-Get Job
+Get Job (incomplete)
 
-Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+**This endpoint is not complete and should remain hidden as it&#39;s not functional yet.**
 
 ### Example
 ```java
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 List Job Results
 
-Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java

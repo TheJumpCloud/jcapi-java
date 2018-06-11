@@ -14,8 +14,10 @@ Method | HTTP request | Description
 [**policiesPost**](PoliciesApi.md#policiesPost) | **POST** /policies | Create a new Policy
 [**policiesPut**](PoliciesApi.md#policiesPut) | **PUT** /policies/{id} | Update an existing Policy
 [**policyresultsGet**](PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
-[**policyresultsList**](PoliciesApi.md#policyresultsList) | **GET** /policyresults | Lists all the policy results for an organization.
-[**policyresultsList_0**](PoliciesApi.md#policyresultsList_0) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a given policy.
+[**policyresultsList**](PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
+[**policyresultsList_0**](PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
+[**policystatusesList**](PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+[**policystatusesList_0**](PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
 [**policytemplatesGet**](PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 [**policytemplatesList**](PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 
@@ -46,7 +48,7 @@ x-api-key.setApiKey("YOUR API KEY");
 //x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
-String policyId = "policyId_example"; // String | 
+String policyId = "policyId_example"; // String | ObjectID of the Policy.
 List<String> targets = Arrays.asList("targets_example"); // List<String> | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
@@ -65,7 +67,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **String**|  |
+ **policyId** | **String**| ObjectID of the Policy. |
  **targets** | [**List&lt;String&gt;**](String.md)|  | [enum: active_directory, application, command, g_suite, ldap_server, office_365, policy, radius_server, system, system_group, user, user_group]
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
@@ -111,7 +113,7 @@ x-api-key.setApiKey("YOUR API KEY");
 //x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
-String policyId = "policyId_example"; // String | 
+String policyId = "policyId_example"; // String | ObjectID of the Policy.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
@@ -127,7 +129,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **String**|  |
+ **policyId** | **String**| ObjectID of the Policy. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
@@ -632,11 +634,82 @@ Name | Type | Description  | Notes
 
 <a name="policyresultsList"></a>
 # **policyresultsList**
-> List&lt;PolicyResult&gt; policyresultsList(contentType, accept, fields, filter, limit, skip, sort, aggregate)
+> List&lt;PolicyResult&gt; policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate)
+
+Lists all the policy results of a policy.
+
+This endpoint returns all policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.PoliciesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x-api-key.setApiKeyPrefix("Token");
+
+PoliciesApi apiInstance = new PoliciesApi();
+String policyId = "policyId_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
+try {
+    List<PolicyResult> result = apiInstance.policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PoliciesApi#policyresultsList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
+
+### Return type
+
+[**List&lt;PolicyResult&gt;**](PolicyResult.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="policyresultsList_0"></a>
+# **policyresultsList_0**
+> List&lt;PolicyResult&gt; policyresultsList_0(contentType, accept, fields, filter, limit, skip, sort, aggregate)
 
 Lists all the policy results for an organization.
 
-This endpoint returns all policies results for an Organization.   ##### Sample Results  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -665,10 +738,10 @@ Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
 try {
-    List<PolicyResult> result = apiInstance.policyresultsList(contentType, accept, fields, filter, limit, skip, sort, aggregate);
+    List<PolicyResult> result = apiInstance.policyresultsList_0(contentType, accept, fields, filter, limit, skip, sort, aggregate);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PoliciesApi#policyresultsList");
+    System.err.println("Exception when calling PoliciesApi#policyresultsList_0");
     e.printStackTrace();
 }
 ```
@@ -699,13 +772,82 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="policyresultsList_0"></a>
-# **policyresultsList_0**
-> List&lt;PolicyResult&gt; policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate)
+<a name="policystatusesList"></a>
+# **policystatusesList**
+> List&lt;PolicyResult&gt; policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort)
 
-Lists all the policy results of a given policy.
+List the policy statuses for a system
 
-This endpoint returns all policies results for a specific policy.   ##### Sample Results  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.PoliciesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x-api-key.setApiKeyPrefix("Token");
+
+PoliciesApi apiInstance = new PoliciesApi();
+String systemId = "systemId_example"; // String | ObjectID of the System.
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+try {
+    List<PolicyResult> result = apiInstance.policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PoliciesApi#policystatusesList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **systemId** | **String**| ObjectID of the System. |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+
+### Return type
+
+[**List&lt;PolicyResult&gt;**](PolicyResult.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="policystatusesList_0"></a>
+# **policystatusesList_0**
+> List&lt;PolicyResult&gt; policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort)
+
+Lists the latest policy results of a policy.
+
+This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -733,12 +875,11 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
 try {
-    List<PolicyResult> result = apiInstance.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate);
+    List<PolicyResult> result = apiInstance.policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PoliciesApi#policyresultsList_0");
+    System.err.println("Exception when calling PoliciesApi#policystatusesList_0");
     e.printStackTrace();
 }
 ```
@@ -755,7 +896,6 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
 
 ### Return type
 

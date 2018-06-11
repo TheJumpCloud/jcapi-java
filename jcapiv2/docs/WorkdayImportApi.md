@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**workdaysList**](WorkdayImportApi.md#workdaysList) | **GET** /workdays | List Workdays
 [**workdaysPost**](WorkdayImportApi.md#workdaysPost) | **POST** /workdays | Create new Workday
 [**workdaysPut**](WorkdayImportApi.md#workdaysPut) | **PUT** /workdays/{id} | Update Workday
-[**workdaysSettings**](WorkdayImportApi.md#workdaysSettings) | **GET** /workdays/settings | Get Workday Settings
+[**workdaysSettings**](WorkdayImportApi.md#workdaysSettings) | **GET** /workdays/settings | Get Workday Settings (incomplete)
 [**workdaysWorkers**](WorkdayImportApi.md#workdaysWorkers) | **GET** /workdays/{workday_id}/workers | List Workday Workers
 
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 Workday Import
 
-Still in development.   **This functionality is currently not enable for users.**
+The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays}/{WorkdayID/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 List Import Results
 
-This endpoint provides a list of job results from the identified workday import. When accessed via this endpoint any payloads returned will be parsed into JSON.
+This endpoint provides a list of job results from the workday import and will contain all imported data from Workday.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkdayID}/import/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -569,7 +569,7 @@ Name | Type | Description  | Notes
 # **workdaysSettings**
 > workdaysSettings(contentType, accept, state)
 
-Get Workday Settings
+Get Workday Settings (incomplete)
 
 This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.   **This functionality is currently not enable for users.**
 
