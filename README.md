@@ -6,7 +6,97 @@ This repository contains the Java client code for the JumpCloud API v1 and v2.
 It also provides the tools to generate the client code from the API yaml files, using swagger-codegen.
 For detailed instructions on how to generate the code, see the [Contributing](CONTRIBUTING.md) section.
 
-### Installing the Java Client
+## Installation
+
+To install the API client library to your local Maven repository, simply execute:
+
+```shell
+mvn install
+```
+
+To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
+
+```shell
+mvn deploy
+```
+
+Refer to the [official documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
+
+### Maven users
+
+Add this dependency to your project's POM:
+
+```xml
+<dependency>
+    <groupId>com.jumpcloud</groupId>
+    <artifactId>jcapi-java-client</artifactId>
+    <version>1.0.0</version>
+    <scope>compile</scope>
+</dependency>
+```
+
+### Gradle users
+
+Add this dependency to your project's build file:
+
+```groovy
+compile "com.jumpcloud:jcapi-java-client:1.0.0"
+```
+
+### Others
+
+At first generate the JAR by executing:
+
+    mvn package
+
+Then manually install the following JARs:
+
+* target/jcapi-java-client-1.0.0.jar
+* target/lib/*.jar
+
+## Getting Started
+
+Please follow the [installation](#installation) instruction and execute the following Java code:
+
+```java
+
+import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ApplicationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ApplicationsApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure API key authorization: x-api-key
+        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x-api-key.setApiKey("YOUR API KEY");
+        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+        //x-api-key.setApiKeyPrefix("Token");
+
+        ApplicationsApi apiInstance = new ApplicationsApi();
+        String contentType = "application/json"; // String | 
+        String accept = "application/json"; // String | 
+        String fields = "fields_example"; // String | The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+        Integer limit = 56; // Integer | The number of records to return at once.
+        Integer skip = 56; // Integer | The offset into the records to return.
+        String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
+        try {
+            InlineResponse200 result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ApplicationsApi#applicationsList");
+            e.printStackTrace();
+        }
+    }
+}
+
+```
 
 ### Authentication and Authorization
 
