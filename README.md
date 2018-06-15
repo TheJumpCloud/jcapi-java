@@ -6,7 +6,7 @@ This repository contains the Java client code for the JumpCloud API v1 and v2.
 It also provides the tools to generate the client code from the API yaml files, using swagger-codegen.
 For detailed instructions on how to generate the code, see the [Contributing](CONTRIBUTING.md) section.
 
-## Installation
+### Installation
 
 To install the API client library to your local Maven repository, go to the appropriate API client folder ([jcapiv1](jcapiv1) or [jcapiv2](jcapiv2)) and simply execute:
 
