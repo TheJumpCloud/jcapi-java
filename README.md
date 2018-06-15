@@ -103,7 +103,7 @@ Refer to the [official maven documentation](https://maven.apache.org/plugins/mav
 
   ```shell
   mvn package
-    ```
+  ```
 
 4. Execute the code with the following command (assuming you used the `maven-dependency-plugin` plugin as described above):
 
