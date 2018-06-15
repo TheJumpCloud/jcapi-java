@@ -8,7 +8,7 @@ For detailed instructions on how to generate the code, see the [Contributing](CO
 
 ## Installation
 
-To install the API client library to your local Maven repository, simply execute:
+To install the API client library to your local Maven repository, go to the appropriate API client folder ([jcapiv1](jcapiv1) or [jcapiv2](jcapiv2)) and simply execute:
 
 ```shell
 mvn install
@@ -22,7 +22,7 @@ mvn deploy
 
 Refer to the [official maven documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
 
-### Getting Started
+### Usage Example
 
 1. Add this dependency to your project's POM:
 
@@ -116,11 +116,3 @@ Refer to the [official maven documentation](https://maven.apache.org/plugins/mav
 All endpoints support authentication via API key: see the [Authentication and Authorization](https://docs.jumpcloud.com/2.0/authentication-and-authorization/authentication-and-authorization-overview) section in our API docs.
 
 Some Systems endpoints (in both API v1 and v2) also support the [System Context authorization](https://docs.jumpcloud.com/2.0/authentication-and-authorization/system-context) which allows an individual system to manage its information and resource associations.
-
-### Usage Examples
-
-For more detailed instructions, refer to each API's respective README file ([README for API v1](jcapiv1/README.md) and [README for API v2](jcapiv2/README.md)) and the generated docs under each folder.
-
-#### API v1 example:
-
-#### API v2 example:
