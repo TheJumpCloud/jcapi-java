@@ -22,7 +22,7 @@ mvn deploy
 
 Refer to the [official maven documentation](https://maven.apache.org/plugins/maven-deploy-plugin/usage.html) for more information.
 
-### Maven users
+### Getting Started
 
 1. Add this dependency to your project's POM:
 
@@ -60,7 +60,7 @@ Refer to the [official maven documentation](https://maven.apache.org/plugins/mav
 </plugin>
 ```
 
-2. Add the following code to your project as `ApplicationsApiExample.java` (replace the text `YOUR API KEY` with the value of your actual API key):
+2. Add the following example code to your project as `ApplicationsApiExample.java` (replace the text `YOUR API KEY` with the value of your actual API key):
 
    ```java
    import io.swagger.client.*;
@@ -80,15 +80,15 @@ Refer to the [official maven documentation](https://maven.apache.org/plugins/mav
         ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
         x_api_key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x-api-key.setApiKeyPrefix("Token");
+        //x_api_key.setApiKeyPrefix("Token");
 
         ApplicationsApi apiInstance = new ApplicationsApi();
         String contentType = "application/json"; // String |
         String accept = "application/json"; // String |
-        String fields = "fields_example"; // String | The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
-        Integer limit = 56; // Integer | The number of records to return at once.
-        Integer skip = 56; // Integer | The offset into the records to return.
-        String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String |
+        String fields = ""; // String | The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+        Integer limit = 10; // Integer | The number of records to return at once.
+        Integer skip = 0; // Integer | The offset into the records to return.
+        String sort = ""; // String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.
         try {
             InlineResponse200 result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort);
             System.out.println(result);
