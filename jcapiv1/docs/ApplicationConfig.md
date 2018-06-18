@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idpEntityId** | [**InlineResponse200ConfigIdpEntityId**](InlineResponse200ConfigIdpEntityId.md) |  |  [optional]
-**idpCertificate** | [**InlineResponse200ConfigIdpEntityId**](InlineResponse200ConfigIdpEntityId.md) |  |  [optional]
-**spEntityId** | [**InlineResponse200ConfigIdpEntityId**](InlineResponse200ConfigIdpEntityId.md) |  |  [optional]
-**acsUrl** | [**InlineResponse200ConfigIdpEntityId**](InlineResponse200ConfigIdpEntityId.md) |  |  [optional]
+**idpEntityId** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
+**idpCertificate** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
+**spEntityId** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
+**acsUrl** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
 **constantAttributes** | [**ApplicationConfigConstantAttributes**](ApplicationConfigConstantAttributes.md) |  |  [optional]
-**databaseAttributes** | [**InlineResponse200ConfigDatabaseAttributes**](InlineResponse200ConfigDatabaseAttributes.md) |  |  [optional]
+**databaseAttributes** | [**ApplicationConfigDatabaseAttributes**](ApplicationConfigDatabaseAttributes.md) |  |  [optional]
 
 
 

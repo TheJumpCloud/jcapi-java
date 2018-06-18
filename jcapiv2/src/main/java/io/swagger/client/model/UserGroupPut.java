@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * UserGroupPut
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:36:06.538Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
 public class UserGroupPut {
   @SerializedName("attributes")
   private UserGroupPutAttributes attributes = null;

@@ -1,5 +1,5 @@
 
-# InlineResponse200ConfigDatabaseAttributes
+# ApplicationConfigDatabaseAttributes
 
 ## Properties
 Name | Type | Description | Notes

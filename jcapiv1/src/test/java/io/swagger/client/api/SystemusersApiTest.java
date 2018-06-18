@@ -14,6 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.Systemuserput;
 import io.swagger.client.model.Systemuserputpost;
 import io.swagger.client.model.Systemuserreturn;
@@ -132,6 +133,23 @@ public class SystemusersApiTest {
         String accept = null;
         Systemuserput body = null;
         Systemuserreturn response = api.systemusersPut(id, contentType, accept, body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Reset a system user&#39;s MFA token
+     *
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systemusersResetmfaTest() throws ApiException {
+        String id = null;
+        String xApiKey = null;
+        String response = api.systemusersResetmfa(id, xApiKey);
 
         // TODO: test validations
     }

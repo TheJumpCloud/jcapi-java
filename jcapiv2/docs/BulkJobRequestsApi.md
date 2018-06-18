@@ -4,7 +4,7 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**jobsGet**](BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job
+[**jobsGet**](BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job (incomplete)
 [**jobsResults**](BulkJobRequestsApi.md#jobsResults) | **GET** /jobs/{id}/results | List Job Results
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 # **jobsGet**
 > JobDetails jobsGet(id, contentType, accept)
 
-Get Job
+Get Job (incomplete)
 
-Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+**This endpoint is not complete and should remain hidden as it&#39;s not functional yet.**
 
 ### Example
 ```java
@@ -28,10 +28,10 @@ Currently Under development. Once completed this endpoint will remain hidden unt
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 BulkJobRequestsApi apiInstance = new BulkJobRequestsApi();
 String id = "id_example"; // String | 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 List Job Results
 
-Currently Under development. Once completed this endpoint will remain hidden until we expand the functionality of the Job Service.
+This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -87,10 +87,10 @@ Currently Under development. Once completed this endpoint will remain hidden unt
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 BulkJobRequestsApi apiInstance = new BulkJobRequestsApi();
 String id = "id_example"; // String | 

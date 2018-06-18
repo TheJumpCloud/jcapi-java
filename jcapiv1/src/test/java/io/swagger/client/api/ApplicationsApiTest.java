@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.Applicationslist;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -48,7 +48,7 @@ public class ApplicationsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        InlineResponse200 response = api.applicationsList(contentType, accept, fields, limit, skip, sort);
+        Applicationslist response = api.applicationsList(contentType, accept, fields, limit, skip, sort);
 
         // TODO: test validations
     }

@@ -72,10 +72,10 @@ public class ActiveDirectoryApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x-api-key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x_api_key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x-api-key.setApiKeyPrefix("Token");
+        //x_api_key.setApiKeyPrefix("Token");
 
         ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
         String id = "id_example"; // String | ObjectID of this Active Directory instance.
@@ -109,7 +109,7 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**graphApplicationAssociationsPost**](docs/ApplicationsApi.md#graphApplicationAssociationsPost) | **POST** /applications/{application_id}/associations | Manage the associations of an Application
 *ApplicationsApi* | [**graphApplicationTraverseUser**](docs/ApplicationsApi.md#graphApplicationTraverseUser) | **GET** /applications/{application_id}/users | List the Users bound to an Application
 *ApplicationsApi* | [**graphApplicationTraverseUserGroup**](docs/ApplicationsApi.md#graphApplicationTraverseUserGroup) | **GET** /applications/{application_id}/usergroups | List the User Groups bound to an Application
-*BulkJobRequestsApi* | [**jobsGet**](docs/BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job
+*BulkJobRequestsApi* | [**jobsGet**](docs/BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job (incomplete)
 *BulkJobRequestsApi* | [**jobsResults**](docs/BulkJobRequestsApi.md#jobsResults) | **GET** /jobs/{id}/results | List Job Results
 *CommandsApi* | [**graphCommandAssociationsList**](docs/CommandsApi.md#graphCommandAssociationsList) | **GET** /commands/{command_id}/associations | List the associations of a Command
 *CommandsApi* | [**graphCommandAssociationsPost**](docs/CommandsApi.md#graphCommandAssociationsPost) | **POST** /commands/{command_id}/associations | Manage the associations of a Command
@@ -194,6 +194,7 @@ Class | Method | HTTP request | Description
 *GraphApi* | [**graphUserTraverseRadiusServer**](docs/GraphApi.md#graphUserTraverseRadiusServer) | **GET** /users/{user_id}/radiusservers | List the RADIUS Servers bound to a User
 *GraphApi* | [**graphUserTraverseSystem**](docs/GraphApi.md#graphUserTraverseSystem) | **GET** /users/{user_id}/systems | List the Systems bound to a User
 *GraphApi* | [**graphUserTraverseSystemGroup**](docs/GraphApi.md#graphUserTraverseSystemGroup) | **GET** /users/{user_id}/systemgroups | List the System Groups bound to a User
+*GraphApi* | [**policystatusesList**](docs/GraphApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 *GroupsApi* | [**groupsList**](docs/GroupsApi.md#groupsList) | **GET** /groups | List All Groups
 *LdapServersApi* | [**graphLdapServerAssociationsList**](docs/LdapServersApi.md#graphLdapServerAssociationsList) | **GET** /ldapservers/{ldapserver_id}/associations | List the associations of a LDAP Server
 *LdapServersApi* | [**graphLdapServerAssociationsPost**](docs/LdapServersApi.md#graphLdapServerAssociationsPost) | **POST** /ldapservers/{ldapserver_id}/associations | Manage the associations of a LDAP Server
@@ -215,8 +216,10 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policiesPost**](docs/PoliciesApi.md#policiesPost) | **POST** /policies | Create a new Policy
 *PoliciesApi* | [**policiesPut**](docs/PoliciesApi.md#policiesPut) | **PUT** /policies/{id} | Update an existing Policy
 *PoliciesApi* | [**policyresultsGet**](docs/PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
-*PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policyresults | Lists all the policy results for an organization.
-*PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a given policy.
+*PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
+*PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
+*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
 *PoliciesApi* | [**policytemplatesGet**](docs/PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PoliciesApi* | [**policytemplatesList**](docs/PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 *PolicytemplatesApi* | [**policytemplatesGet**](docs/PolicytemplatesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -318,7 +321,7 @@ Class | Method | HTTP request | Description
 *WorkdayImportApi* | [**workdaysList**](docs/WorkdayImportApi.md#workdaysList) | **GET** /workdays | List Workdays
 *WorkdayImportApi* | [**workdaysPost**](docs/WorkdayImportApi.md#workdaysPost) | **POST** /workdays | Create new Workday
 *WorkdayImportApi* | [**workdaysPut**](docs/WorkdayImportApi.md#workdaysPut) | **PUT** /workdays/{id} | Update Workday
-*WorkdayImportApi* | [**workdaysSettings**](docs/WorkdayImportApi.md#workdaysSettings) | **GET** /workdays/settings | Get Workday Settings
+*WorkdayImportApi* | [**workdaysSettings**](docs/WorkdayImportApi.md#workdaysSettings) | **GET** /workdays/settings | Get Workday Settings (incomplete)
 *WorkdayImportApi* | [**workdaysWorkers**](docs/WorkdayImportApi.md#workdaysWorkers) | **GET** /workdays/{workday_id}/workers | List Workday Workers
 
 
@@ -374,12 +377,9 @@ Class | Method | HTTP request | Description
  - [WorkdayFields](docs/WorkdayFields.md)
  - [WorkdayInput](docs/WorkdayInput.md)
  - [WorkdayOutput](docs/WorkdayOutput.md)
- - [WorkdayReportRow](docs/WorkdayReportRow.md)
  - [WorkdayRequest](docs/WorkdayRequest.md)
  - [WorkdayWorker](docs/WorkdayWorker.md)
  - [WorkdayWorkerImport](docs/WorkdayWorkerImport.md)
- - [Workdayimportresult](docs/Workdayimportresult.md)
- - [WorkdayimportresultResult](docs/WorkdayimportresultResult.md)
  - [WorkdayoutputAuth](docs/WorkdayoutputAuth.md)
  - [ActiveDirectoryOutput](docs/ActiveDirectoryOutput.md)
  - [LdapServerOutput](docs/LdapServerOutput.md)

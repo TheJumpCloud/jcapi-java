@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="applicationsList"></a>
 # **applicationsList**
-> InlineResponse200 applicationsList(contentType, accept, fields, limit, skip, sort)
+> Applicationslist applicationsList(contentType, accept, fields, limit, skip, sort)
 
 Applications
 
@@ -27,10 +27,10 @@ The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x6
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ApplicationsApi apiInstance = new ApplicationsApi();
 String contentType = "application/json"; // String | 
@@ -40,7 +40,7 @@ Integer limit = 56; // Integer | The number of records to return at once.
 Integer skip = 56; // Integer | The offset into the records to return.
 String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
 try {
-    InlineResponse200 result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort);
+    Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApplicationsApi#applicationsList");
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**Applicationslist**](Applicationslist.md)
 
 ### Authorization
 

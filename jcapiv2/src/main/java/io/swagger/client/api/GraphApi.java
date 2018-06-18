@@ -31,6 +31,7 @@ import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
 import io.swagger.client.model.InlineResponse204;
+import io.swagger.client.model.PolicyResult;
 import io.swagger.client.model.SystemGraphManagementReq;
 import io.swagger.client.model.SystemGroupGraphManagementReq;
 import io.swagger.client.model.SystemGroupMembersReq;
@@ -3652,7 +3653,7 @@ public class GraphApi {
     }
     /**
      * Build call for graphPolicyAssociationsList
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -3747,7 +3748,7 @@ public class GraphApi {
     /**
      * List the associations of a Policy
      * This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -3764,7 +3765,7 @@ public class GraphApi {
     /**
      * List the associations of a Policy
      * This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -3782,7 +3783,7 @@ public class GraphApi {
     /**
      * List the associations of a Policy (asynchronously)
      * This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -3820,7 +3821,7 @@ public class GraphApi {
     }
     /**
      * Build call for graphPolicyAssociationsPost
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -3902,7 +3903,7 @@ public class GraphApi {
     /**
      * Manage the associations of a Policy
      * This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -3915,7 +3916,7 @@ public class GraphApi {
     /**
      * Manage the associations of a Policy
      * This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -3930,7 +3931,7 @@ public class GraphApi {
     /**
      * Manage the associations of a Policy (asynchronously)
      * This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
-     * @param policyId  (required)
+     * @param policyId ObjectID of the Policy. (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -11768,6 +11769,181 @@ public class GraphApi {
 
         com.squareup.okhttp.Call call = graphUserTraverseSystemGroupValidateBeforeCall(userId, contentType, accept, limit, skip, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for policystatusesList
+     * @param systemId ObjectID of the System. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call policystatusesListCall(String systemId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systems/{system_id}/policystatuses"
+            .replaceAll("\\{" + "system_id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (fields != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "fields", fields));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (sort != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "sort", sort));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call policystatusesListValidateBeforeCall(String systemId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'systemId' is set
+        if (systemId == null) {
+            throw new ApiException("Missing the required parameter 'systemId' when calling policystatusesList(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling policystatusesList(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling policystatusesList(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = policystatusesListCall(systemId, contentType, accept, fields, filter, limit, skip, sort, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List the policy statuses for a system
+     * This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param systemId ObjectID of the System. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @return List&lt;PolicyResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<PolicyResult> policystatusesList(String systemId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
+        ApiResponse<List<PolicyResult>> resp = policystatusesListWithHttpInfo(systemId, contentType, accept, fields, filter, limit, skip, sort);
+        return resp.getData();
+    }
+
+    /**
+     * List the policy statuses for a system
+     * This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param systemId ObjectID of the System. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @return ApiResponse&lt;List&lt;PolicyResult&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<PolicyResult>> policystatusesListWithHttpInfo(String systemId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
+        com.squareup.okhttp.Call call = policystatusesListValidateBeforeCall(systemId, contentType, accept, fields, filter, limit, skip, sort, null, null);
+        Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List the policy statuses for a system (asynchronously)
+     * This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param systemId ObjectID of the System. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call policystatusesListAsync(String systemId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ApiCallback<List<PolicyResult>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = policystatusesListValidateBeforeCall(systemId, contentType, accept, fields, filter, limit, skip, sort, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -28,16 +28,16 @@ import java.util.List;
 /**
  * WorkdayWorkerImport
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:36:06.538Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
 public class WorkdayWorkerImport {
   @SerializedName("username")
   private String username = null;
 
-  @SerializedName("firstName")
-  private String firstName = null;
+  @SerializedName("firstname")
+  private String firstname = null;
 
-  @SerializedName("lastName")
-  private String lastName = null;
+  @SerializedName("lastname")
+  private String lastname = null;
 
   @SerializedName("email")
   private String email = null;
@@ -63,40 +63,40 @@ public class WorkdayWorkerImport {
     this.username = username;
   }
 
-  public WorkdayWorkerImport firstName(String firstName) {
-    this.firstName = firstName;
+  public WorkdayWorkerImport firstname(String firstname) {
+    this.firstname = firstname;
     return this;
   }
 
    /**
-   * Get firstName
-   * @return firstName
+   * Get firstname
+   * @return firstname
   **/
   @ApiModelProperty(value = "")
-  public String getFirstName() {
-    return firstName;
+  public String getFirstname() {
+    return firstname;
   }
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
+  public void setFirstname(String firstname) {
+    this.firstname = firstname;
   }
 
-  public WorkdayWorkerImport lastName(String lastName) {
-    this.lastName = lastName;
+  public WorkdayWorkerImport lastname(String lastname) {
+    this.lastname = lastname;
     return this;
   }
 
    /**
-   * Get lastName
-   * @return lastName
+   * Get lastname
+   * @return lastname
   **/
   @ApiModelProperty(value = "")
-  public String getLastName() {
-    return lastName;
+  public String getLastname() {
+    return lastname;
   }
 
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
+  public void setLastname(String lastname) {
+    this.lastname = lastname;
   }
 
   public WorkdayWorkerImport email(String email) {
@@ -154,15 +154,15 @@ public class WorkdayWorkerImport {
     }
     WorkdayWorkerImport workdayWorkerImport = (WorkdayWorkerImport) o;
     return Objects.equals(this.username, workdayWorkerImport.username) &&
-        Objects.equals(this.firstName, workdayWorkerImport.firstName) &&
-        Objects.equals(this.lastName, workdayWorkerImport.lastName) &&
+        Objects.equals(this.firstname, workdayWorkerImport.firstname) &&
+        Objects.equals(this.lastname, workdayWorkerImport.lastname) &&
         Objects.equals(this.email, workdayWorkerImport.email) &&
         Objects.equals(this.attributes, workdayWorkerImport.attributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, firstName, lastName, email, attributes);
+    return Objects.hash(username, firstname, lastname, email, attributes);
   }
 
 
@@ -172,8 +172,8 @@ public class WorkdayWorkerImport {
     sb.append("class WorkdayWorkerImport {\n");
     
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
+    sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");

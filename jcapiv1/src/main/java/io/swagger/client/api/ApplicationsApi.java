@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.Applicationslist;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -148,11 +148,11 @@ public class ApplicationsApi {
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-     * @return InlineResponse200
+     * @return Applicationslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 applicationsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<InlineResponse200> resp = applicationsListWithHttpInfo(contentType, accept, fields, limit, skip, sort);
+    public Applicationslist applicationsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
+        ApiResponse<Applicationslist> resp = applicationsListWithHttpInfo(contentType, accept, fields, limit, skip, sort);
         return resp.getData();
     }
 
@@ -165,12 +165,12 @@ public class ApplicationsApi {
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;Applicationslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> applicationsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
+    public ApiResponse<Applicationslist> applicationsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
         com.squareup.okhttp.Call call = applicationsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Applicationslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -187,7 +187,7 @@ public class ApplicationsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call applicationsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call applicationsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Applicationslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -209,7 +209,7 @@ public class ApplicationsApi {
         }
 
         com.squareup.okhttp.Call call = applicationsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Applicationslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
