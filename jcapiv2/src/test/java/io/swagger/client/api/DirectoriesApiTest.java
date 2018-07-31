@@ -47,9 +47,9 @@ public class DirectoriesApiTest {
         String accept = null;
         List<String> fields = null;
         Integer limit = null;
-        Integer skip = null;
         List<String> sort = null;
-        List<Directory> response = api.directoriesList(contentType, accept, fields, limit, skip, sort);
+        Integer skip = null;
+        List<Directory> response = api.directoriesList(contentType, accept, fields, limit, sort, skip);
 
         // TODO: test validations
     }

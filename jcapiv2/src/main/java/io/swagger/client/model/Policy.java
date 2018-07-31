@@ -28,7 +28,7 @@ import java.io.IOException;
  * An instance of a policty template.
  */
 @ApiModel(description = "An instance of a policty template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
 public class Policy {
   @SerializedName("id")
   private String id = null;

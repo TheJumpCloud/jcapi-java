@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.PolicyTemplate;
+import io.swagger.client.model.PolicyTemplateConfigField;
 import io.swagger.client.model.PolicyValue;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,13 +32,16 @@ import java.util.List;
  * An instance of a policty template.
  */
 @ApiModel(description = "An instance of a policty template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
 public class PolicyWithDetails {
   @SerializedName("id")
   private String id = null;
 
   @SerializedName("template")
   private PolicyTemplate template = null;
+
+  @SerializedName("configFields")
+  private List<PolicyTemplateConfigField> configFields = null;
 
   @SerializedName("name")
   private String name = null;
@@ -79,6 +83,32 @@ public class PolicyWithDetails {
 
   public void setTemplate(PolicyTemplate template) {
     this.template = template;
+  }
+
+  public PolicyWithDetails configFields(List<PolicyTemplateConfigField> configFields) {
+    this.configFields = configFields;
+    return this;
+  }
+
+  public PolicyWithDetails addConfigFieldsItem(PolicyTemplateConfigField configFieldsItem) {
+    if (this.configFields == null) {
+      this.configFields = new ArrayList<PolicyTemplateConfigField>();
+    }
+    this.configFields.add(configFieldsItem);
+    return this;
+  }
+
+   /**
+   * Get configFields
+   * @return configFields
+  **/
+  @ApiModelProperty(value = "")
+  public List<PolicyTemplateConfigField> getConfigFields() {
+    return configFields;
+  }
+
+  public void setConfigFields(List<PolicyTemplateConfigField> configFields) {
+    this.configFields = configFields;
   }
 
   public PolicyWithDetails name(String name) {
@@ -137,13 +167,14 @@ public class PolicyWithDetails {
     PolicyWithDetails policyWithDetails = (PolicyWithDetails) o;
     return Objects.equals(this.id, policyWithDetails.id) &&
         Objects.equals(this.template, policyWithDetails.template) &&
+        Objects.equals(this.configFields, policyWithDetails.configFields) &&
         Objects.equals(this.name, policyWithDetails.name) &&
         Objects.equals(this.values, policyWithDetails.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, template, name, values);
+    return Objects.hash(id, template, configFields, name, values);
   }
 
 
@@ -154,6 +185,7 @@ public class PolicyWithDetails {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    configFields: ").append(toIndentedString(configFields)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");

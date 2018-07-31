@@ -26,10 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * WorkdayWorkerImport
+ * BulkUserCreate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
-public class WorkdayWorkerImport {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
+public class BulkUserCreate {
   @SerializedName("username")
   private String username = null;
 
@@ -45,7 +45,7 @@ public class WorkdayWorkerImport {
   @SerializedName("attributes")
   private List<Object> attributes = null;
 
-  public WorkdayWorkerImport username(String username) {
+  public BulkUserCreate username(String username) {
     this.username = username;
     return this;
   }
@@ -63,7 +63,7 @@ public class WorkdayWorkerImport {
     this.username = username;
   }
 
-  public WorkdayWorkerImport firstname(String firstname) {
+  public BulkUserCreate firstname(String firstname) {
     this.firstname = firstname;
     return this;
   }
@@ -81,7 +81,7 @@ public class WorkdayWorkerImport {
     this.firstname = firstname;
   }
 
-  public WorkdayWorkerImport lastname(String lastname) {
+  public BulkUserCreate lastname(String lastname) {
     this.lastname = lastname;
     return this;
   }
@@ -99,7 +99,7 @@ public class WorkdayWorkerImport {
     this.lastname = lastname;
   }
 
-  public WorkdayWorkerImport email(String email) {
+  public BulkUserCreate email(String email) {
     this.email = email;
     return this;
   }
@@ -117,12 +117,12 @@ public class WorkdayWorkerImport {
     this.email = email;
   }
 
-  public WorkdayWorkerImport attributes(List<Object> attributes) {
+  public BulkUserCreate attributes(List<Object> attributes) {
     this.attributes = attributes;
     return this;
   }
 
-  public WorkdayWorkerImport addAttributesItem(Object attributesItem) {
+  public BulkUserCreate addAttributesItem(Object attributesItem) {
     if (this.attributes == null) {
       this.attributes = new ArrayList<Object>();
     }
@@ -152,12 +152,12 @@ public class WorkdayWorkerImport {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WorkdayWorkerImport workdayWorkerImport = (WorkdayWorkerImport) o;
-    return Objects.equals(this.username, workdayWorkerImport.username) &&
-        Objects.equals(this.firstname, workdayWorkerImport.firstname) &&
-        Objects.equals(this.lastname, workdayWorkerImport.lastname) &&
-        Objects.equals(this.email, workdayWorkerImport.email) &&
-        Objects.equals(this.attributes, workdayWorkerImport.attributes);
+    BulkUserCreate bulkUserCreate = (BulkUserCreate) o;
+    return Objects.equals(this.username, bulkUserCreate.username) &&
+        Objects.equals(this.firstname, bulkUserCreate.firstname) &&
+        Objects.equals(this.lastname, bulkUserCreate.lastname) &&
+        Objects.equals(this.email, bulkUserCreate.email) &&
+        Objects.equals(this.attributes, bulkUserCreate.attributes);
   }
 
   @Override
@@ -169,7 +169,7 @@ public class WorkdayWorkerImport {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WorkdayWorkerImport {\n");
+    sb.append("class BulkUserCreate {\n");
     
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");

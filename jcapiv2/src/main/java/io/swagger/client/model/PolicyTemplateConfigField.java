@@ -21,13 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.PolicyTemplateConfigFieldTooltip;
 import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
  * PolicyTemplateConfigField
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
 public class PolicyTemplateConfigField {
   @SerializedName("id")
   private String id = null;
@@ -106,6 +107,9 @@ public class PolicyTemplateConfigField {
 
   @SerializedName("required")
   private Boolean required = null;
+
+  @SerializedName("tooltip")
+  private PolicyTemplateConfigFieldTooltip tooltip = null;
 
   public PolicyTemplateConfigField id(String id) {
     this.id = id;
@@ -233,6 +237,24 @@ public class PolicyTemplateConfigField {
     this.required = required;
   }
 
+  public PolicyTemplateConfigField tooltip(PolicyTemplateConfigFieldTooltip tooltip) {
+    this.tooltip = tooltip;
+    return this;
+  }
+
+   /**
+   * Get tooltip
+   * @return tooltip
+  **/
+  @ApiModelProperty(value = "")
+  public PolicyTemplateConfigFieldTooltip getTooltip() {
+    return tooltip;
+  }
+
+  public void setTooltip(PolicyTemplateConfigFieldTooltip tooltip) {
+    this.tooltip = tooltip;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -249,12 +271,13 @@ public class PolicyTemplateConfigField {
         Objects.equals(this.name, policyTemplateConfigField.name) &&
         Objects.equals(this.position, policyTemplateConfigField.position) &&
         Objects.equals(this.readOnly, policyTemplateConfigField.readOnly) &&
-        Objects.equals(this.required, policyTemplateConfigField.required);
+        Objects.equals(this.required, policyTemplateConfigField.required) &&
+        Objects.equals(this.tooltip, policyTemplateConfigField.tooltip);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, displayType, label, name, position, readOnly, required);
+    return Objects.hash(id, displayType, label, name, position, readOnly, required, tooltip);
   }
 
 
@@ -270,6 +293,7 @@ public class PolicyTemplateConfigField {
     sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
     sb.append("    required: ").append(toIndentedString(required)).append("\n");
+    sb.append("    tooltip: ").append(toIndentedString(tooltip)).append("\n");
     sb.append("}");
     return sb.toString();
   }

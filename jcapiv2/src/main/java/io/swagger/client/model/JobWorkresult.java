@@ -26,82 +26,10 @@ import java.io.IOException;
 /**
  * JobWorkresult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
 public class JobWorkresult {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("status")
-  private String status = null;
-
-  @SerializedName("statusMsg")
-  private String statusMsg = null;
-
   @SerializedName("meta")
   private Object meta = null;
-
-  @SerializedName("createdAt")
-  private String createdAt = null;
-
-  @SerializedName("updatedAt")
-  private String updatedAt = null;
-
-  @SerializedName("persistedFields")
-  private Object persistedFields = null;
-
-  public JobWorkresult id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public JobWorkresult status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(value = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public JobWorkresult statusMsg(String statusMsg) {
-    this.statusMsg = statusMsg;
-    return this;
-  }
-
-   /**
-   * Get statusMsg
-   * @return statusMsg
-  **/
-  @ApiModelProperty(value = "")
-  public String getStatusMsg() {
-    return statusMsg;
-  }
-
-  public void setStatusMsg(String statusMsg) {
-    this.statusMsg = statusMsg;
-  }
 
   public JobWorkresult meta(Object meta) {
     this.meta = meta;
@@ -121,60 +49,6 @@ public class JobWorkresult {
     this.meta = meta;
   }
 
-  public JobWorkresult createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-  @ApiModelProperty(value = "")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
-  public JobWorkresult updatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Get updatedAt
-   * @return updatedAt
-  **/
-  @ApiModelProperty(value = "")
-  public String getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-  public JobWorkresult persistedFields(Object persistedFields) {
-    this.persistedFields = persistedFields;
-    return this;
-  }
-
-   /**
-   * Get persistedFields
-   * @return persistedFields
-  **/
-  @ApiModelProperty(value = "")
-  public Object getPersistedFields() {
-    return persistedFields;
-  }
-
-  public void setPersistedFields(Object persistedFields) {
-    this.persistedFields = persistedFields;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -185,18 +59,12 @@ public class JobWorkresult {
       return false;
     }
     JobWorkresult jobWorkresult = (JobWorkresult) o;
-    return Objects.equals(this.id, jobWorkresult.id) &&
-        Objects.equals(this.status, jobWorkresult.status) &&
-        Objects.equals(this.statusMsg, jobWorkresult.statusMsg) &&
-        Objects.equals(this.meta, jobWorkresult.meta) &&
-        Objects.equals(this.createdAt, jobWorkresult.createdAt) &&
-        Objects.equals(this.updatedAt, jobWorkresult.updatedAt) &&
-        Objects.equals(this.persistedFields, jobWorkresult.persistedFields);
+    return Objects.equals(this.meta, jobWorkresult.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, status, statusMsg, meta, createdAt, updatedAt, persistedFields);
+    return Objects.hash(meta);
   }
 
 
@@ -205,13 +73,7 @@ public class JobWorkresult {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobWorkresult {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    statusMsg: ").append(toIndentedString(statusMsg)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-    sb.append("    persistedFields: ").append(toIndentedString(persistedFields)).append("\n");
     sb.append("}");
     return sb.toString();
   }

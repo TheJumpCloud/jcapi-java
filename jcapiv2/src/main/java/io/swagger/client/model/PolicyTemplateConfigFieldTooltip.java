@@ -21,32 +21,54 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.PolicyTemplateConfigFieldTooltipVariables;
 import java.io.IOException;
 
 /**
- * PolicyValue
+ * PolicyTemplateConfigFieldTooltip
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
-public class PolicyValue {
-  @SerializedName("configFieldID")
-  private String configFieldID = null;
+public class PolicyTemplateConfigFieldTooltip {
+  @SerializedName("template")
+  private String template = null;
 
-  public PolicyValue configFieldID(String configFieldID) {
-    this.configFieldID = configFieldID;
+  @SerializedName("variables")
+  private PolicyTemplateConfigFieldTooltipVariables variables = null;
+
+  public PolicyTemplateConfigFieldTooltip template(String template) {
+    this.template = template;
     return this;
   }
 
    /**
-   * The ObjectId of the corresponding Policy Template configuration field.
-   * @return configFieldID
+   * Get template
+   * @return template
   **/
-  @ApiModelProperty(value = "The ObjectId of the corresponding Policy Template configuration field.")
-  public String getConfigFieldID() {
-    return configFieldID;
+  @ApiModelProperty(value = "")
+  public String getTemplate() {
+    return template;
   }
 
-  public void setConfigFieldID(String configFieldID) {
-    this.configFieldID = configFieldID;
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
+  public PolicyTemplateConfigFieldTooltip variables(PolicyTemplateConfigFieldTooltipVariables variables) {
+    this.variables = variables;
+    return this;
+  }
+
+   /**
+   * Get variables
+   * @return variables
+  **/
+  @ApiModelProperty(value = "")
+  public PolicyTemplateConfigFieldTooltipVariables getVariables() {
+    return variables;
+  }
+
+  public void setVariables(PolicyTemplateConfigFieldTooltipVariables variables) {
+    this.variables = variables;
   }
 
 
@@ -58,22 +80,24 @@ public class PolicyValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PolicyValue policyValue = (PolicyValue) o;
-    return Objects.equals(this.configFieldID, policyValue.configFieldID);
+    PolicyTemplateConfigFieldTooltip policyTemplateConfigFieldTooltip = (PolicyTemplateConfigFieldTooltip) o;
+    return Objects.equals(this.template, policyTemplateConfigFieldTooltip.template) &&
+        Objects.equals(this.variables, policyTemplateConfigFieldTooltip.variables);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configFieldID);
+    return Objects.hash(template, variables);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PolicyValue {\n");
+    sb.append("class PolicyTemplateConfigFieldTooltip {\n");
     
-    sb.append("    configFieldID: ").append(toIndentedString(configFieldID)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("}");
     return sb.toString();
   }

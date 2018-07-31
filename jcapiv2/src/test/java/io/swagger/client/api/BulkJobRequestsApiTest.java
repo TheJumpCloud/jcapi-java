@@ -14,7 +14,9 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.BulkUserCreate;
 import io.swagger.client.model.JobDetails;
+import io.swagger.client.model.JobId;
 import io.swagger.client.model.JobWorkresult;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -32,6 +34,44 @@ public class BulkJobRequestsApiTest {
 
     private final BulkJobRequestsApi api = new BulkJobRequestsApi();
 
+    
+    /**
+     * Bulk Users Create
+     *
+     * The endpoint allows you to create a bulk job to asynchronously create users.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/bulk/users \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;Custom\&quot;,\&quot;value\&quot;:\&quot;attribute\&quot;}   ]  } ] &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void bulkUsersCreateTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        List<BulkUserCreate> body = null;
+        JobId response = api.bulkUsersCreate(contentType, accept, body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Bulk Users Create Results
+     *
+     * This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/bulk/users/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void bulkUsersCreateResultsTest() throws ApiException {
+        String jobId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<JobWorkresult> response = api.bulkUsersCreateResults(jobId, contentType, accept, limit, skip);
+
+        // TODO: test validations
+    }
     
     /**
      * Get Job (incomplete)

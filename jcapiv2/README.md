@@ -72,10 +72,10 @@ public class ActiveDirectoryApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x_api_key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x-api-key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x_api_key.setApiKeyPrefix("Token");
+        //x-api-key.setApiKeyPrefix("Token");
 
         ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
         String id = "id_example"; // String | ObjectID of this Active Directory instance.
@@ -109,6 +109,8 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**graphApplicationAssociationsPost**](docs/ApplicationsApi.md#graphApplicationAssociationsPost) | **POST** /applications/{application_id}/associations | Manage the associations of an Application
 *ApplicationsApi* | [**graphApplicationTraverseUser**](docs/ApplicationsApi.md#graphApplicationTraverseUser) | **GET** /applications/{application_id}/users | List the Users bound to an Application
 *ApplicationsApi* | [**graphApplicationTraverseUserGroup**](docs/ApplicationsApi.md#graphApplicationTraverseUserGroup) | **GET** /applications/{application_id}/usergroups | List the User Groups bound to an Application
+*BulkJobRequestsApi* | [**bulkUsersCreate**](docs/BulkJobRequestsApi.md#bulkUsersCreate) | **POST** /bulk/users | Bulk Users Create
+*BulkJobRequestsApi* | [**bulkUsersCreateResults**](docs/BulkJobRequestsApi.md#bulkUsersCreateResults) | **GET** /bulk/users/{job_id}/results | List Bulk Users Create Results
 *BulkJobRequestsApi* | [**jobsGet**](docs/BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job (incomplete)
 *BulkJobRequestsApi* | [**jobsResults**](docs/BulkJobRequestsApi.md#jobsResults) | **GET** /jobs/{id}/results | List Job Results
 *CommandsApi* | [**graphCommandAssociationsList**](docs/CommandsApi.md#graphCommandAssociationsList) | **GET** /commands/{command_id}/associations | List the associations of a Command
@@ -216,10 +218,10 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policiesPost**](docs/PoliciesApi.md#policiesPost) | **POST** /policies | Create a new Policy
 *PoliciesApi* | [**policiesPut**](docs/PoliciesApi.md#policiesPut) | **PUT** /policies/{id} | Update an existing Policy
 *PoliciesApi* | [**policyresultsGet**](docs/PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
-*PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
-*PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
-*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
-*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+*PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policyresults | Lists all the policy results for an organization.
+*PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
+*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 *PoliciesApi* | [**policytemplatesGet**](docs/PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PoliciesApi* | [**policytemplatesList**](docs/PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 *PolicytemplatesApi* | [**policytemplatesGet**](docs/PolicytemplatesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -333,6 +335,7 @@ Class | Method | HTTP request | Description
  - [AuthInputObject](docs/AuthInputObject.md)
  - [AuthinputBasic](docs/AuthinputBasic.md)
  - [AuthinputOauth](docs/AuthinputOauth.md)
+ - [BulkUserCreate](docs/BulkUserCreate.md)
  - [Directory](docs/Directory.md)
  - [Error](docs/Error.md)
  - [GraphConnection](docs/GraphConnection.md)
@@ -354,6 +357,8 @@ Class | Method | HTTP request | Description
  - [PolicyResult](docs/PolicyResult.md)
  - [PolicyTemplate](docs/PolicyTemplate.md)
  - [PolicyTemplateConfigField](docs/PolicyTemplateConfigField.md)
+ - [PolicyTemplateConfigFieldTooltip](docs/PolicyTemplateConfigFieldTooltip.md)
+ - [PolicyTemplateConfigFieldTooltipVariables](docs/PolicyTemplateConfigFieldTooltipVariables.md)
  - [PolicyTemplateWithDetails](docs/PolicyTemplateWithDetails.md)
  - [PolicyValue](docs/PolicyValue.md)
  - [PolicyWithDetails](docs/PolicyWithDetails.md)
@@ -379,7 +384,6 @@ Class | Method | HTTP request | Description
  - [WorkdayOutput](docs/WorkdayOutput.md)
  - [WorkdayRequest](docs/WorkdayRequest.md)
  - [WorkdayWorker](docs/WorkdayWorker.md)
- - [WorkdayWorkerImport](docs/WorkdayWorkerImport.md)
  - [WorkdayoutputAuth](docs/WorkdayoutputAuth.md)
  - [ActiveDirectoryOutput](docs/ActiveDirectoryOutput.md)
  - [LdapServerOutput](docs/LdapServerOutput.md)
