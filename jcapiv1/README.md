@@ -85,7 +85,7 @@ public class ApplicationsApiExample {
         Integer skip = 56; // Integer | The offset into the records to return.
         String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
         try {
-            InlineResponse200 result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort);
+            Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ApplicationsApi#applicationsList");
@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandsList**](docs/CommandsApi.md#commandsList) | **GET** /commands/ | List All Commands
 *CommandsApi* | [**commandsPost**](docs/CommandsApi.md#commandsPost) | **POST** /commands/ | Create A Command
 *CommandsApi* | [**commandsPut**](docs/CommandsApi.md#commandsPut) | **PUT** /commands/{id} | Update a Command
+*OrganizationsApi* | [**organizationList**](docs/OrganizationsApi.md#organizationList) | **GET** /organizations | Get Organization Details
 *RadiusServersApi* | [**radiusServersList**](docs/RadiusServersApi.md#radiusServersList) | **GET** /radiusservers | List Radius Servers
 *RadiusServersApi* | [**radiusServersPost**](docs/RadiusServersApi.md#radiusServersPost) | **POST** /radiusservers | Create a Radius Server
 *RadiusServersApi* | [**radiusServersPut**](docs/RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers:id | Update Radius Servers
@@ -129,6 +130,7 @@ Class | Method | HTTP request | Description
 *SystemusersApi* | [**systemusersList**](docs/SystemusersApi.md#systemusersList) | **GET** /systemusers | List all system users
 *SystemusersApi* | [**systemusersPost**](docs/SystemusersApi.md#systemusersPost) | **POST** /systemusers | Create a system user
 *SystemusersApi* | [**systemusersPut**](docs/SystemusersApi.md#systemusersPut) | **PUT** /systemusers/{id} | Update a system user
+*SystemusersApi* | [**systemusersResetmfa**](docs/SystemusersApi.md#systemusersResetmfa) | **POST** /systemusers/{id}/resetmfa | Reset a system user&#39;s MFA token
 *SystemusersApi* | [**systemusersSystemsBindingList**](docs/SystemusersApi.md#systemusersSystemsBindingList) | **GET** /systemusers/{id}/systems | List system user binding
 *SystemusersApi* | [**systemusersSystemsBindingPut**](docs/SystemusersApi.md#systemusersSystemsBindingPut) | **PUT** /systemusers/{id}/systems | Update a system user binding
 *TagsApi* | [**tagsDelete**](docs/TagsApi.md#tagsDelete) | **DELETE** /tags/{name} | Delete a Tag
@@ -144,24 +146,24 @@ Class | Method | HTTP request | Description
  - [ApplicationConfig](docs/ApplicationConfig.md)
  - [ApplicationConfigConstantAttributes](docs/ApplicationConfigConstantAttributes.md)
  - [ApplicationConfigConstantAttributesValue](docs/ApplicationConfigConstantAttributesValue.md)
+ - [ApplicationConfigDatabaseAttributes](docs/ApplicationConfigDatabaseAttributes.md)
+ - [ApplicationConfigIdpEntityId](docs/ApplicationConfigIdpEntityId.md)
+ - [ApplicationConfigIdpEntityIdTooltip](docs/ApplicationConfigIdpEntityIdTooltip.md)
+ - [ApplicationConfigIdpEntityIdTooltipVariables](docs/ApplicationConfigIdpEntityIdTooltipVariables.md)
  - [Applicationslist](docs/Applicationslist.md)
  - [Body](docs/Body.md)
  - [Command](docs/Command.md)
  - [Commandfilereturn](docs/Commandfilereturn.md)
+ - [CommandfilereturnResults](docs/CommandfilereturnResults.md)
  - [Commandresult](docs/Commandresult.md)
  - [CommandresultResponse](docs/CommandresultResponse.md)
  - [CommandresultResponseData](docs/CommandresultResponseData.md)
  - [Commandresultslist](docs/Commandresultslist.md)
  - [Commandslist](docs/Commandslist.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse200Config](docs/InlineResponse200Config.md)
- - [InlineResponse200ConfigConstantAttributes](docs/InlineResponse200ConfigConstantAttributes.md)
- - [InlineResponse200ConfigConstantAttributesValue](docs/InlineResponse200ConfigConstantAttributesValue.md)
- - [InlineResponse200ConfigDatabaseAttributes](docs/InlineResponse200ConfigDatabaseAttributes.md)
- - [InlineResponse200ConfigIdpEntityId](docs/InlineResponse200ConfigIdpEntityId.md)
- - [InlineResponse200ConfigIdpEntityIdTooltip](docs/InlineResponse200ConfigIdpEntityIdTooltip.md)
- - [InlineResponse200ConfigIdpEntityIdTooltipVariables](docs/InlineResponse200ConfigIdpEntityIdTooltipVariables.md)
- - [InlineResponse200Results](docs/InlineResponse200Results.md)
+ - [CommandslistResults](docs/CommandslistResults.md)
+ - [InlineResponse400](docs/InlineResponse400.md)
+ - [Organizationslist](docs/Organizationslist.md)
+ - [OrganizationslistResults](docs/OrganizationslistResults.md)
  - [Radiusserver](docs/Radiusserver.md)
  - [Radiusserverpost](docs/Radiusserverpost.md)
  - [Radiusserverput](docs/Radiusserverput.md)

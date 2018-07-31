@@ -21,21 +21,19 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.Command;
+import io.swagger.client.model.CommandslistResults;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Commandslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
 public class Commandslist {
   @SerializedName("totalCount")
   private Integer totalCount = null;
 
   @SerializedName("results")
-  private List<Command> results = null;
+  private CommandslistResults results = null;
 
   public Commandslist totalCount(Integer totalCount) {
     this.totalCount = totalCount;
@@ -43,10 +41,10 @@ public class Commandslist {
   }
 
    /**
-   * The total number of commands.
+   * The total number of commands
    * @return totalCount
   **/
-  @ApiModelProperty(value = "The total number of commands.")
+  @ApiModelProperty(value = "The total number of commands")
   public Integer getTotalCount() {
     return totalCount;
   }
@@ -55,29 +53,21 @@ public class Commandslist {
     this.totalCount = totalCount;
   }
 
-  public Commandslist results(List<Command> results) {
+  public Commandslist results(CommandslistResults results) {
     this.results = results;
     return this;
   }
 
-  public Commandslist addResultsItem(Command resultsItem) {
-    if (this.results == null) {
-      this.results = new ArrayList<Command>();
-    }
-    this.results.add(resultsItem);
-    return this;
-  }
-
    /**
-   * The list of commands.
+   * Get results
    * @return results
   **/
-  @ApiModelProperty(value = "The list of commands.")
-  public List<Command> getResults() {
+  @ApiModelProperty(value = "")
+  public CommandslistResults getResults() {
     return results;
   }
 
-  public void setResults(List<Command> results) {
+  public void setResults(CommandslistResults results) {
     this.results = results;
   }
 

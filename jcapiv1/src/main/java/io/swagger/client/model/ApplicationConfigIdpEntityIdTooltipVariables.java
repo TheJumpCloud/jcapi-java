@@ -24,50 +24,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse200ConfigConstantAttributesValue
+ * ApplicationConfigIdpEntityIdTooltipVariables
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
-public class InlineResponse200ConfigConstantAttributesValue {
-  @SerializedName("visible")
-  private Boolean visible = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
+public class ApplicationConfigIdpEntityIdTooltipVariables {
+  @SerializedName("icon")
+  private String icon = null;
 
-  @SerializedName("readOnly")
-  private Boolean readOnly = null;
+  @SerializedName("message")
+  private String message = null;
 
-  public InlineResponse200ConfigConstantAttributesValue visible(Boolean visible) {
-    this.visible = visible;
+  public ApplicationConfigIdpEntityIdTooltipVariables icon(String icon) {
+    this.icon = icon;
     return this;
   }
 
    /**
-   * Get visible
-   * @return visible
+   * Get icon
+   * @return icon
   **/
   @ApiModelProperty(value = "")
-  public Boolean isVisible() {
-    return visible;
+  public String getIcon() {
+    return icon;
   }
 
-  public void setVisible(Boolean visible) {
-    this.visible = visible;
+  public void setIcon(String icon) {
+    this.icon = icon;
   }
 
-  public InlineResponse200ConfigConstantAttributesValue readOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
+  public ApplicationConfigIdpEntityIdTooltipVariables message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get readOnly
-   * @return readOnly
+   * Get message
+   * @return message
   **/
   @ApiModelProperty(value = "")
-  public Boolean isReadOnly() {
-    return readOnly;
+  public String getMessage() {
+    return message;
   }
 
-  public void setReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -79,24 +79,24 @@ public class InlineResponse200ConfigConstantAttributesValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200ConfigConstantAttributesValue inlineResponse200ConfigConstantAttributesValue = (InlineResponse200ConfigConstantAttributesValue) o;
-    return Objects.equals(this.visible, inlineResponse200ConfigConstantAttributesValue.visible) &&
-        Objects.equals(this.readOnly, inlineResponse200ConfigConstantAttributesValue.readOnly);
+    ApplicationConfigIdpEntityIdTooltipVariables applicationConfigIdpEntityIdTooltipVariables = (ApplicationConfigIdpEntityIdTooltipVariables) o;
+    return Objects.equals(this.icon, applicationConfigIdpEntityIdTooltipVariables.icon) &&
+        Objects.equals(this.message, applicationConfigIdpEntityIdTooltipVariables.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(visible, readOnly);
+    return Objects.hash(icon, message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200ConfigConstantAttributesValue {\n");
+    sb.append("class ApplicationConfigIdpEntityIdTooltipVariables {\n");
     
-    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
-    sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
+    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

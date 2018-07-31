@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Commandresult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
 public class Commandresult {
   @SerializedName("command")
   private String command = null;
@@ -39,6 +39,9 @@ public class Commandresult {
 
   @SerializedName("system")
   private String system = null;
+
+  @SerializedName("systemId")
+  private String systemId = null;
 
   @SerializedName("organization")
   private String organization = null;
@@ -112,10 +115,10 @@ public class Commandresult {
   }
 
    /**
-   * The id of the system the command was executed on.
+   * The name of the system the command was executed on.
    * @return system
   **/
-  @ApiModelProperty(value = "The id of the system the command was executed on.")
+  @ApiModelProperty(value = "The name of the system the command was executed on.")
   public String getSystem() {
     return system;
   }
@@ -124,16 +127,34 @@ public class Commandresult {
     this.system = system;
   }
 
+  public Commandresult systemId(String systemId) {
+    this.systemId = systemId;
+    return this;
+  }
+
+   /**
+   * The id of the system the command was executed on.
+   * @return systemId
+  **/
+  @ApiModelProperty(value = "The id of the system the command was executed on.")
+  public String getSystemId() {
+    return systemId;
+  }
+
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
+  }
+
   public Commandresult organization(String organization) {
     this.organization = organization;
     return this;
   }
 
    /**
-   * The id of the organization.
+   * The ID of the organization.
    * @return organization
   **/
-  @ApiModelProperty(value = "The id of the organization.")
+  @ApiModelProperty(value = "The ID of the organization.")
   public String getOrganization() {
     return organization;
   }
@@ -300,10 +321,10 @@ public class Commandresult {
   }
 
    /**
-   * Get id
+   * The ID of the command.
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the command.")
   public String getId() {
     return id;
   }
@@ -325,6 +346,7 @@ public class Commandresult {
     return Objects.equals(this.command, commandresult.command) &&
         Objects.equals(this.name, commandresult.name) &&
         Objects.equals(this.system, commandresult.system) &&
+        Objects.equals(this.systemId, commandresult.systemId) &&
         Objects.equals(this.organization, commandresult.organization) &&
         Objects.equals(this.workflowId, commandresult.workflowId) &&
         Objects.equals(this.workflowInstanceId, commandresult.workflowInstanceId) &&
@@ -339,7 +361,7 @@ public class Commandresult {
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, name, system, organization, workflowId, workflowInstanceId, user, sudo, files, requestTime, responseTime, response, id);
+    return Objects.hash(command, name, system, systemId, organization, workflowId, workflowInstanceId, user, sudo, files, requestTime, responseTime, response, id);
   }
 
 
@@ -351,6 +373,7 @@ public class Commandresult {
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    system: ").append(toIndentedString(system)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("    workflowInstanceId: ").append(toIndentedString(workflowInstanceId)).append("\n");

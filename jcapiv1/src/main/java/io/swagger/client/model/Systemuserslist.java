@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Systemuserslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
 public class Systemuserslist {
   @SerializedName("totalCount")
   private Integer totalCount = null;

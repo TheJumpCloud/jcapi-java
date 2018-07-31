@@ -21,21 +21,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.InlineResponse200ConfigIdpEntityIdTooltipVariables;
+import io.swagger.client.model.ApplicationConfigIdpEntityIdTooltipVariables;
 import java.io.IOException;
 
 /**
- * InlineResponse200ConfigIdpEntityIdTooltip
+ * ApplicationConfigIdpEntityIdTooltip
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
-public class InlineResponse200ConfigIdpEntityIdTooltip {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
+public class ApplicationConfigIdpEntityIdTooltip {
   @SerializedName("template")
   private String template = null;
 
   @SerializedName("variables")
-  private InlineResponse200ConfigIdpEntityIdTooltipVariables variables = null;
+  private ApplicationConfigIdpEntityIdTooltipVariables variables = null;
 
-  public InlineResponse200ConfigIdpEntityIdTooltip template(String template) {
+  public ApplicationConfigIdpEntityIdTooltip template(String template) {
     this.template = template;
     return this;
   }
@@ -53,7 +53,7 @@ public class InlineResponse200ConfigIdpEntityIdTooltip {
     this.template = template;
   }
 
-  public InlineResponse200ConfigIdpEntityIdTooltip variables(InlineResponse200ConfigIdpEntityIdTooltipVariables variables) {
+  public ApplicationConfigIdpEntityIdTooltip variables(ApplicationConfigIdpEntityIdTooltipVariables variables) {
     this.variables = variables;
     return this;
   }
@@ -63,11 +63,11 @@ public class InlineResponse200ConfigIdpEntityIdTooltip {
    * @return variables
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigIdpEntityIdTooltipVariables getVariables() {
+  public ApplicationConfigIdpEntityIdTooltipVariables getVariables() {
     return variables;
   }
 
-  public void setVariables(InlineResponse200ConfigIdpEntityIdTooltipVariables variables) {
+  public void setVariables(ApplicationConfigIdpEntityIdTooltipVariables variables) {
     this.variables = variables;
   }
 
@@ -80,9 +80,9 @@ public class InlineResponse200ConfigIdpEntityIdTooltip {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200ConfigIdpEntityIdTooltip inlineResponse200ConfigIdpEntityIdTooltip = (InlineResponse200ConfigIdpEntityIdTooltip) o;
-    return Objects.equals(this.template, inlineResponse200ConfigIdpEntityIdTooltip.template) &&
-        Objects.equals(this.variables, inlineResponse200ConfigIdpEntityIdTooltip.variables);
+    ApplicationConfigIdpEntityIdTooltip applicationConfigIdpEntityIdTooltip = (ApplicationConfigIdpEntityIdTooltip) o;
+    return Objects.equals(this.template, applicationConfigIdpEntityIdTooltip.template) &&
+        Objects.equals(this.variables, applicationConfigIdpEntityIdTooltip.variables);
   }
 
   @Override
@@ -94,7 +94,7 @@ public class InlineResponse200ConfigIdpEntityIdTooltip {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200ConfigIdpEntityIdTooltip {\n");
+    sb.append("class ApplicationConfigIdpEntityIdTooltip {\n");
     
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");

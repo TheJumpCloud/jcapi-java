@@ -21,32 +21,32 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.InlineResponse200Results;
+import io.swagger.client.model.OrganizationslistResults;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * InlineResponse200
+ * Organizationslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
-public class InlineResponse200 {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
+public class Organizationslist {
   @SerializedName("totalCount")
   private Integer totalCount = null;
 
   @SerializedName("results")
-  private List<InlineResponse200Results> results = null;
+  private List<OrganizationslistResults> results = null;
 
-  public InlineResponse200 totalCount(Integer totalCount) {
+  public Organizationslist totalCount(Integer totalCount) {
     this.totalCount = totalCount;
     return this;
   }
 
    /**
-   * Get totalCount
+   * The total of organizations. 
    * @return totalCount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total of organizations. ")
   public Integer getTotalCount() {
     return totalCount;
   }
@@ -55,29 +55,29 @@ public class InlineResponse200 {
     this.totalCount = totalCount;
   }
 
-  public InlineResponse200 results(List<InlineResponse200Results> results) {
+  public Organizationslist results(List<OrganizationslistResults> results) {
     this.results = results;
     return this;
   }
 
-  public InlineResponse200 addResultsItem(InlineResponse200Results resultsItem) {
+  public Organizationslist addResultsItem(OrganizationslistResults resultsItem) {
     if (this.results == null) {
-      this.results = new ArrayList<InlineResponse200Results>();
+      this.results = new ArrayList<OrganizationslistResults>();
     }
     this.results.add(resultsItem);
     return this;
   }
 
    /**
-   * Get results
+   * The list of organizations.
    * @return results
   **/
-  @ApiModelProperty(value = "")
-  public List<InlineResponse200Results> getResults() {
+  @ApiModelProperty(value = "The list of organizations.")
+  public List<OrganizationslistResults> getResults() {
     return results;
   }
 
-  public void setResults(List<InlineResponse200Results> results) {
+  public void setResults(List<OrganizationslistResults> results) {
     this.results = results;
   }
 
@@ -90,9 +90,9 @@ public class InlineResponse200 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.totalCount, inlineResponse200.totalCount) &&
-        Objects.equals(this.results, inlineResponse200.results);
+    Organizationslist organizationslist = (Organizationslist) o;
+    return Objects.equals(this.totalCount, organizationslist.totalCount) &&
+        Objects.equals(this.results, organizationslist.results);
   }
 
   @Override
@@ -104,7 +104,7 @@ public class InlineResponse200 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200 {\n");
+    sb.append("class Organizationslist {\n");
     
     sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");

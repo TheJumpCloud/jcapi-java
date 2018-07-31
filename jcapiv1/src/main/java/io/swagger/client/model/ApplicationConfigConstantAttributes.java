@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.ApplicationConfigConstantAttributesValue;
-import io.swagger.client.model.InlineResponse200ConfigIdpEntityIdTooltip;
+import io.swagger.client.model.ApplicationConfigIdpEntityIdTooltip;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ApplicationConfigConstantAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
 public class ApplicationConfigConstantAttributes {
   @SerializedName("label")
   private String label = null;
@@ -39,7 +39,7 @@ public class ApplicationConfigConstantAttributes {
   private Boolean readOnly = null;
 
   @SerializedName("tooltip")
-  private InlineResponse200ConfigIdpEntityIdTooltip tooltip = null;
+  private ApplicationConfigIdpEntityIdTooltip tooltip = null;
 
   @SerializedName("type")
   private String type = null;
@@ -95,7 +95,7 @@ public class ApplicationConfigConstantAttributes {
     this.readOnly = readOnly;
   }
 
-  public ApplicationConfigConstantAttributes tooltip(InlineResponse200ConfigIdpEntityIdTooltip tooltip) {
+  public ApplicationConfigConstantAttributes tooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
     this.tooltip = tooltip;
     return this;
   }
@@ -105,11 +105,11 @@ public class ApplicationConfigConstantAttributes {
    * @return tooltip
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigIdpEntityIdTooltip getTooltip() {
+  public ApplicationConfigIdpEntityIdTooltip getTooltip() {
     return tooltip;
   }
 
-  public void setTooltip(InlineResponse200ConfigIdpEntityIdTooltip tooltip) {
+  public void setTooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
     this.tooltip = tooltip;
   }
 

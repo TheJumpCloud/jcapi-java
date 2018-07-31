@@ -21,14 +21,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.InlineResponse200ConfigIdpEntityIdTooltip;
+import io.swagger.client.model.ApplicationConfigIdpEntityIdTooltip;
 import java.io.IOException;
 
 /**
- * InlineResponse200ConfigIdpEntityId
+ * ApplicationConfigIdpEntityId
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
-public class InlineResponse200ConfigIdpEntityId {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
+public class ApplicationConfigIdpEntityId {
   @SerializedName("label")
   private String label = null;
 
@@ -36,7 +36,7 @@ public class InlineResponse200ConfigIdpEntityId {
   private Boolean readOnly = null;
 
   @SerializedName("tooltip")
-  private InlineResponse200ConfigIdpEntityIdTooltip tooltip = null;
+  private ApplicationConfigIdpEntityIdTooltip tooltip = null;
 
   @SerializedName("type")
   private String type = null;
@@ -53,7 +53,7 @@ public class InlineResponse200ConfigIdpEntityId {
   @SerializedName("position")
   private Integer position = null;
 
-  public InlineResponse200ConfigIdpEntityId label(String label) {
+  public ApplicationConfigIdpEntityId label(String label) {
     this.label = label;
     return this;
   }
@@ -71,7 +71,7 @@ public class InlineResponse200ConfigIdpEntityId {
     this.label = label;
   }
 
-  public InlineResponse200ConfigIdpEntityId readOnly(Boolean readOnly) {
+  public ApplicationConfigIdpEntityId readOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return this;
   }
@@ -89,7 +89,7 @@ public class InlineResponse200ConfigIdpEntityId {
     this.readOnly = readOnly;
   }
 
-  public InlineResponse200ConfigIdpEntityId tooltip(InlineResponse200ConfigIdpEntityIdTooltip tooltip) {
+  public ApplicationConfigIdpEntityId tooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
     this.tooltip = tooltip;
     return this;
   }
@@ -99,15 +99,15 @@ public class InlineResponse200ConfigIdpEntityId {
    * @return tooltip
   **/
   @ApiModelProperty(value = "")
-  public InlineResponse200ConfigIdpEntityIdTooltip getTooltip() {
+  public ApplicationConfigIdpEntityIdTooltip getTooltip() {
     return tooltip;
   }
 
-  public void setTooltip(InlineResponse200ConfigIdpEntityIdTooltip tooltip) {
+  public void setTooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
     this.tooltip = tooltip;
   }
 
-  public InlineResponse200ConfigIdpEntityId type(String type) {
+  public ApplicationConfigIdpEntityId type(String type) {
     this.type = type;
     return this;
   }
@@ -125,7 +125,7 @@ public class InlineResponse200ConfigIdpEntityId {
     this.type = type;
   }
 
-  public InlineResponse200ConfigIdpEntityId value(String value) {
+  public ApplicationConfigIdpEntityId value(String value) {
     this.value = value;
     return this;
   }
@@ -143,7 +143,7 @@ public class InlineResponse200ConfigIdpEntityId {
     this.value = value;
   }
 
-  public InlineResponse200ConfigIdpEntityId visible(Boolean visible) {
+  public ApplicationConfigIdpEntityId visible(Boolean visible) {
     this.visible = visible;
     return this;
   }
@@ -161,7 +161,7 @@ public class InlineResponse200ConfigIdpEntityId {
     this.visible = visible;
   }
 
-  public InlineResponse200ConfigIdpEntityId required(Boolean required) {
+  public ApplicationConfigIdpEntityId required(Boolean required) {
     this.required = required;
     return this;
   }
@@ -179,7 +179,7 @@ public class InlineResponse200ConfigIdpEntityId {
     this.required = required;
   }
 
-  public InlineResponse200ConfigIdpEntityId position(Integer position) {
+  public ApplicationConfigIdpEntityId position(Integer position) {
     this.position = position;
     return this;
   }
@@ -206,15 +206,15 @@ public class InlineResponse200ConfigIdpEntityId {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200ConfigIdpEntityId inlineResponse200ConfigIdpEntityId = (InlineResponse200ConfigIdpEntityId) o;
-    return Objects.equals(this.label, inlineResponse200ConfigIdpEntityId.label) &&
-        Objects.equals(this.readOnly, inlineResponse200ConfigIdpEntityId.readOnly) &&
-        Objects.equals(this.tooltip, inlineResponse200ConfigIdpEntityId.tooltip) &&
-        Objects.equals(this.type, inlineResponse200ConfigIdpEntityId.type) &&
-        Objects.equals(this.value, inlineResponse200ConfigIdpEntityId.value) &&
-        Objects.equals(this.visible, inlineResponse200ConfigIdpEntityId.visible) &&
-        Objects.equals(this.required, inlineResponse200ConfigIdpEntityId.required) &&
-        Objects.equals(this.position, inlineResponse200ConfigIdpEntityId.position);
+    ApplicationConfigIdpEntityId applicationConfigIdpEntityId = (ApplicationConfigIdpEntityId) o;
+    return Objects.equals(this.label, applicationConfigIdpEntityId.label) &&
+        Objects.equals(this.readOnly, applicationConfigIdpEntityId.readOnly) &&
+        Objects.equals(this.tooltip, applicationConfigIdpEntityId.tooltip) &&
+        Objects.equals(this.type, applicationConfigIdpEntityId.type) &&
+        Objects.equals(this.value, applicationConfigIdpEntityId.value) &&
+        Objects.equals(this.visible, applicationConfigIdpEntityId.visible) &&
+        Objects.equals(this.required, applicationConfigIdpEntityId.required) &&
+        Objects.equals(this.position, applicationConfigIdpEntityId.position);
   }
 
   @Override
@@ -226,7 +226,7 @@ public class InlineResponse200ConfigIdpEntityId {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200ConfigIdpEntityId {\n");
+    sb.append("class ApplicationConfigIdpEntityId {\n");
     
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");

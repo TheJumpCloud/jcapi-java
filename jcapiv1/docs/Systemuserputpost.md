@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **username** | **String** |  | 
 **allowPublicKey** | **Boolean** |  |  [optional]
 **publicKey** | **String** |  |  [optional]
-**sshKeys** | **List&lt;String&gt;** |  |  [optional]
 **sudo** | **Boolean** |  |  [optional]
 **enableManagedUid** | **Boolean** |  |  [optional]
 **unixUid** | **Integer** |  |  [optional]

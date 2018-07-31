@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Command
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
 public class Command {
   @SerializedName("name")
   private String name = null;
@@ -36,11 +36,29 @@ public class Command {
   @SerializedName("command")
   private String command = null;
 
+  @SerializedName("commandType")
+  private String commandType = null;
+
+  @SerializedName("commandRunners")
+  private List<String> commandRunners = null;
+
   @SerializedName("user")
   private String user = null;
 
+  @SerializedName("sudo")
+  private Boolean sudo = null;
+
   @SerializedName("systems")
   private List<String> systems = null;
+
+  @SerializedName("launchType")
+  private String launchType = null;
+
+  @SerializedName("listensTo")
+  private String listensTo = null;
+
+  @SerializedName("scheduleRepeatType")
+  private String scheduleRepeatType = null;
 
   @SerializedName("schedule")
   private String schedule = null;
@@ -48,11 +66,11 @@ public class Command {
   @SerializedName("files")
   private List<String> files = null;
 
-  @SerializedName("tags")
-  private List<String> tags = null;
-
   @SerializedName("timeout")
   private String timeout = null;
+
+  @SerializedName("organization")
+  private String organization = null;
 
   public Command name(String name) {
     this.name = name;
@@ -90,6 +108,50 @@ public class Command {
     this.command = command;
   }
 
+  public Command commandType(String commandType) {
+    this.commandType = commandType;
+    return this;
+  }
+
+   /**
+   * The Command OS
+   * @return commandType
+  **/
+  @ApiModelProperty(value = "The Command OS")
+  public String getCommandType() {
+    return commandType;
+  }
+
+  public void setCommandType(String commandType) {
+    this.commandType = commandType;
+  }
+
+  public Command commandRunners(List<String> commandRunners) {
+    this.commandRunners = commandRunners;
+    return this;
+  }
+
+  public Command addCommandRunnersItem(String commandRunnersItem) {
+    if (this.commandRunners == null) {
+      this.commandRunners = new ArrayList<String>();
+    }
+    this.commandRunners.add(commandRunnersItem);
+    return this;
+  }
+
+   /**
+   * an array of IDs of the Command Runner Users that can execute this command.
+   * @return commandRunners
+  **/
+  @ApiModelProperty(value = "an array of IDs of the Command Runner Users that can execute this command.")
+  public List<String> getCommandRunners() {
+    return commandRunners;
+  }
+
+  public void setCommandRunners(List<String> commandRunners) {
+    this.commandRunners = commandRunners;
+  }
+
   public Command user(String user) {
     this.user = user;
     return this;
@@ -106,6 +168,24 @@ public class Command {
 
   public void setUser(String user) {
     this.user = user;
+  }
+
+  public Command sudo(Boolean sudo) {
+    this.sudo = sudo;
+    return this;
+  }
+
+   /**
+   * 
+   * @return sudo
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSudo() {
+    return sudo;
+  }
+
+  public void setSudo(Boolean sudo) {
+    this.sudo = sudo;
   }
 
   public Command systems(List<String> systems) {
@@ -132,6 +212,60 @@ public class Command {
 
   public void setSystems(List<String> systems) {
     this.systems = systems;
+  }
+
+  public Command launchType(String launchType) {
+    this.launchType = launchType;
+    return this;
+  }
+
+   /**
+   * How the command will execute.
+   * @return launchType
+  **/
+  @ApiModelProperty(value = "How the command will execute.")
+  public String getLaunchType() {
+    return launchType;
+  }
+
+  public void setLaunchType(String launchType) {
+    this.launchType = launchType;
+  }
+
+  public Command listensTo(String listensTo) {
+    this.listensTo = listensTo;
+    return this;
+  }
+
+   /**
+   * 
+   * @return listensTo
+  **/
+  @ApiModelProperty(value = "")
+  public String getListensTo() {
+    return listensTo;
+  }
+
+  public void setListensTo(String listensTo) {
+    this.listensTo = listensTo;
+  }
+
+  public Command scheduleRepeatType(String scheduleRepeatType) {
+    this.scheduleRepeatType = scheduleRepeatType;
+    return this;
+  }
+
+   /**
+   * When the command will repeat.
+   * @return scheduleRepeatType
+  **/
+  @ApiModelProperty(value = "When the command will repeat.")
+  public String getScheduleRepeatType() {
+    return scheduleRepeatType;
+  }
+
+  public void setScheduleRepeatType(String scheduleRepeatType) {
+    this.scheduleRepeatType = scheduleRepeatType;
   }
 
   public Command schedule(String schedule) {
@@ -178,32 +312,6 @@ public class Command {
     this.files = files;
   }
 
-  public Command tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public Command addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<String>();
-    }
-    this.tags.add(tagsItem);
-    return this;
-  }
-
-   /**
-   * An array of tag IDs to run the command on. Not available if you are using Groups.
-   * @return tags
-  **/
-  @ApiModelProperty(value = "An array of tag IDs to run the command on. Not available if you are using Groups.")
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
-  }
-
   public Command timeout(String timeout) {
     this.timeout = timeout;
     return this;
@@ -222,6 +330,24 @@ public class Command {
     this.timeout = timeout;
   }
 
+  public Command organization(String organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * The ID of the organization.
+   * @return organization
+  **/
+  @ApiModelProperty(value = "The ID of the organization.")
+  public String getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(String organization) {
+    this.organization = organization;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -234,17 +360,23 @@ public class Command {
     Command command = (Command) o;
     return Objects.equals(this.name, command.name) &&
         Objects.equals(this.command, command.command) &&
+        Objects.equals(this.commandType, command.commandType) &&
+        Objects.equals(this.commandRunners, command.commandRunners) &&
         Objects.equals(this.user, command.user) &&
+        Objects.equals(this.sudo, command.sudo) &&
         Objects.equals(this.systems, command.systems) &&
+        Objects.equals(this.launchType, command.launchType) &&
+        Objects.equals(this.listensTo, command.listensTo) &&
+        Objects.equals(this.scheduleRepeatType, command.scheduleRepeatType) &&
         Objects.equals(this.schedule, command.schedule) &&
         Objects.equals(this.files, command.files) &&
-        Objects.equals(this.tags, command.tags) &&
-        Objects.equals(this.timeout, command.timeout);
+        Objects.equals(this.timeout, command.timeout) &&
+        Objects.equals(this.organization, command.organization);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, command, user, systems, schedule, files, tags, timeout);
+    return Objects.hash(name, command, commandType, commandRunners, user, sudo, systems, launchType, listensTo, scheduleRepeatType, schedule, files, timeout, organization);
   }
 
 
@@ -255,12 +387,18 @@ public class Command {
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    commandType: ").append(toIndentedString(commandType)).append("\n");
+    sb.append("    commandRunners: ").append(toIndentedString(commandRunners)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
     sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
+    sb.append("    launchType: ").append(toIndentedString(launchType)).append("\n");
+    sb.append("    listensTo: ").append(toIndentedString(listensTo)).append("\n");
+    sb.append("    scheduleRepeatType: ").append(toIndentedString(scheduleRepeatType)).append("\n");
     sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("}");
     return sb.toString();
   }

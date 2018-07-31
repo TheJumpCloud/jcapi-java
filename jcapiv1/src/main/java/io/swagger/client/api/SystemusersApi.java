@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.Systemuserput;
 import io.swagger.client.model.Systemuserputpost;
 import io.swagger.client.model.Systemuserreturn;
@@ -210,15 +211,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersGetCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersGetCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -229,12 +227,6 @@ public class SystemusersApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (fields != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fields", fields));
-        if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-        if (skip != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
-        if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -273,7 +265,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersGetValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersGetValidateBeforeCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -291,7 +283,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersGetCall(id, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersGetCall(id, contentType, accept, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -303,14 +295,11 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @return Systemuserreturn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserreturn systemusersGet(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Systemuserreturn> resp = systemusersGetWithHttpInfo(id, contentType, accept, fields, limit, skip, sort);
+    public Systemuserreturn systemusersGet(String id, String contentType, String accept, String fields) throws ApiException {
+        ApiResponse<Systemuserreturn> resp = systemusersGetWithHttpInfo(id, contentType, accept, fields);
         return resp.getData();
     }
 
@@ -321,14 +310,11 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @return ApiResponse&lt;Systemuserreturn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserreturn> systemusersGetWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Systemuserreturn> systemusersGetWithHttpInfo(String id, String contentType, String accept, String fields) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, null, null);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -340,14 +326,11 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersGetAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Systemuserreturn> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersGetAsync(String id, String contentType, String accept, String fields, final ApiCallback<Systemuserreturn> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -368,15 +351,13 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for systemusersList
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -387,7 +368,7 @@ public class SystemusersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersListCall(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersListCall(Integer limit, Integer skip, String sort, String fields, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -407,10 +388,6 @@ public class SystemusersApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (contentType != null)
-        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -443,20 +420,10 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersListValidateBeforeCall(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'contentType' is set
-        if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling systemusersList(Async)");
-        }
-        
-        // verify the required parameter 'accept' is set
-        if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling systemusersList(Async)");
-        }
+    private com.squareup.okhttp.Call systemusersListValidateBeforeCall(Integer limit, Integer skip, String sort, String fields, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
 
-        com.squareup.okhttp.Call call = systemusersListCall(contentType, accept, limit, skip, sort, fields, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersListCall(limit, skip, sort, fields, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -464,8 +431,6 @@ public class SystemusersApi {
     /**
      * List all system users
      * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -474,16 +439,14 @@ public class SystemusersApi {
      * @return Systemuserslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserslist systemusersList(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter) throws ApiException {
-        ApiResponse<Systemuserslist> resp = systemusersListWithHttpInfo(contentType, accept, limit, skip, sort, fields, filter);
+    public Systemuserslist systemusersList(Integer limit, Integer skip, String sort, String fields, String filter) throws ApiException {
+        ApiResponse<Systemuserslist> resp = systemusersListWithHttpInfo(limit, skip, sort, fields, filter);
         return resp.getData();
     }
 
     /**
      * List all system users
      * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -492,8 +455,8 @@ public class SystemusersApi {
      * @return ApiResponse&lt;Systemuserslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserslist> systemusersListWithHttpInfo(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(contentType, accept, limit, skip, sort, fields, filter, null, null);
+    public ApiResponse<Systemuserslist> systemusersListWithHttpInfo(Integer limit, Integer skip, String sort, String fields, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(limit, skip, sort, fields, filter, null, null);
         Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -501,8 +464,6 @@ public class SystemusersApi {
     /**
      * List all system users (asynchronously)
      * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -512,7 +473,7 @@ public class SystemusersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersListAsync(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, final ApiCallback<Systemuserslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersListAsync(Integer limit, Integer skip, String sort, String fields, String filter, final ApiCallback<Systemuserslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -533,7 +494,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(contentType, accept, limit, skip, sort, fields, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(limit, skip, sort, fields, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -823,6 +784,140 @@ public class SystemusersApi {
 
         com.squareup.okhttp.Call call = systemusersPutValidateBeforeCall(id, contentType, accept, body, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systemusersResetmfa
+     * @param id  (required)
+     * @param xApiKey  (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systemusersResetmfaCall(String id, String xApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systemusers/{id}/resetmfa"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xApiKey != null)
+        localVarHeaderParams.put("x-api-key", apiClient.parameterToString(xApiKey));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json; charset=utf-8"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systemusersResetmfaValidateBeforeCall(String id, String xApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling systemusersResetmfa(Async)");
+        }
+        
+        // verify the required parameter 'xApiKey' is set
+        if (xApiKey == null) {
+            throw new ApiException("Missing the required parameter 'xApiKey' when calling systemusersResetmfa(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systemusersResetmfaCall(id, xApiKey, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Reset a system user&#39;s MFA token
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param id  (required)
+     * @param xApiKey  (required)
+     * @return String
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public String systemusersResetmfa(String id, String xApiKey) throws ApiException {
+        ApiResponse<String> resp = systemusersResetmfaWithHttpInfo(id, xApiKey);
+        return resp.getData();
+    }
+
+    /**
+     * Reset a system user&#39;s MFA token
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param id  (required)
+     * @param xApiKey  (required)
+     * @return ApiResponse&lt;String&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<String> systemusersResetmfaWithHttpInfo(String id, String xApiKey) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, null, null);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Reset a system user&#39;s MFA token (asynchronously)
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param id  (required)
+     * @param xApiKey  (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systemusersResetmfaAsync(String id, String xApiKey, final ApiCallback<String> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

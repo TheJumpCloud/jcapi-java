@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.Applicationslist;
+import io.swagger.client.model.Organizationslist;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -24,31 +24,31 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * API tests for ApplicationsApi
+ * API tests for OrganizationsApi
  */
 @Ignore
-public class ApplicationsApiTest {
+public class OrganizationsApiTest {
 
-    private final ApplicationsApi api = new ApplicationsApi();
+    private final OrganizationsApi api = new OrganizationsApi();
 
     
     /**
-     * Applications
+     * Get Organization Details
      *
-     * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * 
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void applicationsListTest() throws ApiException {
+    public void organizationListTest() throws ApiException {
         String contentType = null;
         String accept = null;
         String fields = null;
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Applicationslist response = api.applicationsList(contentType, accept, fields, limit, skip, sort);
+        Organizationslist response = api.organizationList(contentType, accept, fields, limit, skip, sort);
 
         // TODO: test validations
     }

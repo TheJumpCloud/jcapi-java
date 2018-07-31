@@ -1,5 +1,5 @@
 
-# InlineResponse200ConfigIdpEntityIdTooltipVariables
+# ApplicationConfigIdpEntityIdTooltipVariables
 
 ## Properties
 Name | Type | Description | Notes

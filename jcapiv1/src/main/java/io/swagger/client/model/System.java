@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * System
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
 public class System {
   @SerializedName("organization")
   private String organization = null;
@@ -96,6 +96,9 @@ public class System {
 
   @SerializedName("sshRootEnabled")
   private Boolean sshRootEnabled = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("tags")
   private List<String> tags = null;
@@ -523,6 +526,24 @@ public class System {
     this.sshRootEnabled = sshRootEnabled;
   }
 
+  public System id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public System tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -599,13 +620,14 @@ public class System {
         Objects.equals(this.agentVersion, system.agentVersion) &&
         Objects.equals(this.connectionHistory, system.connectionHistory) &&
         Objects.equals(this.sshRootEnabled, system.sshRootEnabled) &&
+        Objects.equals(this.id, system.id) &&
         Objects.equals(this.tags, system.tags) &&
         Objects.equals(this.id, system.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(organization, created, lastContact, os, version, arch, networkInterfaces, hostname, displayName, systemTimezone, templateName, remoteIP, active, sshdParams, allowSshPasswordAuthentication, allowSshRootLogin, allowMultiFactorAuthentication, allowPublicKeyAuthentication, modifySSHDConfig, agentVersion, connectionHistory, sshRootEnabled, tags, id);
+    return Objects.hash(organization, created, lastContact, os, version, arch, networkInterfaces, hostname, displayName, systemTimezone, templateName, remoteIP, active, sshdParams, allowSshPasswordAuthentication, allowSshRootLogin, allowMultiFactorAuthentication, allowPublicKeyAuthentication, modifySSHDConfig, agentVersion, connectionHistory, sshRootEnabled, id, tags, id);
   }
 
 
@@ -636,6 +658,7 @@ public class System {
     sb.append("    agentVersion: ").append(toIndentedString(agentVersion)).append("\n");
     sb.append("    connectionHistory: ").append(toIndentedString(connectionHistory)).append("\n");
     sb.append("    sshRootEnabled: ").append(toIndentedString(sshRootEnabled)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");

@@ -24,35 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse200ConfigIdpEntityIdTooltipVariables
+ * InlineResponse400
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-05-09T20:34:34.535Z")
-public class InlineResponse200ConfigIdpEntityIdTooltipVariables {
-  @SerializedName("icon")
-  private String icon = null;
-
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
+public class InlineResponse400 {
   @SerializedName("message")
   private String message = null;
 
-  public InlineResponse200ConfigIdpEntityIdTooltipVariables icon(String icon) {
-    this.icon = icon;
-    return this;
-  }
-
-   /**
-   * Get icon
-   * @return icon
-  **/
-  @ApiModelProperty(value = "")
-  public String getIcon() {
-    return icon;
-  }
-
-  public void setIcon(String icon) {
-    this.icon = icon;
-  }
-
-  public InlineResponse200ConfigIdpEntityIdTooltipVariables message(String message) {
+  public InlineResponse400 message(String message) {
     this.message = message;
     return this;
   }
@@ -79,23 +58,21 @@ public class InlineResponse200ConfigIdpEntityIdTooltipVariables {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200ConfigIdpEntityIdTooltipVariables inlineResponse200ConfigIdpEntityIdTooltipVariables = (InlineResponse200ConfigIdpEntityIdTooltipVariables) o;
-    return Objects.equals(this.icon, inlineResponse200ConfigIdpEntityIdTooltipVariables.icon) &&
-        Objects.equals(this.message, inlineResponse200ConfigIdpEntityIdTooltipVariables.message);
+    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
+    return Objects.equals(this.message, inlineResponse400.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(icon, message);
+    return Objects.hash(message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200ConfigIdpEntityIdTooltipVariables {\n");
+    sb.append("class InlineResponse400 {\n");
     
-    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();

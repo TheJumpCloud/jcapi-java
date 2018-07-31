@@ -21,75 +21,74 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.CommandresultResponseData;
 import java.io.IOException;
 
 /**
- * CommandresultResponse
+ * CommandfilereturnResults
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:37:35.617Z")
-public class CommandresultResponse {
-  @SerializedName("id")
+public class CommandfilereturnResults {
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("destination")
+  private String destination = null;
+
+  @SerializedName("_id")
   private String id = null;
 
-  @SerializedName("error")
-  private String error = null;
+  public CommandfilereturnResults name(String name) {
+    this.name = name;
+    return this;
+  }
 
-  @SerializedName("data")
-  private CommandresultResponseData data = null;
+   /**
+   * The file name.
+   * @return name
+  **/
+  @ApiModelProperty(value = "The file name.")
+  public String getName() {
+    return name;
+  }
 
-  public CommandresultResponse id(String id) {
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public CommandfilereturnResults destination(String destination) {
+    this.destination = destination;
+    return this;
+  }
+
+   /**
+   * the location where the file willl be stored.
+   * @return destination
+  **/
+  @ApiModelProperty(value = "the location where the file willl be stored.")
+  public String getDestination() {
+    return destination;
+  }
+
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
+
+  public CommandfilereturnResults id(String id) {
     this.id = id;
     return this;
   }
 
    /**
-   * ID of the response.
+   * The ID of the file.
    * @return id
   **/
-  @ApiModelProperty(value = "ID of the response.")
+  @ApiModelProperty(value = "The ID of the file.")
   public String getId() {
     return id;
   }
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public CommandresultResponse error(String error) {
-    this.error = error;
-    return this;
-  }
-
-   /**
-   * The stderr output from the command that ran.
-   * @return error
-  **/
-  @ApiModelProperty(value = "The stderr output from the command that ran.")
-  public String getError() {
-    return error;
-  }
-
-  public void setError(String error) {
-    this.error = error;
-  }
-
-  public CommandresultResponse data(CommandresultResponseData data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @ApiModelProperty(value = "")
-  public CommandresultResponseData getData() {
-    return data;
-  }
-
-  public void setData(CommandresultResponseData data) {
-    this.data = data;
   }
 
 
@@ -101,26 +100,26 @@ public class CommandresultResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CommandresultResponse commandresultResponse = (CommandresultResponse) o;
-    return Objects.equals(this.id, commandresultResponse.id) &&
-        Objects.equals(this.error, commandresultResponse.error) &&
-        Objects.equals(this.data, commandresultResponse.data);
+    CommandfilereturnResults commandfilereturnResults = (CommandfilereturnResults) o;
+    return Objects.equals(this.name, commandfilereturnResults.name) &&
+        Objects.equals(this.destination, commandfilereturnResults.destination) &&
+        Objects.equals(this.id, commandfilereturnResults.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, error, data);
+    return Objects.hash(name, destination, id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CommandresultResponse {\n");
+    sb.append("class CommandfilereturnResults {\n");
     
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
