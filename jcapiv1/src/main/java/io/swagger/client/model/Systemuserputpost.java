@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Systemuserputpost
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:05:15.891Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
 public class Systemuserputpost {
   @SerializedName("email")
   private String email = null;
@@ -41,9 +41,6 @@ public class Systemuserputpost {
 
   @SerializedName("public_key")
   private String publicKey = null;
-
-  @SerializedName("ssh_keys")
-  private List<String> sshKeys = null;
 
   @SerializedName("sudo")
   private Boolean sudo = null;
@@ -187,32 +184,6 @@ public class Systemuserputpost {
 
   public void setPublicKey(String publicKey) {
     this.publicKey = publicKey;
-  }
-
-  public Systemuserputpost sshKeys(List<String> sshKeys) {
-    this.sshKeys = sshKeys;
-    return this;
-  }
-
-  public Systemuserputpost addSshKeysItem(String sshKeysItem) {
-    if (this.sshKeys == null) {
-      this.sshKeys = new ArrayList<String>();
-    }
-    this.sshKeys.add(sshKeysItem);
-    return this;
-  }
-
-   /**
-   * Get sshKeys
-   * @return sshKeys
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getSshKeys() {
-    return sshKeys;
-  }
-
-  public void setSshKeys(List<String> sshKeys) {
-    this.sshKeys = sshKeys;
   }
 
   public Systemuserputpost sudo(Boolean sudo) {
@@ -703,7 +674,6 @@ public class Systemuserputpost {
         Objects.equals(this.username, systemuserputpost.username) &&
         Objects.equals(this.allowPublicKey, systemuserputpost.allowPublicKey) &&
         Objects.equals(this.publicKey, systemuserputpost.publicKey) &&
-        Objects.equals(this.sshKeys, systemuserputpost.sshKeys) &&
         Objects.equals(this.sudo, systemuserputpost.sudo) &&
         Objects.equals(this.enableManagedUid, systemuserputpost.enableManagedUid) &&
         Objects.equals(this.unixUid, systemuserputpost.unixUid) &&
@@ -732,7 +702,7 @@ public class Systemuserputpost {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, attributes, sambaServiceUser, addresses, jobTitle, department, phoneNumbers, relationships, password, passwordNeverExpires);
+    return Objects.hash(email, username, allowPublicKey, publicKey, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, attributes, sambaServiceUser, addresses, jobTitle, department, phoneNumbers, relationships, password, passwordNeverExpires);
   }
 
 
@@ -745,7 +715,6 @@ public class Systemuserputpost {
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    allowPublicKey: ").append(toIndentedString(allowPublicKey)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
-    sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
     sb.append("    enableManagedUid: ").append(toIndentedString(enableManagedUid)).append("\n");
     sb.append("    unixUid: ").append(toIndentedString(unixUid)).append("\n");

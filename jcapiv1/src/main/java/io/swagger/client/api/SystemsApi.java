@@ -221,9 +221,6 @@ public class SystemsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param progressListener Progress listener
@@ -231,7 +228,7 @@ public class SystemsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemsGetCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemsGetCall(String id, String contentType, String accept, String fields, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -242,12 +239,6 @@ public class SystemsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (fields != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fields", fields));
-        if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-        if (skip != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
-        if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -290,7 +281,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsGetValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemsGetValidateBeforeCall(String id, String contentType, String accept, String fields, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -308,7 +299,7 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemsGetCall(id, contentType, accept, fields, limit, skip, sort, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsGetCall(id, contentType, accept, fields, date, authorization, progressListener, progressRequestListener);
         return call;
 
     }
@@ -320,16 +311,13 @@ public class SystemsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @return System
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public System systemsGet(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String date, String authorization) throws ApiException {
-        ApiResponse<System> resp = systemsGetWithHttpInfo(id, contentType, accept, fields, limit, skip, sort, date, authorization);
+    public System systemsGet(String id, String contentType, String accept, String fields, String date, String authorization) throws ApiException {
+        ApiResponse<System> resp = systemsGetWithHttpInfo(id, contentType, accept, fields, date, authorization);
         return resp.getData();
     }
 
@@ -340,16 +328,13 @@ public class SystemsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @return ApiResponse&lt;System&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<System> systemsGetWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String date, String authorization) throws ApiException {
-        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, date, authorization, null, null);
+    public ApiResponse<System> systemsGetWithHttpInfo(String id, String contentType, String accept, String fields, String date, String authorization) throws ApiException {
+        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, contentType, accept, fields, date, authorization, null, null);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -361,16 +346,13 @@ public class SystemsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsGetAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String date, String authorization, final ApiCallback<System> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsGetAsync(String id, String contentType, String accept, String fields, String date, String authorization, final ApiCallback<System> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -391,7 +373,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, contentType, accept, fields, date, authorization, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

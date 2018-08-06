@@ -29,10 +29,10 @@ This endpoint deletes a specific command result.  #### Sample Request &#x60;&#x6
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandResultsApi apiInstance = new CommandResultsApi();
 String id = "id_example"; // String | 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 <a name="commandResultsGet"></a>
 # **commandResultsGet**
-> Commandresult commandResultsGet(id, contentType, accept, fields, limit, skip, sort)
+> Commandresult commandResultsGet(id, contentType, accept, fields)
 
 List an individual Command result
 
@@ -88,21 +88,18 @@ This endpoint returns a specific command result.  #### Sample Request &#x60;&#x6
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandResultsApi apiInstance = new CommandResultsApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 String fields = ""; // String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
-String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
 try {
-    Commandresult result = apiInstance.commandResultsGet(id, contentType, accept, fields, limit, skip, sort);
+    Commandresult result = apiInstance.commandResultsGet(id, contentType, accept, fields);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandResultsApi#commandResultsGet");
@@ -118,9 +115,6 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
 
 ### Return type
 
@@ -155,10 +149,10 @@ This endpoint returns all command results.  #### Sample Request &#x60;&#x60;&#x6
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandResultsApi apiInstance = new CommandResultsApi();
 String contentType = "application/json"; // String | 

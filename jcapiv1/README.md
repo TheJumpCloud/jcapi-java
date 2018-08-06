@@ -72,10 +72,10 @@ public class ApplicationsApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x_api_key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x-api-key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x_api_key.setApiKeyPrefix("Token");
+        //x-api-key.setApiKeyPrefix("Token");
 
         ApplicationsApi apiInstance = new ApplicationsApi();
         String contentType = "application/json"; // String | 
@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandsList**](docs/CommandsApi.md#commandsList) | **GET** /commands/ | List All Commands
 *CommandsApi* | [**commandsPost**](docs/CommandsApi.md#commandsPost) | **POST** /commands/ | Create A Command
 *CommandsApi* | [**commandsPut**](docs/CommandsApi.md#commandsPut) | **PUT** /commands/{id} | Update a Command
+*OrganizationsApi* | [**organizationList**](docs/OrganizationsApi.md#organizationList) | **GET** /organizations | Get Organization Details
 *RadiusServersApi* | [**radiusServersList**](docs/RadiusServersApi.md#radiusServersList) | **GET** /radiusservers | List Radius Servers
 *RadiusServersApi* | [**radiusServersPost**](docs/RadiusServersApi.md#radiusServersPost) | **POST** /radiusservers | Create a Radius Server
 *RadiusServersApi* | [**radiusServersPut**](docs/RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers:id | Update Radius Servers
@@ -153,12 +154,16 @@ Class | Method | HTTP request | Description
  - [Body](docs/Body.md)
  - [Command](docs/Command.md)
  - [Commandfilereturn](docs/Commandfilereturn.md)
+ - [CommandfilereturnResults](docs/CommandfilereturnResults.md)
  - [Commandresult](docs/Commandresult.md)
  - [CommandresultResponse](docs/CommandresultResponse.md)
  - [CommandresultResponseData](docs/CommandresultResponseData.md)
  - [Commandresultslist](docs/Commandresultslist.md)
  - [Commandslist](docs/Commandslist.md)
+ - [CommandslistResults](docs/CommandslistResults.md)
  - [InlineResponse400](docs/InlineResponse400.md)
+ - [Organizationslist](docs/Organizationslist.md)
+ - [OrganizationslistResults](docs/OrganizationslistResults.md)
  - [Radiusserver](docs/Radiusserver.md)
  - [Radiusserverpost](docs/Radiusserverpost.md)
  - [Radiusserverput](docs/Radiusserverput.md)

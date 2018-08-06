@@ -21,65 +21,64 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.OrganizationslistResults;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Usersystembindingsput
+ * Organizationslist
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
-public class Usersystembindingsput {
-  @SerializedName("add")
-  private List<String> add = new ArrayList<String>();
+public class Organizationslist {
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
-  @SerializedName("remove")
-  private List<String> remove = new ArrayList<String>();
+  @SerializedName("results")
+  private List<OrganizationslistResults> results = null;
 
-  public Usersystembindingsput add(List<String> add) {
-    this.add = add;
-    return this;
-  }
-
-  public Usersystembindingsput addAddItem(String addItem) {
-    this.add.add(addItem);
+  public Organizationslist totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
     return this;
   }
 
    /**
-   * The list of system ids to be added to this user.
-   * @return add
+   * The total of organizations. 
+   * @return totalCount
   **/
-  @ApiModelProperty(required = true, value = "The list of system ids to be added to this user.")
-  public List<String> getAdd() {
-    return add;
+  @ApiModelProperty(value = "The total of organizations. ")
+  public Integer getTotalCount() {
+    return totalCount;
   }
 
-  public void setAdd(List<String> add) {
-    this.add = add;
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
   }
 
-  public Usersystembindingsput remove(List<String> remove) {
-    this.remove = remove;
+  public Organizationslist results(List<OrganizationslistResults> results) {
+    this.results = results;
     return this;
   }
 
-  public Usersystembindingsput addRemoveItem(String removeItem) {
-    this.remove.add(removeItem);
+  public Organizationslist addResultsItem(OrganizationslistResults resultsItem) {
+    if (this.results == null) {
+      this.results = new ArrayList<OrganizationslistResults>();
+    }
+    this.results.add(resultsItem);
     return this;
   }
 
    /**
-   * The list of system ids to be removed from this user.
-   * @return remove
+   * The list of organizations.
+   * @return results
   **/
-  @ApiModelProperty(required = true, value = "The list of system ids to be removed from this user.")
-  public List<String> getRemove() {
-    return remove;
+  @ApiModelProperty(value = "The list of organizations.")
+  public List<OrganizationslistResults> getResults() {
+    return results;
   }
 
-  public void setRemove(List<String> remove) {
-    this.remove = remove;
+  public void setResults(List<OrganizationslistResults> results) {
+    this.results = results;
   }
 
 
@@ -91,24 +90,24 @@ public class Usersystembindingsput {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Usersystembindingsput usersystembindingsput = (Usersystembindingsput) o;
-    return Objects.equals(this.add, usersystembindingsput.add) &&
-        Objects.equals(this.remove, usersystembindingsput.remove);
+    Organizationslist organizationslist = (Organizationslist) o;
+    return Objects.equals(this.totalCount, organizationslist.totalCount) &&
+        Objects.equals(this.results, organizationslist.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(add, remove);
+    return Objects.hash(totalCount, results);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Usersystembindingsput {\n");
+    sb.append("class Organizationslist {\n");
     
-    sb.append("    add: ").append(toIndentedString(add)).append("\n");
-    sb.append("    remove: ").append(toIndentedString(remove)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }
