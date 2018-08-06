@@ -18,6 +18,7 @@ import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
 import io.swagger.client.model.InlineResponse204;
+import io.swagger.client.model.PolicyResult;
 import io.swagger.client.model.SystemGraphManagementReq;
 import io.swagger.client.model.SystemGroupGraphManagementReq;
 import io.swagger.client.model.SystemGroupMembersReq;
@@ -1537,6 +1538,29 @@ public class GraphApiTest {
         Integer limit = null;
         Integer skip = null;
         List<GraphObjectWithPaths> response = api.graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List the policy statuses for a system
+     *
+     * This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void policystatusesListTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        List<String> fields = null;
+        List<String> filter = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        List<PolicyResult> response = api.policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort);
 
         // TODO: test validations
     }

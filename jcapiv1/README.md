@@ -72,10 +72,10 @@ public class ApplicationsApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x-api-key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x_api_key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x-api-key.setApiKeyPrefix("Token");
+        //x_api_key.setApiKeyPrefix("Token");
 
         ApplicationsApi apiInstance = new ApplicationsApi();
         String contentType = "application/json"; // String | 
@@ -160,10 +160,14 @@ Class | Method | HTTP request | Description
  - [CommandresultResponseData](docs/CommandresultResponseData.md)
  - [Commandresultslist](docs/Commandresultslist.md)
  - [Commandslist](docs/Commandslist.md)
+<<<<<<< HEAD
  - [CommandslistResults](docs/CommandslistResults.md)
  - [InlineResponse400](docs/InlineResponse400.md)
  - [Organizationslist](docs/Organizationslist.md)
  - [OrganizationslistResults](docs/OrganizationslistResults.md)
+=======
+ - [InlineResponse400](docs/InlineResponse400.md)
+>>>>>>> master
  - [Radiusserver](docs/Radiusserver.md)
  - [Radiusserverpost](docs/Radiusserverpost.md)
  - [Radiusserverput](docs/Radiusserverput.md)

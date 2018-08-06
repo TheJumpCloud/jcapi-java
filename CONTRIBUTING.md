@@ -18,15 +18,26 @@ Update the version number for each package in `config_v1.json` and `config_v2.js
 To generate the API v1 client, run the command below (assuming your API v1 yaml file is `input/index1.yaml`):  
 
 ```
-$ docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index1.yaml -l java -c /config/config_v1.json -o /swagger-api/out/jcapiv1
+docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index1.yaml -l java -c /config/config_v1.json -o /swagger-api/out/jcapiv1
 ```
 This will generate the API v1 client files under `output/jcapiv1`
 
 To generate the API v2 client, run the command below (assuming your API v2 yaml file is `input/index2.yaml`):  
 
 ```
-$ docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index2.yaml -l java -c /config/config_v2.json -o /swagger-api/out/jcapiv2
+docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index2.yaml -l java -c /config/config_v2.json -o /swagger-api/out/jcapiv2
 ```
 This will generate the API v1 client files under `output/jcapiv1`
 
 Once you are satisfied with the generated API client, you can replace the existing files under the `jcapiv1` and `jcapiv2` folders with your generated files.
+
+
+There is currently a bug with swagger-codegen where invalid variable names get generated in the doc files.
+In order to fix this, run the following commands in the root directory of this repository:
+
+```
+grep -rl 'x-api-key.' jcapiv1/ | xargs sed -i '' 's/x-api-key\./x_api_key\./g'
+grep -rl 'x-api-key.' jcapiv2/ | xargs sed -i '' 's/x-api-key\./x_api_key\./g'
+grep -rl 'x-api-key =' jcapiv1/ | xargs sed -i '' 's/x-api-key =/x_api_key =/g'
+grep -rl 'x-api-key =' jcapiv2/ | xargs sed -i '' 's/x-api-key =/x_api_key =/g'
+```

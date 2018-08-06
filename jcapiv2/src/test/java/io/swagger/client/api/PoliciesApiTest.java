@@ -233,38 +233,15 @@ public class PoliciesApiTest {
     }
     
     /**
-     * Lists all the policy results for an organization.
+     * Lists all the policy results of a policy.
      *
-     * This endpoint returns all policies results for an Organization.   ##### Sample Results  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns all policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void policyresultsListTest() throws ApiException {
-        String contentType = null;
-        String accept = null;
-        List<String> fields = null;
-        List<String> filter = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> sort = null;
-        List<String> aggregate = null;
-        List<PolicyResult> response = api.policyresultsList(contentType, accept, fields, filter, limit, skip, sort, aggregate);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Lists all the policy results of a given policy.
-     *
-     * This endpoint returns all policies results for a specific policy.   ##### Sample Results  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void policyresultsList_0Test() throws ApiException {
         String policyId = null;
         String contentType = null;
         String accept = null;
@@ -274,7 +251,76 @@ public class PoliciesApiTest {
         Integer skip = null;
         List<String> sort = null;
         List<String> aggregate = null;
-        List<PolicyResult> response = api.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate);
+        List<PolicyResult> response = api.policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Lists all the policy results for an organization.
+     *
+     * This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void policyresultsList_0Test() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        List<String> fields = null;
+        List<String> filter = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        List<String> aggregate = null;
+        List<PolicyResult> response = api.policyresultsList_0(contentType, accept, fields, filter, limit, skip, sort, aggregate);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List the policy statuses for a system
+     *
+     * This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void policystatusesListTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        List<String> fields = null;
+        List<String> filter = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        List<PolicyResult> response = api.policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Lists the latest policy results of a policy.
+     *
+     * This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void policystatusesList_0Test() throws ApiException {
+        String policyId = null;
+        String contentType = null;
+        String accept = null;
+        List<String> fields = null;
+        List<String> filter = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        List<PolicyResult> response = api.policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort);
 
         // TODO: test validations
     }
