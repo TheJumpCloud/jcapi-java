@@ -28,13 +28,13 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.AuthInputObject;
+import io.swagger.client.model.BulkUserCreate;
 import io.swagger.client.model.JobId;
 import io.swagger.client.model.JobWorkresult;
 import io.swagger.client.model.WorkdayFields;
 import io.swagger.client.model.WorkdayInput;
 import io.swagger.client.model.WorkdayOutput;
 import io.swagger.client.model.WorkdayWorker;
-import io.swagger.client.model.WorkdayWorkerImport;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -648,7 +648,7 @@ public class WorkdayImportApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysImportCall(String workdayId, String contentType, String accept, List<WorkdayWorkerImport> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysImportCall(String workdayId, String contentType, String accept, List<BulkUserCreate> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -695,7 +695,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysImportValidateBeforeCall(String workdayId, String contentType, String accept, List<WorkdayWorkerImport> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysImportValidateBeforeCall(String workdayId, String contentType, String accept, List<BulkUserCreate> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'workdayId' is set
         if (workdayId == null) {
@@ -720,7 +720,7 @@ public class WorkdayImportApi {
 
     /**
      * Workday Import
-     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays}/{WorkdayID/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
+     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/{WorkdayID}/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -728,14 +728,14 @@ public class WorkdayImportApi {
      * @return JobId
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public JobId workdaysImport(String workdayId, String contentType, String accept, List<WorkdayWorkerImport> body) throws ApiException {
+    public JobId workdaysImport(String workdayId, String contentType, String accept, List<BulkUserCreate> body) throws ApiException {
         ApiResponse<JobId> resp = workdaysImportWithHttpInfo(workdayId, contentType, accept, body);
         return resp.getData();
     }
 
     /**
      * Workday Import
-     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays}/{WorkdayID/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
+     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/{WorkdayID}/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -743,7 +743,7 @@ public class WorkdayImportApi {
      * @return ApiResponse&lt;JobId&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<JobId> workdaysImportWithHttpInfo(String workdayId, String contentType, String accept, List<WorkdayWorkerImport> body) throws ApiException {
+    public ApiResponse<JobId> workdaysImportWithHttpInfo(String workdayId, String contentType, String accept, List<BulkUserCreate> body) throws ApiException {
         com.squareup.okhttp.Call call = workdaysImportValidateBeforeCall(workdayId, contentType, accept, body, null, null);
         Type localVarReturnType = new TypeToken<JobId>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -751,7 +751,7 @@ public class WorkdayImportApi {
 
     /**
      * Workday Import (asynchronously)
-     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays}/{WorkdayID/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
+     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/{WorkdayID}/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -760,7 +760,7 @@ public class WorkdayImportApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysImportAsync(String workdayId, String contentType, String accept, List<WorkdayWorkerImport> body, final ApiCallback<JobId> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysImportAsync(String workdayId, String contentType, String accept, List<BulkUserCreate> body, final ApiCallback<JobId> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

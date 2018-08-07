@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **name** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
 **meta** | **Object** |  |  [optional]
-**createdAt** | **String** |  |  [optional]
 **updatedAt** | **String** |  |  [optional]
 **persistedFields** | **List&lt;String&gt;** |  |  [optional]
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **position** | [**BigDecimal**](BigDecimal.md) | The default position to render this field. |  [optional]
 **readOnly** | **Boolean** | If an admin is allowed to modify this field. |  [optional]
 **required** | **Boolean** | If this field is required for this field. |  [optional]
+**tooltip** | [**PolicyTemplateConfigFieldTooltip**](PolicyTemplateConfigFieldTooltip.md) |  |  [optional]
 
 
 <a name="DisplayTypeEnum"></a>

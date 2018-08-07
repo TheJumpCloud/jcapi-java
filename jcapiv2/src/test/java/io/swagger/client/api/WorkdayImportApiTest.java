@@ -15,13 +15,13 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.AuthInputObject;
+import io.swagger.client.model.BulkUserCreate;
 import io.swagger.client.model.JobId;
 import io.swagger.client.model.JobWorkresult;
 import io.swagger.client.model.WorkdayFields;
 import io.swagger.client.model.WorkdayInput;
 import io.swagger.client.model.WorkdayOutput;
 import io.swagger.client.model.WorkdayWorker;
-import io.swagger.client.model.WorkdayWorkerImport;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -115,7 +115,7 @@ public class WorkdayImportApiTest {
     /**
      * Workday Import
      *
-     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays}/{WorkdayID/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
+     * The endpoint allows you to create a Workday Import request.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/{WorkdayID}/import \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;[  {   \&quot;email\&quot;:\&quot;{email}\&quot;,   \&quot;firstname\&quot;:\&quot;{firstname}\&quot;,   \&quot;lastname\&quot;:\&quot;{firstname}\&quot;,   \&quot;username\&quot;:\&quot;{username}\&quot;,   \&quot;attributes\&quot;:[    {\&quot;name\&quot;:\&quot;EmployeeID\&quot;,\&quot;value\&quot;:\&quot;0000\&quot;},    {\&quot;name\&quot;:\&quot;WorkdayID\&quot;,\&quot;value\&quot;:\&quot;name.name\&quot;}    ]     } ] &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -125,7 +125,7 @@ public class WorkdayImportApiTest {
         String workdayId = null;
         String contentType = null;
         String accept = null;
-        List<WorkdayWorkerImport> body = null;
+        List<BulkUserCreate> body = null;
         JobId response = api.workdaysImport(workdayId, contentType, accept, body);
 
         // TODO: test validations

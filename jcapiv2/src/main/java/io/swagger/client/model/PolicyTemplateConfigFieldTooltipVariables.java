@@ -24,29 +24,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PolicyValue
+ * PolicyTemplateConfigFieldTooltipVariables
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
-public class PolicyValue {
-  @SerializedName("configFieldID")
-  private String configFieldID = null;
+public class PolicyTemplateConfigFieldTooltipVariables {
+  @SerializedName("icon")
+  private String icon = null;
 
-  public PolicyValue configFieldID(String configFieldID) {
-    this.configFieldID = configFieldID;
+  @SerializedName("message")
+  private String message = null;
+
+  public PolicyTemplateConfigFieldTooltipVariables icon(String icon) {
+    this.icon = icon;
     return this;
   }
 
    /**
-   * The ObjectId of the corresponding Policy Template configuration field.
-   * @return configFieldID
+   * Get icon
+   * @return icon
   **/
-  @ApiModelProperty(value = "The ObjectId of the corresponding Policy Template configuration field.")
-  public String getConfigFieldID() {
-    return configFieldID;
+  @ApiModelProperty(value = "")
+  public String getIcon() {
+    return icon;
   }
 
-  public void setConfigFieldID(String configFieldID) {
-    this.configFieldID = configFieldID;
+  public void setIcon(String icon) {
+    this.icon = icon;
+  }
+
+  public PolicyTemplateConfigFieldTooltipVariables message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @ApiModelProperty(value = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -58,22 +79,24 @@ public class PolicyValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PolicyValue policyValue = (PolicyValue) o;
-    return Objects.equals(this.configFieldID, policyValue.configFieldID);
+    PolicyTemplateConfigFieldTooltipVariables policyTemplateConfigFieldTooltipVariables = (PolicyTemplateConfigFieldTooltipVariables) o;
+    return Objects.equals(this.icon, policyTemplateConfigFieldTooltipVariables.icon) &&
+        Objects.equals(this.message, policyTemplateConfigFieldTooltipVariables.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configFieldID);
+    return Objects.hash(icon, message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PolicyValue {\n");
+    sb.append("class PolicyTemplateConfigFieldTooltipVariables {\n");
     
-    sb.append("    configFieldID: ").append(toIndentedString(configFieldID)).append("\n");
+    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

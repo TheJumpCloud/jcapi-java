@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * JobDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:06:59.392Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
 public class JobDetails {
   @SerializedName("id")
   private String id = null;
@@ -47,9 +47,6 @@ public class JobDetails {
 
   @SerializedName("meta")
   private Object meta = null;
-
-  @SerializedName("createdAt")
-  private String createdAt = null;
 
   @SerializedName("updatedAt")
   private String updatedAt = null;
@@ -165,24 +162,6 @@ public class JobDetails {
     this.meta = meta;
   }
 
-  public JobDetails createdAt(String createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-   /**
-   * Get createdAt
-   * @return createdAt
-  **/
-  @ApiModelProperty(value = "")
-  public String getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
-
   public JobDetails updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
@@ -243,14 +222,13 @@ public class JobDetails {
         Objects.equals(this.name, jobDetails.name) &&
         Objects.equals(this.status, jobDetails.status) &&
         Objects.equals(this.meta, jobDetails.meta) &&
-        Objects.equals(this.createdAt, jobDetails.createdAt) &&
         Objects.equals(this.updatedAt, jobDetails.updatedAt) &&
         Objects.equals(this.persistedFields, jobDetails.persistedFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, adminId, workUnitsCount, name, status, meta, createdAt, updatedAt, persistedFields);
+    return Objects.hash(id, adminId, workUnitsCount, name, status, meta, updatedAt, persistedFields);
   }
 
 
@@ -265,7 +243,6 @@ public class JobDetails {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    persistedFields: ").append(toIndentedString(persistedFields)).append("\n");
     sb.append("}");
