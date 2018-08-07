@@ -70,12 +70,9 @@ public class SystemsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
-        Integer limit = null;
-        Integer skip = null;
-        String sort = null;
         String date = null;
         String authorization = null;
-        System response = api.systemsGet(id, contentType, accept, fields, limit, skip, sort, date, authorization);
+        System response = api.systemsGet(id, contentType, accept, fields, date, authorization);
 
         // TODO: test validations
     }

@@ -65,10 +65,7 @@ public class CommandResultsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
-        Integer limit = null;
-        Integer skip = null;
-        String sort = null;
-        Commandresult response = api.commandResultsGet(id, contentType, accept, fields, limit, skip, sort);
+        Commandresult response = api.commandResultsGet(id, contentType, accept, fields);
 
         // TODO: test validations
     }

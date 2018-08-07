@@ -22,33 +22,31 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Body
+ * CommandfilereturnResults
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
-public class Body {
+public class CommandfilereturnResults {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("networkSourceIp")
-  private String networkSourceIp = null;
+  @SerializedName("destination")
+  private String destination = null;
 
-  @SerializedName("tags")
-  private List<String> tags = null;
+  @SerializedName("_id")
+  private String id = null;
 
-  public Body name(String name) {
+  public CommandfilereturnResults name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * Get name
+   * The file name.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "The file name.")
   public String getName() {
     return name;
   }
@@ -57,48 +55,40 @@ public class Body {
     this.name = name;
   }
 
-  public Body networkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
+  public CommandfilereturnResults destination(String destination) {
+    this.destination = destination;
     return this;
   }
 
    /**
-   * Get networkSourceIp
-   * @return networkSourceIp
+   * the location where the file willl be stored.
+   * @return destination
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getNetworkSourceIp() {
-    return networkSourceIp;
+  @ApiModelProperty(value = "the location where the file willl be stored.")
+  public String getDestination() {
+    return destination;
   }
 
-  public void setNetworkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
+  public void setDestination(String destination) {
+    this.destination = destination;
   }
 
-  public Body tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public Body addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<String>();
-    }
-    this.tags.add(tagsItem);
+  public CommandfilereturnResults id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get tags
-   * @return tags
+   * The ID of the file.
+   * @return id
   **/
-  @ApiModelProperty(value = "")
-  public List<String> getTags() {
-    return tags;
+  @ApiModelProperty(value = "The ID of the file.")
+  public String getId() {
+    return id;
   }
 
-  public void setTags(List<String> tags) {
-    this.tags = tags;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -110,26 +100,26 @@ public class Body {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Body body = (Body) o;
-    return Objects.equals(this.name, body.name) &&
-        Objects.equals(this.networkSourceIp, body.networkSourceIp) &&
-        Objects.equals(this.tags, body.tags);
+    CommandfilereturnResults commandfilereturnResults = (CommandfilereturnResults) o;
+    return Objects.equals(this.name, commandfilereturnResults.name) &&
+        Objects.equals(this.destination, commandfilereturnResults.destination) &&
+        Objects.equals(this.id, commandfilereturnResults.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, networkSourceIp, tags);
+    return Objects.hash(name, destination, id);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Body {\n");
+    sb.append("class CommandfilereturnResults {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -70,10 +70,7 @@ public class SystemusersApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
-        Integer limit = null;
-        Integer skip = null;
-        String sort = null;
-        Systemuserreturn response = api.systemusersGet(id, contentType, accept, fields, limit, skip, sort);
+        Systemuserreturn response = api.systemusersGet(id, contentType, accept, fields);
 
         // TODO: test validations
     }
@@ -88,14 +85,12 @@ public class SystemusersApiTest {
      */
     @Test
     public void systemusersListTest() throws ApiException {
-        String contentType = null;
-        String accept = null;
         Integer limit = null;
         Integer skip = null;
         String sort = null;
         String fields = null;
         String filter = null;
-        Systemuserslist response = api.systemusersList(contentType, accept, limit, skip, sort, fields, filter);
+        Systemuserslist response = api.systemusersList(limit, skip, sort, fields, filter);
 
         // TODO: test validations
     }

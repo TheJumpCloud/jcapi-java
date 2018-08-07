@@ -21,74 +21,54 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.CommandfilereturnResults;
 import java.io.IOException;
 
 /**
  * Commandfilereturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-11T23:05:15.891Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
 public class Commandfilereturn {
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
-  @SerializedName("destination")
-  private String destination = null;
+  @SerializedName("results")
+  private CommandfilereturnResults results = null;
 
-  @SerializedName("_id")
-  private String id = null;
-
-  public Commandfilereturn name(String name) {
-    this.name = name;
+  public Commandfilereturn totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
     return this;
   }
 
    /**
-   * name of file.
-   * @return name
+   * The total number of commands files
+   * @return totalCount
   **/
-  @ApiModelProperty(value = "name of file.")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "The total number of commands files")
+  public Integer getTotalCount() {
+    return totalCount;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
   }
 
-  public Commandfilereturn destination(String destination) {
-    this.destination = destination;
+  public Commandfilereturn results(CommandfilereturnResults results) {
+    this.results = results;
     return this;
   }
 
    /**
-   * the destination on the local machine where the file will be stored.
-   * @return destination
+   * Get results
+   * @return results
   **/
-  @ApiModelProperty(value = "the destination on the local machine where the file will be stored.")
-  public String getDestination() {
-    return destination;
+  @ApiModelProperty(value = "")
+  public CommandfilereturnResults getResults() {
+    return results;
   }
 
-  public void setDestination(String destination) {
-    this.destination = destination;
-  }
-
-  public Commandfilereturn id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * the ID of the file.
-   * @return id
-  **/
-  @ApiModelProperty(value = "the ID of the file.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
+  public void setResults(CommandfilereturnResults results) {
+    this.results = results;
   }
 
 
@@ -101,14 +81,13 @@ public class Commandfilereturn {
       return false;
     }
     Commandfilereturn commandfilereturn = (Commandfilereturn) o;
-    return Objects.equals(this.name, commandfilereturn.name) &&
-        Objects.equals(this.destination, commandfilereturn.destination) &&
-        Objects.equals(this.id, commandfilereturn.id);
+    return Objects.equals(this.totalCount, commandfilereturn.totalCount) &&
+        Objects.equals(this.results, commandfilereturn.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, destination, id);
+    return Objects.hash(totalCount, results);
   }
 
 
@@ -117,9 +96,8 @@ public class Commandfilereturn {
     StringBuilder sb = new StringBuilder();
     sb.append("class Commandfilereturn {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,33 +21,32 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.CommandresultResponseData;
 import java.io.IOException;
 
 /**
- * CommandresultResponse
+ * OrganizationslistResults
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
-public class CommandresultResponse {
-  @SerializedName("id")
+public class OrganizationslistResults {
+  @SerializedName("_id")
   private String id = null;
 
-  @SerializedName("error")
-  private String error = null;
+  @SerializedName("displayName")
+  private String displayName = null;
 
-  @SerializedName("data")
-  private CommandresultResponseData data = null;
+  @SerializedName("logoUrl")
+  private String logoUrl = null;
 
-  public CommandresultResponse id(String id) {
+  public OrganizationslistResults id(String id) {
     this.id = id;
     return this;
   }
 
    /**
-   * ID of the response.
+   * the ID of the organization.
    * @return id
   **/
-  @ApiModelProperty(value = "ID of the response.")
+  @ApiModelProperty(value = "the ID of the organization.")
   public String getId() {
     return id;
   }
@@ -56,40 +55,40 @@ public class CommandresultResponse {
     this.id = id;
   }
 
-  public CommandresultResponse error(String error) {
-    this.error = error;
+  public OrganizationslistResults displayName(String displayName) {
+    this.displayName = displayName;
     return this;
   }
 
    /**
-   * The stderr output from the command that ran.
-   * @return error
+   * The name of the organization.
+   * @return displayName
   **/
-  @ApiModelProperty(value = "The stderr output from the command that ran.")
-  public String getError() {
-    return error;
+  @ApiModelProperty(value = "The name of the organization.")
+  public String getDisplayName() {
+    return displayName;
   }
 
-  public void setError(String error) {
-    this.error = error;
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
-  public CommandresultResponse data(CommandresultResponseData data) {
-    this.data = data;
+  public OrganizationslistResults logoUrl(String logoUrl) {
+    this.logoUrl = logoUrl;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * The organization logo image URL. 
+   * @return logoUrl
   **/
-  @ApiModelProperty(value = "")
-  public CommandresultResponseData getData() {
-    return data;
+  @ApiModelProperty(value = "The organization logo image URL. ")
+  public String getLogoUrl() {
+    return logoUrl;
   }
 
-  public void setData(CommandresultResponseData data) {
-    this.data = data;
+  public void setLogoUrl(String logoUrl) {
+    this.logoUrl = logoUrl;
   }
 
 
@@ -101,26 +100,26 @@ public class CommandresultResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CommandresultResponse commandresultResponse = (CommandresultResponse) o;
-    return Objects.equals(this.id, commandresultResponse.id) &&
-        Objects.equals(this.error, commandresultResponse.error) &&
-        Objects.equals(this.data, commandresultResponse.data);
+    OrganizationslistResults organizationslistResults = (OrganizationslistResults) o;
+    return Objects.equals(this.id, organizationslistResults.id) &&
+        Objects.equals(this.displayName, organizationslistResults.displayName) &&
+        Objects.equals(this.logoUrl, organizationslistResults.logoUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, error, data);
+    return Objects.hash(id, displayName, logoUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CommandresultResponse {\n");
+    sb.append("class OrganizationslistResults {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    logoUrl: ").append(toIndentedString(logoUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

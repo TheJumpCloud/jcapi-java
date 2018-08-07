@@ -366,15 +366,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandsGetCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandsGetCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -385,12 +382,6 @@ public class CommandsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (fields != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fields", fields));
-        if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-        if (skip != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
-        if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -429,7 +420,7 @@ public class CommandsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandsGetValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandsGetValidateBeforeCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -447,7 +438,7 @@ public class CommandsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandsGetCall(id, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsGetCall(id, contentType, accept, fields, progressListener, progressRequestListener);
         return call;
 
     }
@@ -459,14 +450,11 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @return Command
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Command commandsGet(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Command> resp = commandsGetWithHttpInfo(id, contentType, accept, fields, limit, skip, sort);
+    public Command commandsGet(String id, String contentType, String accept, String fields) throws ApiException {
+        ApiResponse<Command> resp = commandsGetWithHttpInfo(id, contentType, accept, fields);
         return resp.getData();
     }
 
@@ -477,14 +465,11 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @return ApiResponse&lt;Command&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Command> commandsGetWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Command> commandsGetWithHttpInfo(String id, String contentType, String accept, String fields) throws ApiException {
+        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, null, null);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -496,14 +481,11 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandsGetAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Command> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandsGetAsync(String id, String contentType, String accept, String fields, final ApiCallback<Command> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -524,7 +506,7 @@ public class CommandsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
