@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -49,7 +49,8 @@ public class ActiveDirectoryApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        api.activedirectoriesDelete(id, contentType, accept);
+        String xOrgId = null;
+        api.activedirectoriesDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -67,7 +68,8 @@ public class ActiveDirectoryApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        ActiveDirectoryOutput response = api.activedirectoriesGet(id, contentType, accept);
+        String xOrgId = null;
+        ActiveDirectoryOutput response = api.activedirectoriesGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -89,7 +91,8 @@ public class ActiveDirectoryApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<ActiveDirectoryOutput> response = api.activedirectoriesList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<ActiveDirectoryOutput> response = api.activedirectoriesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -107,7 +110,8 @@ public class ActiveDirectoryApiTest {
         String contentType = null;
         String accept = null;
         ActiveDirectoryInput body = null;
-        ActiveDirectoryOutput response = api.activedirectoriesPost(contentType, accept, body);
+        String xOrgId = null;
+        ActiveDirectoryOutput response = api.activedirectoriesPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -128,7 +132,8 @@ public class ActiveDirectoryApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphActiveDirectoryAssociationsList(activedirectoryId, targets, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphActiveDirectoryAssociationsList(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -147,7 +152,8 @@ public class ActiveDirectoryApiTest {
         String contentType = null;
         String accept = null;
         GraphManagementReq body = null;
-        api.graphActiveDirectoryAssociationsPost(activedirectoryId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphActiveDirectoryAssociationsPost(activedirectoryId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -167,7 +173,8 @@ public class ActiveDirectoryApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphActiveDirectoryTraverseUserGroup(activedirectoryId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphActiveDirectoryTraverseUserGroup(activedirectoryId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }

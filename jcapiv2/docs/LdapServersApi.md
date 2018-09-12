@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="graphLdapServerAssociationsList"></a>
 # **graphLdapServerAssociationsList**
-> List&lt;GraphConnection&gt; graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip, xOrgId)
 
 List the associations of a LDAP Server
 
@@ -32,10 +32,10 @@ This endpoint returns the _direct_ associations of this LDAP Server.  A direct a
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -44,8 +44,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerAssociationsList");
@@ -63,6 +64,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -79,7 +81,7 @@ Name | Type | Description  | Notes
 
 <a name="graphLdapServerAssociationsPost"></a>
 # **graphLdapServerAssociationsPost**
-> graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body)
+> graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body, xOrgId)
 
 Manage the associations of a LDAP Server
 
@@ -97,18 +99,19 @@ This endpoint allows you to manage the _direct_ associations of a LDAP Server.  
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body);
+    apiInstance.graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerAssociationsPost");
     e.printStackTrace();
@@ -123,6 +126,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -139,7 +143,7 @@ null (empty response body)
 
 <a name="graphLdapServerTraverseUser"></a>
 # **graphLdapServerTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip, xOrgId)
 
 List the Users bound to a LDAP Server
 
@@ -157,10 +161,10 @@ This endpoint will return all Users bound to an LDAP Server, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -168,8 +172,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerTraverseUser");
@@ -186,6 +191,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -202,7 +208,7 @@ Name | Type | Description  | Notes
 
 <a name="graphLdapServerTraverseUserGroup"></a>
 # **graphLdapServerTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip, xOrgId)
 
 List the User Groups bound to a LDAP Server
 
@@ -220,10 +226,10 @@ This endpoint will return all Users Groups bound to a LDAP Server, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -231,8 +237,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerTraverseUserGroup");
@@ -249,6 +256,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -265,7 +273,7 @@ Name | Type | Description  | Notes
 
 <a name="ldapserversGet"></a>
 # **ldapserversGet**
-> LdapServerOutput ldapserversGet(id, contentType, accept)
+> LdapServerOutput ldapserversGet(id, contentType, accept, xOrgId)
 
 Get LDAP Server
 
@@ -283,17 +291,18 @@ This endpoint returns a specific LDAP server.  ##### Sample Request  &#x60;&#x60
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String id = "id_example"; // String | Unique identifier of the LDAP server.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    LdapServerOutput result = apiInstance.ldapserversGet(id, contentType, accept);
+    LdapServerOutput result = apiInstance.ldapserversGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#ldapserversGet");
@@ -308,6 +317,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the LDAP server. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -324,7 +334,7 @@ Name | Type | Description  | Notes
 
 <a name="ldapserversList"></a>
 # **ldapserversList**
-> List&lt;LdapServerOutput&gt; ldapserversList(contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;LdapServerOutput&gt; ldapserversList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 List LDAP Servers
 
@@ -342,10 +352,10 @@ This endpoint returns the object IDs of your LDAP servers.   ##### Sample Reques
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String contentType = "application/json"; // String | 
@@ -355,8 +365,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<LdapServerOutput> result = apiInstance.ldapserversList(contentType, accept, fields, filter, limit, skip, sort);
+    List<LdapServerOutput> result = apiInstance.ldapserversList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#ldapserversList");
@@ -375,6 +386,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

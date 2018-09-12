@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -48,7 +48,8 @@ public class BulkJobRequestsApiTest {
         String contentType = null;
         String accept = null;
         List<BulkUserCreate> body = null;
-        JobId response = api.bulkUsersCreate(contentType, accept, body);
+        String xOrgId = null;
+        JobId response = api.bulkUsersCreate(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -68,7 +69,8 @@ public class BulkJobRequestsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<JobWorkresult> response = api.bulkUsersCreateResults(jobId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<JobWorkresult> response = api.bulkUsersCreateResults(jobId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -86,7 +88,8 @@ public class BulkJobRequestsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        JobDetails response = api.jobsGet(id, contentType, accept);
+        String xOrgId = null;
+        JobDetails response = api.jobsGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -106,7 +109,8 @@ public class BulkJobRequestsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<JobWorkresult> response = api.jobsResults(id, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<JobWorkresult> response = api.jobsResults(id, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }

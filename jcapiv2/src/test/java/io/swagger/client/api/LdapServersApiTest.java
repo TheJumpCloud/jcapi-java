@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -51,7 +51,8 @@ public class LdapServersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -70,7 +71,8 @@ public class LdapServersApiTest {
         String contentType = null;
         String accept = null;
         GraphManagementReq body = null;
-        api.graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -90,7 +92,8 @@ public class LdapServersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -110,7 +113,8 @@ public class LdapServersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -128,7 +132,8 @@ public class LdapServersApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        LdapServerOutput response = api.ldapserversGet(id, contentType, accept);
+        String xOrgId = null;
+        LdapServerOutput response = api.ldapserversGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -150,7 +155,8 @@ public class LdapServersApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<LdapServerOutput> response = api.ldapserversList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<LdapServerOutput> response = api.ldapserversList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }

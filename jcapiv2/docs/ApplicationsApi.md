@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="graphApplicationAssociationsList"></a>
 # **graphApplicationAssociationsList**
-> List&lt;GraphConnection&gt; graphApplicationAssociationsList(applicationId, targets, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphApplicationAssociationsList(applicationId, targets, contentType, accept, limit, skip, xOrgId)
 
 List the associations of an Application
 
@@ -30,10 +30,10 @@ This endpoint will return the _direct_ associations of an Application. A direct 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ApplicationsApi apiInstance = new ApplicationsApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
@@ -42,8 +42,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphApplicationAssociationsList(applicationId, targets, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphApplicationAssociationsList(applicationId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApplicationsApi#graphApplicationAssociationsList");
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="graphApplicationAssociationsPost"></a>
 # **graphApplicationAssociationsPost**
-> graphApplicationAssociationsPost(applicationId, contentType, accept, body)
+> graphApplicationAssociationsPost(applicationId, contentType, accept, body, xOrgId)
 
 Manage the associations of an Application
 
@@ -95,18 +97,19 @@ This endpoint allows you to manage the _direct_ associations of an Application. 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ApplicationsApi apiInstance = new ApplicationsApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphApplicationAssociationsPost(applicationId, contentType, accept, body);
+    apiInstance.graphApplicationAssociationsPost(applicationId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApplicationsApi#graphApplicationAssociationsPost");
     e.printStackTrace();
@@ -121,6 +124,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -137,7 +141,7 @@ null (empty response body)
 
 <a name="graphApplicationTraverseUser"></a>
 # **graphApplicationTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphApplicationTraverseUser(applicationId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphApplicationTraverseUser(applicationId, contentType, accept, limit, skip, xOrgId)
 
 List the Users bound to an Application
 
@@ -155,10 +159,10 @@ This endpoint will return all Users bound to an Application, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ApplicationsApi apiInstance = new ApplicationsApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
@@ -166,8 +170,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphApplicationTraverseUser(applicationId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphApplicationTraverseUser(applicationId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApplicationsApi#graphApplicationTraverseUser");
@@ -184,6 +189,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -200,7 +206,7 @@ Name | Type | Description  | Notes
 
 <a name="graphApplicationTraverseUserGroup"></a>
 # **graphApplicationTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphApplicationTraverseUserGroup(applicationId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphApplicationTraverseUserGroup(applicationId, contentType, accept, limit, skip, xOrgId)
 
 List the User Groups bound to an Application
 
@@ -218,10 +224,10 @@ This endpoint will return all Users Groups bound to an Application, either direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ApplicationsApi apiInstance = new ApplicationsApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
@@ -229,8 +235,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphApplicationTraverseUserGroup(applicationId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphApplicationTraverseUserGroup(applicationId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ApplicationsApi#graphApplicationTraverseUserGroup");
@@ -247,6 +254,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="graphGSuiteAssociationsList"></a>
 # **graphGSuiteAssociationsList**
-> List&lt;GraphConnection&gt; graphGSuiteAssociationsList(gsuiteId, targets, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphGSuiteAssociationsList(gsuiteId, targets, contentType, accept, limit, skip, xOrgId)
 
 List the associations of a G Suite instance
 
@@ -30,10 +30,10 @@ This endpoint returns the _direct_ associations of this G Suite instance.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GSuiteApi apiInstance = new GSuiteApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
@@ -42,8 +42,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphGSuiteAssociationsList(gsuiteId, targets, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphGSuiteAssociationsList(gsuiteId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GSuiteApi#graphGSuiteAssociationsList");
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="graphGSuiteAssociationsPost"></a>
 # **graphGSuiteAssociationsPost**
-> graphGSuiteAssociationsPost(gsuiteId, body)
+> graphGSuiteAssociationsPost(gsuiteId, body, xOrgId)
 
 Manage the associations of a G Suite instance
 
@@ -95,16 +97,17 @@ This endpoint returns the _direct_ associations of this G Suite instance.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GSuiteApi apiInstance = new GSuiteApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphGSuiteAssociationsPost(gsuiteId, body);
+    apiInstance.graphGSuiteAssociationsPost(gsuiteId, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling GSuiteApi#graphGSuiteAssociationsPost");
     e.printStackTrace();
@@ -117,6 +120,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gsuiteId** | **String**| ObjectID of the G Suite instance. |
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -133,7 +137,7 @@ null (empty response body)
 
 <a name="graphGSuiteTraverseUser"></a>
 # **graphGSuiteTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, skip, xOrgId)
 
 List the Users bound to a G Suite instance
 
@@ -151,10 +155,10 @@ This endpoint will return all Users bound to a G Suite instance, either directly
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GSuiteApi apiInstance = new GSuiteApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
@@ -162,8 +166,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GSuiteApi#graphGSuiteTraverseUser");
@@ -180,6 +185,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -196,7 +202,7 @@ Name | Type | Description  | Notes
 
 <a name="graphGSuiteTraverseUserGroup"></a>
 # **graphGSuiteTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip, xOrgId)
 
 List the User Groups bound to a G Suite instance
 
@@ -214,10 +220,10 @@ This endpoint will return all User Groups bound to an G Suite instance, either d
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GSuiteApi apiInstance = new GSuiteApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
@@ -225,8 +231,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GSuiteApi#graphGSuiteTraverseUserGroup");
@@ -243,6 +250,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

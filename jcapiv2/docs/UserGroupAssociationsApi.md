@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="graphUserGroupAssociationsList"></a>
 # **graphUserGroupAssociationsList**
-> List&lt;GraphConnection&gt; graphUserGroupAssociationsList(groupId, contentType, accept, targets, limit, skip)
+> List&lt;GraphConnection&gt; graphUserGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId)
 
 List the associations of a User Group.
 
@@ -37,10 +37,10 @@ This endpoint returns the _direct_ associations of this User Group.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -49,8 +49,9 @@ String accept = "application/json"; // String |
 List<String> targets = Arrays.asList("targets_example"); // List<String> | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphUserGroupAssociationsList(groupId, contentType, accept, targets, limit, skip);
+    List<GraphConnection> result = apiInstance.graphUserGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupAssociationsList");
@@ -68,6 +69,7 @@ Name | Type | Description  | Notes
  **targets** | [**List&lt;String&gt;**](String.md)|  | [enum: active_directory, application, command, g_suite, ldap_server, office_365, policy, radius_server, system, system_group]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -84,7 +86,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupAssociationsPost"></a>
 # **graphUserGroupAssociationsPost**
-> graphUserGroupAssociationsPost(groupId, contentType, accept, body)
+> graphUserGroupAssociationsPost(groupId, contentType, accept, body, xOrgId)
 
 Manage the associations of a User Group
 
@@ -102,18 +104,19 @@ This endpoint manages the _direct_ associations of this User Group.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 UserGroupGraphManagementReq body = new UserGroupGraphManagementReq(); // UserGroupGraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphUserGroupAssociationsPost(groupId, contentType, accept, body);
+    apiInstance.graphUserGroupAssociationsPost(groupId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupAssociationsPost");
     e.printStackTrace();
@@ -128,6 +131,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGroupGraphManagementReq**](UserGroupGraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -144,7 +148,7 @@ null (empty response body)
 
 <a name="graphUserGroupTraverseActiveDirectory"></a>
 # **graphUserGroupTraverseActiveDirectory**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseActiveDirectory(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseActiveDirectory(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Active Directories bound to a User Group
 
@@ -162,10 +166,10 @@ This endpoint will return all Active Directory Instances bound to a User Group, 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -173,8 +177,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseActiveDirectory(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseActiveDirectory(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseActiveDirectory");
@@ -191,6 +196,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -207,7 +213,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseApplication"></a>
 # **graphUserGroupTraverseApplication**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseApplication(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseApplication(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Applications bound to a User Group
 
@@ -225,10 +231,10 @@ This endpoint will return all Applications bound to a User Group, either directl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -236,8 +242,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseApplication(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseApplication(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseApplication");
@@ -254,6 +261,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -270,7 +278,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseDirectory"></a>
 # **graphUserGroupTraverseDirectory**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseDirectory(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseDirectory(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Directories bound to a User Group
 
@@ -288,10 +296,10 @@ This endpoint will return all Directories bound to a User Group, either directly
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -299,8 +307,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseDirectory(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseDirectory(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseDirectory");
@@ -317,6 +326,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -333,7 +343,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseGSuite"></a>
 # **graphUserGroupTraverseGSuite**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseGSuite(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseGSuite(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the G Suite instances bound to a User Group
 
@@ -351,10 +361,10 @@ This endpoint will return all Gsuite Instances bound to a User Group, either dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -362,8 +372,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseGSuite(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseGSuite(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseGSuite");
@@ -380,6 +391,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -396,7 +408,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseLdapServer"></a>
 # **graphUserGroupTraverseLdapServer**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseLdapServer(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseLdapServer(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the LDAP Servers bound to a User Group
 
@@ -414,10 +426,10 @@ This endpoint will return all LDAP Servers bound to a User Group, either directl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -425,8 +437,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseLdapServer(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseLdapServer(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseLdapServer");
@@ -443,6 +456,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -459,7 +473,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseOffice365"></a>
 # **graphUserGroupTraverseOffice365**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseOffice365(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseOffice365(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Office 365 instances bound to a User Group
 
@@ -477,10 +491,10 @@ This endpoint will return all Office 365 instances bound to a User Group, either
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -488,8 +502,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseOffice365(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseOffice365(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseOffice365");
@@ -506,6 +521,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -522,7 +538,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseRadiusServer"></a>
 # **graphUserGroupTraverseRadiusServer**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseRadiusServer(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseRadiusServer(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the RADIUS Servers bound to a User Group
 
@@ -540,10 +556,10 @@ This endpoint will return all RADIUS servers bound to a User Group, either direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -551,8 +567,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseRadiusServer(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseRadiusServer(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseRadiusServer");
@@ -569,6 +586,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -585,7 +603,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseSystem"></a>
 # **graphUserGroupTraverseSystem**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseSystem(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseSystem(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Systems bound to a User Group
 
@@ -603,10 +621,10 @@ This endpoint will return all Systems bound to a User Group, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -614,8 +632,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseSystem(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseSystem(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseSystem");
@@ -632,6 +651,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -648,7 +668,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserGroupTraverseSystemGroup"></a>
 # **graphUserGroupTraverseSystemGroup**
-> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseSystemGroup(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserGroupTraverseSystemGroup(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the System Groups bound to User Groups
 
@@ -666,10 +686,10 @@ This endpoint will return all System Groups bound to a User Group, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UserGroupAssociationsApi apiInstance = new UserGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -677,8 +697,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseSystemGroup(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserGroupTraverseSystemGroup(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UserGroupAssociationsApi#graphUserGroupTraverseSystemGroup");
@@ -695,6 +716,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

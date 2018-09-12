@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -67,12 +67,13 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysAuthorizeCall(String workdayId, String contentType, String accept, AuthInputObject body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysAuthorizeCall(String workdayId, String contentType, String accept, AuthInputObject body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -87,6 +88,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -119,7 +122,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysAuthorizeValidateBeforeCall(String workdayId, String contentType, String accept, AuthInputObject body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysAuthorizeValidateBeforeCall(String workdayId, String contentType, String accept, AuthInputObject body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'workdayId' is set
         if (workdayId == null) {
@@ -137,7 +140,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysAuthorizeCall(workdayId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysAuthorizeCall(workdayId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -149,10 +152,11 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void workdaysAuthorize(String workdayId, String contentType, String accept, AuthInputObject body) throws ApiException {
-        workdaysAuthorizeWithHttpInfo(workdayId, contentType, accept, body);
+    public void workdaysAuthorize(String workdayId, String contentType, String accept, AuthInputObject body, String xOrgId) throws ApiException {
+        workdaysAuthorizeWithHttpInfo(workdayId, contentType, accept, body, xOrgId);
     }
 
     /**
@@ -162,11 +166,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> workdaysAuthorizeWithHttpInfo(String workdayId, String contentType, String accept, AuthInputObject body) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysAuthorizeValidateBeforeCall(workdayId, contentType, accept, body, null, null);
+    public ApiResponse<Void> workdaysAuthorizeWithHttpInfo(String workdayId, String contentType, String accept, AuthInputObject body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysAuthorizeValidateBeforeCall(workdayId, contentType, accept, body, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -177,11 +182,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysAuthorizeAsync(String workdayId, String contentType, String accept, AuthInputObject body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysAuthorizeAsync(String workdayId, String contentType, String accept, AuthInputObject body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -202,7 +208,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysAuthorizeValidateBeforeCall(workdayId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysAuthorizeValidateBeforeCall(workdayId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -211,12 +217,13 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysDeauthorizeCall(String workdayId, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysDeauthorizeCall(String workdayId, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -231,6 +238,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -263,7 +272,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysDeauthorizeValidateBeforeCall(String workdayId, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysDeauthorizeValidateBeforeCall(String workdayId, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'workdayId' is set
         if (workdayId == null) {
@@ -281,7 +290,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysDeauthorizeCall(workdayId, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysDeauthorizeCall(workdayId, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -292,10 +301,11 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void workdaysDeauthorize(String workdayId, String contentType, String accept) throws ApiException {
-        workdaysDeauthorizeWithHttpInfo(workdayId, contentType, accept);
+    public void workdaysDeauthorize(String workdayId, String contentType, String accept, String xOrgId) throws ApiException {
+        workdaysDeauthorizeWithHttpInfo(workdayId, contentType, accept, xOrgId);
     }
 
     /**
@@ -304,11 +314,12 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> workdaysDeauthorizeWithHttpInfo(String workdayId, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysDeauthorizeValidateBeforeCall(workdayId, contentType, accept, null, null);
+    public ApiResponse<Void> workdaysDeauthorizeWithHttpInfo(String workdayId, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysDeauthorizeValidateBeforeCall(workdayId, contentType, accept, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -318,11 +329,12 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysDeauthorizeAsync(String workdayId, String contentType, String accept, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysDeauthorizeAsync(String workdayId, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -343,7 +355,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysDeauthorizeValidateBeforeCall(workdayId, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysDeauthorizeValidateBeforeCall(workdayId, contentType, accept, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -352,12 +364,13 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysDeleteCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysDeleteCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -372,6 +385,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -404,7 +419,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysDeleteValidateBeforeCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysDeleteValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -422,7 +437,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysDeleteCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysDeleteCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -433,11 +448,12 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object workdaysDelete(String id, String contentType, String accept) throws ApiException {
-        ApiResponse<Object> resp = workdaysDeleteWithHttpInfo(id, contentType, accept);
+    public Object workdaysDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<Object> resp = workdaysDeleteWithHttpInfo(id, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -447,11 +463,12 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> workdaysDeleteWithHttpInfo(String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysDeleteValidateBeforeCall(id, contentType, accept, null, null);
+    public ApiResponse<Object> workdaysDeleteWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysDeleteValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -462,11 +479,12 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysDeleteAsync(String id, String contentType, String accept, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysDeleteAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -487,7 +505,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysDeleteValidateBeforeCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysDeleteValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -497,12 +515,13 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysGetCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysGetCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -517,6 +536,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -549,7 +570,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysGetValidateBeforeCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysGetValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -567,7 +588,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysGetCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysGetCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -578,11 +599,12 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return WorkdayOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WorkdayOutput workdaysGet(String id, String contentType, String accept) throws ApiException {
-        ApiResponse<WorkdayOutput> resp = workdaysGetWithHttpInfo(id, contentType, accept);
+    public WorkdayOutput workdaysGet(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<WorkdayOutput> resp = workdaysGetWithHttpInfo(id, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -592,11 +614,12 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;WorkdayOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WorkdayOutput> workdaysGetWithHttpInfo(String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysGetValidateBeforeCall(id, contentType, accept, null, null);
+    public ApiResponse<WorkdayOutput> workdaysGetWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysGetValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<WorkdayOutput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -607,11 +630,12 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysGetAsync(String id, String contentType, String accept, final ApiCallback<WorkdayOutput> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysGetAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<WorkdayOutput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -632,7 +656,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysGetValidateBeforeCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysGetValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WorkdayOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -643,12 +667,13 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysImportCall(String workdayId, String contentType, String accept, List<BulkUserCreate> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysImportCall(String workdayId, String contentType, String accept, List<BulkUserCreate> body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -663,6 +688,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -695,7 +722,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysImportValidateBeforeCall(String workdayId, String contentType, String accept, List<BulkUserCreate> body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysImportValidateBeforeCall(String workdayId, String contentType, String accept, List<BulkUserCreate> body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'workdayId' is set
         if (workdayId == null) {
@@ -713,7 +740,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysImportCall(workdayId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysImportCall(workdayId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -725,11 +752,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return JobId
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public JobId workdaysImport(String workdayId, String contentType, String accept, List<BulkUserCreate> body) throws ApiException {
-        ApiResponse<JobId> resp = workdaysImportWithHttpInfo(workdayId, contentType, accept, body);
+    public JobId workdaysImport(String workdayId, String contentType, String accept, List<BulkUserCreate> body, String xOrgId) throws ApiException {
+        ApiResponse<JobId> resp = workdaysImportWithHttpInfo(workdayId, contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -740,11 +768,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;JobId&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<JobId> workdaysImportWithHttpInfo(String workdayId, String contentType, String accept, List<BulkUserCreate> body) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysImportValidateBeforeCall(workdayId, contentType, accept, body, null, null);
+    public ApiResponse<JobId> workdaysImportWithHttpInfo(String workdayId, String contentType, String accept, List<BulkUserCreate> body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysImportValidateBeforeCall(workdayId, contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<JobId>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -756,11 +785,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysImportAsync(String workdayId, String contentType, String accept, List<BulkUserCreate> body, final ApiCallback<JobId> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysImportAsync(String workdayId, String contentType, String accept, List<BulkUserCreate> body, String xOrgId, final ApiCallback<JobId> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -781,7 +811,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysImportValidateBeforeCall(workdayId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysImportValidateBeforeCall(workdayId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<JobId>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -794,12 +824,13 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysImportresultsCall(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysImportresultsCall(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -819,6 +850,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -851,7 +884,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysImportresultsValidateBeforeCall(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysImportresultsValidateBeforeCall(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -874,7 +907,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysImportresultsCall(id, jobId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysImportresultsCall(id, jobId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -888,11 +921,12 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;JobWorkresult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<JobWorkresult> workdaysImportresults(String id, String jobId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<JobWorkresult>> resp = workdaysImportresultsWithHttpInfo(id, jobId, contentType, accept, limit, skip);
+    public List<JobWorkresult> workdaysImportresults(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<JobWorkresult>> resp = workdaysImportresultsWithHttpInfo(id, jobId, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -905,11 +939,12 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;JobWorkresult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<JobWorkresult>> workdaysImportresultsWithHttpInfo(String id, String jobId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysImportresultsValidateBeforeCall(id, jobId, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<JobWorkresult>> workdaysImportresultsWithHttpInfo(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysImportresultsValidateBeforeCall(id, jobId, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<JobWorkresult>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -923,11 +958,12 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysImportresultsAsync(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<JobWorkresult>> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysImportresultsAsync(String id, String jobId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<JobWorkresult>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -948,7 +984,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysImportresultsValidateBeforeCall(id, jobId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysImportresultsValidateBeforeCall(id, jobId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<JobWorkresult>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -962,12 +998,13 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysListCall(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysListCall(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -991,6 +1028,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1023,7 +1062,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysListValidateBeforeCall(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysListValidateBeforeCall(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -1036,7 +1075,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysListCall(contentType, accept, fields, limit, skip, sort, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysListCall(contentType, accept, fields, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1051,11 +1090,12 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;WorkdayOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkdayOutput> workdaysList(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter) throws ApiException {
-        ApiResponse<List<WorkdayOutput>> resp = workdaysListWithHttpInfo(contentType, accept, fields, limit, skip, sort, filter);
+    public List<WorkdayOutput> workdaysList(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId) throws ApiException {
+        ApiResponse<List<WorkdayOutput>> resp = workdaysListWithHttpInfo(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
         return resp.getData();
     }
 
@@ -1069,11 +1109,12 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;WorkdayOutput&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkdayOutput>> workdaysListWithHttpInfo(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, null, null);
+    public ApiResponse<List<WorkdayOutput>> workdaysListWithHttpInfo(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<WorkdayOutput>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1088,11 +1129,12 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysListAsync(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, final ApiCallback<List<WorkdayOutput>> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysListAsync(String contentType, String accept, List<String> fields, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId, final ApiCallback<List<WorkdayOutput>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1113,7 +1155,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<WorkdayOutput>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1123,12 +1165,13 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysPostCall(String contentType, String accept, WorkdayInput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysPostCall(String contentType, String accept, WorkdayInput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1142,6 +1185,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1174,7 +1219,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysPostValidateBeforeCall(String contentType, String accept, WorkdayInput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysPostValidateBeforeCall(String contentType, String accept, WorkdayInput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -1187,7 +1232,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysPostCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysPostCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1198,10 +1243,11 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void workdaysPost(String contentType, String accept, WorkdayInput body) throws ApiException {
-        workdaysPostWithHttpInfo(contentType, accept, body);
+    public void workdaysPost(String contentType, String accept, WorkdayInput body, String xOrgId) throws ApiException {
+        workdaysPostWithHttpInfo(contentType, accept, body, xOrgId);
     }
 
     /**
@@ -1210,11 +1256,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> workdaysPostWithHttpInfo(String contentType, String accept, WorkdayInput body) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysPostValidateBeforeCall(contentType, accept, body, null, null);
+    public ApiResponse<Void> workdaysPostWithHttpInfo(String contentType, String accept, WorkdayInput body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysPostValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -1224,11 +1271,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysPostAsync(String contentType, String accept, WorkdayInput body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysPostAsync(String contentType, String accept, WorkdayInput body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1249,7 +1297,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysPostValidateBeforeCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysPostValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1259,12 +1307,13 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysPutCall(String id, String contentType, String accept, WorkdayFields body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysPutCall(String id, String contentType, String accept, WorkdayFields body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1279,6 +1328,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1311,7 +1362,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysPutValidateBeforeCall(String id, String contentType, String accept, WorkdayFields body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysPutValidateBeforeCall(String id, String contentType, String accept, WorkdayFields body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1329,7 +1380,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysPutCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysPutCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1341,11 +1392,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return WorkdayOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public WorkdayOutput workdaysPut(String id, String contentType, String accept, WorkdayFields body) throws ApiException {
-        ApiResponse<WorkdayOutput> resp = workdaysPutWithHttpInfo(id, contentType, accept, body);
+    public WorkdayOutput workdaysPut(String id, String contentType, String accept, WorkdayFields body, String xOrgId) throws ApiException {
+        ApiResponse<WorkdayOutput> resp = workdaysPutWithHttpInfo(id, contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -1356,11 +1408,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;WorkdayOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<WorkdayOutput> workdaysPutWithHttpInfo(String id, String contentType, String accept, WorkdayFields body) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysPutValidateBeforeCall(id, contentType, accept, body, null, null);
+    public ApiResponse<WorkdayOutput> workdaysPutWithHttpInfo(String id, String contentType, String accept, WorkdayFields body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysPutValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<WorkdayOutput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1372,11 +1425,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysPutAsync(String id, String contentType, String accept, WorkdayFields body, final ApiCallback<WorkdayOutput> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysPutAsync(String id, String contentType, String accept, WorkdayFields body, String xOrgId, final ApiCallback<WorkdayOutput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1397,7 +1451,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysPutValidateBeforeCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysPutValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<WorkdayOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1407,12 +1461,13 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysSettingsCall(String contentType, String accept, String state, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysSettingsCall(String contentType, String accept, String state, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1428,6 +1483,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1460,7 +1517,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysSettingsValidateBeforeCall(String contentType, String accept, String state, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysSettingsValidateBeforeCall(String contentType, String accept, String state, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -1473,7 +1530,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysSettingsCall(contentType, accept, state, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysSettingsCall(contentType, accept, state, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1484,10 +1541,11 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void workdaysSettings(String contentType, String accept, String state) throws ApiException {
-        workdaysSettingsWithHttpInfo(contentType, accept, state);
+    public void workdaysSettings(String contentType, String accept, String state, String xOrgId) throws ApiException {
+        workdaysSettingsWithHttpInfo(contentType, accept, state, xOrgId);
     }
 
     /**
@@ -1496,11 +1554,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> workdaysSettingsWithHttpInfo(String contentType, String accept, String state) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysSettingsValidateBeforeCall(contentType, accept, state, null, null);
+    public ApiResponse<Void> workdaysSettingsWithHttpInfo(String contentType, String accept, String state, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysSettingsValidateBeforeCall(contentType, accept, state, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -1510,11 +1569,12 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysSettingsAsync(String contentType, String accept, String state, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysSettingsAsync(String contentType, String accept, String state, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1535,7 +1595,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysSettingsValidateBeforeCall(contentType, accept, state, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysSettingsValidateBeforeCall(contentType, accept, state, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1547,12 +1607,13 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call workdaysWorkersCall(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call workdaysWorkersCall(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1573,6 +1634,8 @@ public class WorkdayImportApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1605,7 +1668,7 @@ public class WorkdayImportApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call workdaysWorkersValidateBeforeCall(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call workdaysWorkersValidateBeforeCall(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'workdayId' is set
         if (workdayId == null) {
@@ -1623,7 +1686,7 @@ public class WorkdayImportApi {
         }
         
 
-        com.squareup.okhttp.Call call = workdaysWorkersCall(workdayId, contentType, accept, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysWorkersCall(workdayId, contentType, accept, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1637,11 +1700,12 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;WorkdayWorker&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<WorkdayWorker> workdaysWorkers(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        ApiResponse<List<WorkdayWorker>> resp = workdaysWorkersWithHttpInfo(workdayId, contentType, accept, limit, skip, sort);
+    public List<WorkdayWorker> workdaysWorkers(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        ApiResponse<List<WorkdayWorker>> resp = workdaysWorkersWithHttpInfo(workdayId, contentType, accept, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -1654,11 +1718,12 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;WorkdayWorker&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<WorkdayWorker>> workdaysWorkersWithHttpInfo(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        com.squareup.okhttp.Call call = workdaysWorkersValidateBeforeCall(workdayId, contentType, accept, limit, skip, sort, null, null);
+    public ApiResponse<List<WorkdayWorker>> workdaysWorkersWithHttpInfo(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = workdaysWorkersValidateBeforeCall(workdayId, contentType, accept, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<WorkdayWorker>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1672,11 +1737,12 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call workdaysWorkersAsync(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, final ApiCallback<List<WorkdayWorker>> callback) throws ApiException {
+    public com.squareup.okhttp.Call workdaysWorkersAsync(String workdayId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, String xOrgId, final ApiCallback<List<WorkdayWorker>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1697,7 +1763,7 @@ public class WorkdayImportApi {
             };
         }
 
-        com.squareup.okhttp.Call call = workdaysWorkersValidateBeforeCall(workdayId, contentType, accept, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = workdaysWorkersValidateBeforeCall(workdayId, contentType, accept, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<WorkdayWorker>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

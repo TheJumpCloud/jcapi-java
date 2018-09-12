@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 <a name="graphPolicyAssociationsList"></a>
 # **graphPolicyAssociationsList**
-> List&lt;GraphConnection&gt; graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip, xOrgId)
 
 List the associations of a Policy
 
@@ -42,10 +42,10 @@ This endpoint returns the _direct_ associations of a Policy.  A direct associati
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Policy.
@@ -54,8 +54,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#graphPolicyAssociationsList");
@@ -73,6 +74,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -89,7 +91,7 @@ Name | Type | Description  | Notes
 
 <a name="graphPolicyAssociationsPost"></a>
 # **graphPolicyAssociationsPost**
-> graphPolicyAssociationsPost(policyId, contentType, accept, body)
+> graphPolicyAssociationsPost(policyId, contentType, accept, body, xOrgId)
 
 Manage the associations of a Policy
 
@@ -107,18 +109,19 @@ This endpoint allows you to manage the _direct_ associations of a Policy.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Policy.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphPolicyAssociationsPost(policyId, contentType, accept, body);
+    apiInstance.graphPolicyAssociationsPost(policyId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#graphPolicyAssociationsPost");
     e.printStackTrace();
@@ -133,6 +136,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -149,7 +153,7 @@ null (empty response body)
 
 <a name="graphPolicyTraverseSystem"></a>
 # **graphPolicyTraverseSystem**
-> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId)
 
 List the Systems bound to a Policy
 
@@ -167,10 +171,10 @@ This endpoint will return all Systems bound to a Policy, either directly or indi
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Command.
@@ -178,8 +182,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#graphPolicyTraverseSystem");
@@ -196,6 +201,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -212,7 +218,7 @@ Name | Type | Description  | Notes
 
 <a name="graphPolicyTraverseSystemGroup"></a>
 # **graphPolicyTraverseSystemGroup**
-> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId)
 
 List the System Groups bound to a Policy
 
@@ -230,10 +236,10 @@ This endpoint will return all Systems Groups bound to a Policy, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Command.
@@ -241,8 +247,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#graphPolicyTraverseSystemGroup");
@@ -259,6 +266,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -275,7 +283,7 @@ Name | Type | Description  | Notes
 
 <a name="policiesDelete"></a>
 # **policiesDelete**
-> policiesDelete(id, contentType, accept)
+> policiesDelete(id, contentType, accept, xOrgId)
 
 Deletes a Policy
 
@@ -293,17 +301,18 @@ This endpoint allows you to delete a policy.  #### Sample Request  &#x60;&#x60;&
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.policiesDelete(id, contentType, accept);
+    apiInstance.policiesDelete(id, contentType, accept, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policiesDelete");
     e.printStackTrace();
@@ -317,6 +326,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy object. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -333,7 +343,7 @@ null (empty response body)
 
 <a name="policiesGet"></a>
 # **policiesGet**
-> PolicyWithDetails policiesGet(id, contentType, accept)
+> PolicyWithDetails policiesGet(id, contentType, accept, xOrgId)
 
 Gets a specific Policy.
 
@@ -351,17 +361,18 @@ This endpoint returns a specific policy.  ###### Sample Request  &#x60;&#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    PolicyWithDetails result = apiInstance.policiesGet(id, contentType, accept);
+    PolicyWithDetails result = apiInstance.policiesGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policiesGet");
@@ -376,6 +387,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy object. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -392,7 +404,7 @@ Name | Type | Description  | Notes
 
 <a name="policiesList"></a>
 # **policiesList**
-> List&lt;Policy&gt; policiesList(contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;Policy&gt; policiesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 Lists all the Policies
 
@@ -410,10 +422,10 @@ This endpoint returns all policies.  ##### Sample Request  &#x60;&#x60;&#x60;  c
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
@@ -423,8 +435,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<Policy> result = apiInstance.policiesList(contentType, accept, fields, filter, limit, skip, sort);
+    List<Policy> result = apiInstance.policiesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policiesList");
@@ -443,6 +456,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -459,7 +473,7 @@ Name | Type | Description  | Notes
 
 <a name="policiesPost"></a>
 # **policiesPost**
-> PolicyWithDetails policiesPost(contentType, accept, body)
+> PolicyWithDetails policiesPost(contentType, accept, body, xOrgId)
 
 Create a new Policy
 
@@ -477,17 +491,18 @@ This endpoint allows you to create a policy. Given the amount of configurable pa
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 PolicyRequest body = new PolicyRequest(); // PolicyRequest | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    PolicyWithDetails result = apiInstance.policiesPost(contentType, accept, body);
+    PolicyWithDetails result = apiInstance.policiesPost(contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policiesPost");
@@ -502,6 +517,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**PolicyRequest**](PolicyRequest.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -518,7 +534,7 @@ Name | Type | Description  | Notes
 
 <a name="policiesPut"></a>
 # **policiesPut**
-> Policy policiesPut(id, body)
+> Policy policiesPut(id, body, xOrgId)
 
 Update an existing Policy
 
@@ -536,16 +552,17 @@ This endpoint allows you to update a policy. Given the amount of configurable pa
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
 PolicyRequest body = new PolicyRequest(); // PolicyRequest | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    Policy result = apiInstance.policiesPut(id, body);
+    Policy result = apiInstance.policiesPut(id, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policiesPut");
@@ -559,6 +576,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ObjectID of the Policy object. |
  **body** | [**PolicyRequest**](PolicyRequest.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -575,7 +593,7 @@ Name | Type | Description  | Notes
 
 <a name="policyresultsGet"></a>
 # **policyresultsGet**
-> PolicyResult policyresultsGet(id, contentType, accept)
+> PolicyResult policyresultsGet(id, contentType, accept, xOrgId)
 
 Get a specific Policy Result.
 
@@ -593,17 +611,18 @@ This endpoint will return the policy results for a specific policy.  ##### Sampl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy Result.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    PolicyResult result = apiInstance.policyresultsGet(id, contentType, accept);
+    PolicyResult result = apiInstance.policyresultsGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policyresultsGet");
@@ -618,6 +637,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy Result. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -634,7 +654,7 @@ Name | Type | Description  | Notes
 
 <a name="policyresultsList"></a>
 # **policyresultsList**
-> List&lt;PolicyResult&gt; policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort)
+> List&lt;PolicyResult&gt; policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId)
 
 Lists all the policy results for an organization.
 
@@ -652,10 +672,10 @@ This endpoint returns all policies results for an Organization.   ##### Sample R
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
@@ -666,8 +686,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort);
+    List<PolicyResult> result = apiInstance.policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policyresultsList");
@@ -687,6 +708,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -703,7 +725,7 @@ Name | Type | Description  | Notes
 
 <a name="policyresultsList_0"></a>
 # **policyresultsList_0**
-> List&lt;PolicyResult&gt; policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate)
+> List&lt;PolicyResult&gt; policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId)
 
 Lists all the policy results of a policy.
 
@@ -721,10 +743,10 @@ This endpoint returns all policies results for a specific policy.   ##### Sample
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | 
@@ -736,8 +758,9 @@ Integer limit = 10; // Integer | The number of records to return at once. Limite
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate);
+    List<PolicyResult> result = apiInstance.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policyresultsList_0");
@@ -758,6 +781,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -774,7 +798,7 @@ Name | Type | Description  | Notes
 
 <a name="policystatusesList"></a>
 # **policystatusesList**
-> List&lt;PolicyResult&gt; policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;PolicyResult&gt; policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 Lists the latest policy results of a policy.
 
@@ -792,10 +816,10 @@ This endpoint returns the latest policies results for a specific policy.   #####
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | 
@@ -806,8 +830,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort);
+    List<PolicyResult> result = apiInstance.policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policystatusesList");
@@ -827,6 +852,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -843,7 +869,7 @@ Name | Type | Description  | Notes
 
 <a name="policystatusesList_0"></a>
 # **policystatusesList_0**
-> List&lt;PolicyResult&gt; policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;PolicyResult&gt; policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 List the policy statuses for a system
 
@@ -861,10 +887,10 @@ This endpoint returns the policy results for a particular system.  ##### Sample 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -875,8 +901,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort);
+    List<PolicyResult> result = apiInstance.policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policystatusesList_0");
@@ -896,6 +923,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -912,7 +940,7 @@ Name | Type | Description  | Notes
 
 <a name="policytemplatesGet"></a>
 # **policytemplatesGet**
-> PolicyTemplateWithDetails policytemplatesGet(id, contentType, accept)
+> PolicyTemplateWithDetails policytemplatesGet(id, contentType, accept, xOrgId)
 
 Get a specific Policy Template
 
@@ -930,17 +958,18 @@ This endpoint returns a specific policy template.  #### Sample Request &#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy Template.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    PolicyTemplateWithDetails result = apiInstance.policytemplatesGet(id, contentType, accept);
+    PolicyTemplateWithDetails result = apiInstance.policytemplatesGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policytemplatesGet");
@@ -955,6 +984,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy Template. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -971,7 +1001,7 @@ Name | Type | Description  | Notes
 
 <a name="policytemplatesList"></a>
 # **policytemplatesList**
-> List&lt;PolicyTemplate&gt; policytemplatesList(contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;PolicyTemplate&gt; policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 Lists all of the Policy Templates
 
@@ -989,10 +1019,10 @@ This endpoint returns all policy templates.  #### Sample Request &#x60;&#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
@@ -1002,8 +1032,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<PolicyTemplate> result = apiInstance.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort);
+    List<PolicyTemplate> result = apiInstance.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policytemplatesList");
@@ -1022,6 +1053,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

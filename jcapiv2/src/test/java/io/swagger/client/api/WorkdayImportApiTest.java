@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -53,7 +53,8 @@ public class WorkdayImportApiTest {
         String contentType = null;
         String accept = null;
         AuthInputObject body = null;
-        api.workdaysAuthorize(workdayId, contentType, accept, body);
+        String xOrgId = null;
+        api.workdaysAuthorize(workdayId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -71,7 +72,8 @@ public class WorkdayImportApiTest {
         String workdayId = null;
         String contentType = null;
         String accept = null;
-        api.workdaysDeauthorize(workdayId, contentType, accept);
+        String xOrgId = null;
+        api.workdaysDeauthorize(workdayId, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -89,7 +91,8 @@ public class WorkdayImportApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        Object response = api.workdaysDelete(id, contentType, accept);
+        String xOrgId = null;
+        Object response = api.workdaysDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -107,7 +110,8 @@ public class WorkdayImportApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        WorkdayOutput response = api.workdaysGet(id, contentType, accept);
+        String xOrgId = null;
+        WorkdayOutput response = api.workdaysGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -126,7 +130,8 @@ public class WorkdayImportApiTest {
         String contentType = null;
         String accept = null;
         List<BulkUserCreate> body = null;
-        JobId response = api.workdaysImport(workdayId, contentType, accept, body);
+        String xOrgId = null;
+        JobId response = api.workdaysImport(workdayId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -147,7 +152,8 @@ public class WorkdayImportApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<JobWorkresult> response = api.workdaysImportresults(id, jobId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<JobWorkresult> response = api.workdaysImportresults(id, jobId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -169,7 +175,8 @@ public class WorkdayImportApiTest {
         Integer skip = null;
         List<String> sort = null;
         List<String> filter = null;
-        List<WorkdayOutput> response = api.workdaysList(contentType, accept, fields, limit, skip, sort, filter);
+        String xOrgId = null;
+        List<WorkdayOutput> response = api.workdaysList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -187,7 +194,8 @@ public class WorkdayImportApiTest {
         String contentType = null;
         String accept = null;
         WorkdayInput body = null;
-        api.workdaysPost(contentType, accept, body);
+        String xOrgId = null;
+        api.workdaysPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -206,7 +214,8 @@ public class WorkdayImportApiTest {
         String contentType = null;
         String accept = null;
         WorkdayFields body = null;
-        WorkdayOutput response = api.workdaysPut(id, contentType, accept, body);
+        String xOrgId = null;
+        WorkdayOutput response = api.workdaysPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -224,7 +233,8 @@ public class WorkdayImportApiTest {
         String contentType = null;
         String accept = null;
         String state = null;
-        api.workdaysSettings(contentType, accept, state);
+        String xOrgId = null;
+        api.workdaysSettings(contentType, accept, state, xOrgId);
 
         // TODO: test validations
     }
@@ -245,7 +255,8 @@ public class WorkdayImportApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<WorkdayWorker> response = api.workdaysWorkers(workdayId, contentType, accept, limit, skip, sort);
+        String xOrgId = null;
+        List<WorkdayWorker> response = api.workdaysWorkers(workdayId, contentType, accept, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }

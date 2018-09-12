@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="workdaysAuthorize"></a>
 # **workdaysAuthorize**
-> workdaysAuthorize(workdayId, contentType, accept, body)
+> workdaysAuthorize(workdayId, contentType, accept, body, xOrgId)
 
 Authorize Workday
 
@@ -37,18 +37,19 @@ This endpoint adds an authorization method to a workday instance.  You must supp
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String workdayId = "workdayId_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 AuthInputObject body = new AuthInputObject(); // AuthInputObject | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.workdaysAuthorize(workdayId, contentType, accept, body);
+    apiInstance.workdaysAuthorize(workdayId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysAuthorize");
     e.printStackTrace();
@@ -63,6 +64,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**AuthInputObject**](AuthInputObject.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -79,7 +81,7 @@ null (empty response body)
 
 <a name="workdaysDeauthorize"></a>
 # **workdaysDeauthorize**
-> workdaysDeauthorize(workdayId, contentType, accept)
+> workdaysDeauthorize(workdayId, contentType, accept, xOrgId)
 
 Deauthorize Workday
 
@@ -97,17 +99,18 @@ Removes any and all authorization methods from the workday instance  ##### Sampl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String workdayId = "workdayId_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.workdaysDeauthorize(workdayId, contentType, accept);
+    apiInstance.workdaysDeauthorize(workdayId, contentType, accept, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysDeauthorize");
     e.printStackTrace();
@@ -121,6 +124,7 @@ Name | Type | Description  | Notes
  **workdayId** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -137,7 +141,7 @@ null (empty response body)
 
 <a name="workdaysDelete"></a>
 # **workdaysDelete**
-> Object workdaysDelete(id, contentType, accept)
+> Object workdaysDelete(id, contentType, accept, xOrgId)
 
 Delete Workday
 
@@ -155,17 +159,18 @@ This endpoint allows you to delete an instance of Workday.   **This functionalit
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    Object result = apiInstance.workdaysDelete(id, contentType, accept);
+    Object result = apiInstance.workdaysDelete(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysDelete");
@@ -180,6 +185,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -196,7 +202,7 @@ Name | Type | Description  | Notes
 
 <a name="workdaysGet"></a>
 # **workdaysGet**
-> WorkdayOutput workdaysGet(id, contentType, accept)
+> WorkdayOutput workdaysGet(id, contentType, accept, xOrgId)
 
 Get Workday
 
@@ -214,17 +220,18 @@ This endpoint will return  all the available information about an instance of Wo
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    WorkdayOutput result = apiInstance.workdaysGet(id, contentType, accept);
+    WorkdayOutput result = apiInstance.workdaysGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysGet");
@@ -239,6 +246,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -255,7 +263,7 @@ Name | Type | Description  | Notes
 
 <a name="workdaysImport"></a>
 # **workdaysImport**
-> JobId workdaysImport(workdayId, contentType, accept, body)
+> JobId workdaysImport(workdayId, contentType, accept, body, xOrgId)
 
 Workday Import
 
@@ -273,18 +281,19 @@ The endpoint allows you to create a Workday Import request.  #### Sample Request
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String workdayId = "workdayId_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 List<BulkUserCreate> body = Arrays.asList(new BulkUserCreate()); // List<BulkUserCreate> | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    JobId result = apiInstance.workdaysImport(workdayId, contentType, accept, body);
+    JobId result = apiInstance.workdaysImport(workdayId, contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysImport");
@@ -300,6 +309,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**List&lt;BulkUserCreate&gt;**](BulkUserCreate.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -316,7 +326,7 @@ Name | Type | Description  | Notes
 
 <a name="workdaysImportresults"></a>
 # **workdaysImportresults**
-> List&lt;JobWorkresult&gt; workdaysImportresults(id, jobId, contentType, accept, limit, skip)
+> List&lt;JobWorkresult&gt; workdaysImportresults(id, jobId, contentType, accept, limit, skip, xOrgId)
 
 List Import Results
 
@@ -334,10 +344,10 @@ This endpoint provides a list of job results from the workday import and will co
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String id = "id_example"; // String | 
@@ -346,8 +356,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<JobWorkresult> result = apiInstance.workdaysImportresults(id, jobId, contentType, accept, limit, skip);
+    List<JobWorkresult> result = apiInstance.workdaysImportresults(id, jobId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysImportresults");
@@ -365,6 +376,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -381,7 +393,7 @@ Name | Type | Description  | Notes
 
 <a name="workdaysList"></a>
 # **workdaysList**
-> List&lt;WorkdayOutput&gt; workdaysList(contentType, accept, fields, limit, skip, sort, filter)
+> List&lt;WorkdayOutput&gt; workdaysList(contentType, accept, fields, limit, skip, sort, filter, xOrgId)
 
 List Workdays
 
@@ -399,10 +411,10 @@ This endpoint will return  all the available information about all your instance
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String contentType = "application/json"; // String | 
@@ -412,8 +424,9 @@ Integer limit = 10; // Integer | The number of records to return at once. Limite
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<WorkdayOutput> result = apiInstance.workdaysList(contentType, accept, fields, limit, skip, sort, filter);
+    List<WorkdayOutput> result = apiInstance.workdaysList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysList");
@@ -432,6 +445,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -448,7 +462,7 @@ Name | Type | Description  | Notes
 
 <a name="workdaysPost"></a>
 # **workdaysPost**
-> workdaysPost(contentType, accept, body)
+> workdaysPost(contentType, accept, body, xOrgId)
 
 Create new Workday
 
@@ -466,17 +480,18 @@ This endpoint allows you to create a new workday instance.  You must supply a us
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 WorkdayInput body = new WorkdayInput(); // WorkdayInput | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.workdaysPost(contentType, accept, body);
+    apiInstance.workdaysPost(contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysPost");
     e.printStackTrace();
@@ -490,6 +505,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**WorkdayInput**](WorkdayInput.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -506,7 +522,7 @@ null (empty response body)
 
 <a name="workdaysPut"></a>
 # **workdaysPut**
-> WorkdayOutput workdaysPut(id, contentType, accept, body)
+> WorkdayOutput workdaysPut(id, contentType, accept, body, xOrgId)
 
 Update Workday
 
@@ -524,18 +540,19 @@ This endpoint allows you to update the name and Custom Report URL for a Workday 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 WorkdayFields body = new WorkdayFields(); // WorkdayFields | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    WorkdayOutput result = apiInstance.workdaysPut(id, contentType, accept, body);
+    WorkdayOutput result = apiInstance.workdaysPut(id, contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysPut");
@@ -551,6 +568,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**WorkdayFields**](WorkdayFields.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -567,7 +585,7 @@ Name | Type | Description  | Notes
 
 <a name="workdaysSettings"></a>
 # **workdaysSettings**
-> workdaysSettings(contentType, accept, state)
+> workdaysSettings(contentType, accept, state, xOrgId)
 
 Get Workday Settings (incomplete)
 
@@ -585,17 +603,18 @@ This endpoint allows you to obtain all settings needed for creating a workday in
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 String state = "state_example"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.workdaysSettings(contentType, accept, state);
+    apiInstance.workdaysSettings(contentType, accept, state, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysSettings");
     e.printStackTrace();
@@ -609,6 +628,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **state** | **String**|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -625,7 +645,7 @@ null (empty response body)
 
 <a name="workdaysWorkers"></a>
 # **workdaysWorkers**
-> List&lt;WorkdayWorker&gt; workdaysWorkers(workdayId, contentType, accept, limit, skip, sort)
+> List&lt;WorkdayWorker&gt; workdaysWorkers(workdayId, contentType, accept, limit, skip, sort, xOrgId)
 
 List Workday Workers
 
@@ -643,10 +663,10 @@ This endpoint will return all of the data in your WorkDay Custom Report that has
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 WorkdayImportApi apiInstance = new WorkdayImportApi();
 String workdayId = "workdayId_example"; // String | 
@@ -655,8 +675,9 @@ String accept = "application/json"; // String |
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<WorkdayWorker> result = apiInstance.workdaysWorkers(workdayId, contentType, accept, limit, skip, sort);
+    List<WorkdayWorker> result = apiInstance.workdaysWorkers(workdayId, contentType, accept, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling WorkdayImportApi#workdaysWorkers");
@@ -674,6 +695,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

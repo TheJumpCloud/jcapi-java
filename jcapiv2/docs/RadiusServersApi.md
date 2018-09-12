@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="graphRadiusServerAssociationsList"></a>
 # **graphRadiusServerAssociationsList**
-> List&lt;GraphConnection&gt; graphRadiusServerAssociationsList(radiusserverId, targets, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphRadiusServerAssociationsList(radiusserverId, targets, contentType, accept, limit, skip, xOrgId)
 
 List the associations of a RADIUS  Server
 
@@ -30,10 +30,10 @@ This endpoint returns the _direct_ associations of a Radius Server.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
@@ -42,8 +42,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphRadiusServerAssociationsList(radiusserverId, targets, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphRadiusServerAssociationsList(radiusserverId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#graphRadiusServerAssociationsList");
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="graphRadiusServerAssociationsPost"></a>
 # **graphRadiusServerAssociationsPost**
-> graphRadiusServerAssociationsPost(radiusserverId, contentType, accept, body)
+> graphRadiusServerAssociationsPost(radiusserverId, contentType, accept, body, xOrgId)
 
 Manage the associations of a RADIUS Server
 
@@ -95,18 +97,19 @@ This endpoint allows you to manage the _direct_ associations of a Radius Server.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphRadiusServerAssociationsPost(radiusserverId, contentType, accept, body);
+    apiInstance.graphRadiusServerAssociationsPost(radiusserverId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#graphRadiusServerAssociationsPost");
     e.printStackTrace();
@@ -121,6 +124,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -137,7 +141,7 @@ null (empty response body)
 
 <a name="graphRadiusServerTraverseUser"></a>
 # **graphRadiusServerTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphRadiusServerTraverseUser(radiusserverId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphRadiusServerTraverseUser(radiusserverId, contentType, accept, limit, skip, xOrgId)
 
 List the Users bound to a RADIUS  Server
 
@@ -155,10 +159,10 @@ This endpoint will return all Users bound to a RADIUS Server, either directly or
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
@@ -166,8 +170,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphRadiusServerTraverseUser(radiusserverId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphRadiusServerTraverseUser(radiusserverId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#graphRadiusServerTraverseUser");
@@ -184,6 +189,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -200,7 +206,7 @@ Name | Type | Description  | Notes
 
 <a name="graphRadiusServerTraverseUserGroup"></a>
 # **graphRadiusServerTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphRadiusServerTraverseUserGroup(radiusserverId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphRadiusServerTraverseUserGroup(radiusserverId, contentType, accept, limit, skip, xOrgId)
 
 List the User Groups bound to a RADIUS  Server
 
@@ -218,10 +224,10 @@ This endpoint will return all Users Groups bound to a RADIUS Server, either dire
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
@@ -229,8 +235,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphRadiusServerTraverseUserGroup(radiusserverId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphRadiusServerTraverseUserGroup(radiusserverId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#graphRadiusServerTraverseUserGroup");
@@ -247,6 +254,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

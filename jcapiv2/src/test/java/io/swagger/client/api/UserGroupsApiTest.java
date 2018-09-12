@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -55,7 +55,8 @@ public class UserGroupsApiTest {
         List<String> targets = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphUserGroupAssociationsList(groupId, contentType, accept, targets, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphUserGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -74,7 +75,8 @@ public class UserGroupsApiTest {
         String contentType = null;
         String accept = null;
         UserGroupGraphManagementReq body = null;
-        api.graphUserGroupAssociationsPost(groupId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphUserGroupAssociationsPost(groupId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -96,7 +98,8 @@ public class UserGroupsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -116,7 +119,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphUserGroupMembersList(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphUserGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -135,7 +139,8 @@ public class UserGroupsApiTest {
         String contentType = null;
         String accept = null;
         UserGroupMembersReq body = null;
-        api.graphUserGroupMembersPost(groupId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphUserGroupMembersPost(groupId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -157,7 +162,8 @@ public class UserGroupsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupMembership(groupId, contentType, accept, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupMembership(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -177,7 +183,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseActiveDirectory(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseActiveDirectory(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -197,7 +204,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseApplication(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseApplication(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -217,7 +225,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseDirectory(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseDirectory(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -237,7 +246,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseGSuite(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseGSuite(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -257,7 +267,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseLdapServer(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseLdapServer(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -277,7 +288,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseOffice365(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseOffice365(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -297,7 +309,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseRadiusServer(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseRadiusServer(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -317,7 +330,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseSystem(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseSystem(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -337,7 +351,8 @@ public class UserGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseSystemGroup(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserGroupTraverseSystemGroup(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -355,7 +370,8 @@ public class UserGroupsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        api.groupsUserDelete(id, contentType, accept);
+        String xOrgId = null;
+        api.groupsUserDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -373,7 +389,8 @@ public class UserGroupsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        UserGroup response = api.groupsUserGet(id, contentType, accept);
+        String xOrgId = null;
+        UserGroup response = api.groupsUserGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -395,7 +412,8 @@ public class UserGroupsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<UserGroup> response = api.groupsUserList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<UserGroup> response = api.groupsUserList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -414,7 +432,8 @@ public class UserGroupsApiTest {
         String contentType = null;
         String accept = null;
         UserGroupPost body = null;
-        UserGroup response = api.groupsUserPatch(id, contentType, accept, body);
+        String xOrgId = null;
+        UserGroup response = api.groupsUserPatch(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -432,7 +451,8 @@ public class UserGroupsApiTest {
         String contentType = null;
         String accept = null;
         UserGroupPost body = null;
-        UserGroup response = api.groupsUserPost(contentType, accept, body);
+        String xOrgId = null;
+        UserGroup response = api.groupsUserPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -451,7 +471,8 @@ public class UserGroupsApiTest {
         String contentType = null;
         String accept = null;
         UserGroupPut body = null;
-        UserGroup response = api.groupsUserPut(id, contentType, accept, body);
+        String xOrgId = null;
+        UserGroup response = api.groupsUserPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

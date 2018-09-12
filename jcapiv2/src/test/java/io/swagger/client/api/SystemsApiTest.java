@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -16,6 +16,8 @@ package io.swagger.client.api;
 import io.swagger.client.ApiException;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphObjectWithPaths;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.SystemGraphManagementReq;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -52,7 +54,8 @@ public class SystemsApiTest {
         Integer skip = null;
         String date = null;
         String authorization = null;
-        List<GraphConnection> response = api.graphSystemAssociationsList(systemId, contentType, accept, targets, limit, skip, date, authorization);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphSystemAssociationsList(systemId, contentType, accept, targets, limit, skip, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -73,7 +76,8 @@ public class SystemsApiTest {
         SystemGraphManagementReq body = null;
         String date = null;
         String authorization = null;
-        api.graphSystemAssociationsPost(systemId, contentType, accept, body, date, authorization);
+        String xOrgId = null;
+        api.graphSystemAssociationsPost(systemId, contentType, accept, body, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -97,7 +101,8 @@ public class SystemsApiTest {
         String date = null;
         String authorization = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphSystemMemberOf(systemId, contentType, accept, filter, limit, skip, date, authorization, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemMemberOf(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -117,7 +122,8 @@ public class SystemsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseCommand(systemId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseCommand(systemId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -137,7 +143,8 @@ public class SystemsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraversePolicy(systemId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraversePolicy(systemId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -159,7 +166,8 @@ public class SystemsApiTest {
         Integer skip = null;
         String date = null;
         String authorization = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseUser(systemId, contentType, accept, limit, skip, date, authorization);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseUser(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -181,7 +189,24 @@ public class SystemsApiTest {
         Integer skip = null;
         String date = null;
         String authorization = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, skip, date, authorization);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get System FDE Key
+     *
+     * Public is OFF on purpose, this is not intended to be published  Retrieve the current (latest) fde key saved for this system.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systemsGetFDEKeyTest() throws ApiException {
+        String systemId = null;
+        InlineResponse200 response = api.systemsGetFDEKey(systemId);
 
         // TODO: test validations
     }

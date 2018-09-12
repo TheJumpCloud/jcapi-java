@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="graphSystemGroupAssociationsList"></a>
 # **graphSystemGroupAssociationsList**
-> List&lt;GraphConnection&gt; graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip)
+> List&lt;GraphConnection&gt; graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId)
 
 List the associations of a System Group
 
@@ -32,10 +32,10 @@ This endpoint returns the _direct_ associations of a System Group.  A direct ass
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupAssociationsApi apiInstance = new SystemGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -44,8 +44,9 @@ String accept = "application/json"; // String |
 List<String> targets = Arrays.asList("targets_example"); // List<String> | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip);
+    List<GraphConnection> result = apiInstance.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupAssociationsApi#graphSystemGroupAssociationsList");
@@ -63,6 +64,7 @@ Name | Type | Description  | Notes
  **targets** | [**List&lt;String&gt;**](String.md)|  | [enum: active_directory, application, command, g_suite, ldap_server, office_365, policy, radius_server, user, user_group]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -79,7 +81,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupAssociationsPost"></a>
 # **graphSystemGroupAssociationsPost**
-> graphSystemGroupAssociationsPost(groupId, contentType, accept, body)
+> graphSystemGroupAssociationsPost(groupId, contentType, accept, body, xOrgId)
 
 Manage the associations of a System Group
 
@@ -97,18 +99,19 @@ This endpoint allows you to manage the _direct_ associations of a System Group. 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupAssociationsApi apiInstance = new SystemGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 SystemGroupGraphManagementReq body = new SystemGroupGraphManagementReq(); // SystemGroupGraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphSystemGroupAssociationsPost(groupId, contentType, accept, body);
+    apiInstance.graphSystemGroupAssociationsPost(groupId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupAssociationsApi#graphSystemGroupAssociationsPost");
     e.printStackTrace();
@@ -123,6 +126,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupGraphManagementReq**](SystemGroupGraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -139,7 +143,7 @@ null (empty response body)
 
 <a name="graphSystemGroupTraverseCommand"></a>
 # **graphSystemGroupTraverseCommand**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseCommand(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseCommand(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Commands bound to a System Group
 
@@ -157,10 +161,10 @@ This endpoint will return all Commands bound to a System Group, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupAssociationsApi apiInstance = new SystemGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -168,8 +172,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseCommand(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseCommand(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupAssociationsApi#graphSystemGroupTraverseCommand");
@@ -186,6 +191,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -202,7 +208,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraversePolicy"></a>
 # **graphSystemGroupTraversePolicy**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Policies bound to a System Group
 
@@ -220,10 +226,10 @@ This endpoint will return all Policies bound to a System Group, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupAssociationsApi apiInstance = new SystemGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -231,8 +237,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupAssociationsApi#graphSystemGroupTraversePolicy");
@@ -249,6 +256,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -265,7 +273,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraverseUser"></a>
 # **graphSystemGroupTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Users bound to a System Group
 
@@ -283,10 +291,10 @@ This endpoint will return all Users bound to a System Group, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupAssociationsApi apiInstance = new SystemGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -294,8 +302,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupAssociationsApi#graphSystemGroupTraverseUser");
@@ -312,6 +321,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -328,7 +338,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraverseUserGroup"></a>
 # **graphSystemGroupTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the User Groups bound to a System Group
 
@@ -346,10 +356,10 @@ This endpoint will return all User Groups bound to a System Group, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupAssociationsApi apiInstance = new SystemGroupAssociationsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -357,8 +367,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupAssociationsApi#graphSystemGroupTraverseUserGroup");
@@ -375,6 +386,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

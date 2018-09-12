@@ -72,17 +72,18 @@ public class ActiveDirectoryApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x-api-key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x_api_key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x-api-key.setApiKeyPrefix("Token");
+        //x_api_key.setApiKeyPrefix("Token");
 
         ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
         String id = "id_example"; // String | ObjectID of this Active Directory instance.
         String contentType = "application/json"; // String | 
         String accept = "application/json"; // String | 
+        String xOrgId = "<<your org id>>"; // String | 
         try {
-            apiInstance.activedirectoriesDelete(id, contentType, accept);
+            apiInstance.activedirectoriesDelete(id, contentType, accept, xOrgId);
         } catch (ApiException e) {
             System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesDelete");
             e.printStackTrace();
@@ -118,6 +119,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**graphCommandTraverseSystem**](docs/CommandsApi.md#graphCommandTraverseSystem) | **GET** /commands/{command_id}/systems | List the Systems bound to a Command
 *CommandsApi* | [**graphCommandTraverseSystemGroup**](docs/CommandsApi.md#graphCommandTraverseSystemGroup) | **GET** /commands/{command_id}/systemgroups | List the System Groups bound to a Command
 *DirectoriesApi* | [**directoriesList**](docs/DirectoriesApi.md#directoriesList) | **GET** /directories | List All Directories
+*FdeApi* | [**systemsGetFDEKey**](docs/FdeApi.md#systemsGetFDEKey) | **GET** /systems/{system_id}/fdekey | Get System FDE Key
 *GSuiteApi* | [**graphGSuiteAssociationsList**](docs/GSuiteApi.md#graphGSuiteAssociationsList) | **GET** /gsuites/{gsuite_id}/associations | List the associations of a G Suite instance
 *GSuiteApi* | [**graphGSuiteAssociationsPost**](docs/GSuiteApi.md#graphGSuiteAssociationsPost) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
 *GSuiteApi* | [**graphGSuiteTraverseUser**](docs/GSuiteApi.md#graphGSuiteTraverseUser) | **GET** /gsuites/{gsuite_id}/users | List the Users bound to a G Suite instance
@@ -267,6 +269,7 @@ Class | Method | HTTP request | Description
 *SystemsApi* | [**graphSystemTraversePolicy**](docs/SystemsApi.md#graphSystemTraversePolicy) | **GET** /systems/{system_id}/policies | List the Policies bound to a System
 *SystemsApi* | [**graphSystemTraverseUser**](docs/SystemsApi.md#graphSystemTraverseUser) | **GET** /systems/{system_id}/users | List the Users bound to a System
 *SystemsApi* | [**graphSystemTraverseUserGroup**](docs/SystemsApi.md#graphSystemTraverseUserGroup) | **GET** /systems/{system_id}/usergroups | List the User Groups bound to a System
+*SystemsApi* | [**systemsGetFDEKey**](docs/SystemsApi.md#systemsGetFDEKey) | **GET** /systems/{system_id}/fdekey | Get System FDE Key
 *UserGroupAssociationsApi* | [**graphUserGroupAssociationsList**](docs/UserGroupAssociationsApi.md#graphUserGroupAssociationsList) | **GET** /usergroups/{group_id}/associations | List the associations of a User Group.
 *UserGroupAssociationsApi* | [**graphUserGroupAssociationsPost**](docs/UserGroupAssociationsApi.md#graphUserGroupAssociationsPost) | **POST** /usergroups/{group_id}/associations | Manage the associations of a User Group
 *UserGroupAssociationsApi* | [**graphUserGroupTraverseActiveDirectory**](docs/UserGroupAssociationsApi.md#graphUserGroupTraverseActiveDirectory) | **GET** /usergroups/{group_id}/activedirectories | List the Active Directories bound to a User Group
@@ -345,7 +348,9 @@ Class | Method | HTTP request | Description
  - [GraphType](docs/GraphType.md)
  - [Group](docs/Group.md)
  - [GroupType](docs/GroupType.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse204](docs/InlineResponse204.md)
+ - [InlineResponse400](docs/InlineResponse400.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)

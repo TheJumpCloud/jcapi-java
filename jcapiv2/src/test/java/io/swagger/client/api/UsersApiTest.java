@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -50,7 +50,8 @@ public class UsersApiTest {
         List<String> targets = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphUserAssociationsList(userId, contentType, accept, targets, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphUserAssociationsList(userId, contentType, accept, targets, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -69,7 +70,8 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         UserGraphManagementReq body = null;
-        api.graphUserAssociationsPost(userId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphUserAssociationsPost(userId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -91,7 +93,8 @@ public class UsersApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -111,7 +114,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseApplication(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseApplication(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -131,7 +135,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseDirectory(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseDirectory(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -151,7 +156,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseGSuite(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseGSuite(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -171,7 +177,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseLdapServer(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseLdapServer(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -191,7 +198,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseOffice365(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseOffice365(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -211,7 +219,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseRadiusServer(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseRadiusServer(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -231,7 +240,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseSystem(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseSystem(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -251,7 +261,8 @@ public class UsersApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -47,7 +47,8 @@ public class PolicytemplatesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        PolicyTemplateWithDetails response = api.policytemplatesGet(id, contentType, accept);
+        String xOrgId = null;
+        PolicyTemplateWithDetails response = api.policytemplatesGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -69,7 +70,8 @@ public class PolicytemplatesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyTemplate> response = api.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyTemplate> response = api.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="graphSystemGroupMemberOf"></a>
 # **graphSystemGroupMemberOf**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId)
 
 List the System Group&#39;s parents
 
@@ -30,10 +30,10 @@ This endpoint returns all System Groups a System Group is a member of.  This end
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupMembersMembershipApi apiInstance = new SystemGroupMembersMembershipApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -43,8 +43,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupMembersMembershipApi#graphSystemGroupMemberOf");
@@ -63,6 +64,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -79,7 +81,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupMembersList"></a>
 # **graphSystemGroupMembersList**
-> List&lt;GraphConnection&gt; graphSystemGroupMembersList(groupId, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphSystemGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the members of a System Group
 
@@ -97,10 +99,10 @@ This endpoint returns the system members of a System Group.  #### Sample Request
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupMembersMembershipApi apiInstance = new SystemGroupMembersMembershipApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -108,8 +110,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupMembersMembershipApi#graphSystemGroupMembersList");
@@ -126,6 +129,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -142,7 +146,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupMembersPost"></a>
 # **graphSystemGroupMembersPost**
-> graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization)
+> graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization, xOrgId)
 
 Manage the members of a System Group
 
@@ -160,10 +164,10 @@ This endpoint allows you to manage the system members of a System Group.  #### S
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupMembersMembershipApi apiInstance = new SystemGroupMembersMembershipApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -172,8 +176,9 @@ String accept = "application/json"; // String |
 SystemGroupMembersReq body = new SystemGroupMembersReq(); // SystemGroupMembersReq | 
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization);
+    apiInstance.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupMembersMembershipApi#graphSystemGroupMembersPost");
     e.printStackTrace();
@@ -190,6 +195,7 @@ Name | Type | Description  | Notes
  **body** | [**SystemGroupMembersReq**](SystemGroupMembersReq.md)|  | [optional]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -206,7 +212,7 @@ null (empty response body)
 
 <a name="graphSystemGroupMembership"></a>
 # **graphSystemGroupMembership**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId)
 
 List the System Group&#39;s membership
 
@@ -224,10 +230,10 @@ This endpoint returns all Systems that are a member of this System Group.  #### 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupMembersMembershipApi apiInstance = new SystemGroupMembersMembershipApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -237,8 +243,9 @@ Integer limit = 10; // Integer | The number of records to return at once. Limite
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupMembersMembershipApi#graphSystemGroupMembership");
@@ -257,6 +264,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

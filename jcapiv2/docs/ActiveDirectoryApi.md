@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="activedirectoriesDelete"></a>
 # **activedirectoriesDelete**
-> activedirectoriesDelete(id, contentType, accept)
+> activedirectoriesDelete(id, contentType, accept, xOrgId)
 
 Delete an Active Directory
 
@@ -33,17 +33,18 @@ This endpoint allows you to delete an Active Directory Instance.  #### Sample Re
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String id = "id_example"; // String | ObjectID of this Active Directory instance.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.activedirectoriesDelete(id, contentType, accept);
+    apiInstance.activedirectoriesDelete(id, contentType, accept, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesDelete");
     e.printStackTrace();
@@ -57,6 +58,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of this Active Directory instance. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -73,7 +75,7 @@ null (empty response body)
 
 <a name="activedirectoriesGet"></a>
 # **activedirectoriesGet**
-> ActiveDirectoryOutput activedirectoriesGet(id, contentType, accept)
+> ActiveDirectoryOutput activedirectoriesGet(id, contentType, accept, xOrgId)
 
 Get an Active Directory
 
@@ -91,17 +93,18 @@ This endpoint returns a specific Active Directory.  #### Sample Request  &#x60;&
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String id = "id_example"; // String | ObjectID of this Active Directory instance.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    ActiveDirectoryOutput result = apiInstance.activedirectoriesGet(id, contentType, accept);
+    ActiveDirectoryOutput result = apiInstance.activedirectoriesGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesGet");
@@ -116,6 +119,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of this Active Directory instance. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -132,7 +136,7 @@ Name | Type | Description  | Notes
 
 <a name="activedirectoriesList"></a>
 # **activedirectoriesList**
-> List&lt;ActiveDirectoryOutput&gt; activedirectoriesList(contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;ActiveDirectoryOutput&gt; activedirectoriesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 List Active Directories
 
@@ -150,10 +154,10 @@ This endpoint allows you to list all your Active Directory Instances.  #### Samp
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String contentType = "application/json"; // String | 
@@ -163,8 +167,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<ActiveDirectoryOutput> result = apiInstance.activedirectoriesList(contentType, accept, fields, filter, limit, skip, sort);
+    List<ActiveDirectoryOutput> result = apiInstance.activedirectoriesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesList");
@@ -183,6 +188,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -199,7 +205,7 @@ Name | Type | Description  | Notes
 
 <a name="activedirectoriesPost"></a>
 # **activedirectoriesPost**
-> ActiveDirectoryOutput activedirectoriesPost(contentType, accept, body)
+> ActiveDirectoryOutput activedirectoriesPost(contentType, accept, body, xOrgId)
 
 Create a new Active Directory
 
@@ -217,17 +223,18 @@ This endpoint allows you to create a new Active Directory.   #### Sample Request
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 ActiveDirectoryInput body = new ActiveDirectoryInput(); // ActiveDirectoryInput | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    ActiveDirectoryOutput result = apiInstance.activedirectoriesPost(contentType, accept, body);
+    ActiveDirectoryOutput result = apiInstance.activedirectoriesPost(contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesPost");
@@ -242,6 +249,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**ActiveDirectoryInput**](ActiveDirectoryInput.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -258,7 +266,7 @@ Name | Type | Description  | Notes
 
 <a name="graphActiveDirectoryAssociationsList"></a>
 # **graphActiveDirectoryAssociationsList**
-> List&lt;GraphConnection&gt; graphActiveDirectoryAssociationsList(activedirectoryId, targets, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphActiveDirectoryAssociationsList(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId)
 
 List the associations of an Active Directory instance
 
@@ -276,10 +284,10 @@ This endpoint returns the direct associations of this Active Directory instance.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String activedirectoryId = "activedirectoryId_example"; // String | 
@@ -288,8 +296,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphActiveDirectoryAssociationsList(activedirectoryId, targets, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphActiveDirectoryAssociationsList(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActiveDirectoryApi#graphActiveDirectoryAssociationsList");
@@ -307,6 +316,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -323,7 +333,7 @@ Name | Type | Description  | Notes
 
 <a name="graphActiveDirectoryAssociationsPost"></a>
 # **graphActiveDirectoryAssociationsPost**
-> graphActiveDirectoryAssociationsPost(activedirectoryId, contentType, accept, body)
+> graphActiveDirectoryAssociationsPost(activedirectoryId, contentType, accept, body, xOrgId)
 
 Manage the associations of an Active Directory instance
 
@@ -341,18 +351,19 @@ This endpoint allows you to manage the _direct_ associations of an Active Direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String activedirectoryId = "activedirectoryId_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    apiInstance.graphActiveDirectoryAssociationsPost(activedirectoryId, contentType, accept, body);
+    apiInstance.graphActiveDirectoryAssociationsPost(activedirectoryId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActiveDirectoryApi#graphActiveDirectoryAssociationsPost");
     e.printStackTrace();
@@ -367,6 +378,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -383,7 +395,7 @@ null (empty response body)
 
 <a name="graphActiveDirectoryTraverseUserGroup"></a>
 # **graphActiveDirectoryTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphActiveDirectoryTraverseUserGroup(activedirectoryId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphActiveDirectoryTraverseUserGroup(activedirectoryId, contentType, accept, limit, skip, xOrgId)
 
 List the User Groups bound to an Active Directory instance
 
@@ -401,10 +413,10 @@ This endpoint will return all Users Groups bound to an Active Directory instance
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String activedirectoryId = "activedirectoryId_example"; // String | ObjectID of the Active Directory instance.
@@ -412,8 +424,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = "<<your org id>>"; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphActiveDirectoryTraverseUserGroup(activedirectoryId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphActiveDirectoryTraverseUserGroup(activedirectoryId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ActiveDirectoryApi#graphActiveDirectoryTraverseUserGroup");
@@ -430,6 +443,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

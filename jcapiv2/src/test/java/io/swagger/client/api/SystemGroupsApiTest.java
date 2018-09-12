@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -54,7 +54,8 @@ public class SystemGroupsApiTest {
         List<String> targets = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -73,7 +74,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupGraphManagementReq body = null;
-        api.graphSystemGroupAssociationsPost(groupId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphSystemGroupAssociationsPost(groupId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -95,7 +97,8 @@ public class SystemGroupsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -115,7 +118,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -136,7 +140,8 @@ public class SystemGroupsApiTest {
         SystemGroupMembersReq body = null;
         String date = null;
         String authorization = null;
-        api.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization);
+        String xOrgId = null;
+        api.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -158,7 +163,8 @@ public class SystemGroupsApiTest {
         Integer skip = null;
         List<String> sort = null;
         List<String> filter = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -178,7 +184,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -198,7 +205,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -218,7 +226,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -236,7 +245,8 @@ public class SystemGroupsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        api.groupsSystemDelete(id, contentType, accept);
+        String xOrgId = null;
+        api.groupsSystemDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -254,7 +264,8 @@ public class SystemGroupsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        SystemGroup response = api.groupsSystemGet(id, contentType, accept);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -276,7 +287,8 @@ public class SystemGroupsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<SystemGroup> response = api.groupsSystemList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<SystemGroup> response = api.groupsSystemList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -295,7 +307,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupData body = null;
-        SystemGroup response = api.groupsSystemPatch(id, contentType, accept, body);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemPatch(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -313,7 +326,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupData body = null;
-        SystemGroup response = api.groupsSystemPost(contentType, accept, body);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -332,7 +346,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupData body = null;
-        SystemGroup response = api.groupsSystemPut(id, contentType, accept, body);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -65,12 +65,13 @@ public class SystemGroupMembersMembershipApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMemberOfCall(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMemberOfCall(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -93,6 +94,8 @@ public class SystemGroupMembersMembershipApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -125,7 +128,7 @@ public class SystemGroupMembersMembershipApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemGroupMemberOfValidateBeforeCall(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemGroupMemberOfValidateBeforeCall(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -143,7 +146,7 @@ public class SystemGroupMembersMembershipApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemGroupMemberOfCall(groupId, contentType, accept, filter, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMemberOfCall(groupId, contentType, accept, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -158,11 +161,12 @@ public class SystemGroupMembersMembershipApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphSystemGroupMemberOf(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemGroupMemberOfWithHttpInfo(groupId, contentType, accept, filter, limit, skip, sort);
+    public List<GraphObjectWithPaths> graphSystemGroupMemberOf(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemGroupMemberOfWithHttpInfo(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -176,11 +180,12 @@ public class SystemGroupMembersMembershipApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphSystemGroupMemberOfWithHttpInfo(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemGroupMemberOfValidateBeforeCall(groupId, contentType, accept, filter, limit, skip, sort, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphSystemGroupMemberOfWithHttpInfo(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemGroupMemberOfValidateBeforeCall(groupId, contentType, accept, filter, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -195,11 +200,12 @@ public class SystemGroupMembersMembershipApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMemberOfAsync(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMemberOfAsync(String groupId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -220,7 +226,7 @@ public class SystemGroupMembersMembershipApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemGroupMemberOfValidateBeforeCall(groupId, contentType, accept, filter, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMemberOfValidateBeforeCall(groupId, contentType, accept, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -232,12 +238,13 @@ public class SystemGroupMembersMembershipApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMembersListCall(String groupId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMembersListCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -256,6 +263,8 @@ public class SystemGroupMembersMembershipApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -288,7 +297,7 @@ public class SystemGroupMembersMembershipApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemGroupMembersListValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemGroupMembersListValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -306,7 +315,7 @@ public class SystemGroupMembersMembershipApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemGroupMembersListCall(groupId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMembersListCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -319,11 +328,12 @@ public class SystemGroupMembersMembershipApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;GraphConnection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphConnection> graphSystemGroupMembersList(String groupId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphConnection>> resp = graphSystemGroupMembersListWithHttpInfo(groupId, contentType, accept, limit, skip);
+    public List<GraphConnection> graphSystemGroupMembersList(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphConnection>> resp = graphSystemGroupMembersListWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -335,11 +345,12 @@ public class SystemGroupMembersMembershipApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;GraphConnection&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphConnection>> graphSystemGroupMembersListWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemGroupMembersListValidateBeforeCall(groupId, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphConnection>> graphSystemGroupMembersListWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemGroupMembersListValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -352,11 +363,12 @@ public class SystemGroupMembersMembershipApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMembersListAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMembersListAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -377,7 +389,7 @@ public class SystemGroupMembersMembershipApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemGroupMembersListValidateBeforeCall(groupId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMembersListValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -390,12 +402,13 @@ public class SystemGroupMembersMembershipApi {
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMembersPostCall(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMembersPostCall(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -414,6 +427,8 @@ public class SystemGroupMembersMembershipApi {
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
         localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -446,7 +461,7 @@ public class SystemGroupMembersMembershipApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemGroupMembersPostValidateBeforeCall(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemGroupMembersPostValidateBeforeCall(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -464,7 +479,7 @@ public class SystemGroupMembersMembershipApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemGroupMembersPostCall(groupId, contentType, accept, body, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMembersPostCall(groupId, contentType, accept, body, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -478,10 +493,11 @@ public class SystemGroupMembersMembershipApi {
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void graphSystemGroupMembersPost(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization) throws ApiException {
-        graphSystemGroupMembersPostWithHttpInfo(groupId, contentType, accept, body, date, authorization);
+    public void graphSystemGroupMembersPost(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, String xOrgId) throws ApiException {
+        graphSystemGroupMembersPostWithHttpInfo(groupId, contentType, accept, body, date, authorization, xOrgId);
     }
 
     /**
@@ -493,11 +509,12 @@ public class SystemGroupMembersMembershipApi {
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> graphSystemGroupMembersPostWithHttpInfo(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemGroupMembersPostValidateBeforeCall(groupId, contentType, accept, body, date, authorization, null, null);
+    public ApiResponse<Void> graphSystemGroupMembersPostWithHttpInfo(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemGroupMembersPostValidateBeforeCall(groupId, contentType, accept, body, date, authorization, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -510,11 +527,12 @@ public class SystemGroupMembersMembershipApi {
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMembersPostAsync(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMembersPostAsync(String groupId, String contentType, String accept, SystemGroupMembersReq body, String date, String authorization, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -535,7 +553,7 @@ public class SystemGroupMembersMembershipApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemGroupMembersPostValidateBeforeCall(groupId, contentType, accept, body, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMembersPostValidateBeforeCall(groupId, contentType, accept, body, date, authorization, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -548,12 +566,13 @@ public class SystemGroupMembersMembershipApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMembershipCall(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMembershipCall(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -576,6 +595,8 @@ public class SystemGroupMembersMembershipApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -608,7 +629,7 @@ public class SystemGroupMembersMembershipApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemGroupMembershipValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemGroupMembershipValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -626,7 +647,7 @@ public class SystemGroupMembersMembershipApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemGroupMembershipCall(groupId, contentType, accept, limit, skip, sort, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMembershipCall(groupId, contentType, accept, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -641,11 +662,12 @@ public class SystemGroupMembersMembershipApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphSystemGroupMembership(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemGroupMembershipWithHttpInfo(groupId, contentType, accept, limit, skip, sort, filter);
+    public List<GraphObjectWithPaths> graphSystemGroupMembership(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemGroupMembershipWithHttpInfo(groupId, contentType, accept, limit, skip, sort, filter, xOrgId);
         return resp.getData();
     }
 
@@ -659,11 +681,12 @@ public class SystemGroupMembersMembershipApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphSystemGroupMembershipWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemGroupMembershipValidateBeforeCall(groupId, contentType, accept, limit, skip, sort, filter, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphSystemGroupMembershipWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemGroupMembershipValidateBeforeCall(groupId, contentType, accept, limit, skip, sort, filter, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -678,11 +701,12 @@ public class SystemGroupMembersMembershipApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemGroupMembershipAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemGroupMembershipAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, List<String> sort, List<String> filter, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -703,7 +727,7 @@ public class SystemGroupMembersMembershipApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemGroupMembershipValidateBeforeCall(groupId, contentType, accept, limit, skip, sort, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemGroupMembershipValidateBeforeCall(groupId, contentType, accept, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

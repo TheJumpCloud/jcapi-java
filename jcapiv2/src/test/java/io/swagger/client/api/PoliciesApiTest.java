@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -57,7 +57,8 @@ public class PoliciesApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -76,7 +77,8 @@ public class PoliciesApiTest {
         String contentType = null;
         String accept = null;
         GraphManagementReq body = null;
-        api.graphPolicyAssociationsPost(policyId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphPolicyAssociationsPost(policyId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -96,7 +98,8 @@ public class PoliciesApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -116,7 +119,8 @@ public class PoliciesApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -134,7 +138,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        api.policiesDelete(id, contentType, accept);
+        String xOrgId = null;
+        api.policiesDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -152,7 +157,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        PolicyWithDetails response = api.policiesGet(id, contentType, accept);
+        String xOrgId = null;
+        PolicyWithDetails response = api.policiesGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -174,7 +180,8 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<Policy> response = api.policiesList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<Policy> response = api.policiesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -192,7 +199,8 @@ public class PoliciesApiTest {
         String contentType = null;
         String accept = null;
         PolicyRequest body = null;
-        PolicyWithDetails response = api.policiesPost(contentType, accept, body);
+        String xOrgId = null;
+        PolicyWithDetails response = api.policiesPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -209,7 +217,8 @@ public class PoliciesApiTest {
     public void policiesPutTest() throws ApiException {
         String id = null;
         PolicyRequest body = null;
-        Policy response = api.policiesPut(id, body);
+        String xOrgId = null;
+        Policy response = api.policiesPut(id, body, xOrgId);
 
         // TODO: test validations
     }
@@ -227,7 +236,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        PolicyResult response = api.policyresultsGet(id, contentType, accept);
+        String xOrgId = null;
+        PolicyResult response = api.policyresultsGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -250,7 +260,8 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyResult> response = api.policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyResult> response = api.policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -274,7 +285,8 @@ public class PoliciesApiTest {
         Integer skip = null;
         List<String> sort = null;
         List<String> aggregate = null;
-        List<PolicyResult> response = api.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate);
+        String xOrgId = null;
+        List<PolicyResult> response = api.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
 
         // TODO: test validations
     }
@@ -297,7 +309,8 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyResult> response = api.policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyResult> response = api.policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -320,7 +333,8 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyResult> response = api.policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyResult> response = api.policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -338,7 +352,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        PolicyTemplateWithDetails response = api.policytemplatesGet(id, contentType, accept);
+        String xOrgId = null;
+        PolicyTemplateWithDetails response = api.policytemplatesGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -360,7 +375,8 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyTemplate> response = api.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyTemplate> response = api.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }

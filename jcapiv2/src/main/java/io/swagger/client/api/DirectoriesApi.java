@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -63,12 +63,13 @@ public class DirectoriesApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call directoriesListCall(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call directoriesListCall(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -90,6 +91,8 @@ public class DirectoriesApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -122,7 +125,7 @@ public class DirectoriesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call directoriesListValidateBeforeCall(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call directoriesListValidateBeforeCall(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -135,7 +138,7 @@ public class DirectoriesApi {
         }
         
 
-        com.squareup.okhttp.Call call = directoriesListCall(contentType, accept, fields, limit, sort, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = directoriesListCall(contentType, accept, fields, limit, sort, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -149,11 +152,12 @@ public class DirectoriesApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;Directory&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Directory> directoriesList(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip) throws ApiException {
-        ApiResponse<List<Directory>> resp = directoriesListWithHttpInfo(contentType, accept, fields, limit, sort, skip);
+    public List<Directory> directoriesList(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<Directory>> resp = directoriesListWithHttpInfo(contentType, accept, fields, limit, sort, skip, xOrgId);
         return resp.getData();
     }
 
@@ -166,11 +170,12 @@ public class DirectoriesApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;Directory&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Directory>> directoriesListWithHttpInfo(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = directoriesListValidateBeforeCall(contentType, accept, fields, limit, sort, skip, null, null);
+    public ApiResponse<List<Directory>> directoriesListWithHttpInfo(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = directoriesListValidateBeforeCall(contentType, accept, fields, limit, sort, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<Directory>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -184,11 +189,12 @@ public class DirectoriesApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call directoriesListAsync(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, final ApiCallback<List<Directory>> callback) throws ApiException {
+    public com.squareup.okhttp.Call directoriesListAsync(String contentType, String accept, List<String> fields, Integer limit, List<String> sort, Integer skip, String xOrgId, final ApiCallback<List<Directory>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -209,7 +215,7 @@ public class DirectoriesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = directoriesListValidateBeforeCall(contentType, accept, fields, limit, sort, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = directoriesListValidateBeforeCall(contentType, accept, fields, limit, sort, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Directory>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

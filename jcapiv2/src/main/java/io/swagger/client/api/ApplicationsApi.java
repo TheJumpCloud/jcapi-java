@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -64,12 +64,13 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationAssociationsListCall(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationAssociationsListCall(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -90,6 +91,8 @@ public class ApplicationsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -122,7 +125,7 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphApplicationAssociationsListValidateBeforeCall(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphApplicationAssociationsListValidateBeforeCall(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
@@ -145,7 +148,7 @@ public class ApplicationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphApplicationAssociationsListCall(applicationId, targets, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationAssociationsListCall(applicationId, targets, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -159,11 +162,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;GraphConnection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphConnection> graphApplicationAssociationsList(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphConnection>> resp = graphApplicationAssociationsListWithHttpInfo(applicationId, targets, contentType, accept, limit, skip);
+    public List<GraphConnection> graphApplicationAssociationsList(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphConnection>> resp = graphApplicationAssociationsListWithHttpInfo(applicationId, targets, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -176,11 +180,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;GraphConnection&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphConnection>> graphApplicationAssociationsListWithHttpInfo(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphApplicationAssociationsListValidateBeforeCall(applicationId, targets, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphConnection>> graphApplicationAssociationsListWithHttpInfo(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphApplicationAssociationsListValidateBeforeCall(applicationId, targets, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -194,11 +199,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationAssociationsListAsync(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationAssociationsListAsync(String applicationId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -219,7 +225,7 @@ public class ApplicationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphApplicationAssociationsListValidateBeforeCall(applicationId, targets, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationAssociationsListValidateBeforeCall(applicationId, targets, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -230,12 +236,13 @@ public class ApplicationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationAssociationsPostCall(String applicationId, String contentType, String accept, GraphManagementReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationAssociationsPostCall(String applicationId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -250,6 +257,8 @@ public class ApplicationsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -282,7 +291,7 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphApplicationAssociationsPostValidateBeforeCall(String applicationId, String contentType, String accept, GraphManagementReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphApplicationAssociationsPostValidateBeforeCall(String applicationId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
@@ -300,7 +309,7 @@ public class ApplicationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphApplicationAssociationsPostCall(applicationId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationAssociationsPostCall(applicationId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -312,10 +321,11 @@ public class ApplicationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void graphApplicationAssociationsPost(String applicationId, String contentType, String accept, GraphManagementReq body) throws ApiException {
-        graphApplicationAssociationsPostWithHttpInfo(applicationId, contentType, accept, body);
+    public void graphApplicationAssociationsPost(String applicationId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
+        graphApplicationAssociationsPostWithHttpInfo(applicationId, contentType, accept, body, xOrgId);
     }
 
     /**
@@ -325,11 +335,12 @@ public class ApplicationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> graphApplicationAssociationsPostWithHttpInfo(String applicationId, String contentType, String accept, GraphManagementReq body) throws ApiException {
-        com.squareup.okhttp.Call call = graphApplicationAssociationsPostValidateBeforeCall(applicationId, contentType, accept, body, null, null);
+    public ApiResponse<Void> graphApplicationAssociationsPostWithHttpInfo(String applicationId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphApplicationAssociationsPostValidateBeforeCall(applicationId, contentType, accept, body, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -340,11 +351,12 @@ public class ApplicationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationAssociationsPostAsync(String applicationId, String contentType, String accept, GraphManagementReq body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationAssociationsPostAsync(String applicationId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -365,7 +377,7 @@ public class ApplicationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphApplicationAssociationsPostValidateBeforeCall(applicationId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationAssociationsPostValidateBeforeCall(applicationId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -376,12 +388,13 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationTraverseUserCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationTraverseUserCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -400,6 +413,8 @@ public class ApplicationsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -432,7 +447,7 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphApplicationTraverseUserValidateBeforeCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphApplicationTraverseUserValidateBeforeCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
@@ -450,7 +465,7 @@ public class ApplicationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphApplicationTraverseUserCall(applicationId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationTraverseUserCall(applicationId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -463,11 +478,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphApplicationTraverseUser(String applicationId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphApplicationTraverseUserWithHttpInfo(applicationId, contentType, accept, limit, skip);
+    public List<GraphObjectWithPaths> graphApplicationTraverseUser(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphApplicationTraverseUserWithHttpInfo(applicationId, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -479,11 +495,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphApplicationTraverseUserWithHttpInfo(String applicationId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphApplicationTraverseUserValidateBeforeCall(applicationId, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphApplicationTraverseUserWithHttpInfo(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphApplicationTraverseUserValidateBeforeCall(applicationId, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -496,11 +513,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationTraverseUserAsync(String applicationId, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationTraverseUserAsync(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -521,7 +539,7 @@ public class ApplicationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphApplicationTraverseUserValidateBeforeCall(applicationId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationTraverseUserValidateBeforeCall(applicationId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -533,12 +551,13 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationTraverseUserGroupCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationTraverseUserGroupCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -557,6 +576,8 @@ public class ApplicationsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -589,7 +610,7 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphApplicationTraverseUserGroupValidateBeforeCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphApplicationTraverseUserGroupValidateBeforeCall(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'applicationId' is set
         if (applicationId == null) {
@@ -607,7 +628,7 @@ public class ApplicationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphApplicationTraverseUserGroupCall(applicationId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationTraverseUserGroupCall(applicationId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -620,11 +641,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphApplicationTraverseUserGroup(String applicationId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphApplicationTraverseUserGroupWithHttpInfo(applicationId, contentType, accept, limit, skip);
+    public List<GraphObjectWithPaths> graphApplicationTraverseUserGroup(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphApplicationTraverseUserGroupWithHttpInfo(applicationId, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -636,11 +658,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphApplicationTraverseUserGroupWithHttpInfo(String applicationId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphApplicationTraverseUserGroupValidateBeforeCall(applicationId, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphApplicationTraverseUserGroupWithHttpInfo(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphApplicationTraverseUserGroupValidateBeforeCall(applicationId, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -653,11 +676,12 @@ public class ApplicationsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphApplicationTraverseUserGroupAsync(String applicationId, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphApplicationTraverseUserGroupAsync(String applicationId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -678,7 +702,7 @@ public class ApplicationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphApplicationTraverseUserGroupValidateBeforeCall(applicationId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphApplicationTraverseUserGroupValidateBeforeCall(applicationId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -51,7 +51,8 @@ public class CommandsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphCommandAssociationsList(commandId, targets, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphCommandAssociationsList(commandId, targets, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -70,7 +71,8 @@ public class CommandsApiTest {
         String contentType = null;
         String accept = null;
         GraphManagementReq body = null;
-        InlineResponse204 response = api.graphCommandAssociationsPost(commandId, contentType, accept, body);
+        String xOrgId = null;
+        InlineResponse204 response = api.graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -90,7 +92,8 @@ public class CommandsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystem(commandId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystem(commandId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -110,7 +113,8 @@ public class CommandsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
