@@ -73,9 +73,9 @@ public class ApplicationsApiExample {
         
         // Configure API key authorization: x-api-key
         ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x-api-key.setApiKey("YOUR API KEY");
+        x_api_key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x-api-key.setApiKeyPrefix("Token");
+        //x_api_key.setApiKeyPrefix("Token");
 
         ApplicationsApi apiInstance = new ApplicationsApi();
         String contentType = "application/json"; // String | 
@@ -84,8 +84,9 @@ public class ApplicationsApiExample {
         Integer limit = 56; // Integer | The number of records to return at once.
         Integer skip = 56; // Integer | The offset into the records to return.
         String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
+        String xOrgId = "<<your org id>>"; // String | 
         try {
-            Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort);
+            Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort, xOrgId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ApplicationsApi#applicationsList");
@@ -117,6 +118,7 @@ Class | Method | HTTP request | Description
 *RadiusServersApi* | [**radiusServersList**](docs/RadiusServersApi.md#radiusServersList) | **GET** /radiusservers | List Radius Servers
 *RadiusServersApi* | [**radiusServersPost**](docs/RadiusServersApi.md#radiusServersPost) | **POST** /radiusservers | Create a Radius Server
 *RadiusServersApi* | [**radiusServersPut**](docs/RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers:id | Update Radius Servers
+*SearchApi* | [**searchOrganizationsPost**](docs/SearchApi.md#searchOrganizationsPost) | **POST** /search/organizations | Search Organizations
 *SearchApi* | [**searchSystemsPost**](docs/SearchApi.md#searchSystemsPost) | **POST** /search/systems | Search Systems
 *SearchApi* | [**searchSystemusersPost**](docs/SearchApi.md#searchSystemusersPost) | **POST** /search/systemusers | Search System Users
 *SystemsApi* | [**systemsDelete**](docs/SystemsApi.md#systemsDelete) | **DELETE** /systems/{id} | Delete a System
@@ -125,6 +127,9 @@ Class | Method | HTTP request | Description
 *SystemsApi* | [**systemsPut**](docs/SystemsApi.md#systemsPut) | **PUT** /systems/{id} | Update a system
 *SystemsApi* | [**systemsSystemusersBindingList**](docs/SystemsApi.md#systemsSystemusersBindingList) | **GET** /systems/{id}/systemusers | List system user bindings
 *SystemsApi* | [**systemsSystemusersBindingPut**](docs/SystemsApi.md#systemsSystemusersBindingPut) | **PUT** /systems/{id}/systemusers | Update a system&#39;s or user&#39;s binding
+*SystemusersApi* | [**sshkeyDelete**](docs/SystemusersApi.md#sshkeyDelete) | **DELETE** /systemusers/{id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
+*SystemusersApi* | [**sshkeyList**](docs/SystemusersApi.md#sshkeyList) | **GET** /systemusers/{id}/sshkeys | List a system user&#39;s public SSH keys
+*SystemusersApi* | [**sshkeyPost**](docs/SystemusersApi.md#sshkeyPost) | **POST** /systemusers/{id}/sshkeys | Create a system user&#39;s Public SSH Key
 *SystemusersApi* | [**systemusersDelete**](docs/SystemusersApi.md#systemusersDelete) | **DELETE** /systemusers/{id} | Delete a system user
 *SystemusersApi* | [**systemusersGet**](docs/SystemusersApi.md#systemusersGet) | **GET** /systemusers/{id} | List a system user
 *SystemusersApi* | [**systemusersList**](docs/SystemusersApi.md#systemusersList) | **GET** /systemusers | List all system users
@@ -161,6 +166,7 @@ Class | Method | HTTP request | Description
  - [Commandresultslist](docs/Commandresultslist.md)
  - [Commandslist](docs/Commandslist.md)
  - [CommandslistResults](docs/CommandslistResults.md)
+ - [Fde](docs/Fde.md)
  - [InlineResponse400](docs/InlineResponse400.md)
  - [Organizationslist](docs/Organizationslist.md)
  - [OrganizationslistResults](docs/OrganizationslistResults.md)
@@ -169,6 +175,8 @@ Class | Method | HTTP request | Description
  - [Radiusserverput](docs/Radiusserverput.md)
  - [Radiusserverslist](docs/Radiusserverslist.md)
  - [Search](docs/Search.md)
+ - [Sshkeylist](docs/Sshkeylist.md)
+ - [Sshkeypost](docs/Sshkeypost.md)
  - [System](docs/System.md)
  - [SystemNetworkInterfaces](docs/SystemNetworkInterfaces.md)
  - [Systemput](docs/Systemput.md)
@@ -179,7 +187,11 @@ Class | Method | HTTP request | Description
  - [Systemuserbindingsput](docs/Systemuserbindingsput.md)
  - [Systemuserput](docs/Systemuserput.md)
  - [Systemuserputpost](docs/Systemuserputpost.md)
+ - [SystemuserputpostAddresses](docs/SystemuserputpostAddresses.md)
+ - [SystemuserputpostPhoneNumbers](docs/SystemuserputpostPhoneNumbers.md)
  - [Systemuserreturn](docs/Systemuserreturn.md)
+ - [SystemuserreturnAddresses](docs/SystemuserreturnAddresses.md)
+ - [SystemuserreturnPhoneNumbers](docs/SystemuserreturnPhoneNumbers.md)
  - [Systemuserslist](docs/Systemuserslist.md)
  - [Tag](docs/Tag.md)
  - [Tagpost](docs/Tagpost.md)

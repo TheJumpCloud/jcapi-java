@@ -25,13 +25,21 @@ Name | Type | Description | Notes
 **enableUserPortalMultifactor** | **Boolean** |  |  [optional]
 **attributes** | **List&lt;Object&gt;** |  |  [optional]
 **sambaServiceUser** | **Boolean** |  |  [optional]
-**addresses** | **List&lt;String&gt;** |  |  [optional]
+**addresses** | [**List&lt;SystemuserputpostAddresses&gt;**](SystemuserputpostAddresses.md) |  |  [optional]
 **jobTitle** | **String** |  |  [optional]
 **department** | **String** |  |  [optional]
-**phoneNumbers** | **List&lt;String&gt;** |  |  [optional]
+**phoneNumbers** | [**List&lt;SystemuserputpostPhoneNumbers&gt;**](SystemuserputpostPhoneNumbers.md) |  |  [optional]
 **relationships** | **List&lt;Object&gt;** |  |  [optional]
 **password** | **String** |  |  [optional]
 **passwordNeverExpires** | **Boolean** |  |  [optional]
+**middlename** | **String** |  |  [optional]
+**displayname** | **String** |  |  [optional]
+**description** | **String** |  |  [optional]
+**location** | **String** |  |  [optional]
+**costCenter** | **String** |  |  [optional]
+**employeeType** | **String** |  |  [optional]
+**company** | **String** |  |  [optional]
+**employeeIdentifier** | **String** | Must be unique per user.  |  [optional]
 
 
 

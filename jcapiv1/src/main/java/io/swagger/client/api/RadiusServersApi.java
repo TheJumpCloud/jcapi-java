@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -65,12 +65,13 @@ public class RadiusServersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call radiusServersListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -92,6 +93,8 @@ public class RadiusServersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -124,7 +127,7 @@ public class RadiusServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call radiusServersListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call radiusServersListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -137,7 +140,7 @@ public class RadiusServersApi {
         }
         
 
-        com.squareup.okhttp.Call call = radiusServersListCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersListCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -151,11 +154,12 @@ public class RadiusServersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Radiusserverslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Radiusserverslist radiusServersList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Radiusserverslist> resp = radiusServersListWithHttpInfo(contentType, accept, fields, limit, skip, sort);
+    public Radiusserverslist radiusServersList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        ApiResponse<Radiusserverslist> resp = radiusServersListWithHttpInfo(contentType, accept, fields, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -168,11 +172,12 @@ public class RadiusServersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Radiusserverslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Radiusserverslist> radiusServersListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Radiusserverslist> radiusServersListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -186,11 +191,12 @@ public class RadiusServersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call radiusServersListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Radiusserverslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ApiCallback<Radiusserverslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -211,7 +217,7 @@ public class RadiusServersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -221,12 +227,13 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPostCall(String contentType, String accept, Radiusserverpost body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPostCall(String contentType, String accept, Radiusserverpost body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -240,6 +247,8 @@ public class RadiusServersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -272,7 +281,7 @@ public class RadiusServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call radiusServersPostValidateBeforeCall(String contentType, String accept, Radiusserverpost body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call radiusServersPostValidateBeforeCall(String contentType, String accept, Radiusserverpost body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -285,7 +294,7 @@ public class RadiusServersApi {
         }
         
 
-        com.squareup.okhttp.Call call = radiusServersPostCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersPostCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -296,11 +305,12 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Radiusserverslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Radiusserverslist radiusServersPost(String contentType, String accept, Radiusserverpost body) throws ApiException {
-        ApiResponse<Radiusserverslist> resp = radiusServersPostWithHttpInfo(contentType, accept, body);
+    public Radiusserverslist radiusServersPost(String contentType, String accept, Radiusserverpost body, String xOrgId) throws ApiException {
+        ApiResponse<Radiusserverslist> resp = radiusServersPostWithHttpInfo(contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -310,11 +320,12 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Radiusserverslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Radiusserverslist> radiusServersPostWithHttpInfo(String contentType, String accept, Radiusserverpost body) throws ApiException {
-        com.squareup.okhttp.Call call = radiusServersPostValidateBeforeCall(contentType, accept, body, null, null);
+    public ApiResponse<Radiusserverslist> radiusServersPostWithHttpInfo(String contentType, String accept, Radiusserverpost body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = radiusServersPostValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -325,11 +336,12 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPostAsync(String contentType, String accept, Radiusserverpost body, final ApiCallback<Radiusserverslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPostAsync(String contentType, String accept, Radiusserverpost body, String xOrgId, final ApiCallback<Radiusserverslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -350,7 +362,7 @@ public class RadiusServersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = radiusServersPostValidateBeforeCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersPostValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -360,12 +372,13 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPutCall(String contentType, String accept, Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPutCall(String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -379,6 +392,8 @@ public class RadiusServersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -411,7 +426,7 @@ public class RadiusServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call radiusServersPutValidateBeforeCall(String contentType, String accept, Body body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call radiusServersPutValidateBeforeCall(String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -424,7 +439,7 @@ public class RadiusServersApi {
         }
         
 
-        com.squareup.okhttp.Call call = radiusServersPutCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersPutCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -435,11 +450,12 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Radiusserverput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Radiusserverput radiusServersPut(String contentType, String accept, Body body) throws ApiException {
-        ApiResponse<Radiusserverput> resp = radiusServersPutWithHttpInfo(contentType, accept, body);
+    public Radiusserverput radiusServersPut(String contentType, String accept, Body body, String xOrgId) throws ApiException {
+        ApiResponse<Radiusserverput> resp = radiusServersPutWithHttpInfo(contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -449,11 +465,12 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Radiusserverput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Radiusserverput> radiusServersPutWithHttpInfo(String contentType, String accept, Body body) throws ApiException {
-        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(contentType, accept, body, null, null);
+    public ApiResponse<Radiusserverput> radiusServersPutWithHttpInfo(String contentType, String accept, Body body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Radiusserverput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -464,11 +481,12 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPutAsync(String contentType, String accept, Body body, final ApiCallback<Radiusserverput> callback) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPutAsync(String contentType, String accept, Body body, String xOrgId, final ApiCallback<Radiusserverput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -489,7 +507,7 @@ public class RadiusServersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Radiusserverput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.Sshkeylist;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * Systemuser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
 public class Systemuser {
   @SerializedName("email")
   private String email = null;
@@ -43,7 +44,7 @@ public class Systemuser {
   private String publicKey = null;
 
   @SerializedName("ssh_keys")
-  private List<String> sshKeys = null;
+  private List<Sshkeylist> sshKeys = null;
 
   @SerializedName("sudo")
   private Boolean sudo = null;
@@ -117,6 +118,36 @@ public class Systemuser {
   @SerializedName("_id")
   private String id = null;
 
+  @SerializedName("middlename")
+  private String middlename = null;
+
+  @SerializedName("displayname")
+  private String displayname = null;
+
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("location")
+  private String location = null;
+
+  @SerializedName("costCenter")
+  private String costCenter = null;
+
+  @SerializedName("employeeType")
+  private String employeeType = null;
+
+  @SerializedName("company")
+  private String company = null;
+
+  @SerializedName("employeeIdentifier")
+  private String employeeIdentifier = null;
+
+  @SerializedName("jobTitle")
+  private String jobTitle = null;
+
+  @SerializedName("department")
+  private String department = null;
+
   public Systemuser email(String email) {
     this.email = email;
     return this;
@@ -189,14 +220,14 @@ public class Systemuser {
     this.publicKey = publicKey;
   }
 
-  public Systemuser sshKeys(List<String> sshKeys) {
+  public Systemuser sshKeys(List<Sshkeylist> sshKeys) {
     this.sshKeys = sshKeys;
     return this;
   }
 
-  public Systemuser addSshKeysItem(String sshKeysItem) {
+  public Systemuser addSshKeysItem(Sshkeylist sshKeysItem) {
     if (this.sshKeys == null) {
-      this.sshKeys = new ArrayList<String>();
+      this.sshKeys = new ArrayList<Sshkeylist>();
     }
     this.sshKeys.add(sshKeysItem);
     return this;
@@ -207,11 +238,11 @@ public class Systemuser {
    * @return sshKeys
   **/
   @ApiModelProperty(value = "")
-  public List<String> getSshKeys() {
+  public List<Sshkeylist> getSshKeys() {
     return sshKeys;
   }
 
-  public void setSshKeys(List<String> sshKeys) {
+  public void setSshKeys(List<Sshkeylist> sshKeys) {
     this.sshKeys = sshKeys;
   }
 
@@ -666,6 +697,186 @@ public class Systemuser {
     this.id = id;
   }
 
+  public Systemuser middlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+   /**
+   * Get middlename
+   * @return middlename
+  **/
+  @ApiModelProperty(value = "")
+  public String getMiddlename() {
+    return middlename;
+  }
+
+  public void setMiddlename(String middlename) {
+    this.middlename = middlename;
+  }
+
+  public Systemuser displayname(String displayname) {
+    this.displayname = displayname;
+    return this;
+  }
+
+   /**
+   * Get displayname
+   * @return displayname
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayname() {
+    return displayname;
+  }
+
+  public void setDisplayname(String displayname) {
+    this.displayname = displayname;
+  }
+
+  public Systemuser description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Systemuser location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * Get location
+   * @return location
+  **/
+  @ApiModelProperty(value = "")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public Systemuser costCenter(String costCenter) {
+    this.costCenter = costCenter;
+    return this;
+  }
+
+   /**
+   * Get costCenter
+   * @return costCenter
+  **/
+  @ApiModelProperty(value = "")
+  public String getCostCenter() {
+    return costCenter;
+  }
+
+  public void setCostCenter(String costCenter) {
+    this.costCenter = costCenter;
+  }
+
+  public Systemuser employeeType(String employeeType) {
+    this.employeeType = employeeType;
+    return this;
+  }
+
+   /**
+   * Get employeeType
+   * @return employeeType
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmployeeType() {
+    return employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public Systemuser company(String company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * Get company
+   * @return company
+  **/
+  @ApiModelProperty(value = "")
+  public String getCompany() {
+    return company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public Systemuser employeeIdentifier(String employeeIdentifier) {
+    this.employeeIdentifier = employeeIdentifier;
+    return this;
+  }
+
+   /**
+   * Must be unique per user. 
+   * @return employeeIdentifier
+  **/
+  @ApiModelProperty(value = "Must be unique per user. ")
+  public String getEmployeeIdentifier() {
+    return employeeIdentifier;
+  }
+
+  public void setEmployeeIdentifier(String employeeIdentifier) {
+    this.employeeIdentifier = employeeIdentifier;
+  }
+
+  public Systemuser jobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+    return this;
+  }
+
+   /**
+   * Get jobTitle
+   * @return jobTitle
+  **/
+  @ApiModelProperty(value = "")
+  public String getJobTitle() {
+    return jobTitle;
+  }
+
+  public void setJobTitle(String jobTitle) {
+    this.jobTitle = jobTitle;
+  }
+
+  public Systemuser department(String department) {
+    this.department = department;
+    return this;
+  }
+
+   /**
+   * Get department
+   * @return department
+  **/
+  @ApiModelProperty(value = "")
+  public String getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(String department) {
+    this.department = department;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -704,12 +915,22 @@ public class Systemuser {
         Objects.equals(this.created, systemuser.created) &&
         Objects.equals(this.sambaServiceUser, systemuser.sambaServiceUser) &&
         Objects.equals(this.passwordNeverExpires, systemuser.passwordNeverExpires) &&
-        Objects.equals(this.id, systemuser.id);
+        Objects.equals(this.id, systemuser.id) &&
+        Objects.equals(this.middlename, systemuser.middlename) &&
+        Objects.equals(this.displayname, systemuser.displayname) &&
+        Objects.equals(this.description, systemuser.description) &&
+        Objects.equals(this.location, systemuser.location) &&
+        Objects.equals(this.costCenter, systemuser.costCenter) &&
+        Objects.equals(this.employeeType, systemuser.employeeType) &&
+        Objects.equals(this.company, systemuser.company) &&
+        Objects.equals(this.employeeIdentifier, systemuser.employeeIdentifier) &&
+        Objects.equals(this.jobTitle, systemuser.jobTitle) &&
+        Objects.equals(this.department, systemuser.department);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, associatedTagCount, totpEnabled, passwordExpirationDate, attributes, created, sambaServiceUser, passwordNeverExpires, id);
+    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, associatedTagCount, totpEnabled, passwordExpirationDate, attributes, created, sambaServiceUser, passwordNeverExpires, id, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier, jobTitle, department);
   }
 
 
@@ -747,6 +968,16 @@ public class Systemuser {
     sb.append("    sambaServiceUser: ").append(toIndentedString(sambaServiceUser)).append("\n");
     sb.append("    passwordNeverExpires: ").append(toIndentedString(passwordNeverExpires)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    middlename: ").append(toIndentedString(middlename)).append("\n");
+    sb.append("    displayname: ").append(toIndentedString(displayname)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    costCenter: ").append(toIndentedString(costCenter)).append("\n");
+    sb.append("    employeeType: ").append(toIndentedString(employeeType)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    employeeIdentifier: ").append(toIndentedString(employeeIdentifier)).append("\n");
+    sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
+    sb.append("    department: ").append(toIndentedString(department)).append("\n");
     sb.append("}");
     return sb.toString();
   }

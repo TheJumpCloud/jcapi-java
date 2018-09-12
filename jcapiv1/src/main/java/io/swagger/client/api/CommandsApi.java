@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -64,12 +64,13 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandFileGetCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandFileGetCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -90,6 +91,8 @@ public class CommandsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -122,7 +125,7 @@ public class CommandsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandFileGetValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandFileGetValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -140,7 +143,7 @@ public class CommandsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandFileGetCall(id, contentType, accept, fields, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandFileGetCall(id, contentType, accept, fields, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -154,11 +157,12 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Commandfilereturn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Commandfilereturn commandFileGet(String id, String contentType, String accept, String fields, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<Commandfilereturn> resp = commandFileGetWithHttpInfo(id, contentType, accept, fields, limit, skip);
+    public Commandfilereturn commandFileGet(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<Commandfilereturn> resp = commandFileGetWithHttpInfo(id, contentType, accept, fields, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -171,11 +175,12 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Commandfilereturn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Commandfilereturn> commandFileGetWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = commandFileGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, null, null);
+    public ApiResponse<Commandfilereturn> commandFileGetWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandFileGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Commandfilereturn>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -189,11 +194,12 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandFileGetAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, final ApiCallback<Commandfilereturn> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandFileGetAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String xOrgId, final ApiCallback<Commandfilereturn> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -214,7 +220,7 @@ public class CommandsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandFileGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandFileGetValidateBeforeCall(id, contentType, accept, fields, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Commandfilereturn>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -224,12 +230,13 @@ public class CommandsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandsDeleteCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandsDeleteCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -244,6 +251,8 @@ public class CommandsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -276,7 +285,7 @@ public class CommandsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandsDeleteValidateBeforeCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandsDeleteValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -294,7 +303,7 @@ public class CommandsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandsDeleteCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsDeleteCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -305,10 +314,11 @@ public class CommandsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void commandsDelete(String id, String contentType, String accept) throws ApiException {
-        commandsDeleteWithHttpInfo(id, contentType, accept);
+    public void commandsDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        commandsDeleteWithHttpInfo(id, contentType, accept, xOrgId);
     }
 
     /**
@@ -317,11 +327,12 @@ public class CommandsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> commandsDeleteWithHttpInfo(String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = commandsDeleteValidateBeforeCall(id, contentType, accept, null, null);
+    public ApiResponse<Void> commandsDeleteWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandsDeleteValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -331,11 +342,12 @@ public class CommandsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandsDeleteAsync(String id, String contentType, String accept, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandsDeleteAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -356,7 +368,7 @@ public class CommandsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandsDeleteValidateBeforeCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsDeleteValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -366,12 +378,13 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandsGetCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandsGetCall(String id, String contentType, String accept, String fields, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -388,6 +401,8 @@ public class CommandsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -420,7 +435,7 @@ public class CommandsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandsGetValidateBeforeCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandsGetValidateBeforeCall(String id, String contentType, String accept, String fields, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -438,7 +453,7 @@ public class CommandsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandsGetCall(id, contentType, accept, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsGetCall(id, contentType, accept, fields, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -450,11 +465,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Command
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Command commandsGet(String id, String contentType, String accept, String fields) throws ApiException {
-        ApiResponse<Command> resp = commandsGetWithHttpInfo(id, contentType, accept, fields);
+    public Command commandsGet(String id, String contentType, String accept, String fields, String xOrgId) throws ApiException {
+        ApiResponse<Command> resp = commandsGetWithHttpInfo(id, contentType, accept, fields, xOrgId);
         return resp.getData();
     }
 
@@ -465,11 +481,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Command&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Command> commandsGetWithHttpInfo(String id, String contentType, String accept, String fields) throws ApiException {
-        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, null, null);
+    public ApiResponse<Command> commandsGetWithHttpInfo(String id, String contentType, String accept, String fields, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -481,11 +498,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandsGetAsync(String id, String contentType, String accept, String fields, final ApiCallback<Command> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandsGetAsync(String id, String contentType, String accept, String fields, String xOrgId, final ApiCallback<Command> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -506,7 +524,7 @@ public class CommandsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsGetValidateBeforeCall(id, contentType, accept, fields, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -519,12 +537,13 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandsListCall(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandsListCall(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -546,6 +565,8 @@ public class CommandsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -578,7 +599,7 @@ public class CommandsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandsListValidateBeforeCall(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandsListValidateBeforeCall(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -591,7 +612,7 @@ public class CommandsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandsListCall(contentType, accept, skip, fields, limit, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsListCall(contentType, accept, skip, fields, limit, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -605,11 +626,12 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Commandslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Commandslist commandsList(String contentType, String accept, Integer skip, String fields, Integer limit, String sort) throws ApiException {
-        ApiResponse<Commandslist> resp = commandsListWithHttpInfo(contentType, accept, skip, fields, limit, sort);
+    public Commandslist commandsList(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, String xOrgId) throws ApiException {
+        ApiResponse<Commandslist> resp = commandsListWithHttpInfo(contentType, accept, skip, fields, limit, sort, xOrgId);
         return resp.getData();
     }
 
@@ -622,11 +644,12 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Commandslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Commandslist> commandsListWithHttpInfo(String contentType, String accept, Integer skip, String fields, Integer limit, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = commandsListValidateBeforeCall(contentType, accept, skip, fields, limit, sort, null, null);
+    public ApiResponse<Commandslist> commandsListWithHttpInfo(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandsListValidateBeforeCall(contentType, accept, skip, fields, limit, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Commandslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -640,11 +663,12 @@ public class CommandsApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandsListAsync(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, final ApiCallback<Commandslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandsListAsync(String contentType, String accept, Integer skip, String fields, Integer limit, String sort, String xOrgId, final ApiCallback<Commandslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -665,7 +689,7 @@ public class CommandsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandsListValidateBeforeCall(contentType, accept, skip, fields, limit, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsListValidateBeforeCall(contentType, accept, skip, fields, limit, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Commandslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -675,12 +699,13 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandsPostCall(String contentType, String accept, Command body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandsPostCall(String contentType, String accept, Command body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -694,6 +719,8 @@ public class CommandsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -726,7 +753,7 @@ public class CommandsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandsPostValidateBeforeCall(String contentType, String accept, Command body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandsPostValidateBeforeCall(String contentType, String accept, Command body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -739,7 +766,7 @@ public class CommandsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandsPostCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsPostCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -750,11 +777,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Command
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Command commandsPost(String contentType, String accept, Command body) throws ApiException {
-        ApiResponse<Command> resp = commandsPostWithHttpInfo(contentType, accept, body);
+    public Command commandsPost(String contentType, String accept, Command body, String xOrgId) throws ApiException {
+        ApiResponse<Command> resp = commandsPostWithHttpInfo(contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -764,11 +792,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Command&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Command> commandsPostWithHttpInfo(String contentType, String accept, Command body) throws ApiException {
-        com.squareup.okhttp.Call call = commandsPostValidateBeforeCall(contentType, accept, body, null, null);
+    public ApiResponse<Command> commandsPostWithHttpInfo(String contentType, String accept, Command body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandsPostValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -779,11 +808,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandsPostAsync(String contentType, String accept, Command body, final ApiCallback<Command> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandsPostAsync(String contentType, String accept, Command body, String xOrgId, final ApiCallback<Command> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -804,7 +834,7 @@ public class CommandsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandsPostValidateBeforeCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsPostValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -815,12 +845,13 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandsPutCall(String id, String contentType, String accept, Command body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandsPutCall(String id, String contentType, String accept, Command body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -835,6 +866,8 @@ public class CommandsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -867,7 +900,7 @@ public class CommandsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandsPutValidateBeforeCall(String id, String contentType, String accept, Command body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandsPutValidateBeforeCall(String id, String contentType, String accept, Command body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -885,7 +918,7 @@ public class CommandsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandsPutCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsPutCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -897,11 +930,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Command
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Command commandsPut(String id, String contentType, String accept, Command body) throws ApiException {
-        ApiResponse<Command> resp = commandsPutWithHttpInfo(id, contentType, accept, body);
+    public Command commandsPut(String id, String contentType, String accept, Command body, String xOrgId) throws ApiException {
+        ApiResponse<Command> resp = commandsPutWithHttpInfo(id, contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -912,11 +946,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Command&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Command> commandsPutWithHttpInfo(String id, String contentType, String accept, Command body) throws ApiException {
-        com.squareup.okhttp.Call call = commandsPutValidateBeforeCall(id, contentType, accept, body, null, null);
+    public ApiResponse<Command> commandsPutWithHttpInfo(String id, String contentType, String accept, Command body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandsPutValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -928,11 +963,12 @@ public class CommandsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandsPutAsync(String id, String contentType, String accept, Command body, final ApiCallback<Command> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandsPutAsync(String id, String contentType, String accept, Command body, String xOrgId, final ApiCallback<Command> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -953,7 +989,7 @@ public class CommandsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandsPutValidateBeforeCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandsPutValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Command>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

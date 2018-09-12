@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **username** | **String** |  | 
 **allowPublicKey** | **Boolean** |  |  [optional]
 **publicKey** | **String** |  |  [optional]
-**sshKeys** | **List&lt;String&gt;** |  |  [optional]
+**sshKeys** | [**List&lt;Sshkeypost&gt;**](Sshkeypost.md) |  |  [optional]
 **sudo** | **Boolean** |  |  [optional]
 **enableManagedUid** | **Boolean** |  |  [optional]
 **unixUid** | **Integer** |  |  [optional]
@@ -24,13 +24,21 @@ Name | Type | Description | Notes
 **enableUserPortalMultifactor** | **Boolean** |  |  [optional]
 **attributes** | **List&lt;Object&gt;** |  |  [optional]
 **sambaServiceUser** | **Boolean** |  |  [optional]
-**addresses** | **List&lt;String&gt;** |  |  [optional]
+**addresses** | [**List&lt;SystemuserputpostAddresses&gt;**](SystemuserputpostAddresses.md) | type, poBox, extendedAddress, streetAddress, locality, region, postalCode, country |  [optional]
 **jobTitle** | **String** |  |  [optional]
 **department** | **String** |  |  [optional]
-**phoneNumbers** | **List&lt;String&gt;** |  |  [optional]
+**phoneNumbers** | [**List&lt;SystemuserputpostPhoneNumbers&gt;**](SystemuserputpostPhoneNumbers.md) |  |  [optional]
 **relationships** | **List&lt;Object&gt;** |  |  [optional]
 **password** | **String** |  |  [optional]
 **passwordNeverExpires** | **Boolean** |  |  [optional]
+**middlename** | **String** |  |  [optional]
+**displayname** | **String** |  |  [optional]
+**description** | **String** |  |  [optional]
+**location** | **String** |  |  [optional]
+**costCenter** | **String** |  |  [optional]
+**employeeType** | **String** |  |  [optional]
+**company** | **String** |  |  [optional]
+**employeeIdentifier** | **String** | Must be unique per user.  |  [optional]
 
 
 

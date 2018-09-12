@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.Search;
+import io.swagger.client.model.Systemslist;
 import io.swagger.client.model.Systemuserslist;
 
 import java.lang.reflect.Type;
@@ -56,23 +57,24 @@ public class SearchApi {
     }
 
     /**
-     * Build call for searchSystemsPost
+     * Build call for searchOrganizationsPost
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchSystemsPostCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchOrganizationsPostCall(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/search/systems";
+        String localVarPath = "/search/organizations";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -84,6 +86,8 @@ public class SearchApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
@@ -120,73 +124,76 @@ public class SearchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchSystemsPostValidateBeforeCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchOrganizationsPostValidateBeforeCall(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling searchSystemsPost(Async)");
+            throw new ApiException("Missing the required parameter 'contentType' when calling searchOrganizationsPost(Async)");
         }
         
         // verify the required parameter 'accept' is set
         if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling searchSystemsPost(Async)");
+            throw new ApiException("Missing the required parameter 'accept' when calling searchOrganizationsPost(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = searchSystemsPostCall(contentType, accept, body, fields, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchOrganizationsPostCall(contentType, accept, body, fields, limit, xOrgId, skip, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
-     * Search Systems
-     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systemsusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
+     * Search Organizations
+     * This endpoint will return Organization data based on your search parameters. This endpoint WILL NOT allow you to add a new Organization.  You can use the supported parameters and pass those in the body of request.   The parameters must be passed as Content-Type application/json.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;search\&quot;:{     \&quot;fields\&quot; : [\&quot;settings.name\&quot;],     \&quot;searchTerm\&quot;: \&quot;Second\&quot;     },   \&quot;fields\&quot;: [\&quot;_id\&quot;, \&quot;displayName\&quot;, \&quot;logoUrl\&quot;],   \&quot;limit\&quot; : 0,   \&quot;skip\&quot; : 0 }&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @return Systemuserslist
+     * @return Systemslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserslist searchSystemsPost(String contentType, String accept, Search body, String fields, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<Systemuserslist> resp = searchSystemsPostWithHttpInfo(contentType, accept, body, fields, limit, skip);
+    public Systemslist searchOrganizationsPost(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip) throws ApiException {
+        ApiResponse<Systemslist> resp = searchOrganizationsPostWithHttpInfo(contentType, accept, body, fields, limit, xOrgId, skip);
         return resp.getData();
     }
 
     /**
-     * Search Systems
-     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systemsusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
+     * Search Organizations
+     * This endpoint will return Organization data based on your search parameters. This endpoint WILL NOT allow you to add a new Organization.  You can use the supported parameters and pass those in the body of request.   The parameters must be passed as Content-Type application/json.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;search\&quot;:{     \&quot;fields\&quot; : [\&quot;settings.name\&quot;],     \&quot;searchTerm\&quot;: \&quot;Second\&quot;     },   \&quot;fields\&quot;: [\&quot;_id\&quot;, \&quot;displayName\&quot;, \&quot;logoUrl\&quot;],   \&quot;limit\&quot; : 0,   \&quot;skip\&quot; : 0 }&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @return ApiResponse&lt;Systemuserslist&gt;
+     * @return ApiResponse&lt;Systemslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserslist> searchSystemsPostWithHttpInfo(String contentType, String accept, Search body, String fields, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = searchSystemsPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, null, null);
-        Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
+    public ApiResponse<Systemslist> searchOrganizationsPostWithHttpInfo(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip) throws ApiException {
+        com.squareup.okhttp.Call call = searchOrganizationsPostValidateBeforeCall(contentType, accept, body, fields, limit, xOrgId, skip, null, null);
+        Type localVarReturnType = new TypeToken<Systemslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
-     * Search Systems (asynchronously)
-     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systemsusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
+     * Search Organizations (asynchronously)
+     * This endpoint will return Organization data based on your search parameters. This endpoint WILL NOT allow you to add a new Organization.  You can use the supported parameters and pass those in the body of request.   The parameters must be passed as Content-Type application/json.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;search\&quot;:{     \&quot;fields\&quot; : [\&quot;settings.name\&quot;],     \&quot;searchTerm\&quot;: \&quot;Second\&quot;     },   \&quot;fields\&quot;: [\&quot;_id\&quot;, \&quot;displayName\&quot;, \&quot;logoUrl\&quot;],   \&quot;limit\&quot; : 0,   \&quot;skip\&quot; : 0 }&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchSystemsPostAsync(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ApiCallback<Systemuserslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchOrganizationsPostAsync(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ApiCallback<Systemslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -207,8 +214,171 @@ public class SearchApi {
             };
         }
 
-        com.squareup.okhttp.Call call = searchSystemsPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
+        com.squareup.okhttp.Call call = searchOrganizationsPostValidateBeforeCall(contentType, accept, body, fields, limit, xOrgId, skip, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Systemslist>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for searchSystemsPost
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call searchSystemsPostCall(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/search/systems";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (fields != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("fields", fields));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json; charset=utf-8"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call searchSystemsPostValidateBeforeCall(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling searchSystemsPost(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling searchSystemsPost(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = searchSystemsPostCall(contentType, accept, body, fields, limit, xOrgId, skip, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Search Systems
+     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @return Systemslist
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Systemslist searchSystemsPost(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip) throws ApiException {
+        ApiResponse<Systemslist> resp = searchSystemsPostWithHttpInfo(contentType, accept, body, fields, limit, xOrgId, skip);
+        return resp.getData();
+    }
+
+    /**
+     * Search Systems
+     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @return ApiResponse&lt;Systemslist&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Systemslist> searchSystemsPostWithHttpInfo(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip) throws ApiException {
+        com.squareup.okhttp.Call call = searchSystemsPostValidateBeforeCall(contentType, accept, body, fields, limit, xOrgId, skip, null, null);
+        Type localVarReturnType = new TypeToken<Systemslist>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Search Systems (asynchronously)
+     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call searchSystemsPostAsync(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ApiCallback<Systemslist> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = searchSystemsPostValidateBeforeCall(contentType, accept, body, fields, limit, xOrgId, skip, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Systemslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -220,12 +390,13 @@ public class SearchApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchSystemusersPostCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchSystemusersPostCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -245,6 +416,8 @@ public class SearchApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -277,7 +450,7 @@ public class SearchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchSystemusersPostValidateBeforeCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchSystemusersPostValidateBeforeCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -290,7 +463,7 @@ public class SearchApi {
         }
         
 
-        com.squareup.okhttp.Call call = searchSystemusersPostCall(contentType, accept, body, fields, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchSystemusersPostCall(contentType, accept, body, fields, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -304,11 +477,12 @@ public class SearchApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Systemuserslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserslist searchSystemusersPost(String contentType, String accept, Search body, String fields, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<Systemuserslist> resp = searchSystemusersPostWithHttpInfo(contentType, accept, body, fields, limit, skip);
+    public Systemuserslist searchSystemusersPost(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<Systemuserslist> resp = searchSystemusersPostWithHttpInfo(contentType, accept, body, fields, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -321,11 +495,12 @@ public class SearchApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Systemuserslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserslist> searchSystemusersPostWithHttpInfo(String contentType, String accept, Search body, String fields, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = searchSystemusersPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, null, null);
+    public ApiResponse<Systemuserslist> searchSystemusersPostWithHttpInfo(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = searchSystemusersPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -339,11 +514,12 @@ public class SearchApi {
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchSystemusersPostAsync(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ApiCallback<Systemuserslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchSystemusersPostAsync(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, String xOrgId, final ApiCallback<Systemuserslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -364,7 +540,7 @@ public class SearchApi {
             };
         }
 
-        com.squareup.okhttp.Call call = searchSystemusersPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchSystemusersPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

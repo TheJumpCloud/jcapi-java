@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.SystemuserputpostAddresses;
+import io.swagger.client.model.SystemuserputpostPhoneNumbers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,7 @@ import java.util.List;
 /**
  * Systemuserputpost
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
 public class Systemuserputpost {
   @SerializedName("email")
   private String email = null;
@@ -94,7 +96,7 @@ public class Systemuserputpost {
   private Boolean sambaServiceUser = null;
 
   @SerializedName("addresses")
-  private List<String> addresses = null;
+  private List<SystemuserputpostAddresses> addresses = null;
 
   @SerializedName("jobTitle")
   private String jobTitle = null;
@@ -103,7 +105,7 @@ public class Systemuserputpost {
   private String department = null;
 
   @SerializedName("phoneNumbers")
-  private List<String> phoneNumbers = null;
+  private List<SystemuserputpostPhoneNumbers> phoneNumbers = null;
 
   @SerializedName("relationships")
   private List<Object> relationships = null;
@@ -113,6 +115,30 @@ public class Systemuserputpost {
 
   @SerializedName("password_never_expires")
   private Boolean passwordNeverExpires = null;
+
+  @SerializedName("middlename")
+  private String middlename = null;
+
+  @SerializedName("displayname")
+  private String displayname = null;
+
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("location")
+  private String location = null;
+
+  @SerializedName("costCenter")
+  private String costCenter = null;
+
+  @SerializedName("employeeType")
+  private String employeeType = null;
+
+  @SerializedName("company")
+  private String company = null;
+
+  @SerializedName("employeeIdentifier")
+  private String employeeIdentifier = null;
 
   public Systemuserputpost email(String email) {
     this.email = email;
@@ -510,29 +536,29 @@ public class Systemuserputpost {
     this.sambaServiceUser = sambaServiceUser;
   }
 
-  public Systemuserputpost addresses(List<String> addresses) {
+  public Systemuserputpost addresses(List<SystemuserputpostAddresses> addresses) {
     this.addresses = addresses;
     return this;
   }
 
-  public Systemuserputpost addAddressesItem(String addressesItem) {
+  public Systemuserputpost addAddressesItem(SystemuserputpostAddresses addressesItem) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList<String>();
+      this.addresses = new ArrayList<SystemuserputpostAddresses>();
     }
     this.addresses.add(addressesItem);
     return this;
   }
 
    /**
-   * Get addresses
+   * 
    * @return addresses
   **/
   @ApiModelProperty(value = "")
-  public List<String> getAddresses() {
+  public List<SystemuserputpostAddresses> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(List<String> addresses) {
+  public void setAddresses(List<SystemuserputpostAddresses> addresses) {
     this.addresses = addresses;
   }
 
@@ -572,29 +598,29 @@ public class Systemuserputpost {
     this.department = department;
   }
 
-  public Systemuserputpost phoneNumbers(List<String> phoneNumbers) {
+  public Systemuserputpost phoneNumbers(List<SystemuserputpostPhoneNumbers> phoneNumbers) {
     this.phoneNumbers = phoneNumbers;
     return this;
   }
 
-  public Systemuserputpost addPhoneNumbersItem(String phoneNumbersItem) {
+  public Systemuserputpost addPhoneNumbersItem(SystemuserputpostPhoneNumbers phoneNumbersItem) {
     if (this.phoneNumbers == null) {
-      this.phoneNumbers = new ArrayList<String>();
+      this.phoneNumbers = new ArrayList<SystemuserputpostPhoneNumbers>();
     }
     this.phoneNumbers.add(phoneNumbersItem);
     return this;
   }
 
    /**
-   * Get phoneNumbers
+   * 
    * @return phoneNumbers
   **/
   @ApiModelProperty(value = "")
-  public List<String> getPhoneNumbers() {
+  public List<SystemuserputpostPhoneNumbers> getPhoneNumbers() {
     return phoneNumbers;
   }
 
-  public void setPhoneNumbers(List<String> phoneNumbers) {
+  public void setPhoneNumbers(List<SystemuserputpostPhoneNumbers> phoneNumbers) {
     this.phoneNumbers = phoneNumbers;
   }
 
@@ -660,6 +686,150 @@ public class Systemuserputpost {
     this.passwordNeverExpires = passwordNeverExpires;
   }
 
+  public Systemuserputpost middlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+   /**
+   * Get middlename
+   * @return middlename
+  **/
+  @ApiModelProperty(value = "")
+  public String getMiddlename() {
+    return middlename;
+  }
+
+  public void setMiddlename(String middlename) {
+    this.middlename = middlename;
+  }
+
+  public Systemuserputpost displayname(String displayname) {
+    this.displayname = displayname;
+    return this;
+  }
+
+   /**
+   * Get displayname
+   * @return displayname
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayname() {
+    return displayname;
+  }
+
+  public void setDisplayname(String displayname) {
+    this.displayname = displayname;
+  }
+
+  public Systemuserputpost description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Systemuserputpost location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * Get location
+   * @return location
+  **/
+  @ApiModelProperty(value = "")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public Systemuserputpost costCenter(String costCenter) {
+    this.costCenter = costCenter;
+    return this;
+  }
+
+   /**
+   * Get costCenter
+   * @return costCenter
+  **/
+  @ApiModelProperty(value = "")
+  public String getCostCenter() {
+    return costCenter;
+  }
+
+  public void setCostCenter(String costCenter) {
+    this.costCenter = costCenter;
+  }
+
+  public Systemuserputpost employeeType(String employeeType) {
+    this.employeeType = employeeType;
+    return this;
+  }
+
+   /**
+   * Get employeeType
+   * @return employeeType
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmployeeType() {
+    return employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public Systemuserputpost company(String company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * Get company
+   * @return company
+  **/
+  @ApiModelProperty(value = "")
+  public String getCompany() {
+    return company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public Systemuserputpost employeeIdentifier(String employeeIdentifier) {
+    this.employeeIdentifier = employeeIdentifier;
+    return this;
+  }
+
+   /**
+   * Must be unique per user. 
+   * @return employeeIdentifier
+  **/
+  @ApiModelProperty(value = "Must be unique per user. ")
+  public String getEmployeeIdentifier() {
+    return employeeIdentifier;
+  }
+
+  public void setEmployeeIdentifier(String employeeIdentifier) {
+    this.employeeIdentifier = employeeIdentifier;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -697,12 +867,20 @@ public class Systemuserputpost {
         Objects.equals(this.phoneNumbers, systemuserputpost.phoneNumbers) &&
         Objects.equals(this.relationships, systemuserputpost.relationships) &&
         Objects.equals(this.password, systemuserputpost.password) &&
-        Objects.equals(this.passwordNeverExpires, systemuserputpost.passwordNeverExpires);
+        Objects.equals(this.passwordNeverExpires, systemuserputpost.passwordNeverExpires) &&
+        Objects.equals(this.middlename, systemuserputpost.middlename) &&
+        Objects.equals(this.displayname, systemuserputpost.displayname) &&
+        Objects.equals(this.description, systemuserputpost.description) &&
+        Objects.equals(this.location, systemuserputpost.location) &&
+        Objects.equals(this.costCenter, systemuserputpost.costCenter) &&
+        Objects.equals(this.employeeType, systemuserputpost.employeeType) &&
+        Objects.equals(this.company, systemuserputpost.company) &&
+        Objects.equals(this.employeeIdentifier, systemuserputpost.employeeIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, username, allowPublicKey, publicKey, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, attributes, sambaServiceUser, addresses, jobTitle, department, phoneNumbers, relationships, password, passwordNeverExpires);
+    return Objects.hash(email, username, allowPublicKey, publicKey, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, attributes, sambaServiceUser, addresses, jobTitle, department, phoneNumbers, relationships, password, passwordNeverExpires, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier);
   }
 
 
@@ -739,6 +917,14 @@ public class Systemuserputpost {
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    passwordNeverExpires: ").append(toIndentedString(passwordNeverExpires)).append("\n");
+    sb.append("    middlename: ").append(toIndentedString(middlename)).append("\n");
+    sb.append("    displayname: ").append(toIndentedString(displayname)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    costCenter: ").append(toIndentedString(costCenter)).append("\n");
+    sb.append("    employeeType: ").append(toIndentedString(employeeType)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    employeeIdentifier: ").append(toIndentedString(employeeIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

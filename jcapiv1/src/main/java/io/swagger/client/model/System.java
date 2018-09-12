@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.Fde;
 import io.swagger.client.model.SystemNetworkInterfaces;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * System
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
 public class System {
   @SerializedName("organization")
   private String organization = null;
@@ -97,14 +98,14 @@ public class System {
   @SerializedName("sshRootEnabled")
   private Boolean sshRootEnabled = null;
 
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("tags")
   private List<String> tags = null;
 
   @SerializedName("_id")
   private String id = null;
+
+  @SerializedName("fde")
+  private Fde fde = null;
 
   public System organization(String organization) {
     this.organization = organization;
@@ -526,24 +527,6 @@ public class System {
     this.sshRootEnabled = sshRootEnabled;
   }
 
-  public System id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
   public System tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -588,6 +571,24 @@ public class System {
     this.id = id;
   }
 
+  public System fde(Fde fde) {
+    this.fde = fde;
+    return this;
+  }
+
+   /**
+   * Get fde
+   * @return fde
+  **/
+  @ApiModelProperty(value = "")
+  public Fde getFde() {
+    return fde;
+  }
+
+  public void setFde(Fde fde) {
+    this.fde = fde;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -620,14 +621,14 @@ public class System {
         Objects.equals(this.agentVersion, system.agentVersion) &&
         Objects.equals(this.connectionHistory, system.connectionHistory) &&
         Objects.equals(this.sshRootEnabled, system.sshRootEnabled) &&
-        Objects.equals(this.id, system.id) &&
         Objects.equals(this.tags, system.tags) &&
-        Objects.equals(this.id, system.id);
+        Objects.equals(this.id, system.id) &&
+        Objects.equals(this.fde, system.fde);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(organization, created, lastContact, os, version, arch, networkInterfaces, hostname, displayName, systemTimezone, templateName, remoteIP, active, sshdParams, allowSshPasswordAuthentication, allowSshRootLogin, allowMultiFactorAuthentication, allowPublicKeyAuthentication, modifySSHDConfig, agentVersion, connectionHistory, sshRootEnabled, id, tags, id);
+    return Objects.hash(organization, created, lastContact, os, version, arch, networkInterfaces, hostname, displayName, systemTimezone, templateName, remoteIP, active, sshdParams, allowSshPasswordAuthentication, allowSshRootLogin, allowMultiFactorAuthentication, allowPublicKeyAuthentication, modifySSHDConfig, agentVersion, connectionHistory, sshRootEnabled, tags, id, fde);
   }
 
 
@@ -658,9 +659,9 @@ public class System {
     sb.append("    agentVersion: ").append(toIndentedString(agentVersion)).append("\n");
     sb.append("    connectionHistory: ").append(toIndentedString(connectionHistory)).append("\n");
     sb.append("    sshRootEnabled: ").append(toIndentedString(sshRootEnabled)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    fde: ").append(toIndentedString(fde)).append("\n");
     sb.append("}");
     return sb.toString();
   }

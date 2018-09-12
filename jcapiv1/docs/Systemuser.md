@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **username** | **String** |  |  [optional]
 **allowPublicKey** | **Boolean** |  |  [optional]
 **publicKey** | **String** |  |  [optional]
-**sshKeys** | **List&lt;String&gt;** |  |  [optional]
+**sshKeys** | [**List&lt;Sshkeylist&gt;**](Sshkeylist.md) |  |  [optional]
 **sudo** | **Boolean** |  |  [optional]
 **enableManagedUid** | **Boolean** |  |  [optional]
 **unixUid** | **Integer** |  |  [optional]
@@ -33,6 +33,16 @@ Name | Type | Description | Notes
 **sambaServiceUser** | **Boolean** |  |  [optional]
 **passwordNeverExpires** | **Boolean** |  |  [optional]
 **id** | **String** |  |  [optional]
+**middlename** | **String** |  |  [optional]
+**displayname** | **String** |  |  [optional]
+**description** | **String** |  |  [optional]
+**location** | **String** |  |  [optional]
+**costCenter** | **String** |  |  [optional]
+**employeeType** | **String** |  |  [optional]
+**company** | **String** |  |  [optional]
+**employeeIdentifier** | **String** | Must be unique per user.  |  [optional]
+**jobTitle** | **String** |  |  [optional]
+**department** | **String** |  |  [optional]
 
 
 

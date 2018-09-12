@@ -9,9 +9,11 @@ Method | HTTP request | Description
 
 <a name="organizationList"></a>
 # **organizationList**
-> Organizationslist organizationList(contentType, accept, fields, limit, skip, sort)
+> Organizationslist organizationList(contentType, accept, fields, limit, skip, sort, search)
 
 Get Organization Details
+
+This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -26,9 +28,9 @@ ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
 ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 OrganizationsApi apiInstance = new OrganizationsApi();
 String contentType = "application/json"; // String | 
@@ -37,8 +39,9 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+String search = "search_example"; // String | 
 try {
-    Organizationslist result = apiInstance.organizationList(contentType, accept, fields, limit, skip, sort);
+    Organizationslist result = apiInstance.organizationList(contentType, accept, fields, limit, skip, sort, search);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling OrganizationsApi#organizationList");
@@ -56,6 +59,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **search** | **String**|  | [optional]
 
 ### Return type
 

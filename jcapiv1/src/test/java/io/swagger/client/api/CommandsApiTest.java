@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -50,7 +50,8 @@ public class CommandsApiTest {
         String fields = null;
         Integer limit = null;
         Integer skip = null;
-        Commandfilereturn response = api.commandFileGet(id, contentType, accept, fields, limit, skip);
+        String xOrgId = null;
+        Commandfilereturn response = api.commandFileGet(id, contentType, accept, fields, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -68,7 +69,8 @@ public class CommandsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        api.commandsDelete(id, contentType, accept);
+        String xOrgId = null;
+        api.commandsDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -87,7 +89,8 @@ public class CommandsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
-        Command response = api.commandsGet(id, contentType, accept, fields);
+        String xOrgId = null;
+        Command response = api.commandsGet(id, contentType, accept, fields, xOrgId);
 
         // TODO: test validations
     }
@@ -108,7 +111,8 @@ public class CommandsApiTest {
         String fields = null;
         Integer limit = null;
         String sort = null;
-        Commandslist response = api.commandsList(contentType, accept, skip, fields, limit, sort);
+        String xOrgId = null;
+        Commandslist response = api.commandsList(contentType, accept, skip, fields, limit, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -126,7 +130,8 @@ public class CommandsApiTest {
         String contentType = null;
         String accept = null;
         Command body = null;
-        Command response = api.commandsPost(contentType, accept, body);
+        String xOrgId = null;
+        Command response = api.commandsPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -145,7 +150,8 @@ public class CommandsApiTest {
         String contentType = null;
         String accept = null;
         Command body = null;
-        Command response = api.commandsPut(id, contentType, accept, body);
+        String xOrgId = null;
+        Command response = api.commandsPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -15,6 +15,8 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Sshkeylist;
+import io.swagger.client.model.Sshkeypost;
 import io.swagger.client.model.Systemuserput;
 import io.swagger.client.model.Systemuserputpost;
 import io.swagger.client.model.Systemuserreturn;
@@ -39,6 +41,64 @@ public class SystemusersApiTest {
 
     
     /**
+     * Delete a system user&#39;s Public SSH Keys
+     *
+     * This endpoint will delete a specific System User&#39;s SSH Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void sshkeyDeleteTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        api.sshkeyDelete(id, contentType, accept, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List a system user&#39;s public SSH keys
+     *
+     * This endpoint will return a specific System User&#39;s public SSH key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void sshkeyListTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        Sshkeylist response = api.sshkeyList(id, contentType, accept, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a system user&#39;s Public SSH Key
+     *
+     * This endpoint will create a specific System User&#39;s Public SSH Key.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void sshkeyPostTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        Sshkeypost body = null;
+        String xOrgId = null;
+        Sshkeylist response = api.sshkeyPost(id, contentType, accept, body, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Delete a system user
      *
      * This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
@@ -51,7 +111,8 @@ public class SystemusersApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        Systemuserreturn response = api.systemusersDelete(id, contentType, accept);
+        String xOrgId = null;
+        Systemuserreturn response = api.systemusersDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -70,7 +131,8 @@ public class SystemusersApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
-        Systemuserreturn response = api.systemusersGet(id, contentType, accept, fields);
+        String xOrgId = null;
+        Systemuserreturn response = api.systemusersGet(id, contentType, accept, fields, xOrgId);
 
         // TODO: test validations
     }
@@ -85,12 +147,15 @@ public class SystemusersApiTest {
      */
     @Test
     public void systemusersListTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
         Integer limit = null;
         Integer skip = null;
         String sort = null;
         String fields = null;
         String filter = null;
-        Systemuserslist response = api.systemusersList(limit, skip, sort, fields, filter);
+        String xOrgId = null;
+        Systemuserslist response = api.systemusersList(contentType, accept, limit, skip, sort, fields, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -108,7 +173,8 @@ public class SystemusersApiTest {
         String contentType = null;
         String accept = null;
         Systemuserputpost body = null;
-        Systemuserreturn response = api.systemusersPost(contentType, accept, body);
+        String xOrgId = null;
+        Systemuserreturn response = api.systemusersPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -127,7 +193,8 @@ public class SystemusersApiTest {
         String contentType = null;
         String accept = null;
         Systemuserput body = null;
-        Systemuserreturn response = api.systemusersPut(id, contentType, accept, body);
+        String xOrgId = null;
+        Systemuserreturn response = api.systemusersPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -144,7 +211,8 @@ public class SystemusersApiTest {
     public void systemusersResetmfaTest() throws ApiException {
         String id = null;
         String xApiKey = null;
-        String response = api.systemusersResetmfa(id, xApiKey);
+        String xOrgId = null;
+        String response = api.systemusersResetmfa(id, xApiKey, xOrgId);
 
         // TODO: test validations
     }
@@ -166,7 +234,8 @@ public class SystemusersApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Object response = api.systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort);
+        String xOrgId = null;
+        Object response = api.systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -185,7 +254,8 @@ public class SystemusersApiTest {
         String contentType = null;
         String accept = null;
         Usersystembindingsput body = null;
-        Usersystembinding response = api.systemusersSystemsBindingPut(id, contentType, accept, body);
+        String xOrgId = null;
+        Usersystembinding response = api.systemusersSystemsBindingPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

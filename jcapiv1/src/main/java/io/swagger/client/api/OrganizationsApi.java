@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -62,12 +62,13 @@ public class OrganizationsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param search  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call organizationListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call organizationListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String search, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -83,6 +84,8 @@ public class OrganizationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
         if (sort != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
+        if (search != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("search", search));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -121,7 +124,7 @@ public class OrganizationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call organizationListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call organizationListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String search, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -134,60 +137,63 @@ public class OrganizationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = organizationListCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = organizationListCall(contentType, accept, fields, limit, skip, sort, search, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Get Organization Details
-     * 
+     * This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param search  (optional)
      * @return Organizationslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Organizationslist organizationList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Organizationslist> resp = organizationListWithHttpInfo(contentType, accept, fields, limit, skip, sort);
+    public Organizationslist organizationList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String search) throws ApiException {
+        ApiResponse<Organizationslist> resp = organizationListWithHttpInfo(contentType, accept, fields, limit, skip, sort, search);
         return resp.getData();
     }
 
     /**
      * Get Organization Details
-     * 
+     * This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param search  (optional)
      * @return ApiResponse&lt;Organizationslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Organizationslist> organizationListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = organizationListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Organizationslist> organizationListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String search) throws ApiException {
+        com.squareup.okhttp.Call call = organizationListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, search, null, null);
         Type localVarReturnType = new TypeToken<Organizationslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get Organization Details (asynchronously)
-     * 
+     * This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param search  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call organizationListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Organizationslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call organizationListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String search, final ApiCallback<Organizationslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -208,7 +214,7 @@ public class OrganizationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = organizationListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = organizationListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, search, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Organizationslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -28,6 +28,8 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Sshkeylist;
+import io.swagger.client.model.Sshkeypost;
 import io.swagger.client.model.Systemuserput;
 import io.swagger.client.model.Systemuserputpost;
 import io.swagger.client.model.Systemuserreturn;
@@ -61,16 +63,470 @@ public class SystemusersApi {
     }
 
     /**
-     * Build call for systemusersDelete
+     * Build call for sshkeyDelete
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersDeleteCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call sshkeyDeleteCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systemusers/{id}/sshkeys/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json; charset=utf-8"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sshkeyDeleteValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling sshkeyDelete(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling sshkeyDelete(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling sshkeyDelete(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sshkeyDeleteCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a system user&#39;s Public SSH Keys
+     * This endpoint will delete a specific System User&#39;s SSH Key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void sshkeyDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        sshkeyDeleteWithHttpInfo(id, contentType, accept, xOrgId);
+    }
+
+    /**
+     * Delete a system user&#39;s Public SSH Keys
+     * This endpoint will delete a specific System User&#39;s SSH Key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> sshkeyDeleteWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = sshkeyDeleteValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Delete a system user&#39;s Public SSH Keys (asynchronously)
+     * This endpoint will delete a specific System User&#39;s SSH Key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sshkeyDeleteAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sshkeyDeleteValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for sshkeyList
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sshkeyListCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systemusers/{id}/sshkeys"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json; charset=utf-8"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sshkeyListValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling sshkeyList(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling sshkeyList(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling sshkeyList(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sshkeyListCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List a system user&#39;s public SSH keys
+     * This endpoint will return a specific System User&#39;s public SSH key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @return Sshkeylist
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sshkeylist sshkeyList(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<Sshkeylist> resp = sshkeyListWithHttpInfo(id, contentType, accept, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * List a system user&#39;s public SSH keys
+     * This endpoint will return a specific System User&#39;s public SSH key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @return ApiResponse&lt;Sshkeylist&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sshkeylist> sshkeyListWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = sshkeyListValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<Sshkeylist>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List a system user&#39;s public SSH keys (asynchronously)
+     * This endpoint will return a specific System User&#39;s public SSH key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sshkeyListAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Sshkeylist> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sshkeyListValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Sshkeylist>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for sshkeyPost
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call sshkeyPostCall(String id, String contentType, String accept, Sshkeypost body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/systemusers/{id}/sshkeys"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json; charset=utf-8"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call sshkeyPostValidateBeforeCall(String id, String contentType, String accept, Sshkeypost body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling sshkeyPost(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling sshkeyPost(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling sshkeyPost(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = sshkeyPostCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create a system user&#39;s Public SSH Key
+     * This endpoint will create a specific System User&#39;s Public SSH Key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @return Sshkeylist
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Sshkeylist sshkeyPost(String id, String contentType, String accept, Sshkeypost body, String xOrgId) throws ApiException {
+        ApiResponse<Sshkeylist> resp = sshkeyPostWithHttpInfo(id, contentType, accept, body, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * Create a system user&#39;s Public SSH Key
+     * This endpoint will create a specific System User&#39;s Public SSH Key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @return ApiResponse&lt;Sshkeylist&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Sshkeylist> sshkeyPostWithHttpInfo(String id, String contentType, String accept, Sshkeypost body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = sshkeyPostValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<Sshkeylist>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create a system user&#39;s Public SSH Key (asynchronously)
+     * This endpoint will create a specific System User&#39;s Public SSH Key.
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call sshkeyPostAsync(String id, String contentType, String accept, Sshkeypost body, String xOrgId, final ApiCallback<Sshkeylist> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = sshkeyPostValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Sshkeylist>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systemusersDelete
+     * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systemusersDeleteCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -85,6 +541,8 @@ public class SystemusersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -117,7 +575,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersDeleteValidateBeforeCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersDeleteValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -135,7 +593,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersDeleteCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersDeleteCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -146,11 +604,12 @@ public class SystemusersApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Systemuserreturn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserreturn systemusersDelete(String id, String contentType, String accept) throws ApiException {
-        ApiResponse<Systemuserreturn> resp = systemusersDeleteWithHttpInfo(id, contentType, accept);
+    public Systemuserreturn systemusersDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<Systemuserreturn> resp = systemusersDeleteWithHttpInfo(id, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -160,11 +619,12 @@ public class SystemusersApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Systemuserreturn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserreturn> systemusersDeleteWithHttpInfo(String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersDeleteValidateBeforeCall(id, contentType, accept, null, null);
+    public ApiResponse<Systemuserreturn> systemusersDeleteWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersDeleteValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -175,11 +635,12 @@ public class SystemusersApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersDeleteAsync(String id, String contentType, String accept, final ApiCallback<Systemuserreturn> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersDeleteAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Systemuserreturn> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -200,7 +661,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersDeleteValidateBeforeCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersDeleteValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -211,12 +672,13 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersGetCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersGetCall(String id, String contentType, String accept, String fields, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -233,6 +695,8 @@ public class SystemusersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -265,7 +729,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersGetValidateBeforeCall(String id, String contentType, String accept, String fields, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersGetValidateBeforeCall(String id, String contentType, String accept, String fields, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -283,7 +747,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersGetCall(id, contentType, accept, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersGetCall(id, contentType, accept, fields, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -295,11 +759,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Systemuserreturn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserreturn systemusersGet(String id, String contentType, String accept, String fields) throws ApiException {
-        ApiResponse<Systemuserreturn> resp = systemusersGetWithHttpInfo(id, contentType, accept, fields);
+    public Systemuserreturn systemusersGet(String id, String contentType, String accept, String fields, String xOrgId) throws ApiException {
+        ApiResponse<Systemuserreturn> resp = systemusersGetWithHttpInfo(id, contentType, accept, fields, xOrgId);
         return resp.getData();
     }
 
@@ -310,11 +775,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Systemuserreturn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserreturn> systemusersGetWithHttpInfo(String id, String contentType, String accept, String fields) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, null, null);
+    public ApiResponse<Systemuserreturn> systemusersGetWithHttpInfo(String id, String contentType, String accept, String fields, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -326,11 +792,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersGetAsync(String id, String contentType, String accept, String fields, final ApiCallback<Systemuserreturn> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersGetAsync(String id, String contentType, String accept, String fields, String xOrgId, final ApiCallback<Systemuserreturn> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -351,24 +818,27 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersGetValidateBeforeCall(id, contentType, accept, fields, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for systemusersList
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to )
      * @param filter  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersListCall(Integer limit, Integer skip, String sort, String fields, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersListCall(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -388,6 +858,12 @@ public class SystemusersApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -420,10 +896,20 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersListValidateBeforeCall(Integer limit, Integer skip, String sort, String fields, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersListValidateBeforeCall(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systemusersList(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systemusersList(Async)");
+        }
         
 
-        com.squareup.okhttp.Call call = systemusersListCall(limit, skip, sort, fields, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersListCall(contentType, accept, limit, skip, sort, fields, filter, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -431,32 +917,38 @@ public class SystemusersApi {
     /**
      * List all system users
      * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to )
      * @param filter  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Systemuserslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserslist systemusersList(Integer limit, Integer skip, String sort, String fields, String filter) throws ApiException {
-        ApiResponse<Systemuserslist> resp = systemusersListWithHttpInfo(limit, skip, sort, fields, filter);
+    public Systemuserslist systemusersList(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, String xOrgId) throws ApiException {
+        ApiResponse<Systemuserslist> resp = systemusersListWithHttpInfo(contentType, accept, limit, skip, sort, fields, filter, xOrgId);
         return resp.getData();
     }
 
     /**
      * List all system users
      * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to )
      * @param filter  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Systemuserslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserslist> systemusersListWithHttpInfo(Integer limit, Integer skip, String sort, String fields, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(limit, skip, sort, fields, filter, null, null);
+    public ApiResponse<Systemuserslist> systemusersListWithHttpInfo(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(contentType, accept, limit, skip, sort, fields, filter, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -464,16 +956,19 @@ public class SystemusersApi {
     /**
      * List all system users (asynchronously)
      * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
      * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to )
      * @param filter  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersListAsync(Integer limit, Integer skip, String sort, String fields, String filter, final ApiCallback<Systemuserslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersListAsync(String contentType, String accept, Integer limit, Integer skip, String sort, String fields, String filter, String xOrgId, final ApiCallback<Systemuserslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -494,7 +989,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(limit, skip, sort, fields, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersListValidateBeforeCall(contentType, accept, limit, skip, sort, fields, filter, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -504,12 +999,13 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersPostCall(String contentType, String accept, Systemuserputpost body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersPostCall(String contentType, String accept, Systemuserputpost body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -523,6 +1019,8 @@ public class SystemusersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -555,7 +1053,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersPostValidateBeforeCall(String contentType, String accept, Systemuserputpost body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersPostValidateBeforeCall(String contentType, String accept, Systemuserputpost body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -568,7 +1066,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersPostCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersPostCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -579,11 +1077,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Systemuserreturn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserreturn systemusersPost(String contentType, String accept, Systemuserputpost body) throws ApiException {
-        ApiResponse<Systemuserreturn> resp = systemusersPostWithHttpInfo(contentType, accept, body);
+    public Systemuserreturn systemusersPost(String contentType, String accept, Systemuserputpost body, String xOrgId) throws ApiException {
+        ApiResponse<Systemuserreturn> resp = systemusersPostWithHttpInfo(contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -593,11 +1092,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Systemuserreturn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserreturn> systemusersPostWithHttpInfo(String contentType, String accept, Systemuserputpost body) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersPostValidateBeforeCall(contentType, accept, body, null, null);
+    public ApiResponse<Systemuserreturn> systemusersPostWithHttpInfo(String contentType, String accept, Systemuserputpost body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersPostValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -608,11 +1108,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersPostAsync(String contentType, String accept, Systemuserputpost body, final ApiCallback<Systemuserreturn> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersPostAsync(String contentType, String accept, Systemuserputpost body, String xOrgId, final ApiCallback<Systemuserreturn> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -633,7 +1134,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersPostValidateBeforeCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersPostValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -644,12 +1145,13 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersPutCall(String id, String contentType, String accept, Systemuserput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersPutCall(String id, String contentType, String accept, Systemuserput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -664,6 +1166,8 @@ public class SystemusersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -696,7 +1200,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersPutValidateBeforeCall(String id, String contentType, String accept, Systemuserput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersPutValidateBeforeCall(String id, String contentType, String accept, Systemuserput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -714,7 +1218,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersPutCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersPutCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -726,11 +1230,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Systemuserreturn
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemuserreturn systemusersPut(String id, String contentType, String accept, Systemuserput body) throws ApiException {
-        ApiResponse<Systemuserreturn> resp = systemusersPutWithHttpInfo(id, contentType, accept, body);
+    public Systemuserreturn systemusersPut(String id, String contentType, String accept, Systemuserput body, String xOrgId) throws ApiException {
+        ApiResponse<Systemuserreturn> resp = systemusersPutWithHttpInfo(id, contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -741,11 +1246,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Systemuserreturn&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemuserreturn> systemusersPutWithHttpInfo(String id, String contentType, String accept, Systemuserput body) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersPutValidateBeforeCall(id, contentType, accept, body, null, null);
+    public ApiResponse<Systemuserreturn> systemusersPutWithHttpInfo(String id, String contentType, String accept, Systemuserput body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersPutValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -757,11 +1263,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersPutAsync(String id, String contentType, String accept, Systemuserput body, final ApiCallback<Systemuserreturn> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersPutAsync(String id, String contentType, String accept, Systemuserput body, String xOrgId, final ApiCallback<Systemuserreturn> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -782,7 +1289,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersPutValidateBeforeCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersPutValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemuserreturn>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -791,12 +1298,13 @@ public class SystemusersApi {
      * Build call for systemusersResetmfa
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersResetmfaCall(String id, String xApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersResetmfaCall(String id, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -809,6 +1317,8 @@ public class SystemusersApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (xApiKey != null)
         localVarHeaderParams.put("x-api-key", apiClient.parameterToString(xApiKey));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -841,7 +1351,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersResetmfaValidateBeforeCall(String id, String xApiKey, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersResetmfaValidateBeforeCall(String id, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -854,7 +1364,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersResetmfaCall(id, xApiKey, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersResetmfaCall(id, xApiKey, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -864,11 +1374,12 @@ public class SystemusersApi {
      * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String systemusersResetmfa(String id, String xApiKey) throws ApiException {
-        ApiResponse<String> resp = systemusersResetmfaWithHttpInfo(id, xApiKey);
+    public String systemusersResetmfa(String id, String xApiKey, String xOrgId) throws ApiException {
+        ApiResponse<String> resp = systemusersResetmfaWithHttpInfo(id, xApiKey, xOrgId);
         return resp.getData();
     }
 
@@ -877,11 +1388,12 @@ public class SystemusersApi {
      * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> systemusersResetmfaWithHttpInfo(String id, String xApiKey) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, null, null);
+    public ApiResponse<String> systemusersResetmfaWithHttpInfo(String id, String xApiKey, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -891,11 +1403,12 @@ public class SystemusersApi {
      * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersResetmfaAsync(String id, String xApiKey, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersResetmfaAsync(String id, String xApiKey, String xOrgId, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -916,7 +1429,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -930,12 +1443,13 @@ public class SystemusersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersSystemsBindingListCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersSystemsBindingListCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -958,6 +1472,8 @@ public class SystemusersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -990,7 +1506,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersSystemsBindingListValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersSystemsBindingListValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1008,7 +1524,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersSystemsBindingListCall(id, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersSystemsBindingListCall(id, contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1023,11 +1539,12 @@ public class SystemusersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object systemusersSystemsBindingList(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Object> resp = systemusersSystemsBindingListWithHttpInfo(id, contentType, accept, fields, limit, skip, sort);
+    public Object systemusersSystemsBindingList(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        ApiResponse<Object> resp = systemusersSystemsBindingListWithHttpInfo(id, contentType, accept, fields, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -1041,11 +1558,12 @@ public class SystemusersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> systemusersSystemsBindingListWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersSystemsBindingListValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Object> systemusersSystemsBindingListWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersSystemsBindingListValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1060,11 +1578,12 @@ public class SystemusersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersSystemsBindingListAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Object> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersSystemsBindingListAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1085,7 +1604,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersSystemsBindingListValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersSystemsBindingListValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1096,12 +1615,13 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersSystemsBindingPutCall(String id, String contentType, String accept, Usersystembindingsput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersSystemsBindingPutCall(String id, String contentType, String accept, Usersystembindingsput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1116,6 +1636,8 @@ public class SystemusersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1148,7 +1670,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersSystemsBindingPutValidateBeforeCall(String id, String contentType, String accept, Usersystembindingsput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersSystemsBindingPutValidateBeforeCall(String id, String contentType, String accept, Usersystembindingsput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1166,7 +1688,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersSystemsBindingPutCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersSystemsBindingPutCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1178,11 +1700,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return Usersystembinding
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Usersystembinding systemusersSystemsBindingPut(String id, String contentType, String accept, Usersystembindingsput body) throws ApiException {
-        ApiResponse<Usersystembinding> resp = systemusersSystemsBindingPutWithHttpInfo(id, contentType, accept, body);
+    public Usersystembinding systemusersSystemsBindingPut(String id, String contentType, String accept, Usersystembindingsput body, String xOrgId) throws ApiException {
+        ApiResponse<Usersystembinding> resp = systemusersSystemsBindingPutWithHttpInfo(id, contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -1193,11 +1716,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @return ApiResponse&lt;Usersystembinding&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Usersystembinding> systemusersSystemsBindingPutWithHttpInfo(String id, String contentType, String accept, Usersystembindingsput body) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersSystemsBindingPutValidateBeforeCall(id, contentType, accept, body, null, null);
+    public ApiResponse<Usersystembinding> systemusersSystemsBindingPutWithHttpInfo(String id, String contentType, String accept, Usersystembindingsput body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersSystemsBindingPutValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Usersystembinding>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1209,11 +1733,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to <<your org id>>)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersSystemsBindingPutAsync(String id, String contentType, String accept, Usersystembindingsput body, final ApiCallback<Usersystembinding> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersSystemsBindingPutAsync(String id, String contentType, String accept, Usersystembindingsput body, String xOrgId, final ApiCallback<Usersystembinding> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1234,7 +1759,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersSystemsBindingPutValidateBeforeCall(id, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersSystemsBindingPutValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Usersystembinding>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
