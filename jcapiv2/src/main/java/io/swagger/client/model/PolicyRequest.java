@@ -28,10 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An instance of a policty template.
+ * An instance of a policy template.
  */
-@ApiModel(description = "An instance of a policty template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T21:14:00.825Z")
+@ApiModel(description = "An instance of a policy template.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:21:18.591Z")
 public class PolicyRequest {
   @SerializedName("name")
   private String name = null;

@@ -25,10 +25,10 @@ import io.swagger.client.model.PolicyTemplate;
 import java.io.IOException;
 
 /**
- * An instance of a policty template.
+ * An instance of a policy template.
  */
-@ApiModel(description = "An instance of a policty template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T21:14:00.825Z")
+@ApiModel(description = "An instance of a policy template.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:21:18.591Z")
 public class Policy {
   @SerializedName("id")
   private String id = null;
@@ -45,10 +45,10 @@ public class Policy {
   }
 
    /**
-   * ObjectId uniquely indetifying a Policy.
+   * ObjectId uniquely identifying a Policy.
    * @return id
   **/
-  @ApiModelProperty(value = "ObjectId uniquely indetifying a Policy.")
+  @ApiModelProperty(value = "ObjectId uniquely identifying a Policy.")
   public String getId() {
     return id;
   }

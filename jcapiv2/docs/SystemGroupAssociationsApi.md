@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 List the associations of a System Group
 
-This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -44,7 +44,7 @@ String accept = "application/json"; // String |
 List<String> targets = Arrays.asList("targets_example"); // List<String> | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphConnection> result = apiInstance.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId);
     System.out.println(result);
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
  **targets** | [**List&lt;String&gt;**](String.md)|  | [enum: active_directory, application, command, g_suite, ldap_server, office_365, policy, radius_server, user, user_group]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of a System Group
 
-This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
+This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -109,7 +109,7 @@ String groupId = "groupId_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 SystemGroupGraphManagementReq body = new SystemGroupGraphManagementReq(); // SystemGroupGraphManagementReq | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.graphSystemGroupAssociationsPost(groupId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupGraphManagementReq**](SystemGroupGraphManagementReq.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -172,7 +172,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseCommand(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -237,7 +237,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -302,7 +302,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -367,7 +367,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

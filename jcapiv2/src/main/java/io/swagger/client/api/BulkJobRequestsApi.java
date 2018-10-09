@@ -62,7 +62,7 @@ public class BulkJobRequestsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -140,7 +140,7 @@ public class BulkJobRequestsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return JobId
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -155,7 +155,7 @@ public class BulkJobRequestsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;JobId&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -171,7 +171,7 @@ public class BulkJobRequestsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -209,7 +209,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -299,7 +299,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;JobWorkresult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -316,7 +316,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;JobWorkresult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -334,7 +334,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -370,7 +370,7 @@ public class BulkJobRequestsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -454,7 +454,7 @@ public class BulkJobRequestsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return JobDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -469,7 +469,7 @@ public class BulkJobRequestsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;JobDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -485,7 +485,7 @@ public class BulkJobRequestsApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -523,7 +523,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -613,7 +613,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;JobWorkresult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -630,7 +630,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;JobWorkresult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -648,7 +648,7 @@ public class BulkJobRequestsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

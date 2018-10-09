@@ -63,7 +63,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -147,7 +147,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void activedirectoriesDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
@@ -160,7 +160,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -175,7 +175,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -210,7 +210,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -294,7 +294,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ActiveDirectoryOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -309,7 +309,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;ActiveDirectoryOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -325,7 +325,7 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -365,7 +365,7 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -457,7 +457,7 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;ActiveDirectoryOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -476,7 +476,7 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;ActiveDirectoryOutput&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -496,7 +496,7 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -532,7 +532,7 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -610,7 +610,7 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ActiveDirectoryOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -625,7 +625,7 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;ActiveDirectoryOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -641,7 +641,7 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -680,7 +680,7 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -771,14 +771,14 @@ public class ActiveDirectoryApi {
 
     /**
      * List the associations of an Active Directory instance
-     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphConnection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -789,14 +789,14 @@ public class ActiveDirectoryApi {
 
     /**
      * List the associations of an Active Directory instance
-     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphConnection&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -808,14 +808,14 @@ public class ActiveDirectoryApi {
 
     /**
      * List the associations of an Active Directory instance (asynchronously)
-     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -852,7 +852,7 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -932,12 +932,12 @@ public class ActiveDirectoryApi {
 
     /**
      * Manage the associations of an Active Directory instance
-     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void graphActiveDirectoryAssociationsPost(String activedirectoryId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
@@ -946,12 +946,12 @@ public class ActiveDirectoryApi {
 
     /**
      * Manage the associations of an Active Directory instance
-     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -962,12 +962,12 @@ public class ActiveDirectoryApi {
 
     /**
      * Manage the associations of an Active Directory instance (asynchronously)
-     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1004,7 +1004,7 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1094,7 +1094,7 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1111,7 +1111,7 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1129,7 +1129,7 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

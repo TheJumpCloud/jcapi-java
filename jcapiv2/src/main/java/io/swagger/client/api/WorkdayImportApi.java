@@ -67,7 +67,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -152,7 +152,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void workdaysAuthorize(String workdayId, String contentType, String accept, AuthInputObject body, String xOrgId) throws ApiException {
@@ -166,7 +166,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -182,7 +182,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -217,7 +217,7 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -301,7 +301,7 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void workdaysDeauthorize(String workdayId, String contentType, String accept, String xOrgId) throws ApiException {
@@ -314,7 +314,7 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -329,7 +329,7 @@ public class WorkdayImportApi {
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -364,7 +364,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -448,7 +448,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -463,7 +463,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -479,7 +479,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -515,7 +515,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -599,7 +599,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return WorkdayOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -614,7 +614,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;WorkdayOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -630,7 +630,7 @@ public class WorkdayImportApi {
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -667,7 +667,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -752,7 +752,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return JobId
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -768,7 +768,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;JobId&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -785,7 +785,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -824,7 +824,7 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -921,7 +921,7 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;JobWorkresult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -939,7 +939,7 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;JobWorkresult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -958,7 +958,7 @@ public class WorkdayImportApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -998,7 +998,7 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1090,7 +1090,7 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;WorkdayOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1109,7 +1109,7 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;WorkdayOutput&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1129,7 +1129,7 @@ public class WorkdayImportApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1165,7 +1165,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1243,7 +1243,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void workdaysPost(String contentType, String accept, WorkdayInput body, String xOrgId) throws ApiException {
@@ -1256,7 +1256,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1271,7 +1271,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1307,7 +1307,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1392,7 +1392,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return WorkdayOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1408,7 +1408,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;WorkdayOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1425,7 +1425,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1461,7 +1461,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1541,7 +1541,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void workdaysSettings(String contentType, String accept, String state, String xOrgId) throws ApiException {
@@ -1554,7 +1554,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1569,7 +1569,7 @@ public class WorkdayImportApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1607,7 +1607,7 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1700,7 +1700,7 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;WorkdayWorker&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1718,7 +1718,7 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;WorkdayWorker&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1737,7 +1737,7 @@ public class WorkdayImportApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

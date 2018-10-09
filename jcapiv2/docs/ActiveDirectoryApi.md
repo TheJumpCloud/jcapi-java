@@ -42,7 +42,7 @@ ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String id = "id_example"; // String | ObjectID of this Active Directory instance.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.activedirectoriesDelete(id, contentType, accept, xOrgId);
 } catch (ApiException e) {
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of this Active Directory instance. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -102,7 +102,7 @@ ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String id = "id_example"; // String | ObjectID of this Active Directory instance.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     ActiveDirectoryOutput result = apiInstance.activedirectoriesGet(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of this Active Directory instance. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -167,7 +167,7 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<ActiveDirectoryOutput> result = apiInstance.activedirectoriesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -188,7 +188,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -232,7 +232,7 @@ ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 ActiveDirectoryInput body = new ActiveDirectoryInput(); // ActiveDirectoryInput | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     ActiveDirectoryOutput result = apiInstance.activedirectoriesPost(contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**ActiveDirectoryInput**](ActiveDirectoryInput.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 List the associations of an Active Directory instance
 
-This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -296,7 +296,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphConnection> result = apiInstance.graphActiveDirectoryAssociationsList(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of an Active Directory instance
 
-This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -361,7 +361,7 @@ String activedirectoryId = "activedirectoryId_example"; // String |
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.graphActiveDirectoryAssociationsPost(activedirectoryId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -424,7 +424,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphActiveDirectoryTraverseUserGroup(activedirectoryId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

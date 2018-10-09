@@ -30,7 +30,7 @@ import java.util.List;
  * The shallow information about a Policy Template.
  */
 @ApiModel(description = "The shallow information about a Policy Template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T21:14:00.825Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:21:18.591Z")
 public class PolicyTemplateWithDetails {
   @SerializedName("id")
   private String id = null;
@@ -111,10 +111,10 @@ public class PolicyTemplateWithDetails {
   }
 
    /**
-   * ObjectId uniquely indetifying a Policy Template.
+   * ObjectId uniquely identifying a Policy Template.
    * @return id
   **/
-  @ApiModelProperty(value = "ObjectId uniquely indetifying a Policy Template.")
+  @ApiModelProperty(value = "ObjectId uniquely identifying a Policy Template.")
   public String getId() {
     return id;
   }

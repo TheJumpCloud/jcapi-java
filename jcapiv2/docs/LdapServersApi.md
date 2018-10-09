@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 List the associations of a LDAP Server
 
-This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogenous relationship between 2 different objects. for example LDAP and Users.  #### Sample Request  &#x60;&#x60;&#x60;  curl -X GET &#39;https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets&#x3D;user_group \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request  &#x60;&#x60;&#x60;  curl -X GET &#39;https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets&#x3D;user_group \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -44,7 +44,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphConnection> result = apiInstance.graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of a LDAP Server
 
-This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogenous relationship between 2 different objects. for example LDAP and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{User_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
+This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{User_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -109,7 +109,7 @@ String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP S
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -172,7 +172,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -237,7 +237,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -300,7 +300,7 @@ LdapServersApi apiInstance = new LdapServersApi();
 String id = "id_example"; // String | Unique identifier of the LDAP server.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     LdapServerOutput result = apiInstance.ldapserversGet(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the LDAP server. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -365,7 +365,7 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<LdapServerOutput> result = apiInstance.ldapserversList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

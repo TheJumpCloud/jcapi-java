@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * JobWorkresult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T21:14:00.825Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:21:18.591Z")
 public class JobWorkresult {
   @SerializedName("meta")
   private Object meta = null;

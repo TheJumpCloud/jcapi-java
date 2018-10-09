@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **osMetaFamily** | [**OsMetaFamilyEnum**](#OsMetaFamilyEnum) |  |  [optional]
 **activation** | **String** | Requirements before the policy can be activated. |  [optional]
 **behavior** | **String** | Specifics about the behavior of the policy. |  [optional]
+**state** | **String** | String describing the release status of the policy template. |  [optional]
 
 
 <a name="OsMetaFamilyEnum"></a>

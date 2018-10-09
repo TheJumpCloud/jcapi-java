@@ -14,6 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Emailrequest;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphObjectWithPaths;
 import io.swagger.client.model.UserGraphManagementReq;
@@ -37,7 +38,7 @@ public class UsersApiTest {
     /**
      * List the associations of a User
      *
-     * This endpoint returns the _direct_ associations of a User.  A direct association can be a non-homogenous relationship between 2 different objects. for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/users/{UserID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns the _direct_ associations of a User.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/users/{UserID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -59,7 +60,7 @@ public class UsersApiTest {
     /**
      * Manage the associations of a User
      *
-     * This endpoint allows you to manage the _direct_ associations of a User.  A direct association can be a non-homogenous relationship between 2 different objects. for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/users/{UserID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },     \&quot;op\&quot;: \&quot;add\&quot;,    \&quot;type\&quot;: \&quot;system_group\&quot;,    \&quot;id\&quot;: \&quot;{GroupID}\&quot; }&#39;
+     * This endpoint allows you to manage the _direct_ associations of a User.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/users/{UserID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },     \&quot;op\&quot;: \&quot;add\&quot;,    \&quot;type\&quot;: \&quot;system_group\&quot;,    \&quot;id\&quot;: \&quot;{GroupID}\&quot; }&#39;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -263,6 +264,26 @@ public class UsersApiTest {
         Integer skip = null;
         String xOrgId = null;
         List<GraphObjectWithPaths> response = api.graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Send User Emails
+     *
+     * This endpoint allows you to send a specific email to a user without waiting for or triggering a workflow.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void userSendEmailsTest() throws ApiException {
+        String userId = null;
+        String contentType = null;
+        String accept = null;
+        Emailrequest body = null;
+        String xOrgId = null;
+        api.userSendEmails(userId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

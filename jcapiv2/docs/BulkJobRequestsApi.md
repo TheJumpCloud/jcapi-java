@@ -39,7 +39,7 @@ BulkJobRequestsApi apiInstance = new BulkJobRequestsApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 List<BulkUserCreate> body = Arrays.asList(new BulkUserCreate()); // List<BulkUserCreate> | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     JobId result = apiInstance.bulkUsersCreate(contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**List&lt;BulkUserCreate&gt;**](BulkUserCreate.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -102,7 +102,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<JobWorkresult> result = apiInstance.bulkUsersCreateResults(jobId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -165,7 +165,7 @@ BulkJobRequestsApi apiInstance = new BulkJobRequestsApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     JobDetails result = apiInstance.jobsGet(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -228,7 +228,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<JobWorkresult> result = apiInstance.jobsResults(id, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

@@ -41,7 +41,7 @@ String ldapserverId = "ldapserverId_example"; // String | Unique identifier of t
 String id = "id_example"; // String | Unique identifier of the samba domain.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     String result = apiInstance.ldapserversSambaDomainsDelete(ldapserverId, id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the samba domain. |
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -104,7 +104,7 @@ String ldapserverId = "ldapserverId_example"; // String | Unique identifier of t
 String id = "id_example"; // String | Unique identifier of the samba domain.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     SambaDomainOutput result = apiInstance.ldapserversSambaDomainsGet(ldapserverId, id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the samba domain. |
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -171,7 +171,7 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<SambaDomainOutput> result = apiInstance.ldapserversSambaDomainsList(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -238,7 +238,7 @@ String ldapserverId = "ldapserverId_example"; // String | Unique identifier of t
 SambaDomainInput body = new SambaDomainInput(); // SambaDomainInput | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     SambaDomainOutput result = apiInstance.ldapserversSambaDomainsPost(ldapserverId, body, contentType, accept, xOrgId);
     System.out.println(result);
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
  **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional]
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -302,7 +302,7 @@ String id = "id_example"; // String | Unique identifier of the samba domain.
 SambaDomainInput body = new SambaDomainInput(); // SambaDomainInput | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     SambaDomainOutput result = apiInstance.ldapserversSambaDomainsPut(ldapserverId, id, body, contentType, accept, xOrgId);
     System.out.println(result);
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
  **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional]
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

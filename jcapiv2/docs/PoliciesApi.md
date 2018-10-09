@@ -14,10 +14,10 @@ Method | HTTP request | Description
 [**policiesPost**](PoliciesApi.md#policiesPost) | **POST** /policies | Create a new Policy
 [**policiesPut**](PoliciesApi.md#policiesPut) | **PUT** /policies/{id} | Update an existing Policy
 [**policyresultsGet**](PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
-[**policyresultsList**](PoliciesApi.md#policyresultsList) | **GET** /policyresults | Lists all the policy results for an organization.
-[**policyresultsList_0**](PoliciesApi.md#policyresultsList_0) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
-[**policystatusesList**](PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
-[**policystatusesList_0**](PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+[**policyresultsList**](PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
+[**policyresultsList_0**](PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
+[**policystatusesList**](PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+[**policystatusesList_0**](PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
 [**policytemplatesGet**](PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 [**policytemplatesList**](PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 List the associations of a Policy
 
-This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -54,7 +54,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphConnection> result = apiInstance.graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of a Policy
 
-This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
+This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -119,7 +119,7 @@ String policyId = "policyId_example"; // String | ObjectID of the Policy.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.graphPolicyAssociationsPost(policyId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -182,7 +182,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -247,7 +247,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -310,7 +310,7 @@ PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.policiesDelete(id, contentType, accept, xOrgId);
 } catch (ApiException e) {
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy object. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -370,7 +370,7 @@ PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     PolicyWithDetails result = apiInstance.policiesGet(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -387,7 +387,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy object. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -435,7 +435,7 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<Policy> result = apiInstance.policiesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -456,7 +456,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -500,7 +500,7 @@ PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 PolicyRequest body = new PolicyRequest(); // PolicyRequest | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     PolicyWithDetails result = apiInstance.policiesPost(contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -517,7 +517,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**PolicyRequest**](PolicyRequest.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -560,7 +560,7 @@ x_api_key.setApiKey("YOUR API KEY");
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
 PolicyRequest body = new PolicyRequest(); // PolicyRequest | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Policy result = apiInstance.policiesPut(id, body, xOrgId);
     System.out.println(result);
@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ObjectID of the Policy object. |
  **body** | [**PolicyRequest**](PolicyRequest.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -620,7 +620,7 @@ PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy Result.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     PolicyResult result = apiInstance.policyresultsGet(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy Result. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -654,78 +654,7 @@ Name | Type | Description  | Notes
 
 <a name="policyresultsList"></a>
 # **policyresultsList**
-> List&lt;PolicyResult&gt; policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId)
-
-Lists all the policy results for an organization.
-
-This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
-
-### Example
-```java
-// Import classes:
-//import io.swagger.client.ApiClient;
-//import io.swagger.client.ApiException;
-//import io.swagger.client.Configuration;
-//import io.swagger.client.auth.*;
-//import io.swagger.client.api.PoliciesApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
-
-PoliciesApi apiInstance = new PoliciesApi();
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
-List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
-List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
-try {
-    List<PolicyResult> result = apiInstance.policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling PoliciesApi#policyresultsList");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
- **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
- **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
-
-### Return type
-
-[**List&lt;PolicyResult&gt;**](PolicyResult.md)
-
-### Authorization
-
-[x-api-key](../README.md#x-api-key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="policyresultsList_0"></a>
-# **policyresultsList_0**
-> List&lt;PolicyResult&gt; policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId)
+> List&lt;PolicyResult&gt; policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId)
 
 Lists all the policy results of a policy.
 
@@ -758,12 +687,12 @@ Integer limit = 10; // Integer | The number of records to return at once. Limite
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
+    List<PolicyResult> result = apiInstance.policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PoliciesApi#policyresultsList_0");
+    System.err.println("Exception when calling PoliciesApi#policyresultsList");
     e.printStackTrace();
 }
 ```
@@ -781,7 +710,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -796,13 +725,13 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="policystatusesList"></a>
-# **policystatusesList**
-> List&lt;PolicyResult&gt; policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
+<a name="policyresultsList_0"></a>
+# **policyresultsList_0**
+> List&lt;PolicyResult&gt; policyresultsList_0(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId)
 
-Lists the latest policy results of a policy.
+Lists all the policy results for an organization.
 
-This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -822,20 +751,20 @@ x_api_key.setApiKey("YOUR API KEY");
 //x_api_key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
-String policyId = "policyId_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
 List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
 List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+    List<PolicyResult> result = apiInstance.policyresultsList_0(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PoliciesApi#policystatusesList");
+    System.err.println("Exception when calling PoliciesApi#policyresultsList_0");
     e.printStackTrace();
 }
 ```
@@ -844,15 +773,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
  **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -867,9 +796,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="policystatusesList_0"></a>
-# **policystatusesList_0**
-> List&lt;PolicyResult&gt; policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
+<a name="policystatusesList"></a>
+# **policystatusesList**
+> List&lt;PolicyResult&gt; policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 List the policy statuses for a system
 
@@ -901,12 +830,12 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+    List<PolicyResult> result = apiInstance.policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PoliciesApi#policystatusesList_0");
+    System.err.println("Exception when calling PoliciesApi#policystatusesList");
     e.printStackTrace();
 }
 ```
@@ -923,7 +852,78 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**List&lt;PolicyResult&gt;**](PolicyResult.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="policystatusesList_0"></a>
+# **policystatusesList_0**
+> List&lt;PolicyResult&gt; policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
+
+Lists the latest policy results of a policy.
+
+This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.PoliciesApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+PoliciesApi apiInstance = new PoliciesApi();
+String policyId = "policyId_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
+try {
+    List<PolicyResult> result = apiInstance.policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PoliciesApi#policystatusesList_0");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **policyId** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -967,7 +967,7 @@ PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy Template.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     PolicyTemplateWithDetails result = apiInstance.policytemplatesGet(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -984,7 +984,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy Template. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -1032,7 +1032,7 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     List<PolicyTemplate> result = apiInstance.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -1053,7 +1053,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

@@ -27,7 +27,7 @@ import java.io.IOException;
  * The shallow information about a Policy Template.
  */
 @ApiModel(description = "The shallow information about a Policy Template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T21:14:00.825Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:21:18.591Z")
 public class PolicyTemplate {
   @SerializedName("id")
   private String id = null;
@@ -98,6 +98,9 @@ public class PolicyTemplate {
 
   @SerializedName("behavior")
   private String behavior = null;
+
+  @SerializedName("state")
+  private String state = "";
 
   public PolicyTemplate id(String id) {
     this.id = id;
@@ -225,6 +228,24 @@ public class PolicyTemplate {
     this.behavior = behavior;
   }
 
+  public PolicyTemplate state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * String describing the release status of the policy template.
+   * @return state
+  **/
+  @ApiModelProperty(value = "String describing the release status of the policy template.")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -241,12 +262,13 @@ public class PolicyTemplate {
         Objects.equals(this.displayName, policyTemplate.displayName) &&
         Objects.equals(this.osMetaFamily, policyTemplate.osMetaFamily) &&
         Objects.equals(this.activation, policyTemplate.activation) &&
-        Objects.equals(this.behavior, policyTemplate.behavior);
+        Objects.equals(this.behavior, policyTemplate.behavior) &&
+        Objects.equals(this.state, policyTemplate.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, displayName, osMetaFamily, activation, behavior);
+    return Objects.hash(id, name, description, displayName, osMetaFamily, activation, behavior, state);
   }
 
 
@@ -262,6 +284,7 @@ public class PolicyTemplate {
     sb.append("    osMetaFamily: ").append(toIndentedString(osMetaFamily)).append("\n");
     sb.append("    activation: ").append(toIndentedString(activation)).append("\n");
     sb.append("    behavior: ").append(toIndentedString(behavior)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }

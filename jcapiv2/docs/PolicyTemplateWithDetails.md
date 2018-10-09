@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ObjectId uniquely indetifying a Policy Template. |  [optional]
+**id** | **String** | ObjectId uniquely identifying a Policy Template. |  [optional]
 **name** | **String** | The unique name for the Policy Template. |  [optional]
 **description** | **String** | The default description for the Policy. |  [optional]
 **displayName** | **String** | The default display name for the Policy. |  [optional]
