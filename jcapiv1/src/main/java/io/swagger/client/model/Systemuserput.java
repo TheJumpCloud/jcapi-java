@@ -22,8 +22,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Sshkeypost;
-import io.swagger.client.model.SystemuserputpostAddresses;
-import io.swagger.client.model.SystemuserputpostPhoneNumbers;
+import io.swagger.client.model.SystemuserputAddresses;
+import io.swagger.client.model.SystemuserputPhoneNumbers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Systemuserput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
 public class Systemuserput {
   @SerializedName("email")
   private String email = null;
@@ -94,7 +94,7 @@ public class Systemuserput {
   private Boolean sambaServiceUser = null;
 
   @SerializedName("addresses")
-  private List<SystemuserputpostAddresses> addresses = null;
+  private List<SystemuserputAddresses> addresses = null;
 
   @SerializedName("jobTitle")
   private String jobTitle = null;
@@ -103,7 +103,7 @@ public class Systemuserput {
   private String department = null;
 
   @SerializedName("phoneNumbers")
-  private List<SystemuserputpostPhoneNumbers> phoneNumbers = null;
+  private List<SystemuserputPhoneNumbers> phoneNumbers = null;
 
   @SerializedName("relationships")
   private List<Object> relationships = null;
@@ -524,14 +524,14 @@ public class Systemuserput {
     this.sambaServiceUser = sambaServiceUser;
   }
 
-  public Systemuserput addresses(List<SystemuserputpostAddresses> addresses) {
+  public Systemuserput addresses(List<SystemuserputAddresses> addresses) {
     this.addresses = addresses;
     return this;
   }
 
-  public Systemuserput addAddressesItem(SystemuserputpostAddresses addressesItem) {
+  public Systemuserput addAddressesItem(SystemuserputAddresses addressesItem) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList<SystemuserputpostAddresses>();
+      this.addresses = new ArrayList<SystemuserputAddresses>();
     }
     this.addresses.add(addressesItem);
     return this;
@@ -542,11 +542,11 @@ public class Systemuserput {
    * @return addresses
   **/
   @ApiModelProperty(value = "type, poBox, extendedAddress, streetAddress, locality, region, postalCode, country")
-  public List<SystemuserputpostAddresses> getAddresses() {
+  public List<SystemuserputAddresses> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(List<SystemuserputpostAddresses> addresses) {
+  public void setAddresses(List<SystemuserputAddresses> addresses) {
     this.addresses = addresses;
   }
 
@@ -586,14 +586,14 @@ public class Systemuserput {
     this.department = department;
   }
 
-  public Systemuserput phoneNumbers(List<SystemuserputpostPhoneNumbers> phoneNumbers) {
+  public Systemuserput phoneNumbers(List<SystemuserputPhoneNumbers> phoneNumbers) {
     this.phoneNumbers = phoneNumbers;
     return this;
   }
 
-  public Systemuserput addPhoneNumbersItem(SystemuserputpostPhoneNumbers phoneNumbersItem) {
+  public Systemuserput addPhoneNumbersItem(SystemuserputPhoneNumbers phoneNumbersItem) {
     if (this.phoneNumbers == null) {
-      this.phoneNumbers = new ArrayList<SystemuserputpostPhoneNumbers>();
+      this.phoneNumbers = new ArrayList<SystemuserputPhoneNumbers>();
     }
     this.phoneNumbers.add(phoneNumbersItem);
     return this;
@@ -604,11 +604,11 @@ public class Systemuserput {
    * @return phoneNumbers
   **/
   @ApiModelProperty(value = "")
-  public List<SystemuserputpostPhoneNumbers> getPhoneNumbers() {
+  public List<SystemuserputPhoneNumbers> getPhoneNumbers() {
     return phoneNumbers;
   }
 
-  public void setPhoneNumbers(List<SystemuserputpostPhoneNumbers> phoneNumbers) {
+  public void setPhoneNumbers(List<SystemuserputPhoneNumbers> phoneNumbers) {
     this.phoneNumbers = phoneNumbers;
   }
 

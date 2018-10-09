@@ -36,7 +36,7 @@ SystemusersApi apiInstance = new SystemusersApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.sshkeyDelete(id, contentType, accept, xOrgId);
 } catch (ApiException e) {
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -86,7 +86,7 @@ SystemusersApi apiInstance = new SystemusersApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Sshkeylist result = apiInstance.sshkeyList(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -138,7 +138,7 @@ String id = "id_example"; // String |
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Sshkeypost body = new Sshkeypost(); // Sshkeypost | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Sshkeylist result = apiInstance.sshkeyPost(id, contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Sshkeypost**](Sshkeypost.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -200,7 +200,7 @@ SystemusersApi apiInstance = new SystemusersApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Systemuserreturn result = apiInstance.systemusersDelete(id, contentType, accept, xOrgId);
     System.out.println(result);
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -262,7 +262,7 @@ String id = "id_example"; // String |
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 String fields = ""; // String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Systemuserreturn result = apiInstance.systemusersGet(id, contentType, accept, fields, xOrgId);
     System.out.println(result);
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -328,7 +328,7 @@ Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String fields = ""; // String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
 String filter = ""; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Systemuserslist result = apiInstance.systemusersList(contentType, accept, limit, skip, sort, fields, filter, xOrgId);
     System.out.println(result);
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
  **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
  **filter** | **String**|  | [optional] [default to ]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -393,7 +393,7 @@ SystemusersApi apiInstance = new SystemusersApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Systemuserputpost body = new Systemuserputpost(); // Systemuserputpost | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Systemuserreturn result = apiInstance.systemusersPost(contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemuserputpost**](Systemuserputpost.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -455,7 +455,7 @@ String id = "id_example"; // String |
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Systemuserput body = new Systemuserput(); // Systemuserput | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Systemuserreturn result = apiInstance.systemusersPut(id, contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemuserput**](Systemuserput.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -516,7 +516,7 @@ x_api_key.setApiKey("YOUR API KEY");
 SystemusersApi apiInstance = new SystemusersApi();
 String id = "id_example"; // String | 
 String xApiKey = "xApiKey_example"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     String result = apiInstance.systemusersResetmfa(id, xApiKey, xOrgId);
     System.out.println(result);
@@ -532,7 +532,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
  **xApiKey** | **String**|  |
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -580,7 +580,7 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Object result = apiInstance.systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -646,7 +646,7 @@ String id = "id_example"; // String |
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Usersystembindingsput body = new Usersystembindingsput(); // Usersystembindingsput | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Usersystembinding result = apiInstance.systemusersSystemsBindingPut(id, contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -664,7 +664,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Usersystembindingsput**](Usersystembindingsput.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

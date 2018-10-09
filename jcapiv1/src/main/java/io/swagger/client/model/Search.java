@@ -26,15 +26,15 @@ import java.io.IOException;
 /**
  * Search
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
 public class Search {
   @SerializedName("filter")
-  private String filter = null;
+  private Object filter = null;
 
   @SerializedName("fields")
   private String fields = null;
 
-  public Search filter(String filter) {
+  public Search filter(Object filter) {
     this.filter = filter;
     return this;
   }
@@ -44,11 +44,11 @@ public class Search {
    * @return filter
   **/
   @ApiModelProperty(value = "")
-  public String getFilter() {
+  public Object getFilter() {
     return filter;
   }
 
-  public void setFilter(String filter) {
+  public void setFilter(Object filter) {
     this.filter = filter;
   }
 

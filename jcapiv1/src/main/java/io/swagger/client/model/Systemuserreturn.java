@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Systemuserreturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
 public class Systemuserreturn {
   @SerializedName("email")
   private String email = null;
@@ -108,7 +108,7 @@ public class Systemuserreturn {
   @SerializedName("samba_service_user")
   private Boolean sambaServiceUser = null;
 
-  @SerializedName("id")
+  @SerializedName("_id")
   private String id = null;
 
   @SerializedName("organization")

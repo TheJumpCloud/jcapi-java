@@ -36,7 +36,7 @@ CommandTriggersApi apiInstance = new CommandTriggersApi();
 String triggername = "triggername_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     apiInstance.commandTriggerWebhookPost(triggername, contentType, accept, xOrgId);
 } catch (ApiException e) {
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
  **triggername** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

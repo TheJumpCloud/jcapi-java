@@ -1,11 +1,11 @@
 
-# Search
+# SystemuserputPhoneNumbers
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | **Object** |  |  [optional]
-**fields** | **String** |  |  [optional]
+**type** | **String** |  |  [optional]
+**number** | **String** |  |  [optional]
 
 
 

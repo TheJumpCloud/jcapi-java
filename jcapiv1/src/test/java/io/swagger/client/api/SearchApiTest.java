@@ -14,6 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Organizationslist;
 import io.swagger.client.model.Search;
 import io.swagger.client.model.Systemslist;
 import io.swagger.client.model.Systemuserslist;
@@ -51,7 +52,7 @@ public class SearchApiTest {
         Integer limit = null;
         String xOrgId = null;
         Integer skip = null;
-        Systemslist response = api.searchOrganizationsPost(contentType, accept, body, fields, limit, xOrgId, skip);
+        Organizationslist response = api.searchOrganizationsPost(contentType, accept, body, fields, limit, xOrgId, skip);
 
         // TODO: test validations
     }
@@ -59,7 +60,7 @@ public class SearchApiTest {
     /**
      * Search Systems
      *
-     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
+     * Return Systems in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the MongoDB JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; :     {         \&quot;or\&quot; :             [                 {\&quot;hostname\&quot; : { \&quot;$regex\&quot; : \&quot;^www\&quot; }},                 {\&quot;hostname\&quot; : {\&quot;$regex\&quot; : \&quot;^db\&quot;}}             ]     }, \&quot;fields\&quot; : \&quot;os hostname displayName\&quot; }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -81,7 +82,7 @@ public class SearchApiTest {
     /**
      * Search System Users
      *
-     * Return System Users in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system user.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the mongodb JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systemsusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; : [{\&quot;email\&quot; : { \&quot;$regex\&quot; : \&quot;gmail.com$\&quot;}}], \&quot;fields\&quot; : \&quot;email username sudo\&quot; }&#39; &#x60;&#x60;&#x60;
+     * Return System Users in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system user.  To support advanced filtering you can use the &#x60;filter&#x60; parameter that can only be passed in the body of POST /api/search/_* routes. The &#x60;filter&#x60; parameter must be passed as Content-Type application/json supports advanced filtering using the MongoDB JSON query syntax.   The &#x60;filter&#x60; parameter is an object with a single property, either and or or with the value of the property being an array of query expressions.   This allows you to filter records using the logic of matching ALL or ANY records in the array of query expressions. If the and or or are not included the default behavior is to match ALL query expressions.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/search/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;filter\&quot; : [{\&quot;email\&quot; : { \&quot;$regex\&quot; : \&quot;gmail.com$\&quot;}}], \&quot;fields\&quot; : \&quot;email username sudo\&quot; }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails

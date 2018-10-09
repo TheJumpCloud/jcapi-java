@@ -24,10 +24,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * SystemuserputpostAddresses
+ * SystemuserputAddresses
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
-public class SystemuserputpostAddresses {
+public class SystemuserputAddresses {
   @SerializedName("type")
   private String type = null;
 
@@ -52,7 +52,7 @@ public class SystemuserputpostAddresses {
   @SerializedName("country")
   private String country = null;
 
-  public SystemuserputpostAddresses type(String type) {
+  public SystemuserputAddresses type(String type) {
     this.type = type;
     return this;
   }
@@ -70,7 +70,7 @@ public class SystemuserputpostAddresses {
     this.type = type;
   }
 
-  public SystemuserputpostAddresses poBox(String poBox) {
+  public SystemuserputAddresses poBox(String poBox) {
     this.poBox = poBox;
     return this;
   }
@@ -88,7 +88,7 @@ public class SystemuserputpostAddresses {
     this.poBox = poBox;
   }
 
-  public SystemuserputpostAddresses extendedAddress(String extendedAddress) {
+  public SystemuserputAddresses extendedAddress(String extendedAddress) {
     this.extendedAddress = extendedAddress;
     return this;
   }
@@ -106,7 +106,7 @@ public class SystemuserputpostAddresses {
     this.extendedAddress = extendedAddress;
   }
 
-  public SystemuserputpostAddresses streetAddress(String streetAddress) {
+  public SystemuserputAddresses streetAddress(String streetAddress) {
     this.streetAddress = streetAddress;
     return this;
   }
@@ -124,7 +124,7 @@ public class SystemuserputpostAddresses {
     this.streetAddress = streetAddress;
   }
 
-  public SystemuserputpostAddresses locality(String locality) {
+  public SystemuserputAddresses locality(String locality) {
     this.locality = locality;
     return this;
   }
@@ -142,7 +142,7 @@ public class SystemuserputpostAddresses {
     this.locality = locality;
   }
 
-  public SystemuserputpostAddresses region(String region) {
+  public SystemuserputAddresses region(String region) {
     this.region = region;
     return this;
   }
@@ -160,7 +160,7 @@ public class SystemuserputpostAddresses {
     this.region = region;
   }
 
-  public SystemuserputpostAddresses postalCode(String postalCode) {
+  public SystemuserputAddresses postalCode(String postalCode) {
     this.postalCode = postalCode;
     return this;
   }
@@ -178,7 +178,7 @@ public class SystemuserputpostAddresses {
     this.postalCode = postalCode;
   }
 
-  public SystemuserputpostAddresses country(String country) {
+  public SystemuserputAddresses country(String country) {
     this.country = country;
     return this;
   }
@@ -205,15 +205,15 @@ public class SystemuserputpostAddresses {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SystemuserputpostAddresses systemuserputpostAddresses = (SystemuserputpostAddresses) o;
-    return Objects.equals(this.type, systemuserputpostAddresses.type) &&
-        Objects.equals(this.poBox, systemuserputpostAddresses.poBox) &&
-        Objects.equals(this.extendedAddress, systemuserputpostAddresses.extendedAddress) &&
-        Objects.equals(this.streetAddress, systemuserputpostAddresses.streetAddress) &&
-        Objects.equals(this.locality, systemuserputpostAddresses.locality) &&
-        Objects.equals(this.region, systemuserputpostAddresses.region) &&
-        Objects.equals(this.postalCode, systemuserputpostAddresses.postalCode) &&
-        Objects.equals(this.country, systemuserputpostAddresses.country);
+    SystemuserputAddresses systemuserputAddresses = (SystemuserputAddresses) o;
+    return Objects.equals(this.type, systemuserputAddresses.type) &&
+        Objects.equals(this.poBox, systemuserputAddresses.poBox) &&
+        Objects.equals(this.extendedAddress, systemuserputAddresses.extendedAddress) &&
+        Objects.equals(this.streetAddress, systemuserputAddresses.streetAddress) &&
+        Objects.equals(this.locality, systemuserputAddresses.locality) &&
+        Objects.equals(this.region, systemuserputAddresses.region) &&
+        Objects.equals(this.postalCode, systemuserputAddresses.postalCode) &&
+        Objects.equals(this.country, systemuserputAddresses.country);
   }
 
   @Override
@@ -225,7 +225,7 @@ public class SystemuserputpostAddresses {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SystemuserputpostAddresses {\n");
+    sb.append("class SystemuserputAddresses {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    poBox: ").append(toIndentedString(poBox)).append("\n");

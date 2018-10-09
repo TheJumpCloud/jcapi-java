@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CommandfilereturnResults
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
 public class CommandfilereturnResults {
   @SerializedName("name")
   private String name = null;
@@ -61,10 +61,10 @@ public class CommandfilereturnResults {
   }
 
    /**
-   * the location where the file willl be stored.
+   * The location where the file will be stored.
    * @return destination
   **/
-  @ApiModelProperty(value = "the location where the file willl be stored.")
+  @ApiModelProperty(value = "The location where the file will be stored.")
   public String getDestination() {
     return destination;
   }

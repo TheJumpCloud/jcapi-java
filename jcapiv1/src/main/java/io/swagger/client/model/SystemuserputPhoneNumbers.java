@@ -24,50 +24,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ApplicationConfigIdpEntityIdTooltipVariables
+ * SystemuserputPhoneNumbers
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
-public class ApplicationConfigIdpEntityIdTooltipVariables {
-  @SerializedName("icon")
-  private String icon = null;
+public class SystemuserputPhoneNumbers {
+  @SerializedName("type")
+  private String type = null;
 
-  @SerializedName("message")
-  private String message = null;
+  @SerializedName("number")
+  private String number = null;
 
-  public ApplicationConfigIdpEntityIdTooltipVariables icon(String icon) {
-    this.icon = icon;
+  public SystemuserputPhoneNumbers type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get icon
-   * @return icon
+   * Get type
+   * @return type
   **/
   @ApiModelProperty(value = "")
-  public String getIcon() {
-    return icon;
+  public String getType() {
+    return type;
   }
 
-  public void setIcon(String icon) {
-    this.icon = icon;
+  public void setType(String type) {
+    this.type = type;
   }
 
-  public ApplicationConfigIdpEntityIdTooltipVariables message(String message) {
-    this.message = message;
+  public SystemuserputPhoneNumbers number(String number) {
+    this.number = number;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get number
+   * @return number
   **/
   @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
+  public String getNumber() {
+    return number;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setNumber(String number) {
+    this.number = number;
   }
 
 
@@ -79,24 +79,24 @@ public class ApplicationConfigIdpEntityIdTooltipVariables {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationConfigIdpEntityIdTooltipVariables applicationConfigIdpEntityIdTooltipVariables = (ApplicationConfigIdpEntityIdTooltipVariables) o;
-    return Objects.equals(this.icon, applicationConfigIdpEntityIdTooltipVariables.icon) &&
-        Objects.equals(this.message, applicationConfigIdpEntityIdTooltipVariables.message);
+    SystemuserputPhoneNumbers systemuserputPhoneNumbers = (SystemuserputPhoneNumbers) o;
+    return Objects.equals(this.type, systemuserputPhoneNumbers.type) &&
+        Objects.equals(this.number, systemuserputPhoneNumbers.number);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(icon, message);
+    return Objects.hash(type, number);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationConfigIdpEntityIdTooltipVariables {\n");
+    sb.append("class SystemuserputPhoneNumbers {\n");
     
-    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("}");
     return sb.toString();
   }

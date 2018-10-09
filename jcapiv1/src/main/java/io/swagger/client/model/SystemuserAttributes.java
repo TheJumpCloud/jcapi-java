@@ -24,50 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ApplicationConfigIdpEntityIdTooltipVariables
+ * SystemuserAttributes
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
-public class ApplicationConfigIdpEntityIdTooltipVariables {
-  @SerializedName("icon")
-  private String icon = null;
+public class SystemuserAttributes {
+  @SerializedName("")
+  private String  = null;
 
-  @SerializedName("message")
-  private String message = null;
-
-  public ApplicationConfigIdpEntityIdTooltipVariables icon(String icon) {
-    this.icon = icon;
+  public SystemuserAttributes (String ) {
+    this. = ;
     return this;
   }
 
    /**
-   * Get icon
-   * @return icon
+   * Get 
+   * @return 
   **/
   @ApiModelProperty(value = "")
-  public String getIcon() {
-    return icon;
+  public String get() {
+    return ;
   }
 
-  public void setIcon(String icon) {
-    this.icon = icon;
-  }
-
-  public ApplicationConfigIdpEntityIdTooltipVariables message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
+  public void set(String ) {
+    this. = ;
   }
 
 
@@ -79,24 +58,22 @@ public class ApplicationConfigIdpEntityIdTooltipVariables {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationConfigIdpEntityIdTooltipVariables applicationConfigIdpEntityIdTooltipVariables = (ApplicationConfigIdpEntityIdTooltipVariables) o;
-    return Objects.equals(this.icon, applicationConfigIdpEntityIdTooltipVariables.icon) &&
-        Objects.equals(this.message, applicationConfigIdpEntityIdTooltipVariables.message);
+    SystemuserAttributes systemuserAttributes = (SystemuserAttributes) o;
+    return Objects.equals(this., systemuserAttributes.);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(icon, message);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationConfigIdpEntityIdTooltipVariables {\n");
+    sb.append("class SystemuserAttributes {\n");
     
-    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    : ").append(toIndentedString()).append("\n");
     sb.append("}");
     return sb.toString();
   }

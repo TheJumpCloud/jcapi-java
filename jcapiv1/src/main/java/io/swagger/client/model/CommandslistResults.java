@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CommandslistResults
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-09-12T20:59:54.768Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:17:25.877Z")
 public class CommandslistResults {
   @SerializedName("name")
   private String name = null;
@@ -118,10 +118,10 @@ public class CommandslistResults {
   }
 
    /**
-   * How the Command is excecuted.
+   * How the Command is executed.
    * @return launchType
   **/
-  @ApiModelProperty(value = "How the Command is excecuted.")
+  @ApiModelProperty(value = "How the Command is executed.")
   public String getLaunchType() {
     return launchType;
   }

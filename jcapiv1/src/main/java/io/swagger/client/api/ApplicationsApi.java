@@ -58,11 +58,11 @@ public class ApplicationsApi {
      * Build call for applicationsList
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -147,11 +147,11 @@ public class ApplicationsApi {
      * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return Applicationslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -165,11 +165,11 @@ public class ApplicationsApi {
      * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Applicationslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -184,11 +184,11 @@ public class ApplicationsApi {
      * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-     * @param xOrgId  (optional, default to <<your org id>>)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

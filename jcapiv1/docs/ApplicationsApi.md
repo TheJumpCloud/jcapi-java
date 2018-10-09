@@ -35,11 +35,11 @@ x_api_key.setApiKey("YOUR API KEY");
 ApplicationsApi apiInstance = new ApplicationsApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-String fields = "fields_example"; // String | The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+String fields = "fields_example"; // String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
 Integer limit = 56; // Integer | The number of records to return at once.
 Integer skip = 56; // Integer | The offset into the records to return.
 String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -55,11 +55,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. | [optional]
+ **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned. | [optional]
  **limit** | **Integer**| The number of records to return at once. | [optional]
  **skip** | **Integer**| The offset into the records to return. | [optional]
  **sort** | **String**|  | [optional] [default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

@@ -80,11 +80,11 @@ public class ApplicationsApiExample {
         ApplicationsApi apiInstance = new ApplicationsApi();
         String contentType = "application/json"; // String | 
         String accept = "application/json"; // String | 
-        String fields = "fields_example"; // String | The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+        String fields = "fields_example"; // String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
         Integer limit = 56; // Integer | The number of records to return at once.
         Integer skip = 56; // Integer | The offset into the records to return.
         String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
-        String xOrgId = "<<your org id>>"; // String | 
+        String xOrgId = ""; // String | 
         try {
             Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort, xOrgId);
             System.out.println(result);
@@ -183,9 +183,12 @@ Class | Method | HTTP request | Description
  - [SystemputAgentBoundMessages](docs/SystemputAgentBoundMessages.md)
  - [Systemslist](docs/Systemslist.md)
  - [Systemuser](docs/Systemuser.md)
+ - [SystemuserAttributes](docs/SystemuserAttributes.md)
  - [Systemuserbinding](docs/Systemuserbinding.md)
  - [Systemuserbindingsput](docs/Systemuserbindingsput.md)
  - [Systemuserput](docs/Systemuserput.md)
+ - [SystemuserputAddresses](docs/SystemuserputAddresses.md)
+ - [SystemuserputPhoneNumbers](docs/SystemuserputPhoneNumbers.md)
  - [Systemuserputpost](docs/Systemuserputpost.md)
  - [SystemuserputpostAddresses](docs/SystemuserputpostAddresses.md)
  - [SystemuserputpostPhoneNumbers](docs/SystemuserputpostPhoneNumbers.md)

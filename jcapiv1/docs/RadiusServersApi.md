@@ -41,7 +41,7 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Radiusserverslist result = apiInstance.radiusServersList(contentType, accept, fields, limit, skip, sort, xOrgId);
     System.out.println(result);
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -105,7 +105,7 @@ RadiusServersApi apiInstance = new RadiusServersApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Radiusserverpost body = new Radiusserverpost(); // Radiusserverpost | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Radiusserverslist result = apiInstance.radiusServersPost(contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Radiusserverpost**](Radiusserverpost.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -166,7 +166,7 @@ RadiusServersApi apiInstance = new RadiusServersApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Body body = new Body(); // Body | 
-String xOrgId = "<<your org id>>"; // String | 
+String xOrgId = ""; // String | 
 try {
     Radiusserverput result = apiInstance.radiusServersPut(contentType, accept, body, xOrgId);
     System.out.println(result);
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Body**](Body.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
