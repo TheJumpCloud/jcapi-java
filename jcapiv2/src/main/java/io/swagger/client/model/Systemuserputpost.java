@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Systemuserputpost
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:21:18.591Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-10T17:00:05.530Z")
 public class Systemuserputpost {
   @SerializedName("email")
   private String email = null;
@@ -550,7 +550,7 @@ public class Systemuserputpost {
   }
 
    /**
-   * 
+   * Get addresses
    * @return addresses
   **/
   @ApiModelProperty(value = "")
@@ -612,7 +612,7 @@ public class Systemuserputpost {
   }
 
    /**
-   * 
+   * Get phoneNumbers
    * @return phoneNumbers
   **/
   @ApiModelProperty(value = "")

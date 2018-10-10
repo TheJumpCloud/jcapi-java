@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SystemGraphManagementReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-09T22:21:18.591Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-10T17:00:05.530Z")
 public class SystemGraphManagementReq {
   @SerializedName("attributes")
   private SystemGraphManagementReqAttributes attributes = null;
