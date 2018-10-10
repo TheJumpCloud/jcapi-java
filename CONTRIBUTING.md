@@ -47,7 +47,8 @@ the root directory of this repository:
 
 ```
 grep -rl 'x-api-key.' jcapiv1/ | xargs sed -i '' 's/x-api-key\./x_api_key\./g'
-grep -rl 'x-api-key.' jcapiv2/ | xargs sed -i '' 's/x-api-key\./x_api_key\./g'
 grep -rl 'x-api-key =' jcapiv1/ | xargs sed -i '' 's/x-api-key =/x_api_key =/g'
+
+grep -rl 'x-api-key.' jcapiv2/ | xargs sed -i '' 's/x-api-key\./x_api_key\./g'
 grep -rl 'x-api-key =' jcapiv2/ | xargs sed -i '' 's/x-api-key =/x_api_key =/g'
 ```
