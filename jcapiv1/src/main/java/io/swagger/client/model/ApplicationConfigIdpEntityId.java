@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ApplicationConfigIdpEntityId
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-10T16:58:46.100Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-10T23:14:24.693Z")
 public class ApplicationConfigIdpEntityId {
   @SerializedName("label")
   private String label = null;

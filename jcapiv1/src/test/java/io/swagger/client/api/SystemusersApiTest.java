@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Errorresponse;
 import io.swagger.client.model.Sshkeylist;
 import io.swagger.client.model.Sshkeypost;
 import io.swagger.client.model.Systemuserput;

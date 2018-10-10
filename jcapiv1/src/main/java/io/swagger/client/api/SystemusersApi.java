@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Errorresponse;
 import io.swagger.client.model.Sshkeylist;
 import io.swagger.client.model.Sshkeypost;
 import io.swagger.client.model.Systemuserput;
