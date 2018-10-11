@@ -24,29 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse200
+ * Errorresponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-10T17:00:05.530Z")
-public class InlineResponse200 {
-  @SerializedName("key")
-  private String key = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-11T00:36:09.560Z")
+public class Errorresponse {
+  @SerializedName("message")
+  private String message = null;
 
-  public InlineResponse200 key(String key) {
-    this.key = key;
+  public Errorresponse message(String message) {
+    this.message = message;
     return this;
   }
 
    /**
-   * Get key
-   * @return key
+   * Get message
+   * @return message
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getKey() {
-    return key;
+  @ApiModelProperty(value = "")
+  public String getMessage() {
+    return message;
   }
 
-  public void setKey(String key) {
-    this.key = key;
+  public void setMessage(String message) {
+    this.message = message;
   }
 
 
@@ -58,22 +58,22 @@ public class InlineResponse200 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.key, inlineResponse200.key);
+    Errorresponse errorresponse = (Errorresponse) o;
+    return Objects.equals(this.message, errorresponse.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key);
+    return Objects.hash(message);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse200 {\n");
+    sb.append("class Errorresponse {\n");
     
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

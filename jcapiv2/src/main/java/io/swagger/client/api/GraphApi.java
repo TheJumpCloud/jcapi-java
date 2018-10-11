@@ -30,7 +30,6 @@ import java.io.IOException;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
-import io.swagger.client.model.InlineResponse204;
 import io.swagger.client.model.PolicyResult;
 import io.swagger.client.model.SystemGraphManagementReq;
 import io.swagger.client.model.SystemGroupGraphManagementReq;
@@ -1469,12 +1468,10 @@ public class GraphApi {
      * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
-     * @return InlineResponse204
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse204 graphCommandAssociationsPost(String commandId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
-        ApiResponse<InlineResponse204> resp = graphCommandAssociationsPostWithHttpInfo(commandId, contentType, accept, body, xOrgId);
-        return resp.getData();
+    public void graphCommandAssociationsPost(String commandId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
+        graphCommandAssociationsPostWithHttpInfo(commandId, contentType, accept, body, xOrgId);
     }
 
     /**
@@ -1485,13 +1482,12 @@ public class GraphApi {
      * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
-     * @return ApiResponse&lt;InlineResponse204&gt;
+     * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse204> graphCommandAssociationsPostWithHttpInfo(String commandId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
+    public ApiResponse<Void> graphCommandAssociationsPostWithHttpInfo(String commandId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
         com.squareup.okhttp.Call call = graphCommandAssociationsPostValidateBeforeCall(commandId, contentType, accept, body, xOrgId, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse204>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
+        return apiClient.execute(call);
     }
 
     /**
@@ -1506,7 +1502,7 @@ public class GraphApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphCommandAssociationsPostAsync(String commandId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ApiCallback<InlineResponse204> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphCommandAssociationsPostAsync(String commandId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1528,8 +1524,7 @@ public class GraphApi {
         }
 
         com.squareup.okhttp.Call call = graphCommandAssociationsPostValidateBeforeCall(commandId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse204>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
+        apiClient.executeAsync(call, callback);
         return call;
     }
     /**

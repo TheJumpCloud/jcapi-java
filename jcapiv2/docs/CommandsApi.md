@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="graphCommandAssociationsPost"></a>
 # **graphCommandAssociationsPost**
-> InlineResponse204 graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId)
+> graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId)
 
 Manage the associations of a Command
 
@@ -109,8 +109,7 @@ String accept = "application/json"; // String |
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
 String xOrgId = ""; // String | 
 try {
-    InlineResponse204 result = apiInstance.graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId);
-    System.out.println(result);
+    apiInstance.graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandsApi#graphCommandAssociationsPost");
     e.printStackTrace();
@@ -129,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse204**](InlineResponse204.md)
+null (empty response body)
 
 ### Authorization
 

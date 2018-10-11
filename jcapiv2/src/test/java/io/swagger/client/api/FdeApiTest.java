@@ -14,8 +14,8 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.InlineResponse200;
-import io.swagger.client.model.InlineResponse400;
+import io.swagger.client.model.Errorresponse;
+import io.swagger.client.model.Systemfdekey;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -44,7 +44,7 @@ public class FdeApiTest {
     @Test
     public void systemsGetFDEKeyTest() throws ApiException {
         String systemId = null;
-        InlineResponse200 response = api.systemsGetFDEKey(systemId);
+        Systemfdekey response = api.systemsGetFDEKey(systemId);
 
         // TODO: test validations
     }

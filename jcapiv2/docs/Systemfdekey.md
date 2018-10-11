@@ -1,10 +1,10 @@
 
-# InlineResponse204
+# Systemfdekey
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
+**key** | **String** |  | 
 
 
 

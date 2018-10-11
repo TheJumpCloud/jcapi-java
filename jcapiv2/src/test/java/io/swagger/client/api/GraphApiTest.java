@@ -17,7 +17,6 @@ import io.swagger.client.ApiException;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
-import io.swagger.client.model.InlineResponse204;
 import io.swagger.client.model.PolicyResult;
 import io.swagger.client.model.SystemGraphManagementReq;
 import io.swagger.client.model.SystemGroupGraphManagementReq;
@@ -226,7 +225,7 @@ public class GraphApiTest {
         String accept = null;
         GraphManagementReq body = null;
         String xOrgId = null;
-        InlineResponse204 response = api.graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId);
+        api.graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

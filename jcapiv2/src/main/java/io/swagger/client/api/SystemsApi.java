@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Errorresponse;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphObjectWithPaths;
-import io.swagger.client.model.InlineResponse200;
-import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.SystemGraphManagementReq;
+import io.swagger.client.model.Systemfdekey;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1338,11 +1338,11 @@ public class SystemsApi {
      * Get System FDE Key
      * This endpoint will return the current (latest) fde key saved for a system.
      * @param systemId  (required)
-     * @return InlineResponse200
+     * @return Systemfdekey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 systemsGetFDEKey(String systemId) throws ApiException {
-        ApiResponse<InlineResponse200> resp = systemsGetFDEKeyWithHttpInfo(systemId);
+    public Systemfdekey systemsGetFDEKey(String systemId) throws ApiException {
+        ApiResponse<Systemfdekey> resp = systemsGetFDEKeyWithHttpInfo(systemId);
         return resp.getData();
     }
 
@@ -1350,12 +1350,12 @@ public class SystemsApi {
      * Get System FDE Key
      * This endpoint will return the current (latest) fde key saved for a system.
      * @param systemId  (required)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;Systemfdekey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> systemsGetFDEKeyWithHttpInfo(String systemId) throws ApiException {
+    public ApiResponse<Systemfdekey> systemsGetFDEKeyWithHttpInfo(String systemId) throws ApiException {
         com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Systemfdekey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1367,7 +1367,7 @@ public class SystemsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsGetFDEKeyAsync(String systemId, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsGetFDEKeyAsync(String systemId, final ApiCallback<Systemfdekey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1389,7 +1389,7 @@ public class SystemsApi {
         }
 
         com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<Systemfdekey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="systemsGetFDEKey"></a>
 # **systemsGetFDEKey**
-> InlineResponse200 systemsGetFDEKey(systemId)
+> Systemfdekey systemsGetFDEKey(systemId)
 
 Get System FDE Key
 
@@ -35,7 +35,7 @@ x_api_key.setApiKey("YOUR API KEY");
 FdeApi apiInstance = new FdeApi();
 String systemId = "systemId_example"; // String | 
 try {
-    InlineResponse200 result = apiInstance.systemsGetFDEKey(systemId);
+    Systemfdekey result = apiInstance.systemsGetFDEKey(systemId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FdeApi#systemsGetFDEKey");
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**Systemfdekey**](Systemfdekey.md)
 
 ### Authorization
 

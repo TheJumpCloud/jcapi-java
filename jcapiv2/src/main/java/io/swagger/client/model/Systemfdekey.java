@@ -24,29 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse400
+ * Systemfdekey
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-10T17:00:05.530Z")
-public class InlineResponse400 {
-  @SerializedName("message")
-  private String message = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-11T00:36:09.560Z")
+public class Systemfdekey {
+  @SerializedName("key")
+  private String key = null;
 
-  public InlineResponse400 message(String message) {
-    this.message = message;
+  public Systemfdekey key(String key) {
+    this.key = key;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get key
+   * @return key
   **/
-  @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
+  @ApiModelProperty(required = true, value = "")
+  public String getKey() {
+    return key;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setKey(String key) {
+    this.key = key;
   }
 
 
@@ -58,22 +58,22 @@ public class InlineResponse400 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
-    return Objects.equals(this.message, inlineResponse400.message);
+    Systemfdekey systemfdekey = (Systemfdekey) o;
+    return Objects.equals(this.key, systemfdekey.key);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash(key);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse400 {\n");
+    sb.append("class Systemfdekey {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("}");
     return sb.toString();
   }
