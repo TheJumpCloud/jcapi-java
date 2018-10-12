@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -51,7 +51,8 @@ public class SystemsApiTest {
         String accept = null;
         String date = null;
         String authorization = null;
-        System response = api.systemsDelete(id, contentType, accept, date, authorization);
+        String xOrgId = null;
+        System response = api.systemsDelete(id, contentType, accept, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -72,7 +73,8 @@ public class SystemsApiTest {
         String fields = null;
         String date = null;
         String authorization = null;
-        System response = api.systemsGet(id, contentType, accept, fields, date, authorization);
+        String xOrgId = null;
+        System response = api.systemsGet(id, contentType, accept, fields, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -93,7 +95,8 @@ public class SystemsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Systemslist response = api.systemsList(contentType, accept, fields, limit, skip, sort);
+        String xOrgId = null;
+        Systemslist response = api.systemsList(contentType, accept, fields, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -114,7 +117,8 @@ public class SystemsApiTest {
         Systemput body = null;
         String date = null;
         String authorization = null;
-        api.systemsPut(id, contentType, accept, body, date, authorization);
+        String xOrgId = null;
+        api.systemsPut(id, contentType, accept, body, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -136,7 +140,8 @@ public class SystemsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Systemuserbinding response = api.systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort);
+        String xOrgId = null;
+        Systemuserbinding response = api.systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -155,7 +160,8 @@ public class SystemsApiTest {
         String contentType = null;
         String accept = null;
         Systemuserbindingsput body = null;
-        api.systemsSystemusersBindingPut(id, contentType, accept, body);
+        String xOrgId = null;
+        api.systemsSystemusersBindingPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

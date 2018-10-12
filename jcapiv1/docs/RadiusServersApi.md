@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="radiusServersList"></a>
 # **radiusServersList**
-> Radiusserverslist radiusServersList(contentType, accept, fields, limit, skip, sort)
+> Radiusserverslist radiusServersList(contentType, accept, fields, limit, skip, sort, xOrgId)
 
 List Radius Servers
 
@@ -29,10 +29,10 @@ This endpoint allows you to get a list of all RADIUS servers in your organizatio
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String contentType = "application/json"; // String | 
@@ -41,8 +41,9 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    Radiusserverslist result = apiInstance.radiusServersList(contentType, accept, fields, limit, skip, sort);
+    Radiusserverslist result = apiInstance.radiusServersList(contentType, accept, fields, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#radiusServersList");
@@ -60,6 +61,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -76,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="radiusServersPost"></a>
 # **radiusServersPost**
-> Radiusserverslist radiusServersPost(contentType, accept, body)
+> Radiusserverslist radiusServersPost(contentType, accept, body, xOrgId)
 
 Create a Radius Server
 
@@ -94,17 +96,18 @@ This endpoint allows you to create RADIUS servers in your organization.  #### Sa
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Radiusserverpost body = new Radiusserverpost(); // Radiusserverpost | 
+String xOrgId = ""; // String | 
 try {
-    Radiusserverslist result = apiInstance.radiusServersPost(contentType, accept, body);
+    Radiusserverslist result = apiInstance.radiusServersPost(contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#radiusServersPost");
@@ -119,6 +122,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Radiusserverpost**](Radiusserverpost.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -135,7 +139,7 @@ Name | Type | Description  | Notes
 
 <a name="radiusServersPut"></a>
 # **radiusServersPut**
-> Radiusserverput radiusServersPut(contentType, accept, body)
+> Radiusserverput radiusServersPut(contentType, accept, body, xOrgId)
 
 Update Radius Servers
 
@@ -153,17 +157,18 @@ This endpoint allows you to update RADIUS servers in your organization.  ####  &
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Body body = new Body(); // Body | 
+String xOrgId = ""; // String | 
 try {
-    Radiusserverput result = apiInstance.radiusServersPut(contentType, accept, body);
+    Radiusserverput result = apiInstance.radiusServersPut(contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#radiusServersPut");
@@ -178,6 +183,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Body**](Body.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

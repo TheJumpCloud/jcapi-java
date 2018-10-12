@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -58,16 +58,17 @@ public class ApplicationsApi {
      * Build call for applicationsList
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call applicationsListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call applicationsListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -89,6 +90,8 @@ public class ApplicationsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -121,7 +124,7 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call applicationsListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call applicationsListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -134,7 +137,7 @@ public class ApplicationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = applicationsListCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = applicationsListCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -144,15 +147,16 @@ public class ApplicationsApi {
      * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
+     * @param xOrgId  (optional, default to )
      * @return Applicationslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Applicationslist applicationsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Applicationslist> resp = applicationsListWithHttpInfo(contentType, accept, fields, limit, skip, sort);
+    public Applicationslist applicationsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        ApiResponse<Applicationslist> resp = applicationsListWithHttpInfo(contentType, accept, fields, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -161,15 +165,16 @@ public class ApplicationsApi {
      * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Applicationslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Applicationslist> applicationsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = applicationsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Applicationslist> applicationsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = applicationsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Applicationslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -179,15 +184,16 @@ public class ApplicationsApi {
      * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned. (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. (optional)
      * @param limit The number of records to return at once. (optional)
      * @param skip The offset into the records to return. (optional)
      * @param sort  (optional, default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call applicationsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Applicationslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call applicationsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ApiCallback<Applicationslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -208,7 +214,7 @@ public class ApplicationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = applicationsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = applicationsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Applicationslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

@@ -26,9 +26,9 @@ Name | Type | Description | Notes
 **agentVersion** | **String** |  |  [optional]
 **connectionHistory** | **List&lt;Object&gt;** |  |  [optional]
 **sshRootEnabled** | **Boolean** |  |  [optional]
-**id** | **String** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **id** | **String** |  |  [optional]
+**fde** | [**Fde**](Fde.md) |  |  [optional]
 
 
 

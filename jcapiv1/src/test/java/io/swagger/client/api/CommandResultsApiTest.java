@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -46,7 +46,8 @@ public class CommandResultsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        Commandresult response = api.commandResultsDelete(id, contentType, accept);
+        String xOrgId = null;
+        Commandresult response = api.commandResultsDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -65,7 +66,8 @@ public class CommandResultsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
-        Commandresult response = api.commandResultsGet(id, contentType, accept, fields);
+        String xOrgId = null;
+        Commandresult response = api.commandResultsGet(id, contentType, accept, fields, xOrgId);
 
         // TODO: test validations
     }
@@ -86,7 +88,8 @@ public class CommandResultsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Commandresultslist response = api.commandResultsList(contentType, accept, fields, limit, skip, sort);
+        String xOrgId = null;
+        Commandresultslist response = api.commandResultsList(contentType, accept, fields, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }

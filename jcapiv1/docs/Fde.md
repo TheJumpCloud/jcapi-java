@@ -1,10 +1,10 @@
 
-# InlineResponse400
+# Fde
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  |  [optional]
+**keyPresent** | **Boolean** |  |  [optional]
 
 
 

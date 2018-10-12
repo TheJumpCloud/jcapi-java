@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -44,7 +44,8 @@ public class CommandTriggersApiTest {
         String triggername = null;
         String contentType = null;
         String accept = null;
-        api.commandTriggerWebhookPost(triggername, contentType, accept);
+        String xOrgId = null;
+        api.commandTriggerWebhookPost(triggername, contentType, accept, xOrgId);
 
         // TODO: test validations
     }

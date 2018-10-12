@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the Command. |  [optional]
 **command** | **String** | The Command to execute. |  [optional]
 **commandType** | **String** | The Command OS. |  [optional]
-**launchType** | **String** | How the Command is excecuted. |  [optional]
+**launchType** | **String** | How the Command is executed. |  [optional]
 **listensTo** | **String** |  |  [optional]
 **schedule** | **String** | A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately.  |  [optional]
 **trigger** | **String** | trigger to execute command. |  [optional]

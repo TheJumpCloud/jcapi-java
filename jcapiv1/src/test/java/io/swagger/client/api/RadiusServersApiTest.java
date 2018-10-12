@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -51,7 +51,8 @@ public class RadiusServersApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Radiusserverslist response = api.radiusServersList(contentType, accept, fields, limit, skip, sort);
+        String xOrgId = null;
+        Radiusserverslist response = api.radiusServersList(contentType, accept, fields, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -69,7 +70,8 @@ public class RadiusServersApiTest {
         String contentType = null;
         String accept = null;
         Radiusserverpost body = null;
-        Radiusserverslist response = api.radiusServersPost(contentType, accept, body);
+        String xOrgId = null;
+        Radiusserverslist response = api.radiusServersPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -87,7 +89,8 @@ public class RadiusServersApiTest {
         String contentType = null;
         String accept = null;
         Body body = null;
-        Radiusserverput response = api.radiusServersPut(contentType, accept, body);
+        String xOrgId = null;
+        Radiusserverput response = api.radiusServersPut(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

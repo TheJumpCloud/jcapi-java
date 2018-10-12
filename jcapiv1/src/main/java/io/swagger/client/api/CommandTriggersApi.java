@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -58,12 +58,13 @@ public class CommandTriggersApi {
      * @param triggername  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandTriggerWebhookPostCall(String triggername, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandTriggerWebhookPostCall(String triggername, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -78,6 +79,8 @@ public class CommandTriggersApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -110,7 +113,7 @@ public class CommandTriggersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandTriggerWebhookPostValidateBeforeCall(String triggername, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandTriggerWebhookPostValidateBeforeCall(String triggername, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'triggername' is set
         if (triggername == null) {
@@ -128,7 +131,7 @@ public class CommandTriggersApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandTriggerWebhookPostCall(triggername, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandTriggerWebhookPostCall(triggername, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -139,10 +142,11 @@ public class CommandTriggersApi {
      * @param triggername  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void commandTriggerWebhookPost(String triggername, String contentType, String accept) throws ApiException {
-        commandTriggerWebhookPostWithHttpInfo(triggername, contentType, accept);
+    public void commandTriggerWebhookPost(String triggername, String contentType, String accept, String xOrgId) throws ApiException {
+        commandTriggerWebhookPostWithHttpInfo(triggername, contentType, accept, xOrgId);
     }
 
     /**
@@ -151,11 +155,12 @@ public class CommandTriggersApi {
      * @param triggername  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> commandTriggerWebhookPostWithHttpInfo(String triggername, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = commandTriggerWebhookPostValidateBeforeCall(triggername, contentType, accept, null, null);
+    public ApiResponse<Void> commandTriggerWebhookPostWithHttpInfo(String triggername, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandTriggerWebhookPostValidateBeforeCall(triggername, contentType, accept, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -165,11 +170,12 @@ public class CommandTriggersApi {
      * @param triggername  (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandTriggerWebhookPostAsync(String triggername, String contentType, String accept, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandTriggerWebhookPostAsync(String triggername, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -190,7 +196,7 @@ public class CommandTriggersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandTriggerWebhookPostValidateBeforeCall(triggername, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandTriggerWebhookPostValidateBeforeCall(triggername, contentType, accept, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

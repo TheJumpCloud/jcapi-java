@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -26,15 +26,15 @@ import java.io.IOException;
 /**
  * Search
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:29:25.355Z")
 public class Search {
   @SerializedName("filter")
-  private String filter = null;
+  private Object filter = null;
 
   @SerializedName("fields")
   private String fields = null;
 
-  public Search filter(String filter) {
+  public Search filter(Object filter) {
     this.filter = filter;
     return this;
   }
@@ -44,11 +44,11 @@ public class Search {
    * @return filter
   **/
   @ApiModelProperty(value = "")
-  public String getFilter() {
+  public Object getFilter() {
     return filter;
   }
 
-  public void setFilter(String filter) {
+  public void setFilter(Object filter) {
     this.filter = filter;
   }
 
