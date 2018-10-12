@@ -64,14 +64,13 @@ public class SearchApi {
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchOrganizationsPostCall(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchOrganizationsPostCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -87,8 +86,6 @@ public class SearchApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
@@ -125,7 +122,7 @@ public class SearchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchOrganizationsPostValidateBeforeCall(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchOrganizationsPostValidateBeforeCall(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -138,7 +135,7 @@ public class SearchApi {
         }
         
 
-        com.squareup.okhttp.Call call = searchOrganizationsPostCall(contentType, accept, body, fields, limit, xOrgId, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchOrganizationsPostCall(contentType, accept, body, fields, limit, skip, progressListener, progressRequestListener);
         return call;
 
     }
@@ -151,13 +148,12 @@ public class SearchApi {
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @return Organizationslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Organizationslist searchOrganizationsPost(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip) throws ApiException {
-        ApiResponse<Organizationslist> resp = searchOrganizationsPostWithHttpInfo(contentType, accept, body, fields, limit, xOrgId, skip);
+    public Organizationslist searchOrganizationsPost(String contentType, String accept, Search body, String fields, Integer limit, Integer skip) throws ApiException {
+        ApiResponse<Organizationslist> resp = searchOrganizationsPostWithHttpInfo(contentType, accept, body, fields, limit, skip);
         return resp.getData();
     }
 
@@ -169,13 +165,12 @@ public class SearchApi {
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @return ApiResponse&lt;Organizationslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Organizationslist> searchOrganizationsPostWithHttpInfo(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = searchOrganizationsPostValidateBeforeCall(contentType, accept, body, fields, limit, xOrgId, skip, null, null);
+    public ApiResponse<Organizationslist> searchOrganizationsPostWithHttpInfo(String contentType, String accept, Search body, String fields, Integer limit, Integer skip) throws ApiException {
+        com.squareup.okhttp.Call call = searchOrganizationsPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, null, null);
         Type localVarReturnType = new TypeToken<Organizationslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -188,13 +183,12 @@ public class SearchApi {
      * @param body  (optional)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchOrganizationsPostAsync(String contentType, String accept, Search body, String fields, Integer limit, String xOrgId, Integer skip, final ApiCallback<Organizationslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchOrganizationsPostAsync(String contentType, String accept, Search body, String fields, Integer limit, Integer skip, final ApiCallback<Organizationslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -215,7 +209,7 @@ public class SearchApi {
             };
         }
 
-        com.squareup.okhttp.Call call = searchOrganizationsPostValidateBeforeCall(contentType, accept, body, fields, limit, xOrgId, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchOrganizationsPostValidateBeforeCall(contentType, accept, body, fields, limit, skip, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Organizationslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

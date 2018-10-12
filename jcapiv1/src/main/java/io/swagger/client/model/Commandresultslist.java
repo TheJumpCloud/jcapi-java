@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Commandresultslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-10T23:14:24.693Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:29:25.355Z")
 public class Commandresultslist {
   @SerializedName("totalCount")
   private Integer totalCount = null;

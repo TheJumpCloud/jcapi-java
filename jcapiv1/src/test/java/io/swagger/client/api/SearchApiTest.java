@@ -50,9 +50,8 @@ public class SearchApiTest {
         Search body = null;
         String fields = null;
         Integer limit = null;
-        String xOrgId = null;
         Integer skip = null;
-        Organizationslist response = api.searchOrganizationsPost(contentType, accept, body, fields, limit, xOrgId, skip);
+        Organizationslist response = api.searchOrganizationsPost(contentType, accept, body, fields, limit, skip);
 
         // TODO: test validations
     }
