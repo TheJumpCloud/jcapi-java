@@ -27,7 +27,7 @@ import java.io.IOException;
  * The shallow information about a Policy Template.
  */
 @ApiModel(description = "The shallow information about a Policy Template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-11T00:36:09.560Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:32:23.898Z")
 public class PolicyTemplate {
   @SerializedName("id")
   private String id = null;

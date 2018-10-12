@@ -58,12 +58,13 @@ public class FdeApi {
     /**
      * Build call for systemsGetFDEKey
      * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemsGetFDEKeyCall(String systemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemsGetFDEKeyCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -74,6 +75,8 @@ public class FdeApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -106,7 +109,7 @@ public class FdeApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsGetFDEKeyValidateBeforeCall(String systemId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemsGetFDEKeyValidateBeforeCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -114,7 +117,7 @@ public class FdeApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemsGetFDEKeyCall(systemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsGetFDEKeyCall(systemId, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -123,11 +126,12 @@ public class FdeApi {
      * Get System FDE Key
      * This endpoint will return the current (latest) fde key saved for a system.
      * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
      * @return Systemfdekey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemfdekey systemsGetFDEKey(String systemId) throws ApiException {
-        ApiResponse<Systemfdekey> resp = systemsGetFDEKeyWithHttpInfo(systemId);
+    public Systemfdekey systemsGetFDEKey(String systemId, String xOrgId) throws ApiException {
+        ApiResponse<Systemfdekey> resp = systemsGetFDEKeyWithHttpInfo(systemId, xOrgId);
         return resp.getData();
     }
 
@@ -135,11 +139,12 @@ public class FdeApi {
      * Get System FDE Key
      * This endpoint will return the current (latest) fde key saved for a system.
      * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Systemfdekey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemfdekey> systemsGetFDEKeyWithHttpInfo(String systemId) throws ApiException {
-        com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, null, null);
+    public ApiResponse<Systemfdekey> systemsGetFDEKeyWithHttpInfo(String systemId, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Systemfdekey>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -148,11 +153,12 @@ public class FdeApi {
      * Get System FDE Key (asynchronously)
      * This endpoint will return the current (latest) fde key saved for a system.
      * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsGetFDEKeyAsync(String systemId, final ApiCallback<Systemfdekey> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsGetFDEKeyAsync(String systemId, String xOrgId, final ApiCallback<Systemfdekey> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,7 +179,7 @@ public class FdeApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemfdekey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

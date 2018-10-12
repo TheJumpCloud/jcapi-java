@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * PolicyTemplateConfigField
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-11T00:36:09.560Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:32:23.898Z")
 public class PolicyTemplateConfigField {
   @SerializedName("id")
   private String id = null;

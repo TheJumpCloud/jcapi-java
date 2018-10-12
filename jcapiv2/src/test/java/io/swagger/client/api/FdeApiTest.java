@@ -44,7 +44,8 @@ public class FdeApiTest {
     @Test
     public void systemsGetFDEKeyTest() throws ApiException {
         String systemId = null;
-        Systemfdekey response = api.systemsGetFDEKey(systemId);
+        String xOrgId = null;
+        Systemfdekey response = api.systemsGetFDEKey(systemId, xOrgId);
 
         // TODO: test validations
     }
