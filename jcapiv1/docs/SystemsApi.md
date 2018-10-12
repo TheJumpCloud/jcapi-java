@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="systemsDelete"></a>
 # **systemsDelete**
-> System systemsDelete(id, contentType, accept, date, authorization)
+> System systemsDelete(id, contentType, accept, date, authorization, xOrgId)
 
 Delete a System
 
@@ -32,10 +32,10 @@ This endpoint allows you to delete a system. This command will cause the system 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemsApi apiInstance = new SystemsApi();
 String id = "id_example"; // String | 
@@ -43,8 +43,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
+String xOrgId = ""; // String | 
 try {
-    System result = apiInstance.systemsDelete(id, contentType, accept, date, authorization);
+    System result = apiInstance.systemsDelete(id, contentType, accept, date, authorization, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#systemsDelete");
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -77,7 +79,7 @@ Name | Type | Description  | Notes
 
 <a name="systemsGet"></a>
 # **systemsGet**
-> System systemsGet(id, contentType, accept, fields, date, authorization)
+> System systemsGet(id, contentType, accept, fields, date, authorization, xOrgId)
 
 List an individual system
 
@@ -95,10 +97,10 @@ This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemsApi apiInstance = new SystemsApi();
 String id = "id_example"; // String | 
@@ -107,8 +109,9 @@ String accept = "application/json"; // String |
 String fields = ""; // String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
+String xOrgId = ""; // String | 
 try {
-    System result = apiInstance.systemsGet(id, contentType, accept, fields, date, authorization);
+    System result = apiInstance.systemsGet(id, contentType, accept, fields, date, authorization, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#systemsGet");
@@ -126,6 +129,7 @@ Name | Type | Description  | Notes
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -142,7 +146,7 @@ Name | Type | Description  | Notes
 
 <a name="systemsList"></a>
 # **systemsList**
-> Systemslist systemsList(contentType, accept, fields, limit, skip, sort)
+> Systemslist systemsList(contentType, accept, fields, limit, skip, sort, xOrgId)
 
 List All Systems
 
@@ -160,10 +164,10 @@ This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemsApi apiInstance = new SystemsApi();
 String contentType = "application/json"; // String | 
@@ -172,8 +176,9 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    Systemslist result = apiInstance.systemsList(contentType, accept, fields, limit, skip, sort);
+    Systemslist result = apiInstance.systemsList(contentType, accept, fields, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#systemsList");
@@ -191,6 +196,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -207,7 +213,7 @@ Name | Type | Description  | Notes
 
 <a name="systemsPut"></a>
 # **systemsPut**
-> systemsPut(id, contentType, accept, body, date, authorization)
+> systemsPut(id, contentType, accept, body, date, authorization, xOrgId)
 
 Update a system
 
@@ -225,10 +231,10 @@ This endpoint allows you to update a system.  #### Sample Request  &#x60;&#x60;&
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemsApi apiInstance = new SystemsApi();
 String id = "id_example"; // String | 
@@ -237,8 +243,9 @@ String accept = "application/json"; // String |
 Systemput body = new Systemput(); // Systemput | 
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
+String xOrgId = ""; // String | 
 try {
-    apiInstance.systemsPut(id, contentType, accept, body, date, authorization);
+    apiInstance.systemsPut(id, contentType, accept, body, date, authorization, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#systemsPut");
     e.printStackTrace();
@@ -255,6 +262,7 @@ Name | Type | Description  | Notes
  **body** | [**Systemput**](Systemput.md)|  | [optional]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -271,7 +279,7 @@ null (empty response body)
 
 <a name="systemsSystemusersBindingList"></a>
 # **systemsSystemusersBindingList**
-> Systemuserbinding systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort)
+> Systemuserbinding systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId)
 
 List system user bindings
 
@@ -289,10 +297,10 @@ Hidden as Tags is deprecated  List system user bindings for a specific system in
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemsApi apiInstance = new SystemsApi();
 String id = "id_example"; // String | 
@@ -302,8 +310,9 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    Systemuserbinding result = apiInstance.systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort);
+    Systemuserbinding result = apiInstance.systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#systemsSystemusersBindingList");
@@ -322,6 +331,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -338,7 +348,7 @@ Name | Type | Description  | Notes
 
 <a name="systemsSystemusersBindingPut"></a>
 # **systemsSystemusersBindingPut**
-> systemsSystemusersBindingPut(id, contentType, accept, body)
+> systemsSystemusersBindingPut(id, contentType, accept, body, xOrgId)
 
 Update a system&#39;s or user&#39;s binding
 
@@ -356,18 +366,19 @@ Hidden as Tags is deprecated  Adds or removes a user binding for a system.  This
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemsApi apiInstance = new SystemsApi();
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Systemuserbindingsput body = new Systemuserbindingsput(); // Systemuserbindingsput | 
+String xOrgId = ""; // String | 
 try {
-    apiInstance.systemsSystemusersBindingPut(id, contentType, accept, body);
+    apiInstance.systemsSystemusersBindingPut(id, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#systemsSystemusersBindingPut");
     e.printStackTrace();
@@ -382,6 +393,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemuserbindingsput**](Systemuserbindingsput.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

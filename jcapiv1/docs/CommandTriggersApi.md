@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="commandTriggerWebhookPost"></a>
 # **commandTriggerWebhookPost**
-> commandTriggerWebhookPost(triggername, contentType, accept)
+> commandTriggerWebhookPost(triggername, contentType, accept, xOrgId)
 
 Launch a command via a Trigger
 
@@ -27,17 +27,18 @@ This endpoint allows you to launch a command based on a defined trigger.  #### S
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 CommandTriggersApi apiInstance = new CommandTriggersApi();
 String triggername = "triggername_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    apiInstance.commandTriggerWebhookPost(triggername, contentType, accept);
+    apiInstance.commandTriggerWebhookPost(triggername, contentType, accept, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandTriggersApi#commandTriggerWebhookPost");
     e.printStackTrace();
@@ -51,6 +52,7 @@ Name | Type | Description  | Notes
  **triggername** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

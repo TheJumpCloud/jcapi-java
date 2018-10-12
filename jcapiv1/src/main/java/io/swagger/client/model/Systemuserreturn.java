@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -21,6 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.Sshkeylist;
+import io.swagger.client.model.SystemuserreturnAddresses;
+import io.swagger.client.model.SystemuserreturnPhoneNumbers;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ import java.util.List;
 /**
  * Systemuserreturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:29:25.355Z")
 public class Systemuserreturn {
   @SerializedName("email")
   private String email = null;
@@ -43,7 +46,7 @@ public class Systemuserreturn {
   private String publicKey = null;
 
   @SerializedName("ssh_keys")
-  private List<String> sshKeys = null;
+  private List<Sshkeylist> sshKeys = null;
 
   @SerializedName("sudo")
   private Boolean sudo = null;
@@ -105,14 +108,14 @@ public class Systemuserreturn {
   @SerializedName("samba_service_user")
   private Boolean sambaServiceUser = null;
 
-  @SerializedName("id")
+  @SerializedName("_id")
   private String id = null;
 
   @SerializedName("organization")
   private String organization = null;
 
   @SerializedName("addresses")
-  private List<String> addresses = null;
+  private List<SystemuserreturnAddresses> addresses = null;
 
   @SerializedName("jobTitle")
   private String jobTitle = null;
@@ -121,7 +124,7 @@ public class Systemuserreturn {
   private String department = null;
 
   @SerializedName("phoneNumbers")
-  private List<String> phoneNumbers = null;
+  private List<SystemuserreturnPhoneNumbers> phoneNumbers = null;
 
   @SerializedName("relationships")
   private List<Object> relationships = null;
@@ -131,6 +134,30 @@ public class Systemuserreturn {
 
   @SerializedName("password_never_expires")
   private Boolean passwordNeverExpires = null;
+
+  @SerializedName("middlename")
+  private String middlename = null;
+
+  @SerializedName("displayname")
+  private String displayname = null;
+
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("location")
+  private String location = null;
+
+  @SerializedName("costCenter")
+  private String costCenter = null;
+
+  @SerializedName("employeeType")
+  private String employeeType = null;
+
+  @SerializedName("company")
+  private String company = null;
+
+  @SerializedName("employeeIdentifier")
+  private String employeeIdentifier = null;
 
   public Systemuserreturn email(String email) {
     this.email = email;
@@ -204,14 +231,14 @@ public class Systemuserreturn {
     this.publicKey = publicKey;
   }
 
-  public Systemuserreturn sshKeys(List<String> sshKeys) {
+  public Systemuserreturn sshKeys(List<Sshkeylist> sshKeys) {
     this.sshKeys = sshKeys;
     return this;
   }
 
-  public Systemuserreturn addSshKeysItem(String sshKeysItem) {
+  public Systemuserreturn addSshKeysItem(Sshkeylist sshKeysItem) {
     if (this.sshKeys == null) {
-      this.sshKeys = new ArrayList<String>();
+      this.sshKeys = new ArrayList<Sshkeylist>();
     }
     this.sshKeys.add(sshKeysItem);
     return this;
@@ -222,11 +249,11 @@ public class Systemuserreturn {
    * @return sshKeys
   **/
   @ApiModelProperty(value = "")
-  public List<String> getSshKeys() {
+  public List<Sshkeylist> getSshKeys() {
     return sshKeys;
   }
 
-  public void setSshKeys(List<String> sshKeys) {
+  public void setSshKeys(List<Sshkeylist> sshKeys) {
     this.sshKeys = sshKeys;
   }
 
@@ -644,14 +671,14 @@ public class Systemuserreturn {
     this.organization = organization;
   }
 
-  public Systemuserreturn addresses(List<String> addresses) {
+  public Systemuserreturn addresses(List<SystemuserreturnAddresses> addresses) {
     this.addresses = addresses;
     return this;
   }
 
-  public Systemuserreturn addAddressesItem(String addressesItem) {
+  public Systemuserreturn addAddressesItem(SystemuserreturnAddresses addressesItem) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList<String>();
+      this.addresses = new ArrayList<SystemuserreturnAddresses>();
     }
     this.addresses.add(addressesItem);
     return this;
@@ -662,11 +689,11 @@ public class Systemuserreturn {
    * @return addresses
   **/
   @ApiModelProperty(value = "")
-  public List<String> getAddresses() {
+  public List<SystemuserreturnAddresses> getAddresses() {
     return addresses;
   }
 
-  public void setAddresses(List<String> addresses) {
+  public void setAddresses(List<SystemuserreturnAddresses> addresses) {
     this.addresses = addresses;
   }
 
@@ -706,14 +733,14 @@ public class Systemuserreturn {
     this.department = department;
   }
 
-  public Systemuserreturn phoneNumbers(List<String> phoneNumbers) {
+  public Systemuserreturn phoneNumbers(List<SystemuserreturnPhoneNumbers> phoneNumbers) {
     this.phoneNumbers = phoneNumbers;
     return this;
   }
 
-  public Systemuserreturn addPhoneNumbersItem(String phoneNumbersItem) {
+  public Systemuserreturn addPhoneNumbersItem(SystemuserreturnPhoneNumbers phoneNumbersItem) {
     if (this.phoneNumbers == null) {
-      this.phoneNumbers = new ArrayList<String>();
+      this.phoneNumbers = new ArrayList<SystemuserreturnPhoneNumbers>();
     }
     this.phoneNumbers.add(phoneNumbersItem);
     return this;
@@ -724,11 +751,11 @@ public class Systemuserreturn {
    * @return phoneNumbers
   **/
   @ApiModelProperty(value = "")
-  public List<String> getPhoneNumbers() {
+  public List<SystemuserreturnPhoneNumbers> getPhoneNumbers() {
     return phoneNumbers;
   }
 
-  public void setPhoneNumbers(List<String> phoneNumbers) {
+  public void setPhoneNumbers(List<SystemuserreturnPhoneNumbers> phoneNumbers) {
     this.phoneNumbers = phoneNumbers;
   }
 
@@ -795,6 +822,150 @@ public class Systemuserreturn {
     this.passwordNeverExpires = passwordNeverExpires;
   }
 
+  public Systemuserreturn middlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+   /**
+   * Get middlename
+   * @return middlename
+  **/
+  @ApiModelProperty(value = "")
+  public String getMiddlename() {
+    return middlename;
+  }
+
+  public void setMiddlename(String middlename) {
+    this.middlename = middlename;
+  }
+
+  public Systemuserreturn displayname(String displayname) {
+    this.displayname = displayname;
+    return this;
+  }
+
+   /**
+   * Get displayname
+   * @return displayname
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayname() {
+    return displayname;
+  }
+
+  public void setDisplayname(String displayname) {
+    this.displayname = displayname;
+  }
+
+  public Systemuserreturn description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Systemuserreturn location(String location) {
+    this.location = location;
+    return this;
+  }
+
+   /**
+   * Get location
+   * @return location
+  **/
+  @ApiModelProperty(value = "")
+  public String getLocation() {
+    return location;
+  }
+
+  public void setLocation(String location) {
+    this.location = location;
+  }
+
+  public Systemuserreturn costCenter(String costCenter) {
+    this.costCenter = costCenter;
+    return this;
+  }
+
+   /**
+   * Get costCenter
+   * @return costCenter
+  **/
+  @ApiModelProperty(value = "")
+  public String getCostCenter() {
+    return costCenter;
+  }
+
+  public void setCostCenter(String costCenter) {
+    this.costCenter = costCenter;
+  }
+
+  public Systemuserreturn employeeType(String employeeType) {
+    this.employeeType = employeeType;
+    return this;
+  }
+
+   /**
+   * Get employeeType
+   * @return employeeType
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmployeeType() {
+    return employeeType;
+  }
+
+  public void setEmployeeType(String employeeType) {
+    this.employeeType = employeeType;
+  }
+
+  public Systemuserreturn company(String company) {
+    this.company = company;
+    return this;
+  }
+
+   /**
+   * Get company
+   * @return company
+  **/
+  @ApiModelProperty(value = "")
+  public String getCompany() {
+    return company;
+  }
+
+  public void setCompany(String company) {
+    this.company = company;
+  }
+
+  public Systemuserreturn employeeIdentifier(String employeeIdentifier) {
+    this.employeeIdentifier = employeeIdentifier;
+    return this;
+  }
+
+   /**
+   * Must be unique per user. 
+   * @return employeeIdentifier
+  **/
+  @ApiModelProperty(value = "Must be unique per user. ")
+  public String getEmployeeIdentifier() {
+    return employeeIdentifier;
+  }
+
+  public void setEmployeeIdentifier(String employeeIdentifier) {
+    this.employeeIdentifier = employeeIdentifier;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -838,12 +1009,20 @@ public class Systemuserreturn {
         Objects.equals(this.phoneNumbers, systemuserreturn.phoneNumbers) &&
         Objects.equals(this.relationships, systemuserreturn.relationships) &&
         Objects.equals(this.badLoginAttempts, systemuserreturn.badLoginAttempts) &&
-        Objects.equals(this.passwordNeverExpires, systemuserreturn.passwordNeverExpires);
+        Objects.equals(this.passwordNeverExpires, systemuserreturn.passwordNeverExpires) &&
+        Objects.equals(this.middlename, systemuserreturn.middlename) &&
+        Objects.equals(this.displayname, systemuserreturn.displayname) &&
+        Objects.equals(this.description, systemuserreturn.description) &&
+        Objects.equals(this.location, systemuserreturn.location) &&
+        Objects.equals(this.costCenter, systemuserreturn.costCenter) &&
+        Objects.equals(this.employeeType, systemuserreturn.employeeType) &&
+        Objects.equals(this.company, systemuserreturn.company) &&
+        Objects.equals(this.employeeIdentifier, systemuserreturn.employeeIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, totpEnabled, attributes, created, sambaServiceUser, id, organization, addresses, jobTitle, department, phoneNumbers, relationships, badLoginAttempts, passwordNeverExpires);
+    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, totpEnabled, attributes, created, sambaServiceUser, id, organization, addresses, jobTitle, department, phoneNumbers, relationships, badLoginAttempts, passwordNeverExpires, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier);
   }
 
 
@@ -886,6 +1065,14 @@ public class Systemuserreturn {
     sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
     sb.append("    badLoginAttempts: ").append(toIndentedString(badLoginAttempts)).append("\n");
     sb.append("    passwordNeverExpires: ").append(toIndentedString(passwordNeverExpires)).append("\n");
+    sb.append("    middlename: ").append(toIndentedString(middlename)).append("\n");
+    sb.append("    displayname: ").append(toIndentedString(displayname)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    costCenter: ").append(toIndentedString(costCenter)).append("\n");
+    sb.append("    employeeType: ").append(toIndentedString(employeeType)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
+    sb.append("    employeeIdentifier: ").append(toIndentedString(employeeIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

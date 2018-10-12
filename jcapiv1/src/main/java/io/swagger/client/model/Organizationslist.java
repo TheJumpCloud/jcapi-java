@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Organizationslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:29:25.355Z")
 public class Organizationslist {
   @SerializedName("totalCount")
   private Integer totalCount = null;
@@ -43,10 +43,10 @@ public class Organizationslist {
   }
 
    /**
-   * The total of organizations. 
+   * The total number of organizations. 
    * @return totalCount
   **/
-  @ApiModelProperty(value = "The total of organizations. ")
+  @ApiModelProperty(value = "The total number of organizations. ")
   public Integer getTotalCount() {
     return totalCount;
   }

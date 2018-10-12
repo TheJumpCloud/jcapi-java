@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -24,29 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse400
+ * SystemuserAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-08-06T19:34:43.263Z")
-public class InlineResponse400 {
-  @SerializedName("message")
-  private String message = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:29:25.355Z")
+public class SystemuserAttributes {
+  @SerializedName("")
+  private String  = null;
 
-  public InlineResponse400 message(String message) {
-    this.message = message;
+  public SystemuserAttributes (String ) {
+    this. = ;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get 
+   * @return 
   **/
   @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
+  public String get() {
+    return ;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void set(String ) {
+    this. = ;
   }
 
 
@@ -58,22 +58,22 @@ public class InlineResponse400 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
-    return Objects.equals(this.message, inlineResponse400.message);
+    SystemuserAttributes systemuserAttributes = (SystemuserAttributes) o;
+    return Objects.equals(this., systemuserAttributes.);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash();
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse400 {\n");
+    sb.append("class SystemuserAttributes {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    : ").append(toIndentedString()).append("\n");
     sb.append("}");
     return sb.toString();
   }

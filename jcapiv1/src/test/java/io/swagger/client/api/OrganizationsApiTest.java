@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
  *
  * OpenAPI spec version: 1.0
  * 
@@ -35,7 +35,7 @@ public class OrganizationsApiTest {
     /**
      * Get Organization Details
      *
-     * 
+     * This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -48,7 +48,8 @@ public class OrganizationsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Organizationslist response = api.organizationList(contentType, accept, fields, limit, skip, sort);
+        String search = null;
+        Organizationslist response = api.organizationList(contentType, accept, fields, limit, skip, sort, search);
 
         // TODO: test validations
     }
