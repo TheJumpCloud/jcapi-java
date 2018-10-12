@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -24,29 +24,29 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse204
+ * Emailrequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-07-31T21:42:20.775Z")
-public class InlineResponse204 {
-  @SerializedName("id")
-  private String id = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:32:23.898Z")
+public class Emailrequest {
+  @SerializedName("emailType")
+  private String emailType = null;
 
-  public InlineResponse204 id(String id) {
-    this.id = id;
+  public Emailrequest emailType(String emailType) {
+    this.emailType = emailType;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get emailType
+   * @return emailType
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getEmailType() {
+    return emailType;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setEmailType(String emailType) {
+    this.emailType = emailType;
   }
 
 
@@ -58,22 +58,22 @@ public class InlineResponse204 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse204 inlineResponse204 = (InlineResponse204) o;
-    return Objects.equals(this.id, inlineResponse204.id);
+    Emailrequest emailrequest = (Emailrequest) o;
+    return Objects.equals(this.emailType, emailrequest.emailType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id);
+    return Objects.hash(emailType);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse204 {\n");
+    sb.append("class Emailrequest {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    emailType: ").append(toIndentedString(emailType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

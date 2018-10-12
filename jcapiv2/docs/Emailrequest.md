@@ -1,10 +1,10 @@
 
-# InlineResponse204
+# Emailrequest
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
+**emailType** | **String** |  |  [optional]
 
 
 

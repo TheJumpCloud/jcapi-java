@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -63,12 +63,13 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesDeleteCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesDeleteCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -83,6 +84,8 @@ public class ActiveDirectoryApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -115,7 +118,7 @@ public class ActiveDirectoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call activedirectoriesDeleteValidateBeforeCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call activedirectoriesDeleteValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -133,7 +136,7 @@ public class ActiveDirectoryApi {
         }
         
 
-        com.squareup.okhttp.Call call = activedirectoriesDeleteCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesDeleteCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -144,10 +147,11 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void activedirectoriesDelete(String id, String contentType, String accept) throws ApiException {
-        activedirectoriesDeleteWithHttpInfo(id, contentType, accept);
+    public void activedirectoriesDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        activedirectoriesDeleteWithHttpInfo(id, contentType, accept, xOrgId);
     }
 
     /**
@@ -156,11 +160,12 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> activedirectoriesDeleteWithHttpInfo(String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = activedirectoriesDeleteValidateBeforeCall(id, contentType, accept, null, null);
+    public ApiResponse<Void> activedirectoriesDeleteWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = activedirectoriesDeleteValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -170,11 +175,12 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesDeleteAsync(String id, String contentType, String accept, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesDeleteAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -195,7 +201,7 @@ public class ActiveDirectoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = activedirectoriesDeleteValidateBeforeCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesDeleteValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -204,12 +210,13 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesGetCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesGetCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -224,6 +231,8 @@ public class ActiveDirectoryApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -256,7 +265,7 @@ public class ActiveDirectoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call activedirectoriesGetValidateBeforeCall(String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call activedirectoriesGetValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -274,7 +283,7 @@ public class ActiveDirectoryApi {
         }
         
 
-        com.squareup.okhttp.Call call = activedirectoriesGetCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesGetCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -285,11 +294,12 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @return ActiveDirectoryOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ActiveDirectoryOutput activedirectoriesGet(String id, String contentType, String accept) throws ApiException {
-        ApiResponse<ActiveDirectoryOutput> resp = activedirectoriesGetWithHttpInfo(id, contentType, accept);
+    public ActiveDirectoryOutput activedirectoriesGet(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<ActiveDirectoryOutput> resp = activedirectoriesGetWithHttpInfo(id, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -299,11 +309,12 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;ActiveDirectoryOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ActiveDirectoryOutput> activedirectoriesGetWithHttpInfo(String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = activedirectoriesGetValidateBeforeCall(id, contentType, accept, null, null);
+    public ApiResponse<ActiveDirectoryOutput> activedirectoriesGetWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = activedirectoriesGetValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<ActiveDirectoryOutput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -314,11 +325,12 @@ public class ActiveDirectoryApi {
      * @param id ObjectID of this Active Directory instance. (required)
      * @param contentType  (required)
      * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesGetAsync(String id, String contentType, String accept, final ApiCallback<ActiveDirectoryOutput> callback) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesGetAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<ActiveDirectoryOutput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -339,7 +351,7 @@ public class ActiveDirectoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = activedirectoriesGetValidateBeforeCall(id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesGetValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ActiveDirectoryOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -353,12 +365,13 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesListCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesListCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -382,6 +395,8 @@ public class ActiveDirectoryApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -414,7 +429,7 @@ public class ActiveDirectoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call activedirectoriesListValidateBeforeCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call activedirectoriesListValidateBeforeCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -427,7 +442,7 @@ public class ActiveDirectoryApi {
         }
         
 
-        com.squareup.okhttp.Call call = activedirectoriesListCall(contentType, accept, fields, filter, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesListCall(contentType, accept, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -442,11 +457,12 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;ActiveDirectoryOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<ActiveDirectoryOutput> activedirectoriesList(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        ApiResponse<List<ActiveDirectoryOutput>> resp = activedirectoriesListWithHttpInfo(contentType, accept, fields, filter, limit, skip, sort);
+    public List<ActiveDirectoryOutput> activedirectoriesList(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        ApiResponse<List<ActiveDirectoryOutput>> resp = activedirectoriesListWithHttpInfo(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -460,11 +476,12 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;ActiveDirectoryOutput&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<ActiveDirectoryOutput>> activedirectoriesListWithHttpInfo(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        com.squareup.okhttp.Call call = activedirectoriesListValidateBeforeCall(contentType, accept, fields, filter, limit, skip, sort, null, null);
+    public ApiResponse<List<ActiveDirectoryOutput>> activedirectoriesListWithHttpInfo(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = activedirectoriesListValidateBeforeCall(contentType, accept, fields, filter, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<ActiveDirectoryOutput>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -479,11 +496,12 @@ public class ActiveDirectoryApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesListAsync(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ApiCallback<List<ActiveDirectoryOutput>> callback) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesListAsync(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ApiCallback<List<ActiveDirectoryOutput>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -504,7 +522,7 @@ public class ActiveDirectoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = activedirectoriesListValidateBeforeCall(contentType, accept, fields, filter, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesListValidateBeforeCall(contentType, accept, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<ActiveDirectoryOutput>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -514,12 +532,13 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesPostCall(String contentType, String accept, ActiveDirectoryInput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesPostCall(String contentType, String accept, ActiveDirectoryInput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -533,6 +552,8 @@ public class ActiveDirectoryApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -565,7 +586,7 @@ public class ActiveDirectoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call activedirectoriesPostValidateBeforeCall(String contentType, String accept, ActiveDirectoryInput body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call activedirectoriesPostValidateBeforeCall(String contentType, String accept, ActiveDirectoryInput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -578,7 +599,7 @@ public class ActiveDirectoryApi {
         }
         
 
-        com.squareup.okhttp.Call call = activedirectoriesPostCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesPostCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -589,11 +610,12 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @return ActiveDirectoryOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ActiveDirectoryOutput activedirectoriesPost(String contentType, String accept, ActiveDirectoryInput body) throws ApiException {
-        ApiResponse<ActiveDirectoryOutput> resp = activedirectoriesPostWithHttpInfo(contentType, accept, body);
+    public ActiveDirectoryOutput activedirectoriesPost(String contentType, String accept, ActiveDirectoryInput body, String xOrgId) throws ApiException {
+        ApiResponse<ActiveDirectoryOutput> resp = activedirectoriesPostWithHttpInfo(contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -603,11 +625,12 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;ActiveDirectoryOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<ActiveDirectoryOutput> activedirectoriesPostWithHttpInfo(String contentType, String accept, ActiveDirectoryInput body) throws ApiException {
-        com.squareup.okhttp.Call call = activedirectoriesPostValidateBeforeCall(contentType, accept, body, null, null);
+    public ApiResponse<ActiveDirectoryOutput> activedirectoriesPostWithHttpInfo(String contentType, String accept, ActiveDirectoryInput body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = activedirectoriesPostValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<ActiveDirectoryOutput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -618,11 +641,12 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call activedirectoriesPostAsync(String contentType, String accept, ActiveDirectoryInput body, final ApiCallback<ActiveDirectoryOutput> callback) throws ApiException {
+    public com.squareup.okhttp.Call activedirectoriesPostAsync(String contentType, String accept, ActiveDirectoryInput body, String xOrgId, final ApiCallback<ActiveDirectoryOutput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -643,7 +667,7 @@ public class ActiveDirectoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = activedirectoriesPostValidateBeforeCall(contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = activedirectoriesPostValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<ActiveDirectoryOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -656,12 +680,13 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsListCall(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsListCall(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -682,6 +707,8 @@ public class ActiveDirectoryApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -714,7 +741,7 @@ public class ActiveDirectoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphActiveDirectoryAssociationsListValidateBeforeCall(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphActiveDirectoryAssociationsListValidateBeforeCall(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'activedirectoryId' is set
         if (activedirectoryId == null) {
@@ -737,60 +764,63 @@ public class ActiveDirectoryApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsListCall(activedirectoryId, targets, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsListCall(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * List the associations of an Active Directory instance
-     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphConnection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphConnection> graphActiveDirectoryAssociationsList(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphConnection>> resp = graphActiveDirectoryAssociationsListWithHttpInfo(activedirectoryId, targets, contentType, accept, limit, skip);
+    public List<GraphConnection> graphActiveDirectoryAssociationsList(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphConnection>> resp = graphActiveDirectoryAssociationsListWithHttpInfo(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
     /**
      * List the associations of an Active Directory instance
-     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphConnection&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphConnection>> graphActiveDirectoryAssociationsListWithHttpInfo(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsListValidateBeforeCall(activedirectoryId, targets, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphConnection>> graphActiveDirectoryAssociationsListWithHttpInfo(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsListValidateBeforeCall(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List the associations of an Active Directory instance (asynchronously)
-     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param targets  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsListAsync(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsListAsync(String activedirectoryId, List<String> targets, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -811,7 +841,7 @@ public class ActiveDirectoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsListValidateBeforeCall(activedirectoryId, targets, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsListValidateBeforeCall(activedirectoryId, targets, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -822,12 +852,13 @@ public class ActiveDirectoryApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsPostCall(String activedirectoryId, String contentType, String accept, GraphManagementReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsPostCall(String activedirectoryId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -842,6 +873,8 @@ public class ActiveDirectoryApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -874,7 +907,7 @@ public class ActiveDirectoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphActiveDirectoryAssociationsPostValidateBeforeCall(String activedirectoryId, String contentType, String accept, GraphManagementReq body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphActiveDirectoryAssociationsPostValidateBeforeCall(String activedirectoryId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'activedirectoryId' is set
         if (activedirectoryId == null) {
@@ -892,51 +925,54 @@ public class ActiveDirectoryApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsPostCall(activedirectoryId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsPostCall(activedirectoryId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Manage the associations of an Active Directory instance
-     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void graphActiveDirectoryAssociationsPost(String activedirectoryId, String contentType, String accept, GraphManagementReq body) throws ApiException {
-        graphActiveDirectoryAssociationsPostWithHttpInfo(activedirectoryId, contentType, accept, body);
+    public void graphActiveDirectoryAssociationsPost(String activedirectoryId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
+        graphActiveDirectoryAssociationsPostWithHttpInfo(activedirectoryId, contentType, accept, body, xOrgId);
     }
 
     /**
      * Manage the associations of an Active Directory instance
-     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> graphActiveDirectoryAssociationsPostWithHttpInfo(String activedirectoryId, String contentType, String accept, GraphManagementReq body) throws ApiException {
-        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsPostValidateBeforeCall(activedirectoryId, contentType, accept, body, null, null);
+    public ApiResponse<Void> graphActiveDirectoryAssociationsPostWithHttpInfo(String activedirectoryId, String contentType, String accept, GraphManagementReq body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsPostValidateBeforeCall(activedirectoryId, contentType, accept, body, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Manage the associations of an Active Directory instance (asynchronously)
-     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
      * @param activedirectoryId  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsPostAsync(String activedirectoryId, String contentType, String accept, GraphManagementReq body, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphActiveDirectoryAssociationsPostAsync(String activedirectoryId, String contentType, String accept, GraphManagementReq body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -957,7 +993,7 @@ public class ActiveDirectoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsPostValidateBeforeCall(activedirectoryId, contentType, accept, body, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphActiveDirectoryAssociationsPostValidateBeforeCall(activedirectoryId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -968,12 +1004,13 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphActiveDirectoryTraverseUserGroupCall(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphActiveDirectoryTraverseUserGroupCall(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -992,6 +1029,8 @@ public class ActiveDirectoryApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1024,7 +1063,7 @@ public class ActiveDirectoryApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphActiveDirectoryTraverseUserGroupValidateBeforeCall(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphActiveDirectoryTraverseUserGroupValidateBeforeCall(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'activedirectoryId' is set
         if (activedirectoryId == null) {
@@ -1042,7 +1081,7 @@ public class ActiveDirectoryApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphActiveDirectoryTraverseUserGroupCall(activedirectoryId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphActiveDirectoryTraverseUserGroupCall(activedirectoryId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1055,11 +1094,12 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphActiveDirectoryTraverseUserGroup(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphActiveDirectoryTraverseUserGroupWithHttpInfo(activedirectoryId, contentType, accept, limit, skip);
+    public List<GraphObjectWithPaths> graphActiveDirectoryTraverseUserGroup(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphActiveDirectoryTraverseUserGroupWithHttpInfo(activedirectoryId, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -1071,11 +1111,12 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphActiveDirectoryTraverseUserGroupWithHttpInfo(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphActiveDirectoryTraverseUserGroupValidateBeforeCall(activedirectoryId, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphActiveDirectoryTraverseUserGroupWithHttpInfo(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphActiveDirectoryTraverseUserGroupValidateBeforeCall(activedirectoryId, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1088,11 +1129,12 @@ public class ActiveDirectoryApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphActiveDirectoryTraverseUserGroupAsync(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphActiveDirectoryTraverseUserGroupAsync(String activedirectoryId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1113,7 +1155,7 @@ public class ActiveDirectoryApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphActiveDirectoryTraverseUserGroupValidateBeforeCall(activedirectoryId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphActiveDirectoryTraverseUserGroupValidateBeforeCall(activedirectoryId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

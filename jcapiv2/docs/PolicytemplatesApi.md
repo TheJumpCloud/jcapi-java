@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="policytemplatesGet"></a>
 # **policytemplatesGet**
-> PolicyTemplateWithDetails policytemplatesGet(id, contentType, accept)
+> PolicyTemplateWithDetails policytemplatesGet(id, contentType, accept, xOrgId)
 
 Get a specific Policy Template
 
@@ -28,17 +28,18 @@ This endpoint returns a specific policy template.  #### Sample Request &#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PolicytemplatesApi apiInstance = new PolicytemplatesApi();
 String id = "id_example"; // String | ObjectID of the Policy Template.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    PolicyTemplateWithDetails result = apiInstance.policytemplatesGet(id, contentType, accept);
+    PolicyTemplateWithDetails result = apiInstance.policytemplatesGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicytemplatesApi#policytemplatesGet");
@@ -53,6 +54,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the Policy Template. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -69,7 +71,7 @@ Name | Type | Description  | Notes
 
 <a name="policytemplatesList"></a>
 # **policytemplatesList**
-> List&lt;PolicyTemplate&gt; policytemplatesList(contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;PolicyTemplate&gt; policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 Lists all of the Policy Templates
 
@@ -87,10 +89,10 @@ This endpoint returns all policy templates.  #### Sample Request &#x60;&#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 PolicytemplatesApi apiInstance = new PolicytemplatesApi();
 String contentType = "application/json"; // String | 
@@ -100,8 +102,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    List<PolicyTemplate> result = apiInstance.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort);
+    List<PolicyTemplate> result = apiInstance.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PolicytemplatesApi#policytemplatesList");
@@ -120,6 +123,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

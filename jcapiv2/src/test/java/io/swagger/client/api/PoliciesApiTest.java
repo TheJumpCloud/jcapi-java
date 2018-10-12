@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -44,7 +44,7 @@ public class PoliciesApiTest {
     /**
      * List the associations of a Policy
      *
-     * This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -57,7 +57,8 @@ public class PoliciesApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphPolicyAssociationsList(policyId, targets, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -65,7 +66,7 @@ public class PoliciesApiTest {
     /**
      * Manage the associations of a Policy
      *
-     * This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -76,7 +77,8 @@ public class PoliciesApiTest {
         String contentType = null;
         String accept = null;
         GraphManagementReq body = null;
-        api.graphPolicyAssociationsPost(policyId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphPolicyAssociationsPost(policyId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -96,7 +98,8 @@ public class PoliciesApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -116,7 +119,8 @@ public class PoliciesApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -134,7 +138,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        api.policiesDelete(id, contentType, accept);
+        String xOrgId = null;
+        api.policiesDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -152,7 +157,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        PolicyWithDetails response = api.policiesGet(id, contentType, accept);
+        String xOrgId = null;
+        PolicyWithDetails response = api.policiesGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -174,7 +180,8 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<Policy> response = api.policiesList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<Policy> response = api.policiesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -192,7 +199,8 @@ public class PoliciesApiTest {
         String contentType = null;
         String accept = null;
         PolicyRequest body = null;
-        PolicyWithDetails response = api.policiesPost(contentType, accept, body);
+        String xOrgId = null;
+        PolicyWithDetails response = api.policiesPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -209,7 +217,8 @@ public class PoliciesApiTest {
     public void policiesPutTest() throws ApiException {
         String id = null;
         PolicyRequest body = null;
-        Policy response = api.policiesPut(id, body);
+        String xOrgId = null;
+        Policy response = api.policiesPut(id, body, xOrgId);
 
         // TODO: test validations
     }
@@ -227,30 +236,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        PolicyResult response = api.policyresultsGet(id, contentType, accept);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * Lists all the policy results for an organization.
-     *
-     * This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void policyresultsListTest() throws ApiException {
-        String contentType = null;
-        String accept = null;
-        List<String> aggregate = null;
-        List<String> fields = null;
-        List<String> filter = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> sort = null;
-        List<PolicyResult> response = api.policyresultsList(contentType, accept, aggregate, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        PolicyResult response = api.policyresultsGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -264,7 +251,7 @@ public class PoliciesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void policyresultsList_0Test() throws ApiException {
+    public void policyresultsListTest() throws ApiException {
         String policyId = null;
         String contentType = null;
         String accept = null;
@@ -274,30 +261,32 @@ public class PoliciesApiTest {
         Integer skip = null;
         List<String> sort = null;
         List<String> aggregate = null;
-        List<PolicyResult> response = api.policyresultsList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate);
+        String xOrgId = null;
+        List<PolicyResult> response = api.policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
 
         // TODO: test validations
     }
     
     /**
-     * Lists the latest policy results of a policy.
+     * Lists all the policy results for an organization.
      *
-     * This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void policystatusesListTest() throws ApiException {
-        String policyId = null;
+    public void policyresultsList_0Test() throws ApiException {
         String contentType = null;
         String accept = null;
+        List<String> aggregate = null;
         List<String> fields = null;
         List<String> filter = null;
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyResult> response = api.policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyResult> response = api.policyresultsList_0(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -311,7 +300,7 @@ public class PoliciesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void policystatusesList_0Test() throws ApiException {
+    public void policystatusesListTest() throws ApiException {
         String systemId = null;
         String contentType = null;
         String accept = null;
@@ -320,7 +309,32 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyResult> response = api.policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyResult> response = api.policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Lists the latest policy results of a policy.
+     *
+     * This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void policystatusesList_0Test() throws ApiException {
+        String policyId = null;
+        String contentType = null;
+        String accept = null;
+        List<String> fields = null;
+        List<String> filter = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        String xOrgId = null;
+        List<PolicyResult> response = api.policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -338,7 +352,8 @@ public class PoliciesApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        PolicyTemplateWithDetails response = api.policytemplatesGet(id, contentType, accept);
+        String xOrgId = null;
+        PolicyTemplateWithDetails response = api.policytemplatesGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -360,7 +375,8 @@ public class PoliciesApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyTemplate> response = api.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<PolicyTemplate> response = api.policytemplatesList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }

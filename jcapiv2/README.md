@@ -72,17 +72,18 @@ public class ActiveDirectoryApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x-api-key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x_api_key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x-api-key.setApiKeyPrefix("Token");
+        //x_api_key.setApiKeyPrefix("Token");
 
         ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
         String id = "id_example"; // String | ObjectID of this Active Directory instance.
         String contentType = "application/json"; // String | 
         String accept = "application/json"; // String | 
+        String xOrgId = ""; // String | 
         try {
-            apiInstance.activedirectoriesDelete(id, contentType, accept);
+            apiInstance.activedirectoriesDelete(id, contentType, accept, xOrgId);
         } catch (ApiException e) {
             System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesDelete");
             e.printStackTrace();
@@ -118,6 +119,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**graphCommandTraverseSystem**](docs/CommandsApi.md#graphCommandTraverseSystem) | **GET** /commands/{command_id}/systems | List the Systems bound to a Command
 *CommandsApi* | [**graphCommandTraverseSystemGroup**](docs/CommandsApi.md#graphCommandTraverseSystemGroup) | **GET** /commands/{command_id}/systemgroups | List the System Groups bound to a Command
 *DirectoriesApi* | [**directoriesList**](docs/DirectoriesApi.md#directoriesList) | **GET** /directories | List All Directories
+*FdeApi* | [**systemsGetFDEKey**](docs/FdeApi.md#systemsGetFDEKey) | **GET** /systems/{system_id}/fdekey | Get System FDE Key
 *GSuiteApi* | [**graphGSuiteAssociationsList**](docs/GSuiteApi.md#graphGSuiteAssociationsList) | **GET** /gsuites/{gsuite_id}/associations | List the associations of a G Suite instance
 *GSuiteApi* | [**graphGSuiteAssociationsPost**](docs/GSuiteApi.md#graphGSuiteAssociationsPost) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
 *GSuiteApi* | [**graphGSuiteTraverseUser**](docs/GSuiteApi.md#graphGSuiteTraverseUser) | **GET** /gsuites/{gsuite_id}/users | List the Users bound to a G Suite instance
@@ -218,10 +220,10 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policiesPost**](docs/PoliciesApi.md#policiesPost) | **POST** /policies | Create a new Policy
 *PoliciesApi* | [**policiesPut**](docs/PoliciesApi.md#policiesPut) | **PUT** /policies/{id} | Update an existing Policy
 *PoliciesApi* | [**policyresultsGet**](docs/PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
-*PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policyresults | Lists all the policy results for an organization.
-*PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
-*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
-*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+*PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
+*PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
+*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
 *PoliciesApi* | [**policytemplatesGet**](docs/PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PoliciesApi* | [**policytemplatesList**](docs/PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 *PolicytemplatesApi* | [**policytemplatesGet**](docs/PolicytemplatesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -267,6 +269,7 @@ Class | Method | HTTP request | Description
 *SystemsApi* | [**graphSystemTraversePolicy**](docs/SystemsApi.md#graphSystemTraversePolicy) | **GET** /systems/{system_id}/policies | List the Policies bound to a System
 *SystemsApi* | [**graphSystemTraverseUser**](docs/SystemsApi.md#graphSystemTraverseUser) | **GET** /systems/{system_id}/users | List the Users bound to a System
 *SystemsApi* | [**graphSystemTraverseUserGroup**](docs/SystemsApi.md#graphSystemTraverseUserGroup) | **GET** /systems/{system_id}/usergroups | List the User Groups bound to a System
+*SystemsApi* | [**systemsGetFDEKey**](docs/SystemsApi.md#systemsGetFDEKey) | **GET** /systems/{system_id}/fdekey | Get System FDE Key
 *UserGroupAssociationsApi* | [**graphUserGroupAssociationsList**](docs/UserGroupAssociationsApi.md#graphUserGroupAssociationsList) | **GET** /usergroups/{group_id}/associations | List the associations of a User Group.
 *UserGroupAssociationsApi* | [**graphUserGroupAssociationsPost**](docs/UserGroupAssociationsApi.md#graphUserGroupAssociationsPost) | **POST** /usergroups/{group_id}/associations | Manage the associations of a User Group
 *UserGroupAssociationsApi* | [**graphUserGroupTraverseActiveDirectory**](docs/UserGroupAssociationsApi.md#graphUserGroupTraverseActiveDirectory) | **GET** /usergroups/{group_id}/activedirectories | List the Active Directories bound to a User Group
@@ -298,7 +301,7 @@ Class | Method | HTTP request | Description
 *UserGroupsApi* | [**graphUserGroupTraverseSystem**](docs/UserGroupsApi.md#graphUserGroupTraverseSystem) | **GET** /usergroups/{group_id}/systems | List the Systems bound to a User Group
 *UserGroupsApi* | [**graphUserGroupTraverseSystemGroup**](docs/UserGroupsApi.md#graphUserGroupTraverseSystemGroup) | **GET** /usergroups/{group_id}/systemgroups | List the System Groups bound to User Groups
 *UserGroupsApi* | [**groupsUserDelete**](docs/UserGroupsApi.md#groupsUserDelete) | **DELETE** /usergroups/{id} | Delete a User Group
-*UserGroupsApi* | [**groupsUserGet**](docs/UserGroupsApi.md#groupsUserGet) | **GET** /usergroups/{id} | View an indvidual User Group details
+*UserGroupsApi* | [**groupsUserGet**](docs/UserGroupsApi.md#groupsUserGet) | **GET** /usergroups/{id} | View an individual User Group details
 *UserGroupsApi* | [**groupsUserList**](docs/UserGroupsApi.md#groupsUserList) | **GET** /usergroups | List all User Groups
 *UserGroupsApi* | [**groupsUserPatch**](docs/UserGroupsApi.md#groupsUserPatch) | **PATCH** /usergroups/{id} | Partial update a User Group
 *UserGroupsApi* | [**groupsUserPost**](docs/UserGroupsApi.md#groupsUserPost) | **POST** /usergroups | Create a new User Group
@@ -314,6 +317,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**graphUserTraverseRadiusServer**](docs/UsersApi.md#graphUserTraverseRadiusServer) | **GET** /users/{user_id}/radiusservers | List the RADIUS Servers bound to a User
 *UsersApi* | [**graphUserTraverseSystem**](docs/UsersApi.md#graphUserTraverseSystem) | **GET** /users/{user_id}/systems | List the Systems bound to a User
 *UsersApi* | [**graphUserTraverseSystemGroup**](docs/UsersApi.md#graphUserTraverseSystemGroup) | **GET** /users/{user_id}/systemgroups | List the System Groups bound to a User
+*UsersApi* | [**userSendEmails**](docs/UsersApi.md#userSendEmails) | **POST** /users/{user_id}/emails | Send User Emails
 *WorkdayImportApi* | [**workdaysAuthorize**](docs/WorkdayImportApi.md#workdaysAuthorize) | **POST** /workdays/{workday_id}/auth | Authorize Workday
 *WorkdayImportApi* | [**workdaysDeauthorize**](docs/WorkdayImportApi.md#workdaysDeauthorize) | **DELETE** /workdays/{workday_id}/auth | Deauthorize Workday
 *WorkdayImportApi* | [**workdaysDelete**](docs/WorkdayImportApi.md#workdaysDelete) | **DELETE** /workdays/{id} | Delete Workday
@@ -337,7 +341,9 @@ Class | Method | HTTP request | Description
  - [AuthinputOauth](docs/AuthinputOauth.md)
  - [BulkUserCreate](docs/BulkUserCreate.md)
  - [Directory](docs/Directory.md)
+ - [Emailrequest](docs/Emailrequest.md)
  - [Error](docs/Error.md)
+ - [Errorresponse](docs/Errorresponse.md)
  - [GraphConnection](docs/GraphConnection.md)
  - [GraphManagementReq](docs/GraphManagementReq.md)
  - [GraphObject](docs/GraphObject.md)
@@ -345,7 +351,6 @@ Class | Method | HTTP request | Description
  - [GraphType](docs/GraphType.md)
  - [Group](docs/Group.md)
  - [GroupType](docs/GroupType.md)
- - [InlineResponse204](docs/InlineResponse204.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)
@@ -363,6 +368,7 @@ Class | Method | HTTP request | Description
  - [PolicyValue](docs/PolicyValue.md)
  - [PolicyWithDetails](docs/PolicyWithDetails.md)
  - [SambaDomainInput](docs/SambaDomainInput.md)
+ - [Sshkeylist](docs/Sshkeylist.md)
  - [SystemGraphManagementReq](docs/SystemGraphManagementReq.md)
  - [SystemGraphManagementReqAttributes](docs/SystemGraphManagementReqAttributes.md)
  - [SystemGraphManagementReqAttributesSudo](docs/SystemGraphManagementReqAttributesSudo.md)
@@ -370,6 +376,12 @@ Class | Method | HTTP request | Description
  - [SystemGroupData](docs/SystemGroupData.md)
  - [SystemGroupGraphManagementReq](docs/SystemGroupGraphManagementReq.md)
  - [SystemGroupMembersReq](docs/SystemGroupMembersReq.md)
+ - [Systemfdekey](docs/Systemfdekey.md)
+ - [Systemuser](docs/Systemuser.md)
+ - [SystemuserAttributes](docs/SystemuserAttributes.md)
+ - [Systemuserputpost](docs/Systemuserputpost.md)
+ - [SystemuserputpostAddresses](docs/SystemuserputpostAddresses.md)
+ - [SystemuserputpostPhoneNumbers](docs/SystemuserputpostPhoneNumbers.md)
  - [UserGraphManagementReq](docs/UserGraphManagementReq.md)
  - [UserGroup](docs/UserGroup.md)
  - [UserGroupGraphManagementReq](docs/UserGroupGraphManagementReq.md)

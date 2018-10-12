@@ -23,11 +23,11 @@ Method | HTTP request | Description
 
 <a name="graphSystemGroupAssociationsList"></a>
 # **graphSystemGroupAssociationsList**
-> List&lt;GraphConnection&gt; graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip)
+> List&lt;GraphConnection&gt; graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId)
 
 List the associations of a System Group
 
-This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -41,10 +41,10 @@ This endpoint returns the _direct_ associations of a System Group.  A direct ass
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -53,8 +53,9 @@ String accept = "application/json"; // String |
 List<String> targets = Arrays.asList("targets_example"); // List<String> | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip);
+    List<GraphConnection> result = apiInstance.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupAssociationsList");
@@ -72,6 +73,7 @@ Name | Type | Description  | Notes
  **targets** | [**List&lt;String&gt;**](String.md)|  | [enum: active_directory, application, command, g_suite, ldap_server, office_365, policy, radius_server, user, user_group]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -88,11 +90,11 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupAssociationsPost"></a>
 # **graphSystemGroupAssociationsPost**
-> graphSystemGroupAssociationsPost(groupId, contentType, accept, body)
+> graphSystemGroupAssociationsPost(groupId, contentType, accept, body, xOrgId)
 
 Manage the associations of a System Group
 
-This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
+This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -106,18 +108,19 @@ This endpoint allows you to manage the _direct_ associations of a System Group. 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 SystemGroupGraphManagementReq body = new SystemGroupGraphManagementReq(); // SystemGroupGraphManagementReq | 
+String xOrgId = ""; // String | 
 try {
-    apiInstance.graphSystemGroupAssociationsPost(groupId, contentType, accept, body);
+    apiInstance.graphSystemGroupAssociationsPost(groupId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupAssociationsPost");
     e.printStackTrace();
@@ -132,6 +135,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupGraphManagementReq**](SystemGroupGraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -148,7 +152,7 @@ null (empty response body)
 
 <a name="graphSystemGroupMemberOf"></a>
 # **graphSystemGroupMemberOf**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId)
 
 List the System Group&#39;s parents
 
@@ -166,10 +170,10 @@ This endpoint returns all System Groups a System Group is a member of.  This end
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -179,8 +183,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupMemberOf");
@@ -199,6 +204,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -215,7 +221,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupMembersList"></a>
 # **graphSystemGroupMembersList**
-> List&lt;GraphConnection&gt; graphSystemGroupMembersList(groupId, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphSystemGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the members of a System Group
 
@@ -233,10 +239,10 @@ This endpoint returns the system members of a System Group.  #### Sample Request
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -244,8 +250,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupMembersList");
@@ -262,6 +269,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -278,11 +286,11 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupMembersPost"></a>
 # **graphSystemGroupMembersPost**
-> graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization)
+> graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization, xOrgId)
 
 Manage the members of a System Group
 
-This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID\&quot; }&#39; &#x60;&#x60;&#x60;
+This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -296,10 +304,10 @@ This endpoint allows you to manage the system members of a System Group.  #### S
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -308,8 +316,9 @@ String accept = "application/json"; // String |
 SystemGroupMembersReq body = new SystemGroupMembersReq(); // SystemGroupMembersReq | 
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
+String xOrgId = ""; // String | 
 try {
-    apiInstance.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization);
+    apiInstance.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupMembersPost");
     e.printStackTrace();
@@ -326,6 +335,7 @@ Name | Type | Description  | Notes
  **body** | [**SystemGroupMembersReq**](SystemGroupMembersReq.md)|  | [optional]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -342,7 +352,7 @@ null (empty response body)
 
 <a name="graphSystemGroupMembership"></a>
 # **graphSystemGroupMembership**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId)
 
 List the System Group&#39;s membership
 
@@ -360,10 +370,10 @@ This endpoint returns all Systems that are a member of this System Group.  #### 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -373,8 +383,9 @@ Integer limit = 10; // Integer | The number of records to return at once. Limite
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupMembership");
@@ -393,6 +404,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -409,7 +421,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraversePolicy"></a>
 # **graphSystemGroupTraversePolicy**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Policies bound to a System Group
 
@@ -427,10 +439,10 @@ This endpoint will return all Policies bound to a System Group, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -438,8 +450,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupTraversePolicy");
@@ -456,6 +469,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -472,7 +486,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraverseUser"></a>
 # **graphSystemGroupTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the Users bound to a System Group
 
@@ -490,10 +504,10 @@ This endpoint will return all Users bound to a System Group, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -501,8 +515,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupTraverseUser");
@@ -519,6 +534,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -535,7 +551,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraverseUserGroup"></a>
 # **graphSystemGroupTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId)
 
 List the User Groups bound to a System Group
 
@@ -553,10 +569,10 @@ This endpoint will return all User Groups bound to a System Group, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -564,8 +580,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupTraverseUserGroup");
@@ -582,6 +599,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -598,7 +616,7 @@ Name | Type | Description  | Notes
 
 <a name="groupsSystemDelete"></a>
 # **groupsSystemDelete**
-> groupsSystemDelete(id, contentType, accept)
+> groupsSystemDelete(id, contentType, accept, xOrgId)
 
 Delete a System Group
 
@@ -616,17 +634,18 @@ This endpoint allows you to delete a System Group.  #### Sample Request &#x60;&#
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String id = "id_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    apiInstance.groupsSystemDelete(id, contentType, accept);
+    apiInstance.groupsSystemDelete(id, contentType, accept, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#groupsSystemDelete");
     e.printStackTrace();
@@ -640,6 +659,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the System Group. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -656,11 +676,11 @@ null (empty response body)
 
 <a name="groupsSystemGet"></a>
 # **groupsSystemGet**
-> SystemGroup groupsSystemGet(id, contentType, accept)
+> SystemGroup groupsSystemGet(id, contentType, accept, xOrgId)
 
 View an individual System Group details
 
-This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -674,17 +694,18 @@ This endpoint returns the details of a System Group.  #### Sample Request &#x60;
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String id = "id_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    SystemGroup result = apiInstance.groupsSystemGet(id, contentType, accept);
+    SystemGroup result = apiInstance.groupsSystemGet(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#groupsSystemGet");
@@ -699,6 +720,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the System Group. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -715,7 +737,7 @@ Name | Type | Description  | Notes
 
 <a name="groupsSystemList"></a>
 # **groupsSystemList**
-> List&lt;SystemGroup&gt; groupsSystemList(contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;SystemGroup&gt; groupsSystemList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 List all System Groups
 
@@ -733,10 +755,10 @@ This endpoint returns all System Groups.  Available filter fields:   - &#x60;nam
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String contentType = "application/json"; // String | 
@@ -746,8 +768,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    List<SystemGroup> result = apiInstance.groupsSystemList(contentType, accept, fields, filter, limit, skip, sort);
+    List<SystemGroup> result = apiInstance.groupsSystemList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#groupsSystemList");
@@ -766,6 +789,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -782,7 +806,7 @@ Name | Type | Description  | Notes
 
 <a name="groupsSystemPatch"></a>
 # **groupsSystemPatch**
-> SystemGroup groupsSystemPatch(id, contentType, accept, body)
+> SystemGroup groupsSystemPatch(id, contentType, accept, body, xOrgId)
 
 Partial update a System Group
 
@@ -800,18 +824,19 @@ We have hidden PATCH on the systemgroups and usergroups for now; we don&#39;t ha
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String id = "id_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 SystemGroupData body = new SystemGroupData(); // SystemGroupData | 
+String xOrgId = ""; // String | 
 try {
-    SystemGroup result = apiInstance.groupsSystemPatch(id, contentType, accept, body);
+    SystemGroup result = apiInstance.groupsSystemPatch(id, contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#groupsSystemPatch");
@@ -827,6 +852,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupData**](SystemGroupData.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -843,7 +869,7 @@ Name | Type | Description  | Notes
 
 <a name="groupsSystemPost"></a>
 # **groupsSystemPost**
-> SystemGroup groupsSystemPost(contentType, accept, body)
+> SystemGroup groupsSystemPost(contentType, accept, body, xOrgId)
 
 Create a new System Group
 
@@ -861,17 +887,18 @@ This endpoint allows you to create a new System Group.  #### Sample Request  &#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 SystemGroupData body = new SystemGroupData(); // SystemGroupData | 
+String xOrgId = ""; // String | 
 try {
-    SystemGroup result = apiInstance.groupsSystemPost(contentType, accept, body);
+    SystemGroup result = apiInstance.groupsSystemPost(contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#groupsSystemPost");
@@ -886,6 +913,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupData**](SystemGroupData.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -902,11 +930,11 @@ Name | Type | Description  | Notes
 
 <a name="groupsSystemPut"></a>
 # **groupsSystemPut**
-> SystemGroup groupsSystemPut(id, contentType, accept, body)
+> SystemGroup groupsSystemPut(id, contentType, accept, body, xOrgId)
 
 Update a System Group
 
-This enpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
+This endpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -920,18 +948,19 @@ This enpoint allows you to do a full update of the System Group.  #### Sample Re
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemGroupsApi apiInstance = new SystemGroupsApi();
 String id = "id_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 SystemGroupData body = new SystemGroupData(); // SystemGroupData | 
+String xOrgId = ""; // String | 
 try {
-    SystemGroup result = apiInstance.groupsSystemPut(id, contentType, accept, body);
+    SystemGroup result = apiInstance.groupsSystemPut(id, contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#groupsSystemPut");
@@ -947,6 +976,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupData**](SystemGroupData.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

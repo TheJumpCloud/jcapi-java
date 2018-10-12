@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="ldapserversSambaDomainsDelete"></a>
 # **ldapserversSambaDomainsDelete**
-> String ldapserversSambaDomainsDelete(ldapserverId, id, contentType, accept)
+> String ldapserversSambaDomainsDelete(ldapserverId, id, contentType, accept, xOrgId)
 
 Delete Samba Domain
 
@@ -31,18 +31,19 @@ This endpoint allows you to delete a samba domain from an LDAP server.  ##### Sa
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SambaDomainsApi apiInstance = new SambaDomainsApi();
 String ldapserverId = "ldapserverId_example"; // String | Unique identifier of the LDAP server.
 String id = "id_example"; // String | Unique identifier of the samba domain.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    String result = apiInstance.ldapserversSambaDomainsDelete(ldapserverId, id, contentType, accept);
+    String result = apiInstance.ldapserversSambaDomainsDelete(ldapserverId, id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SambaDomainsApi#ldapserversSambaDomainsDelete");
@@ -58,6 +59,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the samba domain. |
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -74,7 +76,7 @@ Name | Type | Description  | Notes
 
 <a name="ldapserversSambaDomainsGet"></a>
 # **ldapserversSambaDomainsGet**
-> SambaDomainOutput ldapserversSambaDomainsGet(ldapserverId, id, contentType, accept)
+> SambaDomainOutput ldapserversSambaDomainsGet(ldapserverId, id, contentType, accept, xOrgId)
 
 Get Samba Domain
 
@@ -92,18 +94,19 @@ This endpoint returns a specific samba domain for an LDAP server.  ##### Sample 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SambaDomainsApi apiInstance = new SambaDomainsApi();
 String ldapserverId = "ldapserverId_example"; // String | Unique identifier of the LDAP server.
 String id = "id_example"; // String | Unique identifier of the samba domain.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    SambaDomainOutput result = apiInstance.ldapserversSambaDomainsGet(ldapserverId, id, contentType, accept);
+    SambaDomainOutput result = apiInstance.ldapserversSambaDomainsGet(ldapserverId, id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SambaDomainsApi#ldapserversSambaDomainsGet");
@@ -119,6 +122,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the samba domain. |
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -135,7 +139,7 @@ Name | Type | Description  | Notes
 
 <a name="ldapserversSambaDomainsList"></a>
 # **ldapserversSambaDomainsList**
-> List&lt;SambaDomainOutput&gt; ldapserversSambaDomainsList(ldapserverId, contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;SambaDomainOutput&gt; ldapserversSambaDomainsList(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 List Samba Domains
 
@@ -153,10 +157,10 @@ This endpoint returns all samba domains for an LDAP server.  ##### Sample Reques
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SambaDomainsApi apiInstance = new SambaDomainsApi();
 String ldapserverId = "ldapserverId_example"; // String | Unique identifier of the LDAP server.
@@ -167,8 +171,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    List<SambaDomainOutput> result = apiInstance.ldapserversSambaDomainsList(ldapserverId, contentType, accept, fields, filter, limit, skip, sort);
+    List<SambaDomainOutput> result = apiInstance.ldapserversSambaDomainsList(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SambaDomainsApi#ldapserversSambaDomainsList");
@@ -188,6 +193,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -204,7 +210,7 @@ Name | Type | Description  | Notes
 
 <a name="ldapserversSambaDomainsPost"></a>
 # **ldapserversSambaDomainsPost**
-> SambaDomainOutput ldapserversSambaDomainsPost(ldapserverId, body, contentType, accept)
+> SambaDomainOutput ldapserversSambaDomainsPost(ldapserverId, body, contentType, accept, xOrgId)
 
 Create Samba Domain
 
@@ -222,18 +228,19 @@ This endpoint allows you to create a samba domain for an LDAP server.  ##### Sam
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SambaDomainsApi apiInstance = new SambaDomainsApi();
 String ldapserverId = "ldapserverId_example"; // String | Unique identifier of the LDAP server.
 SambaDomainInput body = new SambaDomainInput(); // SambaDomainInput | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    SambaDomainOutput result = apiInstance.ldapserversSambaDomainsPost(ldapserverId, body, contentType, accept);
+    SambaDomainOutput result = apiInstance.ldapserversSambaDomainsPost(ldapserverId, body, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SambaDomainsApi#ldapserversSambaDomainsPost");
@@ -249,6 +256,7 @@ Name | Type | Description  | Notes
  **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional]
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -265,7 +273,7 @@ Name | Type | Description  | Notes
 
 <a name="ldapserversSambaDomainsPut"></a>
 # **ldapserversSambaDomainsPut**
-> SambaDomainOutput ldapserversSambaDomainsPut(ldapserverId, id, body, contentType, accept)
+> SambaDomainOutput ldapserversSambaDomainsPut(ldapserverId, id, body, contentType, accept, xOrgId)
 
 Update Samba Domain
 
@@ -283,10 +291,10 @@ This endpoint allows you to update the samba domain information for an LDAP serv
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SambaDomainsApi apiInstance = new SambaDomainsApi();
 String ldapserverId = "ldapserverId_example"; // String | Unique identifier of the LDAP server.
@@ -294,8 +302,9 @@ String id = "id_example"; // String | Unique identifier of the samba domain.
 SambaDomainInput body = new SambaDomainInput(); // SambaDomainInput | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
 try {
-    SambaDomainOutput result = apiInstance.ldapserversSambaDomainsPut(ldapserverId, id, body, contentType, accept);
+    SambaDomainOutput result = apiInstance.ldapserversSambaDomainsPut(ldapserverId, id, body, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SambaDomainsApi#ldapserversSambaDomainsPut");
@@ -312,6 +321,7 @@ Name | Type | Description  | Notes
  **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional]
  **contentType** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

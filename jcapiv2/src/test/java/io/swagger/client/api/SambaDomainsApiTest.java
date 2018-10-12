@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -48,7 +48,8 @@ public class SambaDomainsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        String response = api.ldapserversSambaDomainsDelete(ldapserverId, id, contentType, accept);
+        String xOrgId = null;
+        String response = api.ldapserversSambaDomainsDelete(ldapserverId, id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -67,7 +68,8 @@ public class SambaDomainsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        SambaDomainOutput response = api.ldapserversSambaDomainsGet(ldapserverId, id, contentType, accept);
+        String xOrgId = null;
+        SambaDomainOutput response = api.ldapserversSambaDomainsGet(ldapserverId, id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -90,7 +92,8 @@ public class SambaDomainsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<SambaDomainOutput> response = api.ldapserversSambaDomainsList(ldapserverId, contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<SambaDomainOutput> response = api.ldapserversSambaDomainsList(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -109,7 +112,8 @@ public class SambaDomainsApiTest {
         SambaDomainInput body = null;
         String contentType = null;
         String accept = null;
-        SambaDomainOutput response = api.ldapserversSambaDomainsPost(ldapserverId, body, contentType, accept);
+        String xOrgId = null;
+        SambaDomainOutput response = api.ldapserversSambaDomainsPost(ldapserverId, body, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -129,7 +133,8 @@ public class SambaDomainsApiTest {
         SambaDomainInput body = null;
         String contentType = null;
         String accept = null;
-        SambaDomainOutput response = api.ldapserversSambaDomainsPut(ldapserverId, id, body, contentType, accept);
+        String xOrgId = null;
+        SambaDomainOutput response = api.ldapserversSambaDomainsPut(ldapserverId, id, body, contentType, accept, xOrgId);
 
         // TODO: test validations
     }

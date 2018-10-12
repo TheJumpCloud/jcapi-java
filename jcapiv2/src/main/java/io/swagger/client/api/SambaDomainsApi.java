@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -62,12 +62,13 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsDeleteCall(String ldapserverId, String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsDeleteCall(String ldapserverId, String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -83,6 +84,8 @@ public class SambaDomainsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -115,7 +118,7 @@ public class SambaDomainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ldapserversSambaDomainsDeleteValidateBeforeCall(String ldapserverId, String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ldapserversSambaDomainsDeleteValidateBeforeCall(String ldapserverId, String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ldapserverId' is set
         if (ldapserverId == null) {
@@ -128,7 +131,7 @@ public class SambaDomainsApi {
         }
         
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsDeleteCall(ldapserverId, id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsDeleteCall(ldapserverId, id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -140,11 +143,12 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String ldapserversSambaDomainsDelete(String ldapserverId, String id, String contentType, String accept) throws ApiException {
-        ApiResponse<String> resp = ldapserversSambaDomainsDeleteWithHttpInfo(ldapserverId, id, contentType, accept);
+    public String ldapserversSambaDomainsDelete(String ldapserverId, String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<String> resp = ldapserversSambaDomainsDeleteWithHttpInfo(ldapserverId, id, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -155,11 +159,12 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> ldapserversSambaDomainsDeleteWithHttpInfo(String ldapserverId, String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsDeleteValidateBeforeCall(ldapserverId, id, contentType, accept, null, null);
+    public ApiResponse<String> ldapserversSambaDomainsDeleteWithHttpInfo(String ldapserverId, String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsDeleteValidateBeforeCall(ldapserverId, id, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -171,11 +176,12 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsDeleteAsync(String ldapserverId, String id, String contentType, String accept, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsDeleteAsync(String ldapserverId, String id, String contentType, String accept, String xOrgId, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -196,7 +202,7 @@ public class SambaDomainsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsDeleteValidateBeforeCall(ldapserverId, id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsDeleteValidateBeforeCall(ldapserverId, id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -207,12 +213,13 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsGetCall(String ldapserverId, String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsGetCall(String ldapserverId, String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -228,6 +235,8 @@ public class SambaDomainsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -260,7 +269,7 @@ public class SambaDomainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ldapserversSambaDomainsGetValidateBeforeCall(String ldapserverId, String id, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ldapserversSambaDomainsGetValidateBeforeCall(String ldapserverId, String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ldapserverId' is set
         if (ldapserverId == null) {
@@ -273,7 +282,7 @@ public class SambaDomainsApi {
         }
         
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsGetCall(ldapserverId, id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsGetCall(ldapserverId, id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -285,11 +294,12 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return SambaDomainOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SambaDomainOutput ldapserversSambaDomainsGet(String ldapserverId, String id, String contentType, String accept) throws ApiException {
-        ApiResponse<SambaDomainOutput> resp = ldapserversSambaDomainsGetWithHttpInfo(ldapserverId, id, contentType, accept);
+    public SambaDomainOutput ldapserversSambaDomainsGet(String ldapserverId, String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<SambaDomainOutput> resp = ldapserversSambaDomainsGetWithHttpInfo(ldapserverId, id, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -300,11 +310,12 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;SambaDomainOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SambaDomainOutput> ldapserversSambaDomainsGetWithHttpInfo(String ldapserverId, String id, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsGetValidateBeforeCall(ldapserverId, id, contentType, accept, null, null);
+    public ApiResponse<SambaDomainOutput> ldapserversSambaDomainsGetWithHttpInfo(String ldapserverId, String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsGetValidateBeforeCall(ldapserverId, id, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<SambaDomainOutput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -316,11 +327,12 @@ public class SambaDomainsApi {
      * @param id Unique identifier of the samba domain. (required)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsGetAsync(String ldapserverId, String id, String contentType, String accept, final ApiCallback<SambaDomainOutput> callback) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsGetAsync(String ldapserverId, String id, String contentType, String accept, String xOrgId, final ApiCallback<SambaDomainOutput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -341,7 +353,7 @@ public class SambaDomainsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsGetValidateBeforeCall(ldapserverId, id, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsGetValidateBeforeCall(ldapserverId, id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SambaDomainOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -356,12 +368,13 @@ public class SambaDomainsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsListCall(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsListCall(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -386,6 +399,8 @@ public class SambaDomainsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -418,7 +433,7 @@ public class SambaDomainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ldapserversSambaDomainsListValidateBeforeCall(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ldapserversSambaDomainsListValidateBeforeCall(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ldapserverId' is set
         if (ldapserverId == null) {
@@ -426,7 +441,7 @@ public class SambaDomainsApi {
         }
         
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsListCall(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsListCall(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -442,11 +457,12 @@ public class SambaDomainsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;SambaDomainOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<SambaDomainOutput> ldapserversSambaDomainsList(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        ApiResponse<List<SambaDomainOutput>> resp = ldapserversSambaDomainsListWithHttpInfo(ldapserverId, contentType, accept, fields, filter, limit, skip, sort);
+    public List<SambaDomainOutput> ldapserversSambaDomainsList(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        ApiResponse<List<SambaDomainOutput>> resp = ldapserversSambaDomainsListWithHttpInfo(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -461,11 +477,12 @@ public class SambaDomainsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;SambaDomainOutput&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<SambaDomainOutput>> ldapserversSambaDomainsListWithHttpInfo(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsListValidateBeforeCall(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, null, null);
+    public ApiResponse<List<SambaDomainOutput>> ldapserversSambaDomainsListWithHttpInfo(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsListValidateBeforeCall(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<SambaDomainOutput>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -481,11 +498,12 @@ public class SambaDomainsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsListAsync(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ApiCallback<List<SambaDomainOutput>> callback) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsListAsync(String ldapserverId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ApiCallback<List<SambaDomainOutput>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -506,7 +524,7 @@ public class SambaDomainsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsListValidateBeforeCall(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsListValidateBeforeCall(ldapserverId, contentType, accept, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<SambaDomainOutput>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -517,12 +535,13 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsPostCall(String ldapserverId, SambaDomainInput body, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsPostCall(String ldapserverId, SambaDomainInput body, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -537,6 +556,8 @@ public class SambaDomainsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -569,7 +590,7 @@ public class SambaDomainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ldapserversSambaDomainsPostValidateBeforeCall(String ldapserverId, SambaDomainInput body, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ldapserversSambaDomainsPostValidateBeforeCall(String ldapserverId, SambaDomainInput body, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ldapserverId' is set
         if (ldapserverId == null) {
@@ -577,7 +598,7 @@ public class SambaDomainsApi {
         }
         
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsPostCall(ldapserverId, body, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsPostCall(ldapserverId, body, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -589,11 +610,12 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return SambaDomainOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SambaDomainOutput ldapserversSambaDomainsPost(String ldapserverId, SambaDomainInput body, String contentType, String accept) throws ApiException {
-        ApiResponse<SambaDomainOutput> resp = ldapserversSambaDomainsPostWithHttpInfo(ldapserverId, body, contentType, accept);
+    public SambaDomainOutput ldapserversSambaDomainsPost(String ldapserverId, SambaDomainInput body, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<SambaDomainOutput> resp = ldapserversSambaDomainsPostWithHttpInfo(ldapserverId, body, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -604,11 +626,12 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;SambaDomainOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SambaDomainOutput> ldapserversSambaDomainsPostWithHttpInfo(String ldapserverId, SambaDomainInput body, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsPostValidateBeforeCall(ldapserverId, body, contentType, accept, null, null);
+    public ApiResponse<SambaDomainOutput> ldapserversSambaDomainsPostWithHttpInfo(String ldapserverId, SambaDomainInput body, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsPostValidateBeforeCall(ldapserverId, body, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<SambaDomainOutput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -620,11 +643,12 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsPostAsync(String ldapserverId, SambaDomainInput body, String contentType, String accept, final ApiCallback<SambaDomainOutput> callback) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsPostAsync(String ldapserverId, SambaDomainInput body, String contentType, String accept, String xOrgId, final ApiCallback<SambaDomainOutput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -645,7 +669,7 @@ public class SambaDomainsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsPostValidateBeforeCall(ldapserverId, body, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsPostValidateBeforeCall(ldapserverId, body, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SambaDomainOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -657,12 +681,13 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsPutCall(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsPutCall(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -678,6 +703,8 @@ public class SambaDomainsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -710,7 +737,7 @@ public class SambaDomainsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ldapserversSambaDomainsPutValidateBeforeCall(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ldapserversSambaDomainsPutValidateBeforeCall(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ldapserverId' is set
         if (ldapserverId == null) {
@@ -723,7 +750,7 @@ public class SambaDomainsApi {
         }
         
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsPutCall(ldapserverId, id, body, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsPutCall(ldapserverId, id, body, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -736,11 +763,12 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return SambaDomainOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SambaDomainOutput ldapserversSambaDomainsPut(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept) throws ApiException {
-        ApiResponse<SambaDomainOutput> resp = ldapserversSambaDomainsPutWithHttpInfo(ldapserverId, id, body, contentType, accept);
+    public SambaDomainOutput ldapserversSambaDomainsPut(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<SambaDomainOutput> resp = ldapserversSambaDomainsPutWithHttpInfo(ldapserverId, id, body, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -752,11 +780,12 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;SambaDomainOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SambaDomainOutput> ldapserversSambaDomainsPutWithHttpInfo(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept) throws ApiException {
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsPutValidateBeforeCall(ldapserverId, id, body, contentType, accept, null, null);
+    public ApiResponse<SambaDomainOutput> ldapserversSambaDomainsPutWithHttpInfo(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsPutValidateBeforeCall(ldapserverId, id, body, contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<SambaDomainOutput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -769,11 +798,12 @@ public class SambaDomainsApi {
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
      * @param accept  (optional, default to application/json)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ldapserversSambaDomainsPutAsync(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, final ApiCallback<SambaDomainOutput> callback) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversSambaDomainsPutAsync(String ldapserverId, String id, SambaDomainInput body, String contentType, String accept, String xOrgId, final ApiCallback<SambaDomainOutput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -794,7 +824,7 @@ public class SambaDomainsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = ldapserversSambaDomainsPutValidateBeforeCall(ldapserverId, id, body, contentType, accept, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = ldapserversSambaDomainsPutValidateBeforeCall(ldapserverId, id, body, contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<SambaDomainOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

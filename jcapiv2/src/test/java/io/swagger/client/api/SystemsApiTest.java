@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -14,9 +14,11 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Errorresponse;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphObjectWithPaths;
 import io.swagger.client.model.SystemGraphManagementReq;
+import io.swagger.client.model.Systemfdekey;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -37,7 +39,7 @@ public class SystemsApiTest {
     /**
      * List the associations of a System
      *
-     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -52,7 +54,8 @@ public class SystemsApiTest {
         Integer skip = null;
         String date = null;
         String authorization = null;
-        List<GraphConnection> response = api.graphSystemAssociationsList(systemId, contentType, accept, targets, limit, skip, date, authorization);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphSystemAssociationsList(systemId, contentType, accept, targets, limit, skip, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -60,7 +63,7 @@ public class SystemsApiTest {
     /**
      * Manage associations of a System
      *
-     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -73,7 +76,8 @@ public class SystemsApiTest {
         SystemGraphManagementReq body = null;
         String date = null;
         String authorization = null;
-        api.graphSystemAssociationsPost(systemId, contentType, accept, body, date, authorization);
+        String xOrgId = null;
+        api.graphSystemAssociationsPost(systemId, contentType, accept, body, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -97,7 +101,8 @@ public class SystemsApiTest {
         String date = null;
         String authorization = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphSystemMemberOf(systemId, contentType, accept, filter, limit, skip, date, authorization, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemMemberOf(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -117,7 +122,8 @@ public class SystemsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseCommand(systemId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseCommand(systemId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -137,7 +143,8 @@ public class SystemsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraversePolicy(systemId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraversePolicy(systemId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -159,7 +166,8 @@ public class SystemsApiTest {
         Integer skip = null;
         String date = null;
         String authorization = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseUser(systemId, contentType, accept, limit, skip, date, authorization);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseUser(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -181,7 +189,25 @@ public class SystemsApiTest {
         Integer skip = null;
         String date = null;
         String authorization = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, skip, date, authorization);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get System FDE Key
+     *
+     * This endpoint will return the current (latest) fde key saved for a system.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systemsGetFDEKeyTest() throws ApiException {
+        String systemId = null;
+        String xOrgId = null;
+        Systemfdekey response = api.systemsGetFDEKey(systemId, xOrgId);
 
         // TODO: test validations
     }

@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -51,7 +51,8 @@ public class SystemGroupMembersMembershipApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -71,7 +72,8 @@ public class SystemGroupMembersMembershipApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -79,7 +81,7 @@ public class SystemGroupMembersMembershipApiTest {
     /**
      * Manage the members of a System Group
      *
-     * This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -92,7 +94,8 @@ public class SystemGroupMembersMembershipApiTest {
         SystemGroupMembersReq body = null;
         String date = null;
         String authorization = null;
-        api.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization);
+        String xOrgId = null;
+        api.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -114,7 +117,8 @@ public class SystemGroupMembersMembershipApiTest {
         Integer skip = null;
         List<String> sort = null;
         List<String> filter = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }

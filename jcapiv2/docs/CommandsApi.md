@@ -12,11 +12,11 @@ Method | HTTP request | Description
 
 <a name="graphCommandAssociationsList"></a>
 # **graphCommandAssociationsList**
-> List&lt;GraphConnection&gt; graphCommandAssociationsList(commandId, targets, contentType, accept, limit, skip)
+> List&lt;GraphConnection&gt; graphCommandAssociationsList(commandId, targets, contentType, accept, limit, skip, xOrgId)
 
 List the associations of a Command
 
-This endpoint will return the _direct_ associations of this Command.  A direct association can be a non-homogenous relationship between 2 different objects. for example Commands and User Groups.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/commands/{Command_ID}/associations?targets&#x3D;system_group \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint will return the _direct_ associations of this Command.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Commands and User Groups.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/commands/{Command_ID}/associations?targets&#x3D;system_group \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -30,10 +30,10 @@ This endpoint will return the _direct_ associations of this Command.  A direct a
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
@@ -42,8 +42,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphCommandAssociationsList(commandId, targets, contentType, accept, limit, skip);
+    List<GraphConnection> result = apiInstance.graphCommandAssociationsList(commandId, targets, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandsApi#graphCommandAssociationsList");
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -77,11 +79,11 @@ Name | Type | Description  | Notes
 
 <a name="graphCommandAssociationsPost"></a>
 # **graphCommandAssociationsPost**
-> InlineResponse204 graphCommandAssociationsPost(commandId, contentType, accept, body)
+> graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId)
 
 Manage the associations of a Command
 
-This endpoint will allow you to manage the _direct_ associations of this Command.  A direct association can be a non-homogenous relationship between 2 different objects. for example Commands and User Groups.   #### Sample Request &#x60;&#x60;&#x60;  curl -X POST https://console.jumpcloud.com/api/v2/commands/{Command_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;Group_ID\&quot; }&#39; &#x60;&#x60;&#x60;
+This endpoint will allow you to manage the _direct_ associations of this Command.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Commands and User Groups.   #### Sample Request &#x60;&#x60;&#x60;  curl -X POST https://console.jumpcloud.com/api/v2/commands/{Command_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;Group_ID\&quot; }&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -95,19 +97,19 @@ This endpoint will allow you to manage the _direct_ associations of this Command
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
+String xOrgId = ""; // String | 
 try {
-    InlineResponse204 result = apiInstance.graphCommandAssociationsPost(commandId, contentType, accept, body);
-    System.out.println(result);
+    apiInstance.graphCommandAssociationsPost(commandId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandsApi#graphCommandAssociationsPost");
     e.printStackTrace();
@@ -122,10 +124,11 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
-[**InlineResponse204**](InlineResponse204.md)
+null (empty response body)
 
 ### Authorization
 
@@ -138,7 +141,7 @@ Name | Type | Description  | Notes
 
 <a name="graphCommandTraverseSystem"></a>
 # **graphCommandTraverseSystem**
-> List&lt;GraphObjectWithPaths&gt; graphCommandTraverseSystem(commandId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphCommandTraverseSystem(commandId, contentType, accept, limit, skip, xOrgId)
 
 List the Systems bound to a Command
 
@@ -156,10 +159,10 @@ This endpoint will return all Systems bound to a Command, either directly or ind
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
@@ -167,8 +170,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphCommandTraverseSystem(commandId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphCommandTraverseSystem(commandId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandsApi#graphCommandTraverseSystem");
@@ -185,6 +189,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -201,7 +206,7 @@ Name | Type | Description  | Notes
 
 <a name="graphCommandTraverseSystemGroup"></a>
 # **graphCommandTraverseSystemGroup**
-> List&lt;GraphObjectWithPaths&gt; graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, skip, xOrgId)
 
 List the System Groups bound to a Command
 
@@ -219,10 +224,10 @@ This endpoint will return all System Groups bound to a Command, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
@@ -230,8 +235,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandsApi#graphCommandTraverseSystemGroup");
@@ -248,6 +254,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

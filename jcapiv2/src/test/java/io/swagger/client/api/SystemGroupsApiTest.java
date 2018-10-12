@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -41,7 +41,7 @@ public class SystemGroupsApiTest {
     /**
      * List the associations of a System Group
      *
-     * This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -54,7 +54,8 @@ public class SystemGroupsApiTest {
         List<String> targets = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphSystemGroupAssociationsList(groupId, contentType, accept, targets, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -62,7 +63,7 @@ public class SystemGroupsApiTest {
     /**
      * Manage the associations of a System Group
      *
-     * This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -73,7 +74,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupGraphManagementReq body = null;
-        api.graphSystemGroupAssociationsPost(groupId, contentType, accept, body);
+        String xOrgId = null;
+        api.graphSystemGroupAssociationsPost(groupId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -95,7 +97,8 @@ public class SystemGroupsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -115,7 +118,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphConnection> response = api.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphConnection> response = api.graphSystemGroupMembersList(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -123,7 +127,7 @@ public class SystemGroupsApiTest {
     /**
      * Manage the members of a System Group
      *
-     * This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,7 +140,8 @@ public class SystemGroupsApiTest {
         SystemGroupMembersReq body = null;
         String date = null;
         String authorization = null;
-        api.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization);
+        String xOrgId = null;
+        api.graphSystemGroupMembersPost(groupId, contentType, accept, body, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -158,7 +163,8 @@ public class SystemGroupsApiTest {
         Integer skip = null;
         List<String> sort = null;
         List<String> filter = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -178,7 +184,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -198,7 +205,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -218,7 +226,8 @@ public class SystemGroupsApiTest {
         String accept = null;
         Integer limit = null;
         Integer skip = null;
-        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip);
+        String xOrgId = null;
+        List<GraphObjectWithPaths> response = api.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId);
 
         // TODO: test validations
     }
@@ -236,7 +245,8 @@ public class SystemGroupsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        api.groupsSystemDelete(id, contentType, accept);
+        String xOrgId = null;
+        api.groupsSystemDelete(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -244,7 +254,7 @@ public class SystemGroupsApiTest {
     /**
      * View an individual System Group details
      *
-     * This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -254,7 +264,8 @@ public class SystemGroupsApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        SystemGroup response = api.groupsSystemGet(id, contentType, accept);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemGet(id, contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -276,7 +287,8 @@ public class SystemGroupsApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        List<SystemGroup> response = api.groupsSystemList(contentType, accept, fields, filter, limit, skip, sort);
+        String xOrgId = null;
+        List<SystemGroup> response = api.groupsSystemList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }
@@ -295,7 +307,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupData body = null;
-        SystemGroup response = api.groupsSystemPatch(id, contentType, accept, body);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemPatch(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -313,7 +326,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupData body = null;
-        SystemGroup response = api.groupsSystemPost(contentType, accept, body);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemPost(contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -321,7 +335,7 @@ public class SystemGroupsApiTest {
     /**
      * Update a System Group
      *
-     * This enpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -332,7 +346,8 @@ public class SystemGroupsApiTest {
         String contentType = null;
         String accept = null;
         SystemGroupData body = null;
-        SystemGroup response = api.groupsSystemPut(id, contentType, accept, body);
+        String xOrgId = null;
+        SystemGroup response = api.groupsSystemPut(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="groupsList"></a>
 # **groupsList**
-> List&lt;Group&gt; groupsList(contentType, accept, fields, filter, limit, skip, sort)
+> List&lt;Group&gt; groupsList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
 List All Groups
 
@@ -27,10 +27,10 @@ This endpoint returns all Groups that exist in your organization.  #### Availabl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GroupsApi apiInstance = new GroupsApi();
 String contentType = "application/json"; // String | 
@@ -40,8 +40,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    List<Group> result = apiInstance.groupsList(contentType, accept, fields, filter, limit, skip, sort);
+    List<Group> result = apiInstance.groupsList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GroupsApi#groupsList");
@@ -60,6 +61,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

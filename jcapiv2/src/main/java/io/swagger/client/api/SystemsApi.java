@@ -1,6 +1,6 @@
 /*
  * JumpCloud APIs
- * V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+ *  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
  *
  * OpenAPI spec version: 2.0
  * 
@@ -27,9 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Errorresponse;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphObjectWithPaths;
 import io.swagger.client.model.SystemGraphManagementReq;
+import io.swagger.client.model.Systemfdekey;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -66,12 +68,13 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemAssociationsListCall(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemAssociationsListCall(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -96,6 +99,8 @@ public class SystemsApi {
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
         localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -128,7 +133,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemAssociationsListValidateBeforeCall(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemAssociationsListValidateBeforeCall(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -151,14 +156,14 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemAssociationsListCall(systemId, contentType, accept, targets, limit, skip, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemAssociationsListCall(systemId, contentType, accept, targets, limit, skip, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * List the associations of a System
-     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param systemId ObjectID of the System. (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -167,17 +172,18 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphConnection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphConnection> graphSystemAssociationsList(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization) throws ApiException {
-        ApiResponse<List<GraphConnection>> resp = graphSystemAssociationsListWithHttpInfo(systemId, contentType, accept, targets, limit, skip, date, authorization);
+    public List<GraphConnection> graphSystemAssociationsList(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphConnection>> resp = graphSystemAssociationsListWithHttpInfo(systemId, contentType, accept, targets, limit, skip, date, authorization, xOrgId);
         return resp.getData();
     }
 
     /**
      * List the associations of a System
-     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param systemId ObjectID of the System. (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -186,18 +192,19 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphConnection&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphConnection>> graphSystemAssociationsListWithHttpInfo(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemAssociationsListValidateBeforeCall(systemId, contentType, accept, targets, limit, skip, date, authorization, null, null);
+    public ApiResponse<List<GraphConnection>> graphSystemAssociationsListWithHttpInfo(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemAssociationsListValidateBeforeCall(systemId, contentType, accept, targets, limit, skip, date, authorization, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List the associations of a System (asynchronously)
-     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param systemId ObjectID of the System. (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -206,11 +213,12 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemAssociationsListAsync(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemAssociationsListAsync(String systemId, String contentType, String accept, List<String> targets, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ApiCallback<List<GraphConnection>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -231,7 +239,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemAssociationsListValidateBeforeCall(systemId, contentType, accept, targets, limit, skip, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemAssociationsListValidateBeforeCall(systemId, contentType, accept, targets, limit, skip, date, authorization, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphConnection>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -244,12 +252,13 @@ public class SystemsApi {
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemAssociationsPostCall(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemAssociationsPostCall(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -268,6 +277,8 @@ public class SystemsApi {
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
         localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -300,7 +311,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemAssociationsPostValidateBeforeCall(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemAssociationsPostValidateBeforeCall(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -318,57 +329,60 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemAssociationsPostCall(systemId, contentType, accept, body, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemAssociationsPostCall(systemId, contentType, accept, body, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Manage associations of a System
-     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
      * @param systemId ObjectID of the System. (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void graphSystemAssociationsPost(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization) throws ApiException {
-        graphSystemAssociationsPostWithHttpInfo(systemId, contentType, accept, body, date, authorization);
+    public void graphSystemAssociationsPost(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, String xOrgId) throws ApiException {
+        graphSystemAssociationsPostWithHttpInfo(systemId, contentType, accept, body, date, authorization, xOrgId);
     }
 
     /**
      * Manage associations of a System
-     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
      * @param systemId ObjectID of the System. (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> graphSystemAssociationsPostWithHttpInfo(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemAssociationsPostValidateBeforeCall(systemId, contentType, accept, body, date, authorization, null, null);
+    public ApiResponse<Void> graphSystemAssociationsPostWithHttpInfo(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemAssociationsPostValidateBeforeCall(systemId, contentType, accept, body, date, authorization, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Manage associations of a System (asynchronously)
-     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
      * @param systemId ObjectID of the System. (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemAssociationsPostAsync(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemAssociationsPostAsync(String systemId, String contentType, String accept, SystemGraphManagementReq body, String date, String authorization, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -389,7 +403,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemAssociationsPostValidateBeforeCall(systemId, contentType, accept, body, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemAssociationsPostValidateBeforeCall(systemId, contentType, accept, body, date, authorization, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -404,12 +418,13 @@ public class SystemsApi {
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemMemberOfCall(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemMemberOfCall(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -436,6 +451,8 @@ public class SystemsApi {
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
         localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -468,7 +485,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemMemberOfValidateBeforeCall(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemMemberOfValidateBeforeCall(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -486,7 +503,7 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemMemberOfCall(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemMemberOfCall(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -503,11 +520,12 @@ public class SystemsApi {
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphSystemMemberOf(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemMemberOfWithHttpInfo(systemId, contentType, accept, filter, limit, skip, date, authorization, sort);
+    public List<GraphObjectWithPaths> graphSystemMemberOf(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemMemberOfWithHttpInfo(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, xOrgId);
         return resp.getData();
     }
 
@@ -523,11 +541,12 @@ public class SystemsApi {
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphSystemMemberOfWithHttpInfo(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemMemberOfValidateBeforeCall(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphSystemMemberOfWithHttpInfo(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemMemberOfValidateBeforeCall(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -544,11 +563,12 @@ public class SystemsApi {
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemMemberOfAsync(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemMemberOfAsync(String systemId, String contentType, String accept, List<String> filter, Integer limit, Integer skip, String date, String authorization, List<String> sort, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -569,7 +589,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemMemberOfValidateBeforeCall(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemMemberOfValidateBeforeCall(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -581,12 +601,13 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraverseCommandCall(String systemId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraverseCommandCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -605,6 +626,8 @@ public class SystemsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -637,7 +660,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemTraverseCommandValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemTraverseCommandValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -655,7 +678,7 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemTraverseCommandCall(systemId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraverseCommandCall(systemId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -668,11 +691,12 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphSystemTraverseCommand(String systemId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraverseCommandWithHttpInfo(systemId, contentType, accept, limit, skip);
+    public List<GraphObjectWithPaths> graphSystemTraverseCommand(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraverseCommandWithHttpInfo(systemId, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -684,11 +708,12 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraverseCommandWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemTraverseCommandValidateBeforeCall(systemId, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraverseCommandWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemTraverseCommandValidateBeforeCall(systemId, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -701,11 +726,12 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraverseCommandAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraverseCommandAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -726,7 +752,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemTraverseCommandValidateBeforeCall(systemId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraverseCommandValidateBeforeCall(systemId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -738,12 +764,13 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraversePolicyCall(String systemId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraversePolicyCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -762,6 +789,8 @@ public class SystemsApi {
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -794,7 +823,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemTraversePolicyValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemTraversePolicyValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -812,7 +841,7 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemTraversePolicyCall(systemId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraversePolicyCall(systemId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -825,11 +854,12 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphSystemTraversePolicy(String systemId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraversePolicyWithHttpInfo(systemId, contentType, accept, limit, skip);
+    public List<GraphObjectWithPaths> graphSystemTraversePolicy(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraversePolicyWithHttpInfo(systemId, contentType, accept, limit, skip, xOrgId);
         return resp.getData();
     }
 
@@ -841,11 +871,12 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraversePolicyWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemTraversePolicyValidateBeforeCall(systemId, contentType, accept, limit, skip, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraversePolicyWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemTraversePolicyValidateBeforeCall(systemId, contentType, accept, limit, skip, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -858,11 +889,12 @@ public class SystemsApi {
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraversePolicyAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraversePolicyAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -883,7 +915,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemTraversePolicyValidateBeforeCall(systemId, contentType, accept, limit, skip, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraversePolicyValidateBeforeCall(systemId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -897,12 +929,13 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraverseUserCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraverseUserCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -925,6 +958,8 @@ public class SystemsApi {
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
         localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -957,7 +992,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemTraverseUserValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemTraverseUserValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -975,7 +1010,7 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemTraverseUserCall(systemId, contentType, accept, limit, skip, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraverseUserCall(systemId, contentType, accept, limit, skip, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -990,11 +1025,12 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphSystemTraverseUser(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraverseUserWithHttpInfo(systemId, contentType, accept, limit, skip, date, authorization);
+    public List<GraphObjectWithPaths> graphSystemTraverseUser(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraverseUserWithHttpInfo(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
         return resp.getData();
     }
 
@@ -1008,11 +1044,12 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraverseUserWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemTraverseUserValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraverseUserWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemTraverseUserValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1027,11 +1064,12 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraverseUserAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraverseUserAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1052,7 +1090,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemTraverseUserValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraverseUserValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1066,12 +1104,13 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraverseUserGroupCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraverseUserGroupCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1094,6 +1133,8 @@ public class SystemsApi {
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
         localVarHeaderParams.put("Authorization", apiClient.parameterToString(authorization));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1126,7 +1167,7 @@ public class SystemsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphSystemTraverseUserGroupValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphSystemTraverseUserGroupValidateBeforeCall(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'systemId' is set
         if (systemId == null) {
@@ -1144,7 +1185,7 @@ public class SystemsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphSystemTraverseUserGroupCall(systemId, contentType, accept, limit, skip, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraverseUserGroupCall(systemId, contentType, accept, limit, skip, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1159,11 +1200,12 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphSystemTraverseUserGroup(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraverseUserGroupWithHttpInfo(systemId, contentType, accept, limit, skip, date, authorization);
+    public List<GraphObjectWithPaths> graphSystemTraverseUserGroup(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphSystemTraverseUserGroupWithHttpInfo(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
         return resp.getData();
     }
 
@@ -1177,11 +1219,12 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraverseUserGroupWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization) throws ApiException {
-        com.squareup.okhttp.Call call = graphSystemTraverseUserGroupValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphSystemTraverseUserGroupWithHttpInfo(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = graphSystemTraverseUserGroupValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1196,11 +1239,12 @@ public class SystemsApi {
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphSystemTraverseUserGroupAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphSystemTraverseUserGroupAsync(String systemId, String contentType, String accept, Integer limit, Integer skip, String date, String authorization, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1221,8 +1265,137 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphSystemTraverseUserGroupValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphSystemTraverseUserGroupValidateBeforeCall(systemId, contentType, accept, limit, skip, date, authorization, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systemsGetFDEKey
+     * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systemsGetFDEKeyCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systems/{system_id}/fdekey"
+            .replaceAll("\\{" + "system_id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systemsGetFDEKeyValidateBeforeCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'systemId' is set
+        if (systemId == null) {
+            throw new ApiException("Missing the required parameter 'systemId' when calling systemsGetFDEKey(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systemsGetFDEKeyCall(systemId, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get System FDE Key
+     * This endpoint will return the current (latest) fde key saved for a system.
+     * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
+     * @return Systemfdekey
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Systemfdekey systemsGetFDEKey(String systemId, String xOrgId) throws ApiException {
+        ApiResponse<Systemfdekey> resp = systemsGetFDEKeyWithHttpInfo(systemId, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * Get System FDE Key
+     * This endpoint will return the current (latest) fde key saved for a system.
+     * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
+     * @return ApiResponse&lt;Systemfdekey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Systemfdekey> systemsGetFDEKeyWithHttpInfo(String systemId, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<Systemfdekey>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get System FDE Key (asynchronously)
+     * This endpoint will return the current (latest) fde key saved for a system.
+     * @param systemId  (required)
+     * @param xOrgId  (optional, default to )
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systemsGetFDEKeyAsync(String systemId, String xOrgId, final ApiCallback<Systemfdekey> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systemsGetFDEKeyValidateBeforeCall(systemId, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Systemfdekey>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

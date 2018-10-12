@@ -15,15 +15,16 @@ Method | HTTP request | Description
 [**graphUserTraverseRadiusServer**](UsersApi.md#graphUserTraverseRadiusServer) | **GET** /users/{user_id}/radiusservers | List the RADIUS Servers bound to a User
 [**graphUserTraverseSystem**](UsersApi.md#graphUserTraverseSystem) | **GET** /users/{user_id}/systems | List the Systems bound to a User
 [**graphUserTraverseSystemGroup**](UsersApi.md#graphUserTraverseSystemGroup) | **GET** /users/{user_id}/systemgroups | List the System Groups bound to a User
+[**userSendEmails**](UsersApi.md#userSendEmails) | **POST** /users/{user_id}/emails | Send User Emails
 
 
 <a name="graphUserAssociationsList"></a>
 # **graphUserAssociationsList**
-> List&lt;GraphConnection&gt; graphUserAssociationsList(userId, contentType, accept, targets, limit, skip)
+> List&lt;GraphConnection&gt; graphUserAssociationsList(userId, contentType, accept, targets, limit, skip, xOrgId)
 
 List the associations of a User
 
-This endpoint returns the _direct_ associations of a User.  A direct association can be a non-homogenous relationship between 2 different objects. for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/users/{UserID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+This endpoint returns the _direct_ associations of a User.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/users/{UserID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -37,10 +38,10 @@ This endpoint returns the _direct_ associations of a User.  A direct association
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -49,8 +50,9 @@ String accept = "application/json"; // String |
 List<String> targets = Arrays.asList("targets_example"); // List<String> | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphConnection> result = apiInstance.graphUserAssociationsList(userId, contentType, accept, targets, limit, skip);
+    List<GraphConnection> result = apiInstance.graphUserAssociationsList(userId, contentType, accept, targets, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserAssociationsList");
@@ -68,6 +70,7 @@ Name | Type | Description  | Notes
  **targets** | [**List&lt;String&gt;**](String.md)|  | [enum: active_directory, application, command, g_suite, ldap_server, office_365, policy, radius_server, system, system_group]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -84,11 +87,11 @@ Name | Type | Description  | Notes
 
 <a name="graphUserAssociationsPost"></a>
 # **graphUserAssociationsPost**
-> graphUserAssociationsPost(userId, contentType, accept, body)
+> graphUserAssociationsPost(userId, contentType, accept, body, xOrgId)
 
 Manage the associations of a User
 
-This endpoint allows you to manage the _direct_ associations of a User.  A direct association can be a non-homogenous relationship between 2 different objects. for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/users/{UserID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },     \&quot;op\&quot;: \&quot;add\&quot;,    \&quot;type\&quot;: \&quot;system_group\&quot;,    \&quot;id\&quot;: \&quot;{GroupID}\&quot; }&#39;
+This endpoint allows you to manage the _direct_ associations of a User.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Users and Systems.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/users/{UserID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },     \&quot;op\&quot;: \&quot;add\&quot;,    \&quot;type\&quot;: \&quot;system_group\&quot;,    \&quot;id\&quot;: \&quot;{GroupID}\&quot; }&#39;
 
 ### Example
 ```java
@@ -102,18 +105,19 @@ This endpoint allows you to manage the _direct_ associations of a User.  A direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 UserGraphManagementReq body = new UserGraphManagementReq(); // UserGraphManagementReq | 
+String xOrgId = ""; // String | 
 try {
-    apiInstance.graphUserAssociationsPost(userId, contentType, accept, body);
+    apiInstance.graphUserAssociationsPost(userId, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserAssociationsPost");
     e.printStackTrace();
@@ -128,6 +132,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGraphManagementReq**](UserGraphManagementReq.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -144,7 +149,7 @@ null (empty response body)
 
 <a name="graphUserMemberOf"></a>
 # **graphUserMemberOf**
-> List&lt;GraphObjectWithPaths&gt; graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort)
+> List&lt;GraphObjectWithPaths&gt; graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort, xOrgId)
 
 List the parent Groups of a User
 
@@ -162,10 +167,10 @@ This endpoint returns all the User Groups a User is a member of.  #### Sample Re
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -175,8 +180,9 @@ List<String> filter = Arrays.asList("filter_example"); // List<String> | Support
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserMemberOf");
@@ -195,6 +201,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -211,7 +218,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseApplication"></a>
 # **graphUserTraverseApplication**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseApplication(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseApplication(userId, contentType, accept, limit, skip, xOrgId)
 
 List the Applications bound to a User
 
@@ -229,10 +236,10 @@ This endpoint will return all Applications bound to a User, either directly or i
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -240,8 +247,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseApplication(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseApplication(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseApplication");
@@ -258,6 +266,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -274,7 +283,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseDirectory"></a>
 # **graphUserTraverseDirectory**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseDirectory(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseDirectory(userId, contentType, accept, limit, skip, xOrgId)
 
 List the Directories bound to a User
 
@@ -292,10 +301,10 @@ This endpoint will return all Directories bound to a User, either directly or in
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -303,8 +312,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseDirectory(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseDirectory(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseDirectory");
@@ -321,6 +331,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -337,7 +348,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseGSuite"></a>
 # **graphUserTraverseGSuite**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseGSuite(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseGSuite(userId, contentType, accept, limit, skip, xOrgId)
 
 List the G Suite instances bound to a User
 
@@ -355,10 +366,10 @@ This endpoint will return all G-Suite Instances bound to a User, either directly
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -366,8 +377,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseGSuite(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseGSuite(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseGSuite");
@@ -384,6 +396,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -400,7 +413,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseLdapServer"></a>
 # **graphUserTraverseLdapServer**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseLdapServer(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseLdapServer(userId, contentType, accept, limit, skip, xOrgId)
 
 List the LDAP servers bound to a User
 
@@ -418,10 +431,10 @@ This endpoint will return all LDAP Servers bound to a User, either directly or i
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -429,8 +442,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseLdapServer(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseLdapServer(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseLdapServer");
@@ -447,6 +461,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -463,7 +478,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseOffice365"></a>
 # **graphUserTraverseOffice365**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseOffice365(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseOffice365(userId, contentType, accept, limit, skip, xOrgId)
 
 List the Office 365 instances bound to a User
 
@@ -481,10 +496,10 @@ This endpoint will return all Office 365 Instances bound to a User, either direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -492,8 +507,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseOffice365(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseOffice365(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseOffice365");
@@ -510,6 +526,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -526,7 +543,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseRadiusServer"></a>
 # **graphUserTraverseRadiusServer**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseRadiusServer(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseRadiusServer(userId, contentType, accept, limit, skip, xOrgId)
 
 List the RADIUS Servers bound to a User
 
@@ -544,10 +561,10 @@ This endpoint will return all RADIUS Servers bound to a User, either directly or
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -555,8 +572,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseRadiusServer(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseRadiusServer(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseRadiusServer");
@@ -573,6 +591,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -589,7 +608,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseSystem"></a>
 # **graphUserTraverseSystem**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseSystem(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseSystem(userId, contentType, accept, limit, skip, xOrgId)
 
 List the Systems bound to a User
 
@@ -607,10 +626,10 @@ This endpoint will return all Systems bound to a User, either directly or indire
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -618,8 +637,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseSystem(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseSystem(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseSystem");
@@ -636,6 +656,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -652,7 +673,7 @@ Name | Type | Description  | Notes
 
 <a name="graphUserTraverseSystemGroup"></a>
 # **graphUserTraverseSystemGroup**
-> List&lt;GraphObjectWithPaths&gt; graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip)
+> List&lt;GraphObjectWithPaths&gt; graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip, xOrgId)
 
 List the System Groups bound to a User
 
@@ -670,10 +691,10 @@ This endpoint will return all System Groups bound to a User, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -681,8 +702,9 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
+String xOrgId = ""; // String | 
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip);
+    List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling UsersApi#graphUserTraverseSystemGroup");
@@ -699,10 +721,73 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
 [**List&lt;GraphObjectWithPaths&gt;**](GraphObjectWithPaths.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="userSendEmails"></a>
+# **userSendEmails**
+> userSendEmails(userId, contentType, accept, body, xOrgId)
+
+Send User Emails
+
+This endpoint allows you to send a specific email to a user without waiting for or triggering a workflow.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.UsersApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+UsersApi apiInstance = new UsersApi();
+String userId = "userId_example"; // String | ObjectID of the User.
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Emailrequest body = new Emailrequest(); // Emailrequest | 
+String xOrgId = ""; // String | 
+try {
+    apiInstance.userSendEmails(userId, contentType, accept, body, xOrgId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling UsersApi#userSendEmails");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| ObjectID of the User. |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**Emailrequest**](Emailrequest.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 
