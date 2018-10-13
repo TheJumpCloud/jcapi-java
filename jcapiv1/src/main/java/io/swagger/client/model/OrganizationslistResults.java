@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * OrganizationslistResults
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:29:25.355Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:42.342Z")
 public class OrganizationslistResults {
   @SerializedName("_id")
   private String id = null;
@@ -43,10 +43,10 @@ public class OrganizationslistResults {
   }
 
    /**
-   * the ID of the organization.
+   * The ID of the organization.
    * @return id
   **/
-  @ApiModelProperty(value = "the ID of the organization.")
+  @ApiModelProperty(value = "The ID of the organization.")
   public String getId() {
     return id;
   }

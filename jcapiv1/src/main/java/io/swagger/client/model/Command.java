@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Command
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:29:25.355Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:42.342Z")
 public class Command {
   @SerializedName("name")
   private String name = null;
@@ -140,10 +140,10 @@ public class Command {
   }
 
    /**
-   * an array of IDs of the Command Runner Users that can execute this command.
+   * An array of IDs of the Command Runner Users that can execute this command.
    * @return commandRunners
   **/
-  @ApiModelProperty(value = "an array of IDs of the Command Runner Users that can execute this command.")
+  @ApiModelProperty(value = "An array of IDs of the Command Runner Users that can execute this command.")
   public List<String> getCommandRunners() {
     return commandRunners;
   }

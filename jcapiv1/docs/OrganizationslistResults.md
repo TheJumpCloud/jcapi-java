@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | the ID of the organization. |  [optional]
+**id** | **String** | The ID of the organization. |  [optional]
 **displayName** | **String** | The name of the organization. |  [optional]
 **logoUrl** | **String** | The organization logo image URL.  |  [optional]
 

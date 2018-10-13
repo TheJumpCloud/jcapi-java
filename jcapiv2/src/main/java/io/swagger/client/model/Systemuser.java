@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Sshkeylist;
-import io.swagger.client.model.SystemuserAttributes;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +29,7 @@ import java.util.List;
 /**
  * Systemuser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:32:23.898Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
 public class Systemuser {
   @SerializedName("email")
   private String email = null;
@@ -105,7 +104,7 @@ public class Systemuser {
   private String passwordExpirationDate = null;
 
   @SerializedName("attributes")
-  private List<SystemuserAttributes> attributes = null;
+  private List<Object> attributes = null;
 
   @SerializedName("created")
   private String created = null;
@@ -600,14 +599,14 @@ public class Systemuser {
     this.passwordExpirationDate = passwordExpirationDate;
   }
 
-  public Systemuser attributes(List<SystemuserAttributes> attributes) {
+  public Systemuser attributes(List<Object> attributes) {
     this.attributes = attributes;
     return this;
   }
 
-  public Systemuser addAttributesItem(SystemuserAttributes attributesItem) {
+  public Systemuser addAttributesItem(Object attributesItem) {
     if (this.attributes == null) {
-      this.attributes = new ArrayList<SystemuserAttributes>();
+      this.attributes = new ArrayList<Object>();
     }
     this.attributes.add(attributesItem);
     return this;
@@ -618,11 +617,11 @@ public class Systemuser {
    * @return attributes
   **/
   @ApiModelProperty(value = "")
-  public List<SystemuserAttributes> getAttributes() {
+  public List<Object> getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(List<SystemuserAttributes> attributes) {
+  public void setAttributes(List<Object> attributes) {
     this.attributes = attributes;
   }
 
