@@ -183,7 +183,6 @@ Class | Method | HTTP request | Description
  - [SystemputAgentBoundMessages](docs/SystemputAgentBoundMessages.md)
  - [Systemslist](docs/Systemslist.md)
  - [Systemuser](docs/Systemuser.md)
- - [SystemuserAttributes](docs/SystemuserAttributes.md)
  - [Systemuserbinding](docs/Systemuserbinding.md)
  - [Systemuserbindingsput](docs/Systemuserbindingsput.md)
  - [Systemuserput](docs/Systemuserput.md)

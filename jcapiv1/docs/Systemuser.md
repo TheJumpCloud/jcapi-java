@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **associatedTagCount** | **Integer** |  |  [optional]
 **totpEnabled** | **Boolean** |  |  [optional]
 **passwordExpirationDate** | **String** |  |  [optional]
-**attributes** | [**List&lt;SystemuserAttributes&gt;**](SystemuserAttributes.md) |  |  [optional]
+**attributes** | **List&lt;Object&gt;** |  |  [optional]
 **created** | **String** |  |  [optional]
 **sambaServiceUser** | **Boolean** |  |  [optional]
 **passwordNeverExpires** | **Boolean** |  |  [optional]

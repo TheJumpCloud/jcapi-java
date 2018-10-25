@@ -378,7 +378,6 @@ Class | Method | HTTP request | Description
  - [SystemGroupMembersReq](docs/SystemGroupMembersReq.md)
  - [Systemfdekey](docs/Systemfdekey.md)
  - [Systemuser](docs/Systemuser.md)
- - [SystemuserAttributes](docs/SystemuserAttributes.md)
  - [Systemuserputpost](docs/Systemuserputpost.md)
  - [SystemuserputpostAddresses](docs/SystemuserputpostAddresses.md)
  - [SystemuserputpostPhoneNumbers](docs/SystemuserputpostPhoneNumbers.md)

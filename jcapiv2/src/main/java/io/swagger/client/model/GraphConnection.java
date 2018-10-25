@@ -28,7 +28,7 @@ import java.io.IOException;
  * Represents an edge between two graph objects. From can be omitted if it is clear from context.
  */
 @ApiModel(description = "Represents an edge between two graph objects. From can be omitted if it is clear from context.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-12T03:32:23.898Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
 public class GraphConnection {
   @SerializedName("from")
   private GraphObject from = null;
