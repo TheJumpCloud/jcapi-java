@@ -264,7 +264,7 @@ public class SystemsApiExample {
             + "algorithm=\"rsa-sha256\","
             + "signature=\"%s\"",
         systemId, systemSignature);
-    String xOrgId = ""; // Only required of administrators that manage multiple organizations
+    String xOrgId = ""; // Not required when using System Context Authorization
 
     String contentType = "application/json";
     String accept = "application/json";
