@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Sshkeylist;
+import io.swagger.client.model.SystemuserMfaData;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * Systemuser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:42.342Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T22:09:46.907Z")
 public class Systemuser {
   @SerializedName("email")
   private String email = null;
@@ -147,6 +148,9 @@ public class Systemuser {
 
   @SerializedName("department")
   private String department = null;
+
+  @SerializedName("mfaData")
+  private SystemuserMfaData mfaData = null;
 
   public Systemuser email(String email) {
     this.email = email;
@@ -877,6 +881,24 @@ public class Systemuser {
     this.department = department;
   }
 
+  public Systemuser mfaData(SystemuserMfaData mfaData) {
+    this.mfaData = mfaData;
+    return this;
+  }
+
+   /**
+   * Get mfaData
+   * @return mfaData
+  **/
+  @ApiModelProperty(value = "")
+  public SystemuserMfaData getMfaData() {
+    return mfaData;
+  }
+
+  public void setMfaData(SystemuserMfaData mfaData) {
+    this.mfaData = mfaData;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -925,12 +947,13 @@ public class Systemuser {
         Objects.equals(this.company, systemuser.company) &&
         Objects.equals(this.employeeIdentifier, systemuser.employeeIdentifier) &&
         Objects.equals(this.jobTitle, systemuser.jobTitle) &&
-        Objects.equals(this.department, systemuser.department);
+        Objects.equals(this.department, systemuser.department) &&
+        Objects.equals(this.mfaData, systemuser.mfaData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, associatedTagCount, totpEnabled, passwordExpirationDate, attributes, created, sambaServiceUser, passwordNeverExpires, id, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier, jobTitle, department);
+    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, associatedTagCount, totpEnabled, passwordExpirationDate, attributes, created, sambaServiceUser, passwordNeverExpires, id, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier, jobTitle, department, mfaData);
   }
 
 
@@ -978,6 +1001,7 @@ public class Systemuser {
     sb.append("    employeeIdentifier: ").append(toIndentedString(employeeIdentifier)).append("\n");
     sb.append("    jobTitle: ").append(toIndentedString(jobTitle)).append("\n");
     sb.append("    department: ").append(toIndentedString(department)).append("\n");
+    sb.append("    mfaData: ").append(toIndentedString(mfaData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

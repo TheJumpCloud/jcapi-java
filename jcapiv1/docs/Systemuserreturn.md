@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **employeeType** | **String** |  |  [optional]
 **company** | **String** |  |  [optional]
 **employeeIdentifier** | **String** | Must be unique per user.  |  [optional]
+**mfaData** | [**Mfadata**](Mfadata.md) |  |  [optional]
 
 
 

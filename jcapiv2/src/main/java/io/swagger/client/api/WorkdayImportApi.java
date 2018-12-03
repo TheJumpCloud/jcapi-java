@@ -1239,7 +1239,7 @@ public class WorkdayImportApi {
 
     /**
      * Create new Workday
-     * This endpoint allows you to create a new workday instance.  You must supply a username and password for &#x60;Basic Authentication&#x60; that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently &#x60;O-Auth&#x60; isn&#39;t a supported authentication protocol for WorkDay, but will be in the future.  Currently, only one instance is allowed and it must be &#x60;Workday Import&#x60;.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;name\&quot;: \&quot;Workday2\&quot;,    \&quot;reportUrl\&quot;:\&quot;https://workday.com/ccx/service/customreport2/gms/user/reportname?format&#x3D;json\&quot;,    \&quot;auth\&quot;: {     \&quot;basic\&quot;: {       \&quot;username\&quot;: \&quot;someDeveloper\&quot;,        \&quot;password\&quot;: \&quot;notTheRealPassword\&quot;     }   } }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to create a new workday instance.  You must supply a username and password for &#x60;Basic Authentication&#x60; that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently &#x60;O-Auth&#x60; isn&#39;t a supported authentication protocol for WorkDay, but will be in the future.  Currently, only one instance is allowed and it must be &#x60;Workday Import&#x60;.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;name\&quot;: \&quot;Workday2\&quot;,   \&quot;reportUrl\&quot;:\&quot;https://workday.com/ccx/service/customreport2/gms/user/reportname?format&#x3D;json\&quot;,   \&quot;auth\&quot;: {     \&quot;basic\&quot;: {       \&quot;username\&quot;: \&quot;someDeveloper\&quot;,       \&quot;password\&quot;: \&quot;notTheRealPassword\&quot;     }   } }&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -1252,7 +1252,7 @@ public class WorkdayImportApi {
 
     /**
      * Create new Workday
-     * This endpoint allows you to create a new workday instance.  You must supply a username and password for &#x60;Basic Authentication&#x60; that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently &#x60;O-Auth&#x60; isn&#39;t a supported authentication protocol for WorkDay, but will be in the future.  Currently, only one instance is allowed and it must be &#x60;Workday Import&#x60;.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;name\&quot;: \&quot;Workday2\&quot;,    \&quot;reportUrl\&quot;:\&quot;https://workday.com/ccx/service/customreport2/gms/user/reportname?format&#x3D;json\&quot;,    \&quot;auth\&quot;: {     \&quot;basic\&quot;: {       \&quot;username\&quot;: \&quot;someDeveloper\&quot;,        \&quot;password\&quot;: \&quot;notTheRealPassword\&quot;     }   } }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to create a new workday instance.  You must supply a username and password for &#x60;Basic Authentication&#x60; that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently &#x60;O-Auth&#x60; isn&#39;t a supported authentication protocol for WorkDay, but will be in the future.  Currently, only one instance is allowed and it must be &#x60;Workday Import&#x60;.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;name\&quot;: \&quot;Workday2\&quot;,   \&quot;reportUrl\&quot;:\&quot;https://workday.com/ccx/service/customreport2/gms/user/reportname?format&#x3D;json\&quot;,   \&quot;auth\&quot;: {     \&quot;basic\&quot;: {       \&quot;username\&quot;: \&quot;someDeveloper\&quot;,       \&quot;password\&quot;: \&quot;notTheRealPassword\&quot;     }   } }&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -1267,7 +1267,7 @@ public class WorkdayImportApi {
 
     /**
      * Create new Workday (asynchronously)
-     * This endpoint allows you to create a new workday instance.  You must supply a username and password for &#x60;Basic Authentication&#x60; that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently &#x60;O-Auth&#x60; isn&#39;t a supported authentication protocol for WorkDay, but will be in the future.  Currently, only one instance is allowed and it must be &#x60;Workday Import&#x60;.  #### Sample Request  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;name\&quot;: \&quot;Workday2\&quot;,    \&quot;reportUrl\&quot;:\&quot;https://workday.com/ccx/service/customreport2/gms/user/reportname?format&#x3D;json\&quot;,    \&quot;auth\&quot;: {     \&quot;basic\&quot;: {       \&quot;username\&quot;: \&quot;someDeveloper\&quot;,        \&quot;password\&quot;: \&quot;notTheRealPassword\&quot;     }   } }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to create a new workday instance.  You must supply a username and password for &#x60;Basic Authentication&#x60; that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently &#x60;O-Auth&#x60; isn&#39;t a supported authentication protocol for WorkDay, but will be in the future.  Currently, only one instance is allowed and it must be &#x60;Workday Import&#x60;.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/workdays/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;name\&quot;: \&quot;Workday2\&quot;,   \&quot;reportUrl\&quot;:\&quot;https://workday.com/ccx/service/customreport2/gms/user/reportname?format&#x3D;json\&quot;,   \&quot;auth\&quot;: {     \&quot;basic\&quot;: {       \&quot;username\&quot;: \&quot;someDeveloper\&quot;,       \&quot;password\&quot;: \&quot;notTheRealPassword\&quot;     }   } }&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -1537,7 +1537,7 @@ public class WorkdayImportApi {
 
     /**
      * Get Workday Settings (incomplete)
-     * This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.   **This functionality is currently not enable for users.**
+     * This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.  **This functionality is currently not enable for users.**
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
@@ -1550,7 +1550,7 @@ public class WorkdayImportApi {
 
     /**
      * Get Workday Settings (incomplete)
-     * This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.   **This functionality is currently not enable for users.**
+     * This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.  **This functionality is currently not enable for users.**
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
@@ -1565,7 +1565,7 @@ public class WorkdayImportApi {
 
     /**
      * Get Workday Settings (incomplete) (asynchronously)
-     * This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.   **This functionality is currently not enable for users.**
+     * This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.  **This functionality is currently not enable for users.**
      * @param contentType  (required)
      * @param accept  (required)
      * @param state  (optional)
@@ -1693,7 +1693,7 @@ public class WorkdayImportApi {
 
     /**
      * List Workday Workers
-     * This endpoint will return all of the data in your WorkDay Custom Report that has been associated with your WorkDay Instance in JumpCloud.  ##### Sample Request   &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/workers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint will return all of the data in your WorkDay Custom Report that has been associated with your WorkDay Instance in JumpCloud.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/workers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1711,7 +1711,7 @@ public class WorkdayImportApi {
 
     /**
      * List Workday Workers
-     * This endpoint will return all of the data in your WorkDay Custom Report that has been associated with your WorkDay Instance in JumpCloud.  ##### Sample Request   &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/workers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint will return all of the data in your WorkDay Custom Report that has been associated with your WorkDay Instance in JumpCloud.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/workers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1730,7 +1730,7 @@ public class WorkdayImportApi {
 
     /**
      * List Workday Workers (asynchronously)
-     * This endpoint will return all of the data in your WorkDay Custom Report that has been associated with your WorkDay Instance in JumpCloud.  ##### Sample Request   &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/workers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint will return all of the data in your WorkDay Custom Report that has been associated with your WorkDay Instance in JumpCloud.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/workers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param workdayId  (required)
      * @param contentType  (required)
      * @param accept  (required)

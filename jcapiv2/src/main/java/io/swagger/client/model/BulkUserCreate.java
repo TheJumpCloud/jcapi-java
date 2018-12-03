@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * BulkUserCreate
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T22:10:14.942Z")
 public class BulkUserCreate {
   @SerializedName("username")
   private String username = null;
@@ -131,10 +131,10 @@ public class BulkUserCreate {
   }
 
    /**
-   * Get attributes
+   * Map of all additional attributes. If a passed attribute is not a top level &#x60;systemuser&#x60; field it will be added to custom attributes.
    * @return attributes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Map of all additional attributes. If a passed attribute is not a top level `systemuser` field it will be added to custom attributes.")
   public List<Object> getAttributes() {
     return attributes;
   }

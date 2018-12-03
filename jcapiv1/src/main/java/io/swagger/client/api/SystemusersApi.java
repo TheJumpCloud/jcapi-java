@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.Errorresponse;
+import io.swagger.client.model.Mfadata;
 import io.swagger.client.model.Sshkeylist;
 import io.swagger.client.model.Sshkeypost;
 import io.swagger.client.model.Systemuserput;
@@ -1298,14 +1299,15 @@ public class SystemusersApi {
      * Build call for systemusersResetmfa
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersResetmfaCall(String id, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+    public com.squareup.okhttp.Call systemusersResetmfaCall(String id, String xApiKey, Mfadata body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/systemusers/{id}/resetmfa"
@@ -1351,7 +1353,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersResetmfaValidateBeforeCall(String id, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersResetmfaValidateBeforeCall(String id, String xApiKey, Mfadata body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1364,51 +1366,54 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = systemusersResetmfaCall(id, xApiKey, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersResetmfaCall(id, xApiKey, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Reset a system user&#39;s MFA token
-     * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public String systemusersResetmfa(String id, String xApiKey, String xOrgId) throws ApiException {
-        ApiResponse<String> resp = systemusersResetmfaWithHttpInfo(id, xApiKey, xOrgId);
+    public String systemusersResetmfa(String id, String xApiKey, Mfadata body, String xOrgId) throws ApiException {
+        ApiResponse<String> resp = systemusersResetmfaWithHttpInfo(id, xApiKey, body, xOrgId);
         return resp.getData();
     }
 
     /**
      * Reset a system user&#39;s MFA token
-     * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<String> systemusersResetmfaWithHttpInfo(String id, String xApiKey, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, xOrgId, null, null);
+    public ApiResponse<String> systemusersResetmfaWithHttpInfo(String id, String xApiKey, Mfadata body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Reset a system user&#39;s MFA token (asynchronously)
-     * This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersResetmfaAsync(String id, String xApiKey, String xOrgId, final ApiCallback<String> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersResetmfaAsync(String id, String xApiKey, Mfadata body, String xOrgId, final ApiCallback<String> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1429,7 +1434,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

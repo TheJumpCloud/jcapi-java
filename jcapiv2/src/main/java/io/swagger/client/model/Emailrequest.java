@@ -26,12 +26,57 @@ import java.io.IOException;
 /**
  * Emailrequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T22:10:14.942Z")
 public class Emailrequest {
-  @SerializedName("emailType")
-  private String emailType = null;
+  /**
+   * Gets or Sets emailType
+   */
+  @JsonAdapter(EmailTypeEnum.Adapter.class)
+  public enum EmailTypeEnum {
+    ACTIVATION("activation");
 
-  public Emailrequest emailType(String emailType) {
+    private String value;
+
+    EmailTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EmailTypeEnum fromValue(String text) {
+      for (EmailTypeEnum b : EmailTypeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<EmailTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EmailTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EmailTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return EmailTypeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("emailType")
+  private EmailTypeEnum emailType = null;
+
+  public Emailrequest emailType(EmailTypeEnum emailType) {
     this.emailType = emailType;
     return this;
   }
@@ -41,11 +86,11 @@ public class Emailrequest {
    * @return emailType
   **/
   @ApiModelProperty(value = "")
-  public String getEmailType() {
+  public EmailTypeEnum getEmailType() {
     return emailType;
   }
 
-  public void setEmailType(String emailType) {
+  public void setEmailType(EmailTypeEnum emailType) {
     this.emailType = emailType;
   }
 

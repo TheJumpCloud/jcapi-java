@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * PolicyResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T22:10:14.942Z")
 public class PolicyResult {
   @SerializedName("policyID")
   private String policyID = null;
@@ -55,6 +55,12 @@ public class PolicyResult {
 
   @SerializedName("stdOut")
   private String stdOut = null;
+
+  @SerializedName("state")
+  private String state = null;
+
+  @SerializedName("detail")
+  private String detail = null;
 
   public PolicyResult policyID(String policyID) {
     this.policyID = policyID;
@@ -218,6 +224,42 @@ public class PolicyResult {
     this.stdOut = stdOut;
   }
 
+  public PolicyResult state(String state) {
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Enumeration describing the state of the policy. Success, failed, or pending.
+   * @return state
+  **/
+  @ApiModelProperty(value = "Enumeration describing the state of the policy. Success, failed, or pending.")
+  public String getState() {
+    return state;
+  }
+
+  public void setState(String state) {
+    this.state = state;
+  }
+
+  public PolicyResult detail(String detail) {
+    this.detail = detail;
+    return this;
+  }
+
+   /**
+   * Details pertaining to the policy result.
+   * @return detail
+  **/
+  @ApiModelProperty(value = "Details pertaining to the policy result.")
+  public String getDetail() {
+    return detail;
+  }
+
+  public void setDetail(String detail) {
+    this.detail = detail;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -236,12 +278,14 @@ public class PolicyResult {
         Objects.equals(this.success, policyResult.success) &&
         Objects.equals(this.exitStatus, policyResult.exitStatus) &&
         Objects.equals(this.stdErr, policyResult.stdErr) &&
-        Objects.equals(this.stdOut, policyResult.stdOut);
+        Objects.equals(this.stdOut, policyResult.stdOut) &&
+        Objects.equals(this.state, policyResult.state) &&
+        Objects.equals(this.detail, policyResult.detail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(policyID, systemID, id, startedAt, endedAt, success, exitStatus, stdErr, stdOut);
+    return Objects.hash(policyID, systemID, id, startedAt, endedAt, success, exitStatus, stdErr, stdOut, state, detail);
   }
 
 
@@ -259,6 +303,8 @@ public class PolicyResult {
     sb.append("    exitStatus: ").append(toIndentedString(exitStatus)).append("\n");
     sb.append("    stdErr: ").append(toIndentedString(stdErr)).append("\n");
     sb.append("    stdOut: ").append(toIndentedString(stdOut)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

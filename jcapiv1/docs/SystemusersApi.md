@@ -520,11 +520,11 @@ Name | Type | Description  | Notes
 
 <a name="systemusersResetmfa"></a>
 # **systemusersResetmfa**
-> String systemusersResetmfa(id, xApiKey, xOrgId)
+> String systemusersResetmfa(id, xApiKey, body, xOrgId)
 
 Reset a system user&#39;s MFA token
 
-This endpoint allows you to reset the MFA TOTP token for a specified system user. This will result in a user being required to complete the setup of their MFA TOTP token via an email notification sent from Jumpcloud. Please be aware, that until MFA setup is complete, a user may be locked out of systems or applications.   Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2443975-how-to-enable-multifactor-authentication-for-the-jumpcloud-user-portal) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -546,9 +546,10 @@ x_api_key.setApiKey("YOUR API KEY");
 SystemusersApi apiInstance = new SystemusersApi();
 String id = "id_example"; // String | 
 String xApiKey = "xApiKey_example"; // String | 
+Mfadata body = new Mfadata(); // Mfadata | 
 String xOrgId = ""; // String | 
 try {
-    String result = apiInstance.systemusersResetmfa(id, xApiKey, xOrgId);
+    String result = apiInstance.systemusersResetmfa(id, xApiKey, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#systemusersResetmfa");
@@ -562,6 +563,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
  **xApiKey** | **String**|  |
+ **body** | [**Mfadata**](Mfadata.md)|  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
