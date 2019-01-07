@@ -26,9 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * BulkUserCreate
+ * See [V1 system user creation](https://docs.jumpcloud.com/1.0/systemusers/create-a-system-user) for full list of attributes.
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
+@ApiModel(description = "See [V1 system user creation](https://docs.jumpcloud.com/1.0/systemusers/create-a-system-user) for full list of attributes.")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-07T20:19:37.978Z")
 public class BulkUserCreate {
   @SerializedName("username")
   private String username = null;
@@ -131,10 +132,10 @@ public class BulkUserCreate {
   }
 
    /**
-   * Get attributes
+   * Map of additional attributes.
    * @return attributes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Map of additional attributes.")
   public List<Object> getAttributes() {
     return attributes;
   }

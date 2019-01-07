@@ -111,7 +111,8 @@ Class | Method | HTTP request | Description
 *ApplicationsApi* | [**graphApplicationTraverseUser**](docs/ApplicationsApi.md#graphApplicationTraverseUser) | **GET** /applications/{application_id}/users | List the Users bound to an Application
 *ApplicationsApi* | [**graphApplicationTraverseUserGroup**](docs/ApplicationsApi.md#graphApplicationTraverseUserGroup) | **GET** /applications/{application_id}/usergroups | List the User Groups bound to an Application
 *BulkJobRequestsApi* | [**bulkUsersCreate**](docs/BulkJobRequestsApi.md#bulkUsersCreate) | **POST** /bulk/users | Bulk Users Create
-*BulkJobRequestsApi* | [**bulkUsersCreateResults**](docs/BulkJobRequestsApi.md#bulkUsersCreateResults) | **GET** /bulk/users/{job_id}/results | List Bulk Users Create Results
+*BulkJobRequestsApi* | [**bulkUsersCreateResults**](docs/BulkJobRequestsApi.md#bulkUsersCreateResults) | **GET** /bulk/users/{job_id}/results | List Bulk Users Results
+*BulkJobRequestsApi* | [**bulkUsersUpdate**](docs/BulkJobRequestsApi.md#bulkUsersUpdate) | **PATCH** /bulk/users | Bulk Users Update
 *BulkJobRequestsApi* | [**jobsGet**](docs/BulkJobRequestsApi.md#jobsGet) | **GET** /jobs/{id} | Get Job (incomplete)
 *BulkJobRequestsApi* | [**jobsResults**](docs/BulkJobRequestsApi.md#jobsResults) | **GET** /jobs/{id}/results | List Job Results
 *CommandsApi* | [**graphCommandAssociationsList**](docs/CommandsApi.md#graphCommandAssociationsList) | **GET** /commands/{command_id}/associations | List the associations of a Command
@@ -124,6 +125,10 @@ Class | Method | HTTP request | Description
 *GSuiteApi* | [**graphGSuiteAssociationsPost**](docs/GSuiteApi.md#graphGSuiteAssociationsPost) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
 *GSuiteApi* | [**graphGSuiteTraverseUser**](docs/GSuiteApi.md#graphGSuiteTraverseUser) | **GET** /gsuites/{gsuite_id}/users | List the Users bound to a G Suite instance
 *GSuiteApi* | [**graphGSuiteTraverseUserGroup**](docs/GSuiteApi.md#graphGSuiteTraverseUserGroup) | **GET** /gsuites/{gsuite_id}/usergroups | List the User Groups bound to a G Suite instance
+*GSuiteApi* | [**translationRulesGSuiteDelete**](docs/GSuiteApi.md#translationRulesGSuiteDelete) | **DELETE** /gsuites/{gsuite_id}/translationrules/{id} | Deletes a G Suite translation rule
+*GSuiteApi* | [**translationRulesGSuiteGet**](docs/GSuiteApi.md#translationRulesGSuiteGet) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific g suite translation rule
+*GSuiteApi* | [**translationRulesGSuiteList**](docs/GSuiteApi.md#translationRulesGSuiteList) | **GET** /gsuites/{gsuite_id}/translationrules | List all the G Suite Translation Rules
+*GSuiteApi* | [**translationRulesGSuitePost**](docs/GSuiteApi.md#translationRulesGSuitePost) | **POST** /gsuites/{gsuite_id}/translationrules | Create a new G Suite Translation Rule
 *GraphApi* | [**graphActiveDirectoryAssociationsList**](docs/GraphApi.md#graphActiveDirectoryAssociationsList) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
 *GraphApi* | [**graphActiveDirectoryAssociationsPost**](docs/GraphApi.md#graphActiveDirectoryAssociationsPost) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
 *GraphApi* | [**graphActiveDirectoryTraverseUserGroup**](docs/GraphApi.md#graphActiveDirectoryTraverseUserGroup) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
@@ -210,6 +215,10 @@ Class | Method | HTTP request | Description
 *Office365Api* | [**graphOffice365AssociationsPost**](docs/Office365Api.md#graphOffice365AssociationsPost) | **POST** /office365s/{office365_id}/associations | Manage the associations of an Office 365 instance
 *Office365Api* | [**graphOffice365TraverseUser**](docs/Office365Api.md#graphOffice365TraverseUser) | **GET** /office365s/{office365_id}/users | List the Users bound to an Office 365 instance
 *Office365Api* | [**graphOffice365TraverseUserGroup**](docs/Office365Api.md#graphOffice365TraverseUserGroup) | **GET** /office365s/{office365_id}/usergroups | List the User Groups bound to an Office 365 instance
+*Office365Api* | [**translationRulesOffice365Delete**](docs/Office365Api.md#translationRulesOffice365Delete) | **DELETE** /office365s/{office365_id}/translationrules/{id} | Deletes a Office 365 translation rule
+*Office365Api* | [**translationRulesOffice365Get**](docs/Office365Api.md#translationRulesOffice365Get) | **GET** /office365s/{office365_id}/translationrules/{id} | Gets a specific Office 365 translation rule
+*Office365Api* | [**translationRulesOffice365List**](docs/Office365Api.md#translationRulesOffice365List) | **GET** /office365s/{office365_id}/translationrules | List all the Office 365 Translation Rules
+*Office365Api* | [**translationRulesOffice365Post**](docs/Office365Api.md#translationRulesOffice365Post) | **POST** /office365s/{office365_id}/translationrules | Create a new Office 365 Translation Rule
 *PoliciesApi* | [**graphPolicyAssociationsList**](docs/PoliciesApi.md#graphPolicyAssociationsList) | **GET** /policies/{policy_id}/associations | List the associations of a Policy
 *PoliciesApi* | [**graphPolicyAssociationsPost**](docs/PoliciesApi.md#graphPolicyAssociationsPost) | **POST** /policies/{policy_id}/associations | Manage the associations of a Policy
 *PoliciesApi* | [**graphPolicyTraverseSystem**](docs/PoliciesApi.md#graphPolicyTraverseSystem) | **GET** /policies/{policy_id}/systems | List the Systems bound to a Policy
@@ -222,8 +231,8 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policyresultsGet**](docs/PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
 *PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
 *PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
-*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
-*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 *PoliciesApi* | [**policytemplatesGet**](docs/PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PoliciesApi* | [**policytemplatesList**](docs/PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 *PolicytemplatesApi* | [**policytemplatesGet**](docs/PolicytemplatesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -317,7 +326,7 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**graphUserTraverseRadiusServer**](docs/UsersApi.md#graphUserTraverseRadiusServer) | **GET** /users/{user_id}/radiusservers | List the RADIUS Servers bound to a User
 *UsersApi* | [**graphUserTraverseSystem**](docs/UsersApi.md#graphUserTraverseSystem) | **GET** /users/{user_id}/systems | List the Systems bound to a User
 *UsersApi* | [**graphUserTraverseSystemGroup**](docs/UsersApi.md#graphUserTraverseSystemGroup) | **GET** /users/{user_id}/systemgroups | List the System Groups bound to a User
-*UsersApi* | [**userSendEmails**](docs/UsersApi.md#userSendEmails) | **POST** /users/{user_id}/emails | Send User Emails
+*UsersApi* | [**usersSendEmails**](docs/UsersApi.md#usersSendEmails) | **POST** /users/{user_id}/emails | Send User Emails
 *WorkdayImportApi* | [**workdaysAuthorize**](docs/WorkdayImportApi.md#workdaysAuthorize) | **POST** /workdays/{workday_id}/auth | Authorize Workday
 *WorkdayImportApi* | [**workdaysDeauthorize**](docs/WorkdayImportApi.md#workdaysDeauthorize) | **DELETE** /workdays/{workday_id}/auth | Deauthorize Workday
 *WorkdayImportApi* | [**workdaysDelete**](docs/WorkdayImportApi.md#workdaysDelete) | **DELETE** /workdays/{id} | Delete Workday
@@ -340,10 +349,14 @@ Class | Method | HTTP request | Description
  - [AuthinputBasic](docs/AuthinputBasic.md)
  - [AuthinputOauth](docs/AuthinputOauth.md)
  - [BulkUserCreate](docs/BulkUserCreate.md)
+ - [BulkUserUpdate](docs/BulkUserUpdate.md)
  - [Directory](docs/Directory.md)
  - [Emailrequest](docs/Emailrequest.md)
  - [Error](docs/Error.md)
  - [Errorresponse](docs/Errorresponse.md)
+ - [GSuiteBuiltinTranslation](docs/GSuiteBuiltinTranslation.md)
+ - [GSuiteTranslationRule](docs/GSuiteTranslationRule.md)
+ - [GSuiteTranslationRuleRequest](docs/GSuiteTranslationRuleRequest.md)
  - [GraphConnection](docs/GraphConnection.md)
  - [GraphManagementReq](docs/GraphManagementReq.md)
  - [GraphObject](docs/GraphObject.md)
@@ -351,11 +364,16 @@ Class | Method | HTTP request | Description
  - [GraphType](docs/GraphType.md)
  - [Group](docs/Group.md)
  - [GroupType](docs/GroupType.md)
+ - [InlineResponse201](docs/InlineResponse201.md)
+ - [InlineResponse2011](docs/InlineResponse2011.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)
  - [LdapServerInput](docs/LdapServerInput.md)
  - [OauthCodeInput](docs/OauthCodeInput.md)
+ - [Office365BuiltinTranslation](docs/Office365BuiltinTranslation.md)
+ - [Office365TranslationRule](docs/Office365TranslationRule.md)
+ - [Office365TranslationRuleRequest](docs/Office365TranslationRuleRequest.md)
  - [Policy](docs/Policy.md)
  - [PolicyRequest](docs/PolicyRequest.md)
  - [PolicyRequestTemplate](docs/PolicyRequestTemplate.md)

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Directory
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-07T20:19:37.978Z")
 public class Directory {
   /**
    * The type of directory.

@@ -23,6 +23,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.Fde;
 import io.swagger.client.model.SystemNetworkInterfaces;
+import io.swagger.client.model.SystemSshdParams;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * System
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:42.342Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-07T20:19:27.377Z")
 public class System {
   @SerializedName("organization")
   private String organization = null;
@@ -72,7 +73,7 @@ public class System {
   private Boolean active = null;
 
   @SerializedName("sshdParams")
-  private List<String> sshdParams = null;
+  private List<SystemSshdParams> sshdParams = null;
 
   @SerializedName("allowSshPasswordAuthentication")
   private Boolean allowSshPasswordAuthentication = null;
@@ -106,6 +107,9 @@ public class System {
 
   @SerializedName("fde")
   private Fde fde = null;
+
+  @SerializedName("amazonInstanceID")
+  private String amazonInstanceID = null;
 
   public System organization(String organization) {
     this.organization = organization;
@@ -349,14 +353,14 @@ public class System {
     this.active = active;
   }
 
-  public System sshdParams(List<String> sshdParams) {
+  public System sshdParams(List<SystemSshdParams> sshdParams) {
     this.sshdParams = sshdParams;
     return this;
   }
 
-  public System addSshdParamsItem(String sshdParamsItem) {
+  public System addSshdParamsItem(SystemSshdParams sshdParamsItem) {
     if (this.sshdParams == null) {
-      this.sshdParams = new ArrayList<String>();
+      this.sshdParams = new ArrayList<SystemSshdParams>();
     }
     this.sshdParams.add(sshdParamsItem);
     return this;
@@ -367,11 +371,11 @@ public class System {
    * @return sshdParams
   **/
   @ApiModelProperty(value = "")
-  public List<String> getSshdParams() {
+  public List<SystemSshdParams> getSshdParams() {
     return sshdParams;
   }
 
-  public void setSshdParams(List<String> sshdParams) {
+  public void setSshdParams(List<SystemSshdParams> sshdParams) {
     this.sshdParams = sshdParams;
   }
 
@@ -589,6 +593,24 @@ public class System {
     this.fde = fde;
   }
 
+  public System amazonInstanceID(String amazonInstanceID) {
+    this.amazonInstanceID = amazonInstanceID;
+    return this;
+  }
+
+   /**
+   * Get amazonInstanceID
+   * @return amazonInstanceID
+  **/
+  @ApiModelProperty(value = "")
+  public String getAmazonInstanceID() {
+    return amazonInstanceID;
+  }
+
+  public void setAmazonInstanceID(String amazonInstanceID) {
+    this.amazonInstanceID = amazonInstanceID;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -623,12 +645,13 @@ public class System {
         Objects.equals(this.sshRootEnabled, system.sshRootEnabled) &&
         Objects.equals(this.tags, system.tags) &&
         Objects.equals(this.id, system.id) &&
-        Objects.equals(this.fde, system.fde);
+        Objects.equals(this.fde, system.fde) &&
+        Objects.equals(this.amazonInstanceID, system.amazonInstanceID);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(organization, created, lastContact, os, version, arch, networkInterfaces, hostname, displayName, systemTimezone, templateName, remoteIP, active, sshdParams, allowSshPasswordAuthentication, allowSshRootLogin, allowMultiFactorAuthentication, allowPublicKeyAuthentication, modifySSHDConfig, agentVersion, connectionHistory, sshRootEnabled, tags, id, fde);
+    return Objects.hash(organization, created, lastContact, os, version, arch, networkInterfaces, hostname, displayName, systemTimezone, templateName, remoteIP, active, sshdParams, allowSshPasswordAuthentication, allowSshRootLogin, allowMultiFactorAuthentication, allowPublicKeyAuthentication, modifySSHDConfig, agentVersion, connectionHistory, sshRootEnabled, tags, id, fde, amazonInstanceID);
   }
 
 
@@ -662,6 +685,7 @@ public class System {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    fde: ").append(toIndentedString(fde)).append("\n");
+    sb.append("    amazonInstanceID: ").append(toIndentedString(amazonInstanceID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

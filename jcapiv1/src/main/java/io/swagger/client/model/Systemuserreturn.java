@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Systemuserreturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:42.342Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-07T20:19:27.377Z")
 public class Systemuserreturn {
   @SerializedName("email")
   private String email = null;
@@ -300,7 +300,7 @@ public class Systemuserreturn {
 
    /**
    * Get unixUid
-   * minimum: 0
+   * minimum: 1
    * @return unixUid
   **/
   @ApiModelProperty(value = "")
@@ -319,7 +319,7 @@ public class Systemuserreturn {
 
    /**
    * Get unixGuid
-   * minimum: 0
+   * minimum: 1
    * @return unixGuid
   **/
   @ApiModelProperty(value = "")

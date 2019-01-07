@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * Commandresult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:42.342Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-07T20:19:27.377Z")
 public class Commandresult {
   @SerializedName("command")
   private String command = null;
@@ -62,10 +62,10 @@ public class Commandresult {
   private List<String> files = null;
 
   @SerializedName("requestTime")
-  private Integer requestTime = null;
+  private String requestTime = null;
 
   @SerializedName("responseTime")
-  private Integer responseTime = null;
+  private String responseTime = null;
 
   @SerializedName("response")
   private CommandresultResponse response = null;
@@ -261,7 +261,7 @@ public class Commandresult {
     this.files = files;
   }
 
-  public Commandresult requestTime(Integer requestTime) {
+  public Commandresult requestTime(String requestTime) {
     this.requestTime = requestTime;
     return this;
   }
@@ -271,15 +271,15 @@ public class Commandresult {
    * @return requestTime
   **/
   @ApiModelProperty(value = "The time that the command was sent.")
-  public Integer getRequestTime() {
+  public String getRequestTime() {
     return requestTime;
   }
 
-  public void setRequestTime(Integer requestTime) {
+  public void setRequestTime(String requestTime) {
     this.requestTime = requestTime;
   }
 
-  public Commandresult responseTime(Integer responseTime) {
+  public Commandresult responseTime(String responseTime) {
     this.responseTime = responseTime;
     return this;
   }
@@ -289,11 +289,11 @@ public class Commandresult {
    * @return responseTime
   **/
   @ApiModelProperty(value = "The time that the command was completed.")
-  public Integer getResponseTime() {
+  public String getResponseTime() {
     return responseTime;
   }
 
-  public void setResponseTime(Integer responseTime) {
+  public void setResponseTime(String responseTime) {
     this.responseTime = responseTime;
   }
 

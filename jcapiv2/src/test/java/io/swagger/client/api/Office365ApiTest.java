@@ -17,6 +17,9 @@ import io.swagger.client.ApiException;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
+import io.swagger.client.model.InlineResponse2011;
+import io.swagger.client.model.Office365TranslationRule;
+import io.swagger.client.model.Office365TranslationRuleRequest;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -114,6 +117,86 @@ public class Office365ApiTest {
         Integer skip = null;
         String xOrgId = null;
         List<GraphObjectWithPaths> response = api.graphOffice365TraverseUserGroup(office365Id, contentType, accept, limit, skip, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Deletes a Office 365 translation rule
+     *
+     * This endpoint allows you to delete a translation rule for a specific Office 365 instance. These rules specify how JumpCloud attributes translate to [Microsoft Graph](https://developer.microsoft.com/en-us/graph) attributes.  #### Sample Request  &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/v2/office365s/{office365_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesOffice365DeleteTest() throws ApiException {
+        String office365Id = null;
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        api.translationRulesOffice365Delete(office365Id, id, contentType, accept);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets a specific Office 365 translation rule
+     *
+     * This endpoint returns a specific translation rule for a specific Office 365 instance. These rules specify how JumpCloud attributes translate to [Microsoft Graph](https://developer.microsoft.com/en-us/graph) attributes.  ###### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/office365s/{office365_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesOffice365GetTest() throws ApiException {
+        String office365Id = null;
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        Office365TranslationRule response = api.translationRulesOffice365Get(office365Id, id, contentType, accept);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all the Office 365 Translation Rules
+     *
+     * This endpoint returns all translation rules for a specific Office 365 instance. These rules specify how JumpCloud attributes translate to [Microsoft Graph](https://developer.microsoft.com/en-us/graph) attributes.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET  https://console.jumpcloud.com/api/v2/office365s/{office365_id}/translationrules \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesOffice365ListTest() throws ApiException {
+        String office365Id = null;
+        String contentType = null;
+        String accept = null;
+        List<String> fields = null;
+        List<String> filter = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        List<Office365TranslationRule> response = api.translationRulesOffice365List(office365Id, contentType, accept, fields, filter, limit, skip, sort);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Office 365 Translation Rule
+     *
+     * This endpoint allows you to create a translation rule for a specific Office 365 instance. These rules specify how JumpCloud attributes translate to [Microsoft Graph](https://developer.microsoft.com/en-us/graph) attributes.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/office365s/{office365_id}/translationrules \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   {Translation Rule Parameters} }&#39;  &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesOffice365PostTest() throws ApiException {
+        String office365Id = null;
+        String contentType = null;
+        String accept = null;
+        Office365TranslationRuleRequest body = null;
+        InlineResponse2011 response = api.translationRulesOffice365Post(office365Id, contentType, accept, body);
 
         // TODO: test validations
     }
