@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * PolicyResult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-07T20:19:37.978Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-08T20:00:43.436Z")
 public class PolicyResult {
   @SerializedName("policyID")
   private String policyID = null;
