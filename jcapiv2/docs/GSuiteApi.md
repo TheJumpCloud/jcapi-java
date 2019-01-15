@@ -461,7 +461,7 @@ Name | Type | Description  | Notes
 
 <a name="translationRulesGSuitePost"></a>
 # **translationRulesGSuitePost**
-> InlineResponse201 translationRulesGSuitePost(gsuiteId, contentType, accept, body)
+> GSuiteTranslationRule translationRulesGSuitePost(gsuiteId, contentType, accept, body)
 
 Create a new G Suite Translation Rule
 
@@ -490,7 +490,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 GSuiteTranslationRuleRequest body = new GSuiteTranslationRuleRequest(); // GSuiteTranslationRuleRequest | 
 try {
-    InlineResponse201 result = apiInstance.translationRulesGSuitePost(gsuiteId, contentType, accept, body);
+    GSuiteTranslationRule result = apiInstance.translationRulesGSuitePost(gsuiteId, contentType, accept, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GSuiteApi#translationRulesGSuitePost");
@@ -509,7 +509,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**GSuiteTranslationRule**](GSuiteTranslationRule.md)
 
 ### Authorization
 

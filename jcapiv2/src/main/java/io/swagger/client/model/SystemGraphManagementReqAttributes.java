@@ -28,7 +28,7 @@ import java.io.IOException;
  * The graph connection&#39;s attributes
  */
 @ApiModel(description = "The graph connection's attributes")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-08T20:00:43.436Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-15T23:52:11.874Z")
 public class SystemGraphManagementReqAttributes {
   @SerializedName("sudo")
   private SystemGraphManagementReqAttributesSudo sudo = null;

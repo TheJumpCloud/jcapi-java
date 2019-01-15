@@ -17,7 +17,6 @@ import io.swagger.client.ApiException;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
-import io.swagger.client.model.InlineResponse2011;
 import io.swagger.client.model.Office365TranslationRule;
 import io.swagger.client.model.Office365TranslationRuleRequest;
 import org.junit.Test;
@@ -196,7 +195,7 @@ public class Office365ApiTest {
         String contentType = null;
         String accept = null;
         Office365TranslationRuleRequest body = null;
-        InlineResponse2011 response = api.translationRulesOffice365Post(office365Id, contentType, accept, body);
+        Office365TranslationRule response = api.translationRulesOffice365Post(office365Id, contentType, accept, body);
 
         // TODO: test validations
     }

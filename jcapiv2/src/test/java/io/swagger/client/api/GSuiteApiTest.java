@@ -19,7 +19,6 @@ import io.swagger.client.model.GSuiteTranslationRuleRequest;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
-import io.swagger.client.model.InlineResponse201;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -194,7 +193,7 @@ public class GSuiteApiTest {
         String contentType = null;
         String accept = null;
         GSuiteTranslationRuleRequest body = null;
-        InlineResponse201 response = api.translationRulesGSuitePost(gsuiteId, contentType, accept, body);
+        GSuiteTranslationRule response = api.translationRulesGSuitePost(gsuiteId, contentType, accept, body);
 
         // TODO: test validations
     }

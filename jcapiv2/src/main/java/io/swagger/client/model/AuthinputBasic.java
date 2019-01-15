@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * AuthinputBasic
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-08T20:00:43.436Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-15T23:52:11.874Z")
 public class AuthinputBasic {
   @SerializedName("username")
   private String username = null;

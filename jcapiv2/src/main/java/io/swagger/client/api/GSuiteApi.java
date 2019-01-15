@@ -32,7 +32,6 @@ import io.swagger.client.model.GSuiteTranslationRuleRequest;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
-import io.swagger.client.model.InlineResponse201;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1257,11 +1256,11 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @return InlineResponse201
+     * @return GSuiteTranslationRule
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse201 translationRulesGSuitePost(String gsuiteId, String contentType, String accept, GSuiteTranslationRuleRequest body) throws ApiException {
-        ApiResponse<InlineResponse201> resp = translationRulesGSuitePostWithHttpInfo(gsuiteId, contentType, accept, body);
+    public GSuiteTranslationRule translationRulesGSuitePost(String gsuiteId, String contentType, String accept, GSuiteTranslationRuleRequest body) throws ApiException {
+        ApiResponse<GSuiteTranslationRule> resp = translationRulesGSuitePostWithHttpInfo(gsuiteId, contentType, accept, body);
         return resp.getData();
     }
 
@@ -1272,12 +1271,12 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;InlineResponse201&gt;
+     * @return ApiResponse&lt;GSuiteTranslationRule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse201> translationRulesGSuitePostWithHttpInfo(String gsuiteId, String contentType, String accept, GSuiteTranslationRuleRequest body) throws ApiException {
+    public ApiResponse<GSuiteTranslationRule> translationRulesGSuitePostWithHttpInfo(String gsuiteId, String contentType, String accept, GSuiteTranslationRuleRequest body) throws ApiException {
         com.squareup.okhttp.Call call = translationRulesGSuitePostValidateBeforeCall(gsuiteId, contentType, accept, body, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<GSuiteTranslationRule>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1292,7 +1291,7 @@ public class GSuiteApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call translationRulesGSuitePostAsync(String gsuiteId, String contentType, String accept, GSuiteTranslationRuleRequest body, final ApiCallback<InlineResponse201> callback) throws ApiException {
+    public com.squareup.okhttp.Call translationRulesGSuitePostAsync(String gsuiteId, String contentType, String accept, GSuiteTranslationRuleRequest body, final ApiCallback<GSuiteTranslationRule> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1314,7 +1313,7 @@ public class GSuiteApi {
         }
 
         com.squareup.okhttp.Call call = translationRulesGSuitePostValidateBeforeCall(gsuiteId, contentType, accept, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse201>(){}.getType();
+        Type localVarReturnType = new TypeToken<GSuiteTranslationRule>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

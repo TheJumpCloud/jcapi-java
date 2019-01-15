@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 
 <a name="translationRulesOffice365Post"></a>
 # **translationRulesOffice365Post**
-> InlineResponse2011 translationRulesOffice365Post(office365Id, contentType, accept, body)
+> Office365TranslationRule translationRulesOffice365Post(office365Id, contentType, accept, body)
 
 Create a new Office 365 Translation Rule
 
@@ -494,7 +494,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Office365TranslationRuleRequest body = new Office365TranslationRuleRequest(); // Office365TranslationRuleRequest | 
 try {
-    InlineResponse2011 result = apiInstance.translationRulesOffice365Post(office365Id, contentType, accept, body);
+    Office365TranslationRule result = apiInstance.translationRulesOffice365Post(office365Id, contentType, accept, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling Office365Api#translationRulesOffice365Post");
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**Office365TranslationRule**](Office365TranslationRule.md)
 
 ### Authorization
 

@@ -30,7 +30,6 @@ import java.io.IOException;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
-import io.swagger.client.model.InlineResponse2011;
 import io.swagger.client.model.Office365TranslationRule;
 import io.swagger.client.model.Office365TranslationRuleRequest;
 
@@ -1279,11 +1278,11 @@ public class Office365Api {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @return InlineResponse2011
+     * @return Office365TranslationRule
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse2011 translationRulesOffice365Post(String office365Id, String contentType, String accept, Office365TranslationRuleRequest body) throws ApiException {
-        ApiResponse<InlineResponse2011> resp = translationRulesOffice365PostWithHttpInfo(office365Id, contentType, accept, body);
+    public Office365TranslationRule translationRulesOffice365Post(String office365Id, String contentType, String accept, Office365TranslationRuleRequest body) throws ApiException {
+        ApiResponse<Office365TranslationRule> resp = translationRulesOffice365PostWithHttpInfo(office365Id, contentType, accept, body);
         return resp.getData();
     }
 
@@ -1294,12 +1293,12 @@ public class Office365Api {
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;InlineResponse2011&gt;
+     * @return ApiResponse&lt;Office365TranslationRule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse2011> translationRulesOffice365PostWithHttpInfo(String office365Id, String contentType, String accept, Office365TranslationRuleRequest body) throws ApiException {
+    public ApiResponse<Office365TranslationRule> translationRulesOffice365PostWithHttpInfo(String office365Id, String contentType, String accept, Office365TranslationRuleRequest body) throws ApiException {
         com.squareup.okhttp.Call call = translationRulesOffice365PostValidateBeforeCall(office365Id, contentType, accept, body, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
+        Type localVarReturnType = new TypeToken<Office365TranslationRule>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -1314,7 +1313,7 @@ public class Office365Api {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call translationRulesOffice365PostAsync(String office365Id, String contentType, String accept, Office365TranslationRuleRequest body, final ApiCallback<InlineResponse2011> callback) throws ApiException {
+    public com.squareup.okhttp.Call translationRulesOffice365PostAsync(String office365Id, String contentType, String accept, Office365TranslationRuleRequest body, final ApiCallback<Office365TranslationRule> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1336,7 +1335,7 @@ public class Office365Api {
         }
 
         com.squareup.okhttp.Call call = translationRulesOffice365PostValidateBeforeCall(office365Id, contentType, accept, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse2011>(){}.getType();
+        Type localVarReturnType = new TypeToken<Office365TranslationRule>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
