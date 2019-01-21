@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * Fde
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:42.342Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-08T20:00:33.755Z")
 public class Fde {
   @SerializedName("keyPresent")
   private Boolean keyPresent = null;
+
+  @SerializedName("active")
+  private Boolean active = null;
 
   public Fde keyPresent(Boolean keyPresent) {
     this.keyPresent = keyPresent;
@@ -49,6 +52,24 @@ public class Fde {
     this.keyPresent = keyPresent;
   }
 
+  public Fde active(Boolean active) {
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Get active
+   * @return active
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isActive() {
+    return active;
+  }
+
+  public void setActive(Boolean active) {
+    this.active = active;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,12 +80,13 @@ public class Fde {
       return false;
     }
     Fde fde = (Fde) o;
-    return Objects.equals(this.keyPresent, fde.keyPresent);
+    return Objects.equals(this.keyPresent, fde.keyPresent) &&
+        Objects.equals(this.active, fde.active);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyPresent);
+    return Objects.hash(keyPresent, active);
   }
 
 
@@ -74,6 +96,7 @@ public class Fde {
     sb.append("class Fde {\n");
     
     sb.append("    keyPresent: ").append(toIndentedString(keyPresent)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("}");
     return sb.toString();
   }

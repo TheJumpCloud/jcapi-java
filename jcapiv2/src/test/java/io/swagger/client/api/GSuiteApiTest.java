@@ -14,6 +14,8 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.GSuiteTranslationRule;
+import io.swagger.client.model.GSuiteTranslationRuleRequest;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
@@ -112,6 +114,86 @@ public class GSuiteApiTest {
         Integer skip = null;
         String xOrgId = null;
         List<GraphObjectWithPaths> response = api.graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Deletes a G Suite translation rule
+     *
+     * This endpoint allows you to delete a translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  #### Sample Request  &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesGSuiteDeleteTest() throws ApiException {
+        String gsuiteId = null;
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        api.translationRulesGSuiteDelete(gsuiteId, id, contentType, accept);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Gets a specific g suite translation rule
+     *
+     * This endpoint returns a specific translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ###### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesGSuiteGetTest() throws ApiException {
+        String gsuiteId = null;
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        GSuiteTranslationRule response = api.translationRulesGSuiteGet(gsuiteId, id, contentType, accept);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List all the G Suite Translation Rules
+     *
+     * This endpoint returns all graph translation rules for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET  https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesGSuiteListTest() throws ApiException {
+        String gsuiteId = null;
+        String contentType = null;
+        String accept = null;
+        List<String> fields = null;
+        List<String> filter = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        List<GSuiteTranslationRule> response = api.translationRulesGSuiteList(gsuiteId, contentType, accept, fields, filter, limit, skip, sort);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new G Suite Translation Rule
+     *
+     * This endpoint allows you to create a translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   {Translation Rule Parameters} }&#39;  &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void translationRulesGSuitePostTest() throws ApiException {
+        String gsuiteId = null;
+        String contentType = null;
+        String accept = null;
+        GSuiteTranslationRuleRequest body = null;
+        GSuiteTranslationRule response = api.translationRulesGSuitePost(gsuiteId, contentType, accept, body);
 
         // TODO: test validations
     }

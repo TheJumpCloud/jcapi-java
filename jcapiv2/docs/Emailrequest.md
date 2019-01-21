@@ -4,7 +4,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**emailType** | **String** |  |  [optional]
+**emailType** | [**EmailTypeEnum**](#EmailTypeEnum) |  |  [optional]
+
+
+<a name="EmailTypeEnum"></a>
+## Enum: EmailTypeEnum
+Name | Value
+---- | -----
+ACTIVATION | &quot;activation&quot;
 
 
 

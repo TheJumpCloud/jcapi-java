@@ -605,7 +605,7 @@ public class SambaDomainsApi {
 
     /**
      * Create Samba Domain
-     * This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;,  \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot;  }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;, \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39; &#x60;&#x60;&#x60;
      * @param ldapserverId Unique identifier of the LDAP server. (required)
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
@@ -621,7 +621,7 @@ public class SambaDomainsApi {
 
     /**
      * Create Samba Domain
-     * This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;,  \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot;  }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;, \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39; &#x60;&#x60;&#x60;
      * @param ldapserverId Unique identifier of the LDAP server. (required)
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
@@ -638,7 +638,7 @@ public class SambaDomainsApi {
 
     /**
      * Create Samba Domain (asynchronously)
-     * This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;,  \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot;  }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;, \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39; &#x60;&#x60;&#x60;
      * @param ldapserverId Unique identifier of the LDAP server. (required)
      * @param body  (optional)
      * @param contentType  (optional, default to application/json)
@@ -757,7 +757,7 @@ public class SambaDomainsApi {
 
     /**
      * Update Samba Domain
-     * This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;,  \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;, \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39;  &#x60;&#x60;&#x60;
      * @param ldapserverId Unique identifier of the LDAP server. (required)
      * @param id Unique identifier of the samba domain. (required)
      * @param body  (optional)
@@ -774,7 +774,7 @@ public class SambaDomainsApi {
 
     /**
      * Update Samba Domain
-     * This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;,  \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;, \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39;  &#x60;&#x60;&#x60;
      * @param ldapserverId Unique identifier of the LDAP server. (required)
      * @param id Unique identifier of the samba domain. (required)
      * @param body  (optional)
@@ -792,7 +792,7 @@ public class SambaDomainsApi {
 
     /**
      * Update Samba Domain (asynchronously)
-     * This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;,  \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39;  &#x60;&#x60;&#x60;
+     * This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{ \&quot;sid\&quot;:\&quot;{SID_ID}\&quot;, \&quot;name\&quot;:\&quot;{WORKGROUP_NAME}\&quot; }&#39;  &#x60;&#x60;&#x60;
      * @param ldapserverId Unique identifier of the LDAP server. (required)
      * @param id Unique identifier of the samba domain. (required)
      * @param body  (optional)

@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * GraphObjectWithPaths
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-10-13T22:23:51.102Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-15T23:52:11.874Z")
 public class GraphObjectWithPaths {
   @SerializedName("type")
   private GraphType type = null;

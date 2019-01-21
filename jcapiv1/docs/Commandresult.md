@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **user** | **String** | The user the command ran as. |  [optional]
 **sudo** | **Boolean** | If the user had sudo rights |  [optional]
 **files** | **List&lt;String&gt;** | An array of file ids that were included in the command |  [optional]
-**requestTime** | **Integer** | The time that the command was sent. |  [optional]
-**responseTime** | **Integer** | The time that the command was completed. |  [optional]
+**requestTime** | **String** | The time that the command was sent. |  [optional]
+**responseTime** | **String** | The time that the command was completed. |  [optional]
 **response** | [**CommandresultResponse**](CommandresultResponse.md) |  |  [optional]
 **id** | **String** | The ID of the command. |  [optional]
 
