@@ -84,9 +84,10 @@ public class ApplicationsApiExample {
         Integer limit = 56; // Integer | The number of records to return at once.
         Integer skip = 56; // Integer | The offset into the records to return.
         String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
+        String filter = "filter_example"; // String | A filter to apply to the query.
         String xOrgId = ""; // String | 
         try {
-            Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort, xOrgId);
+            Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ApplicationsApi#applicationsList");
@@ -138,6 +139,7 @@ Class | Method | HTTP request | Description
 *SystemusersApi* | [**systemusersResetmfa**](docs/SystemusersApi.md#systemusersResetmfa) | **POST** /systemusers/{id}/resetmfa | Reset a system user&#39;s MFA token
 *SystemusersApi* | [**systemusersSystemsBindingList**](docs/SystemusersApi.md#systemusersSystemsBindingList) | **GET** /systemusers/{id}/systems | List system user binding
 *SystemusersApi* | [**systemusersSystemsBindingPut**](docs/SystemusersApi.md#systemusersSystemsBindingPut) | **PUT** /systemusers/{id}/systems | Update a system user binding
+*SystemusersApi* | [**systemusersUnlock**](docs/SystemusersApi.md#systemusersUnlock) | **POST** /systemusers/{id}/unlock | Unlock a system user
 *TagsApi* | [**tagsDelete**](docs/TagsApi.md#tagsDelete) | **DELETE** /tags/{name} | Delete a Tag
 *TagsApi* | [**tagsGet**](docs/TagsApi.md#tagsGet) | **GET** /Tags/{name} | List a Tag
 *TagsApi* | [**tagsList**](docs/TagsApi.md#tagsList) | **GET** /tags | List All Tags
@@ -169,6 +171,7 @@ Class | Method | HTTP request | Description
  - [CommandslistResults](docs/CommandslistResults.md)
  - [Errorresponse](docs/Errorresponse.md)
  - [Fde](docs/Fde.md)
+ - [Mfa](docs/Mfa.md)
  - [Organizationslist](docs/Organizationslist.md)
  - [OrganizationslistResults](docs/OrganizationslistResults.md)
  - [Radiusserver](docs/Radiusserver.md)

@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 <a name="tagsGet"></a>
 # **tagsGet**
-> Tag tagsGet(name, contentType, accept, fields, limit, skip, sort)
+> Tag tagsGet(name, contentType, accept, fields, limit, skip, sort, filter)
 
 List a Tag
 
@@ -103,8 +103,9 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+String filter = "filter_example"; // String | A filter to apply to the query.
 try {
-    Tag result = apiInstance.tagsGet(name, contentType, accept, fields, limit, skip, sort);
+    Tag result = apiInstance.tagsGet(name, contentType, accept, fields, limit, skip, sort, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TagsApi#tagsGet");
@@ -123,6 +124,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional]
 
 ### Return type
 
@@ -139,7 +141,7 @@ Name | Type | Description  | Notes
 
 <a name="tagsList"></a>
 # **tagsList**
-> Tagslist tagsList(contentType, accept, fields, limit, skip, sort)
+> Tagslist tagsList(contentType, accept, fields, limit, skip, sort, filter)
 
 List All Tags
 
@@ -169,8 +171,9 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+String filter = "filter_example"; // String | A filter to apply to the query.
 try {
-    Tagslist result = apiInstance.tagsList(contentType, accept, fields, limit, skip, sort);
+    Tagslist result = apiInstance.tagsList(contentType, accept, fields, limit, skip, sort, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TagsApi#tagsList");
@@ -188,6 +191,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional]
 
 ### Return type
 

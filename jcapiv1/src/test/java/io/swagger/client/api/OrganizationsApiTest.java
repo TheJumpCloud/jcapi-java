@@ -35,7 +35,7 @@ public class OrganizationsApiTest {
     /**
      * Get Organization Details
      *
-     * This endpoint returns Organization Details.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -45,11 +45,12 @@ public class OrganizationsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
+        String filter = null;
         Integer limit = null;
         Integer skip = null;
         String sort = null;
         String search = null;
-        Organizationslist response = api.organizationList(contentType, accept, fields, limit, skip, sort, search);
+        Organizationslist response = api.organizationList(contentType, accept, fields, filter, limit, skip, sort, search);
 
         // TODO: test validations
     }

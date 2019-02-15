@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.Mfa;
 import io.swagger.client.model.SystemuserputpostAddresses;
 import io.swagger.client.model.SystemuserputpostPhoneNumbers;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * Systemuserputpost
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-08T20:00:33.755Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-15T22:16:30.654Z")
 public class Systemuserputpost {
   @SerializedName("email")
   private String email = null;
@@ -139,6 +140,9 @@ public class Systemuserputpost {
 
   @SerializedName("employeeIdentifier")
   private String employeeIdentifier = null;
+
+  @SerializedName("mfa")
+  private Mfa mfa = null;
 
   public Systemuserputpost email(String email) {
     this.email = email;
@@ -830,6 +834,24 @@ public class Systemuserputpost {
     this.employeeIdentifier = employeeIdentifier;
   }
 
+  public Systemuserputpost mfa(Mfa mfa) {
+    this.mfa = mfa;
+    return this;
+  }
+
+   /**
+   * Get mfa
+   * @return mfa
+  **/
+  @ApiModelProperty(value = "")
+  public Mfa getMfa() {
+    return mfa;
+  }
+
+  public void setMfa(Mfa mfa) {
+    this.mfa = mfa;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -875,12 +897,13 @@ public class Systemuserputpost {
         Objects.equals(this.costCenter, systemuserputpost.costCenter) &&
         Objects.equals(this.employeeType, systemuserputpost.employeeType) &&
         Objects.equals(this.company, systemuserputpost.company) &&
-        Objects.equals(this.employeeIdentifier, systemuserputpost.employeeIdentifier);
+        Objects.equals(this.employeeIdentifier, systemuserputpost.employeeIdentifier) &&
+        Objects.equals(this.mfa, systemuserputpost.mfa);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, username, allowPublicKey, publicKey, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, attributes, sambaServiceUser, addresses, jobTitle, department, phoneNumbers, relationships, password, passwordNeverExpires, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier);
+    return Objects.hash(email, username, allowPublicKey, publicKey, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, attributes, sambaServiceUser, addresses, jobTitle, department, phoneNumbers, relationships, password, passwordNeverExpires, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier, mfa);
   }
 
 
@@ -925,6 +948,7 @@ public class Systemuserputpost {
     sb.append("    employeeType: ").append(toIndentedString(employeeType)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    employeeIdentifier: ").append(toIndentedString(employeeIdentifier)).append("\n");
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("}");
     return sb.toString();
   }

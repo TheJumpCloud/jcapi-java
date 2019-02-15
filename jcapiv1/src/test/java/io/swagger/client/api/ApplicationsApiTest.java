@@ -35,7 +35,7 @@ public class ApplicationsApiTest {
     /**
      * Applications
      *
-     * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -48,8 +48,9 @@ public class ApplicationsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
+        String filter = null;
         String xOrgId = null;
-        Applicationslist response = api.applicationsList(contentType, accept, fields, limit, skip, sort, xOrgId);
+        Applicationslist response = api.applicationsList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }

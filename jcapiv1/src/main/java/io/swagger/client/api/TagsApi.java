@@ -211,12 +211,13 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call tagsGetCall(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call tagsGetCall(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -233,6 +234,8 @@ public class TagsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
         if (sort != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -271,7 +274,7 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call tagsGetValidateBeforeCall(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call tagsGetValidateBeforeCall(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -289,7 +292,7 @@ public class TagsApi {
         }
         
 
-        com.squareup.okhttp.Call call = tagsGetCall(name, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = tagsGetCall(name, contentType, accept, fields, limit, skip, sort, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -304,11 +307,12 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @return Tag
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Tag tagsGet(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Tag> resp = tagsGetWithHttpInfo(name, contentType, accept, fields, limit, skip, sort);
+    public Tag tagsGet(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter) throws ApiException {
+        ApiResponse<Tag> resp = tagsGetWithHttpInfo(name, contentType, accept, fields, limit, skip, sort, filter);
         return resp.getData();
     }
 
@@ -322,11 +326,12 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @return ApiResponse&lt;Tag&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Tag> tagsGetWithHttpInfo(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = tagsGetValidateBeforeCall(name, contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Tag> tagsGetWithHttpInfo(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = tagsGetValidateBeforeCall(name, contentType, accept, fields, limit, skip, sort, filter, null, null);
         Type localVarReturnType = new TypeToken<Tag>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -341,11 +346,12 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call tagsGetAsync(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Tag> callback) throws ApiException {
+    public com.squareup.okhttp.Call tagsGetAsync(String name, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, final ApiCallback<Tag> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -366,7 +372,7 @@ public class TagsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = tagsGetValidateBeforeCall(name, contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = tagsGetValidateBeforeCall(name, contentType, accept, fields, limit, skip, sort, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Tag>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -379,12 +385,13 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call tagsListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call tagsListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -400,6 +407,8 @@ public class TagsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
         if (sort != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -438,7 +447,7 @@ public class TagsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call tagsListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call tagsListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -451,7 +460,7 @@ public class TagsApi {
         }
         
 
-        com.squareup.okhttp.Call call = tagsListCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = tagsListCall(contentType, accept, fields, limit, skip, sort, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -465,11 +474,12 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @return Tagslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Tagslist tagsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        ApiResponse<Tagslist> resp = tagsListWithHttpInfo(contentType, accept, fields, limit, skip, sort);
+    public Tagslist tagsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter) throws ApiException {
+        ApiResponse<Tagslist> resp = tagsListWithHttpInfo(contentType, accept, fields, limit, skip, sort, filter);
         return resp.getData();
     }
 
@@ -482,11 +492,12 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @return ApiResponse&lt;Tagslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Tagslist> tagsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort) throws ApiException {
-        com.squareup.okhttp.Call call = tagsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, null, null);
+    public ApiResponse<Tagslist> tagsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = tagsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, null, null);
         Type localVarReturnType = new TypeToken<Tagslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -500,11 +511,12 @@ public class TagsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call tagsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, final ApiCallback<Tagslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call tagsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, final ApiCallback<Tagslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -525,7 +537,7 @@ public class TagsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = tagsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = tagsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Tagslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

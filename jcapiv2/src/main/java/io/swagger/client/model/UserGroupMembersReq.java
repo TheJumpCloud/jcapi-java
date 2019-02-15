@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UserGroupMembersReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-15T23:52:11.874Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-15T22:16:49.168Z")
 public class UserGroupMembersReq {
   /**
    * How to modify the membership connection.

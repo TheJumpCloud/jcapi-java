@@ -29,7 +29,7 @@ import java.util.List;
  * See [V1 system user update](https://docs.jumpcloud.com/1.0/systemusers/update-a-system-user) for full list of attributes.
  */
 @ApiModel(description = "See [V1 system user update](https://docs.jumpcloud.com/1.0/systemusers/update-a-system-user) for full list of attributes.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-15T23:52:11.874Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-15T22:16:49.168Z")
 public class BulkUserUpdate {
   @SerializedName("id")
   private String id = null;

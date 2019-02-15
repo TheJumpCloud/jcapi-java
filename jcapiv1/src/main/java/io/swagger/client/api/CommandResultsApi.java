@@ -140,7 +140,7 @@ public class CommandResultsApi {
 
     /**
      * Delete a Command result
-     * This endpoint deletes a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;&#x60;
+     * This endpoint deletes a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -155,7 +155,7 @@ public class CommandResultsApi {
 
     /**
      * Delete a Command result
-     * This endpoint deletes a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;&#x60;
+     * This endpoint deletes a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -171,7 +171,7 @@ public class CommandResultsApi {
 
     /**
      * Delete a Command result (asynchronously)
-     * This endpoint deletes a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;&#x60;
+     * This endpoint deletes a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -212,13 +212,14 @@ public class CommandResultsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandResultsGetCall(String id, String contentType, String accept, String fields, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandResultsGetCall(String id, String contentType, String accept, String fields, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -229,6 +230,8 @@ public class CommandResultsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (fields != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fields", fields));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -269,7 +272,7 @@ public class CommandResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandResultsGetValidateBeforeCall(String id, String contentType, String accept, String fields, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandResultsGetValidateBeforeCall(String id, String contentType, String accept, String fields, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -287,57 +290,60 @@ public class CommandResultsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandResultsGetCall(id, contentType, accept, fields, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandResultsGetCall(id, contentType, accept, fields, filter, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * List an individual Command result
-     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandResultID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @return Commandresult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Commandresult commandResultsGet(String id, String contentType, String accept, String fields, String xOrgId) throws ApiException {
-        ApiResponse<Commandresult> resp = commandResultsGetWithHttpInfo(id, contentType, accept, fields, xOrgId);
+    public Commandresult commandResultsGet(String id, String contentType, String accept, String fields, String filter, String xOrgId) throws ApiException {
+        ApiResponse<Commandresult> resp = commandResultsGetWithHttpInfo(id, contentType, accept, fields, filter, xOrgId);
         return resp.getData();
     }
 
     /**
      * List an individual Command result
-     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandResultID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Commandresult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Commandresult> commandResultsGetWithHttpInfo(String id, String contentType, String accept, String fields, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = commandResultsGetValidateBeforeCall(id, contentType, accept, fields, xOrgId, null, null);
+    public ApiResponse<Commandresult> commandResultsGetWithHttpInfo(String id, String contentType, String accept, String fields, String filter, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandResultsGetValidateBeforeCall(id, contentType, accept, fields, filter, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Commandresult>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List an individual Command result (asynchronously)
-     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandResultID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandResultsGetAsync(String id, String contentType, String accept, String fields, String xOrgId, final ApiCallback<Commandresult> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandResultsGetAsync(String id, String contentType, String accept, String fields, String filter, String xOrgId, final ApiCallback<Commandresult> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -358,7 +364,7 @@ public class CommandResultsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandResultsGetValidateBeforeCall(id, contentType, accept, fields, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandResultsGetValidateBeforeCall(id, contentType, accept, fields, filter, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Commandresult>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -371,13 +377,14 @@ public class CommandResultsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call commandResultsListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call commandResultsListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -393,6 +400,8 @@ public class CommandResultsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
         if (sort != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (contentType != null)
@@ -433,7 +442,7 @@ public class CommandResultsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call commandResultsListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call commandResultsListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -446,7 +455,7 @@ public class CommandResultsApi {
         }
         
 
-        com.squareup.okhttp.Call call = commandResultsListCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandResultsListCall(contentType, accept, fields, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -460,12 +469,13 @@ public class CommandResultsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @return Commandresultslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Commandresultslist commandResultsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
-        ApiResponse<Commandresultslist> resp = commandResultsListWithHttpInfo(contentType, accept, fields, limit, skip, sort, xOrgId);
+    public Commandresultslist commandResultsList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId) throws ApiException {
+        ApiResponse<Commandresultslist> resp = commandResultsListWithHttpInfo(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
         return resp.getData();
     }
 
@@ -478,12 +488,13 @@ public class CommandResultsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Commandresultslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Commandresultslist> commandResultsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = commandResultsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, null, null);
+    public ApiResponse<Commandresultslist> commandResultsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = commandResultsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Commandresultslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -497,12 +508,13 @@ public class CommandResultsApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call commandResultsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ApiCallback<Commandresultslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call commandResultsListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId, final ApiCallback<Commandresultslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -523,7 +535,7 @@ public class CommandResultsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = commandResultsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = commandResultsListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Commandresultslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
