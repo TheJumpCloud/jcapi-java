@@ -59,9 +59,9 @@ public class DirectoriesApi {
      * Build call for directoriesList
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
@@ -148,9 +148,9 @@ public class DirectoriesApi {
      * This endpoint returns all active directories (LDAP, O365 Suite, G-Suite).  #### Sample Request &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/directories \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
      * @return List&lt;Directory&gt;
@@ -166,9 +166,9 @@ public class DirectoriesApi {
      * This endpoint returns all active directories (LDAP, O365 Suite, G-Suite).  #### Sample Request &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/directories \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;Directory&gt;&gt;
@@ -185,9 +185,9 @@ public class DirectoriesApi {
      * This endpoint returns all active directories (LDAP, O365 Suite, G-Suite).  #### Sample Request &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/directories \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes

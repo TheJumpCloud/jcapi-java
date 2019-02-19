@@ -14,6 +14,7 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,7 +29,7 @@ import java.io.IOException;
  * Represents an edge between two graph objects. From can be omitted if it is clear from context.
  */
 @ApiModel(description = "Represents an edge between two graph objects. From can be omitted if it is clear from context.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-15T22:16:49.168Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T17:05:05.739Z")
 public class GraphConnection {
   @SerializedName("from")
   private GraphObject from = null;

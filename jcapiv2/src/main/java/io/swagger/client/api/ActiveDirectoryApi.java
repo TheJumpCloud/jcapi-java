@@ -360,11 +360,11 @@ public class ActiveDirectoryApi {
      * Build call for activedirectoriesList
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -452,11 +452,11 @@ public class ActiveDirectoryApi {
      * This endpoint allows you to list all your Active Directory Instances.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/ \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @return List&lt;ActiveDirectoryOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -471,11 +471,11 @@ public class ActiveDirectoryApi {
      * This endpoint allows you to list all your Active Directory Instances.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/ \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;ActiveDirectoryOutput&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -491,11 +491,11 @@ public class ActiveDirectoryApi {
      * This endpoint allows you to list all your Active Directory Instances.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/ \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

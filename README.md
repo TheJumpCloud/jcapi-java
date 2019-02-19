@@ -131,11 +131,12 @@ each folder.
       String sort = null;
       String fields = null;
       String filter = null;
+      String search = null;
 
-      try {
-        Systemuserslist users = systemUsersApi.systemusersList(
-            contentType, accept, limit, skip, sort, fields, filter, xOrgId);
-        System.out.println(users);
+    try {
+      Systemuserslist users = systemUsersApi.systemusersList(
+          contentType, accept, limit, skip, sort, fields, xOrgId, search, filter);
+      System.out.println(users);
       } catch (ApiException e) {
         System.err.println("Exception when calling SystemusersApi#systemusersList");
         e.printStackTrace();

@@ -61,10 +61,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -157,10 +157,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,10 +176,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -196,10 +196,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -550,10 +550,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -646,10 +646,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -665,10 +665,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -685,10 +685,10 @@ public class UserGroupMembersMembershipApi {
      * @param groupId ObjectID of the User Group. (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
