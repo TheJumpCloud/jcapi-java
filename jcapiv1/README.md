@@ -2,7 +2,7 @@
 
 JumpCloud APIs
 - API version: 1.0
-  - Build date: 2019-02-19T17:04:55.863Z
+  - Build date: 2019-02-20T21:32:24.213Z
 
  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 

@@ -2,7 +2,7 @@
 
 JumpCloud APIs
 - API version: 2.0
-  - Build date: 2019-02-19T17:05:05.739Z
+  - Build date: 2019-02-20T21:33:29.907Z
 
  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
@@ -251,7 +251,6 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policytemplatesList**](docs/PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 *PolicytemplatesApi* | [**policytemplatesGet**](docs/PolicytemplatesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PolicytemplatesApi* | [**policytemplatesList**](docs/PolicytemplatesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
-*ProvidersApi* | [**providersListAdministrators**](docs/ProvidersApi.md#providersListAdministrators) | **GET** /providers/{provider_id}/administrators | providersadministrators
 *RadiusServersApi* | [**graphRadiusServerAssociationsList**](docs/RadiusServersApi.md#graphRadiusServerAssociationsList) | **GET** /radiusservers/{radiusserver_id}/associations | List the associations of a RADIUS  Server
 *RadiusServersApi* | [**graphRadiusServerAssociationsPost**](docs/RadiusServersApi.md#graphRadiusServerAssociationsPost) | **POST** /radiusservers/{radiusserver_id}/associations | Manage the associations of a RADIUS Server
 *RadiusServersApi* | [**graphRadiusServerTraverseUser**](docs/RadiusServersApi.md#graphRadiusServerTraverseUser) | **GET** /radiusservers/{radiusserver_id}/users | List the Users bound to a RADIUS  Server
@@ -380,8 +379,6 @@ Class | Method | HTTP request | Description
  - [GraphType](docs/GraphType.md)
  - [Group](docs/Group.md)
  - [GroupType](docs/GroupType.md)
- - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse401](docs/InlineResponse401.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)
@@ -402,8 +399,6 @@ Class | Method | HTTP request | Description
  - [PolicyTemplateWithDetails](docs/PolicyTemplateWithDetails.md)
  - [PolicyValue](docs/PolicyValue.md)
  - [PolicyWithDetails](docs/PolicyWithDetails.md)
- - [Provider](docs/Provider.md)
- - [ProviderContact](docs/ProviderContact.md)
  - [SambaDomainInput](docs/SambaDomainInput.md)
  - [Sshkeylist](docs/Sshkeylist.md)
  - [SystemGraphManagementReq](docs/SystemGraphManagementReq.md)

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Sshkeylist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-19T17:04:55.863Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-20T21:32:24.213Z")
 public class Sshkeylist {
   @SerializedName("create_date")
   private String createDate = null;
