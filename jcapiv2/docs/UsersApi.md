@@ -176,10 +176,10 @@ UsersApi apiInstance = new UsersApi();
 String userId = "userId_example"; // String | ObjectID of the User.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort, xOrgId);
@@ -197,10 +197,10 @@ Name | Type | Description  | Notes
  **userId** | **String**| ObjectID of the User. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -638,7 +638,7 @@ String accept = "application/json"; // String |
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 String xOrgId = ""; // String | 
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseSystem(userId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
@@ -658,7 +658,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **xOrgId** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 

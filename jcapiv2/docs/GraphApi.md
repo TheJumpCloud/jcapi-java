@@ -2379,10 +2379,10 @@ GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
@@ -2400,10 +2400,10 @@ Name | Type | Description  | Notes
  **groupId** | **String**| ObjectID of the System Group. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -2581,8 +2581,8 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupMembership(groupId, contentType, accept, limit, skip, sort, filter, xOrgId);
@@ -2602,8 +2602,8 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -2908,12 +2908,12 @@ GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemMemberOf(systemId, contentType, accept, filter, limit, skip, date, authorization, sort, xOrgId);
@@ -2931,12 +2931,12 @@ Name | Type | Description  | Notes
  **systemId** | **String**| ObjectID of the System. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -3116,7 +3116,7 @@ String xOrgId = ""; // String |
 Integer skip = 0; // Integer | The offset into the records to return.
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphSystemTraverseUser(systemId, contentType, accept, limit, xOrgId, skip, date, authorization, filter);
     System.out.println(result);
@@ -3138,7 +3138,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -3509,10 +3509,10 @@ GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphUserGroupMemberOf(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
@@ -3530,10 +3530,10 @@ Name | Type | Description  | Notes
  **groupId** | **String**| ObjectID of the User Group. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -3705,10 +3705,10 @@ GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphUserGroupMembership(groupId, contentType, accept, filter, limit, skip, sort, xOrgId);
@@ -3726,10 +3726,10 @@ Name | Type | Description  | Notes
  **groupId** | **String**| ObjectID of the User Group. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -4359,10 +4359,10 @@ GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort, xOrgId);
@@ -4380,10 +4380,10 @@ Name | Type | Description  | Notes
  **userId** | **String**| ObjectID of the User. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -4821,7 +4821,7 @@ String accept = "application/json"; // String |
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 String xOrgId = ""; // String | 
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
     List<GraphObjectWithPaths> result = apiInstance.graphUserTraverseSystem(userId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
@@ -4841,7 +4841,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **xOrgId** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -4950,11 +4950,11 @@ GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> fields = Arrays.asList("[]"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-List<String> filter = Arrays.asList("[]"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> sort = Arrays.asList("[]"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
     List<PolicyResult> result = apiInstance.policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
@@ -4972,11 +4972,11 @@ Name | Type | Description  | Notes
  **systemId** | **String**| ObjectID of the System. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type

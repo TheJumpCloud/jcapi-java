@@ -863,11 +863,11 @@ public class LdapServersApi {
      * Build call for ldapserversList
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
@@ -955,11 +955,11 @@ public class LdapServersApi {
      * This endpoint returns the object IDs of your LDAP servers.   ##### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param xOrgId  (optional, default to )
      * @return List&lt;LdapServerOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -974,11 +974,11 @@ public class LdapServersApi {
      * This endpoint returns the object IDs of your LDAP servers.   ##### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;LdapServerOutput&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -994,11 +994,11 @@ public class LdapServersApi {
      * This endpoint returns the object IDs of your LDAP servers.   ##### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call

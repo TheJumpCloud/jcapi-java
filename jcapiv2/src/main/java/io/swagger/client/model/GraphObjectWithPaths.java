@@ -14,7 +14,6 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,7 +30,7 @@ import java.util.List;
 /**
  * GraphObjectWithPaths
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-20T21:33:29.907Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-22T19:44:37.420Z")
 public class GraphObjectWithPaths {
   @SerializedName("type")
   private GraphType type = null;

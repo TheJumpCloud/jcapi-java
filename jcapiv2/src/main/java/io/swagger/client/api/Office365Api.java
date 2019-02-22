@@ -1020,11 +1020,11 @@ public class Office365Api {
      * @param office365Id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
@@ -1116,11 +1116,11 @@ public class Office365Api {
      * @param office365Id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @return List&lt;Office365TranslationRule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1135,11 +1135,11 @@ public class Office365Api {
      * @param office365Id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @return ApiResponse&lt;List&lt;Office365TranslationRule&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1155,11 +1155,11 @@ public class Office365Api {
      * @param office365Id  (required)
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional, default to [])
-     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional, default to [])
+     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional, default to [])
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

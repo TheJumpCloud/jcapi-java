@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 Name | Value
 ---- | -----
-USER_GROUP | &quot;user_group&quot;
+GROUP | &quot;user_group&quot;
 
 
 

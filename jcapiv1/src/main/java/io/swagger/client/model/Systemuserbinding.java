@@ -14,12 +14,11 @@
 package io.swagger.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 
 /**
  * Systemuserbinding
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-20T21:32:24.213Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-22T19:44:25.072Z")
 public class Systemuserbinding {
 
   @Override

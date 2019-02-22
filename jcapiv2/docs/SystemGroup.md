@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 Name | Value
 ---- | -----
-SYSTEM_GROUP | &quot;system_group&quot;
+GROUP | &quot;system_group&quot;
 
 
 
