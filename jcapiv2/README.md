@@ -231,8 +231,8 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policyresultsGet**](docs/PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
 *PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
 *PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
-*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
-*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
+*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
 *PoliciesApi* | [**policytemplatesGet**](docs/PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PoliciesApi* | [**policytemplatesList**](docs/PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 *PolicytemplatesApi* | [**policytemplatesGet**](docs/PolicytemplatesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -343,6 +343,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [ActiveDirectoryInput](docs/ActiveDirectoryInput.md)
+ - [Administrator](docs/Administrator.md)
  - [AuthInfo](docs/AuthInfo.md)
  - [AuthInput](docs/AuthInput.md)
  - [AuthInputObject](docs/AuthInputObject.md)
@@ -368,6 +369,7 @@ Class | Method | HTTP request | Description
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)
  - [LdapServerInput](docs/LdapServerInput.md)
+ - [Mfa](docs/Mfa.md)
  - [OauthCodeInput](docs/OauthCodeInput.md)
  - [Office365BuiltinTranslation](docs/Office365BuiltinTranslation.md)
  - [Office365TranslationRule](docs/Office365TranslationRule.md)

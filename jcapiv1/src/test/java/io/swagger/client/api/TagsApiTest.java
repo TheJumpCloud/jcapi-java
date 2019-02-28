@@ -70,7 +70,8 @@ public class TagsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Tag response = api.tagsGet(name, contentType, accept, fields, limit, skip, sort);
+        String filter = null;
+        Tag response = api.tagsGet(name, contentType, accept, fields, limit, skip, sort, filter);
 
         // TODO: test validations
     }
@@ -91,7 +92,8 @@ public class TagsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
-        Tagslist response = api.tagsList(contentType, accept, fields, limit, skip, sort);
+        String filter = null;
+        Tagslist response = api.tagsList(contentType, accept, fields, limit, skip, sort, filter);
 
         // TODO: test validations
     }

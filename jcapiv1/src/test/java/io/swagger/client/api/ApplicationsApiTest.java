@@ -48,8 +48,9 @@ public class ApplicationsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
+        String filter = null;
         String xOrgId = null;
-        Applicationslist response = api.applicationsList(contentType, accept, fields, limit, skip, sort, xOrgId);
+        Applicationslist response = api.applicationsList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }

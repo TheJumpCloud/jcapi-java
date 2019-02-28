@@ -132,8 +132,9 @@ public class SystemusersApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
+        String filter = null;
         String xOrgId = null;
-        Systemuserreturn response = api.systemusersGet(id, contentType, accept, fields, xOrgId);
+        Systemuserreturn response = api.systemusersGet(id, contentType, accept, fields, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -154,9 +155,10 @@ public class SystemusersApiTest {
         Integer skip = null;
         String sort = null;
         String fields = null;
-        String filter = null;
         String xOrgId = null;
-        Systemuserslist response = api.systemusersList(contentType, accept, limit, skip, sort, fields, filter, xOrgId);
+        String search = null;
+        String filter = null;
+        Systemuserslist response = api.systemusersList(contentType, accept, limit, skip, sort, fields, xOrgId, search, filter);
 
         // TODO: test validations
     }
@@ -236,8 +238,9 @@ public class SystemusersApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
+        String filter = null;
         String xOrgId = null;
-        Object response = api.systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId);
+        Object response = api.systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -258,6 +261,23 @@ public class SystemusersApiTest {
         Usersystembindingsput body = null;
         String xOrgId = null;
         Usersystembinding response = api.systemusersSystemsBindingPut(id, contentType, accept, body, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Unlock a system user
+     *
+     * This endpoint allows you to unlock a user&#39;s account.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systemusersUnlockTest() throws ApiException {
+        String id = null;
+        String xOrgId = null;
+        api.systemusersUnlock(id, xOrgId);
 
         // TODO: test validations
     }

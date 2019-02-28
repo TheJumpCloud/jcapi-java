@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**systemusersResetmfa**](SystemusersApi.md#systemusersResetmfa) | **POST** /systemusers/{id}/resetmfa | Reset a system user&#39;s MFA token
 [**systemusersSystemsBindingList**](SystemusersApi.md#systemusersSystemsBindingList) | **GET** /systemusers/{id}/systems | List system user binding
 [**systemusersSystemsBindingPut**](SystemusersApi.md#systemusersSystemsBindingPut) | **PUT** /systemusers/{id}/systems | Update a system user binding
+[**systemusersUnlock**](SystemusersApi.md#systemusersUnlock) | **POST** /systemusers/{id}/unlock | Unlock a system user
 
 
 <a name="sshkeyDelete"></a>
@@ -264,7 +265,7 @@ Name | Type | Description  | Notes
 
 <a name="systemusersGet"></a>
 # **systemusersGet**
-> Systemuserreturn systemusersGet(id, contentType, accept, fields, xOrgId)
+> Systemuserreturn systemusersGet(id, contentType, accept, fields, filter, xOrgId)
 
 List a system user
 
@@ -292,9 +293,10 @@ String id = "id_example"; // String |
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 String fields = ""; // String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+String filter = "filter_example"; // String | A filter to apply to the query.
 String xOrgId = ""; // String | 
 try {
-    Systemuserreturn result = apiInstance.systemusersGet(id, contentType, accept, fields, xOrgId);
+    Systemuserreturn result = apiInstance.systemusersGet(id, contentType, accept, fields, filter, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#systemusersGet");
@@ -310,6 +312,7 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -327,7 +330,7 @@ Name | Type | Description  | Notes
 
 <a name="systemusersList"></a>
 # **systemusersList**
-> Systemuserslist systemusersList(contentType, accept, limit, skip, sort, fields, filter, xOrgId)
+> Systemuserslist systemusersList(contentType, accept, limit, skip, sort, fields, xOrgId, search, filter)
 
 List all system users
 
@@ -357,10 +360,11 @@ Integer limit = 10; // Integer | The number of records to return at once.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String fields = ""; // String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-String filter = ""; // String | 
 String xOrgId = ""; // String | 
+String search = "search_example"; // String | A nested object containing a string `searchTerm` and a list of `fields` to search on.
+String filter = "filter_example"; // String | A filter to apply to the query.
 try {
-    Systemuserslist result = apiInstance.systemusersList(contentType, accept, limit, skip, sort, fields, filter, xOrgId);
+    Systemuserslist result = apiInstance.systemusersList(contentType, accept, limit, skip, sort, fields, xOrgId, search, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#systemusersList");
@@ -378,8 +382,9 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
  **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **filter** | **String**|  | [optional] [default to ]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **search** | **String**| A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on. | [optional]
+ **filter** | **String**| A filter to apply to the query. | [optional]
 
 ### Return type
 
@@ -581,7 +586,7 @@ Name | Type | Description  | Notes
 
 <a name="systemusersSystemsBindingList"></a>
 # **systemusersSystemsBindingList**
-> Object systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId)
+> Object systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId)
 
 List system user binding
 
@@ -612,9 +617,10 @@ String fields = ""; // String | Use a space seperated string of field parameters
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 String sort = ""; // String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+String filter = "filter_example"; // String | A filter to apply to the query.
 String xOrgId = ""; // String | 
 try {
-    Object result = apiInstance.systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId);
+    Object result = apiInstance.systemusersSystemsBindingList(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#systemusersSystemsBindingList");
@@ -633,6 +639,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -701,6 +708,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Usersystembinding**](Usersystembinding.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+<a name="systemusersUnlock"></a>
+# **systemusersUnlock**
+> systemusersUnlock(id, xOrgId)
+
+Unlock a system user
+
+This endpoint allows you to unlock a user&#39;s account.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemusersApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemusersApi apiInstance = new SystemusersApi();
+String id = "id_example"; // String | 
+String xOrgId = ""; // String | 
+try {
+    apiInstance.systemusersUnlock(id, xOrgId);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemusersApi#systemusersUnlock");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **xOrgId** | **String**|  | [optional] [default to ]
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

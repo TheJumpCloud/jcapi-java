@@ -62,6 +62,7 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -71,7 +72,7 @@ public class RadiusServersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call radiusServersListCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersListCall(String contentType, String accept, String fields, String filter, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -81,6 +82,8 @@ public class RadiusServersApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (fields != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("fields", fields));
+        if (filter != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
         if (limit != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
@@ -127,7 +130,7 @@ public class RadiusServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call radiusServersListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call radiusServersListValidateBeforeCall(String contentType, String accept, String fields, String filter, Integer limit, Integer skip, String sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -140,7 +143,7 @@ public class RadiusServersApi {
         }
         
 
-        com.squareup.okhttp.Call call = radiusServersListCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersListCall(contentType, accept, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -151,6 +154,7 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -158,8 +162,8 @@ public class RadiusServersApi {
      * @return Radiusserverslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Radiusserverslist radiusServersList(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
-        ApiResponse<Radiusserverslist> resp = radiusServersListWithHttpInfo(contentType, accept, fields, limit, skip, sort, xOrgId);
+    public Radiusserverslist radiusServersList(String contentType, String accept, String fields, String filter, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        ApiResponse<Radiusserverslist> resp = radiusServersListWithHttpInfo(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
         return resp.getData();
     }
 
@@ -169,6 +173,7 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -176,8 +181,8 @@ public class RadiusServersApi {
      * @return ApiResponse&lt;Radiusserverslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Radiusserverslist> radiusServersListWithHttpInfo(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, null, null);
+    public ApiResponse<Radiusserverslist> radiusServersListWithHttpInfo(String contentType, String accept, String fields, String filter, Integer limit, Integer skip, String sort, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, filter, limit, skip, sort, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -188,6 +193,7 @@ public class RadiusServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (optional, default to )
+     * @param filter A filter to apply to the query. (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
@@ -196,7 +202,7 @@ public class RadiusServersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call radiusServersListAsync(String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String xOrgId, final ApiCallback<Radiusserverslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersListAsync(String contentType, String accept, String fields, String filter, Integer limit, Integer skip, String sort, String xOrgId, final ApiCallback<Radiusserverslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -217,7 +223,7 @@ public class RadiusServersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersListValidateBeforeCall(contentType, accept, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

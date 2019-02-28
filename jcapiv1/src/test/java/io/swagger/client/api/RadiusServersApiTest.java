@@ -48,11 +48,12 @@ public class RadiusServersApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
+        String filter = null;
         Integer limit = null;
         Integer skip = null;
         String sort = null;
         String xOrgId = null;
-        Radiusserverslist response = api.radiusServersList(contentType, accept, fields, limit, skip, sort, xOrgId);
+        Radiusserverslist response = api.radiusServersList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
 
         // TODO: test validations
     }

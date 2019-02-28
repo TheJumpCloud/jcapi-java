@@ -45,11 +45,12 @@ public class OrganizationsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
+        String filter = null;
         Integer limit = null;
         Integer skip = null;
         String sort = null;
         String search = null;
-        Organizationslist response = api.organizationList(contentType, accept, fields, limit, skip, sort, search);
+        Organizationslist response = api.organizationList(contentType, accept, fields, filter, limit, skip, sort, search);
 
         // TODO: test validations
     }

@@ -71,10 +71,11 @@ public class SystemsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
+        String filter = null;
         String date = null;
         String authorization = null;
         String xOrgId = null;
-        System response = api.systemsGet(id, contentType, accept, fields, date, authorization, xOrgId);
+        System response = api.systemsGet(id, contentType, accept, fields, filter, date, authorization, xOrgId);
 
         // TODO: test validations
     }
@@ -93,10 +94,12 @@ public class SystemsApiTest {
         String accept = null;
         String fields = null;
         Integer limit = null;
+        String xOrgId = null;
+        String search = null;
         Integer skip = null;
         String sort = null;
-        String xOrgId = null;
-        Systemslist response = api.systemsList(contentType, accept, fields, limit, skip, sort, xOrgId);
+        String filter = null;
+        Systemslist response = api.systemsList(contentType, accept, fields, limit, xOrgId, search, skip, sort, filter);
 
         // TODO: test validations
     }
@@ -140,8 +143,9 @@ public class SystemsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
+        String filter = null;
         String xOrgId = null;
-        Systemuserbinding response = api.systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort, xOrgId);
+        Systemuserbinding response = api.systemsSystemusersBindingList(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }

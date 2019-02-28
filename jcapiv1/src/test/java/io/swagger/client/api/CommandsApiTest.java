@@ -89,8 +89,9 @@ public class CommandsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
+        String filter = null;
         String xOrgId = null;
-        Command response = api.commandsGet(id, contentType, accept, fields, xOrgId);
+        Command response = api.commandsGet(id, contentType, accept, fields, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -111,8 +112,9 @@ public class CommandsApiTest {
         String fields = null;
         Integer limit = null;
         String sort = null;
+        String filter = null;
         String xOrgId = null;
-        Commandslist response = api.commandsList(contentType, accept, skip, fields, limit, sort, xOrgId);
+        Commandslist response = api.commandsList(contentType, accept, skip, fields, limit, sort, filter, xOrgId);
 
         // TODO: test validations
     }

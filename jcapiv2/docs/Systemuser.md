@@ -43,6 +43,7 @@ Name | Type | Description | Notes
 **employeeIdentifier** | **String** | Must be unique per user.  |  [optional]
 **jobTitle** | **String** |  |  [optional]
 **department** | **String** |  |  [optional]
+**mfa** | [**Mfa**](Mfa.md) |  |  [optional]
 
 
 

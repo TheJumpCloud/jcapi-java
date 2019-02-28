@@ -55,7 +55,7 @@ public class CommandResultsApiTest {
     /**
      * List an individual Command result
      *
-     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns a specific command result.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commandresults/{CommandResultID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -66,8 +66,9 @@ public class CommandResultsApiTest {
         String contentType = null;
         String accept = null;
         String fields = null;
+        String filter = null;
         String xOrgId = null;
-        Commandresult response = api.commandResultsGet(id, contentType, accept, fields, xOrgId);
+        Commandresult response = api.commandResultsGet(id, contentType, accept, fields, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -88,8 +89,9 @@ public class CommandResultsApiTest {
         Integer limit = null;
         Integer skip = null;
         String sort = null;
+        String filter = null;
         String xOrgId = null;
-        Commandresultslist response = api.commandResultsList(contentType, accept, fields, limit, skip, sort, xOrgId);
+        Commandresultslist response = api.commandResultsList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
 
         // TODO: test validations
     }

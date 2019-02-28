@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.Mfa;
 import io.swagger.client.model.Sshkeylist;
 import io.swagger.client.model.SystemuserreturnAddresses;
 import io.swagger.client.model.SystemuserreturnPhoneNumbers;
@@ -31,7 +32,7 @@ import java.util.List;
 /**
  * Systemuserreturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-01-08T20:00:33.755Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-28T17:52:37.291Z")
 public class Systemuserreturn {
   @SerializedName("email")
   private String email = null;
@@ -158,6 +159,9 @@ public class Systemuserreturn {
 
   @SerializedName("employeeIdentifier")
   private String employeeIdentifier = null;
+
+  @SerializedName("mfa")
+  private Mfa mfa = null;
 
   public Systemuserreturn email(String email) {
     this.email = email;
@@ -966,6 +970,24 @@ public class Systemuserreturn {
     this.employeeIdentifier = employeeIdentifier;
   }
 
+  public Systemuserreturn mfa(Mfa mfa) {
+    this.mfa = mfa;
+    return this;
+  }
+
+   /**
+   * Get mfa
+   * @return mfa
+  **/
+  @ApiModelProperty(value = "")
+  public Mfa getMfa() {
+    return mfa;
+  }
+
+  public void setMfa(Mfa mfa) {
+    this.mfa = mfa;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -1017,12 +1039,13 @@ public class Systemuserreturn {
         Objects.equals(this.costCenter, systemuserreturn.costCenter) &&
         Objects.equals(this.employeeType, systemuserreturn.employeeType) &&
         Objects.equals(this.company, systemuserreturn.company) &&
-        Objects.equals(this.employeeIdentifier, systemuserreturn.employeeIdentifier);
+        Objects.equals(this.employeeIdentifier, systemuserreturn.employeeIdentifier) &&
+        Objects.equals(this.mfa, systemuserreturn.mfa);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, totpEnabled, attributes, created, sambaServiceUser, id, organization, addresses, jobTitle, department, phoneNumbers, relationships, badLoginAttempts, passwordNeverExpires, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier);
+    return Objects.hash(email, username, allowPublicKey, publicKey, sshKeys, sudo, enableManagedUid, unixUid, unixGuid, activated, tags, passwordExpired, accountLocked, passwordlessSudo, externallyManaged, externalDn, externalSourceType, firstname, lastname, ldapBindingUser, enableUserPortalMultifactor, totpEnabled, attributes, created, sambaServiceUser, id, organization, addresses, jobTitle, department, phoneNumbers, relationships, badLoginAttempts, passwordNeverExpires, middlename, displayname, description, location, costCenter, employeeType, company, employeeIdentifier, mfa);
   }
 
 
@@ -1073,6 +1096,7 @@ public class Systemuserreturn {
     sb.append("    employeeType: ").append(toIndentedString(employeeType)).append("\n");
     sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    employeeIdentifier: ").append(toIndentedString(employeeIdentifier)).append("\n");
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("}");
     return sb.toString();
   }
