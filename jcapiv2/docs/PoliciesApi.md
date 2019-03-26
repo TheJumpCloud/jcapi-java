@@ -16,8 +16,8 @@ Method | HTTP request | Description
 [**policyresultsGet**](PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
 [**policyresultsList**](PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
 [**policyresultsList_0**](PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
-[**policystatusesList**](PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
-[**policystatusesList_0**](PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+[**policystatusesList**](PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+[**policystatusesList_0**](PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 [**policytemplatesGet**](PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 [**policytemplatesList**](PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 
@@ -42,10 +42,10 @@ This endpoint returns the _direct_ associations of a Policy.  A direct associati
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Policy.
@@ -109,10 +109,10 @@ This endpoint allows you to manage the _direct_ associations of a Policy.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Policy.
@@ -171,10 +171,10 @@ This endpoint will return all Systems bound to a Policy, either directly or indi
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Command.
@@ -236,10 +236,10 @@ This endpoint will return all Systems Groups bound to a Policy, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | ObjectID of the Command.
@@ -301,10 +301,10 @@ This endpoint allows you to delete a policy.  #### Sample Request  &#x60;&#x60;&
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
@@ -361,10 +361,10 @@ This endpoint returns a specific policy.  ###### Sample Request  &#x60;&#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
@@ -422,10 +422,10 @@ This endpoint returns all policies.  ##### Sample Request  &#x60;&#x60;&#x60;  c
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
@@ -491,10 +491,10 @@ This endpoint allows you to create a policy. Given the amount of configurable pa
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
@@ -552,10 +552,10 @@ This endpoint allows you to update a policy. Given the amount of configurable pa
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy object.
@@ -611,10 +611,10 @@ This endpoint will return the policy results for a specific policy.  ##### Sampl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy Result.
@@ -672,10 +672,10 @@ This endpoint returns all policies results for a specific policy.  ##### Sample 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String policyId = "policyId_example"; // String | 
@@ -745,10 +745,10 @@ This endpoint returns all policies results for an Organization.  ##### Sample Re
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
@@ -798,11 +798,11 @@ Name | Type | Description  | Notes
 
 <a name="policystatusesList"></a>
 # **policystatusesList**
-> List&lt;PolicyResult&gt; policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
+> List&lt;PolicyResult&gt; policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
-List the policy statuses for a system
+Lists the latest policy results of a policy.
 
-This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+This endpoint returns the latest policies results for a specific policy.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -816,13 +816,13 @@ This endpoint returns the policy results for a particular system.  ##### Sample 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
-String systemId = "systemId_example"; // String | ObjectID of the System.
+String policyId = "policyId_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
@@ -832,7 +832,7 @@ Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policystatusesList(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+    List<PolicyResult> result = apiInstance.policystatusesList(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policystatusesList");
@@ -844,7 +844,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **systemId** | **String**| ObjectID of the System. |
+ **policyId** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
@@ -869,11 +869,11 @@ Name | Type | Description  | Notes
 
 <a name="policystatusesList_0"></a>
 # **policystatusesList_0**
-> List&lt;PolicyResult&gt; policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
+> List&lt;PolicyResult&gt; policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId)
 
-Lists the latest policy results of a policy.
+List the policy statuses for a system
 
-This endpoint returns the latest policies results for a specific policy.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -887,13 +887,13 @@ This endpoint returns the latest policies results for a specific policy.  ##### 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
-String policyId = "policyId_example"; // String | 
+String systemId = "systemId_example"; // String | ObjectID of the System.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
@@ -903,7 +903,7 @@ Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 String xOrgId = ""; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policystatusesList_0(policyId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+    List<PolicyResult> result = apiInstance.policystatusesList_0(systemId, contentType, accept, fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policystatusesList_0");
@@ -915,7 +915,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **policyId** | **String**|  |
+ **systemId** | **String**| ObjectID of the System. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional]
@@ -958,10 +958,10 @@ This endpoint returns a specific policy template.  #### Sample Request &#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | ObjectID of the Policy Template.
@@ -1019,10 +1019,10 @@ This endpoint returns all policy templates.  #### Sample Request &#x60;&#x60;&#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 

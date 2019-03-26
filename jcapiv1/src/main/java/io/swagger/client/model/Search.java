@@ -26,13 +26,16 @@ import java.io.IOException;
 /**
  * Search
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-28T17:52:37.291Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T18:00:07.970Z")
 public class Search {
   @SerializedName("filter")
   private Object filter = null;
 
   @SerializedName("fields")
   private String fields = null;
+
+  @SerializedName("searchFilter")
+  private Object searchFilter = null;
 
   public Search filter(Object filter) {
     this.filter = filter;
@@ -70,6 +73,24 @@ public class Search {
     this.fields = fields;
   }
 
+  public Search searchFilter(Object searchFilter) {
+    this.searchFilter = searchFilter;
+    return this;
+  }
+
+   /**
+   * Get searchFilter
+   * @return searchFilter
+  **/
+  @ApiModelProperty(value = "")
+  public Object getSearchFilter() {
+    return searchFilter;
+  }
+
+  public void setSearchFilter(Object searchFilter) {
+    this.searchFilter = searchFilter;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,12 +102,13 @@ public class Search {
     }
     Search search = (Search) o;
     return Objects.equals(this.filter, search.filter) &&
-        Objects.equals(this.fields, search.fields);
+        Objects.equals(this.fields, search.fields) &&
+        Objects.equals(this.searchFilter, search.searchFilter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, fields);
+    return Objects.hash(filter, fields, searchFilter);
   }
 
 
@@ -97,6 +119,7 @@ public class Search {
     
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    searchFilter: ").append(toIndentedString(searchFilter)).append("\n");
     sb.append("}");
     return sb.toString();
   }

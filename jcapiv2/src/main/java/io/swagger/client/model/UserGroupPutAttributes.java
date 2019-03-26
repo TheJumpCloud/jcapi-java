@@ -27,7 +27,7 @@ import java.io.IOException;
  * The group object&#39;s attributes.
  */
 @ApiModel(description = "The group object's attributes.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-28T17:52:47.834Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-26T18:00:18.551Z")
 public class UserGroupPutAttributes {
   @SerializedName("sambaEnabled")
   private Boolean sambaEnabled = null;

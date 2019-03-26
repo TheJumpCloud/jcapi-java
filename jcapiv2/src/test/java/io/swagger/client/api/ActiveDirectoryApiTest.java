@@ -14,6 +14,9 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.ActiveDirectoryAgentGetOutput;
+import io.swagger.client.model.ActiveDirectoryAgentInput;
+import io.swagger.client.model.ActiveDirectoryAgentListOutput;
 import io.swagger.client.model.ActiveDirectoryInput;
 import io.swagger.client.model.ActiveDirectoryOutput;
 import io.swagger.client.model.GraphConnection;
@@ -35,6 +38,48 @@ public class ActiveDirectoryApiTest {
 
     private final ActiveDirectoryApi api = new ActiveDirectoryApi();
 
+    
+    /**
+     * List Active Directory Agents
+     *
+     * This endpoint allows you to list all your Active Directory Agents for a given Instance.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void activedirectoriesAgentsListTest() throws ApiException {
+        String activedirectoryId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> sort = null;
+        String xOrgId = null;
+        List<ActiveDirectoryAgentListOutput> response = api.activedirectoriesAgentsList(activedirectoryId, contentType, accept, limit, skip, sort, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create a new Active Directory Agent
+     *
+     * This endpoint allows you to create a new Active Directory Agent.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{}&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void activedirectoriesAgentsPostTest() throws ApiException {
+        String activedirectoryId = null;
+        String contentType = null;
+        String accept = null;
+        ActiveDirectoryAgentInput body = null;
+        String xOrgId = null;
+        ActiveDirectoryAgentGetOutput response = api.activedirectoriesAgentsPost(activedirectoryId, contentType, accept, body, xOrgId);
+
+        // TODO: test validations
+    }
     
     /**
      * Delete an Active Directory

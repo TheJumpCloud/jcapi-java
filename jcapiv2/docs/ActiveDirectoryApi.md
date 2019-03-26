@@ -4,6 +4,8 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**activedirectoriesAgentsList**](ActiveDirectoryApi.md#activedirectoriesAgentsList) | **GET** /activedirectories/{activedirectory_id}/agents | List Active Directory Agents
+[**activedirectoriesAgentsPost**](ActiveDirectoryApi.md#activedirectoriesAgentsPost) | **POST** /activedirectories/{activedirectory_id}/agents | Create a new Active Directory Agent
 [**activedirectoriesDelete**](ActiveDirectoryApi.md#activedirectoriesDelete) | **DELETE** /activedirectories/{id} | Delete an Active Directory
 [**activedirectoriesGet**](ActiveDirectoryApi.md#activedirectoriesGet) | **GET** /activedirectories/{id} | Get an Active Directory
 [**activedirectoriesList**](ActiveDirectoryApi.md#activedirectoriesList) | **GET** /activedirectories | List Active Directories
@@ -12,6 +14,136 @@ Method | HTTP request | Description
 [**graphActiveDirectoryAssociationsPost**](ActiveDirectoryApi.md#graphActiveDirectoryAssociationsPost) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
 [**graphActiveDirectoryTraverseUserGroup**](ActiveDirectoryApi.md#graphActiveDirectoryTraverseUserGroup) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
 
+
+<a name="activedirectoriesAgentsList"></a>
+# **activedirectoriesAgentsList**
+> List&lt;ActiveDirectoryAgentListOutput&gt; activedirectoriesAgentsList(activedirectoryId, contentType, accept, limit, skip, sort, xOrgId)
+
+List Active Directory Agents
+
+This endpoint allows you to list all your Active Directory Agents for a given Instance.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActiveDirectoryApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x-api-key.setApiKeyPrefix("Token");
+
+ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
+String activedirectoryId = "activedirectoryId_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+String xOrgId = ""; // String | 
+try {
+    List<ActiveDirectoryAgentListOutput> result = apiInstance.activedirectoriesAgentsList(activedirectoryId, contentType, accept, limit, skip, sort, xOrgId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesAgentsList");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectoryId** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**List&lt;ActiveDirectoryAgentListOutput&gt;**](ActiveDirectoryAgentListOutput.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="activedirectoriesAgentsPost"></a>
+# **activedirectoriesAgentsPost**
+> ActiveDirectoryAgentGetOutput activedirectoriesAgentsPost(activedirectoryId, contentType, accept, body, xOrgId)
+
+Create a new Active Directory Agent
+
+This endpoint allows you to create a new Active Directory Agent.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{}&#39; &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.ActiveDirectoryApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x-api-key.setApiKeyPrefix("Token");
+
+ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
+String activedirectoryId = "activedirectoryId_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+ActiveDirectoryAgentInput body = new ActiveDirectoryAgentInput(); // ActiveDirectoryAgentInput | 
+String xOrgId = ""; // String | 
+try {
+    ActiveDirectoryAgentGetOutput result = apiInstance.activedirectoriesAgentsPost(activedirectoryId, contentType, accept, body, xOrgId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesAgentsPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectoryId** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**ActiveDirectoryAgentInput**](ActiveDirectoryAgentInput.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**ActiveDirectoryAgentGetOutput**](ActiveDirectoryAgentGetOutput.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="activedirectoriesDelete"></a>
 # **activedirectoriesDelete**
@@ -33,10 +165,10 @@ This endpoint allows you to delete an Active Directory Instance.  #### Sample Re
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String id = "id_example"; // String | ObjectID of this Active Directory instance.
@@ -93,10 +225,10 @@ This endpoint returns a specific Active Directory.  #### Sample Request  &#x60;&
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String id = "id_example"; // String | ObjectID of this Active Directory instance.
@@ -154,10 +286,10 @@ This endpoint allows you to list all your Active Directory Instances.  #### Samp
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String contentType = "application/json"; // String | 
@@ -223,10 +355,10 @@ This endpoint allows you to create a new Active Directory.   #### Sample Request
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String contentType = "application/json"; // String | 
@@ -284,10 +416,10 @@ This endpoint returns the direct associations of this Active Directory instance.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String activedirectoryId = "activedirectoryId_example"; // String | 
@@ -351,10 +483,10 @@ This endpoint allows you to manage the _direct_ associations of an Active Direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String activedirectoryId = "activedirectoryId_example"; // String | 
@@ -413,10 +545,10 @@ This endpoint will return all Users Groups bound to an Active Directory instance
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
 String activedirectoryId = "activedirectoryId_example"; // String | ObjectID of the Active Directory instance.
