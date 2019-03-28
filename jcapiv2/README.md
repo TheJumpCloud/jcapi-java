@@ -72,10 +72,10 @@ public class ActiveDirectoryApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x_api_key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x-api-key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x_api_key.setApiKeyPrefix("Token");
+        //x-api-key.setApiKeyPrefix("Token");
 
         ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
         String id = "id_example"; // String | ObjectID of this Active Directory instance.
@@ -231,12 +231,14 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policyresultsGet**](docs/PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
 *PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
 *PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
-*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
-*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+*PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
+*PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 *PoliciesApi* | [**policytemplatesGet**](docs/PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PoliciesApi* | [**policytemplatesList**](docs/PoliciesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
 *PolicytemplatesApi* | [**policytemplatesGet**](docs/PolicytemplatesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *PolicytemplatesApi* | [**policytemplatesList**](docs/PolicytemplatesApi.md#policytemplatesList) | **GET** /policytemplates | Lists all of the Policy Templates
+*ProvidersApi* | [**providersListAdministrators**](docs/ProvidersApi.md#providersListAdministrators) | **GET** /providers/{provider_id}/administrators | List Provider Administrators
+*ProvidersApi* | [**providersPostAdmins**](docs/ProvidersApi.md#providersPostAdmins) | **POST** /providers/{provider_id}/administrators | Create a new Provider Administrator
 *RadiusServersApi* | [**graphRadiusServerAssociationsList**](docs/RadiusServersApi.md#graphRadiusServerAssociationsList) | **GET** /radiusservers/{radiusserver_id}/associations | List the associations of a RADIUS  Server
 *RadiusServersApi* | [**graphRadiusServerAssociationsPost**](docs/RadiusServersApi.md#graphRadiusServerAssociationsPost) | **POST** /radiusservers/{radiusserver_id}/associations | Manage the associations of a RADIUS Server
 *RadiusServersApi* | [**graphRadiusServerTraverseUser**](docs/RadiusServersApi.md#graphRadiusServerTraverseUser) | **GET** /radiusservers/{radiusserver_id}/users | List the Users bound to a RADIUS  Server
@@ -365,6 +367,8 @@ Class | Method | HTTP request | Description
  - [GraphType](docs/GraphType.md)
  - [Group](docs/Group.md)
  - [GroupType](docs/GroupType.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse401](docs/InlineResponse401.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)
@@ -385,6 +389,9 @@ Class | Method | HTTP request | Description
  - [PolicyTemplateWithDetails](docs/PolicyTemplateWithDetails.md)
  - [PolicyValue](docs/PolicyValue.md)
  - [PolicyWithDetails](docs/PolicyWithDetails.md)
+ - [Provider](docs/Provider.md)
+ - [ProviderAdminReq](docs/ProviderAdminReq.md)
+ - [ProviderContact](docs/ProviderContact.md)
  - [SambaDomainInput](docs/SambaDomainInput.md)
  - [Sshkeylist](docs/Sshkeylist.md)
  - [SystemGraphManagementReq](docs/SystemGraphManagementReq.md)

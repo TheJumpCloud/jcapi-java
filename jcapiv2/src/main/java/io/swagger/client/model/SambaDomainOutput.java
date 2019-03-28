@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * SambaDomainOutput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-28T17:52:47.834Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T15:13:46.946Z")
 public class SambaDomainOutput {
   @SerializedName("name")
   private String name = null;
