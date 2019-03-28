@@ -211,7 +211,7 @@ public class PolicytemplatesApi {
      * Build call for policytemplatesList
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
@@ -303,7 +303,7 @@ public class PolicytemplatesApi {
      * This endpoint returns all policy templates.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/policytemplates \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
@@ -322,7 +322,7 @@ public class PolicytemplatesApi {
      * This endpoint returns all policy templates.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/policytemplates \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
@@ -342,7 +342,7 @@ public class PolicytemplatesApi {
      * This endpoint returns all policy templates.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/policytemplates \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (optional)
+     * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)

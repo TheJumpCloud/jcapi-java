@@ -27,7 +27,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Mfa
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T15:13:46.946Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
 public class Mfa {
   @SerializedName("exclusion")
   private Boolean exclusion = null;

@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * Systemuserreturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T15:13:41.233Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:21.489Z")
 public class Systemuserreturn {
   @SerializedName("email")
   private String email = null;
