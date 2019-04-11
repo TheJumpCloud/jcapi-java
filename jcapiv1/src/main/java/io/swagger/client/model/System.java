@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * System
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-28T17:52:37.291Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:21.489Z")
 public class System {
   @SerializedName("organization")
   private String organization = null;

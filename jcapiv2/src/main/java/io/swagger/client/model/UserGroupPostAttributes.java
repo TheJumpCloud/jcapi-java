@@ -30,7 +30,7 @@ import java.util.List;
  * The group object&#39;s attributes.
  */
 @ApiModel(description = "The group object's attributes.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-02-28T17:52:47.834Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
 public class UserGroupPostAttributes {
   @SerializedName("posixGroups")
   private List<UserGroupPostAttributesPosixGroups> posixGroups = null;
