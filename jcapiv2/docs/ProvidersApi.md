@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="providersListAdministrators"></a>
 # **providersListAdministrators**
-> InlineResponse200 providersListAdministrators(providerId, contentType, accept, fields, filter, limit, skip, sort)
+> InlineResponse2001 providersListAdministrators(providerId, contentType, accept, fields, filter, limit, skip, sort)
 
 List Provider Administrators
 
@@ -43,7 +43,7 @@ Integer limit = 10; // Integer | The number of records to return at once. Limite
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 try {
-    InlineResponse200 result = apiInstance.providersListAdministrators(providerId, contentType, accept, fields, filter, limit, skip, sort);
+    InlineResponse2001 result = apiInstance.providersListAdministrators(providerId, contentType, accept, fields, filter, limit, skip, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ProvidersApi#providersListAdministrators");
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

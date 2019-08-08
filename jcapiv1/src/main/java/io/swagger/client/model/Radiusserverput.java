@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Radiusserverput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:21.489Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:17:47.506Z")
 public class Radiusserverput {
   @SerializedName("_id")
   private String id = null;
@@ -41,6 +41,66 @@ public class Radiusserverput {
 
   @SerializedName("tagNames")
   private List<String> tagNames = null;
+
+  @SerializedName("userLockoutAction")
+  private String userLockoutAction = null;
+
+  @SerializedName("userPasswordExpirationAction")
+  private String userPasswordExpirationAction = null;
+
+  /**
+   * Gets or Sets mfa
+   */
+  @JsonAdapter(MfaEnum.Adapter.class)
+  public enum MfaEnum {
+    DISABLED("DISABLED"),
+    
+    ENABLED("ENABLED"),
+    
+    REQUIRED("REQUIRED"),
+    
+    ALWAYS("ALWAYS");
+
+    private String value;
+
+    MfaEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MfaEnum fromValue(String text) {
+      for (MfaEnum b : MfaEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MfaEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MfaEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MfaEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MfaEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("mfa")
+  private MfaEnum mfa = null;
 
   public Radiusserverput id(String id) {
     this.id = id;
@@ -122,6 +182,60 @@ public class Radiusserverput {
     this.tagNames = tagNames;
   }
 
+  public Radiusserverput userLockoutAction(String userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+    return this;
+  }
+
+   /**
+   * Get userLockoutAction
+   * @return userLockoutAction
+  **/
+  @ApiModelProperty(value = "")
+  public String getUserLockoutAction() {
+    return userLockoutAction;
+  }
+
+  public void setUserLockoutAction(String userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+  }
+
+  public Radiusserverput userPasswordExpirationAction(String userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
+    return this;
+  }
+
+   /**
+   * Get userPasswordExpirationAction
+   * @return userPasswordExpirationAction
+  **/
+  @ApiModelProperty(value = "")
+  public String getUserPasswordExpirationAction() {
+    return userPasswordExpirationAction;
+  }
+
+  public void setUserPasswordExpirationAction(String userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
+  }
+
+  public Radiusserverput mfa(MfaEnum mfa) {
+    this.mfa = mfa;
+    return this;
+  }
+
+   /**
+   * Get mfa
+   * @return mfa
+  **/
+  @ApiModelProperty(value = "")
+  public MfaEnum getMfa() {
+    return mfa;
+  }
+
+  public void setMfa(MfaEnum mfa) {
+    this.mfa = mfa;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -135,12 +249,15 @@ public class Radiusserverput {
     return Objects.equals(this.id, radiusserverput.id) &&
         Objects.equals(this.networkSourceIp, radiusserverput.networkSourceIp) &&
         Objects.equals(this.name, radiusserverput.name) &&
-        Objects.equals(this.tagNames, radiusserverput.tagNames);
+        Objects.equals(this.tagNames, radiusserverput.tagNames) &&
+        Objects.equals(this.userLockoutAction, radiusserverput.userLockoutAction) &&
+        Objects.equals(this.userPasswordExpirationAction, radiusserverput.userPasswordExpirationAction) &&
+        Objects.equals(this.mfa, radiusserverput.mfa);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, networkSourceIp, name, tagNames);
+    return Objects.hash(id, networkSourceIp, name, tagNames, userLockoutAction, userPasswordExpirationAction, mfa);
   }
 
 
@@ -153,6 +270,9 @@ public class Radiusserverput {
     sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
+    sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
+    sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("}");
     return sb.toString();
   }

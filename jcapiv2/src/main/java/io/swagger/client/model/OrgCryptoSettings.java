@@ -21,32 +21,33 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.OrgcryptosettingsSshKeys;
 import java.io.IOException;
 
 /**
- * InlineResponse401
+ * OrgCryptoSettings
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
-public class InlineResponse401 {
-  @SerializedName("message")
-  private String message = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:17:54.297Z")
+public class OrgCryptoSettings {
+  @SerializedName("sshKeys")
+  private OrgcryptosettingsSshKeys sshKeys = null;
 
-  public InlineResponse401 message(String message) {
-    this.message = message;
+  public OrgCryptoSettings sshKeys(OrgcryptosettingsSshKeys sshKeys) {
+    this.sshKeys = sshKeys;
     return this;
   }
 
    /**
-   * Get message
-   * @return message
+   * Get sshKeys
+   * @return sshKeys
   **/
   @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
+  public OrgcryptosettingsSshKeys getSshKeys() {
+    return sshKeys;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setSshKeys(OrgcryptosettingsSshKeys sshKeys) {
+    this.sshKeys = sshKeys;
   }
 
 
@@ -58,22 +59,22 @@ public class InlineResponse401 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse401 inlineResponse401 = (InlineResponse401) o;
-    return Objects.equals(this.message, inlineResponse401.message);
+    OrgCryptoSettings orgCryptoSettings = (OrgCryptoSettings) o;
+    return Objects.equals(this.sshKeys, orgCryptoSettings.sshKeys);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message);
+    return Objects.hash(sshKeys);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse401 {\n");
+    sb.append("class OrgCryptoSettings {\n");
     
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("}");
     return sb.toString();
   }

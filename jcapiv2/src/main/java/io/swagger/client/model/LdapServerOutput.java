@@ -27,10 +27,110 @@ import java.io.IOException;
 /**
  * LdapServerOutput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:17:54.297Z")
 public class LdapServerOutput {
   @SerializedName("name")
   private String name = null;
+
+  /**
+   * action to take; one of &#39;remove&#39; or &#39;disable&#39;
+   */
+  @JsonAdapter(UserLockoutActionEnum.Adapter.class)
+  public enum UserLockoutActionEnum {
+    DISABLE("disable"),
+    
+    REMOVE("remove");
+
+    private String value;
+
+    UserLockoutActionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UserLockoutActionEnum fromValue(String text) {
+      for (UserLockoutActionEnum b : UserLockoutActionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<UserLockoutActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UserLockoutActionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UserLockoutActionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return UserLockoutActionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("userLockoutAction")
+  private UserLockoutActionEnum userLockoutAction = null;
+
+  /**
+   * action to take; one of &#39;remove&#39; or &#39;disable&#39;
+   */
+  @JsonAdapter(UserPasswordExpirationActionEnum.Adapter.class)
+  public enum UserPasswordExpirationActionEnum {
+    DISABLE("disable"),
+    
+    REMOVE("remove");
+
+    private String value;
+
+    UserPasswordExpirationActionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UserPasswordExpirationActionEnum fromValue(String text) {
+      for (UserPasswordExpirationActionEnum b : UserPasswordExpirationActionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<UserPasswordExpirationActionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UserPasswordExpirationActionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UserPasswordExpirationActionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return UserPasswordExpirationActionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("userPasswordExpirationAction")
+  private UserPasswordExpirationActionEnum userPasswordExpirationAction = null;
 
   @SerializedName("id")
   private String id = null;
@@ -51,6 +151,42 @@ public class LdapServerOutput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public LdapServerOutput userLockoutAction(UserLockoutActionEnum userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+    return this;
+  }
+
+   /**
+   * action to take; one of &#39;remove&#39; or &#39;disable&#39;
+   * @return userLockoutAction
+  **/
+  @ApiModelProperty(value = "action to take; one of 'remove' or 'disable'")
+  public UserLockoutActionEnum getUserLockoutAction() {
+    return userLockoutAction;
+  }
+
+  public void setUserLockoutAction(UserLockoutActionEnum userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+  }
+
+  public LdapServerOutput userPasswordExpirationAction(UserPasswordExpirationActionEnum userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
+    return this;
+  }
+
+   /**
+   * action to take; one of &#39;remove&#39; or &#39;disable&#39;
+   * @return userPasswordExpirationAction
+  **/
+  @ApiModelProperty(value = "action to take; one of 'remove' or 'disable'")
+  public UserPasswordExpirationActionEnum getUserPasswordExpirationAction() {
+    return userPasswordExpirationAction;
+  }
+
+  public void setUserPasswordExpirationAction(UserPasswordExpirationActionEnum userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
   }
 
   public LdapServerOutput id(String id) {
@@ -82,12 +218,14 @@ public class LdapServerOutput {
     }
     LdapServerOutput ldapServerOutput = (LdapServerOutput) o;
     return Objects.equals(this.name, ldapServerOutput.name) &&
+        Objects.equals(this.userLockoutAction, ldapServerOutput.userLockoutAction) &&
+        Objects.equals(this.userPasswordExpirationAction, ldapServerOutput.userPasswordExpirationAction) &&
         Objects.equals(this.id, ldapServerOutput.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, id);
+    return Objects.hash(name, userLockoutAction, userPasswordExpirationAction, id);
   }
 
 
@@ -97,6 +235,8 @@ public class LdapServerOutput {
     sb.append("class LdapServerOutput {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
+    sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
