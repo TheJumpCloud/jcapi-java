@@ -69,23 +69,17 @@ import java.util.*;
 public class ActiveDirectoryApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: x-api-key
-        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x_api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x_api_key.setApiKeyPrefix("Token");
-
         ActiveDirectoryApi apiInstance = new ActiveDirectoryApi();
-        String id = "id_example"; // String | ObjectID of this Active Directory instance.
+        String activedirectoryId = "activedirectoryId_example"; // String | 
+        String agentId = "agentId_example"; // String | 
         String contentType = "application/json"; // String | 
         String accept = "application/json"; // String | 
         String xOrgId = ""; // String | 
         try {
-            apiInstance.activedirectoriesDelete(id, contentType, accept, xOrgId);
+            apiInstance.activedirectoriesAgentsDelete(activedirectoryId, agentId, contentType, accept, xOrgId);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesDelete");
+            System.err.println("Exception when calling ActiveDirectoryApi#activedirectoriesAgentsDelete");
             e.printStackTrace();
         }
     }
@@ -99,6 +93,10 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ActiveDirectoryApi* | [**activedirectoriesAgentsDelete**](docs/ActiveDirectoryApi.md#activedirectoriesAgentsDelete) | **DELETE** /activedirectories/{activedirectory_id}/agents/{agent_id} | Delete Active Directory Agent
+*ActiveDirectoryApi* | [**activedirectoriesAgentsGet**](docs/ActiveDirectoryApi.md#activedirectoriesAgentsGet) | **GET** /activedirectories/{activedirectory_id}/agents/{agent_id} | Get Active Directory Agent
+*ActiveDirectoryApi* | [**activedirectoriesAgentsList**](docs/ActiveDirectoryApi.md#activedirectoriesAgentsList) | **GET** /activedirectories/{activedirectory_id}/agents | List Active Directory Agents
+*ActiveDirectoryApi* | [**activedirectoriesAgentsPost**](docs/ActiveDirectoryApi.md#activedirectoriesAgentsPost) | **POST** /activedirectories/{activedirectory_id}/agents | Create a new Active Directory Agent
 *ActiveDirectoryApi* | [**activedirectoriesDelete**](docs/ActiveDirectoryApi.md#activedirectoriesDelete) | **DELETE** /activedirectories/{id} | Delete an Active Directory
 *ActiveDirectoryApi* | [**activedirectoriesGet**](docs/ActiveDirectoryApi.md#activedirectoriesGet) | **GET** /activedirectories/{id} | Get an Active Directory
 *ActiveDirectoryApi* | [**activedirectoriesList**](docs/ActiveDirectoryApi.md#activedirectoriesList) | **GET** /activedirectories | List Active Directories
@@ -125,8 +123,10 @@ Class | Method | HTTP request | Description
 *GSuiteApi* | [**graphGSuiteAssociationsPost**](docs/GSuiteApi.md#graphGSuiteAssociationsPost) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
 *GSuiteApi* | [**graphGSuiteTraverseUser**](docs/GSuiteApi.md#graphGSuiteTraverseUser) | **GET** /gsuites/{gsuite_id}/users | List the Users bound to a G Suite instance
 *GSuiteApi* | [**graphGSuiteTraverseUserGroup**](docs/GSuiteApi.md#graphGSuiteTraverseUserGroup) | **GET** /gsuites/{gsuite_id}/usergroups | List the User Groups bound to a G Suite instance
+*GSuiteApi* | [**gsuitesGet**](docs/GSuiteApi.md#gsuitesGet) | **GET** /gsuites/{id} | Get G Suite
+*GSuiteApi* | [**gsuitesPatch**](docs/GSuiteApi.md#gsuitesPatch) | **PATCH** /gsuites/{id} | Update existing G Suite
 *GSuiteApi* | [**translationRulesGSuiteDelete**](docs/GSuiteApi.md#translationRulesGSuiteDelete) | **DELETE** /gsuites/{gsuite_id}/translationrules/{id} | Deletes a G Suite translation rule
-*GSuiteApi* | [**translationRulesGSuiteGet**](docs/GSuiteApi.md#translationRulesGSuiteGet) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific g suite translation rule
+*GSuiteApi* | [**translationRulesGSuiteGet**](docs/GSuiteApi.md#translationRulesGSuiteGet) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific G Suite translation rule
 *GSuiteApi* | [**translationRulesGSuiteList**](docs/GSuiteApi.md#translationRulesGSuiteList) | **GET** /gsuites/{gsuite_id}/translationrules | List all the G Suite Translation Rules
 *GSuiteApi* | [**translationRulesGSuitePost**](docs/GSuiteApi.md#translationRulesGSuitePost) | **POST** /gsuites/{gsuite_id}/translationrules | Create a new G Suite Translation Rule
 *GraphApi* | [**graphActiveDirectoryAssociationsList**](docs/GraphApi.md#graphActiveDirectoryAssociationsList) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
@@ -211,6 +211,7 @@ Class | Method | HTTP request | Description
 *LdapServersApi* | [**graphLdapServerTraverseUserGroup**](docs/LdapServersApi.md#graphLdapServerTraverseUserGroup) | **GET** /ldapservers/{ldapserver_id}/usergroups | List the User Groups bound to a LDAP Server
 *LdapServersApi* | [**ldapserversGet**](docs/LdapServersApi.md#ldapserversGet) | **GET** /ldapservers/{id} | Get LDAP Server
 *LdapServersApi* | [**ldapserversList**](docs/LdapServersApi.md#ldapserversList) | **GET** /ldapservers | List LDAP Servers
+*LdapServersApi* | [**ldapserversPatch**](docs/LdapServersApi.md#ldapserversPatch) | **PATCH** /ldapservers/{id} | Update existing LDAP server
 *Office365Api* | [**graphOffice365AssociationsList**](docs/Office365Api.md#graphOffice365AssociationsList) | **GET** /office365s/{office365_id}/associations | List the associations of an Office 365 instance
 *Office365Api* | [**graphOffice365AssociationsPost**](docs/Office365Api.md#graphOffice365AssociationsPost) | **POST** /office365s/{office365_id}/associations | Manage the associations of an Office 365 instance
 *Office365Api* | [**graphOffice365TraverseUser**](docs/Office365Api.md#graphOffice365TraverseUser) | **GET** /office365s/{office365_id}/users | List the Users bound to an Office 365 instance
@@ -219,6 +220,8 @@ Class | Method | HTTP request | Description
 *Office365Api* | [**translationRulesOffice365Get**](docs/Office365Api.md#translationRulesOffice365Get) | **GET** /office365s/{office365_id}/translationrules/{id} | Gets a specific Office 365 translation rule
 *Office365Api* | [**translationRulesOffice365List**](docs/Office365Api.md#translationRulesOffice365List) | **GET** /office365s/{office365_id}/translationrules | List all the Office 365 Translation Rules
 *Office365Api* | [**translationRulesOffice365Post**](docs/Office365Api.md#translationRulesOffice365Post) | **POST** /office365s/{office365_id}/translationrules | Create a new Office 365 Translation Rule
+*OrganizationsApi* | [**orgCryptoGet**](docs/OrganizationsApi.md#orgCryptoGet) | **GET** /organizations/{id}/crypto | Get Crypto Settings
+*OrganizationsApi* | [**orgCryptoPut**](docs/OrganizationsApi.md#orgCryptoPut) | **PUT** /organizations/{id}/crypto | Edit Crypto Settings
 *PoliciesApi* | [**graphPolicyAssociationsList**](docs/PoliciesApi.md#graphPolicyAssociationsList) | **GET** /policies/{policy_id}/associations | List the associations of a Policy
 *PoliciesApi* | [**graphPolicyAssociationsPost**](docs/PoliciesApi.md#graphPolicyAssociationsPost) | **POST** /policies/{policy_id}/associations | Manage the associations of a Policy
 *PoliciesApi* | [**graphPolicyTraverseSystem**](docs/PoliciesApi.md#graphPolicyTraverseSystem) | **GET** /policies/{policy_id}/systems | List the Systems bound to a Policy
@@ -273,6 +276,30 @@ Class | Method | HTTP request | Description
 *SystemGroupsApi* | [**groupsSystemPatch**](docs/SystemGroupsApi.md#groupsSystemPatch) | **PATCH** /systemgroups/{id} | Partial update a System Group
 *SystemGroupsApi* | [**groupsSystemPost**](docs/SystemGroupsApi.md#groupsSystemPost) | **POST** /systemgroups | Create a new System Group
 *SystemGroupsApi* | [**groupsSystemPut**](docs/SystemGroupsApi.md#groupsSystemPut) | **PUT** /systemgroups/{id} | Update a System Group
+*SystemInsightsApi* | [**systeminsightsListApps**](docs/SystemInsightsApi.md#systeminsightsListApps) | **GET** /systeminsights/apps | List System Insights Apps
+*SystemInsightsApi* | [**systeminsightsListApps_0**](docs/SystemInsightsApi.md#systeminsightsListApps_0) | **GET** /systeminsights/{jc_system_id}/apps | List System Insights System Apps
+*SystemInsightsApi* | [**systeminsightsListBrowserPlugins**](docs/SystemInsightsApi.md#systeminsightsListBrowserPlugins) | **GET** /systeminsights/{jc_system_id}/browser_plugins | List System Insights System Browser Plugins
+*SystemInsightsApi* | [**systeminsightsListBrowserPlugins_0**](docs/SystemInsightsApi.md#systeminsightsListBrowserPlugins_0) | **GET** /systeminsights/browser_plugins | List System Insights Browser Plugins
+*SystemInsightsApi* | [**systeminsightsListChromeExtensions**](docs/SystemInsightsApi.md#systeminsightsListChromeExtensions) | **GET** /systeminsights/{jc_system_id}/chrome_extensions | List System Insights System Chrome Extensions
+*SystemInsightsApi* | [**systeminsightsListChromeExtensions_0**](docs/SystemInsightsApi.md#systeminsightsListChromeExtensions_0) | **GET** /systeminsights/chrome_extensions | List System Insights Chrome Extensions
+*SystemInsightsApi* | [**systeminsightsListDiskEncryption**](docs/SystemInsightsApi.md#systeminsightsListDiskEncryption) | **GET** /systeminsights/disk_encryption | List System Insights Disk Encryption
+*SystemInsightsApi* | [**systeminsightsListDiskEncryption_0**](docs/SystemInsightsApi.md#systeminsightsListDiskEncryption_0) | **GET** /systeminsights/{jc_system_id}/disk_encryption | List System Insights System Disk Encryption
+*SystemInsightsApi* | [**systeminsightsListFirefoxAddons**](docs/SystemInsightsApi.md#systeminsightsListFirefoxAddons) | **GET** /systeminsights/firefox_addons | List System Insights Firefox Addons
+*SystemInsightsApi* | [**systeminsightsListFirefoxAddons_0**](docs/SystemInsightsApi.md#systeminsightsListFirefoxAddons_0) | **GET** /systeminsights/{jc_system_id}/firefox_addons | List System Insights System Firefox Addons
+*SystemInsightsApi* | [**systeminsightsListGroups**](docs/SystemInsightsApi.md#systeminsightsListGroups) | **GET** /systeminsights/groups | List System Insights Groups
+*SystemInsightsApi* | [**systeminsightsListGroups_0**](docs/SystemInsightsApi.md#systeminsightsListGroups_0) | **GET** /systeminsights/{jc_system_id}/groups | List System Insights System Groups
+*SystemInsightsApi* | [**systeminsightsListInterfaceAddresses**](docs/SystemInsightsApi.md#systeminsightsListInterfaceAddresses) | **GET** /systeminsights/interface_addresses | List System Insights Interface Addresses
+*SystemInsightsApi* | [**systeminsightsListInterfaceAddresses_0**](docs/SystemInsightsApi.md#systeminsightsListInterfaceAddresses_0) | **GET** /systeminsights/{jc_system_id}/interface_addresses | List System Insights System Interface Addresses
+*SystemInsightsApi* | [**systeminsightsListMounts**](docs/SystemInsightsApi.md#systeminsightsListMounts) | **GET** /systeminsights/mounts | List System Insights Mounts
+*SystemInsightsApi* | [**systeminsightsListMounts_0**](docs/SystemInsightsApi.md#systeminsightsListMounts_0) | **GET** /systeminsights/{jc_system_id}/mounts | List System Insights System Mounts
+*SystemInsightsApi* | [**systeminsightsListOsVersion**](docs/SystemInsightsApi.md#systeminsightsListOsVersion) | **GET** /systeminsights/{jc_system_id}/os_version | List System Insights System OS Version
+*SystemInsightsApi* | [**systeminsightsListOsVersion_0**](docs/SystemInsightsApi.md#systeminsightsListOsVersion_0) | **GET** /systeminsights/os_version | List System Insights OS Version
+*SystemInsightsApi* | [**systeminsightsListSafariExtensions**](docs/SystemInsightsApi.md#systeminsightsListSafariExtensions) | **GET** /systeminsights/{jc_system_id}/safari_extensions | List System Insights System Safari Extensions
+*SystemInsightsApi* | [**systeminsightsListSafariExtensions_0**](docs/SystemInsightsApi.md#systeminsightsListSafariExtensions_0) | **GET** /systeminsights/safari_extensions | List System Insights Safari Extensions
+*SystemInsightsApi* | [**systeminsightsListSystemInfo**](docs/SystemInsightsApi.md#systeminsightsListSystemInfo) | **GET** /systeminsights/system_info | List System Insights System Info
+*SystemInsightsApi* | [**systeminsightsListSystemInfo_0**](docs/SystemInsightsApi.md#systeminsightsListSystemInfo_0) | **GET** /systeminsights/{jc_system_id}/system_info | List System Insights System System Info
+*SystemInsightsApi* | [**systeminsightsListUsers**](docs/SystemInsightsApi.md#systeminsightsListUsers) | **GET** /systeminsights/users | List System Insights Users
+*SystemInsightsApi* | [**systeminsightsListUsers_0**](docs/SystemInsightsApi.md#systeminsightsListUsers_0) | **GET** /systeminsights/{jc_system_id}/users | List System Insights System Users
 *SystemsApi* | [**graphSystemAssociationsList**](docs/SystemsApi.md#graphSystemAssociationsList) | **GET** /systems/{system_id}/associations | List the associations of a System
 *SystemsApi* | [**graphSystemAssociationsPost**](docs/SystemsApi.md#graphSystemAssociationsPost) | **POST** /systems/{system_id}/associations | Manage associations of a System
 *SystemsApi* | [**graphSystemMemberOf**](docs/SystemsApi.md#graphSystemMemberOf) | **GET** /systems/{system_id}/memberof | List the parent Groups of a System
@@ -344,6 +371,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [ActiveDirectoryAgentGetOutput](docs/ActiveDirectoryAgentGetOutput.md)
+ - [ActiveDirectoryAgentInput](docs/ActiveDirectoryAgentInput.md)
+ - [ActiveDirectoryAgentListOutput](docs/ActiveDirectoryAgentListOutput.md)
  - [ActiveDirectoryInput](docs/ActiveDirectoryInput.md)
  - [Administrator](docs/Administrator.md)
  - [AuthInfo](docs/AuthInfo.md)
@@ -351,6 +381,7 @@ Class | Method | HTTP request | Description
  - [AuthInputObject](docs/AuthInputObject.md)
  - [AuthinputBasic](docs/AuthinputBasic.md)
  - [AuthinputOauth](docs/AuthinputOauth.md)
+ - [Body](docs/Body.md)
  - [BulkUserCreate](docs/BulkUserCreate.md)
  - [BulkUserUpdate](docs/BulkUserUpdate.md)
  - [Directory](docs/Directory.md)
@@ -367,17 +398,23 @@ Class | Method | HTTP request | Description
  - [GraphType](docs/GraphType.md)
  - [Group](docs/Group.md)
  - [GroupType](docs/GroupType.md)
+ - [GsuiteOutput](docs/GsuiteOutput.md)
+ - [GsuitePatchInput](docs/GsuitePatchInput.md)
  - [InlineResponse200](docs/InlineResponse200.md)
- - [InlineResponse401](docs/InlineResponse401.md)
+ - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse400](docs/InlineResponse400.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)
+ - [LdapServerAction](docs/LdapServerAction.md)
  - [LdapServerInput](docs/LdapServerInput.md)
  - [Mfa](docs/Mfa.md)
  - [OauthCodeInput](docs/OauthCodeInput.md)
  - [Office365BuiltinTranslation](docs/Office365BuiltinTranslation.md)
  - [Office365TranslationRule](docs/Office365TranslationRule.md)
  - [Office365TranslationRuleRequest](docs/Office365TranslationRuleRequest.md)
+ - [OrgCryptoSettings](docs/OrgCryptoSettings.md)
+ - [OrgcryptosettingsSshKeys](docs/OrgcryptosettingsSshKeys.md)
  - [Policy](docs/Policy.md)
  - [PolicyRequest](docs/PolicyRequest.md)
  - [PolicyRequestTemplate](docs/PolicyRequestTemplate.md)
@@ -401,6 +438,18 @@ Class | Method | HTTP request | Description
  - [SystemGroupData](docs/SystemGroupData.md)
  - [SystemGroupGraphManagementReq](docs/SystemGroupGraphManagementReq.md)
  - [SystemGroupMembersReq](docs/SystemGroupMembersReq.md)
+ - [SystemInsightsApps](docs/SystemInsightsApps.md)
+ - [SystemInsightsBrowserPlugins](docs/SystemInsightsBrowserPlugins.md)
+ - [SystemInsightsChromeExtensions](docs/SystemInsightsChromeExtensions.md)
+ - [SystemInsightsDiskEncryption](docs/SystemInsightsDiskEncryption.md)
+ - [SystemInsightsFirefoxAddons](docs/SystemInsightsFirefoxAddons.md)
+ - [SystemInsightsGroups](docs/SystemInsightsGroups.md)
+ - [SystemInsightsInterfaceAddresses](docs/SystemInsightsInterfaceAddresses.md)
+ - [SystemInsightsMounts](docs/SystemInsightsMounts.md)
+ - [SystemInsightsOsVersion](docs/SystemInsightsOsVersion.md)
+ - [SystemInsightsSafariExtensions](docs/SystemInsightsSafariExtensions.md)
+ - [SystemInsightsSystemInfo](docs/SystemInsightsSystemInfo.md)
+ - [SystemInsightsUsers](docs/SystemInsightsUsers.md)
  - [Systemfdekey](docs/Systemfdekey.md)
  - [Systemuser](docs/Systemuser.md)
  - [Systemuserputpost](docs/Systemuserputpost.md)

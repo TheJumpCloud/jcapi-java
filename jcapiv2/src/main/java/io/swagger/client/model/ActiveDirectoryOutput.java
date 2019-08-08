@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ActiveDirectoryOutput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:06:48.987Z")
 public class ActiveDirectoryOutput {
   @SerializedName("domain")
   private String domain = null;

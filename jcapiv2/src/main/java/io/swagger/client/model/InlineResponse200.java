@@ -21,64 +21,96 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.Administrator;
+import io.swagger.client.model.LdapServerAction;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:06:48.987Z")
 public class InlineResponse200 {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
+  @SerializedName("id")
+  private String id = null;
 
-  @SerializedName("results")
-  private List<Administrator> results = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public InlineResponse200 totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
+  @SerializedName("userLockoutAction")
+  private LdapServerAction userLockoutAction = null;
+
+  @SerializedName("userPasswordExpirationAction")
+  private LdapServerAction userPasswordExpirationAction = null;
+
+  public InlineResponse200 id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get totalCount
-   * @return totalCount
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public Integer getTotalCount() {
-    return totalCount;
+  public String getId() {
+    return id;
   }
 
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
+  public void setId(String id) {
+    this.id = id;
   }
 
-  public InlineResponse200 results(List<Administrator> results) {
-    this.results = results;
-    return this;
-  }
-
-  public InlineResponse200 addResultsItem(Administrator resultsItem) {
-    if (this.results == null) {
-      this.results = new ArrayList<Administrator>();
-    }
-    this.results.add(resultsItem);
+  public InlineResponse200 name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get results
-   * @return results
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public List<Administrator> getResults() {
-    return results;
+  public String getName() {
+    return name;
   }
 
-  public void setResults(List<Administrator> results) {
-    this.results = results;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public InlineResponse200 userLockoutAction(LdapServerAction userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+    return this;
+  }
+
+   /**
+   * Get userLockoutAction
+   * @return userLockoutAction
+  **/
+  @ApiModelProperty(value = "")
+  public LdapServerAction getUserLockoutAction() {
+    return userLockoutAction;
+  }
+
+  public void setUserLockoutAction(LdapServerAction userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+  }
+
+  public InlineResponse200 userPasswordExpirationAction(LdapServerAction userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
+    return this;
+  }
+
+   /**
+   * Get userPasswordExpirationAction
+   * @return userPasswordExpirationAction
+  **/
+  @ApiModelProperty(value = "")
+  public LdapServerAction getUserPasswordExpirationAction() {
+    return userPasswordExpirationAction;
+  }
+
+  public void setUserPasswordExpirationAction(LdapServerAction userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
   }
 
 
@@ -91,13 +123,15 @@ public class InlineResponse200 {
       return false;
     }
     InlineResponse200 inlineResponse200 = (InlineResponse200) o;
-    return Objects.equals(this.totalCount, inlineResponse200.totalCount) &&
-        Objects.equals(this.results, inlineResponse200.results);
+    return Objects.equals(this.id, inlineResponse200.id) &&
+        Objects.equals(this.name, inlineResponse200.name) &&
+        Objects.equals(this.userLockoutAction, inlineResponse200.userLockoutAction) &&
+        Objects.equals(this.userPasswordExpirationAction, inlineResponse200.userPasswordExpirationAction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(id, name, userLockoutAction, userPasswordExpirationAction);
   }
 
 
@@ -106,8 +140,10 @@ public class InlineResponse200 {
     StringBuilder sb = new StringBuilder();
     sb.append("class InlineResponse200 {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
-    sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
+    sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**graphGSuiteAssociationsPost**](GSuiteApi.md#graphGSuiteAssociationsPost) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
 [**graphGSuiteTraverseUser**](GSuiteApi.md#graphGSuiteTraverseUser) | **GET** /gsuites/{gsuite_id}/users | List the Users bound to a G Suite instance
 [**graphGSuiteTraverseUserGroup**](GSuiteApi.md#graphGSuiteTraverseUserGroup) | **GET** /gsuites/{gsuite_id}/usergroups | List the User Groups bound to a G Suite instance
+[**gsuitesGet**](GSuiteApi.md#gsuitesGet) | **GET** /gsuites/{id} | Get G Suite
+[**gsuitesPatch**](GSuiteApi.md#gsuitesPatch) | **PATCH** /gsuites/{id} | Update existing G Suite
 [**translationRulesGSuiteDelete**](GSuiteApi.md#translationRulesGSuiteDelete) | **DELETE** /gsuites/{gsuite_id}/translationrules/{id} | Deletes a G Suite translation rule
-[**translationRulesGSuiteGet**](GSuiteApi.md#translationRulesGSuiteGet) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific g suite translation rule
+[**translationRulesGSuiteGet**](GSuiteApi.md#translationRulesGSuiteGet) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific G Suite translation rule
 [**translationRulesGSuiteList**](GSuiteApi.md#translationRulesGSuiteList) | **GET** /gsuites/{gsuite_id}/translationrules | List all the G Suite Translation Rules
 [**translationRulesGSuitePost**](GSuiteApi.md#translationRulesGSuitePost) | **POST** /gsuites/{gsuite_id}/translationrules | Create a new G Suite Translation Rule
 
@@ -141,7 +143,7 @@ null (empty response body)
 
 <a name="graphGSuiteTraverseUser"></a>
 # **graphGSuiteTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Users bound to a G Suite instance
 
@@ -169,10 +171,11 @@ String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instan
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GSuiteApi#graphGSuiteTraverseUser");
@@ -188,8 +191,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -206,7 +210,7 @@ Name | Type | Description  | Notes
 
 <a name="graphGSuiteTraverseUserGroup"></a>
 # **graphGSuiteTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the User Groups bound to a G Suite instance
 
@@ -234,10 +238,11 @@ String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instan
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling GSuiteApi#graphGSuiteTraverseUserGroup");
@@ -253,8 +258,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -263,6 +269,110 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="gsuitesGet"></a>
+# **gsuitesGet**
+> GsuiteOutput gsuitesGet(id, contentType, accept, xOrgId)
+
+Get G Suite
+
+This endpoint returns a specific G Suite.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.GSuiteApi;
+
+
+GSuiteApi apiInstance = new GSuiteApi();
+String id = "id_example"; // String | Unique identifier of the GSuite.
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+String xOrgId = ""; // String | 
+try {
+    GsuiteOutput result = apiInstance.gsuitesGet(id, contentType, accept, xOrgId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling GSuiteApi#gsuitesGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the GSuite. |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **xOrgId** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**GsuiteOutput**](GsuiteOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="gsuitesPatch"></a>
+# **gsuitesPatch**
+> GsuiteOutput gsuitesPatch(id, contentType, accept, body, xOrgId)
+
+Update existing G Suite
+
+This endpoint allows updating some attributes of a G Suite.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.GSuiteApi;
+
+
+GSuiteApi apiInstance = new GSuiteApi();
+String id = "id_example"; // String | Unique identifier of the GSuite.
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+GsuitePatchInput body = new GsuitePatchInput(); // GsuitePatchInput | 
+String xOrgId = ""; // String | 
+try {
+    GsuiteOutput result = apiInstance.gsuitesPatch(id, contentType, accept, body, xOrgId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling GSuiteApi#gsuitesPatch");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the GSuite. |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**GsuitePatchInput**](GsuitePatchInput.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**GsuiteOutput**](GsuiteOutput.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -333,7 +443,7 @@ null (empty response body)
 # **translationRulesGSuiteGet**
 > GSuiteTranslationRule translationRulesGSuiteGet(gsuiteId, id, contentType, accept)
 
-Gets a specific g suite translation rule
+Gets a specific G Suite translation rule
 
 This endpoint returns a specific translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ###### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 

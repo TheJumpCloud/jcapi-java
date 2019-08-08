@@ -27,9 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Body;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.LdapServerOutput;
 
 import java.lang.reflect.Type;
@@ -388,14 +391,15 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphLdapServerTraverseUserCall(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphLdapServerTraverseUserCall(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -408,14 +412,16 @@ public class LdapServersApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -448,7 +454,7 @@ public class LdapServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphLdapServerTraverseUserValidateBeforeCall(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphLdapServerTraverseUserValidateBeforeCall(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ldapserverId' is set
         if (ldapserverId == null) {
@@ -466,7 +472,7 @@ public class LdapServersApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphLdapServerTraverseUserCall(ldapserverId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphLdapServerTraverseUserCall(ldapserverId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -478,13 +484,14 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphLdapServerTraverseUser(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphLdapServerTraverseUserWithHttpInfo(ldapserverId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphLdapServerTraverseUser(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphLdapServerTraverseUserWithHttpInfo(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -495,13 +502,14 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphLdapServerTraverseUserWithHttpInfo(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphLdapServerTraverseUserValidateBeforeCall(ldapserverId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphLdapServerTraverseUserWithHttpInfo(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphLdapServerTraverseUserValidateBeforeCall(ldapserverId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -513,13 +521,14 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphLdapServerTraverseUserAsync(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphLdapServerTraverseUserAsync(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -540,7 +549,7 @@ public class LdapServersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphLdapServerTraverseUserValidateBeforeCall(ldapserverId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphLdapServerTraverseUserValidateBeforeCall(ldapserverId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -551,14 +560,15 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphLdapServerTraverseUserGroupCall(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphLdapServerTraverseUserGroupCall(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -571,14 +581,16 @@ public class LdapServersApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -611,7 +623,7 @@ public class LdapServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphLdapServerTraverseUserGroupValidateBeforeCall(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphLdapServerTraverseUserGroupValidateBeforeCall(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'ldapserverId' is set
         if (ldapserverId == null) {
@@ -629,7 +641,7 @@ public class LdapServersApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphLdapServerTraverseUserGroupCall(ldapserverId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphLdapServerTraverseUserGroupCall(ldapserverId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -641,13 +653,14 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphLdapServerTraverseUserGroup(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphLdapServerTraverseUserGroupWithHttpInfo(ldapserverId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphLdapServerTraverseUserGroup(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphLdapServerTraverseUserGroupWithHttpInfo(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -658,13 +671,14 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphLdapServerTraverseUserGroupWithHttpInfo(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphLdapServerTraverseUserGroupValidateBeforeCall(ldapserverId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphLdapServerTraverseUserGroupWithHttpInfo(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphLdapServerTraverseUserGroupValidateBeforeCall(ldapserverId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -676,13 +690,14 @@ public class LdapServersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphLdapServerTraverseUserGroupAsync(String ldapserverId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphLdapServerTraverseUserGroupAsync(String ldapserverId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -703,7 +718,7 @@ public class LdapServersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphLdapServerTraverseUserGroupValidateBeforeCall(ldapserverId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphLdapServerTraverseUserGroupValidateBeforeCall(ldapserverId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1027,6 +1042,167 @@ public class LdapServersApi {
 
         com.squareup.okhttp.Call call = ldapserversListValidateBeforeCall(contentType, accept, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<LdapServerOutput>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for ldapserversPatch
+     * @param id Unique identifier of the LDAP server. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xApiKey  (optional)
+     * @param xOrgId  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call ldapserversPatchCall(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/ldapservers/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xApiKey != null)
+        localVarHeaderParams.put("x-api-key", apiClient.parameterToString(xApiKey));
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call ldapserversPatchValidateBeforeCall(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling ldapserversPatch(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling ldapserversPatch(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling ldapserversPatch(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = ldapserversPatchCall(id, contentType, accept, body, xApiKey, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update existing LDAP server
+     * This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the LDAP server. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xApiKey  (optional)
+     * @param xOrgId  (optional)
+     * @return InlineResponse200
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InlineResponse200 ldapserversPatch(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId) throws ApiException {
+        ApiResponse<InlineResponse200> resp = ldapserversPatchWithHttpInfo(id, contentType, accept, body, xApiKey, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * Update existing LDAP server
+     * This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the LDAP server. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xApiKey  (optional)
+     * @param xOrgId  (optional)
+     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InlineResponse200> ldapserversPatchWithHttpInfo(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = ldapserversPatchValidateBeforeCall(id, contentType, accept, body, xApiKey, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update existing LDAP server (asynchronously)
+     * This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the LDAP server. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xApiKey  (optional)
+     * @param xOrgId  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call ldapserversPatchAsync(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId, final ApiCallback<InlineResponse200> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = ldapserversPatchValidateBeforeCall(id, contentType, accept, body, xApiKey, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

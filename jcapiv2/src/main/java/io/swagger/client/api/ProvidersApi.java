@@ -28,8 +28,8 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.Administrator;
-import io.swagger.client.model.InlineResponse200;
-import io.swagger.client.model.InlineResponse401;
+import io.swagger.client.model.InlineResponse2001;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.ProviderAdminReq;
 
 import java.lang.reflect.Type;
@@ -163,11 +163,11 @@ public class ProvidersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @return InlineResponse200
+     * @return InlineResponse2001
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 providersListAdministrators(String providerId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
-        ApiResponse<InlineResponse200> resp = providersListAdministratorsWithHttpInfo(providerId, contentType, accept, fields, filter, limit, skip, sort);
+    public InlineResponse2001 providersListAdministrators(String providerId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
+        ApiResponse<InlineResponse2001> resp = providersListAdministratorsWithHttpInfo(providerId, contentType, accept, fields, filter, limit, skip, sort);
         return resp.getData();
     }
 
@@ -182,12 +182,12 @@ public class ProvidersApi {
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @return ApiResponse&lt;InlineResponse200&gt;
+     * @return ApiResponse&lt;InlineResponse2001&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> providersListAdministratorsWithHttpInfo(String providerId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
+    public ApiResponse<InlineResponse2001> providersListAdministratorsWithHttpInfo(String providerId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort) throws ApiException {
         com.squareup.okhttp.Call call = providersListAdministratorsValidateBeforeCall(providerId, contentType, accept, fields, filter, limit, skip, sort, null, null);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -206,7 +206,7 @@ public class ProvidersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call providersListAdministratorsAsync(String providerId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call providersListAdministratorsAsync(String providerId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, final ApiCallback<InlineResponse2001> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -228,7 +228,7 @@ public class ProvidersApi {
         }
 
         com.squareup.okhttp.Call call = providersListAdministratorsValidateBeforeCall(providerId, contentType, accept, fields, filter, limit, skip, sort, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
+        Type localVarReturnType = new TypeToken<InlineResponse2001>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

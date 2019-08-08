@@ -24,14 +24,14 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * InlineResponse401
+ * InlineResponse400
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
-public class InlineResponse401 {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:06:48.987Z")
+public class InlineResponse400 {
   @SerializedName("message")
   private String message = null;
 
-  public InlineResponse401 message(String message) {
+  public InlineResponse400 message(String message) {
     this.message = message;
     return this;
   }
@@ -58,8 +58,8 @@ public class InlineResponse401 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    InlineResponse401 inlineResponse401 = (InlineResponse401) o;
-    return Objects.equals(this.message, inlineResponse401.message);
+    InlineResponse400 inlineResponse400 = (InlineResponse400) o;
+    return Objects.equals(this.message, inlineResponse400.message);
   }
 
   @Override
@@ -71,7 +71,7 @@ public class InlineResponse401 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class InlineResponse401 {\n");
+    sb.append("class InlineResponse400 {\n");
     
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");

@@ -145,7 +145,7 @@ null (empty response body)
 
 <a name="graphOffice365TraverseUser"></a>
 # **graphOffice365TraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphOffice365TraverseUser(office365Id, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphOffice365TraverseUser(office365Id, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Users bound to an Office 365 instance
 
@@ -173,10 +173,11 @@ String office365Id = "office365Id_example"; // String | ObjectID of the Office 3
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphOffice365TraverseUser(office365Id, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphOffice365TraverseUser(office365Id, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling Office365Api#graphOffice365TraverseUser");
@@ -192,8 +193,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -210,7 +212,7 @@ Name | Type | Description  | Notes
 
 <a name="graphOffice365TraverseUserGroup"></a>
 # **graphOffice365TraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphOffice365TraverseUserGroup(office365Id, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphOffice365TraverseUserGroup(office365Id, contentType, accept, limit, xOrgId, skip, filter)
 
 List the User Groups bound to an Office 365 instance
 
@@ -238,10 +240,11 @@ String office365Id = "office365Id_example"; // String | ObjectID of the Office 3
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphOffice365TraverseUserGroup(office365Id, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphOffice365TraverseUserGroup(office365Id, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling Office365Api#graphOffice365TraverseUserGroup");
@@ -257,8 +260,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
