@@ -90,9 +90,10 @@ public class CommandsApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystem(commandId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystem(commandId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -111,9 +112,10 @@ public class CommandsApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphCommandTraverseSystemGroup(commandId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }

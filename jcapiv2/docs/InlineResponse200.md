@@ -4,8 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**totalCount** | **Integer** |  |  [optional]
-**results** | [**List&lt;Administrator&gt;**](Administrator.md) |  |  [optional]
+**id** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
+**userLockoutAction** | [**LdapServerAction**](LdapServerAction.md) |  |  [optional]
+**userPasswordExpirationAction** | [**LdapServerAction**](LdapServerAction.md) |  |  [optional]
 
 
 

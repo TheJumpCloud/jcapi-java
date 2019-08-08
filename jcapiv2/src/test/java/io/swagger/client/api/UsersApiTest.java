@@ -114,9 +114,10 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseApplication(userId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseApplication(userId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -135,9 +136,10 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseDirectory(userId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseDirectory(userId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -156,9 +158,10 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseGSuite(userId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseGSuite(userId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -177,9 +180,10 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseLdapServer(userId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseLdapServer(userId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -198,9 +202,10 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseOffice365(userId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseOffice365(userId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -219,9 +224,10 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseRadiusServer(userId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseRadiusServer(userId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -262,9 +268,10 @@ public class UsersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphUserTraverseSystemGroup(userId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseSystemGroup(userId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Office365TranslationRuleRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:00:26.426Z")
 public class Office365TranslationRuleRequest {
   @SerializedName("builtIn")
   private Office365BuiltinTranslation builtIn = null;

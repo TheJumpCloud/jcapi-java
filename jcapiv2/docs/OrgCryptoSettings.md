@@ -1,10 +1,10 @@
 
-# InlineResponse401
+# OrgCryptoSettings
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  |  [optional]
+**sshKeys** | [**OrgcryptosettingsSshKeys**](OrgcryptosettingsSshKeys.md) |  |  [optional]
 
 
 

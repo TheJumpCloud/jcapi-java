@@ -387,14 +387,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseActiveDirectoryCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseActiveDirectoryCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -407,14 +408,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -447,7 +450,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseActiveDirectoryValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseActiveDirectoryValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -465,7 +468,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseActiveDirectoryCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseActiveDirectoryCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -477,13 +480,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseActiveDirectory(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseActiveDirectoryWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseActiveDirectory(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseActiveDirectoryWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -494,13 +498,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseActiveDirectoryWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseActiveDirectoryValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseActiveDirectoryWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseActiveDirectoryValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -512,13 +517,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseActiveDirectoryAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseActiveDirectoryAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -539,7 +545,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseActiveDirectoryValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseActiveDirectoryValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -550,14 +556,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseApplicationCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseApplicationCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -570,14 +577,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -610,7 +619,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseApplicationValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseApplicationValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -628,7 +637,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseApplicationCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseApplicationCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -640,13 +649,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseApplication(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseApplicationWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseApplication(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseApplicationWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -657,13 +667,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseApplicationWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseApplicationValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseApplicationWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseApplicationValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -675,13 +686,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseApplicationAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseApplicationAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -702,7 +714,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseApplicationValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseApplicationValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -713,14 +725,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseDirectoryCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseDirectoryCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -733,14 +746,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -773,7 +788,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseDirectoryValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseDirectoryValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -791,7 +806,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseDirectoryCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseDirectoryCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -803,13 +818,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseDirectory(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseDirectoryWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseDirectory(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseDirectoryWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -820,13 +836,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseDirectoryWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseDirectoryValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseDirectoryWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseDirectoryValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -838,13 +855,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseDirectoryAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseDirectoryAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -865,7 +883,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseDirectoryValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseDirectoryValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -876,14 +894,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseGSuiteCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseGSuiteCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -896,14 +915,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -936,7 +957,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseGSuiteValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseGSuiteValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -954,7 +975,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseGSuiteCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseGSuiteCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -966,13 +987,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseGSuite(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseGSuiteWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseGSuite(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseGSuiteWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -983,13 +1005,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseGSuiteWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseGSuiteValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseGSuiteWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseGSuiteValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1001,13 +1024,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseGSuiteAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseGSuiteAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1028,7 +1052,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseGSuiteValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseGSuiteValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1039,14 +1063,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseLdapServerCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseLdapServerCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1059,14 +1084,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1099,7 +1126,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseLdapServerValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseLdapServerValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -1117,7 +1144,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseLdapServerCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseLdapServerCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1129,13 +1156,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseLdapServer(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseLdapServerWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseLdapServer(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseLdapServerWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -1146,13 +1174,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseLdapServerWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseLdapServerValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseLdapServerWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseLdapServerValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1164,13 +1193,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseLdapServerAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseLdapServerAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1191,7 +1221,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseLdapServerValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseLdapServerValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1202,14 +1232,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseOffice365Call(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseOffice365Call(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1222,14 +1253,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1262,7 +1295,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseOffice365ValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseOffice365ValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -1280,7 +1313,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseOffice365Call(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseOffice365Call(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1292,13 +1325,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseOffice365(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseOffice365WithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseOffice365(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseOffice365WithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -1309,13 +1343,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseOffice365WithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseOffice365ValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseOffice365WithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseOffice365ValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1327,13 +1362,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseOffice365Async(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseOffice365Async(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1354,7 +1390,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseOffice365ValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseOffice365ValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1365,14 +1401,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseRadiusServerCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseRadiusServerCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1385,14 +1422,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1425,7 +1464,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseRadiusServerValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseRadiusServerValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -1443,7 +1482,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseRadiusServerCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseRadiusServerCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1455,13 +1494,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseRadiusServer(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseRadiusServerWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseRadiusServer(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseRadiusServerWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -1472,13 +1512,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseRadiusServerWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseRadiusServerValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseRadiusServerWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseRadiusServerValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1490,13 +1531,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseRadiusServerAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseRadiusServerAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1517,7 +1559,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseRadiusServerValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseRadiusServerValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1528,14 +1570,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseSystemCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseSystemCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1548,14 +1591,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1588,7 +1633,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseSystemValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseSystemValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -1606,7 +1651,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1618,13 +1663,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseSystem(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseSystemWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseSystem(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseSystemWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -1635,13 +1681,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseSystemWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseSystemWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1653,13 +1700,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseSystemAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseSystemAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1680,7 +1728,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1691,14 +1739,15 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseSystemGroupCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseSystemGroupCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1711,14 +1760,16 @@ public class UserGroupAssociationsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1751,7 +1802,7 @@ public class UserGroupAssociationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphUserGroupTraverseSystemGroupValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphUserGroupTraverseSystemGroupValidateBeforeCall(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -1769,7 +1820,7 @@ public class UserGroupAssociationsApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemGroupCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemGroupCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1781,13 +1832,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphUserGroupTraverseSystemGroup(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseSystemGroupWithHttpInfo(groupId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphUserGroupTraverseSystemGroup(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphUserGroupTraverseSystemGroupWithHttpInfo(groupId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -1798,13 +1850,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseSystemGroupWithHttpInfo(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemGroupValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphUserGroupTraverseSystemGroupWithHttpInfo(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemGroupValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1816,13 +1869,14 @@ public class UserGroupAssociationsApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphUserGroupTraverseSystemGroupAsync(String groupId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphUserGroupTraverseSystemGroupAsync(String groupId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1843,7 +1897,7 @@ public class UserGroupAssociationsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemGroupValidateBeforeCall(groupId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphUserGroupTraverseSystemGroupValidateBeforeCall(groupId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

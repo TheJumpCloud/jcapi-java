@@ -97,9 +97,10 @@ public class PoliciesApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystem(policyId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -118,9 +119,10 @@ public class PoliciesApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -270,7 +272,7 @@ public class PoliciesApiTest {
     /**
      * Lists all the policy results for an organization.
      *
-     * This endpoint returns all policies results for an Organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns all policies results for an organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
