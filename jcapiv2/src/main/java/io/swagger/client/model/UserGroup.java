@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * UserGroup
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:09:43.537Z")
 public class UserGroup {
   @SerializedName("id")
   private String id = null;

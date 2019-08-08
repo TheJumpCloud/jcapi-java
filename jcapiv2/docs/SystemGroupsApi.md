@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraversePolicy"></a>
 # **graphSystemGroupTraversePolicy**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Policies bound to a System Group
 
@@ -449,10 +449,11 @@ String groupId = "groupId_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraversePolicy(groupId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupTraversePolicy");
@@ -468,8 +469,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -486,7 +488,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraverseUser"></a>
 # **graphSystemGroupTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUser(groupId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Users bound to a System Group
 
@@ -514,10 +516,11 @@ String groupId = "groupId_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUser(groupId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupTraverseUser");
@@ -533,8 +536,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -551,7 +555,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemGroupTraverseUserGroup"></a>
 # **graphSystemGroupTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the User Groups bound to a System Group
 
@@ -579,10 +583,11 @@ String groupId = "groupId_example"; // String | ObjectID of the System Group.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemGroupTraverseUserGroup(groupId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemGroupsApi#graphSystemGroupTraverseUserGroup");
@@ -598,8 +603,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 

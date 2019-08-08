@@ -32,6 +32,8 @@ import io.swagger.client.model.GSuiteTranslationRuleRequest;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
+import io.swagger.client.model.GsuiteOutput;
+import io.swagger.client.model.GsuitePatchInput;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -367,14 +369,15 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphGSuiteTraverseUserCall(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphGSuiteTraverseUserCall(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -387,14 +390,16 @@ public class GSuiteApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -427,7 +432,7 @@ public class GSuiteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphGSuiteTraverseUserValidateBeforeCall(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphGSuiteTraverseUserValidateBeforeCall(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'gsuiteId' is set
         if (gsuiteId == null) {
@@ -445,7 +450,7 @@ public class GSuiteApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphGSuiteTraverseUserCall(gsuiteId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphGSuiteTraverseUserCall(gsuiteId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -457,13 +462,14 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphGSuiteTraverseUser(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphGSuiteTraverseUserWithHttpInfo(gsuiteId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphGSuiteTraverseUser(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphGSuiteTraverseUserWithHttpInfo(gsuiteId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -474,13 +480,14 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphGSuiteTraverseUserWithHttpInfo(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphGSuiteTraverseUserValidateBeforeCall(gsuiteId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphGSuiteTraverseUserWithHttpInfo(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphGSuiteTraverseUserValidateBeforeCall(gsuiteId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -492,13 +499,14 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphGSuiteTraverseUserAsync(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphGSuiteTraverseUserAsync(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -519,7 +527,7 @@ public class GSuiteApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphGSuiteTraverseUserValidateBeforeCall(gsuiteId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphGSuiteTraverseUserValidateBeforeCall(gsuiteId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -530,14 +538,15 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call graphGSuiteTraverseUserGroupCall(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call graphGSuiteTraverseUserGroupCall(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -550,14 +559,16 @@ public class GSuiteApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
         if (skip != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -590,7 +601,7 @@ public class GSuiteApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call graphGSuiteTraverseUserGroupValidateBeforeCall(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call graphGSuiteTraverseUserGroupValidateBeforeCall(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'gsuiteId' is set
         if (gsuiteId == null) {
@@ -608,7 +619,7 @@ public class GSuiteApi {
         }
         
 
-        com.squareup.okhttp.Call call = graphGSuiteTraverseUserGroupCall(gsuiteId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphGSuiteTraverseUserGroupCall(gsuiteId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         return call;
 
     }
@@ -620,13 +631,14 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return List&lt;GraphObjectWithPaths&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<GraphObjectWithPaths> graphGSuiteTraverseUserGroup(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        ApiResponse<List<GraphObjectWithPaths>> resp = graphGSuiteTraverseUserGroupWithHttpInfo(gsuiteId, contentType, accept, limit, skip, xOrgId);
+    public List<GraphObjectWithPaths> graphGSuiteTraverseUserGroup(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<GraphObjectWithPaths>> resp = graphGSuiteTraverseUserGroupWithHttpInfo(gsuiteId, contentType, accept, limit, xOrgId, skip, filter);
         return resp.getData();
     }
 
@@ -637,13 +649,14 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @return ApiResponse&lt;List&lt;GraphObjectWithPaths&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<GraphObjectWithPaths>> graphGSuiteTraverseUserGroupWithHttpInfo(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = graphGSuiteTraverseUserGroupValidateBeforeCall(gsuiteId, contentType, accept, limit, skip, xOrgId, null, null);
+    public ApiResponse<List<GraphObjectWithPaths>> graphGSuiteTraverseUserGroupWithHttpInfo(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = graphGSuiteTraverseUserGroupValidateBeforeCall(gsuiteId, contentType, accept, limit, xOrgId, skip, filter, null, null);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -655,13 +668,14 @@ public class GSuiteApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
      * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call graphGSuiteTraverseUserGroupAsync(String gsuiteId, String contentType, String accept, Integer limit, Integer skip, String xOrgId, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
+    public com.squareup.okhttp.Call graphGSuiteTraverseUserGroupAsync(String gsuiteId, String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<GraphObjectWithPaths>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -682,8 +696,314 @@ public class GSuiteApi {
             };
         }
 
-        com.squareup.okhttp.Call call = graphGSuiteTraverseUserGroupValidateBeforeCall(gsuiteId, contentType, accept, limit, skip, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = graphGSuiteTraverseUserGroupValidateBeforeCall(gsuiteId, contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<GraphObjectWithPaths>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for gsuitesGet
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call gsuitesGetCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/gsuites/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call gsuitesGetValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling gsuitesGet(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling gsuitesGet(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling gsuitesGet(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = gsuitesGetCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get G Suite
+     * This endpoint returns a specific G Suite.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @return GsuiteOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GsuiteOutput gsuitesGet(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<GsuiteOutput> resp = gsuitesGetWithHttpInfo(id, contentType, accept, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * Get G Suite
+     * This endpoint returns a specific G Suite.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @return ApiResponse&lt;GsuiteOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GsuiteOutput> gsuitesGetWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = gsuitesGetValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<GsuiteOutput>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get G Suite (asynchronously)
+     * This endpoint returns a specific G Suite.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call gsuitesGetAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<GsuiteOutput> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = gsuitesGetValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GsuiteOutput>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for gsuitesPatch
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call gsuitesPatchCall(String id, String contentType, String accept, GsuitePatchInput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/gsuites/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call gsuitesPatchValidateBeforeCall(String id, String contentType, String accept, GsuitePatchInput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling gsuitesPatch(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling gsuitesPatch(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling gsuitesPatch(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = gsuitesPatchCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update existing G Suite
+     * This endpoint allows updating some attributes of a G Suite.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @return GsuiteOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public GsuiteOutput gsuitesPatch(String id, String contentType, String accept, GsuitePatchInput body, String xOrgId) throws ApiException {
+        ApiResponse<GsuiteOutput> resp = gsuitesPatchWithHttpInfo(id, contentType, accept, body, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * Update existing G Suite
+     * This endpoint allows updating some attributes of a G Suite.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @return ApiResponse&lt;GsuiteOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<GsuiteOutput> gsuitesPatchWithHttpInfo(String id, String contentType, String accept, GsuitePatchInput body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = gsuitesPatchValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<GsuiteOutput>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update existing G Suite (asynchronously)
+     * This endpoint allows updating some attributes of a G Suite.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param id Unique identifier of the GSuite. (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call gsuitesPatchAsync(String id, String contentType, String accept, GsuitePatchInput body, String xOrgId, final ApiCallback<GsuiteOutput> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = gsuitesPatchValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<GsuiteOutput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -926,7 +1246,7 @@ public class GSuiteApi {
     }
 
     /**
-     * Gets a specific g suite translation rule
+     * Gets a specific G Suite translation rule
      * This endpoint returns a specific translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ###### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param gsuiteId  (required)
      * @param id  (required)
@@ -941,7 +1261,7 @@ public class GSuiteApi {
     }
 
     /**
-     * Gets a specific g suite translation rule
+     * Gets a specific G Suite translation rule
      * This endpoint returns a specific translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ###### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param gsuiteId  (required)
      * @param id  (required)
@@ -957,7 +1277,7 @@ public class GSuiteApi {
     }
 
     /**
-     * Gets a specific g suite translation rule (asynchronously)
+     * Gets a specific G Suite translation rule (asynchronously)
      * This endpoint returns a specific translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ###### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param gsuiteId  (required)
      * @param id  (required)
