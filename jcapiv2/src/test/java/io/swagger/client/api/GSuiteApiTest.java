@@ -19,6 +19,8 @@ import io.swagger.client.model.GSuiteTranslationRuleRequest;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
+import io.swagger.client.model.GsuiteOutput;
+import io.swagger.client.model.GsuitePatchInput;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -90,9 +92,10 @@ public class GSuiteApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphGSuiteTraverseUser(gsuiteId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -111,9 +114,49 @@ public class GSuiteApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphGSuiteTraverseUserGroup(gsuiteId, contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get G Suite
+     *
+     * This endpoint returns a specific G Suite.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void gsuitesGetTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        GsuiteOutput response = api.gsuitesGet(id, contentType, accept, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update existing G Suite
+     *
+     * This endpoint allows updating some attributes of a G Suite.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void gsuitesPatchTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        GsuitePatchInput body = null;
+        String xOrgId = null;
+        GsuiteOutput response = api.gsuitesPatch(id, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }
@@ -138,7 +181,7 @@ public class GSuiteApiTest {
     }
     
     /**
-     * Gets a specific g suite translation rule
+     * Gets a specific G Suite translation rule
      *
      * This endpoint returns a specific translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ###### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
