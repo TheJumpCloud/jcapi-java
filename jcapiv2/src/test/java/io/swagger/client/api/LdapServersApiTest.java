@@ -14,9 +14,12 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Body;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
+import io.swagger.client.model.InlineResponse200;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.LdapServerOutput;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -91,9 +94,10 @@ public class LdapServersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -112,9 +116,10 @@ public class LdapServersApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -157,6 +162,27 @@ public class LdapServersApiTest {
         List<String> sort = null;
         String xOrgId = null;
         List<LdapServerOutput> response = api.ldapserversList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update existing LDAP server
+     *
+     * This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void ldapserversPatchTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        Body body = null;
+        String xApiKey = null;
+        String xOrgId = null;
+        InlineResponse200 response = api.ldapserversPatch(id, contentType, accept, body, xApiKey, xOrgId);
 
         // TODO: test validations
     }

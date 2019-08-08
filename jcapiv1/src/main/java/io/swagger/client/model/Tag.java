@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Tag
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:21.489Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T00:50:04.431Z")
 public class Tag {
   @SerializedName("_id")
   private String id = null;

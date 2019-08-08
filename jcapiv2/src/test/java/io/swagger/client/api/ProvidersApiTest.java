@@ -15,8 +15,8 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.Administrator;
-import io.swagger.client.model.InlineResponse200;
-import io.swagger.client.model.InlineResponse401;
+import io.swagger.client.model.InlineResponse2001;
+import io.swagger.client.model.InlineResponse400;
 import io.swagger.client.model.ProviderAdminReq;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -53,7 +53,7 @@ public class ProvidersApiTest {
         Integer limit = null;
         Integer skip = null;
         List<String> sort = null;
-        InlineResponse200 response = api.providersListAdministrators(providerId, contentType, accept, fields, filter, limit, skip, sort);
+        InlineResponse2001 response = api.providersListAdministrators(providerId, contentType, accept, fields, filter, limit, skip, sort);
 
         // TODO: test validations
     }
