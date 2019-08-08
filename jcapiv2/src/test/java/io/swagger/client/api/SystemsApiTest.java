@@ -121,9 +121,10 @@ public class SystemsApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseCommand(systemId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseCommand(systemId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -142,9 +143,10 @@ public class SystemsApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraversePolicy(systemId, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraversePolicy(systemId, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -187,11 +189,12 @@ public class SystemsApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         String date = null;
         String authorization = null;
-        String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, xOrgId, skip, date, authorization, filter);
 
         // TODO: test validations
     }

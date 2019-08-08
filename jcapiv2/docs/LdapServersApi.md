@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**graphLdapServerTraverseUserGroup**](LdapServersApi.md#graphLdapServerTraverseUserGroup) | **GET** /ldapservers/{ldapserver_id}/usergroups | List the User Groups bound to a LDAP Server
 [**ldapserversGet**](LdapServersApi.md#ldapserversGet) | **GET** /ldapservers/{id} | Get LDAP Server
 [**ldapserversList**](LdapServersApi.md#ldapserversList) | **GET** /ldapservers | List LDAP Servers
+[**ldapserversPatch**](LdapServersApi.md#ldapserversPatch) | **PATCH** /ldapservers/{id} | Update existing LDAP server
 
 
 <a name="graphLdapServerAssociationsList"></a>
@@ -143,7 +144,7 @@ null (empty response body)
 
 <a name="graphLdapServerTraverseUser"></a>
 # **graphLdapServerTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Users bound to a LDAP Server
 
@@ -171,10 +172,11 @@ String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP S
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerTraverseUser");
@@ -190,8 +192,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -208,7 +211,7 @@ Name | Type | Description  | Notes
 
 <a name="graphLdapServerTraverseUserGroup"></a>
 # **graphLdapServerTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the User Groups bound to a LDAP Server
 
@@ -236,10 +239,11 @@ String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP S
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerTraverseUserGroup");
@@ -255,8 +259,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -391,6 +396,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;LdapServerOutput&gt;**](LdapServerOutput.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="ldapserversPatch"></a>
+# **ldapserversPatch**
+> InlineResponse200 ldapserversPatch(id, contentType, accept, body, xApiKey, xOrgId)
+
+Update existing LDAP server
+
+This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.LdapServersApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+LdapServersApi apiInstance = new LdapServersApi();
+String id = "id_example"; // String | Unique identifier of the LDAP server.
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Body body = new Body(); // Body | 
+String xApiKey = "xApiKey_example"; // String | 
+String xOrgId = "xOrgId_example"; // String | 
+try {
+    InlineResponse200 result = apiInstance.ldapserversPatch(id, contentType, accept, body, xApiKey, xOrgId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling LdapServersApi#ldapserversPatch");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the LDAP server. |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**Body**](Body.md)|  | [optional]
+ **xApiKey** | **String**|  | [optional]
+ **xOrgId** | **String**|  | [optional]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

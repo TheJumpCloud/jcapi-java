@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * GSuiteTranslationRule
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:13:28.293Z")
 public class GSuiteTranslationRule {
   @SerializedName("builtIn")
   private GSuiteBuiltinTranslation builtIn = null;

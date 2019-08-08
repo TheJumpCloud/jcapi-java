@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ApplicationConfigConstantAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:21.489Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:13:22.675Z")
 public class ApplicationConfigConstantAttributes {
   @SerializedName("label")
   private String label = null;

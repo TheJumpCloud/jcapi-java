@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json; charset=utf-8
+ - **Accept**: application/json
 
 <a name="tagsGet"></a>
 # **tagsGet**
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json; charset=utf-8
+ - **Accept**: application/json
 
 <a name="tagsList"></a>
 # **tagsList**
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json; charset=utf-8
+ - **Accept**: application/json
 
 <a name="tagsPost"></a>
 # **tagsPost**
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json; charset=utf-8
+ - **Accept**: application/json
 
 <a name="tagsPut"></a>
 # **tagsPut**
@@ -324,5 +324,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json; charset=utf-8
+ - **Accept**: application/json
 

@@ -153,7 +153,7 @@ null (empty response body)
 
 <a name="graphPolicyTraverseSystem"></a>
 # **graphPolicyTraverseSystem**
-> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystem(policyId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Systems bound to a Policy
 
@@ -181,10 +181,11 @@ String policyId = "policyId_example"; // String | ObjectID of the Command.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystem(policyId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystem(policyId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#graphPolicyTraverseSystem");
@@ -200,8 +201,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -218,7 +220,7 @@ Name | Type | Description  | Notes
 
 <a name="graphPolicyTraverseSystemGroup"></a>
 # **graphPolicyTraverseSystemGroup**
-> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the System Groups bound to a Policy
 
@@ -246,10 +248,11 @@ String policyId = "policyId_example"; // String | ObjectID of the Command.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphPolicyTraverseSystemGroup(policyId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#graphPolicyTraverseSystemGroup");
@@ -265,8 +268,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -731,7 +735,7 @@ Name | Type | Description  | Notes
 
 Lists all the policy results for an organization.
 
-This endpoint returns all policies results for an Organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns all policies results for an organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java

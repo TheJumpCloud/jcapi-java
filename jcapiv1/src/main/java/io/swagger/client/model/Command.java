@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Command
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:21.489Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:13:22.675Z")
 public class Command {
   @SerializedName("name")
   private String name = null;
