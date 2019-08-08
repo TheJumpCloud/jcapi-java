@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CommandslistResults
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:17:47.506Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:48.289Z")
 public class CommandslistResults {
   @SerializedName("name")
   private String name = null;

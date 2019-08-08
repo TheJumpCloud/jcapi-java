@@ -31,7 +31,7 @@ import java.util.List;
  * An instance of a policy template.
  */
 @ApiModel(description = "An instance of a policy template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T01:17:54.297Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
 public class PolicyRequest {
   @SerializedName("name")
   private String name = null;
