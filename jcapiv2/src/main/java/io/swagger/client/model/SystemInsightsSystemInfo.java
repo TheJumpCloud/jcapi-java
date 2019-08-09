@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsSystemInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsSystemInfo {
   @SerializedName("hostname")
   private String hostname = null;
@@ -78,9 +78,6 @@ public class SystemInsightsSystemInfo {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsSystemInfo hostname(String hostname) {
     this.hostname = hostname;
@@ -388,24 +385,6 @@ public class SystemInsightsSystemInfo {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsSystemInfo jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -432,13 +411,12 @@ public class SystemInsightsSystemInfo {
         Objects.equals(this.computerName, systemInsightsSystemInfo.computerName) &&
         Objects.equals(this.localHostname, systemInsightsSystemInfo.localHostname) &&
         Objects.equals(this.jcCollectionTime, systemInsightsSystemInfo.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsSystemInfo.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsSystemInfo.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsSystemInfo.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostname, uuid, cpuType, cpuSubtype, cpuBrand, cpuPhysicalCores, cpuLogicalCores, cpuMicrocode, physicalMemory, hardwareVendor, hardwareModel, hardwareVersion, hardwareSerial, computerName, localHostname, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(hostname, uuid, cpuType, cpuSubtype, cpuBrand, cpuPhysicalCores, cpuLogicalCores, cpuMicrocode, physicalMemory, hardwareVendor, hardwareModel, hardwareVersion, hardwareSerial, computerName, localHostname, jcCollectionTime, jcSystemId);
   }
 
 
@@ -464,7 +442,6 @@ public class SystemInsightsSystemInfo {
     sb.append("    localHostname: ").append(toIndentedString(localHostname)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

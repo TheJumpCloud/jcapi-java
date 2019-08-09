@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsInterfaceAddresses
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsInterfaceAddresses {
   @SerializedName("interface")
   private String _interface = null;
@@ -54,9 +54,6 @@ public class SystemInsightsInterfaceAddresses {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsInterfaceAddresses _interface(String _interface) {
     this._interface = _interface;
@@ -220,24 +217,6 @@ public class SystemInsightsInterfaceAddresses {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsInterfaceAddresses jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -256,13 +235,12 @@ public class SystemInsightsInterfaceAddresses {
         Objects.equals(this.type, systemInsightsInterfaceAddresses.type) &&
         Objects.equals(this.friendlyName, systemInsightsInterfaceAddresses.friendlyName) &&
         Objects.equals(this.jcCollectionTime, systemInsightsInterfaceAddresses.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsInterfaceAddresses.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsInterfaceAddresses.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsInterfaceAddresses.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_interface, address, mask, broadcast, pointToPoint, type, friendlyName, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(_interface, address, mask, broadcast, pointToPoint, type, friendlyName, jcCollectionTime, jcSystemId);
   }
 
 
@@ -280,7 +258,6 @@ public class SystemInsightsInterfaceAddresses {
     sb.append("    friendlyName: ").append(toIndentedString(friendlyName)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

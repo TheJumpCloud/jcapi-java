@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Radiusserverpost
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:48.289Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
 public class Radiusserverpost {
   @SerializedName("networkSourceIp")
   private String networkSourceIp = null;

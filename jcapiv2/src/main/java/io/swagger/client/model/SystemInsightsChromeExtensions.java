@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsChromeExtensions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsChromeExtensions {
   @SerializedName("uid")
   private String uid = null;
@@ -66,9 +66,6 @@ public class SystemInsightsChromeExtensions {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsChromeExtensions uid(String uid) {
     this.uid = uid;
@@ -304,24 +301,6 @@ public class SystemInsightsChromeExtensions {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsChromeExtensions jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -344,13 +323,12 @@ public class SystemInsightsChromeExtensions {
         Objects.equals(this.path, systemInsightsChromeExtensions.path) &&
         Objects.equals(this.permissions, systemInsightsChromeExtensions.permissions) &&
         Objects.equals(this.jcCollectionTime, systemInsightsChromeExtensions.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsChromeExtensions.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsChromeExtensions.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsChromeExtensions.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, identifier, version, description, locale, updateUrl, author, persistent, path, permissions, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(uid, name, identifier, version, description, locale, updateUrl, author, persistent, path, permissions, jcCollectionTime, jcSystemId);
   }
 
 
@@ -372,7 +350,6 @@ public class SystemInsightsChromeExtensions {
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

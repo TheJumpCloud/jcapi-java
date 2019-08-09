@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **path** | **String** |  |  [optional]
 **jcCollectionTime** | **String** |  |  [optional]
 **jcSystemId** | **String** |  |  [optional]
-**jcOrganizationId** | **String** |  |  [optional]
 
 
 

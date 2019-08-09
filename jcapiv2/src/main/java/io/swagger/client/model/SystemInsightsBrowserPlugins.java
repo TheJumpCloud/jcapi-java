@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsBrowserPlugins
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsBrowserPlugins {
   @SerializedName("uid")
   private String uid = null;
@@ -63,9 +63,6 @@ public class SystemInsightsBrowserPlugins {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsBrowserPlugins uid(String uid) {
     this.uid = uid;
@@ -283,24 +280,6 @@ public class SystemInsightsBrowserPlugins {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsBrowserPlugins jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -322,13 +301,12 @@ public class SystemInsightsBrowserPlugins {
         Objects.equals(this.path, systemInsightsBrowserPlugins.path) &&
         Objects.equals(this.disabled, systemInsightsBrowserPlugins.disabled) &&
         Objects.equals(this.jcCollectionTime, systemInsightsBrowserPlugins.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsBrowserPlugins.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsBrowserPlugins.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsBrowserPlugins.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, identifier, version, sdk, description, developmentRegion, _native, path, disabled, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(uid, name, identifier, version, sdk, description, developmentRegion, _native, path, disabled, jcCollectionTime, jcSystemId);
   }
 
 
@@ -349,7 +327,6 @@ public class SystemInsightsBrowserPlugins {
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsUsers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsUsers {
   @SerializedName("uid")
   private String uid = null;
@@ -63,9 +63,6 @@ public class SystemInsightsUsers {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsUsers uid(String uid) {
     this.uid = uid;
@@ -283,24 +280,6 @@ public class SystemInsightsUsers {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsUsers jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -322,13 +301,12 @@ public class SystemInsightsUsers {
         Objects.equals(this.uuid, systemInsightsUsers.uuid) &&
         Objects.equals(this.type, systemInsightsUsers.type) &&
         Objects.equals(this.jcCollectionTime, systemInsightsUsers.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsUsers.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsUsers.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsUsers.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, gid, uidSigned, gidSigned, username, description, directory, shell, uuid, type, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(uid, gid, uidSigned, gidSigned, username, description, directory, shell, uuid, type, jcCollectionTime, jcSystemId);
   }
 
 
@@ -349,7 +327,6 @@ public class SystemInsightsUsers {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **encryptionStatus** | **String** |  |  [optional]
 **jcCollectionTime** | **String** |  |  [optional]
 **jcSystemId** | **String** |  |  [optional]
-**jcOrganizationId** | **String** |  |  [optional]
 
 
 

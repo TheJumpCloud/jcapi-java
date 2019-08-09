@@ -25,7 +25,6 @@ Name | Type | Description | Notes
 **lastOpenedTime** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **jcCollectionTime** | **String** |  |  [optional]
 **jcSystemId** | **String** |  |  [optional]
-**jcOrganizationId** | **String** |  |  [optional]
 
 
 

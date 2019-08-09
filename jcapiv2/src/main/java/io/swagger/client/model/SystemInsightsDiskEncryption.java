@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsDiskEncryption
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsDiskEncryption {
   @SerializedName("name")
   private String name = null;
@@ -54,9 +54,6 @@ public class SystemInsightsDiskEncryption {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsDiskEncryption name(String name) {
     this.name = name;
@@ -220,24 +217,6 @@ public class SystemInsightsDiskEncryption {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsDiskEncryption jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -256,13 +235,12 @@ public class SystemInsightsDiskEncryption {
         Objects.equals(this.userUuid, systemInsightsDiskEncryption.userUuid) &&
         Objects.equals(this.encryptionStatus, systemInsightsDiskEncryption.encryptionStatus) &&
         Objects.equals(this.jcCollectionTime, systemInsightsDiskEncryption.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsDiskEncryption.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsDiskEncryption.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsDiskEncryption.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, uuid, encrypted, type, uid, userUuid, encryptionStatus, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(name, uuid, encrypted, type, uid, userUuid, encryptionStatus, jcCollectionTime, jcSystemId);
   }
 
 
@@ -280,7 +258,6 @@ public class SystemInsightsDiskEncryption {
     sb.append("    encryptionStatus: ").append(toIndentedString(encryptionStatus)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

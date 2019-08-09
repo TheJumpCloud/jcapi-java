@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsOsVersion
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsOsVersion {
   @SerializedName("name")
   private String name = null;
@@ -63,9 +63,6 @@ public class SystemInsightsOsVersion {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsOsVersion name(String name) {
     this.name = name;
@@ -283,24 +280,6 @@ public class SystemInsightsOsVersion {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsOsVersion jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -322,13 +301,12 @@ public class SystemInsightsOsVersion {
         Objects.equals(this.codename, systemInsightsOsVersion.codename) &&
         Objects.equals(this.installDate, systemInsightsOsVersion.installDate) &&
         Objects.equals(this.jcCollectionTime, systemInsightsOsVersion.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsOsVersion.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsOsVersion.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsOsVersion.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, major, minor, patch, build, platform, platformLike, codename, installDate, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(name, version, major, minor, patch, build, platform, platformLike, codename, installDate, jcCollectionTime, jcSystemId);
   }
 
 
@@ -349,7 +327,6 @@ public class SystemInsightsOsVersion {
     sb.append("    installDate: ").append(toIndentedString(installDate)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

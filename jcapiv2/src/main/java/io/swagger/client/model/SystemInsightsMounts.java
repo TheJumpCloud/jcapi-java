@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsMounts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsMounts {
   @SerializedName("device")
   private String device = null;
@@ -66,9 +66,6 @@ public class SystemInsightsMounts {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsMounts device(String device) {
     this.device = device;
@@ -304,24 +301,6 @@ public class SystemInsightsMounts {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsMounts jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -344,13 +323,12 @@ public class SystemInsightsMounts {
         Objects.equals(this.inodesFree, systemInsightsMounts.inodesFree) &&
         Objects.equals(this.flags, systemInsightsMounts.flags) &&
         Objects.equals(this.jcCollectionTime, systemInsightsMounts.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsMounts.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsMounts.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsMounts.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(device, deviceAlias, path, type, blocksSize, blocks, blocksFree, blocksAvailable, inodes, inodesFree, flags, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(device, deviceAlias, path, type, blocksSize, blocks, blocksFree, blocksAvailable, inodes, inodesFree, flags, jcCollectionTime, jcSystemId);
   }
 
 
@@ -372,7 +350,6 @@ public class SystemInsightsMounts {
     sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

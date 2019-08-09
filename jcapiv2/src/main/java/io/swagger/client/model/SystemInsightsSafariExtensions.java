@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsSafariExtensions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsSafariExtensions {
   @SerializedName("uid")
   private String uid = null;
@@ -63,9 +63,6 @@ public class SystemInsightsSafariExtensions {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsSafariExtensions uid(String uid) {
     this.uid = uid;
@@ -283,24 +280,6 @@ public class SystemInsightsSafariExtensions {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsSafariExtensions jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -322,13 +301,12 @@ public class SystemInsightsSafariExtensions {
         Objects.equals(this.description, systemInsightsSafariExtensions.description) &&
         Objects.equals(this.path, systemInsightsSafariExtensions.path) &&
         Objects.equals(this.jcCollectionTime, systemInsightsSafariExtensions.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsSafariExtensions.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsSafariExtensions.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsSafariExtensions.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, identifier, version, sdk, updateUrl, author, developerId, description, path, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(uid, name, identifier, version, sdk, updateUrl, author, developerId, description, path, jcCollectionTime, jcSystemId);
   }
 
 
@@ -349,7 +327,6 @@ public class SystemInsightsSafariExtensions {
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

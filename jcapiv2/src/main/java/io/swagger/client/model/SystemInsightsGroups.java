@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsGroups
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsGroups {
   @SerializedName("gid")
   private String gid = null;
@@ -48,9 +48,6 @@ public class SystemInsightsGroups {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsGroups gid(String gid) {
     this.gid = gid;
@@ -178,24 +175,6 @@ public class SystemInsightsGroups {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsGroups jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -212,13 +191,12 @@ public class SystemInsightsGroups {
         Objects.equals(this.groupSid, systemInsightsGroups.groupSid) &&
         Objects.equals(this.comment, systemInsightsGroups.comment) &&
         Objects.equals(this.jcCollectionTime, systemInsightsGroups.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsGroups.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsGroups.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsGroups.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gid, gidSigned, groupname, groupSid, comment, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(gid, gidSigned, groupname, groupSid, comment, jcCollectionTime, jcSystemId);
   }
 
 
@@ -234,7 +212,6 @@ public class SystemInsightsGroups {
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

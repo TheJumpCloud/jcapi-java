@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **localHostname** | **String** |  |  [optional]
 **jcCollectionTime** | **String** |  |  [optional]
 **jcSystemId** | **String** |  |  [optional]
-**jcOrganizationId** | **String** |  |  [optional]
 
 
 

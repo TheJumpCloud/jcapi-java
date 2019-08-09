@@ -27,7 +27,7 @@ import java.math.BigDecimal;
 /**
  * SystemInsightsApps
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsApps {
   @SerializedName("name")
   private String name = null;
@@ -91,9 +91,6 @@ public class SystemInsightsApps {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsApps name(String name) {
     this.name = name;
@@ -473,24 +470,6 @@ public class SystemInsightsApps {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsApps jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -521,13 +500,12 @@ public class SystemInsightsApps {
         Objects.equals(this.copyright, systemInsightsApps.copyright) &&
         Objects.equals(this.lastOpenedTime, systemInsightsApps.lastOpenedTime) &&
         Objects.equals(this.jcCollectionTime, systemInsightsApps.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsApps.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsApps.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsApps.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, path, bundleExecutable, bundleIdentifier, bundleName, bundleShortVersion, bundleVersion, bundlePackageType, environment, element, compiler, developmentRegion, displayName, infoString, minimumSystemVersion, category, applescriptEnabled, copyright, lastOpenedTime, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(name, path, bundleExecutable, bundleIdentifier, bundleName, bundleShortVersion, bundleVersion, bundlePackageType, environment, element, compiler, developmentRegion, displayName, infoString, minimumSystemVersion, category, applescriptEnabled, copyright, lastOpenedTime, jcCollectionTime, jcSystemId);
   }
 
 
@@ -557,7 +535,6 @@ public class SystemInsightsApps {
     sb.append("    lastOpenedTime: ").append(toIndentedString(lastOpenedTime)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

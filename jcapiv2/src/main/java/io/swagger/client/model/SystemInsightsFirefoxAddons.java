@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemInsightsFirefoxAddons
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemInsightsFirefoxAddons {
   @SerializedName("uid")
   private String uid = null;
@@ -75,9 +75,6 @@ public class SystemInsightsFirefoxAddons {
 
   @SerializedName("jc_system_id")
   private String jcSystemId = null;
-
-  @SerializedName("jc_organization_id")
-  private String jcOrganizationId = null;
 
   public SystemInsightsFirefoxAddons uid(String uid) {
     this.uid = uid;
@@ -367,24 +364,6 @@ public class SystemInsightsFirefoxAddons {
     this.jcSystemId = jcSystemId;
   }
 
-  public SystemInsightsFirefoxAddons jcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-    return this;
-  }
-
-   /**
-   * Get jcOrganizationId
-   * @return jcOrganizationId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcOrganizationId() {
-    return jcOrganizationId;
-  }
-
-  public void setJcOrganizationId(String jcOrganizationId) {
-    this.jcOrganizationId = jcOrganizationId;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -410,13 +389,12 @@ public class SystemInsightsFirefoxAddons {
         Objects.equals(this.location, systemInsightsFirefoxAddons.location) &&
         Objects.equals(this.path, systemInsightsFirefoxAddons.path) &&
         Objects.equals(this.jcCollectionTime, systemInsightsFirefoxAddons.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsFirefoxAddons.jcSystemId) &&
-        Objects.equals(this.jcOrganizationId, systemInsightsFirefoxAddons.jcOrganizationId);
+        Objects.equals(this.jcSystemId, systemInsightsFirefoxAddons.jcSystemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, identifier, creator, type, version, description, sourceUrl, visible, active, disabled, autoupdate, location, path, jcCollectionTime, jcSystemId, jcOrganizationId);
+    return Objects.hash(uid, name, identifier, creator, type, version, description, sourceUrl, visible, active, disabled, autoupdate, location, path, jcCollectionTime, jcSystemId);
   }
 
 
@@ -441,7 +419,6 @@ public class SystemInsightsFirefoxAddons {
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
     sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
-    sb.append("    jcOrganizationId: ").append(toIndentedString(jcOrganizationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

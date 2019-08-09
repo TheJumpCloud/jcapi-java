@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets ldap-server-action
+ * Gets or Sets LdapServerAction
  */
 @JsonAdapter(LdapServerAction.Adapter.class)
 public enum LdapServerAction {

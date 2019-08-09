@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **permissions** | **String** |  |  [optional]
 **jcCollectionTime** | **String** |  |  [optional]
 **jcSystemId** | **String** |  |  [optional]
-**jcOrganizationId** | **String** |  |  [optional]
 
 
 

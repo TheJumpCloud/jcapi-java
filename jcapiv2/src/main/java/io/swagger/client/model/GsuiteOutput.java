@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * GsuiteOutput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-08T19:23:54.955Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class GsuiteOutput {
   @SerializedName("id")
   private String id = null;
