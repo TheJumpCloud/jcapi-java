@@ -92,9 +92,10 @@ public class Office365ApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphOffice365TraverseUser(office365Id, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphOffice365TraverseUser(office365Id, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -113,9 +114,10 @@ public class Office365ApiTest {
         String contentType = null;
         String accept = null;
         Integer limit = null;
-        Integer skip = null;
         String xOrgId = null;
-        List<GraphObjectWithPaths> response = api.graphOffice365TraverseUserGroup(office365Id, contentType, accept, limit, skip, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<GraphObjectWithPaths> response = api.graphOffice365TraverseUserGroup(office365Id, contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }

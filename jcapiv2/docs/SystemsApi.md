@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemTraverseCommand"></a>
 # **graphSystemTraverseCommand**
-> List&lt;GraphObjectWithPaths&gt; graphSystemTraverseCommand(systemId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphSystemTraverseCommand(systemId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Commands bound to a System
 
@@ -254,10 +254,11 @@ String systemId = "systemId_example"; // String | ObjectID of the System.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemTraverseCommand(systemId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemTraverseCommand(systemId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#graphSystemTraverseCommand");
@@ -273,8 +274,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -291,7 +293,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemTraversePolicy"></a>
 # **graphSystemTraversePolicy**
-> List&lt;GraphObjectWithPaths&gt; graphSystemTraversePolicy(systemId, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphSystemTraversePolicy(systemId, contentType, accept, limit, xOrgId, skip, filter)
 
 List the Policies bound to a System
 
@@ -319,10 +321,11 @@ String systemId = "systemId_example"; // String | ObjectID of the System.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-Integer skip = 0; // Integer | The offset into the records to return.
 String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemTraversePolicy(systemId, contentType, accept, limit, skip, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemTraversePolicy(systemId, contentType, accept, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#graphSystemTraversePolicy");
@@ -338,8 +341,9 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 
@@ -427,7 +431,7 @@ Name | Type | Description  | Notes
 
 <a name="graphSystemTraverseUserGroup"></a>
 # **graphSystemTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphSystemTraverseUserGroup(systemId, contentType, accept, limit, skip, date, authorization, xOrgId)
+> List&lt;GraphObjectWithPaths&gt; graphSystemTraverseUserGroup(systemId, contentType, accept, limit, xOrgId, skip, date, authorization, filter)
 
 List the User Groups bound to a System
 
@@ -455,12 +459,13 @@ String systemId = "systemId_example"; // String | ObjectID of the System.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
+String xOrgId = ""; // String | 
 Integer skip = 0; // Integer | The offset into the records to return.
 String date = "date_example"; // String | Current date header for the System Context API
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
-String xOrgId = ""; // String | 
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, skip, date, authorization, xOrgId);
+    List<GraphObjectWithPaths> result = apiInstance.graphSystemTraverseUserGroup(systemId, contentType, accept, limit, xOrgId, skip, date, authorization, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#graphSystemTraverseUserGroup");
@@ -476,10 +481,11 @@ Name | Type | Description  | Notes
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional]
  **authorization** | **String**| Authorization header for the System Context API | [optional]
- **xOrgId** | **String**|  | [optional] [default to ]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
 
 ### Return type
 

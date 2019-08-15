@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemSshdParams
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:21.489Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
 public class SystemSshdParams {
   @SerializedName("name")
   private String name = null;

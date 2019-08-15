@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemGroupGraphManagementReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-03-28T17:13:26.727Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
 public class SystemGroupGraphManagementReq {
   /**
    * How to modify the graph connection.
