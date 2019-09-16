@@ -29,31 +29,13 @@ import java.util.List;
 /**
  * Systemuserslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class Systemuserslist {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
-
   @SerializedName("results")
   private List<Systemuserreturn> results = null;
 
-  public Systemuserslist totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * The total number of system users.
-   * @return totalCount
-  **/
-  @ApiModelProperty(value = "The total number of system users.")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
   public Systemuserslist results(List<Systemuserreturn> results) {
     this.results = results;
@@ -81,6 +63,24 @@ public class Systemuserslist {
     this.results = results;
   }
 
+  public Systemuserslist totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * The total number of system users.
+   * @return totalCount
+  **/
+  @ApiModelProperty(value = "The total number of system users.")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +91,13 @@ public class Systemuserslist {
       return false;
     }
     Systemuserslist systemuserslist = (Systemuserslist) o;
-    return Objects.equals(this.totalCount, systemuserslist.totalCount) &&
-        Objects.equals(this.results, systemuserslist.results);
+    return Objects.equals(this.results, systemuserslist.results) &&
+        Objects.equals(this.totalCount, systemuserslist.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(results, totalCount);
   }
 
 
@@ -106,8 +106,8 @@ public class Systemuserslist {
     StringBuilder sb = new StringBuilder();
     sb.append("class Systemuserslist {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

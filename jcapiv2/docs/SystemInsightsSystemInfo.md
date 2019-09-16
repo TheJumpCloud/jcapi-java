@@ -4,23 +4,23 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hostname** | **String** |  |  [optional]
-**uuid** | **String** |  |  [optional]
-**cpuType** | **String** |  |  [optional]
-**cpuSubtype** | **String** |  |  [optional]
+**collectionTime** | **String** |  |  [optional]
+**computerName** | **String** |  |  [optional]
 **cpuBrand** | **String** |  |  [optional]
-**cpuPhysicalCores** | **Integer** |  |  [optional]
 **cpuLogicalCores** | **Integer** |  |  [optional]
 **cpuMicrocode** | **String** |  |  [optional]
-**physicalMemory** | **String** |  |  [optional]
-**hardwareVendor** | **String** |  |  [optional]
+**cpuPhysicalCores** | **Integer** |  |  [optional]
+**cpuSubtype** | **String** |  |  [optional]
+**cpuType** | **String** |  |  [optional]
 **hardwareModel** | **String** |  |  [optional]
-**hardwareVersion** | **String** |  |  [optional]
 **hardwareSerial** | **String** |  |  [optional]
-**computerName** | **String** |  |  [optional]
+**hardwareVendor** | **String** |  |  [optional]
+**hardwareVersion** | **String** |  |  [optional]
+**hostname** | **String** |  |  [optional]
 **localHostname** | **String** |  |  [optional]
-**jcCollectionTime** | **String** |  |  [optional]
-**jcSystemId** | **String** |  |  [optional]
+**physicalMemory** | **String** |  |  [optional]
+**systemId** | **String** |  |  [optional]
+**uuid** | **String** |  |  [optional]
 
 
 

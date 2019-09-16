@@ -26,25 +26,16 @@ import java.io.IOException;
 /**
  * SystemInsightsSystemInfo
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class SystemInsightsSystemInfo {
-  @SerializedName("hostname")
-  private String hostname = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
-  @SerializedName("uuid")
-  private String uuid = null;
-
-  @SerializedName("cpu_type")
-  private String cpuType = null;
-
-  @SerializedName("cpu_subtype")
-  private String cpuSubtype = null;
+  @SerializedName("computer_name")
+  private String computerName = null;
 
   @SerializedName("cpu_brand")
   private String cpuBrand = null;
-
-  @SerializedName("cpu_physical_cores")
-  private Integer cpuPhysicalCores = null;
 
   @SerializedName("cpu_logical_cores")
   private Integer cpuLogicalCores = null;
@@ -52,103 +43,76 @@ public class SystemInsightsSystemInfo {
   @SerializedName("cpu_microcode")
   private String cpuMicrocode = null;
 
-  @SerializedName("physical_memory")
-  private String physicalMemory = null;
+  @SerializedName("cpu_physical_cores")
+  private Integer cpuPhysicalCores = null;
 
-  @SerializedName("hardware_vendor")
-  private String hardwareVendor = null;
+  @SerializedName("cpu_subtype")
+  private String cpuSubtype = null;
+
+  @SerializedName("cpu_type")
+  private String cpuType = null;
 
   @SerializedName("hardware_model")
   private String hardwareModel = null;
 
-  @SerializedName("hardware_version")
-  private String hardwareVersion = null;
-
   @SerializedName("hardware_serial")
   private String hardwareSerial = null;
 
-  @SerializedName("computer_name")
-  private String computerName = null;
+  @SerializedName("hardware_vendor")
+  private String hardwareVendor = null;
+
+  @SerializedName("hardware_version")
+  private String hardwareVersion = null;
+
+  @SerializedName("hostname")
+  private String hostname = null;
 
   @SerializedName("local_hostname")
   private String localHostname = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("physical_memory")
+  private String physicalMemory = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  public SystemInsightsSystemInfo hostname(String hostname) {
-    this.hostname = hostname;
+  @SerializedName("uuid")
+  private String uuid = null;
+
+  public SystemInsightsSystemInfo collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
     return this;
   }
 
    /**
-   * Get hostname
-   * @return hostname
+   * Get collectionTime
+   * @return collectionTime
   **/
   @ApiModelProperty(value = "")
-  public String getHostname() {
-    return hostname;
+  public String getCollectionTime() {
+    return collectionTime;
   }
 
-  public void setHostname(String hostname) {
-    this.hostname = hostname;
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
-  public SystemInsightsSystemInfo uuid(String uuid) {
-    this.uuid = uuid;
+  public SystemInsightsSystemInfo computerName(String computerName) {
+    this.computerName = computerName;
     return this;
   }
 
    /**
-   * Get uuid
-   * @return uuid
+   * Get computerName
+   * @return computerName
   **/
   @ApiModelProperty(value = "")
-  public String getUuid() {
-    return uuid;
+  public String getComputerName() {
+    return computerName;
   }
 
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-  public SystemInsightsSystemInfo cpuType(String cpuType) {
-    this.cpuType = cpuType;
-    return this;
-  }
-
-   /**
-   * Get cpuType
-   * @return cpuType
-  **/
-  @ApiModelProperty(value = "")
-  public String getCpuType() {
-    return cpuType;
-  }
-
-  public void setCpuType(String cpuType) {
-    this.cpuType = cpuType;
-  }
-
-  public SystemInsightsSystemInfo cpuSubtype(String cpuSubtype) {
-    this.cpuSubtype = cpuSubtype;
-    return this;
-  }
-
-   /**
-   * Get cpuSubtype
-   * @return cpuSubtype
-  **/
-  @ApiModelProperty(value = "")
-  public String getCpuSubtype() {
-    return cpuSubtype;
-  }
-
-  public void setCpuSubtype(String cpuSubtype) {
-    this.cpuSubtype = cpuSubtype;
+  public void setComputerName(String computerName) {
+    this.computerName = computerName;
   }
 
   public SystemInsightsSystemInfo cpuBrand(String cpuBrand) {
@@ -167,24 +131,6 @@ public class SystemInsightsSystemInfo {
 
   public void setCpuBrand(String cpuBrand) {
     this.cpuBrand = cpuBrand;
-  }
-
-  public SystemInsightsSystemInfo cpuPhysicalCores(Integer cpuPhysicalCores) {
-    this.cpuPhysicalCores = cpuPhysicalCores;
-    return this;
-  }
-
-   /**
-   * Get cpuPhysicalCores
-   * @return cpuPhysicalCores
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getCpuPhysicalCores() {
-    return cpuPhysicalCores;
-  }
-
-  public void setCpuPhysicalCores(Integer cpuPhysicalCores) {
-    this.cpuPhysicalCores = cpuPhysicalCores;
   }
 
   public SystemInsightsSystemInfo cpuLogicalCores(Integer cpuLogicalCores) {
@@ -223,40 +169,58 @@ public class SystemInsightsSystemInfo {
     this.cpuMicrocode = cpuMicrocode;
   }
 
-  public SystemInsightsSystemInfo physicalMemory(String physicalMemory) {
-    this.physicalMemory = physicalMemory;
+  public SystemInsightsSystemInfo cpuPhysicalCores(Integer cpuPhysicalCores) {
+    this.cpuPhysicalCores = cpuPhysicalCores;
     return this;
   }
 
    /**
-   * Get physicalMemory
-   * @return physicalMemory
+   * Get cpuPhysicalCores
+   * @return cpuPhysicalCores
   **/
   @ApiModelProperty(value = "")
-  public String getPhysicalMemory() {
-    return physicalMemory;
+  public Integer getCpuPhysicalCores() {
+    return cpuPhysicalCores;
   }
 
-  public void setPhysicalMemory(String physicalMemory) {
-    this.physicalMemory = physicalMemory;
+  public void setCpuPhysicalCores(Integer cpuPhysicalCores) {
+    this.cpuPhysicalCores = cpuPhysicalCores;
   }
 
-  public SystemInsightsSystemInfo hardwareVendor(String hardwareVendor) {
-    this.hardwareVendor = hardwareVendor;
+  public SystemInsightsSystemInfo cpuSubtype(String cpuSubtype) {
+    this.cpuSubtype = cpuSubtype;
     return this;
   }
 
    /**
-   * Get hardwareVendor
-   * @return hardwareVendor
+   * Get cpuSubtype
+   * @return cpuSubtype
   **/
   @ApiModelProperty(value = "")
-  public String getHardwareVendor() {
-    return hardwareVendor;
+  public String getCpuSubtype() {
+    return cpuSubtype;
   }
 
-  public void setHardwareVendor(String hardwareVendor) {
-    this.hardwareVendor = hardwareVendor;
+  public void setCpuSubtype(String cpuSubtype) {
+    this.cpuSubtype = cpuSubtype;
+  }
+
+  public SystemInsightsSystemInfo cpuType(String cpuType) {
+    this.cpuType = cpuType;
+    return this;
+  }
+
+   /**
+   * Get cpuType
+   * @return cpuType
+  **/
+  @ApiModelProperty(value = "")
+  public String getCpuType() {
+    return cpuType;
+  }
+
+  public void setCpuType(String cpuType) {
+    this.cpuType = cpuType;
   }
 
   public SystemInsightsSystemInfo hardwareModel(String hardwareModel) {
@@ -277,24 +241,6 @@ public class SystemInsightsSystemInfo {
     this.hardwareModel = hardwareModel;
   }
 
-  public SystemInsightsSystemInfo hardwareVersion(String hardwareVersion) {
-    this.hardwareVersion = hardwareVersion;
-    return this;
-  }
-
-   /**
-   * Get hardwareVersion
-   * @return hardwareVersion
-  **/
-  @ApiModelProperty(value = "")
-  public String getHardwareVersion() {
-    return hardwareVersion;
-  }
-
-  public void setHardwareVersion(String hardwareVersion) {
-    this.hardwareVersion = hardwareVersion;
-  }
-
   public SystemInsightsSystemInfo hardwareSerial(String hardwareSerial) {
     this.hardwareSerial = hardwareSerial;
     return this;
@@ -313,22 +259,58 @@ public class SystemInsightsSystemInfo {
     this.hardwareSerial = hardwareSerial;
   }
 
-  public SystemInsightsSystemInfo computerName(String computerName) {
-    this.computerName = computerName;
+  public SystemInsightsSystemInfo hardwareVendor(String hardwareVendor) {
+    this.hardwareVendor = hardwareVendor;
     return this;
   }
 
    /**
-   * Get computerName
-   * @return computerName
+   * Get hardwareVendor
+   * @return hardwareVendor
   **/
   @ApiModelProperty(value = "")
-  public String getComputerName() {
-    return computerName;
+  public String getHardwareVendor() {
+    return hardwareVendor;
   }
 
-  public void setComputerName(String computerName) {
-    this.computerName = computerName;
+  public void setHardwareVendor(String hardwareVendor) {
+    this.hardwareVendor = hardwareVendor;
+  }
+
+  public SystemInsightsSystemInfo hardwareVersion(String hardwareVersion) {
+    this.hardwareVersion = hardwareVersion;
+    return this;
+  }
+
+   /**
+   * Get hardwareVersion
+   * @return hardwareVersion
+  **/
+  @ApiModelProperty(value = "")
+  public String getHardwareVersion() {
+    return hardwareVersion;
+  }
+
+  public void setHardwareVersion(String hardwareVersion) {
+    this.hardwareVersion = hardwareVersion;
+  }
+
+  public SystemInsightsSystemInfo hostname(String hostname) {
+    this.hostname = hostname;
+    return this;
+  }
+
+   /**
+   * Get hostname
+   * @return hostname
+  **/
+  @ApiModelProperty(value = "")
+  public String getHostname() {
+    return hostname;
+  }
+
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
   }
 
   public SystemInsightsSystemInfo localHostname(String localHostname) {
@@ -349,40 +331,58 @@ public class SystemInsightsSystemInfo {
     this.localHostname = localHostname;
   }
 
-  public SystemInsightsSystemInfo jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsSystemInfo physicalMemory(String physicalMemory) {
+    this.physicalMemory = physicalMemory;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get physicalMemory
+   * @return physicalMemory
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getPhysicalMemory() {
+    return physicalMemory;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setPhysicalMemory(String physicalMemory) {
+    this.physicalMemory = physicalMemory;
   }
 
-  public SystemInsightsSystemInfo jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsSystemInfo systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
+  }
+
+  public SystemInsightsSystemInfo uuid(String uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+   /**
+   * Get uuid
+   * @return uuid
+  **/
+  @ApiModelProperty(value = "")
+  public String getUuid() {
+    return uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
   }
 
 
@@ -395,28 +395,28 @@ public class SystemInsightsSystemInfo {
       return false;
     }
     SystemInsightsSystemInfo systemInsightsSystemInfo = (SystemInsightsSystemInfo) o;
-    return Objects.equals(this.hostname, systemInsightsSystemInfo.hostname) &&
-        Objects.equals(this.uuid, systemInsightsSystemInfo.uuid) &&
-        Objects.equals(this.cpuType, systemInsightsSystemInfo.cpuType) &&
-        Objects.equals(this.cpuSubtype, systemInsightsSystemInfo.cpuSubtype) &&
+    return Objects.equals(this.collectionTime, systemInsightsSystemInfo.collectionTime) &&
+        Objects.equals(this.computerName, systemInsightsSystemInfo.computerName) &&
         Objects.equals(this.cpuBrand, systemInsightsSystemInfo.cpuBrand) &&
-        Objects.equals(this.cpuPhysicalCores, systemInsightsSystemInfo.cpuPhysicalCores) &&
         Objects.equals(this.cpuLogicalCores, systemInsightsSystemInfo.cpuLogicalCores) &&
         Objects.equals(this.cpuMicrocode, systemInsightsSystemInfo.cpuMicrocode) &&
-        Objects.equals(this.physicalMemory, systemInsightsSystemInfo.physicalMemory) &&
-        Objects.equals(this.hardwareVendor, systemInsightsSystemInfo.hardwareVendor) &&
+        Objects.equals(this.cpuPhysicalCores, systemInsightsSystemInfo.cpuPhysicalCores) &&
+        Objects.equals(this.cpuSubtype, systemInsightsSystemInfo.cpuSubtype) &&
+        Objects.equals(this.cpuType, systemInsightsSystemInfo.cpuType) &&
         Objects.equals(this.hardwareModel, systemInsightsSystemInfo.hardwareModel) &&
-        Objects.equals(this.hardwareVersion, systemInsightsSystemInfo.hardwareVersion) &&
         Objects.equals(this.hardwareSerial, systemInsightsSystemInfo.hardwareSerial) &&
-        Objects.equals(this.computerName, systemInsightsSystemInfo.computerName) &&
+        Objects.equals(this.hardwareVendor, systemInsightsSystemInfo.hardwareVendor) &&
+        Objects.equals(this.hardwareVersion, systemInsightsSystemInfo.hardwareVersion) &&
+        Objects.equals(this.hostname, systemInsightsSystemInfo.hostname) &&
         Objects.equals(this.localHostname, systemInsightsSystemInfo.localHostname) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsSystemInfo.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsSystemInfo.jcSystemId);
+        Objects.equals(this.physicalMemory, systemInsightsSystemInfo.physicalMemory) &&
+        Objects.equals(this.systemId, systemInsightsSystemInfo.systemId) &&
+        Objects.equals(this.uuid, systemInsightsSystemInfo.uuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostname, uuid, cpuType, cpuSubtype, cpuBrand, cpuPhysicalCores, cpuLogicalCores, cpuMicrocode, physicalMemory, hardwareVendor, hardwareModel, hardwareVersion, hardwareSerial, computerName, localHostname, jcCollectionTime, jcSystemId);
+    return Objects.hash(collectionTime, computerName, cpuBrand, cpuLogicalCores, cpuMicrocode, cpuPhysicalCores, cpuSubtype, cpuType, hardwareModel, hardwareSerial, hardwareVendor, hardwareVersion, hostname, localHostname, physicalMemory, systemId, uuid);
   }
 
 
@@ -425,23 +425,23 @@ public class SystemInsightsSystemInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsSystemInfo {\n");
     
-    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    cpuType: ").append(toIndentedString(cpuType)).append("\n");
-    sb.append("    cpuSubtype: ").append(toIndentedString(cpuSubtype)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
+    sb.append("    computerName: ").append(toIndentedString(computerName)).append("\n");
     sb.append("    cpuBrand: ").append(toIndentedString(cpuBrand)).append("\n");
-    sb.append("    cpuPhysicalCores: ").append(toIndentedString(cpuPhysicalCores)).append("\n");
     sb.append("    cpuLogicalCores: ").append(toIndentedString(cpuLogicalCores)).append("\n");
     sb.append("    cpuMicrocode: ").append(toIndentedString(cpuMicrocode)).append("\n");
-    sb.append("    physicalMemory: ").append(toIndentedString(physicalMemory)).append("\n");
-    sb.append("    hardwareVendor: ").append(toIndentedString(hardwareVendor)).append("\n");
+    sb.append("    cpuPhysicalCores: ").append(toIndentedString(cpuPhysicalCores)).append("\n");
+    sb.append("    cpuSubtype: ").append(toIndentedString(cpuSubtype)).append("\n");
+    sb.append("    cpuType: ").append(toIndentedString(cpuType)).append("\n");
     sb.append("    hardwareModel: ").append(toIndentedString(hardwareModel)).append("\n");
-    sb.append("    hardwareVersion: ").append(toIndentedString(hardwareVersion)).append("\n");
     sb.append("    hardwareSerial: ").append(toIndentedString(hardwareSerial)).append("\n");
-    sb.append("    computerName: ").append(toIndentedString(computerName)).append("\n");
+    sb.append("    hardwareVendor: ").append(toIndentedString(hardwareVendor)).append("\n");
+    sb.append("    hardwareVersion: ").append(toIndentedString(hardwareVersion)).append("\n");
+    sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    localHostname: ").append(toIndentedString(localHostname)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    physicalMemory: ").append(toIndentedString(physicalMemory)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

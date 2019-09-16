@@ -28,11 +28,8 @@ import java.math.BigDecimal;
 /**
  * PolicyTemplateConfigField
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class PolicyTemplateConfigField {
-  @SerializedName("id")
-  private String id = null;
-
   /**
    * The default rendering for this field.
    */
@@ -93,6 +90,9 @@ public class PolicyTemplateConfigField {
   @SerializedName("displayType")
   private DisplayTypeEnum displayType = null;
 
+  @SerializedName("id")
+  private String id = null;
+
   @SerializedName("label")
   private String label = null;
 
@@ -111,24 +111,6 @@ public class PolicyTemplateConfigField {
   @SerializedName("tooltip")
   private PolicyTemplateConfigFieldTooltip tooltip = null;
 
-  public PolicyTemplateConfigField id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * ObjectId uniquely identifying a Policy Template Configuration Field
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "ObjectId uniquely identifying a Policy Template Configuration Field")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
   public PolicyTemplateConfigField displayType(DisplayTypeEnum displayType) {
     this.displayType = displayType;
     return this;
@@ -145,6 +127,24 @@ public class PolicyTemplateConfigField {
 
   public void setDisplayType(DisplayTypeEnum displayType) {
     this.displayType = displayType;
+  }
+
+  public PolicyTemplateConfigField id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ObjectId uniquely identifying a Policy Template Configuration Field
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "ObjectId uniquely identifying a Policy Template Configuration Field")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public PolicyTemplateConfigField label(String label) {
@@ -265,8 +265,8 @@ public class PolicyTemplateConfigField {
       return false;
     }
     PolicyTemplateConfigField policyTemplateConfigField = (PolicyTemplateConfigField) o;
-    return Objects.equals(this.id, policyTemplateConfigField.id) &&
-        Objects.equals(this.displayType, policyTemplateConfigField.displayType) &&
+    return Objects.equals(this.displayType, policyTemplateConfigField.displayType) &&
+        Objects.equals(this.id, policyTemplateConfigField.id) &&
         Objects.equals(this.label, policyTemplateConfigField.label) &&
         Objects.equals(this.name, policyTemplateConfigField.name) &&
         Objects.equals(this.position, policyTemplateConfigField.position) &&
@@ -277,7 +277,7 @@ public class PolicyTemplateConfigField {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, displayType, label, name, position, readOnly, required, tooltip);
+    return Objects.hash(displayType, id, label, name, position, readOnly, required, tooltip);
   }
 
 
@@ -286,8 +286,8 @@ public class PolicyTemplateConfigField {
     StringBuilder sb = new StringBuilder();
     sb.append("class PolicyTemplateConfigField {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    position: ").append(toIndentedString(position)).append("\n");

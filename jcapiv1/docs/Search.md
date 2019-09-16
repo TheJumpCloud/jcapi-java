@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | **Object** |  |  [optional]
 **fields** | **String** |  |  [optional]
+**filter** | **Object** |  |  [optional]
 **searchFilter** | **Object** |  |  [optional]
 
 

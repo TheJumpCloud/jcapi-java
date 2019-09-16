@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * ProviderContact
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class ProviderContact {
-  @SerializedName("name")
-  private String name = null;
-
   @SerializedName("email")
   private String email = null;
 
-  public ProviderContact name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
+  @SerializedName("name")
+  private String name = null;
 
   public ProviderContact email(String email) {
     this.email = email;
@@ -70,6 +52,24 @@ public class ProviderContact {
     this.email = email;
   }
 
+  public ProviderContact name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class ProviderContact {
       return false;
     }
     ProviderContact providerContact = (ProviderContact) o;
-    return Objects.equals(this.name, providerContact.name) &&
-        Objects.equals(this.email, providerContact.email);
+    return Objects.equals(this.email, providerContact.email) &&
+        Objects.equals(this.name, providerContact.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, email);
+    return Objects.hash(email, name);
   }
 
 
@@ -95,8 +95,8 @@ public class ProviderContact {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProviderContact {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

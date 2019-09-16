@@ -28,25 +28,10 @@ import java.util.List;
 /**
  * Radiusserverput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class Radiusserverput {
   @SerializedName("_id")
   private String id = null;
-
-  @SerializedName("networkSourceIp")
-  private String networkSourceIp = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("tagNames")
-  private List<String> tagNames = null;
-
-  @SerializedName("userLockoutAction")
-  private String userLockoutAction = null;
-
-  @SerializedName("userPasswordExpirationAction")
-  private String userPasswordExpirationAction = null;
 
   /**
    * Gets or Sets mfa
@@ -102,6 +87,21 @@ public class Radiusserverput {
   @SerializedName("mfa")
   private MfaEnum mfa = null;
 
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("networkSourceIp")
+  private String networkSourceIp = null;
+
+  @SerializedName("tagNames")
+  private List<String> tagNames = null;
+
+  @SerializedName("userLockoutAction")
+  private String userLockoutAction = null;
+
+  @SerializedName("userPasswordExpirationAction")
+  private String userPasswordExpirationAction = null;
+
   public Radiusserverput id(String id) {
     this.id = id;
     return this;
@@ -120,22 +120,22 @@ public class Radiusserverput {
     this.id = id;
   }
 
-  public Radiusserverput networkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
+  public Radiusserverput mfa(MfaEnum mfa) {
+    this.mfa = mfa;
     return this;
   }
 
    /**
-   * Get networkSourceIp
-   * @return networkSourceIp
+   * Get mfa
+   * @return mfa
   **/
   @ApiModelProperty(value = "")
-  public String getNetworkSourceIp() {
-    return networkSourceIp;
+  public MfaEnum getMfa() {
+    return mfa;
   }
 
-  public void setNetworkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
+  public void setMfa(MfaEnum mfa) {
+    this.mfa = mfa;
   }
 
   public Radiusserverput name(String name) {
@@ -154,6 +154,24 @@ public class Radiusserverput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Radiusserverput networkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
+    return this;
+  }
+
+   /**
+   * Get networkSourceIp
+   * @return networkSourceIp
+  **/
+  @ApiModelProperty(value = "")
+  public String getNetworkSourceIp() {
+    return networkSourceIp;
+  }
+
+  public void setNetworkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
   }
 
   public Radiusserverput tagNames(List<String> tagNames) {
@@ -218,24 +236,6 @@ public class Radiusserverput {
     this.userPasswordExpirationAction = userPasswordExpirationAction;
   }
 
-  public Radiusserverput mfa(MfaEnum mfa) {
-    this.mfa = mfa;
-    return this;
-  }
-
-   /**
-   * Get mfa
-   * @return mfa
-  **/
-  @ApiModelProperty(value = "")
-  public MfaEnum getMfa() {
-    return mfa;
-  }
-
-  public void setMfa(MfaEnum mfa) {
-    this.mfa = mfa;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -247,17 +247,17 @@ public class Radiusserverput {
     }
     Radiusserverput radiusserverput = (Radiusserverput) o;
     return Objects.equals(this.id, radiusserverput.id) &&
-        Objects.equals(this.networkSourceIp, radiusserverput.networkSourceIp) &&
+        Objects.equals(this.mfa, radiusserverput.mfa) &&
         Objects.equals(this.name, radiusserverput.name) &&
+        Objects.equals(this.networkSourceIp, radiusserverput.networkSourceIp) &&
         Objects.equals(this.tagNames, radiusserverput.tagNames) &&
         Objects.equals(this.userLockoutAction, radiusserverput.userLockoutAction) &&
-        Objects.equals(this.userPasswordExpirationAction, radiusserverput.userPasswordExpirationAction) &&
-        Objects.equals(this.mfa, radiusserverput.mfa);
+        Objects.equals(this.userPasswordExpirationAction, radiusserverput.userPasswordExpirationAction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, networkSourceIp, name, tagNames, userLockoutAction, userPasswordExpirationAction, mfa);
+    return Objects.hash(id, mfa, name, networkSourceIp, tagNames, userLockoutAction, userPasswordExpirationAction);
   }
 
 
@@ -267,12 +267,12 @@ public class Radiusserverput {
     sb.append("class Radiusserverput {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
     sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
     sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
     sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
-    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("}");
     return sb.toString();
   }

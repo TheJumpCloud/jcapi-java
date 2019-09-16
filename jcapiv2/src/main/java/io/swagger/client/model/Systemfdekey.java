@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Systemfdekey
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class Systemfdekey {
   @SerializedName("key")
   private String key = null;

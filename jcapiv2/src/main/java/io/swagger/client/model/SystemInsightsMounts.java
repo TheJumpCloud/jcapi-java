@@ -26,31 +26,31 @@ import java.io.IOException;
 /**
  * SystemInsightsMounts
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class SystemInsightsMounts {
+  @SerializedName("blocks")
+  private String blocks = null;
+
+  @SerializedName("blocks_available")
+  private String blocksAvailable = null;
+
+  @SerializedName("blocks_free")
+  private String blocksFree = null;
+
+  @SerializedName("blocks_size")
+  private String blocksSize = null;
+
+  @SerializedName("collection_time")
+  private String collectionTime = null;
+
   @SerializedName("device")
   private String device = null;
 
   @SerializedName("device_alias")
   private String deviceAlias = null;
 
-  @SerializedName("path")
-  private String path = null;
-
-  @SerializedName("type")
-  private String type = null;
-
-  @SerializedName("blocks_size")
-  private String blocksSize = null;
-
-  @SerializedName("blocks")
-  private String blocks = null;
-
-  @SerializedName("blocks_free")
-  private String blocksFree = null;
-
-  @SerializedName("blocks_available")
-  private String blocksAvailable = null;
+  @SerializedName("flags")
+  private String flags = null;
 
   @SerializedName("inodes")
   private String inodes = null;
@@ -58,14 +58,104 @@ public class SystemInsightsMounts {
   @SerializedName("inodes_free")
   private String inodesFree = null;
 
-  @SerializedName("flags")
-  private String flags = null;
+  @SerializedName("path")
+  private String path = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("type")
+  private String type = null;
+
+  public SystemInsightsMounts blocks(String blocks) {
+    this.blocks = blocks;
+    return this;
+  }
+
+   /**
+   * Get blocks
+   * @return blocks
+  **/
+  @ApiModelProperty(value = "")
+  public String getBlocks() {
+    return blocks;
+  }
+
+  public void setBlocks(String blocks) {
+    this.blocks = blocks;
+  }
+
+  public SystemInsightsMounts blocksAvailable(String blocksAvailable) {
+    this.blocksAvailable = blocksAvailable;
+    return this;
+  }
+
+   /**
+   * Get blocksAvailable
+   * @return blocksAvailable
+  **/
+  @ApiModelProperty(value = "")
+  public String getBlocksAvailable() {
+    return blocksAvailable;
+  }
+
+  public void setBlocksAvailable(String blocksAvailable) {
+    this.blocksAvailable = blocksAvailable;
+  }
+
+  public SystemInsightsMounts blocksFree(String blocksFree) {
+    this.blocksFree = blocksFree;
+    return this;
+  }
+
+   /**
+   * Get blocksFree
+   * @return blocksFree
+  **/
+  @ApiModelProperty(value = "")
+  public String getBlocksFree() {
+    return blocksFree;
+  }
+
+  public void setBlocksFree(String blocksFree) {
+    this.blocksFree = blocksFree;
+  }
+
+  public SystemInsightsMounts blocksSize(String blocksSize) {
+    this.blocksSize = blocksSize;
+    return this;
+  }
+
+   /**
+   * Get blocksSize
+   * @return blocksSize
+  **/
+  @ApiModelProperty(value = "")
+  public String getBlocksSize() {
+    return blocksSize;
+  }
+
+  public void setBlocksSize(String blocksSize) {
+    this.blocksSize = blocksSize;
+  }
+
+  public SystemInsightsMounts collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+    return this;
+  }
+
+   /**
+   * Get collectionTime
+   * @return collectionTime
+  **/
+  @ApiModelProperty(value = "")
+  public String getCollectionTime() {
+    return collectionTime;
+  }
+
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+  }
 
   public SystemInsightsMounts device(String device) {
     this.device = device;
@@ -103,112 +193,22 @@ public class SystemInsightsMounts {
     this.deviceAlias = deviceAlias;
   }
 
-  public SystemInsightsMounts path(String path) {
-    this.path = path;
+  public SystemInsightsMounts flags(String flags) {
+    this.flags = flags;
     return this;
   }
 
    /**
-   * Get path
-   * @return path
+   * Get flags
+   * @return flags
   **/
   @ApiModelProperty(value = "")
-  public String getPath() {
-    return path;
+  public String getFlags() {
+    return flags;
   }
 
-  public void setPath(String path) {
-    this.path = path;
-  }
-
-  public SystemInsightsMounts type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public SystemInsightsMounts blocksSize(String blocksSize) {
-    this.blocksSize = blocksSize;
-    return this;
-  }
-
-   /**
-   * Get blocksSize
-   * @return blocksSize
-  **/
-  @ApiModelProperty(value = "")
-  public String getBlocksSize() {
-    return blocksSize;
-  }
-
-  public void setBlocksSize(String blocksSize) {
-    this.blocksSize = blocksSize;
-  }
-
-  public SystemInsightsMounts blocks(String blocks) {
-    this.blocks = blocks;
-    return this;
-  }
-
-   /**
-   * Get blocks
-   * @return blocks
-  **/
-  @ApiModelProperty(value = "")
-  public String getBlocks() {
-    return blocks;
-  }
-
-  public void setBlocks(String blocks) {
-    this.blocks = blocks;
-  }
-
-  public SystemInsightsMounts blocksFree(String blocksFree) {
-    this.blocksFree = blocksFree;
-    return this;
-  }
-
-   /**
-   * Get blocksFree
-   * @return blocksFree
-  **/
-  @ApiModelProperty(value = "")
-  public String getBlocksFree() {
-    return blocksFree;
-  }
-
-  public void setBlocksFree(String blocksFree) {
-    this.blocksFree = blocksFree;
-  }
-
-  public SystemInsightsMounts blocksAvailable(String blocksAvailable) {
-    this.blocksAvailable = blocksAvailable;
-    return this;
-  }
-
-   /**
-   * Get blocksAvailable
-   * @return blocksAvailable
-  **/
-  @ApiModelProperty(value = "")
-  public String getBlocksAvailable() {
-    return blocksAvailable;
-  }
-
-  public void setBlocksAvailable(String blocksAvailable) {
-    this.blocksAvailable = blocksAvailable;
+  public void setFlags(String flags) {
+    this.flags = flags;
   }
 
   public SystemInsightsMounts inodes(String inodes) {
@@ -247,58 +247,58 @@ public class SystemInsightsMounts {
     this.inodesFree = inodesFree;
   }
 
-  public SystemInsightsMounts flags(String flags) {
-    this.flags = flags;
+  public SystemInsightsMounts path(String path) {
+    this.path = path;
     return this;
   }
 
    /**
-   * Get flags
-   * @return flags
+   * Get path
+   * @return path
   **/
   @ApiModelProperty(value = "")
-  public String getFlags() {
-    return flags;
+  public String getPath() {
+    return path;
   }
 
-  public void setFlags(String flags) {
-    this.flags = flags;
+  public void setPath(String path) {
+    this.path = path;
   }
 
-  public SystemInsightsMounts jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsMounts systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
   }
 
-  public SystemInsightsMounts jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsMounts type(String type) {
+    this.type = type;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get type
+   * @return type
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getType() {
+    return type;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -311,24 +311,24 @@ public class SystemInsightsMounts {
       return false;
     }
     SystemInsightsMounts systemInsightsMounts = (SystemInsightsMounts) o;
-    return Objects.equals(this.device, systemInsightsMounts.device) &&
-        Objects.equals(this.deviceAlias, systemInsightsMounts.deviceAlias) &&
-        Objects.equals(this.path, systemInsightsMounts.path) &&
-        Objects.equals(this.type, systemInsightsMounts.type) &&
-        Objects.equals(this.blocksSize, systemInsightsMounts.blocksSize) &&
-        Objects.equals(this.blocks, systemInsightsMounts.blocks) &&
-        Objects.equals(this.blocksFree, systemInsightsMounts.blocksFree) &&
+    return Objects.equals(this.blocks, systemInsightsMounts.blocks) &&
         Objects.equals(this.blocksAvailable, systemInsightsMounts.blocksAvailable) &&
+        Objects.equals(this.blocksFree, systemInsightsMounts.blocksFree) &&
+        Objects.equals(this.blocksSize, systemInsightsMounts.blocksSize) &&
+        Objects.equals(this.collectionTime, systemInsightsMounts.collectionTime) &&
+        Objects.equals(this.device, systemInsightsMounts.device) &&
+        Objects.equals(this.deviceAlias, systemInsightsMounts.deviceAlias) &&
+        Objects.equals(this.flags, systemInsightsMounts.flags) &&
         Objects.equals(this.inodes, systemInsightsMounts.inodes) &&
         Objects.equals(this.inodesFree, systemInsightsMounts.inodesFree) &&
-        Objects.equals(this.flags, systemInsightsMounts.flags) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsMounts.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsMounts.jcSystemId);
+        Objects.equals(this.path, systemInsightsMounts.path) &&
+        Objects.equals(this.systemId, systemInsightsMounts.systemId) &&
+        Objects.equals(this.type, systemInsightsMounts.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(device, deviceAlias, path, type, blocksSize, blocks, blocksFree, blocksAvailable, inodes, inodesFree, flags, jcCollectionTime, jcSystemId);
+    return Objects.hash(blocks, blocksAvailable, blocksFree, blocksSize, collectionTime, device, deviceAlias, flags, inodes, inodesFree, path, systemId, type);
   }
 
 
@@ -337,19 +337,19 @@ public class SystemInsightsMounts {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsMounts {\n");
     
+    sb.append("    blocks: ").append(toIndentedString(blocks)).append("\n");
+    sb.append("    blocksAvailable: ").append(toIndentedString(blocksAvailable)).append("\n");
+    sb.append("    blocksFree: ").append(toIndentedString(blocksFree)).append("\n");
+    sb.append("    blocksSize: ").append(toIndentedString(blocksSize)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
     sb.append("    deviceAlias: ").append(toIndentedString(deviceAlias)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    blocksSize: ").append(toIndentedString(blocksSize)).append("\n");
-    sb.append("    blocks: ").append(toIndentedString(blocks)).append("\n");
-    sb.append("    blocksFree: ").append(toIndentedString(blocksFree)).append("\n");
-    sb.append("    blocksAvailable: ").append(toIndentedString(blocksAvailable)).append("\n");
+    sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
     sb.append("    inodes: ").append(toIndentedString(inodes)).append("\n");
     sb.append("    inodesFree: ").append(toIndentedString(inodesFree)).append("\n");
-    sb.append("    flags: ").append(toIndentedString(flags)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,21 +21,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ApplicationConfigIdpEntityIdTooltipVariables;
+import io.swagger.client.model.ApplicationConfigAcsUrlTooltipVariables;
 import java.io.IOException;
 
 /**
- * ApplicationConfigIdpEntityIdTooltip
+ * ApplicationConfigAcsUrlTooltip
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
-public class ApplicationConfigIdpEntityIdTooltip {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
+public class ApplicationConfigAcsUrlTooltip {
   @SerializedName("template")
   private String template = null;
 
   @SerializedName("variables")
-  private ApplicationConfigIdpEntityIdTooltipVariables variables = null;
+  private ApplicationConfigAcsUrlTooltipVariables variables = null;
 
-  public ApplicationConfigIdpEntityIdTooltip template(String template) {
+  public ApplicationConfigAcsUrlTooltip template(String template) {
     this.template = template;
     return this;
   }
@@ -53,7 +53,7 @@ public class ApplicationConfigIdpEntityIdTooltip {
     this.template = template;
   }
 
-  public ApplicationConfigIdpEntityIdTooltip variables(ApplicationConfigIdpEntityIdTooltipVariables variables) {
+  public ApplicationConfigAcsUrlTooltip variables(ApplicationConfigAcsUrlTooltipVariables variables) {
     this.variables = variables;
     return this;
   }
@@ -63,11 +63,11 @@ public class ApplicationConfigIdpEntityIdTooltip {
    * @return variables
   **/
   @ApiModelProperty(value = "")
-  public ApplicationConfigIdpEntityIdTooltipVariables getVariables() {
+  public ApplicationConfigAcsUrlTooltipVariables getVariables() {
     return variables;
   }
 
-  public void setVariables(ApplicationConfigIdpEntityIdTooltipVariables variables) {
+  public void setVariables(ApplicationConfigAcsUrlTooltipVariables variables) {
     this.variables = variables;
   }
 
@@ -80,9 +80,9 @@ public class ApplicationConfigIdpEntityIdTooltip {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationConfigIdpEntityIdTooltip applicationConfigIdpEntityIdTooltip = (ApplicationConfigIdpEntityIdTooltip) o;
-    return Objects.equals(this.template, applicationConfigIdpEntityIdTooltip.template) &&
-        Objects.equals(this.variables, applicationConfigIdpEntityIdTooltip.variables);
+    ApplicationConfigAcsUrlTooltip applicationConfigAcsUrlTooltip = (ApplicationConfigAcsUrlTooltip) o;
+    return Objects.equals(this.template, applicationConfigAcsUrlTooltip.template) &&
+        Objects.equals(this.variables, applicationConfigAcsUrlTooltip.variables);
   }
 
   @Override
@@ -94,7 +94,7 @@ public class ApplicationConfigIdpEntityIdTooltip {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationConfigIdpEntityIdTooltip {\n");
+    sb.append("class ApplicationConfigAcsUrlTooltip {\n");
     
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");

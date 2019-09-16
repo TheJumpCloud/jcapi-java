@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * OauthCodeInput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class OauthCodeInput {
   @SerializedName("code")
   private String code = null;

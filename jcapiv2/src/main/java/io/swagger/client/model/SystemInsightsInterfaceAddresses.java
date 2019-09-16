@@ -26,52 +26,34 @@ import java.io.IOException;
 /**
  * SystemInsightsInterfaceAddresses
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class SystemInsightsInterfaceAddresses {
-  @SerializedName("interface")
-  private String _interface = null;
-
   @SerializedName("address")
   private String address = null;
-
-  @SerializedName("mask")
-  private String mask = null;
 
   @SerializedName("broadcast")
   private String broadcast = null;
 
-  @SerializedName("point_to_point")
-  private String pointToPoint = null;
-
-  @SerializedName("type")
-  private String type = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("friendly_name")
   private String friendlyName = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("interface")
+  private String _interface = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("mask")
+  private String mask = null;
 
-  public SystemInsightsInterfaceAddresses _interface(String _interface) {
-    this._interface = _interface;
-    return this;
-  }
+  @SerializedName("point_to_point")
+  private String pointToPoint = null;
 
-   /**
-   * Get _interface
-   * @return _interface
-  **/
-  @ApiModelProperty(value = "")
-  public String getInterface() {
-    return _interface;
-  }
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  public void setInterface(String _interface) {
-    this._interface = _interface;
-  }
+  @SerializedName("type")
+  private String type = null;
 
   public SystemInsightsInterfaceAddresses address(String address) {
     this.address = address;
@@ -89,24 +71,6 @@ public class SystemInsightsInterfaceAddresses {
 
   public void setAddress(String address) {
     this.address = address;
-  }
-
-  public SystemInsightsInterfaceAddresses mask(String mask) {
-    this.mask = mask;
-    return this;
-  }
-
-   /**
-   * Get mask
-   * @return mask
-  **/
-  @ApiModelProperty(value = "")
-  public String getMask() {
-    return mask;
-  }
-
-  public void setMask(String mask) {
-    this.mask = mask;
   }
 
   public SystemInsightsInterfaceAddresses broadcast(String broadcast) {
@@ -127,40 +91,22 @@ public class SystemInsightsInterfaceAddresses {
     this.broadcast = broadcast;
   }
 
-  public SystemInsightsInterfaceAddresses pointToPoint(String pointToPoint) {
-    this.pointToPoint = pointToPoint;
+  public SystemInsightsInterfaceAddresses collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
     return this;
   }
 
    /**
-   * Get pointToPoint
-   * @return pointToPoint
+   * Get collectionTime
+   * @return collectionTime
   **/
   @ApiModelProperty(value = "")
-  public String getPointToPoint() {
-    return pointToPoint;
+  public String getCollectionTime() {
+    return collectionTime;
   }
 
-  public void setPointToPoint(String pointToPoint) {
-    this.pointToPoint = pointToPoint;
-  }
-
-  public SystemInsightsInterfaceAddresses type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
   public SystemInsightsInterfaceAddresses friendlyName(String friendlyName) {
@@ -181,40 +127,94 @@ public class SystemInsightsInterfaceAddresses {
     this.friendlyName = friendlyName;
   }
 
-  public SystemInsightsInterfaceAddresses jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsInterfaceAddresses _interface(String _interface) {
+    this._interface = _interface;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get _interface
+   * @return _interface
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getInterface() {
+    return _interface;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setInterface(String _interface) {
+    this._interface = _interface;
   }
 
-  public SystemInsightsInterfaceAddresses jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsInterfaceAddresses mask(String mask) {
+    this.mask = mask;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get mask
+   * @return mask
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getMask() {
+    return mask;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setMask(String mask) {
+    this.mask = mask;
+  }
+
+  public SystemInsightsInterfaceAddresses pointToPoint(String pointToPoint) {
+    this.pointToPoint = pointToPoint;
+    return this;
+  }
+
+   /**
+   * Get pointToPoint
+   * @return pointToPoint
+  **/
+  @ApiModelProperty(value = "")
+  public String getPointToPoint() {
+    return pointToPoint;
+  }
+
+  public void setPointToPoint(String pointToPoint) {
+    this.pointToPoint = pointToPoint;
+  }
+
+  public SystemInsightsInterfaceAddresses systemId(String systemId) {
+    this.systemId = systemId;
+    return this;
+  }
+
+   /**
+   * Get systemId
+   * @return systemId
+  **/
+  @ApiModelProperty(value = "")
+  public String getSystemId() {
+    return systemId;
+  }
+
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
+  }
+
+  public SystemInsightsInterfaceAddresses type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -227,20 +227,20 @@ public class SystemInsightsInterfaceAddresses {
       return false;
     }
     SystemInsightsInterfaceAddresses systemInsightsInterfaceAddresses = (SystemInsightsInterfaceAddresses) o;
-    return Objects.equals(this._interface, systemInsightsInterfaceAddresses._interface) &&
-        Objects.equals(this.address, systemInsightsInterfaceAddresses.address) &&
-        Objects.equals(this.mask, systemInsightsInterfaceAddresses.mask) &&
+    return Objects.equals(this.address, systemInsightsInterfaceAddresses.address) &&
         Objects.equals(this.broadcast, systemInsightsInterfaceAddresses.broadcast) &&
-        Objects.equals(this.pointToPoint, systemInsightsInterfaceAddresses.pointToPoint) &&
-        Objects.equals(this.type, systemInsightsInterfaceAddresses.type) &&
+        Objects.equals(this.collectionTime, systemInsightsInterfaceAddresses.collectionTime) &&
         Objects.equals(this.friendlyName, systemInsightsInterfaceAddresses.friendlyName) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsInterfaceAddresses.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsInterfaceAddresses.jcSystemId);
+        Objects.equals(this._interface, systemInsightsInterfaceAddresses._interface) &&
+        Objects.equals(this.mask, systemInsightsInterfaceAddresses.mask) &&
+        Objects.equals(this.pointToPoint, systemInsightsInterfaceAddresses.pointToPoint) &&
+        Objects.equals(this.systemId, systemInsightsInterfaceAddresses.systemId) &&
+        Objects.equals(this.type, systemInsightsInterfaceAddresses.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_interface, address, mask, broadcast, pointToPoint, type, friendlyName, jcCollectionTime, jcSystemId);
+    return Objects.hash(address, broadcast, collectionTime, friendlyName, _interface, mask, pointToPoint, systemId, type);
   }
 
 
@@ -249,15 +249,15 @@ public class SystemInsightsInterfaceAddresses {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsInterfaceAddresses {\n");
     
-    sb.append("    _interface: ").append(toIndentedString(_interface)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
     sb.append("    broadcast: ").append(toIndentedString(broadcast)).append("\n");
-    sb.append("    pointToPoint: ").append(toIndentedString(pointToPoint)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    friendlyName: ").append(toIndentedString(friendlyName)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    _interface: ").append(toIndentedString(_interface)).append("\n");
+    sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
+    sb.append("    pointToPoint: ").append(toIndentedString(pointToPoint)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

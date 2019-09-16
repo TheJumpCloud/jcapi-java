@@ -26,16 +26,16 @@ import java.io.IOException;
 /**
  * Error
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class Error {
   @SerializedName("code")
   private Integer code = null;
 
-  @SerializedName("message")
-  private String message = null;
-
   @SerializedName("fields")
   private String fields = null;
+
+  @SerializedName("message")
+  private String message = null;
 
   public Error code(Integer code) {
     this.code = code;
@@ -53,24 +53,6 @@ public class Error {
 
   public void setCode(Integer code) {
     this.code = code;
-  }
-
-  public Error message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @ApiModelProperty(value = "")
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
   }
 
   public Error fields(String fields) {
@@ -91,6 +73,24 @@ public class Error {
     this.fields = fields;
   }
 
+  public Error message(String message) {
+    this.message = message;
+    return this;
+  }
+
+   /**
+   * Get message
+   * @return message
+  **/
+  @ApiModelProperty(value = "")
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,13 +102,13 @@ public class Error {
     }
     Error error = (Error) o;
     return Objects.equals(this.code, error.code) &&
-        Objects.equals(this.message, error.message) &&
-        Objects.equals(this.fields, error.fields);
+        Objects.equals(this.fields, error.fields) &&
+        Objects.equals(this.message, error.message);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, message, fields);
+    return Objects.hash(code, fields, message);
   }
 
 
@@ -118,8 +118,8 @@ public class Error {
     sb.append("class Error {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

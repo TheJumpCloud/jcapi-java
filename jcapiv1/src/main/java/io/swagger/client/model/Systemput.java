@@ -29,16 +29,10 @@ import java.util.List;
 /**
  * Systemput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class Systemput {
-  @SerializedName("displayName")
-  private String displayName = null;
-
-  @SerializedName("allowSshPasswordAuthentication")
-  private Boolean allowSshPasswordAuthentication = null;
-
-  @SerializedName("allowSshRootLogin")
-  private Boolean allowSshRootLogin = null;
+  @SerializedName("agentBoundMessages")
+  private List<SystemputAgentBoundMessages> agentBoundMessages = null;
 
   @SerializedName("allowMultiFactorAuthentication")
   private Boolean allowMultiFactorAuthentication = null;
@@ -46,64 +40,42 @@ public class Systemput {
   @SerializedName("allowPublicKeyAuthentication")
   private Boolean allowPublicKeyAuthentication = null;
 
-  @SerializedName("agentBoundMessages")
-  private List<SystemputAgentBoundMessages> agentBoundMessages = null;
+  @SerializedName("allowSshPasswordAuthentication")
+  private Boolean allowSshPasswordAuthentication = null;
+
+  @SerializedName("allowSshRootLogin")
+  private Boolean allowSshRootLogin = null;
+
+  @SerializedName("displayName")
+  private String displayName = null;
 
   @SerializedName("tags")
   private List<String> tags = null;
 
-  public Systemput displayName(String displayName) {
-    this.displayName = displayName;
+  public Systemput agentBoundMessages(List<SystemputAgentBoundMessages> agentBoundMessages) {
+    this.agentBoundMessages = agentBoundMessages;
+    return this;
+  }
+
+  public Systemput addAgentBoundMessagesItem(SystemputAgentBoundMessages agentBoundMessagesItem) {
+    if (this.agentBoundMessages == null) {
+      this.agentBoundMessages = new ArrayList<SystemputAgentBoundMessages>();
+    }
+    this.agentBoundMessages.add(agentBoundMessagesItem);
     return this;
   }
 
    /**
-   * Get displayName
-   * @return displayName
+   * Get agentBoundMessages
+   * @return agentBoundMessages
   **/
   @ApiModelProperty(value = "")
-  public String getDisplayName() {
-    return displayName;
+  public List<SystemputAgentBoundMessages> getAgentBoundMessages() {
+    return agentBoundMessages;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public Systemput allowSshPasswordAuthentication(Boolean allowSshPasswordAuthentication) {
-    this.allowSshPasswordAuthentication = allowSshPasswordAuthentication;
-    return this;
-  }
-
-   /**
-   * Get allowSshPasswordAuthentication
-   * @return allowSshPasswordAuthentication
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isAllowSshPasswordAuthentication() {
-    return allowSshPasswordAuthentication;
-  }
-
-  public void setAllowSshPasswordAuthentication(Boolean allowSshPasswordAuthentication) {
-    this.allowSshPasswordAuthentication = allowSshPasswordAuthentication;
-  }
-
-  public Systemput allowSshRootLogin(Boolean allowSshRootLogin) {
-    this.allowSshRootLogin = allowSshRootLogin;
-    return this;
-  }
-
-   /**
-   * Get allowSshRootLogin
-   * @return allowSshRootLogin
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isAllowSshRootLogin() {
-    return allowSshRootLogin;
-  }
-
-  public void setAllowSshRootLogin(Boolean allowSshRootLogin) {
-    this.allowSshRootLogin = allowSshRootLogin;
+  public void setAgentBoundMessages(List<SystemputAgentBoundMessages> agentBoundMessages) {
+    this.agentBoundMessages = agentBoundMessages;
   }
 
   public Systemput allowMultiFactorAuthentication(Boolean allowMultiFactorAuthentication) {
@@ -142,30 +114,58 @@ public class Systemput {
     this.allowPublicKeyAuthentication = allowPublicKeyAuthentication;
   }
 
-  public Systemput agentBoundMessages(List<SystemputAgentBoundMessages> agentBoundMessages) {
-    this.agentBoundMessages = agentBoundMessages;
-    return this;
-  }
-
-  public Systemput addAgentBoundMessagesItem(SystemputAgentBoundMessages agentBoundMessagesItem) {
-    if (this.agentBoundMessages == null) {
-      this.agentBoundMessages = new ArrayList<SystemputAgentBoundMessages>();
-    }
-    this.agentBoundMessages.add(agentBoundMessagesItem);
+  public Systemput allowSshPasswordAuthentication(Boolean allowSshPasswordAuthentication) {
+    this.allowSshPasswordAuthentication = allowSshPasswordAuthentication;
     return this;
   }
 
    /**
-   * Get agentBoundMessages
-   * @return agentBoundMessages
+   * Get allowSshPasswordAuthentication
+   * @return allowSshPasswordAuthentication
   **/
   @ApiModelProperty(value = "")
-  public List<SystemputAgentBoundMessages> getAgentBoundMessages() {
-    return agentBoundMessages;
+  public Boolean isAllowSshPasswordAuthentication() {
+    return allowSshPasswordAuthentication;
   }
 
-  public void setAgentBoundMessages(List<SystemputAgentBoundMessages> agentBoundMessages) {
-    this.agentBoundMessages = agentBoundMessages;
+  public void setAllowSshPasswordAuthentication(Boolean allowSshPasswordAuthentication) {
+    this.allowSshPasswordAuthentication = allowSshPasswordAuthentication;
+  }
+
+  public Systemput allowSshRootLogin(Boolean allowSshRootLogin) {
+    this.allowSshRootLogin = allowSshRootLogin;
+    return this;
+  }
+
+   /**
+   * Get allowSshRootLogin
+   * @return allowSshRootLogin
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isAllowSshRootLogin() {
+    return allowSshRootLogin;
+  }
+
+  public void setAllowSshRootLogin(Boolean allowSshRootLogin) {
+    this.allowSshRootLogin = allowSshRootLogin;
+  }
+
+  public Systemput displayName(String displayName) {
+    this.displayName = displayName;
+    return this;
+  }
+
+   /**
+   * Get displayName
+   * @return displayName
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   public Systemput tags(List<String> tags) {
@@ -204,18 +204,18 @@ public class Systemput {
       return false;
     }
     Systemput systemput = (Systemput) o;
-    return Objects.equals(this.displayName, systemput.displayName) &&
-        Objects.equals(this.allowSshPasswordAuthentication, systemput.allowSshPasswordAuthentication) &&
-        Objects.equals(this.allowSshRootLogin, systemput.allowSshRootLogin) &&
+    return Objects.equals(this.agentBoundMessages, systemput.agentBoundMessages) &&
         Objects.equals(this.allowMultiFactorAuthentication, systemput.allowMultiFactorAuthentication) &&
         Objects.equals(this.allowPublicKeyAuthentication, systemput.allowPublicKeyAuthentication) &&
-        Objects.equals(this.agentBoundMessages, systemput.agentBoundMessages) &&
+        Objects.equals(this.allowSshPasswordAuthentication, systemput.allowSshPasswordAuthentication) &&
+        Objects.equals(this.allowSshRootLogin, systemput.allowSshRootLogin) &&
+        Objects.equals(this.displayName, systemput.displayName) &&
         Objects.equals(this.tags, systemput.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, allowSshPasswordAuthentication, allowSshRootLogin, allowMultiFactorAuthentication, allowPublicKeyAuthentication, agentBoundMessages, tags);
+    return Objects.hash(agentBoundMessages, allowMultiFactorAuthentication, allowPublicKeyAuthentication, allowSshPasswordAuthentication, allowSshRootLogin, displayName, tags);
   }
 
 
@@ -224,12 +224,12 @@ public class Systemput {
     StringBuilder sb = new StringBuilder();
     sb.append("class Systemput {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    allowSshPasswordAuthentication: ").append(toIndentedString(allowSshPasswordAuthentication)).append("\n");
-    sb.append("    allowSshRootLogin: ").append(toIndentedString(allowSshRootLogin)).append("\n");
+    sb.append("    agentBoundMessages: ").append(toIndentedString(agentBoundMessages)).append("\n");
     sb.append("    allowMultiFactorAuthentication: ").append(toIndentedString(allowMultiFactorAuthentication)).append("\n");
     sb.append("    allowPublicKeyAuthentication: ").append(toIndentedString(allowPublicKeyAuthentication)).append("\n");
-    sb.append("    agentBoundMessages: ").append(toIndentedString(agentBoundMessages)).append("\n");
+    sb.append("    allowSshPasswordAuthentication: ").append(toIndentedString(allowSshPasswordAuthentication)).append("\n");
+    sb.append("    allowSshRootLogin: ").append(toIndentedString(allowSshRootLogin)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * Fde
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class Fde {
-  @SerializedName("keyPresent")
-  private Boolean keyPresent = null;
-
   @SerializedName("active")
   private Boolean active = null;
 
-  public Fde keyPresent(Boolean keyPresent) {
-    this.keyPresent = keyPresent;
-    return this;
-  }
-
-   /**
-   * Get keyPresent
-   * @return keyPresent
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isKeyPresent() {
-    return keyPresent;
-  }
-
-  public void setKeyPresent(Boolean keyPresent) {
-    this.keyPresent = keyPresent;
-  }
+  @SerializedName("keyPresent")
+  private Boolean keyPresent = null;
 
   public Fde active(Boolean active) {
     this.active = active;
@@ -70,6 +52,24 @@ public class Fde {
     this.active = active;
   }
 
+  public Fde keyPresent(Boolean keyPresent) {
+    this.keyPresent = keyPresent;
+    return this;
+  }
+
+   /**
+   * Get keyPresent
+   * @return keyPresent
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isKeyPresent() {
+    return keyPresent;
+  }
+
+  public void setKeyPresent(Boolean keyPresent) {
+    this.keyPresent = keyPresent;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class Fde {
       return false;
     }
     Fde fde = (Fde) o;
-    return Objects.equals(this.keyPresent, fde.keyPresent) &&
-        Objects.equals(this.active, fde.active);
+    return Objects.equals(this.active, fde.active) &&
+        Objects.equals(this.keyPresent, fde.keyPresent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(keyPresent, active);
+    return Objects.hash(active, keyPresent);
   }
 
 
@@ -95,8 +95,8 @@ public class Fde {
     StringBuilder sb = new StringBuilder();
     sb.append("class Fde {\n");
     
-    sb.append("    keyPresent: ").append(toIndentedString(keyPresent)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    keyPresent: ").append(toIndentedString(keyPresent)).append("\n");
     sb.append("}");
     return sb.toString();
   }

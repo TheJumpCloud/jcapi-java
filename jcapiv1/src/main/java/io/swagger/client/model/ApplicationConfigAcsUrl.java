@@ -21,22 +21,28 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ApplicationConfigIdpEntityIdTooltip;
+import io.swagger.client.model.ApplicationConfigAcsUrlTooltip;
 import java.io.IOException;
 
 /**
- * ApplicationConfigIdpEntityId
+ * ApplicationConfigAcsUrl
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
-public class ApplicationConfigIdpEntityId {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
+public class ApplicationConfigAcsUrl {
   @SerializedName("label")
   private String label = null;
+
+  @SerializedName("position")
+  private Integer position = null;
 
   @SerializedName("readOnly")
   private Boolean readOnly = null;
 
+  @SerializedName("required")
+  private Boolean required = null;
+
   @SerializedName("tooltip")
-  private ApplicationConfigIdpEntityIdTooltip tooltip = null;
+  private ApplicationConfigAcsUrlTooltip tooltip = null;
 
   @SerializedName("type")
   private String type = null;
@@ -47,13 +53,7 @@ public class ApplicationConfigIdpEntityId {
   @SerializedName("visible")
   private Boolean visible = null;
 
-  @SerializedName("required")
-  private Boolean required = null;
-
-  @SerializedName("position")
-  private Integer position = null;
-
-  public ApplicationConfigIdpEntityId label(String label) {
+  public ApplicationConfigAcsUrl label(String label) {
     this.label = label;
     return this;
   }
@@ -71,115 +71,7 @@ public class ApplicationConfigIdpEntityId {
     this.label = label;
   }
 
-  public ApplicationConfigIdpEntityId readOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-    return this;
-  }
-
-   /**
-   * Get readOnly
-   * @return readOnly
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isReadOnly() {
-    return readOnly;
-  }
-
-  public void setReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-  }
-
-  public ApplicationConfigIdpEntityId tooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
-    this.tooltip = tooltip;
-    return this;
-  }
-
-   /**
-   * Get tooltip
-   * @return tooltip
-  **/
-  @ApiModelProperty(value = "")
-  public ApplicationConfigIdpEntityIdTooltip getTooltip() {
-    return tooltip;
-  }
-
-  public void setTooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
-    this.tooltip = tooltip;
-  }
-
-  public ApplicationConfigIdpEntityId type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public ApplicationConfigIdpEntityId value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @ApiModelProperty(value = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public ApplicationConfigIdpEntityId visible(Boolean visible) {
-    this.visible = visible;
-    return this;
-  }
-
-   /**
-   * Get visible
-   * @return visible
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isVisible() {
-    return visible;
-  }
-
-  public void setVisible(Boolean visible) {
-    this.visible = visible;
-  }
-
-  public ApplicationConfigIdpEntityId required(Boolean required) {
-    this.required = required;
-    return this;
-  }
-
-   /**
-   * Get required
-   * @return required
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isRequired() {
-    return required;
-  }
-
-  public void setRequired(Boolean required) {
-    this.required = required;
-  }
-
-  public ApplicationConfigIdpEntityId position(Integer position) {
+  public ApplicationConfigAcsUrl position(Integer position) {
     this.position = position;
     return this;
   }
@@ -197,6 +89,114 @@ public class ApplicationConfigIdpEntityId {
     this.position = position;
   }
 
+  public ApplicationConfigAcsUrl readOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return this;
+  }
+
+   /**
+   * Get readOnly
+   * @return readOnly
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isReadOnly() {
+    return readOnly;
+  }
+
+  public void setReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+  }
+
+  public ApplicationConfigAcsUrl required(Boolean required) {
+    this.required = required;
+    return this;
+  }
+
+   /**
+   * Get required
+   * @return required
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isRequired() {
+    return required;
+  }
+
+  public void setRequired(Boolean required) {
+    this.required = required;
+  }
+
+  public ApplicationConfigAcsUrl tooltip(ApplicationConfigAcsUrlTooltip tooltip) {
+    this.tooltip = tooltip;
+    return this;
+  }
+
+   /**
+   * Get tooltip
+   * @return tooltip
+  **/
+  @ApiModelProperty(value = "")
+  public ApplicationConfigAcsUrlTooltip getTooltip() {
+    return tooltip;
+  }
+
+  public void setTooltip(ApplicationConfigAcsUrlTooltip tooltip) {
+    this.tooltip = tooltip;
+  }
+
+  public ApplicationConfigAcsUrl type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public ApplicationConfigAcsUrl value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @ApiModelProperty(value = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public ApplicationConfigAcsUrl visible(Boolean visible) {
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Get visible
+   * @return visible
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isVisible() {
+    return visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -206,36 +206,36 @@ public class ApplicationConfigIdpEntityId {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationConfigIdpEntityId applicationConfigIdpEntityId = (ApplicationConfigIdpEntityId) o;
-    return Objects.equals(this.label, applicationConfigIdpEntityId.label) &&
-        Objects.equals(this.readOnly, applicationConfigIdpEntityId.readOnly) &&
-        Objects.equals(this.tooltip, applicationConfigIdpEntityId.tooltip) &&
-        Objects.equals(this.type, applicationConfigIdpEntityId.type) &&
-        Objects.equals(this.value, applicationConfigIdpEntityId.value) &&
-        Objects.equals(this.visible, applicationConfigIdpEntityId.visible) &&
-        Objects.equals(this.required, applicationConfigIdpEntityId.required) &&
-        Objects.equals(this.position, applicationConfigIdpEntityId.position);
+    ApplicationConfigAcsUrl applicationConfigAcsUrl = (ApplicationConfigAcsUrl) o;
+    return Objects.equals(this.label, applicationConfigAcsUrl.label) &&
+        Objects.equals(this.position, applicationConfigAcsUrl.position) &&
+        Objects.equals(this.readOnly, applicationConfigAcsUrl.readOnly) &&
+        Objects.equals(this.required, applicationConfigAcsUrl.required) &&
+        Objects.equals(this.tooltip, applicationConfigAcsUrl.tooltip) &&
+        Objects.equals(this.type, applicationConfigAcsUrl.type) &&
+        Objects.equals(this.value, applicationConfigAcsUrl.value) &&
+        Objects.equals(this.visible, applicationConfigAcsUrl.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(label, readOnly, tooltip, type, value, visible, required, position);
+    return Objects.hash(label, position, readOnly, required, tooltip, type, value, visible);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationConfigIdpEntityId {\n");
+    sb.append("class ApplicationConfigAcsUrl {\n");
     
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
+    sb.append("    required: ").append(toIndentedString(required)).append("\n");
     sb.append("    tooltip: ").append(toIndentedString(tooltip)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
-    sb.append("    required: ").append(toIndentedString(required)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("}");
     return sb.toString();
   }

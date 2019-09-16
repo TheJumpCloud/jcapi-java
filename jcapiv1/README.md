@@ -128,7 +128,7 @@ Class | Method | HTTP request | Description
 *SystemsApi* | [**systemsPut**](docs/SystemsApi.md#systemsPut) | **PUT** /systems/{id} | Update a system
 *SystemsApi* | [**systemsSystemusersBindingList**](docs/SystemsApi.md#systemsSystemusersBindingList) | **GET** /systems/{id}/systemusers | List system user bindings
 *SystemsApi* | [**systemsSystemusersBindingPut**](docs/SystemsApi.md#systemsSystemusersBindingPut) | **PUT** /systems/{id}/systemusers | Update a system&#39;s or user&#39;s binding
-*SystemusersApi* | [**sshkeyDelete**](docs/SystemusersApi.md#sshkeyDelete) | **DELETE** /systemusers/{id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
+*SystemusersApi* | [**sshkeyDelete**](docs/SystemusersApi.md#sshkeyDelete) | **DELETE** /systemusers/{systemuser_id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
 *SystemusersApi* | [**sshkeyList**](docs/SystemusersApi.md#sshkeyList) | **GET** /systemusers/{id}/sshkeys | List a system user&#39;s public SSH keys
 *SystemusersApi* | [**sshkeyPost**](docs/SystemusersApi.md#sshkeyPost) | **POST** /systemusers/{id}/sshkeys | Create a system user&#39;s Public SSH Key
 *SystemusersApi* | [**systemusersDelete**](docs/SystemusersApi.md#systemusersDelete) | **DELETE** /systemusers/{id} | Delete a system user
@@ -151,12 +151,12 @@ Class | Method | HTTP request | Description
 
  - [Application](docs/Application.md)
  - [ApplicationConfig](docs/ApplicationConfig.md)
+ - [ApplicationConfigAcsUrl](docs/ApplicationConfigAcsUrl.md)
+ - [ApplicationConfigAcsUrlTooltip](docs/ApplicationConfigAcsUrlTooltip.md)
+ - [ApplicationConfigAcsUrlTooltipVariables](docs/ApplicationConfigAcsUrlTooltipVariables.md)
  - [ApplicationConfigConstantAttributes](docs/ApplicationConfigConstantAttributes.md)
  - [ApplicationConfigConstantAttributesValue](docs/ApplicationConfigConstantAttributesValue.md)
  - [ApplicationConfigDatabaseAttributes](docs/ApplicationConfigDatabaseAttributes.md)
- - [ApplicationConfigIdpEntityId](docs/ApplicationConfigIdpEntityId.md)
- - [ApplicationConfigIdpEntityIdTooltip](docs/ApplicationConfigIdpEntityIdTooltip.md)
- - [ApplicationConfigIdpEntityIdTooltipVariables](docs/ApplicationConfigIdpEntityIdTooltipVariables.md)
  - [Applicationslist](docs/Applicationslist.md)
  - [Body](docs/Body.md)
  - [Body1](docs/Body1.md)
@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
  - [System](docs/System.md)
  - [SystemNetworkInterfaces](docs/SystemNetworkInterfaces.md)
  - [SystemSshdParams](docs/SystemSshdParams.md)
+ - [SystemSystemInsights](docs/SystemSystemInsights.md)
  - [Systemput](docs/Systemput.md)
  - [SystemputAgentBoundMessages](docs/SystemputAgentBoundMessages.md)
  - [Systemslist](docs/Systemslist.md)

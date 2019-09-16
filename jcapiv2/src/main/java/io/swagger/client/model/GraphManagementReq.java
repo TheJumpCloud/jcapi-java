@@ -27,8 +27,11 @@ import java.io.IOException;
 /**
  * GraphManagementReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class GraphManagementReq {
+  @SerializedName("id")
+  private String id = null;
+
   /**
    * How to modify the graph connection.
    */
@@ -84,8 +87,23 @@ public class GraphManagementReq {
   @SerializedName("type")
   private GraphType type = null;
 
-  @SerializedName("id")
-  private String id = null;
+  public GraphManagementReq id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The ObjectID of graph object being added or removed as an association.
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "The ObjectID of graph object being added or removed as an association.")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public GraphManagementReq op(OpEnum op) {
     this.op = op;
@@ -123,24 +141,6 @@ public class GraphManagementReq {
     this.type = type;
   }
 
-  public GraphManagementReq id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ObjectID of graph object being added or removed as an association.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "The ObjectID of graph object being added or removed as an association.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,14 +151,14 @@ public class GraphManagementReq {
       return false;
     }
     GraphManagementReq graphManagementReq = (GraphManagementReq) o;
-    return Objects.equals(this.op, graphManagementReq.op) &&
-        Objects.equals(this.type, graphManagementReq.type) &&
-        Objects.equals(this.id, graphManagementReq.id);
+    return Objects.equals(this.id, graphManagementReq.id) &&
+        Objects.equals(this.op, graphManagementReq.op) &&
+        Objects.equals(this.type, graphManagementReq.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(op, type, id);
+    return Objects.hash(id, op, type);
   }
 
 
@@ -167,9 +167,9 @@ public class GraphManagementReq {
     StringBuilder sb = new StringBuilder();
     sb.append("class GraphManagementReq {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    op: ").append(toIndentedString(op)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

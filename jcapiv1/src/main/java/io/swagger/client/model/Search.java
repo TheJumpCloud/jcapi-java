@@ -26,34 +26,16 @@ import java.io.IOException;
 /**
  * Search
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class Search {
-  @SerializedName("filter")
-  private Object filter = null;
-
   @SerializedName("fields")
   private String fields = null;
 
+  @SerializedName("filter")
+  private Object filter = null;
+
   @SerializedName("searchFilter")
   private Object searchFilter = null;
-
-  public Search filter(Object filter) {
-    this.filter = filter;
-    return this;
-  }
-
-   /**
-   * Get filter
-   * @return filter
-  **/
-  @ApiModelProperty(value = "")
-  public Object getFilter() {
-    return filter;
-  }
-
-  public void setFilter(Object filter) {
-    this.filter = filter;
-  }
 
   public Search fields(String fields) {
     this.fields = fields;
@@ -71,6 +53,24 @@ public class Search {
 
   public void setFields(String fields) {
     this.fields = fields;
+  }
+
+  public Search filter(Object filter) {
+    this.filter = filter;
+    return this;
+  }
+
+   /**
+   * Get filter
+   * @return filter
+  **/
+  @ApiModelProperty(value = "")
+  public Object getFilter() {
+    return filter;
+  }
+
+  public void setFilter(Object filter) {
+    this.filter = filter;
   }
 
   public Search searchFilter(Object searchFilter) {
@@ -101,14 +101,14 @@ public class Search {
       return false;
     }
     Search search = (Search) o;
-    return Objects.equals(this.filter, search.filter) &&
-        Objects.equals(this.fields, search.fields) &&
+    return Objects.equals(this.fields, search.fields) &&
+        Objects.equals(this.filter, search.filter) &&
         Objects.equals(this.searchFilter, search.searchFilter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, fields, searchFilter);
+    return Objects.hash(fields, filter, searchFilter);
   }
 
 
@@ -117,8 +117,8 @@ public class Search {
     StringBuilder sb = new StringBuilder();
     sb.append("class Search {\n");
     
-    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    searchFilter: ").append(toIndentedString(searchFilter)).append("\n");
     sb.append("}");
     return sb.toString();

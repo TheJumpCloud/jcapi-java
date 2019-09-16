@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]
-**organization** | **String** |  |  [optional]
-**networkSourceIp** | **String** |  |  [optional]
-**sharedSecret** | **String** |  |  [optional]
+**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 **name** | **String** |  |  [optional]
-**tags** | **List&lt;String&gt;** |  |  [optional]
+**networkSourceIp** | **String** |  |  [optional]
+**organization** | **String** |  |  [optional]
+**sharedSecret** | **String** |  |  [optional]
 **tagNames** | **List&lt;String&gt;** |  |  [optional]
+**tags** | **List&lt;String&gt;** |  |  [optional]
 **userLockoutAction** | **String** |  |  [optional]
 **userPasswordExpirationAction** | **String** |  |  [optional]
-**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 
 
 <a name="MfaEnum"></a>

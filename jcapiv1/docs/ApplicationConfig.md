@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**idpEntityId** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
-**idpCertificate** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
-**spEntityId** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
-**acsUrl** | [**ApplicationConfigIdpEntityId**](ApplicationConfigIdpEntityId.md) |  |  [optional]
+**acsUrl** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
 **constantAttributes** | [**ApplicationConfigConstantAttributes**](ApplicationConfigConstantAttributes.md) |  |  [optional]
 **databaseAttributes** | [**ApplicationConfigDatabaseAttributes**](ApplicationConfigDatabaseAttributes.md) |  |  [optional]
+**idpCertificate** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
+**idpEntityId** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
+**spEntityId** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
 
 
 

@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 **name** | **String** |  | 
 **networkSourceIp** | **String** |  | 
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **userLockoutAction** | **String** |  |  [optional]
 **userPasswordExpirationAction** | **String** |  |  [optional]
-**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 
 
 <a name="MfaEnum"></a>

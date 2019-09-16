@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * UserGroup
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class UserGroup {
   @SerializedName("id")
   private String id = null;
+
+  @SerializedName("name")
+  private String name = null;
 
   /**
    * The type of the group.
@@ -79,9 +82,6 @@ public class UserGroup {
   @SerializedName("type")
   private TypeEnum type = null;
 
-  @SerializedName("name")
-  private String name = null;
-
   public UserGroup id(String id) {
     this.id = id;
     return this;
@@ -98,24 +98,6 @@ public class UserGroup {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public UserGroup type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of the group.
-   * @return type
-  **/
-  @ApiModelProperty(value = "The type of the group.")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
   }
 
   public UserGroup name(String name) {
@@ -136,6 +118,24 @@ public class UserGroup {
     this.name = name;
   }
 
+  public UserGroup type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of the group.
+   * @return type
+  **/
+  @ApiModelProperty(value = "The type of the group.")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,13 +147,13 @@ public class UserGroup {
     }
     UserGroup userGroup = (UserGroup) o;
     return Objects.equals(this.id, userGroup.id) &&
-        Objects.equals(this.type, userGroup.type) &&
-        Objects.equals(this.name, userGroup.name);
+        Objects.equals(this.name, userGroup.name) &&
+        Objects.equals(this.type, userGroup.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, name);
+    return Objects.hash(id, name, type);
   }
 
 
@@ -163,8 +163,8 @@ public class UserGroup {
     sb.append("class UserGroup {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

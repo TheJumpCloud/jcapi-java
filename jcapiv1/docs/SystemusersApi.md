@@ -4,7 +4,7 @@ All URIs are relative to *https://console.jumpcloud.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**sshkeyDelete**](SystemusersApi.md#sshkeyDelete) | **DELETE** /systemusers/{id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
+[**sshkeyDelete**](SystemusersApi.md#sshkeyDelete) | **DELETE** /systemusers/{systemuser_id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
 [**sshkeyList**](SystemusersApi.md#sshkeyList) | **GET** /systemusers/{id}/sshkeys | List a system user&#39;s public SSH keys
 [**sshkeyPost**](SystemusersApi.md#sshkeyPost) | **POST** /systemusers/{id}/sshkeys | Create a system user&#39;s Public SSH Key
 [**systemusersDelete**](SystemusersApi.md#systemusersDelete) | **DELETE** /systemusers/{id} | Delete a system user
@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 <a name="sshkeyDelete"></a>
 # **sshkeyDelete**
-> sshkeyDelete(id, contentType, accept, xOrgId)
+> sshkeyDelete(systemuserId, id, contentType, accept, xOrgId)
 
 Delete a system user&#39;s Public SSH Keys
 
@@ -44,12 +44,13 @@ x_api_key.setApiKey("YOUR API KEY");
 //x_api_key.setApiKeyPrefix("Token");
 
 SystemusersApi apiInstance = new SystemusersApi();
+String systemuserId = "systemuserId_example"; // String | 
 String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 String xOrgId = ""; // String | 
 try {
-    apiInstance.sshkeyDelete(id, contentType, accept, xOrgId);
+    apiInstance.sshkeyDelete(systemuserId, id, contentType, accept, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#sshkeyDelete");
     e.printStackTrace();
@@ -60,6 +61,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **systemuserId** | **String**|  |
  **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
@@ -80,7 +82,7 @@ null (empty response body)
 
 <a name="sshkeyList"></a>
 # **sshkeyList**
-> Sshkeylist sshkeyList(id, contentType, accept, xOrgId)
+> List&lt;Sshkeylist&gt; sshkeyList(id, contentType, accept, xOrgId)
 
 List a system user&#39;s public SSH keys
 
@@ -109,7 +111,7 @@ String contentType = "application/json"; // String |
 String accept = "application/json"; // String | 
 String xOrgId = ""; // String | 
 try {
-    Sshkeylist result = apiInstance.sshkeyList(id, contentType, accept, xOrgId);
+    List<Sshkeylist> result = apiInstance.sshkeyList(id, contentType, accept, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#sshkeyList");
@@ -128,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Sshkeylist**](Sshkeylist.md)
+[**List&lt;Sshkeylist&gt;**](Sshkeylist.md)
 
 ### Authorization
 
@@ -208,7 +210,7 @@ Name | Type | Description  | Notes
 
 Delete a system user
 
-This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -334,7 +336,7 @@ Name | Type | Description  | Notes
 
 List all system users
 
-This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -525,11 +527,11 @@ Name | Type | Description  | Notes
 
 <a name="systemusersResetmfa"></a>
 # **systemusersResetmfa**
-> systemusersResetmfa(id, xApiKey, body, xOrgId)
+> systemusersResetmfa(id, xApiKey, contentType, accept, body, xOrgId)
 
 Reset a system user&#39;s MFA token
 
-This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;   &#x60;&#x60;&#x60;
+This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -551,10 +553,12 @@ x_api_key.setApiKey("YOUR API KEY");
 SystemusersApi apiInstance = new SystemusersApi();
 String id = "id_example"; // String | 
 String xApiKey = "xApiKey_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
 Body1 body = new Body1(); // Body1 | 
 String xOrgId = ""; // String | 
 try {
-    apiInstance.systemusersResetmfa(id, xApiKey, body, xOrgId);
+    apiInstance.systemusersResetmfa(id, xApiKey, contentType, accept, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#systemusersResetmfa");
     e.printStackTrace();
@@ -567,6 +571,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
  **xApiKey** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
  **body** | [**Body1**](Body1.md)|  | [optional]
  **xOrgId** | **String**|  | [optional] [default to ]
 
@@ -589,7 +595,7 @@ null (empty response body)
 
 List system user binding
 
-Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -660,7 +666,7 @@ Name | Type | Description  | Notes
 
 Update a system user binding
 
-Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -719,7 +725,7 @@ Name | Type | Description  | Notes
 
 <a name="systemusersUnlock"></a>
 # **systemusersUnlock**
-> systemusersUnlock(id, xOrgId)
+> systemusersUnlock(id, contentType, accept, xOrgId)
 
 Unlock a system user
 
@@ -744,9 +750,11 @@ x_api_key.setApiKey("YOUR API KEY");
 
 SystemusersApi apiInstance = new SystemusersApi();
 String id = "id_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
 String xOrgId = ""; // String | 
 try {
-    apiInstance.systemusersUnlock(id, xOrgId);
+    apiInstance.systemusersUnlock(id, contentType, accept, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemusersApi#systemusersUnlock");
     e.printStackTrace();
@@ -758,6 +766,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
  **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type

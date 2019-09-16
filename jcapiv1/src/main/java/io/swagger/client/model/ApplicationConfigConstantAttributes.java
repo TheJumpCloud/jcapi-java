@@ -21,8 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.ApplicationConfigAcsUrlTooltip;
 import io.swagger.client.model.ApplicationConfigConstantAttributesValue;
-import io.swagger.client.model.ApplicationConfigIdpEntityIdTooltip;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,16 +30,25 @@ import java.util.List;
 /**
  * ApplicationConfigConstantAttributes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class ApplicationConfigConstantAttributes {
   @SerializedName("label")
   private String label = null;
 
+  @SerializedName("mutable")
+  private Boolean mutable = null;
+
+  @SerializedName("position")
+  private Integer position = null;
+
   @SerializedName("readOnly")
   private Boolean readOnly = null;
 
+  @SerializedName("required")
+  private Boolean required = null;
+
   @SerializedName("tooltip")
-  private ApplicationConfigIdpEntityIdTooltip tooltip = null;
+  private ApplicationConfigAcsUrlTooltip tooltip = null;
 
   @SerializedName("type")
   private String type = null;
@@ -49,15 +58,6 @@ public class ApplicationConfigConstantAttributes {
 
   @SerializedName("visible")
   private Boolean visible = null;
-
-  @SerializedName("mutable")
-  private Boolean mutable = null;
-
-  @SerializedName("required")
-  private Boolean required = null;
-
-  @SerializedName("position")
-  private Integer position = null;
 
   public ApplicationConfigConstantAttributes label(String label) {
     this.label = label;
@@ -75,6 +75,42 @@ public class ApplicationConfigConstantAttributes {
 
   public void setLabel(String label) {
     this.label = label;
+  }
+
+  public ApplicationConfigConstantAttributes mutable(Boolean mutable) {
+    this.mutable = mutable;
+    return this;
+  }
+
+   /**
+   * Get mutable
+   * @return mutable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isMutable() {
+    return mutable;
+  }
+
+  public void setMutable(Boolean mutable) {
+    this.mutable = mutable;
+  }
+
+  public ApplicationConfigConstantAttributes position(Integer position) {
+    this.position = position;
+    return this;
+  }
+
+   /**
+   * Get position
+   * @return position
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getPosition() {
+    return position;
+  }
+
+  public void setPosition(Integer position) {
+    this.position = position;
   }
 
   public ApplicationConfigConstantAttributes readOnly(Boolean readOnly) {
@@ -95,7 +131,25 @@ public class ApplicationConfigConstantAttributes {
     this.readOnly = readOnly;
   }
 
-  public ApplicationConfigConstantAttributes tooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
+  public ApplicationConfigConstantAttributes required(Boolean required) {
+    this.required = required;
+    return this;
+  }
+
+   /**
+   * Get required
+   * @return required
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isRequired() {
+    return required;
+  }
+
+  public void setRequired(Boolean required) {
+    this.required = required;
+  }
+
+  public ApplicationConfigConstantAttributes tooltip(ApplicationConfigAcsUrlTooltip tooltip) {
     this.tooltip = tooltip;
     return this;
   }
@@ -105,11 +159,11 @@ public class ApplicationConfigConstantAttributes {
    * @return tooltip
   **/
   @ApiModelProperty(value = "")
-  public ApplicationConfigIdpEntityIdTooltip getTooltip() {
+  public ApplicationConfigAcsUrlTooltip getTooltip() {
     return tooltip;
   }
 
-  public void setTooltip(ApplicationConfigIdpEntityIdTooltip tooltip) {
+  public void setTooltip(ApplicationConfigAcsUrlTooltip tooltip) {
     this.tooltip = tooltip;
   }
 
@@ -175,60 +229,6 @@ public class ApplicationConfigConstantAttributes {
     this.visible = visible;
   }
 
-  public ApplicationConfigConstantAttributes mutable(Boolean mutable) {
-    this.mutable = mutable;
-    return this;
-  }
-
-   /**
-   * Get mutable
-   * @return mutable
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isMutable() {
-    return mutable;
-  }
-
-  public void setMutable(Boolean mutable) {
-    this.mutable = mutable;
-  }
-
-  public ApplicationConfigConstantAttributes required(Boolean required) {
-    this.required = required;
-    return this;
-  }
-
-   /**
-   * Get required
-   * @return required
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isRequired() {
-    return required;
-  }
-
-  public void setRequired(Boolean required) {
-    this.required = required;
-  }
-
-  public ApplicationConfigConstantAttributes position(Integer position) {
-    this.position = position;
-    return this;
-  }
-
-   /**
-   * Get position
-   * @return position
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getPosition() {
-    return position;
-  }
-
-  public void setPosition(Integer position) {
-    this.position = position;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -240,19 +240,19 @@ public class ApplicationConfigConstantAttributes {
     }
     ApplicationConfigConstantAttributes applicationConfigConstantAttributes = (ApplicationConfigConstantAttributes) o;
     return Objects.equals(this.label, applicationConfigConstantAttributes.label) &&
+        Objects.equals(this.mutable, applicationConfigConstantAttributes.mutable) &&
+        Objects.equals(this.position, applicationConfigConstantAttributes.position) &&
         Objects.equals(this.readOnly, applicationConfigConstantAttributes.readOnly) &&
+        Objects.equals(this.required, applicationConfigConstantAttributes.required) &&
         Objects.equals(this.tooltip, applicationConfigConstantAttributes.tooltip) &&
         Objects.equals(this.type, applicationConfigConstantAttributes.type) &&
         Objects.equals(this.value, applicationConfigConstantAttributes.value) &&
-        Objects.equals(this.visible, applicationConfigConstantAttributes.visible) &&
-        Objects.equals(this.mutable, applicationConfigConstantAttributes.mutable) &&
-        Objects.equals(this.required, applicationConfigConstantAttributes.required) &&
-        Objects.equals(this.position, applicationConfigConstantAttributes.position);
+        Objects.equals(this.visible, applicationConfigConstantAttributes.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(label, readOnly, tooltip, type, value, visible, mutable, required, position);
+    return Objects.hash(label, mutable, position, readOnly, required, tooltip, type, value, visible);
   }
 
 
@@ -262,14 +262,14 @@ public class ApplicationConfigConstantAttributes {
     sb.append("class ApplicationConfigConstantAttributes {\n");
     
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    mutable: ").append(toIndentedString(mutable)).append("\n");
+    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
+    sb.append("    required: ").append(toIndentedString(required)).append("\n");
     sb.append("    tooltip: ").append(toIndentedString(tooltip)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
-    sb.append("    mutable: ").append(toIndentedString(mutable)).append("\n");
-    sb.append("    required: ").append(toIndentedString(required)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
     sb.append("}");
     return sb.toString();
   }

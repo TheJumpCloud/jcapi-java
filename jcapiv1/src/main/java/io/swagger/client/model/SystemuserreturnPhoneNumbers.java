@@ -26,16 +26,16 @@ import java.io.IOException;
 /**
  * SystemuserreturnPhoneNumbers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class SystemuserreturnPhoneNumbers {
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("type")
-  private String type = null;
-
   @SerializedName("number")
   private String number = null;
+
+  @SerializedName("type")
+  private String type = null;
 
   public SystemuserreturnPhoneNumbers id(String id) {
     this.id = id;
@@ -53,24 +53,6 @@ public class SystemuserreturnPhoneNumbers {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public SystemuserreturnPhoneNumbers type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
   }
 
   public SystemuserreturnPhoneNumbers number(String number) {
@@ -91,6 +73,24 @@ public class SystemuserreturnPhoneNumbers {
     this.number = number;
   }
 
+  public SystemuserreturnPhoneNumbers type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,13 +102,13 @@ public class SystemuserreturnPhoneNumbers {
     }
     SystemuserreturnPhoneNumbers systemuserreturnPhoneNumbers = (SystemuserreturnPhoneNumbers) o;
     return Objects.equals(this.id, systemuserreturnPhoneNumbers.id) &&
-        Objects.equals(this.type, systemuserreturnPhoneNumbers.type) &&
-        Objects.equals(this.number, systemuserreturnPhoneNumbers.number);
+        Objects.equals(this.number, systemuserreturnPhoneNumbers.number) &&
+        Objects.equals(this.type, systemuserreturnPhoneNumbers.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, number);
+    return Objects.hash(id, number, type);
   }
 
 
@@ -118,8 +118,8 @@ public class SystemuserreturnPhoneNumbers {
     sb.append("class SystemuserreturnPhoneNumbers {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

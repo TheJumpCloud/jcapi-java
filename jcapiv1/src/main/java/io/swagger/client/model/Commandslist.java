@@ -27,31 +27,13 @@ import java.io.IOException;
 /**
  * Commandslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class Commandslist {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
-
   @SerializedName("results")
   private CommandslistResults results = null;
 
-  public Commandslist totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * The total number of commands
-   * @return totalCount
-  **/
-  @ApiModelProperty(value = "The total number of commands")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
   public Commandslist results(CommandslistResults results) {
     this.results = results;
@@ -71,6 +53,24 @@ public class Commandslist {
     this.results = results;
   }
 
+  public Commandslist totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * The total number of commands
+   * @return totalCount
+  **/
+  @ApiModelProperty(value = "The total number of commands")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +81,13 @@ public class Commandslist {
       return false;
     }
     Commandslist commandslist = (Commandslist) o;
-    return Objects.equals(this.totalCount, commandslist.totalCount) &&
-        Objects.equals(this.results, commandslist.results);
+    return Objects.equals(this.results, commandslist.results) &&
+        Objects.equals(this.totalCount, commandslist.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(results, totalCount);
   }
 
 
@@ -96,8 +96,8 @@ public class Commandslist {
     StringBuilder sb = new StringBuilder();
     sb.append("class Commandslist {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

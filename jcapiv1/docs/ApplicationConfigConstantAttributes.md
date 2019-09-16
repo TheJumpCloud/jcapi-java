@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **label** | **String** |  |  [optional]
+**mutable** | **Boolean** |  |  [optional]
+**position** | **Integer** |  |  [optional]
 **readOnly** | **Boolean** |  |  [optional]
-**tooltip** | [**ApplicationConfigIdpEntityIdTooltip**](ApplicationConfigIdpEntityIdTooltip.md) |  |  [optional]
+**required** | **Boolean** |  |  [optional]
+**tooltip** | [**ApplicationConfigAcsUrlTooltip**](ApplicationConfigAcsUrlTooltip.md) |  |  [optional]
 **type** | **String** |  |  [optional]
 **value** | [**List&lt;ApplicationConfigConstantAttributesValue&gt;**](ApplicationConfigConstantAttributesValue.md) |  |  [optional]
 **visible** | **Boolean** |  |  [optional]
-**mutable** | **Boolean** |  |  [optional]
-**required** | **Boolean** |  |  [optional]
-**position** | **Integer** |  |  [optional]
 
 
 

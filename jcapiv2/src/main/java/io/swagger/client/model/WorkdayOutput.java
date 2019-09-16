@@ -27,10 +27,16 @@ import java.io.IOException;
 /**
  * WorkdayOutput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class WorkdayOutput {
+  @SerializedName("auth")
+  private WorkdayoutputAuth auth = null;
+
   @SerializedName("id")
   private String id = null;
+
+  @SerializedName("lastImport")
+  private String lastImport = null;
 
   @SerializedName("name")
   private String name = null;
@@ -38,11 +44,23 @@ public class WorkdayOutput {
   @SerializedName("reportUrl")
   private String reportUrl = null;
 
-  @SerializedName("lastImport")
-  private String lastImport = null;
+  public WorkdayOutput auth(WorkdayoutputAuth auth) {
+    this.auth = auth;
+    return this;
+  }
 
-  @SerializedName("auth")
-  private WorkdayoutputAuth auth = null;
+   /**
+   * Get auth
+   * @return auth
+  **/
+  @ApiModelProperty(value = "")
+  public WorkdayoutputAuth getAuth() {
+    return auth;
+  }
+
+  public void setAuth(WorkdayoutputAuth auth) {
+    this.auth = auth;
+  }
 
   public WorkdayOutput id(String id) {
     this.id = id;
@@ -60,6 +78,24 @@ public class WorkdayOutput {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public WorkdayOutput lastImport(String lastImport) {
+    this.lastImport = lastImport;
+    return this;
+  }
+
+   /**
+   * Get lastImport
+   * @return lastImport
+  **/
+  @ApiModelProperty(value = "")
+  public String getLastImport() {
+    return lastImport;
+  }
+
+  public void setLastImport(String lastImport) {
+    this.lastImport = lastImport;
   }
 
   public WorkdayOutput name(String name) {
@@ -98,42 +134,6 @@ public class WorkdayOutput {
     this.reportUrl = reportUrl;
   }
 
-  public WorkdayOutput lastImport(String lastImport) {
-    this.lastImport = lastImport;
-    return this;
-  }
-
-   /**
-   * Get lastImport
-   * @return lastImport
-  **/
-  @ApiModelProperty(value = "")
-  public String getLastImport() {
-    return lastImport;
-  }
-
-  public void setLastImport(String lastImport) {
-    this.lastImport = lastImport;
-  }
-
-  public WorkdayOutput auth(WorkdayoutputAuth auth) {
-    this.auth = auth;
-    return this;
-  }
-
-   /**
-   * Get auth
-   * @return auth
-  **/
-  @ApiModelProperty(value = "")
-  public WorkdayoutputAuth getAuth() {
-    return auth;
-  }
-
-  public void setAuth(WorkdayoutputAuth auth) {
-    this.auth = auth;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,16 +144,16 @@ public class WorkdayOutput {
       return false;
     }
     WorkdayOutput workdayOutput = (WorkdayOutput) o;
-    return Objects.equals(this.id, workdayOutput.id) &&
-        Objects.equals(this.name, workdayOutput.name) &&
-        Objects.equals(this.reportUrl, workdayOutput.reportUrl) &&
+    return Objects.equals(this.auth, workdayOutput.auth) &&
+        Objects.equals(this.id, workdayOutput.id) &&
         Objects.equals(this.lastImport, workdayOutput.lastImport) &&
-        Objects.equals(this.auth, workdayOutput.auth);
+        Objects.equals(this.name, workdayOutput.name) &&
+        Objects.equals(this.reportUrl, workdayOutput.reportUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, reportUrl, lastImport, auth);
+    return Objects.hash(auth, id, lastImport, name, reportUrl);
   }
 
 
@@ -162,11 +162,11 @@ public class WorkdayOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkdayOutput {\n");
     
+    sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastImport: ").append(toIndentedString(lastImport)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    reportUrl: ").append(toIndentedString(reportUrl)).append("\n");
-    sb.append("    lastImport: ").append(toIndentedString(lastImport)).append("\n");
-    sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,33 +27,33 @@ import java.io.IOException;
 /**
  * WorkdayInput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:24.539Z")
 public class WorkdayInput {
-  @SerializedName("reportUrl")
-  private String reportUrl = null;
+  @SerializedName("auth")
+  private AuthInput auth = null;
 
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("auth")
-  private AuthInput auth = null;
+  @SerializedName("reportUrl")
+  private String reportUrl = null;
 
-  public WorkdayInput reportUrl(String reportUrl) {
-    this.reportUrl = reportUrl;
+  public WorkdayInput auth(AuthInput auth) {
+    this.auth = auth;
     return this;
   }
 
    /**
-   * Get reportUrl
-   * @return reportUrl
+   * Get auth
+   * @return auth
   **/
   @ApiModelProperty(value = "")
-  public String getReportUrl() {
-    return reportUrl;
+  public AuthInput getAuth() {
+    return auth;
   }
 
-  public void setReportUrl(String reportUrl) {
-    this.reportUrl = reportUrl;
+  public void setAuth(AuthInput auth) {
+    this.auth = auth;
   }
 
   public WorkdayInput name(String name) {
@@ -74,22 +74,22 @@ public class WorkdayInput {
     this.name = name;
   }
 
-  public WorkdayInput auth(AuthInput auth) {
-    this.auth = auth;
+  public WorkdayInput reportUrl(String reportUrl) {
+    this.reportUrl = reportUrl;
     return this;
   }
 
    /**
-   * Get auth
-   * @return auth
+   * Get reportUrl
+   * @return reportUrl
   **/
   @ApiModelProperty(value = "")
-  public AuthInput getAuth() {
-    return auth;
+  public String getReportUrl() {
+    return reportUrl;
   }
 
-  public void setAuth(AuthInput auth) {
-    this.auth = auth;
+  public void setReportUrl(String reportUrl) {
+    this.reportUrl = reportUrl;
   }
 
 
@@ -102,14 +102,14 @@ public class WorkdayInput {
       return false;
     }
     WorkdayInput workdayInput = (WorkdayInput) o;
-    return Objects.equals(this.reportUrl, workdayInput.reportUrl) &&
+    return Objects.equals(this.auth, workdayInput.auth) &&
         Objects.equals(this.name, workdayInput.name) &&
-        Objects.equals(this.auth, workdayInput.auth);
+        Objects.equals(this.reportUrl, workdayInput.reportUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reportUrl, name, auth);
+    return Objects.hash(auth, name, reportUrl);
   }
 
 
@@ -118,9 +118,9 @@ public class WorkdayInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkdayInput {\n");
     
-    sb.append("    reportUrl: ").append(toIndentedString(reportUrl)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    reportUrl: ").append(toIndentedString(reportUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

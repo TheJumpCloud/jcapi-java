@@ -28,25 +28,13 @@ import java.util.List;
 /**
  * Tag
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-16T17:47:18.317Z")
 public class Tag {
   @SerializedName("_id")
   private String id = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("systems")
-  private List<String> systems = null;
-
-  @SerializedName("systemusers")
-  private List<String> systemusers = null;
-
-  @SerializedName("regularExpressions")
-  private List<String> regularExpressions = null;
-
-  @SerializedName("externallyManaged")
-  private Boolean externallyManaged = null;
+  @SerializedName("expired")
+  private Boolean expired = null;
 
   @SerializedName("externalDN")
   private String externalDN = null;
@@ -54,17 +42,29 @@ public class Tag {
   @SerializedName("externalSourceType")
   private String externalSourceType = null;
 
-  @SerializedName("sendToLDAP")
-  private Boolean sendToLDAP = null;
-
-  @SerializedName("expired")
-  private Boolean expired = null;
+  @SerializedName("externallyManaged")
+  private Boolean externallyManaged = null;
 
   @SerializedName("groupGid")
   private String groupGid = null;
 
   @SerializedName("groupName")
   private String groupName = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("regularExpressions")
+  private List<String> regularExpressions = null;
+
+  @SerializedName("sendToLDAP")
+  private Boolean sendToLDAP = null;
+
+  @SerializedName("systems")
+  private List<String> systems = null;
+
+  @SerializedName("systemusers")
+  private List<String> systemusers = null;
 
   public Tag id(String id) {
     this.id = id;
@@ -84,6 +84,114 @@ public class Tag {
     this.id = id;
   }
 
+  public Tag expired(Boolean expired) {
+    this.expired = expired;
+    return this;
+  }
+
+   /**
+   * Get expired
+   * @return expired
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isExpired() {
+    return expired;
+  }
+
+  public void setExpired(Boolean expired) {
+    this.expired = expired;
+  }
+
+  public Tag externalDN(String externalDN) {
+    this.externalDN = externalDN;
+    return this;
+  }
+
+   /**
+   * Get externalDN
+   * @return externalDN
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalDN() {
+    return externalDN;
+  }
+
+  public void setExternalDN(String externalDN) {
+    this.externalDN = externalDN;
+  }
+
+  public Tag externalSourceType(String externalSourceType) {
+    this.externalSourceType = externalSourceType;
+    return this;
+  }
+
+   /**
+   * Get externalSourceType
+   * @return externalSourceType
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalSourceType() {
+    return externalSourceType;
+  }
+
+  public void setExternalSourceType(String externalSourceType) {
+    this.externalSourceType = externalSourceType;
+  }
+
+  public Tag externallyManaged(Boolean externallyManaged) {
+    this.externallyManaged = externallyManaged;
+    return this;
+  }
+
+   /**
+   * Get externallyManaged
+   * @return externallyManaged
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isExternallyManaged() {
+    return externallyManaged;
+  }
+
+  public void setExternallyManaged(Boolean externallyManaged) {
+    this.externallyManaged = externallyManaged;
+  }
+
+  public Tag groupGid(String groupGid) {
+    this.groupGid = groupGid;
+    return this;
+  }
+
+   /**
+   * Get groupGid
+   * @return groupGid
+  **/
+  @ApiModelProperty(value = "")
+  public String getGroupGid() {
+    return groupGid;
+  }
+
+  public void setGroupGid(String groupGid) {
+    this.groupGid = groupGid;
+  }
+
+  public Tag groupName(String groupName) {
+    this.groupName = groupName;
+    return this;
+  }
+
+   /**
+   * Get groupName
+   * @return groupName
+  **/
+  @ApiModelProperty(value = "")
+  public String getGroupName() {
+    return groupName;
+  }
+
+  public void setGroupName(String groupName) {
+    this.groupName = groupName;
+  }
+
   public Tag name(String name) {
     this.name = name;
     return this;
@@ -100,6 +208,50 @@ public class Tag {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Tag regularExpressions(List<String> regularExpressions) {
+    this.regularExpressions = regularExpressions;
+    return this;
+  }
+
+  public Tag addRegularExpressionsItem(String regularExpressionsItem) {
+    if (this.regularExpressions == null) {
+      this.regularExpressions = new ArrayList<String>();
+    }
+    this.regularExpressions.add(regularExpressionsItem);
+    return this;
+  }
+
+   /**
+   * Get regularExpressions
+   * @return regularExpressions
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getRegularExpressions() {
+    return regularExpressions;
+  }
+
+  public void setRegularExpressions(List<String> regularExpressions) {
+    this.regularExpressions = regularExpressions;
+  }
+
+  public Tag sendToLDAP(Boolean sendToLDAP) {
+    this.sendToLDAP = sendToLDAP;
+    return this;
+  }
+
+   /**
+   * Get sendToLDAP
+   * @return sendToLDAP
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSendToLDAP() {
+    return sendToLDAP;
+  }
+
+  public void setSendToLDAP(Boolean sendToLDAP) {
+    this.sendToLDAP = sendToLDAP;
   }
 
   public Tag systems(List<String> systems) {
@@ -154,158 +306,6 @@ public class Tag {
     this.systemusers = systemusers;
   }
 
-  public Tag regularExpressions(List<String> regularExpressions) {
-    this.regularExpressions = regularExpressions;
-    return this;
-  }
-
-  public Tag addRegularExpressionsItem(String regularExpressionsItem) {
-    if (this.regularExpressions == null) {
-      this.regularExpressions = new ArrayList<String>();
-    }
-    this.regularExpressions.add(regularExpressionsItem);
-    return this;
-  }
-
-   /**
-   * Get regularExpressions
-   * @return regularExpressions
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getRegularExpressions() {
-    return regularExpressions;
-  }
-
-  public void setRegularExpressions(List<String> regularExpressions) {
-    this.regularExpressions = regularExpressions;
-  }
-
-  public Tag externallyManaged(Boolean externallyManaged) {
-    this.externallyManaged = externallyManaged;
-    return this;
-  }
-
-   /**
-   * Get externallyManaged
-   * @return externallyManaged
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isExternallyManaged() {
-    return externallyManaged;
-  }
-
-  public void setExternallyManaged(Boolean externallyManaged) {
-    this.externallyManaged = externallyManaged;
-  }
-
-  public Tag externalDN(String externalDN) {
-    this.externalDN = externalDN;
-    return this;
-  }
-
-   /**
-   * Get externalDN
-   * @return externalDN
-  **/
-  @ApiModelProperty(value = "")
-  public String getExternalDN() {
-    return externalDN;
-  }
-
-  public void setExternalDN(String externalDN) {
-    this.externalDN = externalDN;
-  }
-
-  public Tag externalSourceType(String externalSourceType) {
-    this.externalSourceType = externalSourceType;
-    return this;
-  }
-
-   /**
-   * Get externalSourceType
-   * @return externalSourceType
-  **/
-  @ApiModelProperty(value = "")
-  public String getExternalSourceType() {
-    return externalSourceType;
-  }
-
-  public void setExternalSourceType(String externalSourceType) {
-    this.externalSourceType = externalSourceType;
-  }
-
-  public Tag sendToLDAP(Boolean sendToLDAP) {
-    this.sendToLDAP = sendToLDAP;
-    return this;
-  }
-
-   /**
-   * Get sendToLDAP
-   * @return sendToLDAP
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isSendToLDAP() {
-    return sendToLDAP;
-  }
-
-  public void setSendToLDAP(Boolean sendToLDAP) {
-    this.sendToLDAP = sendToLDAP;
-  }
-
-  public Tag expired(Boolean expired) {
-    this.expired = expired;
-    return this;
-  }
-
-   /**
-   * Get expired
-   * @return expired
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isExpired() {
-    return expired;
-  }
-
-  public void setExpired(Boolean expired) {
-    this.expired = expired;
-  }
-
-  public Tag groupGid(String groupGid) {
-    this.groupGid = groupGid;
-    return this;
-  }
-
-   /**
-   * Get groupGid
-   * @return groupGid
-  **/
-  @ApiModelProperty(value = "")
-  public String getGroupGid() {
-    return groupGid;
-  }
-
-  public void setGroupGid(String groupGid) {
-    this.groupGid = groupGid;
-  }
-
-  public Tag groupName(String groupName) {
-    this.groupName = groupName;
-    return this;
-  }
-
-   /**
-   * Get groupName
-   * @return groupName
-  **/
-  @ApiModelProperty(value = "")
-  public String getGroupName() {
-    return groupName;
-  }
-
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -317,22 +317,22 @@ public class Tag {
     }
     Tag tag = (Tag) o;
     return Objects.equals(this.id, tag.id) &&
-        Objects.equals(this.name, tag.name) &&
-        Objects.equals(this.systems, tag.systems) &&
-        Objects.equals(this.systemusers, tag.systemusers) &&
-        Objects.equals(this.regularExpressions, tag.regularExpressions) &&
-        Objects.equals(this.externallyManaged, tag.externallyManaged) &&
+        Objects.equals(this.expired, tag.expired) &&
         Objects.equals(this.externalDN, tag.externalDN) &&
         Objects.equals(this.externalSourceType, tag.externalSourceType) &&
-        Objects.equals(this.sendToLDAP, tag.sendToLDAP) &&
-        Objects.equals(this.expired, tag.expired) &&
+        Objects.equals(this.externallyManaged, tag.externallyManaged) &&
         Objects.equals(this.groupGid, tag.groupGid) &&
-        Objects.equals(this.groupName, tag.groupName);
+        Objects.equals(this.groupName, tag.groupName) &&
+        Objects.equals(this.name, tag.name) &&
+        Objects.equals(this.regularExpressions, tag.regularExpressions) &&
+        Objects.equals(this.sendToLDAP, tag.sendToLDAP) &&
+        Objects.equals(this.systems, tag.systems) &&
+        Objects.equals(this.systemusers, tag.systemusers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, systems, systemusers, regularExpressions, externallyManaged, externalDN, externalSourceType, sendToLDAP, expired, groupGid, groupName);
+    return Objects.hash(id, expired, externalDN, externalSourceType, externallyManaged, groupGid, groupName, name, regularExpressions, sendToLDAP, systems, systemusers);
   }
 
 
@@ -342,17 +342,17 @@ public class Tag {
     sb.append("class Tag {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
-    sb.append("    systemusers: ").append(toIndentedString(systemusers)).append("\n");
-    sb.append("    regularExpressions: ").append(toIndentedString(regularExpressions)).append("\n");
-    sb.append("    externallyManaged: ").append(toIndentedString(externallyManaged)).append("\n");
+    sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
     sb.append("    externalDN: ").append(toIndentedString(externalDN)).append("\n");
     sb.append("    externalSourceType: ").append(toIndentedString(externalSourceType)).append("\n");
-    sb.append("    sendToLDAP: ").append(toIndentedString(sendToLDAP)).append("\n");
-    sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
+    sb.append("    externallyManaged: ").append(toIndentedString(externallyManaged)).append("\n");
     sb.append("    groupGid: ").append(toIndentedString(groupGid)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    regularExpressions: ").append(toIndentedString(regularExpressions)).append("\n");
+    sb.append("    sendToLDAP: ").append(toIndentedString(sendToLDAP)).append("\n");
+    sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
+    sb.append("    systemusers: ").append(toIndentedString(systemusers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
