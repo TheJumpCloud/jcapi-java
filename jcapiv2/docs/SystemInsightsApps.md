@@ -4,27 +4,27 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  |  [optional]
-**path** | **String** |  |  [optional]
+**applescriptEnabled** | **String** |  |  [optional]
 **bundleExecutable** | **String** |  |  [optional]
 **bundleIdentifier** | **String** |  |  [optional]
 **bundleName** | **String** |  |  [optional]
+**bundlePackageType** | **String** |  |  [optional]
 **bundleShortVersion** | **String** |  |  [optional]
 **bundleVersion** | **String** |  |  [optional]
-**bundlePackageType** | **String** |  |  [optional]
-**environment** | **String** |  |  [optional]
-**element** | **String** |  |  [optional]
+**category** | **String** |  |  [optional]
+**collectionTime** | **String** |  |  [optional]
 **compiler** | **String** |  |  [optional]
+**copyright** | **String** |  |  [optional]
 **developmentRegion** | **String** |  |  [optional]
 **displayName** | **String** |  |  [optional]
+**element** | **String** |  |  [optional]
+**environment** | **String** |  |  [optional]
 **infoString** | **String** |  |  [optional]
-**minimumSystemVersion** | **String** |  |  [optional]
-**category** | **String** |  |  [optional]
-**applescriptEnabled** | **String** |  |  [optional]
-**copyright** | **String** |  |  [optional]
 **lastOpenedTime** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
-**jcCollectionTime** | **String** |  |  [optional]
-**jcSystemId** | **String** |  |  [optional]
+**minimumSystemVersion** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
+**path** | **String** |  |  [optional]
+**systemId** | **String** |  |  [optional]
 
 
 

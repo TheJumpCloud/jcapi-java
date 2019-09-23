@@ -27,13 +27,10 @@ import java.math.BigDecimal;
 /**
  * SystemInsightsApps
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class SystemInsightsApps {
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("path")
-  private String path = null;
+  @SerializedName("applescript_enabled")
+  private String applescriptEnabled = null;
 
   @SerializedName("bundle_executable")
   private String bundleExecutable = null;
@@ -44,23 +41,26 @@ public class SystemInsightsApps {
   @SerializedName("bundle_name")
   private String bundleName = null;
 
+  @SerializedName("bundle_package_type")
+  private String bundlePackageType = null;
+
   @SerializedName("bundle_short_version")
   private String bundleShortVersion = null;
 
   @SerializedName("bundle_version")
   private String bundleVersion = null;
 
-  @SerializedName("bundle_package_type")
-  private String bundlePackageType = null;
+  @SerializedName("category")
+  private String category = null;
 
-  @SerializedName("environment")
-  private String environment = null;
-
-  @SerializedName("element")
-  private String element = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("compiler")
   private String compiler = null;
+
+  @SerializedName("copyright")
+  private String copyright = null;
 
   @SerializedName("development_region")
   private String developmentRegion = null;
@@ -68,64 +68,46 @@ public class SystemInsightsApps {
   @SerializedName("display_name")
   private String displayName = null;
 
+  @SerializedName("element")
+  private String element = null;
+
+  @SerializedName("environment")
+  private String environment = null;
+
   @SerializedName("info_string")
   private String infoString = null;
-
-  @SerializedName("minimum_system_version")
-  private String minimumSystemVersion = null;
-
-  @SerializedName("category")
-  private String category = null;
-
-  @SerializedName("applescript_enabled")
-  private String applescriptEnabled = null;
-
-  @SerializedName("copyright")
-  private String copyright = null;
 
   @SerializedName("last_opened_time")
   private BigDecimal lastOpenedTime = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("minimum_system_version")
+  private String minimumSystemVersion = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public SystemInsightsApps name(String name) {
-    this.name = name;
+  @SerializedName("path")
+  private String path = null;
+
+  @SerializedName("system_id")
+  private String systemId = null;
+
+  public SystemInsightsApps applescriptEnabled(String applescriptEnabled) {
+    this.applescriptEnabled = applescriptEnabled;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get applescriptEnabled
+   * @return applescriptEnabled
   **/
   @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  public String getApplescriptEnabled() {
+    return applescriptEnabled;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SystemInsightsApps path(String path) {
-    this.path = path;
-    return this;
-  }
-
-   /**
-   * Get path
-   * @return path
-  **/
-  @ApiModelProperty(value = "")
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
+  public void setApplescriptEnabled(String applescriptEnabled) {
+    this.applescriptEnabled = applescriptEnabled;
   }
 
   public SystemInsightsApps bundleExecutable(String bundleExecutable) {
@@ -182,6 +164,24 @@ public class SystemInsightsApps {
     this.bundleName = bundleName;
   }
 
+  public SystemInsightsApps bundlePackageType(String bundlePackageType) {
+    this.bundlePackageType = bundlePackageType;
+    return this;
+  }
+
+   /**
+   * Get bundlePackageType
+   * @return bundlePackageType
+  **/
+  @ApiModelProperty(value = "")
+  public String getBundlePackageType() {
+    return bundlePackageType;
+  }
+
+  public void setBundlePackageType(String bundlePackageType) {
+    this.bundlePackageType = bundlePackageType;
+  }
+
   public SystemInsightsApps bundleShortVersion(String bundleShortVersion) {
     this.bundleShortVersion = bundleShortVersion;
     return this;
@@ -218,58 +218,40 @@ public class SystemInsightsApps {
     this.bundleVersion = bundleVersion;
   }
 
-  public SystemInsightsApps bundlePackageType(String bundlePackageType) {
-    this.bundlePackageType = bundlePackageType;
+  public SystemInsightsApps category(String category) {
+    this.category = category;
     return this;
   }
 
    /**
-   * Get bundlePackageType
-   * @return bundlePackageType
+   * Get category
+   * @return category
   **/
   @ApiModelProperty(value = "")
-  public String getBundlePackageType() {
-    return bundlePackageType;
+  public String getCategory() {
+    return category;
   }
 
-  public void setBundlePackageType(String bundlePackageType) {
-    this.bundlePackageType = bundlePackageType;
+  public void setCategory(String category) {
+    this.category = category;
   }
 
-  public SystemInsightsApps environment(String environment) {
-    this.environment = environment;
+  public SystemInsightsApps collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
     return this;
   }
 
    /**
-   * Get environment
-   * @return environment
+   * Get collectionTime
+   * @return collectionTime
   **/
   @ApiModelProperty(value = "")
-  public String getEnvironment() {
-    return environment;
+  public String getCollectionTime() {
+    return collectionTime;
   }
 
-  public void setEnvironment(String environment) {
-    this.environment = environment;
-  }
-
-  public SystemInsightsApps element(String element) {
-    this.element = element;
-    return this;
-  }
-
-   /**
-   * Get element
-   * @return element
-  **/
-  @ApiModelProperty(value = "")
-  public String getElement() {
-    return element;
-  }
-
-  public void setElement(String element) {
-    this.element = element;
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
   public SystemInsightsApps compiler(String compiler) {
@@ -288,6 +270,24 @@ public class SystemInsightsApps {
 
   public void setCompiler(String compiler) {
     this.compiler = compiler;
+  }
+
+  public SystemInsightsApps copyright(String copyright) {
+    this.copyright = copyright;
+    return this;
+  }
+
+   /**
+   * Get copyright
+   * @return copyright
+  **/
+  @ApiModelProperty(value = "")
+  public String getCopyright() {
+    return copyright;
+  }
+
+  public void setCopyright(String copyright) {
+    this.copyright = copyright;
   }
 
   public SystemInsightsApps developmentRegion(String developmentRegion) {
@@ -326,6 +326,42 @@ public class SystemInsightsApps {
     this.displayName = displayName;
   }
 
+  public SystemInsightsApps element(String element) {
+    this.element = element;
+    return this;
+  }
+
+   /**
+   * Get element
+   * @return element
+  **/
+  @ApiModelProperty(value = "")
+  public String getElement() {
+    return element;
+  }
+
+  public void setElement(String element) {
+    this.element = element;
+  }
+
+  public SystemInsightsApps environment(String environment) {
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * Get environment
+   * @return environment
+  **/
+  @ApiModelProperty(value = "")
+  public String getEnvironment() {
+    return environment;
+  }
+
+  public void setEnvironment(String environment) {
+    this.environment = environment;
+  }
+
   public SystemInsightsApps infoString(String infoString) {
     this.infoString = infoString;
     return this;
@@ -342,78 +378,6 @@ public class SystemInsightsApps {
 
   public void setInfoString(String infoString) {
     this.infoString = infoString;
-  }
-
-  public SystemInsightsApps minimumSystemVersion(String minimumSystemVersion) {
-    this.minimumSystemVersion = minimumSystemVersion;
-    return this;
-  }
-
-   /**
-   * Get minimumSystemVersion
-   * @return minimumSystemVersion
-  **/
-  @ApiModelProperty(value = "")
-  public String getMinimumSystemVersion() {
-    return minimumSystemVersion;
-  }
-
-  public void setMinimumSystemVersion(String minimumSystemVersion) {
-    this.minimumSystemVersion = minimumSystemVersion;
-  }
-
-  public SystemInsightsApps category(String category) {
-    this.category = category;
-    return this;
-  }
-
-   /**
-   * Get category
-   * @return category
-  **/
-  @ApiModelProperty(value = "")
-  public String getCategory() {
-    return category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-  public SystemInsightsApps applescriptEnabled(String applescriptEnabled) {
-    this.applescriptEnabled = applescriptEnabled;
-    return this;
-  }
-
-   /**
-   * Get applescriptEnabled
-   * @return applescriptEnabled
-  **/
-  @ApiModelProperty(value = "")
-  public String getApplescriptEnabled() {
-    return applescriptEnabled;
-  }
-
-  public void setApplescriptEnabled(String applescriptEnabled) {
-    this.applescriptEnabled = applescriptEnabled;
-  }
-
-  public SystemInsightsApps copyright(String copyright) {
-    this.copyright = copyright;
-    return this;
-  }
-
-   /**
-   * Get copyright
-   * @return copyright
-  **/
-  @ApiModelProperty(value = "")
-  public String getCopyright() {
-    return copyright;
-  }
-
-  public void setCopyright(String copyright) {
-    this.copyright = copyright;
   }
 
   public SystemInsightsApps lastOpenedTime(BigDecimal lastOpenedTime) {
@@ -434,40 +398,76 @@ public class SystemInsightsApps {
     this.lastOpenedTime = lastOpenedTime;
   }
 
-  public SystemInsightsApps jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsApps minimumSystemVersion(String minimumSystemVersion) {
+    this.minimumSystemVersion = minimumSystemVersion;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get minimumSystemVersion
+   * @return minimumSystemVersion
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getMinimumSystemVersion() {
+    return minimumSystemVersion;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setMinimumSystemVersion(String minimumSystemVersion) {
+    this.minimumSystemVersion = minimumSystemVersion;
   }
 
-  public SystemInsightsApps jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsApps name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getName() {
+    return name;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SystemInsightsApps path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * Get path
+   * @return path
+  **/
+  @ApiModelProperty(value = "")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
+
+  public SystemInsightsApps systemId(String systemId) {
+    this.systemId = systemId;
+    return this;
+  }
+
+   /**
+   * Get systemId
+   * @return systemId
+  **/
+  @ApiModelProperty(value = "")
+  public String getSystemId() {
+    return systemId;
+  }
+
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
   }
 
 
@@ -480,32 +480,32 @@ public class SystemInsightsApps {
       return false;
     }
     SystemInsightsApps systemInsightsApps = (SystemInsightsApps) o;
-    return Objects.equals(this.name, systemInsightsApps.name) &&
-        Objects.equals(this.path, systemInsightsApps.path) &&
+    return Objects.equals(this.applescriptEnabled, systemInsightsApps.applescriptEnabled) &&
         Objects.equals(this.bundleExecutable, systemInsightsApps.bundleExecutable) &&
         Objects.equals(this.bundleIdentifier, systemInsightsApps.bundleIdentifier) &&
         Objects.equals(this.bundleName, systemInsightsApps.bundleName) &&
+        Objects.equals(this.bundlePackageType, systemInsightsApps.bundlePackageType) &&
         Objects.equals(this.bundleShortVersion, systemInsightsApps.bundleShortVersion) &&
         Objects.equals(this.bundleVersion, systemInsightsApps.bundleVersion) &&
-        Objects.equals(this.bundlePackageType, systemInsightsApps.bundlePackageType) &&
-        Objects.equals(this.environment, systemInsightsApps.environment) &&
-        Objects.equals(this.element, systemInsightsApps.element) &&
+        Objects.equals(this.category, systemInsightsApps.category) &&
+        Objects.equals(this.collectionTime, systemInsightsApps.collectionTime) &&
         Objects.equals(this.compiler, systemInsightsApps.compiler) &&
+        Objects.equals(this.copyright, systemInsightsApps.copyright) &&
         Objects.equals(this.developmentRegion, systemInsightsApps.developmentRegion) &&
         Objects.equals(this.displayName, systemInsightsApps.displayName) &&
+        Objects.equals(this.element, systemInsightsApps.element) &&
+        Objects.equals(this.environment, systemInsightsApps.environment) &&
         Objects.equals(this.infoString, systemInsightsApps.infoString) &&
-        Objects.equals(this.minimumSystemVersion, systemInsightsApps.minimumSystemVersion) &&
-        Objects.equals(this.category, systemInsightsApps.category) &&
-        Objects.equals(this.applescriptEnabled, systemInsightsApps.applescriptEnabled) &&
-        Objects.equals(this.copyright, systemInsightsApps.copyright) &&
         Objects.equals(this.lastOpenedTime, systemInsightsApps.lastOpenedTime) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsApps.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsApps.jcSystemId);
+        Objects.equals(this.minimumSystemVersion, systemInsightsApps.minimumSystemVersion) &&
+        Objects.equals(this.name, systemInsightsApps.name) &&
+        Objects.equals(this.path, systemInsightsApps.path) &&
+        Objects.equals(this.systemId, systemInsightsApps.systemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, path, bundleExecutable, bundleIdentifier, bundleName, bundleShortVersion, bundleVersion, bundlePackageType, environment, element, compiler, developmentRegion, displayName, infoString, minimumSystemVersion, category, applescriptEnabled, copyright, lastOpenedTime, jcCollectionTime, jcSystemId);
+    return Objects.hash(applescriptEnabled, bundleExecutable, bundleIdentifier, bundleName, bundlePackageType, bundleShortVersion, bundleVersion, category, collectionTime, compiler, copyright, developmentRegion, displayName, element, environment, infoString, lastOpenedTime, minimumSystemVersion, name, path, systemId);
   }
 
 
@@ -514,27 +514,27 @@ public class SystemInsightsApps {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsApps {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    applescriptEnabled: ").append(toIndentedString(applescriptEnabled)).append("\n");
     sb.append("    bundleExecutable: ").append(toIndentedString(bundleExecutable)).append("\n");
     sb.append("    bundleIdentifier: ").append(toIndentedString(bundleIdentifier)).append("\n");
     sb.append("    bundleName: ").append(toIndentedString(bundleName)).append("\n");
+    sb.append("    bundlePackageType: ").append(toIndentedString(bundlePackageType)).append("\n");
     sb.append("    bundleShortVersion: ").append(toIndentedString(bundleShortVersion)).append("\n");
     sb.append("    bundleVersion: ").append(toIndentedString(bundleVersion)).append("\n");
-    sb.append("    bundlePackageType: ").append(toIndentedString(bundlePackageType)).append("\n");
-    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-    sb.append("    element: ").append(toIndentedString(element)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    compiler: ").append(toIndentedString(compiler)).append("\n");
+    sb.append("    copyright: ").append(toIndentedString(copyright)).append("\n");
     sb.append("    developmentRegion: ").append(toIndentedString(developmentRegion)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    element: ").append(toIndentedString(element)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    infoString: ").append(toIndentedString(infoString)).append("\n");
-    sb.append("    minimumSystemVersion: ").append(toIndentedString(minimumSystemVersion)).append("\n");
-    sb.append("    category: ").append(toIndentedString(category)).append("\n");
-    sb.append("    applescriptEnabled: ").append(toIndentedString(applescriptEnabled)).append("\n");
-    sb.append("    copyright: ").append(toIndentedString(copyright)).append("\n");
     sb.append("    lastOpenedTime: ").append(toIndentedString(lastOpenedTime)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    minimumSystemVersion: ").append(toIndentedString(minimumSystemVersion)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

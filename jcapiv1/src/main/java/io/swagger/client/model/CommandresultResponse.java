@@ -27,33 +27,33 @@ import java.io.IOException;
 /**
  * CommandresultResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class CommandresultResponse {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("data")
+  private CommandresultResponseData data = null;
 
   @SerializedName("error")
   private String error = null;
 
-  @SerializedName("data")
-  private CommandresultResponseData data = null;
+  @SerializedName("id")
+  private String id = null;
 
-  public CommandresultResponse id(String id) {
-    this.id = id;
+  public CommandresultResponse data(CommandresultResponseData data) {
+    this.data = data;
     return this;
   }
 
    /**
-   * ID of the response.
-   * @return id
+   * Get data
+   * @return data
   **/
-  @ApiModelProperty(value = "ID of the response.")
-  public String getId() {
-    return id;
+  @ApiModelProperty(value = "")
+  public CommandresultResponseData getData() {
+    return data;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setData(CommandresultResponseData data) {
+    this.data = data;
   }
 
   public CommandresultResponse error(String error) {
@@ -74,22 +74,22 @@ public class CommandresultResponse {
     this.error = error;
   }
 
-  public CommandresultResponse data(CommandresultResponseData data) {
-    this.data = data;
+  public CommandresultResponse id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * ID of the response.
+   * @return id
   **/
-  @ApiModelProperty(value = "")
-  public CommandresultResponseData getData() {
-    return data;
+  @ApiModelProperty(value = "ID of the response.")
+  public String getId() {
+    return id;
   }
 
-  public void setData(CommandresultResponseData data) {
-    this.data = data;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
@@ -102,14 +102,14 @@ public class CommandresultResponse {
       return false;
     }
     CommandresultResponse commandresultResponse = (CommandresultResponse) o;
-    return Objects.equals(this.id, commandresultResponse.id) &&
+    return Objects.equals(this.data, commandresultResponse.data) &&
         Objects.equals(this.error, commandresultResponse.error) &&
-        Objects.equals(this.data, commandresultResponse.data);
+        Objects.equals(this.id, commandresultResponse.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, error, data);
+    return Objects.hash(data, error, id);
   }
 
 
@@ -118,9 +118,9 @@ public class CommandresultResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommandresultResponse {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

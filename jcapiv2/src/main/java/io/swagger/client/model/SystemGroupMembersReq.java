@@ -26,8 +26,11 @@ import java.io.IOException;
 /**
  * SystemGroupMembersReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class SystemGroupMembersReq {
+  @SerializedName("id")
+  private String id = null;
+
   /**
    * How to modify the membership connection.
    */
@@ -126,8 +129,23 @@ public class SystemGroupMembersReq {
   @SerializedName("type")
   private TypeEnum type = null;
 
-  @SerializedName("id")
-  private String id = null;
+  public SystemGroupMembersReq id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The ObjectID of member being added or removed.
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "The ObjectID of member being added or removed.")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public SystemGroupMembersReq op(OpEnum op) {
     this.op = op;
@@ -165,24 +183,6 @@ public class SystemGroupMembersReq {
     this.type = type;
   }
 
-  public SystemGroupMembersReq id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ObjectID of member being added or removed.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "The ObjectID of member being added or removed.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -193,14 +193,14 @@ public class SystemGroupMembersReq {
       return false;
     }
     SystemGroupMembersReq systemGroupMembersReq = (SystemGroupMembersReq) o;
-    return Objects.equals(this.op, systemGroupMembersReq.op) &&
-        Objects.equals(this.type, systemGroupMembersReq.type) &&
-        Objects.equals(this.id, systemGroupMembersReq.id);
+    return Objects.equals(this.id, systemGroupMembersReq.id) &&
+        Objects.equals(this.op, systemGroupMembersReq.op) &&
+        Objects.equals(this.type, systemGroupMembersReq.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(op, type, id);
+    return Objects.hash(id, op, type);
   }
 
 
@@ -209,9 +209,9 @@ public class SystemGroupMembersReq {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemGroupMembersReq {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    op: ").append(toIndentedString(op)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -26,28 +26,64 @@ import java.io.IOException;
 /**
  * SystemInsightsGroups
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class SystemInsightsGroups {
+  @SerializedName("collection_time")
+  private String collectionTime = null;
+
+  @SerializedName("comment")
+  private String comment = null;
+
   @SerializedName("gid")
   private String gid = null;
 
   @SerializedName("gid_signed")
   private String gidSigned = null;
 
-  @SerializedName("groupname")
-  private String groupname = null;
-
   @SerializedName("group_sid")
   private String groupSid = null;
 
-  @SerializedName("comment")
-  private String comment = null;
+  @SerializedName("groupname")
+  private String groupname = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  public SystemInsightsGroups collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+    return this;
+  }
+
+   /**
+   * Get collectionTime
+   * @return collectionTime
+  **/
+  @ApiModelProperty(value = "")
+  public String getCollectionTime() {
+    return collectionTime;
+  }
+
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+  }
+
+  public SystemInsightsGroups comment(String comment) {
+    this.comment = comment;
+    return this;
+  }
+
+   /**
+   * Get comment
+   * @return comment
+  **/
+  @ApiModelProperty(value = "")
+  public String getComment() {
+    return comment;
+  }
+
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
 
   public SystemInsightsGroups gid(String gid) {
     this.gid = gid;
@@ -85,24 +121,6 @@ public class SystemInsightsGroups {
     this.gidSigned = gidSigned;
   }
 
-  public SystemInsightsGroups groupname(String groupname) {
-    this.groupname = groupname;
-    return this;
-  }
-
-   /**
-   * Get groupname
-   * @return groupname
-  **/
-  @ApiModelProperty(value = "")
-  public String getGroupname() {
-    return groupname;
-  }
-
-  public void setGroupname(String groupname) {
-    this.groupname = groupname;
-  }
-
   public SystemInsightsGroups groupSid(String groupSid) {
     this.groupSid = groupSid;
     return this;
@@ -121,58 +139,40 @@ public class SystemInsightsGroups {
     this.groupSid = groupSid;
   }
 
-  public SystemInsightsGroups comment(String comment) {
-    this.comment = comment;
+  public SystemInsightsGroups groupname(String groupname) {
+    this.groupname = groupname;
     return this;
   }
 
    /**
-   * Get comment
-   * @return comment
+   * Get groupname
+   * @return groupname
   **/
   @ApiModelProperty(value = "")
-  public String getComment() {
-    return comment;
+  public String getGroupname() {
+    return groupname;
   }
 
-  public void setComment(String comment) {
-    this.comment = comment;
+  public void setGroupname(String groupname) {
+    this.groupname = groupname;
   }
 
-  public SystemInsightsGroups jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsGroups systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
-  }
-
-  public SystemInsightsGroups jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
-    return this;
-  }
-
-   /**
-   * Get jcSystemId
-   * @return jcSystemId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
-  }
-
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
   }
 
 
@@ -185,18 +185,18 @@ public class SystemInsightsGroups {
       return false;
     }
     SystemInsightsGroups systemInsightsGroups = (SystemInsightsGroups) o;
-    return Objects.equals(this.gid, systemInsightsGroups.gid) &&
-        Objects.equals(this.gidSigned, systemInsightsGroups.gidSigned) &&
-        Objects.equals(this.groupname, systemInsightsGroups.groupname) &&
-        Objects.equals(this.groupSid, systemInsightsGroups.groupSid) &&
+    return Objects.equals(this.collectionTime, systemInsightsGroups.collectionTime) &&
         Objects.equals(this.comment, systemInsightsGroups.comment) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsGroups.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsGroups.jcSystemId);
+        Objects.equals(this.gid, systemInsightsGroups.gid) &&
+        Objects.equals(this.gidSigned, systemInsightsGroups.gidSigned) &&
+        Objects.equals(this.groupSid, systemInsightsGroups.groupSid) &&
+        Objects.equals(this.groupname, systemInsightsGroups.groupname) &&
+        Objects.equals(this.systemId, systemInsightsGroups.systemId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gid, gidSigned, groupname, groupSid, comment, jcCollectionTime, jcSystemId);
+    return Objects.hash(collectionTime, comment, gid, gidSigned, groupSid, groupname, systemId);
   }
 
 
@@ -205,13 +205,13 @@ public class SystemInsightsGroups {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsGroups {\n");
     
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    gid: ").append(toIndentedString(gid)).append("\n");
     sb.append("    gidSigned: ").append(toIndentedString(gidSigned)).append("\n");
-    sb.append("    groupname: ").append(toIndentedString(groupname)).append("\n");
     sb.append("    groupSid: ").append(toIndentedString(groupSid)).append("\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    groupname: ").append(toIndentedString(groupname)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

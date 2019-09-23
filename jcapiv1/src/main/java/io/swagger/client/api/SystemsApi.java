@@ -318,7 +318,7 @@ public class SystemsApi {
 
     /**
      * List an individual system
-     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -337,7 +337,7 @@ public class SystemsApi {
 
     /**
      * List an individual system
-     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -357,7 +357,7 @@ public class SystemsApi {
 
     /**
      * List an individual system (asynchronously)
-     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -492,7 +492,7 @@ public class SystemsApi {
 
     /**
      * List All Systems
-     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
@@ -512,7 +512,7 @@ public class SystemsApi {
 
     /**
      * List All Systems
-     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
@@ -533,7 +533,7 @@ public class SystemsApi {
 
     /**
      * List All Systems (asynchronously)
-     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
@@ -673,10 +673,12 @@ public class SystemsApi {
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param xOrgId  (optional, default to )
+     * @return System
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void systemsPut(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
-        systemsPutWithHttpInfo(id, contentType, accept, body, date, authorization, xOrgId);
+    public System systemsPut(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
+        ApiResponse<System> resp = systemsPutWithHttpInfo(id, contentType, accept, body, date, authorization, xOrgId);
+        return resp.getData();
     }
 
     /**
@@ -689,12 +691,13 @@ public class SystemsApi {
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
      * @param xOrgId  (optional, default to )
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;System&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> systemsPutWithHttpInfo(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
+    public ApiResponse<System> systemsPutWithHttpInfo(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
         com.squareup.okhttp.Call call = systemsPutValidateBeforeCall(id, contentType, accept, body, date, authorization, xOrgId, null, null);
-        return apiClient.execute(call);
+        Type localVarReturnType = new TypeToken<System>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
     }
 
     /**
@@ -711,7 +714,7 @@ public class SystemsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsPutAsync(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsPutAsync(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId, final ApiCallback<System> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -733,7 +736,8 @@ public class SystemsApi {
         }
 
         com.squareup.okhttp.Call call = systemsPutValidateBeforeCall(id, contentType, accept, body, date, authorization, xOrgId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
+        Type localVarReturnType = new TypeToken<System>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**

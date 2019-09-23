@@ -26,8 +26,14 @@ import java.io.IOException;
 /**
  * Directory
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class Directory {
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("name")
+  private String name = null;
+
   /**
    * The type of directory.
    */
@@ -82,30 +88,6 @@ public class Directory {
   @SerializedName("type")
   private TypeEnum type = null;
 
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  public Directory type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of directory.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "The type of directory.")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
-  }
-
   public Directory id(String id) {
     this.id = id;
     return this;
@@ -142,6 +124,24 @@ public class Directory {
     this.name = name;
   }
 
+  public Directory type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of directory.
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "The type of directory.")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,14 +152,14 @@ public class Directory {
       return false;
     }
     Directory directory = (Directory) o;
-    return Objects.equals(this.type, directory.type) &&
-        Objects.equals(this.id, directory.id) &&
-        Objects.equals(this.name, directory.name);
+    return Objects.equals(this.id, directory.id) &&
+        Objects.equals(this.name, directory.name) &&
+        Objects.equals(this.type, directory.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id, name);
+    return Objects.hash(id, name, type);
   }
 
 
@@ -168,9 +168,9 @@ public class Directory {
     StringBuilder sb = new StringBuilder();
     sb.append("class Directory {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -26,37 +26,19 @@ import java.io.IOException;
 /**
  * Sshkeylist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class Sshkeylist {
-  @SerializedName("create_date")
-  private String createDate = null;
-
   @SerializedName("_id")
   private String id = null;
 
-  @SerializedName("public_key")
-  private String publicKey = null;
+  @SerializedName("create_date")
+  private String createDate = null;
 
   @SerializedName("name")
   private String name = null;
 
-  public Sshkeylist createDate(String createDate) {
-    this.createDate = createDate;
-    return this;
-  }
-
-   /**
-   * The date the SSH key was created.
-   * @return createDate
-  **/
-  @ApiModelProperty(value = "The date the SSH key was created.")
-  public String getCreateDate() {
-    return createDate;
-  }
-
-  public void setCreateDate(String createDate) {
-    this.createDate = createDate;
-  }
+  @SerializedName("public_key")
+  private String publicKey = null;
 
   public Sshkeylist id(String id) {
     this.id = id;
@@ -76,22 +58,22 @@ public class Sshkeylist {
     this.id = id;
   }
 
-  public Sshkeylist publicKey(String publicKey) {
-    this.publicKey = publicKey;
+  public Sshkeylist createDate(String createDate) {
+    this.createDate = createDate;
     return this;
   }
 
    /**
-   * The Public SSH key.
-   * @return publicKey
+   * The date the SSH key was created.
+   * @return createDate
   **/
-  @ApiModelProperty(value = "The Public SSH key.")
-  public String getPublicKey() {
-    return publicKey;
+  @ApiModelProperty(value = "The date the SSH key was created.")
+  public String getCreateDate() {
+    return createDate;
   }
 
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
+  public void setCreateDate(String createDate) {
+    this.createDate = createDate;
   }
 
   public Sshkeylist name(String name) {
@@ -112,6 +94,24 @@ public class Sshkeylist {
     this.name = name;
   }
 
+  public Sshkeylist publicKey(String publicKey) {
+    this.publicKey = publicKey;
+    return this;
+  }
+
+   /**
+   * The Public SSH key.
+   * @return publicKey
+  **/
+  @ApiModelProperty(value = "The Public SSH key.")
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -122,15 +122,15 @@ public class Sshkeylist {
       return false;
     }
     Sshkeylist sshkeylist = (Sshkeylist) o;
-    return Objects.equals(this.createDate, sshkeylist.createDate) &&
-        Objects.equals(this.id, sshkeylist.id) &&
-        Objects.equals(this.publicKey, sshkeylist.publicKey) &&
-        Objects.equals(this.name, sshkeylist.name);
+    return Objects.equals(this.id, sshkeylist.id) &&
+        Objects.equals(this.createDate, sshkeylist.createDate) &&
+        Objects.equals(this.name, sshkeylist.name) &&
+        Objects.equals(this.publicKey, sshkeylist.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createDate, id, publicKey, name);
+    return Objects.hash(id, createDate, name, publicKey);
   }
 
 
@@ -139,10 +139,10 @@ public class Sshkeylist {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sshkeylist {\n");
     
-    sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
+    sb.append("    createDate: ").append(toIndentedString(createDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

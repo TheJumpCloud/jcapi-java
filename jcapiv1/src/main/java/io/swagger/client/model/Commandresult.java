@@ -29,13 +29,34 @@ import java.util.List;
 /**
  * Commandresult
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class Commandresult {
+  @SerializedName("_id")
+  private String id = null;
+
   @SerializedName("command")
   private String command = null;
 
+  @SerializedName("files")
+  private List<String> files = null;
+
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("organization")
+  private String organization = null;
+
+  @SerializedName("requestTime")
+  private String requestTime = null;
+
+  @SerializedName("response")
+  private CommandresultResponse response = null;
+
+  @SerializedName("responseTime")
+  private String responseTime = null;
+
+  @SerializedName("sudo")
+  private Boolean sudo = null;
 
   @SerializedName("system")
   private String system = null;
@@ -43,8 +64,8 @@ public class Commandresult {
   @SerializedName("systemId")
   private String systemId = null;
 
-  @SerializedName("organization")
-  private String organization = null;
+  @SerializedName("user")
+  private String user = null;
 
   @SerializedName("workflowId")
   private String workflowId = null;
@@ -52,26 +73,23 @@ public class Commandresult {
   @SerializedName("workflowInstanceId")
   private String workflowInstanceId = null;
 
-  @SerializedName("user")
-  private String user = null;
+  public Commandresult id(String id) {
+    this.id = id;
+    return this;
+  }
 
-  @SerializedName("sudo")
-  private Boolean sudo = null;
+   /**
+   * The ID of the command.
+   * @return id
+  **/
+  @ApiModelProperty(value = "The ID of the command.")
+  public String getId() {
+    return id;
+  }
 
-  @SerializedName("files")
-  private List<String> files = null;
-
-  @SerializedName("requestTime")
-  private String requestTime = null;
-
-  @SerializedName("responseTime")
-  private String responseTime = null;
-
-  @SerializedName("response")
-  private CommandresultResponse response = null;
-
-  @SerializedName("_id")
-  private String id = null;
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public Commandresult command(String command) {
     this.command = command;
@@ -91,6 +109,32 @@ public class Commandresult {
     this.command = command;
   }
 
+  public Commandresult files(List<String> files) {
+    this.files = files;
+    return this;
+  }
+
+  public Commandresult addFilesItem(String filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<String>();
+    }
+    this.files.add(filesItem);
+    return this;
+  }
+
+   /**
+   * An array of file ids that were included in the command
+   * @return files
+  **/
+  @ApiModelProperty(value = "An array of file ids that were included in the command")
+  public List<String> getFiles() {
+    return files;
+  }
+
+  public void setFiles(List<String> files) {
+    this.files = files;
+  }
+
   public Commandresult name(String name) {
     this.name = name;
     return this;
@@ -107,6 +151,96 @@ public class Commandresult {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Commandresult organization(String organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * The ID of the organization.
+   * @return organization
+  **/
+  @ApiModelProperty(value = "The ID of the organization.")
+  public String getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(String organization) {
+    this.organization = organization;
+  }
+
+  public Commandresult requestTime(String requestTime) {
+    this.requestTime = requestTime;
+    return this;
+  }
+
+   /**
+   * The time that the command was sent.
+   * @return requestTime
+  **/
+  @ApiModelProperty(value = "The time that the command was sent.")
+  public String getRequestTime() {
+    return requestTime;
+  }
+
+  public void setRequestTime(String requestTime) {
+    this.requestTime = requestTime;
+  }
+
+  public Commandresult response(CommandresultResponse response) {
+    this.response = response;
+    return this;
+  }
+
+   /**
+   * Get response
+   * @return response
+  **/
+  @ApiModelProperty(value = "")
+  public CommandresultResponse getResponse() {
+    return response;
+  }
+
+  public void setResponse(CommandresultResponse response) {
+    this.response = response;
+  }
+
+  public Commandresult responseTime(String responseTime) {
+    this.responseTime = responseTime;
+    return this;
+  }
+
+   /**
+   * The time that the command was completed.
+   * @return responseTime
+  **/
+  @ApiModelProperty(value = "The time that the command was completed.")
+  public String getResponseTime() {
+    return responseTime;
+  }
+
+  public void setResponseTime(String responseTime) {
+    this.responseTime = responseTime;
+  }
+
+  public Commandresult sudo(Boolean sudo) {
+    this.sudo = sudo;
+    return this;
+  }
+
+   /**
+   * If the user had sudo rights
+   * @return sudo
+  **/
+  @ApiModelProperty(value = "If the user had sudo rights")
+  public Boolean isSudo() {
+    return sudo;
+  }
+
+  public void setSudo(Boolean sudo) {
+    this.sudo = sudo;
   }
 
   public Commandresult system(String system) {
@@ -145,22 +279,22 @@ public class Commandresult {
     this.systemId = systemId;
   }
 
-  public Commandresult organization(String organization) {
-    this.organization = organization;
+  public Commandresult user(String user) {
+    this.user = user;
     return this;
   }
 
    /**
-   * The ID of the organization.
-   * @return organization
+   * The user the command ran as.
+   * @return user
   **/
-  @ApiModelProperty(value = "The ID of the organization.")
-  public String getOrganization() {
-    return organization;
+  @ApiModelProperty(value = "The user the command ran as.")
+  public String getUser() {
+    return user;
   }
 
-  public void setOrganization(String organization) {
-    this.organization = organization;
+  public void setUser(String user) {
+    this.user = user;
   }
 
   public Commandresult workflowId(String workflowId) {
@@ -199,140 +333,6 @@ public class Commandresult {
     this.workflowInstanceId = workflowInstanceId;
   }
 
-  public Commandresult user(String user) {
-    this.user = user;
-    return this;
-  }
-
-   /**
-   * The user the command ran as.
-   * @return user
-  **/
-  @ApiModelProperty(value = "The user the command ran as.")
-  public String getUser() {
-    return user;
-  }
-
-  public void setUser(String user) {
-    this.user = user;
-  }
-
-  public Commandresult sudo(Boolean sudo) {
-    this.sudo = sudo;
-    return this;
-  }
-
-   /**
-   * If the user had sudo rights
-   * @return sudo
-  **/
-  @ApiModelProperty(value = "If the user had sudo rights")
-  public Boolean isSudo() {
-    return sudo;
-  }
-
-  public void setSudo(Boolean sudo) {
-    this.sudo = sudo;
-  }
-
-  public Commandresult files(List<String> files) {
-    this.files = files;
-    return this;
-  }
-
-  public Commandresult addFilesItem(String filesItem) {
-    if (this.files == null) {
-      this.files = new ArrayList<String>();
-    }
-    this.files.add(filesItem);
-    return this;
-  }
-
-   /**
-   * An array of file ids that were included in the command
-   * @return files
-  **/
-  @ApiModelProperty(value = "An array of file ids that were included in the command")
-  public List<String> getFiles() {
-    return files;
-  }
-
-  public void setFiles(List<String> files) {
-    this.files = files;
-  }
-
-  public Commandresult requestTime(String requestTime) {
-    this.requestTime = requestTime;
-    return this;
-  }
-
-   /**
-   * The time that the command was sent.
-   * @return requestTime
-  **/
-  @ApiModelProperty(value = "The time that the command was sent.")
-  public String getRequestTime() {
-    return requestTime;
-  }
-
-  public void setRequestTime(String requestTime) {
-    this.requestTime = requestTime;
-  }
-
-  public Commandresult responseTime(String responseTime) {
-    this.responseTime = responseTime;
-    return this;
-  }
-
-   /**
-   * The time that the command was completed.
-   * @return responseTime
-  **/
-  @ApiModelProperty(value = "The time that the command was completed.")
-  public String getResponseTime() {
-    return responseTime;
-  }
-
-  public void setResponseTime(String responseTime) {
-    this.responseTime = responseTime;
-  }
-
-  public Commandresult response(CommandresultResponse response) {
-    this.response = response;
-    return this;
-  }
-
-   /**
-   * Get response
-   * @return response
-  **/
-  @ApiModelProperty(value = "")
-  public CommandresultResponse getResponse() {
-    return response;
-  }
-
-  public void setResponse(CommandresultResponse response) {
-    this.response = response;
-  }
-
-  public Commandresult id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of the command.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID of the command.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -343,25 +343,25 @@ public class Commandresult {
       return false;
     }
     Commandresult commandresult = (Commandresult) o;
-    return Objects.equals(this.command, commandresult.command) &&
+    return Objects.equals(this.id, commandresult.id) &&
+        Objects.equals(this.command, commandresult.command) &&
+        Objects.equals(this.files, commandresult.files) &&
         Objects.equals(this.name, commandresult.name) &&
+        Objects.equals(this.organization, commandresult.organization) &&
+        Objects.equals(this.requestTime, commandresult.requestTime) &&
+        Objects.equals(this.response, commandresult.response) &&
+        Objects.equals(this.responseTime, commandresult.responseTime) &&
+        Objects.equals(this.sudo, commandresult.sudo) &&
         Objects.equals(this.system, commandresult.system) &&
         Objects.equals(this.systemId, commandresult.systemId) &&
-        Objects.equals(this.organization, commandresult.organization) &&
-        Objects.equals(this.workflowId, commandresult.workflowId) &&
-        Objects.equals(this.workflowInstanceId, commandresult.workflowInstanceId) &&
         Objects.equals(this.user, commandresult.user) &&
-        Objects.equals(this.sudo, commandresult.sudo) &&
-        Objects.equals(this.files, commandresult.files) &&
-        Objects.equals(this.requestTime, commandresult.requestTime) &&
-        Objects.equals(this.responseTime, commandresult.responseTime) &&
-        Objects.equals(this.response, commandresult.response) &&
-        Objects.equals(this.id, commandresult.id);
+        Objects.equals(this.workflowId, commandresult.workflowId) &&
+        Objects.equals(this.workflowInstanceId, commandresult.workflowInstanceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, name, system, systemId, organization, workflowId, workflowInstanceId, user, sudo, files, requestTime, responseTime, response, id);
+    return Objects.hash(id, command, files, name, organization, requestTime, response, responseTime, sudo, system, systemId, user, workflowId, workflowInstanceId);
   }
 
 
@@ -370,20 +370,20 @@ public class Commandresult {
     StringBuilder sb = new StringBuilder();
     sb.append("class Commandresult {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    requestTime: ").append(toIndentedString(requestTime)).append("\n");
+    sb.append("    response: ").append(toIndentedString(response)).append("\n");
+    sb.append("    responseTime: ").append(toIndentedString(responseTime)).append("\n");
+    sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
     sb.append("    system: ").append(toIndentedString(system)).append("\n");
     sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
-    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
     sb.append("    workflowInstanceId: ").append(toIndentedString(workflowInstanceId)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
-    sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    requestTime: ").append(toIndentedString(requestTime)).append("\n");
-    sb.append("    responseTime: ").append(toIndentedString(responseTime)).append("\n");
-    sb.append("    response: ").append(toIndentedString(response)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

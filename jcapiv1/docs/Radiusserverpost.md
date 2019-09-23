@@ -4,13 +4,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**networkSourceIp** | **String** |  | 
+**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 **name** | **String** |  | 
-**tagNames** | **List&lt;String&gt;** |  |  [optional]
+**networkSourceIp** | **String** |  | 
 **sharedSecret** | **String** | RADIUS shared secret between the server and client. | 
+**tagNames** | **List&lt;String&gt;** |  |  [optional]
 **userLockoutAction** | **String** |  |  [optional]
 **userPasswordExpirationAction** | **String** |  |  [optional]
-**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 
 
 <a name="MfaEnum"></a>

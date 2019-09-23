@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * SystemuserputPhoneNumbers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class SystemuserputPhoneNumbers {
-  @SerializedName("type")
-  private String type = null;
-
   @SerializedName("number")
   private String number = null;
 
-  public SystemuserputPhoneNumbers type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
+  @SerializedName("type")
+  private String type = null;
 
   public SystemuserputPhoneNumbers number(String number) {
     this.number = number;
@@ -70,6 +52,24 @@ public class SystemuserputPhoneNumbers {
     this.number = number;
   }
 
+  public SystemuserputPhoneNumbers type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class SystemuserputPhoneNumbers {
       return false;
     }
     SystemuserputPhoneNumbers systemuserputPhoneNumbers = (SystemuserputPhoneNumbers) o;
-    return Objects.equals(this.type, systemuserputPhoneNumbers.type) &&
-        Objects.equals(this.number, systemuserputPhoneNumbers.number);
+    return Objects.equals(this.number, systemuserputPhoneNumbers.number) &&
+        Objects.equals(this.type, systemuserputPhoneNumbers.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, number);
+    return Objects.hash(number, type);
   }
 
 
@@ -95,8 +95,8 @@ public class SystemuserputPhoneNumbers {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemuserputPhoneNumbers {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

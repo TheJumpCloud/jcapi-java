@@ -27,31 +27,13 @@ import java.io.IOException;
 /**
  * Commandfilereturn
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class Commandfilereturn {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
-
   @SerializedName("results")
   private CommandfilereturnResults results = null;
 
-  public Commandfilereturn totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * The total number of commands files
-   * @return totalCount
-  **/
-  @ApiModelProperty(value = "The total number of commands files")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
   public Commandfilereturn results(CommandfilereturnResults results) {
     this.results = results;
@@ -71,6 +53,24 @@ public class Commandfilereturn {
     this.results = results;
   }
 
+  public Commandfilereturn totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * The total number of commands files
+   * @return totalCount
+  **/
+  @ApiModelProperty(value = "The total number of commands files")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -81,13 +81,13 @@ public class Commandfilereturn {
       return false;
     }
     Commandfilereturn commandfilereturn = (Commandfilereturn) o;
-    return Objects.equals(this.totalCount, commandfilereturn.totalCount) &&
-        Objects.equals(this.results, commandfilereturn.results);
+    return Objects.equals(this.results, commandfilereturn.results) &&
+        Objects.equals(this.totalCount, commandfilereturn.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(results, totalCount);
   }
 
 
@@ -96,8 +96,8 @@ public class Commandfilereturn {
     StringBuilder sb = new StringBuilder();
     sb.append("class Commandfilereturn {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

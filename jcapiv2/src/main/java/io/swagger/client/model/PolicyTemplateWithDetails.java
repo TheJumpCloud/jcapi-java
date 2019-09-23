@@ -30,19 +30,28 @@ import java.util.List;
  * The shallow information about a Policy Template.
  */
 @ApiModel(description = "The shallow information about a Policy Template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class PolicyTemplateWithDetails {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("activation")
+  private String activation = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("behavior")
+  private String behavior = null;
+
+  @SerializedName("configFields")
+  private List<PolicyTemplateConfigField> configFields = null;
 
   @SerializedName("description")
   private String description = null;
 
   @SerializedName("displayName")
   private String displayName = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("name")
+  private String name = null;
 
   /**
    * Gets or Sets osMetaFamily
@@ -96,49 +105,66 @@ public class PolicyTemplateWithDetails {
   @SerializedName("osMetaFamily")
   private OsMetaFamilyEnum osMetaFamily = null;
 
-  @SerializedName("configFields")
-  private List<PolicyTemplateConfigField> configFields = null;
-
-  @SerializedName("activation")
-  private String activation = null;
-
-  @SerializedName("behavior")
-  private String behavior = null;
-
-  public PolicyTemplateWithDetails id(String id) {
-    this.id = id;
+  public PolicyTemplateWithDetails activation(String activation) {
+    this.activation = activation;
     return this;
   }
 
    /**
-   * ObjectId uniquely identifying a Policy Template.
-   * @return id
+   * Requirements before the policy can be activated.
+   * @return activation
   **/
-  @ApiModelProperty(value = "ObjectId uniquely identifying a Policy Template.")
-  public String getId() {
-    return id;
+  @ApiModelProperty(value = "Requirements before the policy can be activated.")
+  public String getActivation() {
+    return activation;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setActivation(String activation) {
+    this.activation = activation;
   }
 
-  public PolicyTemplateWithDetails name(String name) {
-    this.name = name;
+  public PolicyTemplateWithDetails behavior(String behavior) {
+    this.behavior = behavior;
     return this;
   }
 
    /**
-   * The unique name for the Policy Template.
-   * @return name
+   * Specifics about the behavior of the policy.
+   * @return behavior
   **/
-  @ApiModelProperty(value = "The unique name for the Policy Template.")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "Specifics about the behavior of the policy.")
+  public String getBehavior() {
+    return behavior;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setBehavior(String behavior) {
+    this.behavior = behavior;
+  }
+
+  public PolicyTemplateWithDetails configFields(List<PolicyTemplateConfigField> configFields) {
+    this.configFields = configFields;
+    return this;
+  }
+
+  public PolicyTemplateWithDetails addConfigFieldsItem(PolicyTemplateConfigField configFieldsItem) {
+    if (this.configFields == null) {
+      this.configFields = new ArrayList<PolicyTemplateConfigField>();
+    }
+    this.configFields.add(configFieldsItem);
+    return this;
+  }
+
+   /**
+   * An unordered list of all the fields that can be configured for this Policy Template.
+   * @return configFields
+  **/
+  @ApiModelProperty(value = "An unordered list of all the fields that can be configured for this Policy Template.")
+  public List<PolicyTemplateConfigField> getConfigFields() {
+    return configFields;
+  }
+
+  public void setConfigFields(List<PolicyTemplateConfigField> configFields) {
+    this.configFields = configFields;
   }
 
   public PolicyTemplateWithDetails description(String description) {
@@ -177,6 +203,42 @@ public class PolicyTemplateWithDetails {
     this.displayName = displayName;
   }
 
+  public PolicyTemplateWithDetails id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ObjectId uniquely identifying a Policy Template.
+   * @return id
+  **/
+  @ApiModelProperty(value = "ObjectId uniquely identifying a Policy Template.")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public PolicyTemplateWithDetails name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The unique name for the Policy Template.
+   * @return name
+  **/
+  @ApiModelProperty(value = "The unique name for the Policy Template.")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public PolicyTemplateWithDetails osMetaFamily(OsMetaFamilyEnum osMetaFamily) {
     this.osMetaFamily = osMetaFamily;
     return this;
@@ -195,68 +257,6 @@ public class PolicyTemplateWithDetails {
     this.osMetaFamily = osMetaFamily;
   }
 
-  public PolicyTemplateWithDetails configFields(List<PolicyTemplateConfigField> configFields) {
-    this.configFields = configFields;
-    return this;
-  }
-
-  public PolicyTemplateWithDetails addConfigFieldsItem(PolicyTemplateConfigField configFieldsItem) {
-    if (this.configFields == null) {
-      this.configFields = new ArrayList<PolicyTemplateConfigField>();
-    }
-    this.configFields.add(configFieldsItem);
-    return this;
-  }
-
-   /**
-   * An unordered list of all the fields that can be configured for this Policy Template.
-   * @return configFields
-  **/
-  @ApiModelProperty(value = "An unordered list of all the fields that can be configured for this Policy Template.")
-  public List<PolicyTemplateConfigField> getConfigFields() {
-    return configFields;
-  }
-
-  public void setConfigFields(List<PolicyTemplateConfigField> configFields) {
-    this.configFields = configFields;
-  }
-
-  public PolicyTemplateWithDetails activation(String activation) {
-    this.activation = activation;
-    return this;
-  }
-
-   /**
-   * Requirements before the policy can be activated.
-   * @return activation
-  **/
-  @ApiModelProperty(value = "Requirements before the policy can be activated.")
-  public String getActivation() {
-    return activation;
-  }
-
-  public void setActivation(String activation) {
-    this.activation = activation;
-  }
-
-  public PolicyTemplateWithDetails behavior(String behavior) {
-    this.behavior = behavior;
-    return this;
-  }
-
-   /**
-   * Specifics about the behavior of the policy.
-   * @return behavior
-  **/
-  @ApiModelProperty(value = "Specifics about the behavior of the policy.")
-  public String getBehavior() {
-    return behavior;
-  }
-
-  public void setBehavior(String behavior) {
-    this.behavior = behavior;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -267,19 +267,19 @@ public class PolicyTemplateWithDetails {
       return false;
     }
     PolicyTemplateWithDetails policyTemplateWithDetails = (PolicyTemplateWithDetails) o;
-    return Objects.equals(this.id, policyTemplateWithDetails.id) &&
-        Objects.equals(this.name, policyTemplateWithDetails.name) &&
+    return Objects.equals(this.activation, policyTemplateWithDetails.activation) &&
+        Objects.equals(this.behavior, policyTemplateWithDetails.behavior) &&
+        Objects.equals(this.configFields, policyTemplateWithDetails.configFields) &&
         Objects.equals(this.description, policyTemplateWithDetails.description) &&
         Objects.equals(this.displayName, policyTemplateWithDetails.displayName) &&
-        Objects.equals(this.osMetaFamily, policyTemplateWithDetails.osMetaFamily) &&
-        Objects.equals(this.configFields, policyTemplateWithDetails.configFields) &&
-        Objects.equals(this.activation, policyTemplateWithDetails.activation) &&
-        Objects.equals(this.behavior, policyTemplateWithDetails.behavior);
+        Objects.equals(this.id, policyTemplateWithDetails.id) &&
+        Objects.equals(this.name, policyTemplateWithDetails.name) &&
+        Objects.equals(this.osMetaFamily, policyTemplateWithDetails.osMetaFamily);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, description, displayName, osMetaFamily, configFields, activation, behavior);
+    return Objects.hash(activation, behavior, configFields, description, displayName, id, name, osMetaFamily);
   }
 
 
@@ -288,14 +288,14 @@ public class PolicyTemplateWithDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class PolicyTemplateWithDetails {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    osMetaFamily: ").append(toIndentedString(osMetaFamily)).append("\n");
-    sb.append("    configFields: ").append(toIndentedString(configFields)).append("\n");
     sb.append("    activation: ").append(toIndentedString(activation)).append("\n");
     sb.append("    behavior: ").append(toIndentedString(behavior)).append("\n");
+    sb.append("    configFields: ").append(toIndentedString(configFields)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    osMetaFamily: ").append(toIndentedString(osMetaFamily)).append("\n");
     sb.append("}");
     return sb.toString();
   }

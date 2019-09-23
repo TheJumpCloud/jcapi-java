@@ -26,66 +26,48 @@ import java.io.IOException;
 /**
  * SystemuserputAddresses
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class SystemuserputAddresses {
-  @SerializedName("type")
-  private String type = null;
-
-  @SerializedName("poBox")
-  private String poBox = null;
+  @SerializedName("country")
+  private String country = null;
 
   @SerializedName("extendedAddress")
   private String extendedAddress = null;
 
-  @SerializedName("streetAddress")
-  private String streetAddress = null;
-
   @SerializedName("locality")
   private String locality = null;
 
-  @SerializedName("region")
-  private String region = null;
+  @SerializedName("poBox")
+  private String poBox = null;
 
   @SerializedName("postalCode")
   private String postalCode = null;
 
-  @SerializedName("country")
-  private String country = null;
+  @SerializedName("region")
+  private String region = null;
 
-  public SystemuserputAddresses type(String type) {
-    this.type = type;
+  @SerializedName("streetAddress")
+  private String streetAddress = null;
+
+  @SerializedName("type")
+  private String type = null;
+
+  public SystemuserputAddresses country(String country) {
+    this.country = country;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * Get country
+   * @return country
   **/
   @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
+  public String getCountry() {
+    return country;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public SystemuserputAddresses poBox(String poBox) {
-    this.poBox = poBox;
-    return this;
-  }
-
-   /**
-   * Get poBox
-   * @return poBox
-  **/
-  @ApiModelProperty(value = "")
-  public String getPoBox() {
-    return poBox;
-  }
-
-  public void setPoBox(String poBox) {
-    this.poBox = poBox;
+  public void setCountry(String country) {
+    this.country = country;
   }
 
   public SystemuserputAddresses extendedAddress(String extendedAddress) {
@@ -106,24 +88,6 @@ public class SystemuserputAddresses {
     this.extendedAddress = extendedAddress;
   }
 
-  public SystemuserputAddresses streetAddress(String streetAddress) {
-    this.streetAddress = streetAddress;
-    return this;
-  }
-
-   /**
-   * Get streetAddress
-   * @return streetAddress
-  **/
-  @ApiModelProperty(value = "")
-  public String getStreetAddress() {
-    return streetAddress;
-  }
-
-  public void setStreetAddress(String streetAddress) {
-    this.streetAddress = streetAddress;
-  }
-
   public SystemuserputAddresses locality(String locality) {
     this.locality = locality;
     return this;
@@ -142,22 +106,22 @@ public class SystemuserputAddresses {
     this.locality = locality;
   }
 
-  public SystemuserputAddresses region(String region) {
-    this.region = region;
+  public SystemuserputAddresses poBox(String poBox) {
+    this.poBox = poBox;
     return this;
   }
 
    /**
-   * Get region
-   * @return region
+   * Get poBox
+   * @return poBox
   **/
   @ApiModelProperty(value = "")
-  public String getRegion() {
-    return region;
+  public String getPoBox() {
+    return poBox;
   }
 
-  public void setRegion(String region) {
-    this.region = region;
+  public void setPoBox(String poBox) {
+    this.poBox = poBox;
   }
 
   public SystemuserputAddresses postalCode(String postalCode) {
@@ -178,22 +142,58 @@ public class SystemuserputAddresses {
     this.postalCode = postalCode;
   }
 
-  public SystemuserputAddresses country(String country) {
-    this.country = country;
+  public SystemuserputAddresses region(String region) {
+    this.region = region;
     return this;
   }
 
    /**
-   * Get country
-   * @return country
+   * Get region
+   * @return region
   **/
   @ApiModelProperty(value = "")
-  public String getCountry() {
-    return country;
+  public String getRegion() {
+    return region;
   }
 
-  public void setCountry(String country) {
-    this.country = country;
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  public SystemuserputAddresses streetAddress(String streetAddress) {
+    this.streetAddress = streetAddress;
+    return this;
+  }
+
+   /**
+   * Get streetAddress
+   * @return streetAddress
+  **/
+  @ApiModelProperty(value = "")
+  public String getStreetAddress() {
+    return streetAddress;
+  }
+
+  public void setStreetAddress(String streetAddress) {
+    this.streetAddress = streetAddress;
+  }
+
+  public SystemuserputAddresses type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -206,19 +206,19 @@ public class SystemuserputAddresses {
       return false;
     }
     SystemuserputAddresses systemuserputAddresses = (SystemuserputAddresses) o;
-    return Objects.equals(this.type, systemuserputAddresses.type) &&
-        Objects.equals(this.poBox, systemuserputAddresses.poBox) &&
+    return Objects.equals(this.country, systemuserputAddresses.country) &&
         Objects.equals(this.extendedAddress, systemuserputAddresses.extendedAddress) &&
-        Objects.equals(this.streetAddress, systemuserputAddresses.streetAddress) &&
         Objects.equals(this.locality, systemuserputAddresses.locality) &&
-        Objects.equals(this.region, systemuserputAddresses.region) &&
+        Objects.equals(this.poBox, systemuserputAddresses.poBox) &&
         Objects.equals(this.postalCode, systemuserputAddresses.postalCode) &&
-        Objects.equals(this.country, systemuserputAddresses.country);
+        Objects.equals(this.region, systemuserputAddresses.region) &&
+        Objects.equals(this.streetAddress, systemuserputAddresses.streetAddress) &&
+        Objects.equals(this.type, systemuserputAddresses.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, poBox, extendedAddress, streetAddress, locality, region, postalCode, country);
+    return Objects.hash(country, extendedAddress, locality, poBox, postalCode, region, streetAddress, type);
   }
 
 
@@ -227,14 +227,14 @@ public class SystemuserputAddresses {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemuserputAddresses {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    poBox: ").append(toIndentedString(poBox)).append("\n");
-    sb.append("    extendedAddress: ").append(toIndentedString(extendedAddress)).append("\n");
-    sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
-    sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
-    sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    extendedAddress: ").append(toIndentedString(extendedAddress)).append("\n");
+    sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
+    sb.append("    poBox: ").append(toIndentedString(poBox)).append("\n");
+    sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

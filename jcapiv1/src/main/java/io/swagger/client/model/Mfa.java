@@ -27,16 +27,34 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Mfa
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class Mfa {
+  @SerializedName("configured")
+  private Boolean configured = null;
+
   @SerializedName("exclusion")
   private Boolean exclusion = null;
 
   @SerializedName("exclusionUntil")
   private OffsetDateTime exclusionUntil = null;
 
-  @SerializedName("configured")
-  private Boolean configured = null;
+  public Mfa configured(Boolean configured) {
+    this.configured = configured;
+    return this;
+  }
+
+   /**
+   * Get configured
+   * @return configured
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isConfigured() {
+    return configured;
+  }
+
+  public void setConfigured(Boolean configured) {
+    this.configured = configured;
+  }
 
   public Mfa exclusion(Boolean exclusion) {
     this.exclusion = exclusion;
@@ -74,24 +92,6 @@ public class Mfa {
     this.exclusionUntil = exclusionUntil;
   }
 
-  public Mfa configured(Boolean configured) {
-    this.configured = configured;
-    return this;
-  }
-
-   /**
-   * Get configured
-   * @return configured
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isConfigured() {
-    return configured;
-  }
-
-  public void setConfigured(Boolean configured) {
-    this.configured = configured;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,14 +102,14 @@ public class Mfa {
       return false;
     }
     Mfa mfa = (Mfa) o;
-    return Objects.equals(this.exclusion, mfa.exclusion) &&
-        Objects.equals(this.exclusionUntil, mfa.exclusionUntil) &&
-        Objects.equals(this.configured, mfa.configured);
+    return Objects.equals(this.configured, mfa.configured) &&
+        Objects.equals(this.exclusion, mfa.exclusion) &&
+        Objects.equals(this.exclusionUntil, mfa.exclusionUntil);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exclusion, exclusionUntil, configured);
+    return Objects.hash(configured, exclusion, exclusionUntil);
   }
 
 
@@ -118,9 +118,9 @@ public class Mfa {
     StringBuilder sb = new StringBuilder();
     sb.append("class Mfa {\n");
     
+    sb.append("    configured: ").append(toIndentedString(configured)).append("\n");
     sb.append("    exclusion: ").append(toIndentedString(exclusion)).append("\n");
     sb.append("    exclusionUntil: ").append(toIndentedString(exclusionUntil)).append("\n");
-    sb.append("    configured: ").append(toIndentedString(configured)).append("\n");
     sb.append("}");
     return sb.toString();
   }

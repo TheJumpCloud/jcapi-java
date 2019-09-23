@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** | The ObjectID of member being added or removed. | 
 **op** | [**OpEnum**](#OpEnum) | How to modify the membership connection. | 
 **type** | [**TypeEnum**](#TypeEnum) | The member type. | 
-**id** | **String** | The ObjectID of member being added or removed. | 
 
 
 <a name="OpEnum"></a>

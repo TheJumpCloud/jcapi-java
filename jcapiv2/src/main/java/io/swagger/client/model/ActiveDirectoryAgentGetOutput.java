@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * ActiveDirectoryAgentGetOutput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class ActiveDirectoryAgentGetOutput {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("connectKey")
   private String connectKey = null;
 
-  public ActiveDirectoryAgentGetOutput id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * ObjectID of this Active Directory Agent.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "ObjectID of this Active Directory Agent.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
+  @SerializedName("id")
+  private String id = null;
 
   public ActiveDirectoryAgentGetOutput connectKey(String connectKey) {
     this.connectKey = connectKey;
@@ -70,6 +52,24 @@ public class ActiveDirectoryAgentGetOutput {
     this.connectKey = connectKey;
   }
 
+  public ActiveDirectoryAgentGetOutput id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ObjectID of this Active Directory Agent.
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "ObjectID of this Active Directory Agent.")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class ActiveDirectoryAgentGetOutput {
       return false;
     }
     ActiveDirectoryAgentGetOutput activeDirectoryAgentGetOutput = (ActiveDirectoryAgentGetOutput) o;
-    return Objects.equals(this.id, activeDirectoryAgentGetOutput.id) &&
-        Objects.equals(this.connectKey, activeDirectoryAgentGetOutput.connectKey);
+    return Objects.equals(this.connectKey, activeDirectoryAgentGetOutput.connectKey) &&
+        Objects.equals(this.id, activeDirectoryAgentGetOutput.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, connectKey);
+    return Objects.hash(connectKey, id);
   }
 
 
@@ -95,8 +95,8 @@ public class ActiveDirectoryAgentGetOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActiveDirectoryAgentGetOutput {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    connectKey: ").append(toIndentedString(connectKey)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

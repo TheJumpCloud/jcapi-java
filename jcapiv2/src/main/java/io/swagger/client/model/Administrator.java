@@ -26,43 +26,25 @@ import java.io.IOException;
 /**
  * Administrator
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class Administrator {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("email")
   private String email = null;
-
-  @SerializedName("firstname")
-  private String firstname = null;
-
-  @SerializedName("lastname")
-  private String lastname = null;
 
   @SerializedName("enableMultiFactor")
   private Boolean enableMultiFactor = null;
 
+  @SerializedName("firstname")
+  private String firstname = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("lastname")
+  private String lastname = null;
+
   @SerializedName("registered")
   private Boolean registered = null;
-
-  public Administrator id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public Administrator email(String email) {
     this.email = email;
@@ -80,6 +62,24 @@ public class Administrator {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public Administrator enableMultiFactor(Boolean enableMultiFactor) {
+    this.enableMultiFactor = enableMultiFactor;
+    return this;
+  }
+
+   /**
+   * Get enableMultiFactor
+   * @return enableMultiFactor
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isEnableMultiFactor() {
+    return enableMultiFactor;
+  }
+
+  public void setEnableMultiFactor(Boolean enableMultiFactor) {
+    this.enableMultiFactor = enableMultiFactor;
   }
 
   public Administrator firstname(String firstname) {
@@ -100,6 +100,24 @@ public class Administrator {
     this.firstname = firstname;
   }
 
+  public Administrator id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public Administrator lastname(String lastname) {
     this.lastname = lastname;
     return this;
@@ -116,24 +134,6 @@ public class Administrator {
 
   public void setLastname(String lastname) {
     this.lastname = lastname;
-  }
-
-  public Administrator enableMultiFactor(Boolean enableMultiFactor) {
-    this.enableMultiFactor = enableMultiFactor;
-    return this;
-  }
-
-   /**
-   * Get enableMultiFactor
-   * @return enableMultiFactor
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isEnableMultiFactor() {
-    return enableMultiFactor;
-  }
-
-  public void setEnableMultiFactor(Boolean enableMultiFactor) {
-    this.enableMultiFactor = enableMultiFactor;
   }
 
   public Administrator registered(Boolean registered) {
@@ -164,17 +164,17 @@ public class Administrator {
       return false;
     }
     Administrator administrator = (Administrator) o;
-    return Objects.equals(this.id, administrator.id) &&
-        Objects.equals(this.email, administrator.email) &&
-        Objects.equals(this.firstname, administrator.firstname) &&
-        Objects.equals(this.lastname, administrator.lastname) &&
+    return Objects.equals(this.email, administrator.email) &&
         Objects.equals(this.enableMultiFactor, administrator.enableMultiFactor) &&
+        Objects.equals(this.firstname, administrator.firstname) &&
+        Objects.equals(this.id, administrator.id) &&
+        Objects.equals(this.lastname, administrator.lastname) &&
         Objects.equals(this.registered, administrator.registered);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, firstname, lastname, enableMultiFactor, registered);
+    return Objects.hash(email, enableMultiFactor, firstname, id, lastname, registered);
   }
 
 
@@ -183,11 +183,11 @@ public class Administrator {
     StringBuilder sb = new StringBuilder();
     sb.append("class Administrator {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
-    sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
     sb.append("    enableMultiFactor: ").append(toIndentedString(enableMultiFactor)).append("\n");
+    sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
     sb.append("    registered: ").append(toIndentedString(registered)).append("\n");
     sb.append("}");
     return sb.toString();

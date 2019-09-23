@@ -32,58 +32,22 @@ import java.util.List;
  * An instance of a policy template.
  */
 @ApiModel(description = "An instance of a policy template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:31:04.187Z")
 public class PolicyWithDetails {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("template")
-  private PolicyTemplate template = null;
-
   @SerializedName("configFields")
   private List<PolicyTemplateConfigField> configFields = null;
+
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("name")
   private String name = null;
 
+  @SerializedName("template")
+  private PolicyTemplate template = null;
+
   @SerializedName("values")
   private List<PolicyValue> values = null;
-
-  public PolicyWithDetails id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * ObjectId uniquely identifying a Policy.
-   * @return id
-  **/
-  @ApiModelProperty(value = "ObjectId uniquely identifying a Policy.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public PolicyWithDetails template(PolicyTemplate template) {
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @ApiModelProperty(value = "")
-  public PolicyTemplate getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(PolicyTemplate template) {
-    this.template = template;
-  }
 
   public PolicyWithDetails configFields(List<PolicyTemplateConfigField> configFields) {
     this.configFields = configFields;
@@ -111,6 +75,24 @@ public class PolicyWithDetails {
     this.configFields = configFields;
   }
 
+  public PolicyWithDetails id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * ObjectId uniquely identifying a Policy.
+   * @return id
+  **/
+  @ApiModelProperty(value = "ObjectId uniquely identifying a Policy.")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public PolicyWithDetails name(String name) {
     this.name = name;
     return this;
@@ -127,6 +109,24 @@ public class PolicyWithDetails {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public PolicyWithDetails template(PolicyTemplate template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @ApiModelProperty(value = "")
+  public PolicyTemplate getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(PolicyTemplate template) {
+    this.template = template;
   }
 
   public PolicyWithDetails values(List<PolicyValue> values) {
@@ -165,16 +165,16 @@ public class PolicyWithDetails {
       return false;
     }
     PolicyWithDetails policyWithDetails = (PolicyWithDetails) o;
-    return Objects.equals(this.id, policyWithDetails.id) &&
-        Objects.equals(this.template, policyWithDetails.template) &&
-        Objects.equals(this.configFields, policyWithDetails.configFields) &&
+    return Objects.equals(this.configFields, policyWithDetails.configFields) &&
+        Objects.equals(this.id, policyWithDetails.id) &&
         Objects.equals(this.name, policyWithDetails.name) &&
+        Objects.equals(this.template, policyWithDetails.template) &&
         Objects.equals(this.values, policyWithDetails.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, template, configFields, name, values);
+    return Objects.hash(configFields, id, name, template, values);
   }
 
 
@@ -183,10 +183,10 @@ public class PolicyWithDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class PolicyWithDetails {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    configFields: ").append(toIndentedString(configFields)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();

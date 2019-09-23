@@ -21,27 +21,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.ApplicationConfigAcsUrl;
 import io.swagger.client.model.ApplicationConfigConstantAttributes;
 import io.swagger.client.model.ApplicationConfigDatabaseAttributes;
-import io.swagger.client.model.ApplicationConfigIdpEntityId;
 import java.io.IOException;
 
 /**
  * ApplicationConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class ApplicationConfig {
-  @SerializedName("idpEntityId")
-  private ApplicationConfigIdpEntityId idpEntityId = null;
-
-  @SerializedName("idpCertificate")
-  private ApplicationConfigIdpEntityId idpCertificate = null;
-
-  @SerializedName("spEntityId")
-  private ApplicationConfigIdpEntityId spEntityId = null;
-
   @SerializedName("acsUrl")
-  private ApplicationConfigIdpEntityId acsUrl = null;
+  private ApplicationConfigAcsUrl acsUrl = null;
 
   @SerializedName("constantAttributes")
   private ApplicationConfigConstantAttributes constantAttributes = null;
@@ -49,61 +40,16 @@ public class ApplicationConfig {
   @SerializedName("databaseAttributes")
   private ApplicationConfigDatabaseAttributes databaseAttributes = null;
 
-  public ApplicationConfig idpEntityId(ApplicationConfigIdpEntityId idpEntityId) {
-    this.idpEntityId = idpEntityId;
-    return this;
-  }
+  @SerializedName("idpCertificate")
+  private ApplicationConfigAcsUrl idpCertificate = null;
 
-   /**
-   * Get idpEntityId
-   * @return idpEntityId
-  **/
-  @ApiModelProperty(value = "")
-  public ApplicationConfigIdpEntityId getIdpEntityId() {
-    return idpEntityId;
-  }
+  @SerializedName("idpEntityId")
+  private ApplicationConfigAcsUrl idpEntityId = null;
 
-  public void setIdpEntityId(ApplicationConfigIdpEntityId idpEntityId) {
-    this.idpEntityId = idpEntityId;
-  }
+  @SerializedName("spEntityId")
+  private ApplicationConfigAcsUrl spEntityId = null;
 
-  public ApplicationConfig idpCertificate(ApplicationConfigIdpEntityId idpCertificate) {
-    this.idpCertificate = idpCertificate;
-    return this;
-  }
-
-   /**
-   * Get idpCertificate
-   * @return idpCertificate
-  **/
-  @ApiModelProperty(value = "")
-  public ApplicationConfigIdpEntityId getIdpCertificate() {
-    return idpCertificate;
-  }
-
-  public void setIdpCertificate(ApplicationConfigIdpEntityId idpCertificate) {
-    this.idpCertificate = idpCertificate;
-  }
-
-  public ApplicationConfig spEntityId(ApplicationConfigIdpEntityId spEntityId) {
-    this.spEntityId = spEntityId;
-    return this;
-  }
-
-   /**
-   * Get spEntityId
-   * @return spEntityId
-  **/
-  @ApiModelProperty(value = "")
-  public ApplicationConfigIdpEntityId getSpEntityId() {
-    return spEntityId;
-  }
-
-  public void setSpEntityId(ApplicationConfigIdpEntityId spEntityId) {
-    this.spEntityId = spEntityId;
-  }
-
-  public ApplicationConfig acsUrl(ApplicationConfigIdpEntityId acsUrl) {
+  public ApplicationConfig acsUrl(ApplicationConfigAcsUrl acsUrl) {
     this.acsUrl = acsUrl;
     return this;
   }
@@ -113,11 +59,11 @@ public class ApplicationConfig {
    * @return acsUrl
   **/
   @ApiModelProperty(value = "")
-  public ApplicationConfigIdpEntityId getAcsUrl() {
+  public ApplicationConfigAcsUrl getAcsUrl() {
     return acsUrl;
   }
 
-  public void setAcsUrl(ApplicationConfigIdpEntityId acsUrl) {
+  public void setAcsUrl(ApplicationConfigAcsUrl acsUrl) {
     this.acsUrl = acsUrl;
   }
 
@@ -157,6 +103,60 @@ public class ApplicationConfig {
     this.databaseAttributes = databaseAttributes;
   }
 
+  public ApplicationConfig idpCertificate(ApplicationConfigAcsUrl idpCertificate) {
+    this.idpCertificate = idpCertificate;
+    return this;
+  }
+
+   /**
+   * Get idpCertificate
+   * @return idpCertificate
+  **/
+  @ApiModelProperty(value = "")
+  public ApplicationConfigAcsUrl getIdpCertificate() {
+    return idpCertificate;
+  }
+
+  public void setIdpCertificate(ApplicationConfigAcsUrl idpCertificate) {
+    this.idpCertificate = idpCertificate;
+  }
+
+  public ApplicationConfig idpEntityId(ApplicationConfigAcsUrl idpEntityId) {
+    this.idpEntityId = idpEntityId;
+    return this;
+  }
+
+   /**
+   * Get idpEntityId
+   * @return idpEntityId
+  **/
+  @ApiModelProperty(value = "")
+  public ApplicationConfigAcsUrl getIdpEntityId() {
+    return idpEntityId;
+  }
+
+  public void setIdpEntityId(ApplicationConfigAcsUrl idpEntityId) {
+    this.idpEntityId = idpEntityId;
+  }
+
+  public ApplicationConfig spEntityId(ApplicationConfigAcsUrl spEntityId) {
+    this.spEntityId = spEntityId;
+    return this;
+  }
+
+   /**
+   * Get spEntityId
+   * @return spEntityId
+  **/
+  @ApiModelProperty(value = "")
+  public ApplicationConfigAcsUrl getSpEntityId() {
+    return spEntityId;
+  }
+
+  public void setSpEntityId(ApplicationConfigAcsUrl spEntityId) {
+    this.spEntityId = spEntityId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -167,17 +167,17 @@ public class ApplicationConfig {
       return false;
     }
     ApplicationConfig applicationConfig = (ApplicationConfig) o;
-    return Objects.equals(this.idpEntityId, applicationConfig.idpEntityId) &&
-        Objects.equals(this.idpCertificate, applicationConfig.idpCertificate) &&
-        Objects.equals(this.spEntityId, applicationConfig.spEntityId) &&
-        Objects.equals(this.acsUrl, applicationConfig.acsUrl) &&
+    return Objects.equals(this.acsUrl, applicationConfig.acsUrl) &&
         Objects.equals(this.constantAttributes, applicationConfig.constantAttributes) &&
-        Objects.equals(this.databaseAttributes, applicationConfig.databaseAttributes);
+        Objects.equals(this.databaseAttributes, applicationConfig.databaseAttributes) &&
+        Objects.equals(this.idpCertificate, applicationConfig.idpCertificate) &&
+        Objects.equals(this.idpEntityId, applicationConfig.idpEntityId) &&
+        Objects.equals(this.spEntityId, applicationConfig.spEntityId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(idpEntityId, idpCertificate, spEntityId, acsUrl, constantAttributes, databaseAttributes);
+    return Objects.hash(acsUrl, constantAttributes, databaseAttributes, idpCertificate, idpEntityId, spEntityId);
   }
 
 
@@ -186,12 +186,12 @@ public class ApplicationConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplicationConfig {\n");
     
-    sb.append("    idpEntityId: ").append(toIndentedString(idpEntityId)).append("\n");
-    sb.append("    idpCertificate: ").append(toIndentedString(idpCertificate)).append("\n");
-    sb.append("    spEntityId: ").append(toIndentedString(spEntityId)).append("\n");
     sb.append("    acsUrl: ").append(toIndentedString(acsUrl)).append("\n");
     sb.append("    constantAttributes: ").append(toIndentedString(constantAttributes)).append("\n");
     sb.append("    databaseAttributes: ").append(toIndentedString(databaseAttributes)).append("\n");
+    sb.append("    idpCertificate: ").append(toIndentedString(idpCertificate)).append("\n");
+    sb.append("    idpEntityId: ").append(toIndentedString(idpEntityId)).append("\n");
+    sb.append("    spEntityId: ").append(toIndentedString(spEntityId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

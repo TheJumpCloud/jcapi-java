@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemNetworkInterfaces
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class SystemNetworkInterfaces {
   @SerializedName("address")
   private String address = null;

@@ -29,31 +29,13 @@ import java.util.List;
 /**
  * Radiusserverslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-23T20:30:58.686Z")
 public class Radiusserverslist {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
-
   @SerializedName("results")
   private List<Radiusserver> results = null;
 
-  public Radiusserverslist totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * Get totalCount
-   * @return totalCount
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
   public Radiusserverslist results(List<Radiusserver> results) {
     this.results = results;
@@ -81,6 +63,24 @@ public class Radiusserverslist {
     this.results = results;
   }
 
+  public Radiusserverslist totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * Get totalCount
+   * @return totalCount
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +91,13 @@ public class Radiusserverslist {
       return false;
     }
     Radiusserverslist radiusserverslist = (Radiusserverslist) o;
-    return Objects.equals(this.totalCount, radiusserverslist.totalCount) &&
-        Objects.equals(this.results, radiusserverslist.results);
+    return Objects.equals(this.results, radiusserverslist.results) &&
+        Objects.equals(this.totalCount, radiusserverslist.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(results, totalCount);
   }
 
 
@@ -106,8 +106,8 @@ public class Radiusserverslist {
     StringBuilder sb = new StringBuilder();
     sb.append("class Radiusserverslist {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
