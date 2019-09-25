@@ -4,15 +4,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  |  [optional]
-**uuid** | **String** |  |  [optional]
+**collectionTime** | **String** |  |  [optional]
 **encrypted** | **Integer** |  |  [optional]
+**encryptionStatus** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
+**systemId** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
 **uid** | **String** |  |  [optional]
 **userUuid** | **String** |  |  [optional]
-**encryptionStatus** | **String** |  |  [optional]
-**jcCollectionTime** | **String** |  |  [optional]
-**jcSystemId** | **String** |  |  [optional]
+**uuid** | **String** |  |  [optional]
 
 
 

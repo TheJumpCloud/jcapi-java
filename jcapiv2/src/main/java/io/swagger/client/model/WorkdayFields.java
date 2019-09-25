@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * WorkdayFields
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class WorkdayFields {
-  @SerializedName("reportUrl")
-  private String reportUrl = null;
-
   @SerializedName("name")
   private String name = null;
 
-  public WorkdayFields reportUrl(String reportUrl) {
-    this.reportUrl = reportUrl;
-    return this;
-  }
-
-   /**
-   * Get reportUrl
-   * @return reportUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getReportUrl() {
-    return reportUrl;
-  }
-
-  public void setReportUrl(String reportUrl) {
-    this.reportUrl = reportUrl;
-  }
+  @SerializedName("reportUrl")
+  private String reportUrl = null;
 
   public WorkdayFields name(String name) {
     this.name = name;
@@ -70,6 +52,24 @@ public class WorkdayFields {
     this.name = name;
   }
 
+  public WorkdayFields reportUrl(String reportUrl) {
+    this.reportUrl = reportUrl;
+    return this;
+  }
+
+   /**
+   * Get reportUrl
+   * @return reportUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getReportUrl() {
+    return reportUrl;
+  }
+
+  public void setReportUrl(String reportUrl) {
+    this.reportUrl = reportUrl;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class WorkdayFields {
       return false;
     }
     WorkdayFields workdayFields = (WorkdayFields) o;
-    return Objects.equals(this.reportUrl, workdayFields.reportUrl) &&
-        Objects.equals(this.name, workdayFields.name);
+    return Objects.equals(this.name, workdayFields.name) &&
+        Objects.equals(this.reportUrl, workdayFields.reportUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reportUrl, name);
+    return Objects.hash(name, reportUrl);
   }
 
 
@@ -95,8 +95,8 @@ public class WorkdayFields {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkdayFields {\n");
     
-    sb.append("    reportUrl: ").append(toIndentedString(reportUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    reportUrl: ").append(toIndentedString(reportUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

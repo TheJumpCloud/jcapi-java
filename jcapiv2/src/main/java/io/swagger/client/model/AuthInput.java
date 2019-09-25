@@ -28,31 +28,13 @@ import java.io.IOException;
 /**
  * AuthInput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class AuthInput {
-  @SerializedName("oauth")
-  private AuthinputOauth oauth = null;
-
   @SerializedName("basic")
   private AuthinputBasic basic = null;
 
-  public AuthInput oauth(AuthinputOauth oauth) {
-    this.oauth = oauth;
-    return this;
-  }
-
-   /**
-   * Get oauth
-   * @return oauth
-  **/
-  @ApiModelProperty(value = "")
-  public AuthinputOauth getOauth() {
-    return oauth;
-  }
-
-  public void setOauth(AuthinputOauth oauth) {
-    this.oauth = oauth;
-  }
+  @SerializedName("oauth")
+  private AuthinputOauth oauth = null;
 
   public AuthInput basic(AuthinputBasic basic) {
     this.basic = basic;
@@ -72,6 +54,24 @@ public class AuthInput {
     this.basic = basic;
   }
 
+  public AuthInput oauth(AuthinputOauth oauth) {
+    this.oauth = oauth;
+    return this;
+  }
+
+   /**
+   * Get oauth
+   * @return oauth
+  **/
+  @ApiModelProperty(value = "")
+  public AuthinputOauth getOauth() {
+    return oauth;
+  }
+
+  public void setOauth(AuthinputOauth oauth) {
+    this.oauth = oauth;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +82,13 @@ public class AuthInput {
       return false;
     }
     AuthInput authInput = (AuthInput) o;
-    return Objects.equals(this.oauth, authInput.oauth) &&
-        Objects.equals(this.basic, authInput.basic);
+    return Objects.equals(this.basic, authInput.basic) &&
+        Objects.equals(this.oauth, authInput.oauth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(oauth, basic);
+    return Objects.hash(basic, oauth);
   }
 
 
@@ -97,8 +97,8 @@ public class AuthInput {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthInput {\n");
     
-    sb.append("    oauth: ").append(toIndentedString(oauth)).append("\n");
     sb.append("    basic: ").append(toIndentedString(basic)).append("\n");
+    sb.append("    oauth: ").append(toIndentedString(oauth)).append("\n");
     sb.append("}");
     return sb.toString();
   }

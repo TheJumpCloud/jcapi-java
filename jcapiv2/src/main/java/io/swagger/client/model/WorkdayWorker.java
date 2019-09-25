@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * WorkdayWorker
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class WorkdayWorker {
-  @SerializedName("username")
-  private String username = null;
+  @SerializedName("attributes")
+  private Object attributes = null;
+
+  @SerializedName("email")
+  private String email = null;
 
   @SerializedName("firstName")
   private String firstName = null;
@@ -37,28 +40,43 @@ public class WorkdayWorker {
   @SerializedName("lastName")
   private String lastName = null;
 
-  @SerializedName("email")
-  private String email = null;
+  @SerializedName("username")
+  private String username = null;
 
-  @SerializedName("attributes")
-  private Object attributes = null;
-
-  public WorkdayWorker username(String username) {
-    this.username = username;
+  public WorkdayWorker attributes(Object attributes) {
+    this.attributes = attributes;
     return this;
   }
 
    /**
-   * Get username
-   * @return username
+   * Get attributes
+   * @return attributes
   **/
   @ApiModelProperty(value = "")
-  public String getUsername() {
-    return username;
+  public Object getAttributes() {
+    return attributes;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setAttributes(Object attributes) {
+    this.attributes = attributes;
+  }
+
+  public WorkdayWorker email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public WorkdayWorker firstName(String firstName) {
@@ -97,40 +115,22 @@ public class WorkdayWorker {
     this.lastName = lastName;
   }
 
-  public WorkdayWorker email(String email) {
-    this.email = email;
+  public WorkdayWorker username(String username) {
+    this.username = username;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
+   * Get username
+   * @return username
   **/
   @ApiModelProperty(value = "")
-  public String getEmail() {
-    return email;
+  public String getUsername() {
+    return username;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public WorkdayWorker attributes(Object attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-   /**
-   * Get attributes
-   * @return attributes
-  **/
-  @ApiModelProperty(value = "")
-  public Object getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(Object attributes) {
-    this.attributes = attributes;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
 
@@ -143,16 +143,16 @@ public class WorkdayWorker {
       return false;
     }
     WorkdayWorker workdayWorker = (WorkdayWorker) o;
-    return Objects.equals(this.username, workdayWorker.username) &&
+    return Objects.equals(this.attributes, workdayWorker.attributes) &&
+        Objects.equals(this.email, workdayWorker.email) &&
         Objects.equals(this.firstName, workdayWorker.firstName) &&
         Objects.equals(this.lastName, workdayWorker.lastName) &&
-        Objects.equals(this.email, workdayWorker.email) &&
-        Objects.equals(this.attributes, workdayWorker.attributes);
+        Objects.equals(this.username, workdayWorker.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, firstName, lastName, email, attributes);
+    return Objects.hash(attributes, email, firstName, lastName, username);
   }
 
 
@@ -161,11 +161,11 @@ public class WorkdayWorker {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkdayWorker {\n");
     
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

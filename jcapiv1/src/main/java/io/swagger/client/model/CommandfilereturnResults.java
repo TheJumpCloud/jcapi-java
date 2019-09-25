@@ -26,33 +26,33 @@ import java.io.IOException;
 /**
  * CommandfilereturnResults
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class CommandfilereturnResults {
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("_id")
+  private String id = null;
 
   @SerializedName("destination")
   private String destination = null;
 
-  @SerializedName("_id")
-  private String id = null;
+  @SerializedName("name")
+  private String name = null;
 
-  public CommandfilereturnResults name(String name) {
-    this.name = name;
+  public CommandfilereturnResults id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * The file name.
-   * @return name
+   * The ID of the file.
+   * @return id
   **/
-  @ApiModelProperty(value = "The file name.")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "The ID of the file.")
+  public String getId() {
+    return id;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public CommandfilereturnResults destination(String destination) {
@@ -73,22 +73,22 @@ public class CommandfilereturnResults {
     this.destination = destination;
   }
 
-  public CommandfilereturnResults id(String id) {
-    this.id = id;
+  public CommandfilereturnResults name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The ID of the file.
-   * @return id
+   * The file name.
+   * @return name
   **/
-  @ApiModelProperty(value = "The ID of the file.")
-  public String getId() {
-    return id;
+  @ApiModelProperty(value = "The file name.")
+  public String getName() {
+    return name;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -101,14 +101,14 @@ public class CommandfilereturnResults {
       return false;
     }
     CommandfilereturnResults commandfilereturnResults = (CommandfilereturnResults) o;
-    return Objects.equals(this.name, commandfilereturnResults.name) &&
+    return Objects.equals(this.id, commandfilereturnResults.id) &&
         Objects.equals(this.destination, commandfilereturnResults.destination) &&
-        Objects.equals(this.id, commandfilereturnResults.id);
+        Objects.equals(this.name, commandfilereturnResults.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, destination, id);
+    return Objects.hash(id, destination, name);
   }
 
 
@@ -117,9 +117,9 @@ public class CommandfilereturnResults {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommandfilereturnResults {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

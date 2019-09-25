@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]
-**networkSourceIp** | **String** |  |  [optional]
+**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 **name** | **String** |  |  [optional]
+**networkSourceIp** | **String** |  |  [optional]
 **tagNames** | **List&lt;String&gt;** |  |  [optional]
 **userLockoutAction** | **String** |  |  [optional]
 **userPasswordExpirationAction** | **String** |  |  [optional]
-**mfa** | [**MfaEnum**](#MfaEnum) |  |  [optional]
 
 
 <a name="MfaEnum"></a>

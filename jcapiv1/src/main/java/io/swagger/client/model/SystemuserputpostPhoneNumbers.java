@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * SystemuserputpostPhoneNumbers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class SystemuserputpostPhoneNumbers {
-  @SerializedName("type")
-  private String type = null;
-
   @SerializedName("number")
   private String number = null;
 
-  public SystemuserputpostPhoneNumbers type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
+  @SerializedName("type")
+  private String type = null;
 
   public SystemuserputpostPhoneNumbers number(String number) {
     this.number = number;
@@ -70,6 +52,24 @@ public class SystemuserputpostPhoneNumbers {
     this.number = number;
   }
 
+  public SystemuserputpostPhoneNumbers type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class SystemuserputpostPhoneNumbers {
       return false;
     }
     SystemuserputpostPhoneNumbers systemuserputpostPhoneNumbers = (SystemuserputpostPhoneNumbers) o;
-    return Objects.equals(this.type, systemuserputpostPhoneNumbers.type) &&
-        Objects.equals(this.number, systemuserputpostPhoneNumbers.number);
+    return Objects.equals(this.number, systemuserputpostPhoneNumbers.number) &&
+        Objects.equals(this.type, systemuserputpostPhoneNumbers.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, number);
+    return Objects.hash(number, type);
   }
 
 
@@ -95,8 +95,8 @@ public class SystemuserputpostPhoneNumbers {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemuserputpostPhoneNumbers {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

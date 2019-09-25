@@ -29,31 +29,13 @@ import java.util.List;
 /**
  * Applicationslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class Applicationslist {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
-
   @SerializedName("results")
   private List<Application> results = null;
 
-  public Applicationslist totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * The total number of applications.
-   * @return totalCount
-  **/
-  @ApiModelProperty(value = "The total number of applications.")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
   public Applicationslist results(List<Application> results) {
     this.results = results;
@@ -81,6 +63,24 @@ public class Applicationslist {
     this.results = results;
   }
 
+  public Applicationslist totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * The total number of applications.
+   * @return totalCount
+  **/
+  @ApiModelProperty(value = "The total number of applications.")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +91,13 @@ public class Applicationslist {
       return false;
     }
     Applicationslist applicationslist = (Applicationslist) o;
-    return Objects.equals(this.totalCount, applicationslist.totalCount) &&
-        Objects.equals(this.results, applicationslist.results);
+    return Objects.equals(this.results, applicationslist.results) &&
+        Objects.equals(this.totalCount, applicationslist.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(results, totalCount);
   }
 
 
@@ -106,8 +106,8 @@ public class Applicationslist {
     StringBuilder sb = new StringBuilder();
     sb.append("class Applicationslist {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

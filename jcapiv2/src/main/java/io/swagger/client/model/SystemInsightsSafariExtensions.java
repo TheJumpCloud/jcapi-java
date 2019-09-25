@@ -26,151 +26,43 @@ import java.io.IOException;
 /**
  * SystemInsightsSafariExtensions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class SystemInsightsSafariExtensions {
-  @SerializedName("uid")
-  private String uid = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("identifier")
-  private String identifier = null;
-
-  @SerializedName("version")
-  private String version = null;
-
-  @SerializedName("sdk")
-  private String sdk = null;
-
-  @SerializedName("update_url")
-  private String updateUrl = null;
-
   @SerializedName("author")
   private String author = null;
 
-  @SerializedName("developer_id")
-  private String developerId = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("developer_id")
+  private String developerId = null;
+
+  @SerializedName("identifier")
+  private String identifier = null;
+
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("path")
   private String path = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("sdk")
+  private String sdk = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  public SystemInsightsSafariExtensions uid(String uid) {
-    this.uid = uid;
-    return this;
-  }
+  @SerializedName("uid")
+  private String uid = null;
 
-   /**
-   * Get uid
-   * @return uid
-  **/
-  @ApiModelProperty(value = "")
-  public String getUid() {
-    return uid;
-  }
+  @SerializedName("update_url")
+  private String updateUrl = null;
 
-  public void setUid(String uid) {
-    this.uid = uid;
-  }
-
-  public SystemInsightsSafariExtensions name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SystemInsightsSafariExtensions identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * Get identifier
-   * @return identifier
-  **/
-  @ApiModelProperty(value = "")
-  public String getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public SystemInsightsSafariExtensions version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @ApiModelProperty(value = "")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public SystemInsightsSafariExtensions sdk(String sdk) {
-    this.sdk = sdk;
-    return this;
-  }
-
-   /**
-   * Get sdk
-   * @return sdk
-  **/
-  @ApiModelProperty(value = "")
-  public String getSdk() {
-    return sdk;
-  }
-
-  public void setSdk(String sdk) {
-    this.sdk = sdk;
-  }
-
-  public SystemInsightsSafariExtensions updateUrl(String updateUrl) {
-    this.updateUrl = updateUrl;
-    return this;
-  }
-
-   /**
-   * Get updateUrl
-   * @return updateUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getUpdateUrl() {
-    return updateUrl;
-  }
-
-  public void setUpdateUrl(String updateUrl) {
-    this.updateUrl = updateUrl;
-  }
+  @SerializedName("version")
+  private String version = null;
 
   public SystemInsightsSafariExtensions author(String author) {
     this.author = author;
@@ -190,22 +82,22 @@ public class SystemInsightsSafariExtensions {
     this.author = author;
   }
 
-  public SystemInsightsSafariExtensions developerId(String developerId) {
-    this.developerId = developerId;
+  public SystemInsightsSafariExtensions collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
     return this;
   }
 
    /**
-   * Get developerId
-   * @return developerId
+   * Get collectionTime
+   * @return collectionTime
   **/
   @ApiModelProperty(value = "")
-  public String getDeveloperId() {
-    return developerId;
+  public String getCollectionTime() {
+    return collectionTime;
   }
 
-  public void setDeveloperId(String developerId) {
-    this.developerId = developerId;
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
   public SystemInsightsSafariExtensions description(String description) {
@@ -226,6 +118,60 @@ public class SystemInsightsSafariExtensions {
     this.description = description;
   }
 
+  public SystemInsightsSafariExtensions developerId(String developerId) {
+    this.developerId = developerId;
+    return this;
+  }
+
+   /**
+   * Get developerId
+   * @return developerId
+  **/
+  @ApiModelProperty(value = "")
+  public String getDeveloperId() {
+    return developerId;
+  }
+
+  public void setDeveloperId(String developerId) {
+    this.developerId = developerId;
+  }
+
+  public SystemInsightsSafariExtensions identifier(String identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * Get identifier
+   * @return identifier
+  **/
+  @ApiModelProperty(value = "")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
+  public SystemInsightsSafariExtensions name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public SystemInsightsSafariExtensions path(String path) {
     this.path = path;
     return this;
@@ -244,40 +190,94 @@ public class SystemInsightsSafariExtensions {
     this.path = path;
   }
 
-  public SystemInsightsSafariExtensions jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsSafariExtensions sdk(String sdk) {
+    this.sdk = sdk;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get sdk
+   * @return sdk
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getSdk() {
+    return sdk;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setSdk(String sdk) {
+    this.sdk = sdk;
   }
 
-  public SystemInsightsSafariExtensions jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsSafariExtensions systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
+  }
+
+  public SystemInsightsSafariExtensions uid(String uid) {
+    this.uid = uid;
+    return this;
+  }
+
+   /**
+   * Get uid
+   * @return uid
+  **/
+  @ApiModelProperty(value = "")
+  public String getUid() {
+    return uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
+  }
+
+  public SystemInsightsSafariExtensions updateUrl(String updateUrl) {
+    this.updateUrl = updateUrl;
+    return this;
+  }
+
+   /**
+   * Get updateUrl
+   * @return updateUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getUpdateUrl() {
+    return updateUrl;
+  }
+
+  public void setUpdateUrl(String updateUrl) {
+    this.updateUrl = updateUrl;
+  }
+
+  public SystemInsightsSafariExtensions version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @ApiModelProperty(value = "")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -290,23 +290,23 @@ public class SystemInsightsSafariExtensions {
       return false;
     }
     SystemInsightsSafariExtensions systemInsightsSafariExtensions = (SystemInsightsSafariExtensions) o;
-    return Objects.equals(this.uid, systemInsightsSafariExtensions.uid) &&
-        Objects.equals(this.name, systemInsightsSafariExtensions.name) &&
-        Objects.equals(this.identifier, systemInsightsSafariExtensions.identifier) &&
-        Objects.equals(this.version, systemInsightsSafariExtensions.version) &&
-        Objects.equals(this.sdk, systemInsightsSafariExtensions.sdk) &&
-        Objects.equals(this.updateUrl, systemInsightsSafariExtensions.updateUrl) &&
-        Objects.equals(this.author, systemInsightsSafariExtensions.author) &&
-        Objects.equals(this.developerId, systemInsightsSafariExtensions.developerId) &&
+    return Objects.equals(this.author, systemInsightsSafariExtensions.author) &&
+        Objects.equals(this.collectionTime, systemInsightsSafariExtensions.collectionTime) &&
         Objects.equals(this.description, systemInsightsSafariExtensions.description) &&
+        Objects.equals(this.developerId, systemInsightsSafariExtensions.developerId) &&
+        Objects.equals(this.identifier, systemInsightsSafariExtensions.identifier) &&
+        Objects.equals(this.name, systemInsightsSafariExtensions.name) &&
         Objects.equals(this.path, systemInsightsSafariExtensions.path) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsSafariExtensions.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsSafariExtensions.jcSystemId);
+        Objects.equals(this.sdk, systemInsightsSafariExtensions.sdk) &&
+        Objects.equals(this.systemId, systemInsightsSafariExtensions.systemId) &&
+        Objects.equals(this.uid, systemInsightsSafariExtensions.uid) &&
+        Objects.equals(this.updateUrl, systemInsightsSafariExtensions.updateUrl) &&
+        Objects.equals(this.version, systemInsightsSafariExtensions.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, identifier, version, sdk, updateUrl, author, developerId, description, path, jcCollectionTime, jcSystemId);
+    return Objects.hash(author, collectionTime, description, developerId, identifier, name, path, sdk, systemId, uid, updateUrl, version);
   }
 
 
@@ -315,18 +315,18 @@ public class SystemInsightsSafariExtensions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsSafariExtensions {\n");
     
-    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    sdk: ").append(toIndentedString(sdk)).append("\n");
-    sb.append("    updateUrl: ").append(toIndentedString(updateUrl)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    developerId: ").append(toIndentedString(developerId)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    developerId: ").append(toIndentedString(developerId)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    sdk: ").append(toIndentedString(sdk)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
+    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
+    sb.append("    updateUrl: ").append(toIndentedString(updateUrl)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

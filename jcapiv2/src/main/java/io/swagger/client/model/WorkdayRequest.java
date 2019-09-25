@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * WorkdayRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class WorkdayRequest {
-  @SerializedName("objectId")
-  private String objectId = null;
-
   @SerializedName("name")
   private String name = null;
 
-  public WorkdayRequest objectId(String objectId) {
-    this.objectId = objectId;
-    return this;
-  }
-
-   /**
-   * Get objectId
-   * @return objectId
-  **/
-  @ApiModelProperty(value = "")
-  public String getObjectId() {
-    return objectId;
-  }
-
-  public void setObjectId(String objectId) {
-    this.objectId = objectId;
-  }
+  @SerializedName("objectId")
+  private String objectId = null;
 
   public WorkdayRequest name(String name) {
     this.name = name;
@@ -70,6 +52,24 @@ public class WorkdayRequest {
     this.name = name;
   }
 
+  public WorkdayRequest objectId(String objectId) {
+    this.objectId = objectId;
+    return this;
+  }
+
+   /**
+   * Get objectId
+   * @return objectId
+  **/
+  @ApiModelProperty(value = "")
+  public String getObjectId() {
+    return objectId;
+  }
+
+  public void setObjectId(String objectId) {
+    this.objectId = objectId;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class WorkdayRequest {
       return false;
     }
     WorkdayRequest workdayRequest = (WorkdayRequest) o;
-    return Objects.equals(this.objectId, workdayRequest.objectId) &&
-        Objects.equals(this.name, workdayRequest.name);
+    return Objects.equals(this.name, workdayRequest.name) &&
+        Objects.equals(this.objectId, workdayRequest.objectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(objectId, name);
+    return Objects.hash(name, objectId);
   }
 
 
@@ -95,8 +95,8 @@ public class WorkdayRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class WorkdayRequest {\n");
     
-    sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    objectId: ").append(toIndentedString(objectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

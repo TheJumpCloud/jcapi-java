@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * AuthinputBasic
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class AuthinputBasic {
-  @SerializedName("username")
-  private String username = null;
-
   @SerializedName("password")
   private String password = null;
 
-  public AuthinputBasic username(String username) {
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Get username
-   * @return username
-  **/
-  @ApiModelProperty(value = "")
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
+  @SerializedName("username")
+  private String username = null;
 
   public AuthinputBasic password(String password) {
     this.password = password;
@@ -70,6 +52,24 @@ public class AuthinputBasic {
     this.password = password;
   }
 
+  public AuthinputBasic username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @ApiModelProperty(value = "")
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class AuthinputBasic {
       return false;
     }
     AuthinputBasic authinputBasic = (AuthinputBasic) o;
-    return Objects.equals(this.username, authinputBasic.username) &&
-        Objects.equals(this.password, authinputBasic.password);
+    return Objects.equals(this.password, authinputBasic.password) &&
+        Objects.equals(this.username, authinputBasic.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, password);
+    return Objects.hash(password, username);
   }
 
 
@@ -95,8 +95,8 @@ public class AuthinputBasic {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthinputBasic {\n");
     
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -26,22 +26,10 @@ import java.io.IOException;
 /**
  * SystemInsightsBrowserPlugins
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class SystemInsightsBrowserPlugins {
-  @SerializedName("uid")
-  private String uid = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("identifier")
-  private String identifier = null;
-
-  @SerializedName("version")
-  private String version = null;
-
-  @SerializedName("sdk")
-  private String sdk = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("description")
   private String description = null;
@@ -49,109 +37,49 @@ public class SystemInsightsBrowserPlugins {
   @SerializedName("development_region")
   private String developmentRegion = null;
 
+  @SerializedName("disabled")
+  private Integer disabled = null;
+
+  @SerializedName("identifier")
+  private String identifier = null;
+
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("native")
   private Integer _native = null;
 
   @SerializedName("path")
   private String path = null;
 
-  @SerializedName("disabled")
-  private Integer disabled = null;
+  @SerializedName("sdk")
+  private String sdk = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("uid")
+  private String uid = null;
 
-  public SystemInsightsBrowserPlugins uid(String uid) {
-    this.uid = uid;
+  @SerializedName("version")
+  private String version = null;
+
+  public SystemInsightsBrowserPlugins collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
     return this;
   }
 
    /**
-   * Get uid
-   * @return uid
+   * Get collectionTime
+   * @return collectionTime
   **/
   @ApiModelProperty(value = "")
-  public String getUid() {
-    return uid;
+  public String getCollectionTime() {
+    return collectionTime;
   }
 
-  public void setUid(String uid) {
-    this.uid = uid;
-  }
-
-  public SystemInsightsBrowserPlugins name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SystemInsightsBrowserPlugins identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * Get identifier
-   * @return identifier
-  **/
-  @ApiModelProperty(value = "")
-  public String getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public SystemInsightsBrowserPlugins version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @ApiModelProperty(value = "")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public SystemInsightsBrowserPlugins sdk(String sdk) {
-    this.sdk = sdk;
-    return this;
-  }
-
-   /**
-   * Get sdk
-   * @return sdk
-  **/
-  @ApiModelProperty(value = "")
-  public String getSdk() {
-    return sdk;
-  }
-
-  public void setSdk(String sdk) {
-    this.sdk = sdk;
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
   public SystemInsightsBrowserPlugins description(String description) {
@@ -190,6 +118,60 @@ public class SystemInsightsBrowserPlugins {
     this.developmentRegion = developmentRegion;
   }
 
+  public SystemInsightsBrowserPlugins disabled(Integer disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+
+   /**
+   * Get disabled
+   * @return disabled
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getDisabled() {
+    return disabled;
+  }
+
+  public void setDisabled(Integer disabled) {
+    this.disabled = disabled;
+  }
+
+  public SystemInsightsBrowserPlugins identifier(String identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * Get identifier
+   * @return identifier
+  **/
+  @ApiModelProperty(value = "")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
+  public SystemInsightsBrowserPlugins name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public SystemInsightsBrowserPlugins _native(Integer _native) {
     this._native = _native;
     return this;
@@ -226,58 +208,76 @@ public class SystemInsightsBrowserPlugins {
     this.path = path;
   }
 
-  public SystemInsightsBrowserPlugins disabled(Integer disabled) {
-    this.disabled = disabled;
+  public SystemInsightsBrowserPlugins sdk(String sdk) {
+    this.sdk = sdk;
     return this;
   }
 
    /**
-   * Get disabled
-   * @return disabled
+   * Get sdk
+   * @return sdk
   **/
   @ApiModelProperty(value = "")
-  public Integer getDisabled() {
-    return disabled;
+  public String getSdk() {
+    return sdk;
   }
 
-  public void setDisabled(Integer disabled) {
-    this.disabled = disabled;
+  public void setSdk(String sdk) {
+    this.sdk = sdk;
   }
 
-  public SystemInsightsBrowserPlugins jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsBrowserPlugins systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
   }
 
-  public SystemInsightsBrowserPlugins jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsBrowserPlugins uid(String uid) {
+    this.uid = uid;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get uid
+   * @return uid
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getUid() {
+    return uid;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setUid(String uid) {
+    this.uid = uid;
+  }
+
+  public SystemInsightsBrowserPlugins version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @ApiModelProperty(value = "")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -290,23 +290,23 @@ public class SystemInsightsBrowserPlugins {
       return false;
     }
     SystemInsightsBrowserPlugins systemInsightsBrowserPlugins = (SystemInsightsBrowserPlugins) o;
-    return Objects.equals(this.uid, systemInsightsBrowserPlugins.uid) &&
-        Objects.equals(this.name, systemInsightsBrowserPlugins.name) &&
-        Objects.equals(this.identifier, systemInsightsBrowserPlugins.identifier) &&
-        Objects.equals(this.version, systemInsightsBrowserPlugins.version) &&
-        Objects.equals(this.sdk, systemInsightsBrowserPlugins.sdk) &&
+    return Objects.equals(this.collectionTime, systemInsightsBrowserPlugins.collectionTime) &&
         Objects.equals(this.description, systemInsightsBrowserPlugins.description) &&
         Objects.equals(this.developmentRegion, systemInsightsBrowserPlugins.developmentRegion) &&
+        Objects.equals(this.disabled, systemInsightsBrowserPlugins.disabled) &&
+        Objects.equals(this.identifier, systemInsightsBrowserPlugins.identifier) &&
+        Objects.equals(this.name, systemInsightsBrowserPlugins.name) &&
         Objects.equals(this._native, systemInsightsBrowserPlugins._native) &&
         Objects.equals(this.path, systemInsightsBrowserPlugins.path) &&
-        Objects.equals(this.disabled, systemInsightsBrowserPlugins.disabled) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsBrowserPlugins.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsBrowserPlugins.jcSystemId);
+        Objects.equals(this.sdk, systemInsightsBrowserPlugins.sdk) &&
+        Objects.equals(this.systemId, systemInsightsBrowserPlugins.systemId) &&
+        Objects.equals(this.uid, systemInsightsBrowserPlugins.uid) &&
+        Objects.equals(this.version, systemInsightsBrowserPlugins.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, identifier, version, sdk, description, developmentRegion, _native, path, disabled, jcCollectionTime, jcSystemId);
+    return Objects.hash(collectionTime, description, developmentRegion, disabled, identifier, name, _native, path, sdk, systemId, uid, version);
   }
 
 
@@ -315,18 +315,18 @@ public class SystemInsightsBrowserPlugins {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsBrowserPlugins {\n");
     
-    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    sdk: ").append(toIndentedString(sdk)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    developmentRegion: ").append(toIndentedString(developmentRegion)).append("\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    _native: ").append(toIndentedString(_native)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    sdk: ").append(toIndentedString(sdk)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
+    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -4,19 +4,19 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**blocks** | **String** |  |  [optional]
+**blocksAvailable** | **String** |  |  [optional]
+**blocksFree** | **String** |  |  [optional]
+**blocksSize** | **String** |  |  [optional]
+**collectionTime** | **String** |  |  [optional]
 **device** | **String** |  |  [optional]
 **deviceAlias** | **String** |  |  [optional]
-**path** | **String** |  |  [optional]
-**type** | **String** |  |  [optional]
-**blocksSize** | **String** |  |  [optional]
-**blocks** | **String** |  |  [optional]
-**blocksFree** | **String** |  |  [optional]
-**blocksAvailable** | **String** |  |  [optional]
+**flags** | **String** |  |  [optional]
 **inodes** | **String** |  |  [optional]
 **inodesFree** | **String** |  |  [optional]
-**flags** | **String** |  |  [optional]
-**jcCollectionTime** | **String** |  |  [optional]
-**jcSystemId** | **String** |  |  [optional]
+**path** | **String** |  |  [optional]
+**systemId** | **String** |  |  [optional]
+**type** | **String** |  |  [optional]
 
 
 

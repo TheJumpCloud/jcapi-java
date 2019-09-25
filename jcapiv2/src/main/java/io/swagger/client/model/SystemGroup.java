@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * SystemGroup
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class SystemGroup {
   @SerializedName("id")
   private String id = null;
+
+  @SerializedName("name")
+  private String name = null;
 
   /**
    * The type of the group; always &#39;system&#39; for a System Group.
@@ -79,9 +82,6 @@ public class SystemGroup {
   @SerializedName("type")
   private TypeEnum type = null;
 
-  @SerializedName("name")
-  private String name = null;
-
   public SystemGroup id(String id) {
     this.id = id;
     return this;
@@ -98,24 +98,6 @@ public class SystemGroup {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public SystemGroup type(TypeEnum type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of the group; always &#39;system&#39; for a System Group.
-   * @return type
-  **/
-  @ApiModelProperty(value = "The type of the group; always 'system' for a System Group.")
-  public TypeEnum getType() {
-    return type;
-  }
-
-  public void setType(TypeEnum type) {
-    this.type = type;
   }
 
   public SystemGroup name(String name) {
@@ -136,6 +118,24 @@ public class SystemGroup {
     this.name = name;
   }
 
+  public SystemGroup type(TypeEnum type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of the group; always &#39;system&#39; for a System Group.
+   * @return type
+  **/
+  @ApiModelProperty(value = "The type of the group; always 'system' for a System Group.")
+  public TypeEnum getType() {
+    return type;
+  }
+
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -147,13 +147,13 @@ public class SystemGroup {
     }
     SystemGroup systemGroup = (SystemGroup) o;
     return Objects.equals(this.id, systemGroup.id) &&
-        Objects.equals(this.type, systemGroup.type) &&
-        Objects.equals(this.name, systemGroup.name);
+        Objects.equals(this.name, systemGroup.name) &&
+        Objects.equals(this.type, systemGroup.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, name);
+    return Objects.hash(id, name, type);
   }
 
 
@@ -163,8 +163,8 @@ public class SystemGroup {
     sb.append("class SystemGroup {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

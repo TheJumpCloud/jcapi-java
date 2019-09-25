@@ -26,8 +26,11 @@ import java.io.IOException;
 /**
  * SystemGroupGraphManagementReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class SystemGroupGraphManagementReq {
+  @SerializedName("id")
+  private String id = null;
+
   /**
    * How to modify the graph connection.
    */
@@ -146,8 +149,23 @@ public class SystemGroupGraphManagementReq {
   @SerializedName("type")
   private TypeEnum type = null;
 
-  @SerializedName("id")
-  private String id = null;
+  public SystemGroupGraphManagementReq id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The ObjectID of graph object being added or removed as an association.
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "The ObjectID of graph object being added or removed as an association.")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public SystemGroupGraphManagementReq op(OpEnum op) {
     this.op = op;
@@ -185,24 +203,6 @@ public class SystemGroupGraphManagementReq {
     this.type = type;
   }
 
-  public SystemGroupGraphManagementReq id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ObjectID of graph object being added or removed as an association.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "The ObjectID of graph object being added or removed as an association.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -213,14 +213,14 @@ public class SystemGroupGraphManagementReq {
       return false;
     }
     SystemGroupGraphManagementReq systemGroupGraphManagementReq = (SystemGroupGraphManagementReq) o;
-    return Objects.equals(this.op, systemGroupGraphManagementReq.op) &&
-        Objects.equals(this.type, systemGroupGraphManagementReq.type) &&
-        Objects.equals(this.id, systemGroupGraphManagementReq.id);
+    return Objects.equals(this.id, systemGroupGraphManagementReq.id) &&
+        Objects.equals(this.op, systemGroupGraphManagementReq.op) &&
+        Objects.equals(this.type, systemGroupGraphManagementReq.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(op, type, id);
+    return Objects.hash(id, op, type);
   }
 
 
@@ -229,9 +229,9 @@ public class SystemGroupGraphManagementReq {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemGroupGraphManagementReq {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    op: ").append(toIndentedString(op)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

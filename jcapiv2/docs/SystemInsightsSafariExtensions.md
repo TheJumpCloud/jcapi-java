@@ -4,18 +4,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uid** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
-**identifier** | **String** |  |  [optional]
-**version** | **String** |  |  [optional]
-**sdk** | **String** |  |  [optional]
-**updateUrl** | **String** |  |  [optional]
 **author** | **String** |  |  [optional]
-**developerId** | **String** |  |  [optional]
+**collectionTime** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
+**developerId** | **String** |  |  [optional]
+**identifier** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
 **path** | **String** |  |  [optional]
-**jcCollectionTime** | **String** |  |  [optional]
-**jcSystemId** | **String** |  |  [optional]
+**sdk** | **String** |  |  [optional]
+**systemId** | **String** |  |  [optional]
+**uid** | **String** |  |  [optional]
+**updateUrl** | **String** |  |  [optional]
+**version** | **String** |  |  [optional]
 
 
 

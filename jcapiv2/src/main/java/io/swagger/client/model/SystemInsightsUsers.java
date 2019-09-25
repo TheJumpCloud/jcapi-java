@@ -26,22 +26,10 @@ import java.io.IOException;
 /**
  * SystemInsightsUsers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class SystemInsightsUsers {
-  @SerializedName("uid")
-  private String uid = null;
-
-  @SerializedName("gid")
-  private String gid = null;
-
-  @SerializedName("uid_signed")
-  private String uidSigned = null;
-
-  @SerializedName("gid_signed")
-  private String gidSigned = null;
-
-  @SerializedName("username")
-  private String username = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("description")
   private String description = null;
@@ -49,109 +37,49 @@ public class SystemInsightsUsers {
   @SerializedName("directory")
   private String directory = null;
 
+  @SerializedName("gid")
+  private String gid = null;
+
+  @SerializedName("gid_signed")
+  private String gidSigned = null;
+
   @SerializedName("shell")
   private String shell = null;
 
-  @SerializedName("uuid")
-  private String uuid = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
   @SerializedName("type")
   private String type = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("uid")
+  private String uid = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("uid_signed")
+  private String uidSigned = null;
 
-  public SystemInsightsUsers uid(String uid) {
-    this.uid = uid;
+  @SerializedName("username")
+  private String username = null;
+
+  @SerializedName("uuid")
+  private String uuid = null;
+
+  public SystemInsightsUsers collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
     return this;
   }
 
    /**
-   * Get uid
-   * @return uid
+   * Get collectionTime
+   * @return collectionTime
   **/
   @ApiModelProperty(value = "")
-  public String getUid() {
-    return uid;
+  public String getCollectionTime() {
+    return collectionTime;
   }
 
-  public void setUid(String uid) {
-    this.uid = uid;
-  }
-
-  public SystemInsightsUsers gid(String gid) {
-    this.gid = gid;
-    return this;
-  }
-
-   /**
-   * Get gid
-   * @return gid
-  **/
-  @ApiModelProperty(value = "")
-  public String getGid() {
-    return gid;
-  }
-
-  public void setGid(String gid) {
-    this.gid = gid;
-  }
-
-  public SystemInsightsUsers uidSigned(String uidSigned) {
-    this.uidSigned = uidSigned;
-    return this;
-  }
-
-   /**
-   * Get uidSigned
-   * @return uidSigned
-  **/
-  @ApiModelProperty(value = "")
-  public String getUidSigned() {
-    return uidSigned;
-  }
-
-  public void setUidSigned(String uidSigned) {
-    this.uidSigned = uidSigned;
-  }
-
-  public SystemInsightsUsers gidSigned(String gidSigned) {
-    this.gidSigned = gidSigned;
-    return this;
-  }
-
-   /**
-   * Get gidSigned
-   * @return gidSigned
-  **/
-  @ApiModelProperty(value = "")
-  public String getGidSigned() {
-    return gidSigned;
-  }
-
-  public void setGidSigned(String gidSigned) {
-    this.gidSigned = gidSigned;
-  }
-
-  public SystemInsightsUsers username(String username) {
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Get username
-   * @return username
-  **/
-  @ApiModelProperty(value = "")
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
   public SystemInsightsUsers description(String description) {
@@ -190,6 +118,42 @@ public class SystemInsightsUsers {
     this.directory = directory;
   }
 
+  public SystemInsightsUsers gid(String gid) {
+    this.gid = gid;
+    return this;
+  }
+
+   /**
+   * Get gid
+   * @return gid
+  **/
+  @ApiModelProperty(value = "")
+  public String getGid() {
+    return gid;
+  }
+
+  public void setGid(String gid) {
+    this.gid = gid;
+  }
+
+  public SystemInsightsUsers gidSigned(String gidSigned) {
+    this.gidSigned = gidSigned;
+    return this;
+  }
+
+   /**
+   * Get gidSigned
+   * @return gidSigned
+  **/
+  @ApiModelProperty(value = "")
+  public String getGidSigned() {
+    return gidSigned;
+  }
+
+  public void setGidSigned(String gidSigned) {
+    this.gidSigned = gidSigned;
+  }
+
   public SystemInsightsUsers shell(String shell) {
     this.shell = shell;
     return this;
@@ -208,22 +172,22 @@ public class SystemInsightsUsers {
     this.shell = shell;
   }
 
-  public SystemInsightsUsers uuid(String uuid) {
-    this.uuid = uuid;
+  public SystemInsightsUsers systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get uuid
-   * @return uuid
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getUuid() {
-    return uuid;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
   }
 
   public SystemInsightsUsers type(String type) {
@@ -244,40 +208,76 @@ public class SystemInsightsUsers {
     this.type = type;
   }
 
-  public SystemInsightsUsers jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsUsers uid(String uid) {
+    this.uid = uid;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get uid
+   * @return uid
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public String getUid() {
+    return uid;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setUid(String uid) {
+    this.uid = uid;
   }
 
-  public SystemInsightsUsers jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsUsers uidSigned(String uidSigned) {
+    this.uidSigned = uidSigned;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get uidSigned
+   * @return uidSigned
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getUidSigned() {
+    return uidSigned;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setUidSigned(String uidSigned) {
+    this.uidSigned = uidSigned;
+  }
+
+  public SystemInsightsUsers username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @ApiModelProperty(value = "")
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public SystemInsightsUsers uuid(String uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+   /**
+   * Get uuid
+   * @return uuid
+  **/
+  @ApiModelProperty(value = "")
+  public String getUuid() {
+    return uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
   }
 
 
@@ -290,23 +290,23 @@ public class SystemInsightsUsers {
       return false;
     }
     SystemInsightsUsers systemInsightsUsers = (SystemInsightsUsers) o;
-    return Objects.equals(this.uid, systemInsightsUsers.uid) &&
-        Objects.equals(this.gid, systemInsightsUsers.gid) &&
-        Objects.equals(this.uidSigned, systemInsightsUsers.uidSigned) &&
-        Objects.equals(this.gidSigned, systemInsightsUsers.gidSigned) &&
-        Objects.equals(this.username, systemInsightsUsers.username) &&
+    return Objects.equals(this.collectionTime, systemInsightsUsers.collectionTime) &&
         Objects.equals(this.description, systemInsightsUsers.description) &&
         Objects.equals(this.directory, systemInsightsUsers.directory) &&
+        Objects.equals(this.gid, systemInsightsUsers.gid) &&
+        Objects.equals(this.gidSigned, systemInsightsUsers.gidSigned) &&
         Objects.equals(this.shell, systemInsightsUsers.shell) &&
-        Objects.equals(this.uuid, systemInsightsUsers.uuid) &&
+        Objects.equals(this.systemId, systemInsightsUsers.systemId) &&
         Objects.equals(this.type, systemInsightsUsers.type) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsUsers.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsUsers.jcSystemId);
+        Objects.equals(this.uid, systemInsightsUsers.uid) &&
+        Objects.equals(this.uidSigned, systemInsightsUsers.uidSigned) &&
+        Objects.equals(this.username, systemInsightsUsers.username) &&
+        Objects.equals(this.uuid, systemInsightsUsers.uuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, gid, uidSigned, gidSigned, username, description, directory, shell, uuid, type, jcCollectionTime, jcSystemId);
+    return Objects.hash(collectionTime, description, directory, gid, gidSigned, shell, systemId, type, uid, uidSigned, username, uuid);
   }
 
 
@@ -315,18 +315,18 @@ public class SystemInsightsUsers {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsUsers {\n");
     
-    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
-    sb.append("    gid: ").append(toIndentedString(gid)).append("\n");
-    sb.append("    uidSigned: ").append(toIndentedString(uidSigned)).append("\n");
-    sb.append("    gidSigned: ").append(toIndentedString(gidSigned)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    directory: ").append(toIndentedString(directory)).append("\n");
+    sb.append("    gid: ").append(toIndentedString(gid)).append("\n");
+    sb.append("    gidSigned: ").append(toIndentedString(gidSigned)).append("\n");
     sb.append("    shell: ").append(toIndentedString(shell)).append("\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
+    sb.append("    uidSigned: ").append(toIndentedString(uidSigned)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

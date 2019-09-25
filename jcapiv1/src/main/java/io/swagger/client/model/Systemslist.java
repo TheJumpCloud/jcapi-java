@@ -29,31 +29,13 @@ import java.util.List;
 /**
  * Systemslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class Systemslist {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
-
   @SerializedName("results")
   private List<System> results = null;
 
-  public Systemslist totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * The total number of systems.
-   * @return totalCount
-  **/
-  @ApiModelProperty(value = "The total number of systems.")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
   public Systemslist results(List<System> results) {
     this.results = results;
@@ -81,6 +63,24 @@ public class Systemslist {
     this.results = results;
   }
 
+  public Systemslist totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * The total number of systems.
+   * @return totalCount
+  **/
+  @ApiModelProperty(value = "The total number of systems.")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +91,13 @@ public class Systemslist {
       return false;
     }
     Systemslist systemslist = (Systemslist) o;
-    return Objects.equals(this.totalCount, systemslist.totalCount) &&
-        Objects.equals(this.results, systemslist.results);
+    return Objects.equals(this.results, systemslist.results) &&
+        Objects.equals(this.totalCount, systemslist.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(results, totalCount);
   }
 
 
@@ -106,8 +106,8 @@ public class Systemslist {
     StringBuilder sb = new StringBuilder();
     sb.append("class Systemslist {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

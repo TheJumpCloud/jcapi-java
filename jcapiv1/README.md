@@ -78,19 +78,15 @@ public class ApplicationsApiExample {
         //x_api_key.setApiKeyPrefix("Token");
 
         ApplicationsApi apiInstance = new ApplicationsApi();
-        String contentType = "application/json"; // String | 
-        String accept = "application/json"; // String | 
-        String fields = "fields_example"; // String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
-        Integer limit = 56; // Integer | The number of records to return at once.
-        Integer skip = 56; // Integer | The offset into the records to return.
-        String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
-        String filter = "filter_example"; // String | A filter to apply to the query.
-        String xOrgId = ""; // String | 
+        String id = "id_example"; // String | 
+        String contentType = "contentType_example"; // String | 
+        String accept = "accept_example"; // String | 
+        String xOrgId = "xOrgId_example"; // String | 
         try {
-            Applicationslist result = apiInstance.applicationsList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
+            Application result = apiInstance.applicationsDelete(id, contentType, accept, xOrgId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApplicationsApi#applicationsList");
+            System.err.println("Exception when calling ApplicationsApi#applicationsDelete");
             e.printStackTrace();
         }
     }
@@ -104,7 +100,11 @@ All URIs are relative to *https://console.jumpcloud.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApplicationsApi* | [**applicationsDelete**](docs/ApplicationsApi.md#applicationsDelete) | **DELETE** /applications/{id} | Delete an Application
+*ApplicationsApi* | [**applicationsGet**](docs/ApplicationsApi.md#applicationsGet) | **GET** /applications/{id} | Get an Application
 *ApplicationsApi* | [**applicationsList**](docs/ApplicationsApi.md#applicationsList) | **GET** /applications | Applications
+*ApplicationsApi* | [**applicationsPost**](docs/ApplicationsApi.md#applicationsPost) | **POST** /applications | Create an Application
+*ApplicationsApi* | [**applicationsPut**](docs/ApplicationsApi.md#applicationsPut) | **PUT** /applications/{id} | Update an Application
 *CommandResultsApi* | [**commandResultsDelete**](docs/CommandResultsApi.md#commandResultsDelete) | **DELETE** /commandresults/{id} | Delete a Command result
 *CommandResultsApi* | [**commandResultsGet**](docs/CommandResultsApi.md#commandResultsGet) | **GET** /commandresults/{id} | List an individual Command result
 *CommandResultsApi* | [**commandResultsList**](docs/CommandResultsApi.md#commandResultsList) | **GET** /commandresults | List all Command Results
@@ -128,7 +128,7 @@ Class | Method | HTTP request | Description
 *SystemsApi* | [**systemsPut**](docs/SystemsApi.md#systemsPut) | **PUT** /systems/{id} | Update a system
 *SystemsApi* | [**systemsSystemusersBindingList**](docs/SystemsApi.md#systemsSystemusersBindingList) | **GET** /systems/{id}/systemusers | List system user bindings
 *SystemsApi* | [**systemsSystemusersBindingPut**](docs/SystemsApi.md#systemsSystemusersBindingPut) | **PUT** /systems/{id}/systemusers | Update a system&#39;s or user&#39;s binding
-*SystemusersApi* | [**sshkeyDelete**](docs/SystemusersApi.md#sshkeyDelete) | **DELETE** /systemusers/{id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
+*SystemusersApi* | [**sshkeyDelete**](docs/SystemusersApi.md#sshkeyDelete) | **DELETE** /systemusers/{systemuser_id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
 *SystemusersApi* | [**sshkeyList**](docs/SystemusersApi.md#sshkeyList) | **GET** /systemusers/{id}/sshkeys | List a system user&#39;s public SSH keys
 *SystemusersApi* | [**sshkeyPost**](docs/SystemusersApi.md#sshkeyPost) | **POST** /systemusers/{id}/sshkeys | Create a system user&#39;s Public SSH Key
 *SystemusersApi* | [**systemusersDelete**](docs/SystemusersApi.md#systemusersDelete) | **DELETE** /systemusers/{id} | Delete a system user
@@ -151,12 +151,12 @@ Class | Method | HTTP request | Description
 
  - [Application](docs/Application.md)
  - [ApplicationConfig](docs/ApplicationConfig.md)
+ - [ApplicationConfigAcsUrl](docs/ApplicationConfigAcsUrl.md)
+ - [ApplicationConfigAcsUrlTooltip](docs/ApplicationConfigAcsUrlTooltip.md)
+ - [ApplicationConfigAcsUrlTooltipVariables](docs/ApplicationConfigAcsUrlTooltipVariables.md)
  - [ApplicationConfigConstantAttributes](docs/ApplicationConfigConstantAttributes.md)
  - [ApplicationConfigConstantAttributesValue](docs/ApplicationConfigConstantAttributesValue.md)
  - [ApplicationConfigDatabaseAttributes](docs/ApplicationConfigDatabaseAttributes.md)
- - [ApplicationConfigIdpEntityId](docs/ApplicationConfigIdpEntityId.md)
- - [ApplicationConfigIdpEntityIdTooltip](docs/ApplicationConfigIdpEntityIdTooltip.md)
- - [ApplicationConfigIdpEntityIdTooltipVariables](docs/ApplicationConfigIdpEntityIdTooltipVariables.md)
  - [Applicationslist](docs/Applicationslist.md)
  - [Body](docs/Body.md)
  - [Body1](docs/Body1.md)
@@ -184,6 +184,7 @@ Class | Method | HTTP request | Description
  - [System](docs/System.md)
  - [SystemNetworkInterfaces](docs/SystemNetworkInterfaces.md)
  - [SystemSshdParams](docs/SystemSshdParams.md)
+ - [SystemSystemInsights](docs/SystemSystemInsights.md)
  - [Systemput](docs/Systemput.md)
  - [SystemputAgentBoundMessages](docs/SystemputAgentBoundMessages.md)
  - [Systemslist](docs/Systemslist.md)

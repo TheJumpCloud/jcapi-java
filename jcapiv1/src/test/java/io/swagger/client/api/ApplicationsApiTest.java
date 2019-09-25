@@ -14,6 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Application;
 import io.swagger.client.model.Applicationslist;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -33,9 +34,47 @@ public class ApplicationsApiTest {
 
     
     /**
+     * Delete an Application
+     *
+     * The endpoint deletes an SSO / SAML Application.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void applicationsDeleteTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        Application response = api.applicationsDelete(id, contentType, accept, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get an Application
+     *
+     * The endpoint retrieves an SSO / SAML Application.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void applicationsGetTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        Application response = api.applicationsGet(id, contentType, accept, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Applications
      *
-     * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+     * The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -51,6 +90,45 @@ public class ApplicationsApiTest {
         String filter = null;
         String xOrgId = null;
         Applicationslist response = api.applicationsList(contentType, accept, fields, limit, skip, sort, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create an Application
+     *
+     * The endpoint adds a new SSO / SAML Applications.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void applicationsPostTest() throws ApiException {
+        Application body = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        Application response = api.applicationsPost(body, contentType, accept, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update an Application
+     *
+     * The endpoint updates a SSO / SAML Application.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void applicationsPutTest() throws ApiException {
+        String id = null;
+        Application body = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        Application response = api.applicationsPut(id, body, contentType, accept, xOrgId);
 
         // TODO: test validations
     }

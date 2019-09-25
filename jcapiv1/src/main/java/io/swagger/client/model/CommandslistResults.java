@@ -26,10 +26,10 @@ import java.io.IOException;
 /**
  * CommandslistResults
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class CommandslistResults {
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("_id")
+  private String id = null;
 
   @SerializedName("command")
   private String command = null;
@@ -43,37 +43,37 @@ public class CommandslistResults {
   @SerializedName("listensTo")
   private String listensTo = null;
 
-  @SerializedName("schedule")
-  private String schedule = null;
-
-  @SerializedName("trigger")
-  private String trigger = null;
-
-  @SerializedName("scheduleRepeatType")
-  private String scheduleRepeatType = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("organization")
   private String organization = null;
 
-  @SerializedName("_id")
-  private String id = null;
+  @SerializedName("schedule")
+  private String schedule = null;
 
-  public CommandslistResults name(String name) {
-    this.name = name;
+  @SerializedName("scheduleRepeatType")
+  private String scheduleRepeatType = null;
+
+  @SerializedName("trigger")
+  private String trigger = null;
+
+  public CommandslistResults id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * The name of the Command.
-   * @return name
+   * The ID of the command.
+   * @return id
   **/
-  @ApiModelProperty(value = "The name of the Command.")
-  public String getName() {
-    return name;
+  @ApiModelProperty(value = "The ID of the command.")
+  public String getId() {
+    return id;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public CommandslistResults command(String command) {
@@ -148,58 +148,22 @@ public class CommandslistResults {
     this.listensTo = listensTo;
   }
 
-  public CommandslistResults schedule(String schedule) {
-    this.schedule = schedule;
+  public CommandslistResults name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
-   * @return schedule
+   * The name of the Command.
+   * @return name
   **/
-  @ApiModelProperty(value = "A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. ")
-  public String getSchedule() {
-    return schedule;
+  @ApiModelProperty(value = "The name of the Command.")
+  public String getName() {
+    return name;
   }
 
-  public void setSchedule(String schedule) {
-    this.schedule = schedule;
-  }
-
-  public CommandslistResults trigger(String trigger) {
-    this.trigger = trigger;
-    return this;
-  }
-
-   /**
-   * Trigger to execute command.
-   * @return trigger
-  **/
-  @ApiModelProperty(value = "Trigger to execute command.")
-  public String getTrigger() {
-    return trigger;
-  }
-
-  public void setTrigger(String trigger) {
-    this.trigger = trigger;
-  }
-
-  public CommandslistResults scheduleRepeatType(String scheduleRepeatType) {
-    this.scheduleRepeatType = scheduleRepeatType;
-    return this;
-  }
-
-   /**
-   * When the command will repeat.
-   * @return scheduleRepeatType
-  **/
-  @ApiModelProperty(value = "When the command will repeat.")
-  public String getScheduleRepeatType() {
-    return scheduleRepeatType;
-  }
-
-  public void setScheduleRepeatType(String scheduleRepeatType) {
-    this.scheduleRepeatType = scheduleRepeatType;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public CommandslistResults organization(String organization) {
@@ -220,22 +184,58 @@ public class CommandslistResults {
     this.organization = organization;
   }
 
-  public CommandslistResults id(String id) {
-    this.id = id;
+  public CommandslistResults schedule(String schedule) {
+    this.schedule = schedule;
     return this;
   }
 
    /**
-   * The ID of the command.
-   * @return id
+   * A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
+   * @return schedule
   **/
-  @ApiModelProperty(value = "The ID of the command.")
-  public String getId() {
-    return id;
+  @ApiModelProperty(value = "A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. ")
+  public String getSchedule() {
+    return schedule;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSchedule(String schedule) {
+    this.schedule = schedule;
+  }
+
+  public CommandslistResults scheduleRepeatType(String scheduleRepeatType) {
+    this.scheduleRepeatType = scheduleRepeatType;
+    return this;
+  }
+
+   /**
+   * When the command will repeat.
+   * @return scheduleRepeatType
+  **/
+  @ApiModelProperty(value = "When the command will repeat.")
+  public String getScheduleRepeatType() {
+    return scheduleRepeatType;
+  }
+
+  public void setScheduleRepeatType(String scheduleRepeatType) {
+    this.scheduleRepeatType = scheduleRepeatType;
+  }
+
+  public CommandslistResults trigger(String trigger) {
+    this.trigger = trigger;
+    return this;
+  }
+
+   /**
+   * Trigger to execute command.
+   * @return trigger
+  **/
+  @ApiModelProperty(value = "Trigger to execute command.")
+  public String getTrigger() {
+    return trigger;
+  }
+
+  public void setTrigger(String trigger) {
+    this.trigger = trigger;
   }
 
 
@@ -248,21 +248,21 @@ public class CommandslistResults {
       return false;
     }
     CommandslistResults commandslistResults = (CommandslistResults) o;
-    return Objects.equals(this.name, commandslistResults.name) &&
+    return Objects.equals(this.id, commandslistResults.id) &&
         Objects.equals(this.command, commandslistResults.command) &&
         Objects.equals(this.commandType, commandslistResults.commandType) &&
         Objects.equals(this.launchType, commandslistResults.launchType) &&
         Objects.equals(this.listensTo, commandslistResults.listensTo) &&
-        Objects.equals(this.schedule, commandslistResults.schedule) &&
-        Objects.equals(this.trigger, commandslistResults.trigger) &&
-        Objects.equals(this.scheduleRepeatType, commandslistResults.scheduleRepeatType) &&
+        Objects.equals(this.name, commandslistResults.name) &&
         Objects.equals(this.organization, commandslistResults.organization) &&
-        Objects.equals(this.id, commandslistResults.id);
+        Objects.equals(this.schedule, commandslistResults.schedule) &&
+        Objects.equals(this.scheduleRepeatType, commandslistResults.scheduleRepeatType) &&
+        Objects.equals(this.trigger, commandslistResults.trigger);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, command, commandType, launchType, listensTo, schedule, trigger, scheduleRepeatType, organization, id);
+    return Objects.hash(id, command, commandType, launchType, listensTo, name, organization, schedule, scheduleRepeatType, trigger);
   }
 
 
@@ -271,16 +271,16 @@ public class CommandslistResults {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommandslistResults {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
     sb.append("    commandType: ").append(toIndentedString(commandType)).append("\n");
     sb.append("    launchType: ").append(toIndentedString(launchType)).append("\n");
     sb.append("    listensTo: ").append(toIndentedString(listensTo)).append("\n");
-    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
-    sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
-    sb.append("    scheduleRepeatType: ").append(toIndentedString(scheduleRepeatType)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+    sb.append("    scheduleRepeatType: ").append(toIndentedString(scheduleRepeatType)).append("\n");
+    sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
     sb.append("}");
     return sb.toString();
   }

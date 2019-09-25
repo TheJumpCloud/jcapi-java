@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  |  [optional]
-**value** | **String** |  |  [optional]
-**required** | **Boolean** |  |  [optional]
-**visible** | **Boolean** |  |  [optional]
 **readOnly** | **Boolean** |  |  [optional]
+**required** | **Boolean** |  |  [optional]
+**value** | **String** |  |  [optional]
+**visible** | **Boolean** |  |  [optional]
 
 
 

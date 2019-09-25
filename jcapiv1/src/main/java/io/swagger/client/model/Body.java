@@ -28,23 +28,8 @@ import java.util.List;
 /**
  * Body
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class Body {
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("networkSourceIp")
-  private String networkSourceIp = null;
-
-  @SerializedName("tags")
-  private List<String> tags = null;
-
-  @SerializedName("userLockoutAction")
-  private String userLockoutAction = null;
-
-  @SerializedName("userPasswordExpirationAction")
-  private String userPasswordExpirationAction = null;
-
   /**
    * Gets or Sets mfa
    */
@@ -98,6 +83,39 @@ public class Body {
 
   @SerializedName("mfa")
   private MfaEnum mfa = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("networkSourceIp")
+  private String networkSourceIp = null;
+
+  @SerializedName("tags")
+  private List<String> tags = null;
+
+  @SerializedName("userLockoutAction")
+  private String userLockoutAction = null;
+
+  @SerializedName("userPasswordExpirationAction")
+  private String userPasswordExpirationAction = null;
+
+  public Body mfa(MfaEnum mfa) {
+    this.mfa = mfa;
+    return this;
+  }
+
+   /**
+   * Get mfa
+   * @return mfa
+  **/
+  @ApiModelProperty(value = "")
+  public MfaEnum getMfa() {
+    return mfa;
+  }
+
+  public void setMfa(MfaEnum mfa) {
+    this.mfa = mfa;
+  }
 
   public Body name(String name) {
     this.name = name;
@@ -197,24 +215,6 @@ public class Body {
     this.userPasswordExpirationAction = userPasswordExpirationAction;
   }
 
-  public Body mfa(MfaEnum mfa) {
-    this.mfa = mfa;
-    return this;
-  }
-
-   /**
-   * Get mfa
-   * @return mfa
-  **/
-  @ApiModelProperty(value = "")
-  public MfaEnum getMfa() {
-    return mfa;
-  }
-
-  public void setMfa(MfaEnum mfa) {
-    this.mfa = mfa;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -225,17 +225,17 @@ public class Body {
       return false;
     }
     Body body = (Body) o;
-    return Objects.equals(this.name, body.name) &&
+    return Objects.equals(this.mfa, body.mfa) &&
+        Objects.equals(this.name, body.name) &&
         Objects.equals(this.networkSourceIp, body.networkSourceIp) &&
         Objects.equals(this.tags, body.tags) &&
         Objects.equals(this.userLockoutAction, body.userLockoutAction) &&
-        Objects.equals(this.userPasswordExpirationAction, body.userPasswordExpirationAction) &&
-        Objects.equals(this.mfa, body.mfa);
+        Objects.equals(this.userPasswordExpirationAction, body.userPasswordExpirationAction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, networkSourceIp, tags, userLockoutAction, userPasswordExpirationAction, mfa);
+    return Objects.hash(mfa, name, networkSourceIp, tags, userLockoutAction, userPasswordExpirationAction);
   }
 
 
@@ -244,12 +244,12 @@ public class Body {
     StringBuilder sb = new StringBuilder();
     sb.append("class Body {\n");
     
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
     sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
-    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**reportUrl** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
 **auth** | [**AuthInput**](AuthInput.md) |  |  [optional]
+**name** | **String** |  |  [optional]
+**reportUrl** | **String** |  |  [optional]
 
 
 

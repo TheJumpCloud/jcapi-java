@@ -30,34 +30,16 @@ import java.util.List;
 /**
  * GraphObjectWithPaths
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class GraphObjectWithPaths {
-  @SerializedName("type")
-  private GraphType type = null;
-
   @SerializedName("id")
   private String id = null;
 
   @SerializedName("paths")
   private List<List<GraphConnection>> paths = new ArrayList<List<GraphConnection>>();
 
-  public GraphObjectWithPaths type(GraphType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public GraphType getType() {
-    return type;
-  }
-
-  public void setType(GraphType type) {
-    this.type = type;
-  }
+  @SerializedName("type")
+  private GraphType type = null;
 
   public GraphObjectWithPaths id(String id) {
     this.id = id;
@@ -100,6 +82,24 @@ public class GraphObjectWithPaths {
     this.paths = paths;
   }
 
+  public GraphObjectWithPaths type(GraphType type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public GraphType getType() {
+    return type;
+  }
+
+  public void setType(GraphType type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -110,14 +110,14 @@ public class GraphObjectWithPaths {
       return false;
     }
     GraphObjectWithPaths graphObjectWithPaths = (GraphObjectWithPaths) o;
-    return Objects.equals(this.type, graphObjectWithPaths.type) &&
-        Objects.equals(this.id, graphObjectWithPaths.id) &&
-        Objects.equals(this.paths, graphObjectWithPaths.paths);
+    return Objects.equals(this.id, graphObjectWithPaths.id) &&
+        Objects.equals(this.paths, graphObjectWithPaths.paths) &&
+        Objects.equals(this.type, graphObjectWithPaths.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id, paths);
+    return Objects.hash(id, paths, type);
   }
 
 
@@ -126,9 +126,9 @@ public class GraphObjectWithPaths {
     StringBuilder sb = new StringBuilder();
     sb.append("class GraphObjectWithPaths {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

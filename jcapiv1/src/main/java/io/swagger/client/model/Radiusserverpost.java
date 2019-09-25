@@ -28,26 +28,8 @@ import java.util.List;
 /**
  * Radiusserverpost
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class Radiusserverpost {
-  @SerializedName("networkSourceIp")
-  private String networkSourceIp = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("tagNames")
-  private List<String> tagNames = null;
-
-  @SerializedName("sharedSecret")
-  private String sharedSecret = null;
-
-  @SerializedName("userLockoutAction")
-  private String userLockoutAction = null;
-
-  @SerializedName("userPasswordExpirationAction")
-  private String userPasswordExpirationAction = null;
-
   /**
    * Gets or Sets mfa
    */
@@ -102,22 +84,40 @@ public class Radiusserverpost {
   @SerializedName("mfa")
   private MfaEnum mfa = null;
 
-  public Radiusserverpost networkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("networkSourceIp")
+  private String networkSourceIp = null;
+
+  @SerializedName("sharedSecret")
+  private String sharedSecret = null;
+
+  @SerializedName("tagNames")
+  private List<String> tagNames = null;
+
+  @SerializedName("userLockoutAction")
+  private String userLockoutAction = null;
+
+  @SerializedName("userPasswordExpirationAction")
+  private String userPasswordExpirationAction = null;
+
+  public Radiusserverpost mfa(MfaEnum mfa) {
+    this.mfa = mfa;
     return this;
   }
 
    /**
-   * Get networkSourceIp
-   * @return networkSourceIp
+   * Get mfa
+   * @return mfa
   **/
-  @ApiModelProperty(required = true, value = "")
-  public String getNetworkSourceIp() {
-    return networkSourceIp;
+  @ApiModelProperty(value = "")
+  public MfaEnum getMfa() {
+    return mfa;
   }
 
-  public void setNetworkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
+  public void setMfa(MfaEnum mfa) {
+    this.mfa = mfa;
   }
 
   public Radiusserverpost name(String name) {
@@ -136,6 +136,42 @@ public class Radiusserverpost {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Radiusserverpost networkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
+    return this;
+  }
+
+   /**
+   * Get networkSourceIp
+   * @return networkSourceIp
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getNetworkSourceIp() {
+    return networkSourceIp;
+  }
+
+  public void setNetworkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
+  }
+
+  public Radiusserverpost sharedSecret(String sharedSecret) {
+    this.sharedSecret = sharedSecret;
+    return this;
+  }
+
+   /**
+   * RADIUS shared secret between the server and client.
+   * @return sharedSecret
+  **/
+  @ApiModelProperty(required = true, value = "RADIUS shared secret between the server and client.")
+  public String getSharedSecret() {
+    return sharedSecret;
+  }
+
+  public void setSharedSecret(String sharedSecret) {
+    this.sharedSecret = sharedSecret;
   }
 
   public Radiusserverpost tagNames(List<String> tagNames) {
@@ -162,24 +198,6 @@ public class Radiusserverpost {
 
   public void setTagNames(List<String> tagNames) {
     this.tagNames = tagNames;
-  }
-
-  public Radiusserverpost sharedSecret(String sharedSecret) {
-    this.sharedSecret = sharedSecret;
-    return this;
-  }
-
-   /**
-   * RADIUS shared secret between the server and client.
-   * @return sharedSecret
-  **/
-  @ApiModelProperty(required = true, value = "RADIUS shared secret between the server and client.")
-  public String getSharedSecret() {
-    return sharedSecret;
-  }
-
-  public void setSharedSecret(String sharedSecret) {
-    this.sharedSecret = sharedSecret;
   }
 
   public Radiusserverpost userLockoutAction(String userLockoutAction) {
@@ -218,24 +236,6 @@ public class Radiusserverpost {
     this.userPasswordExpirationAction = userPasswordExpirationAction;
   }
 
-  public Radiusserverpost mfa(MfaEnum mfa) {
-    this.mfa = mfa;
-    return this;
-  }
-
-   /**
-   * Get mfa
-   * @return mfa
-  **/
-  @ApiModelProperty(value = "")
-  public MfaEnum getMfa() {
-    return mfa;
-  }
-
-  public void setMfa(MfaEnum mfa) {
-    this.mfa = mfa;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -246,18 +246,18 @@ public class Radiusserverpost {
       return false;
     }
     Radiusserverpost radiusserverpost = (Radiusserverpost) o;
-    return Objects.equals(this.networkSourceIp, radiusserverpost.networkSourceIp) &&
+    return Objects.equals(this.mfa, radiusserverpost.mfa) &&
         Objects.equals(this.name, radiusserverpost.name) &&
-        Objects.equals(this.tagNames, radiusserverpost.tagNames) &&
+        Objects.equals(this.networkSourceIp, radiusserverpost.networkSourceIp) &&
         Objects.equals(this.sharedSecret, radiusserverpost.sharedSecret) &&
+        Objects.equals(this.tagNames, radiusserverpost.tagNames) &&
         Objects.equals(this.userLockoutAction, radiusserverpost.userLockoutAction) &&
-        Objects.equals(this.userPasswordExpirationAction, radiusserverpost.userPasswordExpirationAction) &&
-        Objects.equals(this.mfa, radiusserverpost.mfa);
+        Objects.equals(this.userPasswordExpirationAction, radiusserverpost.userPasswordExpirationAction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkSourceIp, name, tagNames, sharedSecret, userLockoutAction, userPasswordExpirationAction, mfa);
+    return Objects.hash(mfa, name, networkSourceIp, sharedSecret, tagNames, userLockoutAction, userPasswordExpirationAction);
   }
 
 
@@ -266,13 +266,13 @@ public class Radiusserverpost {
     StringBuilder sb = new StringBuilder();
     sb.append("class Radiusserverpost {\n");
     
-    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
+    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
     sb.append("    sharedSecret: ").append(toIndentedString(sharedSecret)).append("\n");
+    sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
     sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
     sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
-    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("}");
     return sb.toString();
   }

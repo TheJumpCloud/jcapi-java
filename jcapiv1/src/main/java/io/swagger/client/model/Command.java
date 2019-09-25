@@ -28,28 +28,19 @@ import java.util.List;
 /**
  * Command
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:17:57.759Z")
 public class Command {
-  @SerializedName("name")
-  private String name = null;
-
   @SerializedName("command")
   private String command = null;
-
-  @SerializedName("commandType")
-  private String commandType = null;
 
   @SerializedName("commandRunners")
   private List<String> commandRunners = null;
 
-  @SerializedName("user")
-  private String user = null;
+  @SerializedName("commandType")
+  private String commandType = null;
 
-  @SerializedName("sudo")
-  private Boolean sudo = null;
-
-  @SerializedName("systems")
-  private List<String> systems = null;
+  @SerializedName("files")
+  private List<String> files = null;
 
   @SerializedName("launchType")
   private String launchType = null;
@@ -57,38 +48,29 @@ public class Command {
   @SerializedName("listensTo")
   private String listensTo = null;
 
-  @SerializedName("scheduleRepeatType")
-  private String scheduleRepeatType = null;
-
-  @SerializedName("schedule")
-  private String schedule = null;
-
-  @SerializedName("files")
-  private List<String> files = null;
-
-  @SerializedName("timeout")
-  private String timeout = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("organization")
   private String organization = null;
 
-  public Command name(String name) {
-    this.name = name;
-    return this;
-  }
+  @SerializedName("schedule")
+  private String schedule = null;
 
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
+  @SerializedName("scheduleRepeatType")
+  private String scheduleRepeatType = null;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+  @SerializedName("sudo")
+  private Boolean sudo = null;
+
+  @SerializedName("systems")
+  private List<String> systems = null;
+
+  @SerializedName("timeout")
+  private String timeout = null;
+
+  @SerializedName("user")
+  private String user = null;
 
   public Command command(String command) {
     this.command = command;
@@ -106,24 +88,6 @@ public class Command {
 
   public void setCommand(String command) {
     this.command = command;
-  }
-
-  public Command commandType(String commandType) {
-    this.commandType = commandType;
-    return this;
-  }
-
-   /**
-   * The Command OS
-   * @return commandType
-  **/
-  @ApiModelProperty(value = "The Command OS")
-  public String getCommandType() {
-    return commandType;
-  }
-
-  public void setCommandType(String commandType) {
-    this.commandType = commandType;
   }
 
   public Command commandRunners(List<String> commandRunners) {
@@ -152,22 +116,156 @@ public class Command {
     this.commandRunners = commandRunners;
   }
 
-  public Command user(String user) {
-    this.user = user;
+  public Command commandType(String commandType) {
+    this.commandType = commandType;
     return this;
   }
 
    /**
-   * The ID of the system user to run the command as.
-   * @return user
+   * The Command OS
+   * @return commandType
   **/
-  @ApiModelProperty(required = true, value = "The ID of the system user to run the command as.")
-  public String getUser() {
-    return user;
+  @ApiModelProperty(value = "The Command OS")
+  public String getCommandType() {
+    return commandType;
   }
 
-  public void setUser(String user) {
-    this.user = user;
+  public void setCommandType(String commandType) {
+    this.commandType = commandType;
+  }
+
+  public Command files(List<String> files) {
+    this.files = files;
+    return this;
+  }
+
+  public Command addFilesItem(String filesItem) {
+    if (this.files == null) {
+      this.files = new ArrayList<String>();
+    }
+    this.files.add(filesItem);
+    return this;
+  }
+
+   /**
+   * An array of file IDs to include with the command.
+   * @return files
+  **/
+  @ApiModelProperty(value = "An array of file IDs to include with the command.")
+  public List<String> getFiles() {
+    return files;
+  }
+
+  public void setFiles(List<String> files) {
+    this.files = files;
+  }
+
+  public Command launchType(String launchType) {
+    this.launchType = launchType;
+    return this;
+  }
+
+   /**
+   * How the command will execute.
+   * @return launchType
+  **/
+  @ApiModelProperty(value = "How the command will execute.")
+  public String getLaunchType() {
+    return launchType;
+  }
+
+  public void setLaunchType(String launchType) {
+    this.launchType = launchType;
+  }
+
+  public Command listensTo(String listensTo) {
+    this.listensTo = listensTo;
+    return this;
+  }
+
+   /**
+   * 
+   * @return listensTo
+  **/
+  @ApiModelProperty(value = "")
+  public String getListensTo() {
+    return listensTo;
+  }
+
+  public void setListensTo(String listensTo) {
+    this.listensTo = listensTo;
+  }
+
+  public Command name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Command organization(String organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * The ID of the organization.
+   * @return organization
+  **/
+  @ApiModelProperty(value = "The ID of the organization.")
+  public String getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(String organization) {
+    this.organization = organization;
+  }
+
+  public Command schedule(String schedule) {
+    this.schedule = schedule;
+    return this;
+  }
+
+   /**
+   * A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
+   * @return schedule
+  **/
+  @ApiModelProperty(value = "A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. ")
+  public String getSchedule() {
+    return schedule;
+  }
+
+  public void setSchedule(String schedule) {
+    this.schedule = schedule;
+  }
+
+  public Command scheduleRepeatType(String scheduleRepeatType) {
+    this.scheduleRepeatType = scheduleRepeatType;
+    return this;
+  }
+
+   /**
+   * When the command will repeat.
+   * @return scheduleRepeatType
+  **/
+  @ApiModelProperty(value = "When the command will repeat.")
+  public String getScheduleRepeatType() {
+    return scheduleRepeatType;
+  }
+
+  public void setScheduleRepeatType(String scheduleRepeatType) {
+    this.scheduleRepeatType = scheduleRepeatType;
   }
 
   public Command sudo(Boolean sudo) {
@@ -214,104 +312,6 @@ public class Command {
     this.systems = systems;
   }
 
-  public Command launchType(String launchType) {
-    this.launchType = launchType;
-    return this;
-  }
-
-   /**
-   * How the command will execute.
-   * @return launchType
-  **/
-  @ApiModelProperty(value = "How the command will execute.")
-  public String getLaunchType() {
-    return launchType;
-  }
-
-  public void setLaunchType(String launchType) {
-    this.launchType = launchType;
-  }
-
-  public Command listensTo(String listensTo) {
-    this.listensTo = listensTo;
-    return this;
-  }
-
-   /**
-   * 
-   * @return listensTo
-  **/
-  @ApiModelProperty(value = "")
-  public String getListensTo() {
-    return listensTo;
-  }
-
-  public void setListensTo(String listensTo) {
-    this.listensTo = listensTo;
-  }
-
-  public Command scheduleRepeatType(String scheduleRepeatType) {
-    this.scheduleRepeatType = scheduleRepeatType;
-    return this;
-  }
-
-   /**
-   * When the command will repeat.
-   * @return scheduleRepeatType
-  **/
-  @ApiModelProperty(value = "When the command will repeat.")
-  public String getScheduleRepeatType() {
-    return scheduleRepeatType;
-  }
-
-  public void setScheduleRepeatType(String scheduleRepeatType) {
-    this.scheduleRepeatType = scheduleRepeatType;
-  }
-
-  public Command schedule(String schedule) {
-    this.schedule = schedule;
-    return this;
-  }
-
-   /**
-   * A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
-   * @return schedule
-  **/
-  @ApiModelProperty(value = "A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. ")
-  public String getSchedule() {
-    return schedule;
-  }
-
-  public void setSchedule(String schedule) {
-    this.schedule = schedule;
-  }
-
-  public Command files(List<String> files) {
-    this.files = files;
-    return this;
-  }
-
-  public Command addFilesItem(String filesItem) {
-    if (this.files == null) {
-      this.files = new ArrayList<String>();
-    }
-    this.files.add(filesItem);
-    return this;
-  }
-
-   /**
-   * An array of file IDs to include with the command.
-   * @return files
-  **/
-  @ApiModelProperty(value = "An array of file IDs to include with the command.")
-  public List<String> getFiles() {
-    return files;
-  }
-
-  public void setFiles(List<String> files) {
-    this.files = files;
-  }
-
   public Command timeout(String timeout) {
     this.timeout = timeout;
     return this;
@@ -330,22 +330,22 @@ public class Command {
     this.timeout = timeout;
   }
 
-  public Command organization(String organization) {
-    this.organization = organization;
+  public Command user(String user) {
+    this.user = user;
     return this;
   }
 
    /**
-   * The ID of the organization.
-   * @return organization
+   * The ID of the system user to run the command as.
+   * @return user
   **/
-  @ApiModelProperty(value = "The ID of the organization.")
-  public String getOrganization() {
-    return organization;
+  @ApiModelProperty(required = true, value = "The ID of the system user to run the command as.")
+  public String getUser() {
+    return user;
   }
 
-  public void setOrganization(String organization) {
-    this.organization = organization;
+  public void setUser(String user) {
+    this.user = user;
   }
 
 
@@ -358,25 +358,25 @@ public class Command {
       return false;
     }
     Command command = (Command) o;
-    return Objects.equals(this.name, command.name) &&
-        Objects.equals(this.command, command.command) &&
-        Objects.equals(this.commandType, command.commandType) &&
+    return Objects.equals(this.command, command.command) &&
         Objects.equals(this.commandRunners, command.commandRunners) &&
-        Objects.equals(this.user, command.user) &&
-        Objects.equals(this.sudo, command.sudo) &&
-        Objects.equals(this.systems, command.systems) &&
+        Objects.equals(this.commandType, command.commandType) &&
+        Objects.equals(this.files, command.files) &&
         Objects.equals(this.launchType, command.launchType) &&
         Objects.equals(this.listensTo, command.listensTo) &&
-        Objects.equals(this.scheduleRepeatType, command.scheduleRepeatType) &&
+        Objects.equals(this.name, command.name) &&
+        Objects.equals(this.organization, command.organization) &&
         Objects.equals(this.schedule, command.schedule) &&
-        Objects.equals(this.files, command.files) &&
+        Objects.equals(this.scheduleRepeatType, command.scheduleRepeatType) &&
+        Objects.equals(this.sudo, command.sudo) &&
+        Objects.equals(this.systems, command.systems) &&
         Objects.equals(this.timeout, command.timeout) &&
-        Objects.equals(this.organization, command.organization);
+        Objects.equals(this.user, command.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, command, commandType, commandRunners, user, sudo, systems, launchType, listensTo, scheduleRepeatType, schedule, files, timeout, organization);
+    return Objects.hash(command, commandRunners, commandType, files, launchType, listensTo, name, organization, schedule, scheduleRepeatType, sudo, systems, timeout, user);
   }
 
 
@@ -385,20 +385,20 @@ public class Command {
     StringBuilder sb = new StringBuilder();
     sb.append("class Command {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    command: ").append(toIndentedString(command)).append("\n");
-    sb.append("    commandType: ").append(toIndentedString(commandType)).append("\n");
     sb.append("    commandRunners: ").append(toIndentedString(commandRunners)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
-    sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
+    sb.append("    commandType: ").append(toIndentedString(commandType)).append("\n");
+    sb.append("    files: ").append(toIndentedString(files)).append("\n");
     sb.append("    launchType: ").append(toIndentedString(launchType)).append("\n");
     sb.append("    listensTo: ").append(toIndentedString(listensTo)).append("\n");
-    sb.append("    scheduleRepeatType: ").append(toIndentedString(scheduleRepeatType)).append("\n");
-    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
-    sb.append("    files: ").append(toIndentedString(files)).append("\n");
-    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+    sb.append("    scheduleRepeatType: ").append(toIndentedString(scheduleRepeatType)).append("\n");
+    sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
+    sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
+    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }

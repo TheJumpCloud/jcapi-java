@@ -31,16 +31,16 @@ import java.util.List;
  * An instance of a policy template.
  */
 @ApiModel(description = "An instance of a policy template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-25T16:18:04.122Z")
 public class PolicyRequest {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("values")
-  private List<PolicyValue> values = null;
-
   @SerializedName("template")
   private PolicyRequestTemplate template = null;
+
+  @SerializedName("values")
+  private List<PolicyValue> values = null;
 
   public PolicyRequest name(String name) {
     this.name = name;
@@ -58,6 +58,24 @@ public class PolicyRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public PolicyRequest template(PolicyRequestTemplate template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @ApiModelProperty(value = "")
+  public PolicyRequestTemplate getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(PolicyRequestTemplate template) {
+    this.template = template;
   }
 
   public PolicyRequest values(List<PolicyValue> values) {
@@ -86,24 +104,6 @@ public class PolicyRequest {
     this.values = values;
   }
 
-  public PolicyRequest template(PolicyRequestTemplate template) {
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @ApiModelProperty(value = "")
-  public PolicyRequestTemplate getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(PolicyRequestTemplate template) {
-    this.template = template;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,13 +115,13 @@ public class PolicyRequest {
     }
     PolicyRequest policyRequest = (PolicyRequest) o;
     return Objects.equals(this.name, policyRequest.name) &&
-        Objects.equals(this.values, policyRequest.values) &&
-        Objects.equals(this.template, policyRequest.template);
+        Objects.equals(this.template, policyRequest.template) &&
+        Objects.equals(this.values, policyRequest.values);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, values, template);
+    return Objects.hash(name, template, values);
   }
 
 
@@ -131,8 +131,8 @@ public class PolicyRequest {
     sb.append("class PolicyRequest {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }
