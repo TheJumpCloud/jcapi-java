@@ -28,49 +28,31 @@ import java.util.List;
 /**
  * JobDetails
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class JobDetails {
-  @SerializedName("id")
-  private String id = null;
-
   @SerializedName("adminId")
   private String adminId = null;
 
-  @SerializedName("workUnitsCount")
-  private Integer workUnitsCount = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("status")
-  private String status = null;
+  @SerializedName("id")
+  private String id = null;
 
   @SerializedName("meta")
   private Object meta = null;
 
-  @SerializedName("updatedAt")
-  private String updatedAt = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("persistedFields")
   private List<String> persistedFields = null;
 
-  public JobDetails id(String id) {
-    this.id = id;
-    return this;
-  }
+  @SerializedName("status")
+  private String status = null;
 
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
+  @SerializedName("updatedAt")
+  private String updatedAt = null;
 
-  public void setId(String id) {
-    this.id = id;
-  }
+  @SerializedName("workUnitsCount")
+  private Integer workUnitsCount = null;
 
   public JobDetails adminId(String adminId) {
     this.adminId = adminId;
@@ -90,58 +72,22 @@ public class JobDetails {
     this.adminId = adminId;
   }
 
-  public JobDetails workUnitsCount(Integer workUnitsCount) {
-    this.workUnitsCount = workUnitsCount;
+  public JobDetails id(String id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get workUnitsCount
-   * @return workUnitsCount
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public Integer getWorkUnitsCount() {
-    return workUnitsCount;
+  public String getId() {
+    return id;
   }
 
-  public void setWorkUnitsCount(Integer workUnitsCount) {
-    this.workUnitsCount = workUnitsCount;
-  }
-
-  public JobDetails name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public JobDetails status(String status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * Get status
-   * @return status
-  **/
-  @ApiModelProperty(value = "")
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
+  public void setId(String id) {
+    this.id = id;
   }
 
   public JobDetails meta(Object meta) {
@@ -162,22 +108,22 @@ public class JobDetails {
     this.meta = meta;
   }
 
-  public JobDetails updatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
+  public JobDetails name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get updatedAt
-   * @return updatedAt
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public String getUpdatedAt() {
-    return updatedAt;
+  public String getName() {
+    return name;
   }
 
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public JobDetails persistedFields(List<String> persistedFields) {
@@ -206,6 +152,60 @@ public class JobDetails {
     this.persistedFields = persistedFields;
   }
 
+  public JobDetails status(String status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(value = "")
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public JobDetails updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @ApiModelProperty(value = "")
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  public JobDetails workUnitsCount(Integer workUnitsCount) {
+    this.workUnitsCount = workUnitsCount;
+    return this;
+  }
+
+   /**
+   * Get workUnitsCount
+   * @return workUnitsCount
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getWorkUnitsCount() {
+    return workUnitsCount;
+  }
+
+  public void setWorkUnitsCount(Integer workUnitsCount) {
+    this.workUnitsCount = workUnitsCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -216,19 +216,19 @@ public class JobDetails {
       return false;
     }
     JobDetails jobDetails = (JobDetails) o;
-    return Objects.equals(this.id, jobDetails.id) &&
-        Objects.equals(this.adminId, jobDetails.adminId) &&
-        Objects.equals(this.workUnitsCount, jobDetails.workUnitsCount) &&
-        Objects.equals(this.name, jobDetails.name) &&
-        Objects.equals(this.status, jobDetails.status) &&
+    return Objects.equals(this.adminId, jobDetails.adminId) &&
+        Objects.equals(this.id, jobDetails.id) &&
         Objects.equals(this.meta, jobDetails.meta) &&
+        Objects.equals(this.name, jobDetails.name) &&
+        Objects.equals(this.persistedFields, jobDetails.persistedFields) &&
+        Objects.equals(this.status, jobDetails.status) &&
         Objects.equals(this.updatedAt, jobDetails.updatedAt) &&
-        Objects.equals(this.persistedFields, jobDetails.persistedFields);
+        Objects.equals(this.workUnitsCount, jobDetails.workUnitsCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, adminId, workUnitsCount, name, status, meta, updatedAt, persistedFields);
+    return Objects.hash(adminId, id, meta, name, persistedFields, status, updatedAt, workUnitsCount);
   }
 
 
@@ -237,14 +237,14 @@ public class JobDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class JobDetails {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    adminId: ").append(toIndentedString(adminId)).append("\n");
-    sb.append("    workUnitsCount: ").append(toIndentedString(workUnitsCount)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    persistedFields: ").append(toIndentedString(persistedFields)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    workUnitsCount: ").append(toIndentedString(workUnitsCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

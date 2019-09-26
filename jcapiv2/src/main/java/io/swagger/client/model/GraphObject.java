@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * GraphObject
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class GraphObject {
-  @SerializedName("type")
-  private String type = null;
-
   @SerializedName("id")
   private String id = null;
 
-  public GraphObject type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of graph object.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "The type of graph object.")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
+  @SerializedName("type")
+  private String type = null;
 
   public GraphObject id(String id) {
     this.id = id;
@@ -70,6 +52,24 @@ public class GraphObject {
     this.id = id;
   }
 
+  public GraphObject type(String type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * The type of graph object.
+   * @return type
+  **/
+  @ApiModelProperty(required = true, value = "The type of graph object.")
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class GraphObject {
       return false;
     }
     GraphObject graphObject = (GraphObject) o;
-    return Objects.equals(this.type, graphObject.type) &&
-        Objects.equals(this.id, graphObject.id);
+    return Objects.equals(this.id, graphObject.id) &&
+        Objects.equals(this.type, graphObject.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id);
+    return Objects.hash(id, type);
   }
 
 
@@ -95,8 +95,8 @@ public class GraphObject {
     StringBuilder sb = new StringBuilder();
     sb.append("class GraphObject {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,17 +24,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ApplicationConfigIdpEntityIdTooltipVariables
+ * ApplicationConfigAcsUrlTooltipVariables
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
-public class ApplicationConfigIdpEntityIdTooltipVariables {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+public class ApplicationConfigAcsUrlTooltipVariables {
   @SerializedName("icon")
   private String icon = null;
 
   @SerializedName("message")
   private String message = null;
 
-  public ApplicationConfigIdpEntityIdTooltipVariables icon(String icon) {
+  public ApplicationConfigAcsUrlTooltipVariables icon(String icon) {
     this.icon = icon;
     return this;
   }
@@ -52,7 +52,7 @@ public class ApplicationConfigIdpEntityIdTooltipVariables {
     this.icon = icon;
   }
 
-  public ApplicationConfigIdpEntityIdTooltipVariables message(String message) {
+  public ApplicationConfigAcsUrlTooltipVariables message(String message) {
     this.message = message;
     return this;
   }
@@ -79,9 +79,9 @@ public class ApplicationConfigIdpEntityIdTooltipVariables {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationConfigIdpEntityIdTooltipVariables applicationConfigIdpEntityIdTooltipVariables = (ApplicationConfigIdpEntityIdTooltipVariables) o;
-    return Objects.equals(this.icon, applicationConfigIdpEntityIdTooltipVariables.icon) &&
-        Objects.equals(this.message, applicationConfigIdpEntityIdTooltipVariables.message);
+    ApplicationConfigAcsUrlTooltipVariables applicationConfigAcsUrlTooltipVariables = (ApplicationConfigAcsUrlTooltipVariables) o;
+    return Objects.equals(this.icon, applicationConfigAcsUrlTooltipVariables.icon) &&
+        Objects.equals(this.message, applicationConfigAcsUrlTooltipVariables.message);
   }
 
   @Override
@@ -93,7 +93,7 @@ public class ApplicationConfigIdpEntityIdTooltipVariables {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationConfigIdpEntityIdTooltipVariables {\n");
+    sb.append("class ApplicationConfigAcsUrlTooltipVariables {\n");
     
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");

@@ -65,6 +65,7 @@ public class SystemusersApi {
 
     /**
      * Build call for sshkeyDelete
+     * @param systemuserId  (required)
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -74,11 +75,12 @@ public class SystemusersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call sshkeyDeleteCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call sshkeyDeleteCall(String systemuserId, String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/systemusers/{id}/sshkeys/{id}"
+        String localVarPath = "/systemusers/{systemuser_id}/sshkeys/{id}"
+            .replaceAll("\\{" + "systemuser_id" + "\\}", apiClient.escapeString(systemuserId.toString()))
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -123,7 +125,12 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call sshkeyDeleteValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call sshkeyDeleteValidateBeforeCall(String systemuserId, String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'systemuserId' is set
+        if (systemuserId == null) {
+            throw new ApiException("Missing the required parameter 'systemuserId' when calling sshkeyDelete(Async)");
+        }
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -141,7 +148,7 @@ public class SystemusersApi {
         }
         
 
-        com.squareup.okhttp.Call call = sshkeyDeleteCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = sshkeyDeleteCall(systemuserId, id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -149,19 +156,21 @@ public class SystemusersApi {
     /**
      * Delete a system user&#39;s Public SSH Keys
      * This endpoint will delete a specific System User&#39;s SSH Key.
+     * @param systemuserId  (required)
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void sshkeyDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
-        sshkeyDeleteWithHttpInfo(id, contentType, accept, xOrgId);
+    public void sshkeyDelete(String systemuserId, String id, String contentType, String accept, String xOrgId) throws ApiException {
+        sshkeyDeleteWithHttpInfo(systemuserId, id, contentType, accept, xOrgId);
     }
 
     /**
      * Delete a system user&#39;s Public SSH Keys
      * This endpoint will delete a specific System User&#39;s SSH Key.
+     * @param systemuserId  (required)
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -169,14 +178,15 @@ public class SystemusersApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> sshkeyDeleteWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = sshkeyDeleteValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
+    public ApiResponse<Void> sshkeyDeleteWithHttpInfo(String systemuserId, String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = sshkeyDeleteValidateBeforeCall(systemuserId, id, contentType, accept, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Delete a system user&#39;s Public SSH Keys (asynchronously)
      * This endpoint will delete a specific System User&#39;s SSH Key.
+     * @param systemuserId  (required)
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -185,7 +195,7 @@ public class SystemusersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sshkeyDeleteAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call sshkeyDeleteAsync(String systemuserId, String id, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -206,7 +216,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = sshkeyDeleteValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = sshkeyDeleteValidateBeforeCall(systemuserId, id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -300,11 +310,11 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param xOrgId  (optional, default to )
-     * @return Sshkeylist
+     * @return List&lt;Sshkeylist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Sshkeylist sshkeyList(String id, String contentType, String accept, String xOrgId) throws ApiException {
-        ApiResponse<Sshkeylist> resp = sshkeyListWithHttpInfo(id, contentType, accept, xOrgId);
+    public List<Sshkeylist> sshkeyList(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<List<Sshkeylist>> resp = sshkeyListWithHttpInfo(id, contentType, accept, xOrgId);
         return resp.getData();
     }
 
@@ -315,12 +325,12 @@ public class SystemusersApi {
      * @param contentType  (required)
      * @param accept  (required)
      * @param xOrgId  (optional, default to )
-     * @return ApiResponse&lt;Sshkeylist&gt;
+     * @return ApiResponse&lt;List&lt;Sshkeylist&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Sshkeylist> sshkeyListWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+    public ApiResponse<List<Sshkeylist>> sshkeyListWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
         com.squareup.okhttp.Call call = sshkeyListValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
-        Type localVarReturnType = new TypeToken<Sshkeylist>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Sshkeylist>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -335,7 +345,7 @@ public class SystemusersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call sshkeyListAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Sshkeylist> callback) throws ApiException {
+    public com.squareup.okhttp.Call sshkeyListAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<List<Sshkeylist>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -357,7 +367,7 @@ public class SystemusersApi {
         }
 
         com.squareup.okhttp.Call call = sshkeyListValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Sshkeylist>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<Sshkeylist>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -601,7 +611,7 @@ public class SystemusersApi {
 
     /**
      * Delete a system user
-     * This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -616,7 +626,7 @@ public class SystemusersApi {
 
     /**
      * Delete a system user
-     * This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -632,7 +642,7 @@ public class SystemusersApi {
 
     /**
      * Delete a system user (asynchronously)
-     * This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -926,7 +936,7 @@ public class SystemusersApi {
 
     /**
      * List all system users
-     * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
@@ -946,7 +956,7 @@ public class SystemusersApi {
 
     /**
      * List all system users
-     * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
@@ -967,7 +977,7 @@ public class SystemusersApi {
 
     /**
      * List all system users (asynchronously)
-     * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
      * @param limit The number of records to return at once. (optional, default to 10)
@@ -1311,6 +1321,8 @@ public class SystemusersApi {
      * Build call for systemusersResetmfa
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
@@ -1318,7 +1330,7 @@ public class SystemusersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersResetmfaCall(String id, String xApiKey, Body1 body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersResetmfaCall(String id, String xApiKey, String contentType, String accept, Body1 body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1331,6 +1343,10 @@ public class SystemusersApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (xApiKey != null)
         localVarHeaderParams.put("x-api-key", apiClient.parameterToString(xApiKey));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
         if (xOrgId != null)
         localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
@@ -1365,7 +1381,7 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersResetmfaValidateBeforeCall(String id, String xApiKey, Body1 body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersResetmfaValidateBeforeCall(String id, String xApiKey, String contentType, String accept, Body1 body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1377,52 +1393,68 @@ public class SystemusersApi {
             throw new ApiException("Missing the required parameter 'xApiKey' when calling systemusersResetmfa(Async)");
         }
         
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systemusersResetmfa(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systemusersResetmfa(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = systemusersResetmfaCall(id, xApiKey, body, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersResetmfaCall(id, xApiKey, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Reset a system user&#39;s MFA token
-     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void systemusersResetmfa(String id, String xApiKey, Body1 body, String xOrgId) throws ApiException {
-        systemusersResetmfaWithHttpInfo(id, xApiKey, body, xOrgId);
+    public void systemusersResetmfa(String id, String xApiKey, String contentType, String accept, Body1 body, String xOrgId) throws ApiException {
+        systemusersResetmfaWithHttpInfo(id, xApiKey, contentType, accept, body, xOrgId);
     }
 
     /**
      * Reset a system user&#39;s MFA token
-     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> systemusersResetmfaWithHttpInfo(String id, String xApiKey, Body1 body, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, body, xOrgId, null, null);
+    public ApiResponse<Void> systemusersResetmfaWithHttpInfo(String id, String xApiKey, String contentType, String accept, Body1 body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, contentType, accept, body, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
     /**
      * Reset a system user&#39;s MFA token (asynchronously)
-     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param xApiKey  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersResetmfaAsync(String id, String xApiKey, Body1 body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersResetmfaAsync(String id, String xApiKey, String contentType, String accept, Body1 body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1443,7 +1475,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, body, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersResetmfaValidateBeforeCall(id, xApiKey, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }
@@ -1547,7 +1579,7 @@ public class SystemusersApi {
 
     /**
      * List system user binding
-     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1567,7 +1599,7 @@ public class SystemusersApi {
 
     /**
      * List system user binding
-     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1588,7 +1620,7 @@ public class SystemusersApi {
 
     /**
      * List system user binding (asynchronously)
-     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1714,7 +1746,7 @@ public class SystemusersApi {
 
     /**
      * Update a system user binding
-     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1730,7 +1762,7 @@ public class SystemusersApi {
 
     /**
      * Update a system user binding
-     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1747,7 +1779,7 @@ public class SystemusersApi {
 
     /**
      * Update a system user binding (asynchronously)
-     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+     * Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1786,13 +1818,15 @@ public class SystemusersApi {
     /**
      * Build call for systemusersUnlock
      * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemusersUnlockCall(String id, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemusersUnlockCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1805,6 +1839,10 @@ public class SystemusersApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (xOrgId != null)
         localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1837,15 +1875,25 @@ public class SystemusersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemusersUnlockValidateBeforeCall(String id, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemusersUnlockValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling systemusersUnlock(Async)");
         }
         
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systemusersUnlock(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systemusersUnlock(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = systemusersUnlockCall(id, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersUnlockCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1854,23 +1902,27 @@ public class SystemusersApi {
      * Unlock a system user
      * This endpoint allows you to unlock a user&#39;s account.
      * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param xOrgId  (optional, default to )
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public void systemusersUnlock(String id, String xOrgId) throws ApiException {
-        systemusersUnlockWithHttpInfo(id, xOrgId);
+    public void systemusersUnlock(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        systemusersUnlockWithHttpInfo(id, contentType, accept, xOrgId);
     }
 
     /**
      * Unlock a system user
      * This endpoint allows you to unlock a user&#39;s account.
      * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Void> systemusersUnlockWithHttpInfo(String id, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemusersUnlockValidateBeforeCall(id, xOrgId, null, null);
+    public ApiResponse<Void> systemusersUnlockWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemusersUnlockValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
         return apiClient.execute(call);
     }
 
@@ -1878,12 +1930,14 @@ public class SystemusersApi {
      * Unlock a system user (asynchronously)
      * This endpoint allows you to unlock a user&#39;s account.
      * @param id  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemusersUnlockAsync(String id, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemusersUnlockAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1904,7 +1958,7 @@ public class SystemusersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemusersUnlockValidateBeforeCall(id, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemusersUnlockValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
         apiClient.executeAsync(call, callback);
         return call;
     }

@@ -6,13 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  |  [optional]
 **active** | **Boolean** |  |  [optional]
-**name** | **String** |  |  [optional]
-**displayName** | **String** |  |  [optional]
+**config** | [**ApplicationConfig**](ApplicationConfig.md) |  |  [optional]
 **displayLabel** | **String** |  |  [optional]
+**displayName** | **String** |  |  [optional]
+**learnMore** | **String** |  |  [optional]
+**name** | **String** |  |  [optional]
 **organization** | **String** |  |  [optional]
 **ssoUrl** | **String** |  |  [optional]
-**learnMore** | **String** |  |  [optional]
-**config** | [**ApplicationConfig**](ApplicationConfig.md) |  |  [optional]
 
 
 

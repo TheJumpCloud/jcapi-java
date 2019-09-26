@@ -260,11 +260,10 @@ public class PoliciesApiTest {
         List<String> fields = null;
         List<String> filter = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> sort = null;
-        List<String> aggregate = null;
-        String xOrgId = null;
-        List<PolicyResult> response = api.policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
+        List<PolicyResult> response = api.policyresultsList(policyId, contentType, accept, fields, filter, limit, xOrgId, skip, sort);
 
         // TODO: test validations
     }
@@ -281,14 +280,13 @@ public class PoliciesApiTest {
     public void policyresultsList_0Test() throws ApiException {
         String contentType = null;
         String accept = null;
-        List<String> aggregate = null;
         List<String> fields = null;
         List<String> filter = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> sort = null;
-        String xOrgId = null;
-        List<PolicyResult> response = api.policyresultsList_0(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
+        List<PolicyResult> response = api.policyresultsList_0(contentType, accept, fields, filter, limit, xOrgId, skip, sort);
 
         // TODO: test validations
     }

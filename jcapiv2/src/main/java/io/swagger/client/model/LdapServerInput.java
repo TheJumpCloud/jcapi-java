@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * LdapServerInput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class LdapServerInput {
   @SerializedName("name")
   private String name = null;

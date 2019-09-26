@@ -26,22 +26,22 @@ import java.io.IOException;
 /**
  * ApplicationConfigConstantAttributesValue
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class ApplicationConfigConstantAttributesValue {
   @SerializedName("name")
   private String name = null;
 
-  @SerializedName("value")
-  private String value = null;
+  @SerializedName("readOnly")
+  private Boolean readOnly = null;
 
   @SerializedName("required")
   private Boolean required = null;
 
+  @SerializedName("value")
+  private String value = null;
+
   @SerializedName("visible")
   private Boolean visible = null;
-
-  @SerializedName("readOnly")
-  private Boolean readOnly = null;
 
   public ApplicationConfigConstantAttributesValue name(String name) {
     this.name = name;
@@ -59,60 +59,6 @@ public class ApplicationConfigConstantAttributesValue {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-  public ApplicationConfigConstantAttributesValue value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * Get value
-   * @return value
-  **/
-  @ApiModelProperty(value = "")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public ApplicationConfigConstantAttributesValue required(Boolean required) {
-    this.required = required;
-    return this;
-  }
-
-   /**
-   * Get required
-   * @return required
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isRequired() {
-    return required;
-  }
-
-  public void setRequired(Boolean required) {
-    this.required = required;
-  }
-
-  public ApplicationConfigConstantAttributesValue visible(Boolean visible) {
-    this.visible = visible;
-    return this;
-  }
-
-   /**
-   * Get visible
-   * @return visible
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isVisible() {
-    return visible;
-  }
-
-  public void setVisible(Boolean visible) {
-    this.visible = visible;
   }
 
   public ApplicationConfigConstantAttributesValue readOnly(Boolean readOnly) {
@@ -133,6 +79,60 @@ public class ApplicationConfigConstantAttributesValue {
     this.readOnly = readOnly;
   }
 
+  public ApplicationConfigConstantAttributesValue required(Boolean required) {
+    this.required = required;
+    return this;
+  }
+
+   /**
+   * Get required
+   * @return required
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isRequired() {
+    return required;
+  }
+
+  public void setRequired(Boolean required) {
+    this.required = required;
+  }
+
+  public ApplicationConfigConstantAttributesValue value(String value) {
+    this.value = value;
+    return this;
+  }
+
+   /**
+   * Get value
+   * @return value
+  **/
+  @ApiModelProperty(value = "")
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  public ApplicationConfigConstantAttributesValue visible(Boolean visible) {
+    this.visible = visible;
+    return this;
+  }
+
+   /**
+   * Get visible
+   * @return visible
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isVisible() {
+    return visible;
+  }
+
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,15 +144,15 @@ public class ApplicationConfigConstantAttributesValue {
     }
     ApplicationConfigConstantAttributesValue applicationConfigConstantAttributesValue = (ApplicationConfigConstantAttributesValue) o;
     return Objects.equals(this.name, applicationConfigConstantAttributesValue.name) &&
-        Objects.equals(this.value, applicationConfigConstantAttributesValue.value) &&
+        Objects.equals(this.readOnly, applicationConfigConstantAttributesValue.readOnly) &&
         Objects.equals(this.required, applicationConfigConstantAttributesValue.required) &&
-        Objects.equals(this.visible, applicationConfigConstantAttributesValue.visible) &&
-        Objects.equals(this.readOnly, applicationConfigConstantAttributesValue.readOnly);
+        Objects.equals(this.value, applicationConfigConstantAttributesValue.value) &&
+        Objects.equals(this.visible, applicationConfigConstantAttributesValue.visible);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, value, required, visible, readOnly);
+    return Objects.hash(name, readOnly, required, value, visible);
   }
 
 
@@ -162,10 +162,10 @@ public class ApplicationConfigConstantAttributesValue {
     sb.append("class ApplicationConfigConstantAttributesValue {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    required: ").append(toIndentedString(required)).append("\n");
-    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("    readOnly: ").append(toIndentedString(readOnly)).append("\n");
+    sb.append("    required: ").append(toIndentedString(required)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
     sb.append("}");
     return sb.toString();
   }

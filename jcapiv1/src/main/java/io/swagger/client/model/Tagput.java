@@ -28,10 +28,31 @@ import java.util.List;
 /**
  * Tagput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class Tagput {
+  @SerializedName("externalDN")
+  private String externalDN = null;
+
+  @SerializedName("externalSourceType")
+  private String externalSourceType = null;
+
+  @SerializedName("externallyManaged")
+  private Boolean externallyManaged = null;
+
+  @SerializedName("groupGid")
+  private String groupGid = null;
+
+  @SerializedName("groupName")
+  private String groupName = null;
+
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("regularExpressions")
+  private List<String> regularExpressions = null;
+
+  @SerializedName("sendToLDAP")
+  private Boolean sendToLDAP = null;
 
   @SerializedName("systems")
   private List<String> systems = null;
@@ -39,26 +60,95 @@ public class Tagput {
   @SerializedName("systemusers")
   private List<String> systemusers = null;
 
-  @SerializedName("regularExpressions")
-  private List<String> regularExpressions = null;
+  public Tagput externalDN(String externalDN) {
+    this.externalDN = externalDN;
+    return this;
+  }
 
-  @SerializedName("externallyManaged")
-  private Boolean externallyManaged = null;
+   /**
+   * Get externalDN
+   * @return externalDN
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalDN() {
+    return externalDN;
+  }
 
-  @SerializedName("externalDN")
-  private String externalDN = null;
+  public void setExternalDN(String externalDN) {
+    this.externalDN = externalDN;
+  }
 
-  @SerializedName("externalSourceType")
-  private String externalSourceType = null;
+  public Tagput externalSourceType(String externalSourceType) {
+    this.externalSourceType = externalSourceType;
+    return this;
+  }
 
-  @SerializedName("sendToLDAP")
-  private Boolean sendToLDAP = null;
+   /**
+   * Get externalSourceType
+   * @return externalSourceType
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalSourceType() {
+    return externalSourceType;
+  }
 
-  @SerializedName("groupGid")
-  private String groupGid = null;
+  public void setExternalSourceType(String externalSourceType) {
+    this.externalSourceType = externalSourceType;
+  }
 
-  @SerializedName("groupName")
-  private String groupName = null;
+  public Tagput externallyManaged(Boolean externallyManaged) {
+    this.externallyManaged = externallyManaged;
+    return this;
+  }
+
+   /**
+   * Get externallyManaged
+   * @return externallyManaged
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isExternallyManaged() {
+    return externallyManaged;
+  }
+
+  public void setExternallyManaged(Boolean externallyManaged) {
+    this.externallyManaged = externallyManaged;
+  }
+
+  public Tagput groupGid(String groupGid) {
+    this.groupGid = groupGid;
+    return this;
+  }
+
+   /**
+   * Get groupGid
+   * @return groupGid
+  **/
+  @ApiModelProperty(value = "")
+  public String getGroupGid() {
+    return groupGid;
+  }
+
+  public void setGroupGid(String groupGid) {
+    this.groupGid = groupGid;
+  }
+
+  public Tagput groupName(String groupName) {
+    this.groupName = groupName;
+    return this;
+  }
+
+   /**
+   * Get groupName
+   * @return groupName
+  **/
+  @ApiModelProperty(value = "")
+  public String getGroupName() {
+    return groupName;
+  }
+
+  public void setGroupName(String groupName) {
+    this.groupName = groupName;
+  }
 
   public Tagput name(String name) {
     this.name = name;
@@ -76,6 +166,50 @@ public class Tagput {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Tagput regularExpressions(List<String> regularExpressions) {
+    this.regularExpressions = regularExpressions;
+    return this;
+  }
+
+  public Tagput addRegularExpressionsItem(String regularExpressionsItem) {
+    if (this.regularExpressions == null) {
+      this.regularExpressions = new ArrayList<String>();
+    }
+    this.regularExpressions.add(regularExpressionsItem);
+    return this;
+  }
+
+   /**
+   * Get regularExpressions
+   * @return regularExpressions
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getRegularExpressions() {
+    return regularExpressions;
+  }
+
+  public void setRegularExpressions(List<String> regularExpressions) {
+    this.regularExpressions = regularExpressions;
+  }
+
+  public Tagput sendToLDAP(Boolean sendToLDAP) {
+    this.sendToLDAP = sendToLDAP;
+    return this;
+  }
+
+   /**
+   * Get sendToLDAP
+   * @return sendToLDAP
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSendToLDAP() {
+    return sendToLDAP;
+  }
+
+  public void setSendToLDAP(Boolean sendToLDAP) {
+    this.sendToLDAP = sendToLDAP;
   }
 
   public Tagput systems(List<String> systems) {
@@ -130,140 +264,6 @@ public class Tagput {
     this.systemusers = systemusers;
   }
 
-  public Tagput regularExpressions(List<String> regularExpressions) {
-    this.regularExpressions = regularExpressions;
-    return this;
-  }
-
-  public Tagput addRegularExpressionsItem(String regularExpressionsItem) {
-    if (this.regularExpressions == null) {
-      this.regularExpressions = new ArrayList<String>();
-    }
-    this.regularExpressions.add(regularExpressionsItem);
-    return this;
-  }
-
-   /**
-   * Get regularExpressions
-   * @return regularExpressions
-  **/
-  @ApiModelProperty(value = "")
-  public List<String> getRegularExpressions() {
-    return regularExpressions;
-  }
-
-  public void setRegularExpressions(List<String> regularExpressions) {
-    this.regularExpressions = regularExpressions;
-  }
-
-  public Tagput externallyManaged(Boolean externallyManaged) {
-    this.externallyManaged = externallyManaged;
-    return this;
-  }
-
-   /**
-   * Get externallyManaged
-   * @return externallyManaged
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isExternallyManaged() {
-    return externallyManaged;
-  }
-
-  public void setExternallyManaged(Boolean externallyManaged) {
-    this.externallyManaged = externallyManaged;
-  }
-
-  public Tagput externalDN(String externalDN) {
-    this.externalDN = externalDN;
-    return this;
-  }
-
-   /**
-   * Get externalDN
-   * @return externalDN
-  **/
-  @ApiModelProperty(value = "")
-  public String getExternalDN() {
-    return externalDN;
-  }
-
-  public void setExternalDN(String externalDN) {
-    this.externalDN = externalDN;
-  }
-
-  public Tagput externalSourceType(String externalSourceType) {
-    this.externalSourceType = externalSourceType;
-    return this;
-  }
-
-   /**
-   * Get externalSourceType
-   * @return externalSourceType
-  **/
-  @ApiModelProperty(value = "")
-  public String getExternalSourceType() {
-    return externalSourceType;
-  }
-
-  public void setExternalSourceType(String externalSourceType) {
-    this.externalSourceType = externalSourceType;
-  }
-
-  public Tagput sendToLDAP(Boolean sendToLDAP) {
-    this.sendToLDAP = sendToLDAP;
-    return this;
-  }
-
-   /**
-   * Get sendToLDAP
-   * @return sendToLDAP
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isSendToLDAP() {
-    return sendToLDAP;
-  }
-
-  public void setSendToLDAP(Boolean sendToLDAP) {
-    this.sendToLDAP = sendToLDAP;
-  }
-
-  public Tagput groupGid(String groupGid) {
-    this.groupGid = groupGid;
-    return this;
-  }
-
-   /**
-   * Get groupGid
-   * @return groupGid
-  **/
-  @ApiModelProperty(value = "")
-  public String getGroupGid() {
-    return groupGid;
-  }
-
-  public void setGroupGid(String groupGid) {
-    this.groupGid = groupGid;
-  }
-
-  public Tagput groupName(String groupName) {
-    this.groupName = groupName;
-    return this;
-  }
-
-   /**
-   * Get groupName
-   * @return groupName
-  **/
-  @ApiModelProperty(value = "")
-  public String getGroupName() {
-    return groupName;
-  }
-
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -274,21 +274,21 @@ public class Tagput {
       return false;
     }
     Tagput tagput = (Tagput) o;
-    return Objects.equals(this.name, tagput.name) &&
-        Objects.equals(this.systems, tagput.systems) &&
-        Objects.equals(this.systemusers, tagput.systemusers) &&
-        Objects.equals(this.regularExpressions, tagput.regularExpressions) &&
-        Objects.equals(this.externallyManaged, tagput.externallyManaged) &&
-        Objects.equals(this.externalDN, tagput.externalDN) &&
+    return Objects.equals(this.externalDN, tagput.externalDN) &&
         Objects.equals(this.externalSourceType, tagput.externalSourceType) &&
-        Objects.equals(this.sendToLDAP, tagput.sendToLDAP) &&
+        Objects.equals(this.externallyManaged, tagput.externallyManaged) &&
         Objects.equals(this.groupGid, tagput.groupGid) &&
-        Objects.equals(this.groupName, tagput.groupName);
+        Objects.equals(this.groupName, tagput.groupName) &&
+        Objects.equals(this.name, tagput.name) &&
+        Objects.equals(this.regularExpressions, tagput.regularExpressions) &&
+        Objects.equals(this.sendToLDAP, tagput.sendToLDAP) &&
+        Objects.equals(this.systems, tagput.systems) &&
+        Objects.equals(this.systemusers, tagput.systemusers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, systems, systemusers, regularExpressions, externallyManaged, externalDN, externalSourceType, sendToLDAP, groupGid, groupName);
+    return Objects.hash(externalDN, externalSourceType, externallyManaged, groupGid, groupName, name, regularExpressions, sendToLDAP, systems, systemusers);
   }
 
 
@@ -297,16 +297,16 @@ public class Tagput {
     StringBuilder sb = new StringBuilder();
     sb.append("class Tagput {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
-    sb.append("    systemusers: ").append(toIndentedString(systemusers)).append("\n");
-    sb.append("    regularExpressions: ").append(toIndentedString(regularExpressions)).append("\n");
-    sb.append("    externallyManaged: ").append(toIndentedString(externallyManaged)).append("\n");
     sb.append("    externalDN: ").append(toIndentedString(externalDN)).append("\n");
     sb.append("    externalSourceType: ").append(toIndentedString(externalSourceType)).append("\n");
-    sb.append("    sendToLDAP: ").append(toIndentedString(sendToLDAP)).append("\n");
+    sb.append("    externallyManaged: ").append(toIndentedString(externallyManaged)).append("\n");
     sb.append("    groupGid: ").append(toIndentedString(groupGid)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    regularExpressions: ").append(toIndentedString(regularExpressions)).append("\n");
+    sb.append("    sendToLDAP: ").append(toIndentedString(sendToLDAP)).append("\n");
+    sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
+    sb.append("    systemusers: ").append(toIndentedString(systemusers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

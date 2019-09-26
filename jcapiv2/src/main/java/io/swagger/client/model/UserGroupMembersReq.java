@@ -26,8 +26,11 @@ import java.io.IOException;
 /**
  * UserGroupMembersReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class UserGroupMembersReq {
+  @SerializedName("id")
+  private String id = null;
+
   /**
    * How to modify the membership connection.
    */
@@ -126,8 +129,23 @@ public class UserGroupMembersReq {
   @SerializedName("type")
   private TypeEnum type = null;
 
-  @SerializedName("id")
-  private String id = null;
+  public UserGroupMembersReq id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * The ObjectID of member being added or removed.
+   * @return id
+  **/
+  @ApiModelProperty(required = true, value = "The ObjectID of member being added or removed.")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public UserGroupMembersReq op(OpEnum op) {
     this.op = op;
@@ -165,24 +183,6 @@ public class UserGroupMembersReq {
     this.type = type;
   }
 
-  public UserGroupMembersReq id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ObjectID of member being added or removed.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "The ObjectID of member being added or removed.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -193,14 +193,14 @@ public class UserGroupMembersReq {
       return false;
     }
     UserGroupMembersReq userGroupMembersReq = (UserGroupMembersReq) o;
-    return Objects.equals(this.op, userGroupMembersReq.op) &&
-        Objects.equals(this.type, userGroupMembersReq.type) &&
-        Objects.equals(this.id, userGroupMembersReq.id);
+    return Objects.equals(this.id, userGroupMembersReq.id) &&
+        Objects.equals(this.op, userGroupMembersReq.op) &&
+        Objects.equals(this.type, userGroupMembersReq.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(op, type, id);
+    return Objects.hash(id, op, type);
   }
 
 
@@ -209,9 +209,9 @@ public class UserGroupMembersReq {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserGroupMembersReq {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    op: ").append(toIndentedString(op)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

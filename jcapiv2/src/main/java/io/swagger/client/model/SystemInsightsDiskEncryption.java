@@ -26,16 +26,22 @@ import java.io.IOException;
 /**
  * SystemInsightsDiskEncryption
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class SystemInsightsDiskEncryption {
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("uuid")
-  private String uuid = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("encrypted")
   private Integer encrypted = null;
+
+  @SerializedName("encryption_status")
+  private String encryptionStatus = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("system_id")
+  private String systemId = null;
 
   @SerializedName("type")
   private String type = null;
@@ -46,14 +52,62 @@ public class SystemInsightsDiskEncryption {
   @SerializedName("user_uuid")
   private String userUuid = null;
 
-  @SerializedName("encryption_status")
-  private String encryptionStatus = null;
+  @SerializedName("uuid")
+  private String uuid = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  public SystemInsightsDiskEncryption collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+    return this;
+  }
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+   /**
+   * Get collectionTime
+   * @return collectionTime
+  **/
+  @ApiModelProperty(value = "")
+  public String getCollectionTime() {
+    return collectionTime;
+  }
+
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+  }
+
+  public SystemInsightsDiskEncryption encrypted(Integer encrypted) {
+    this.encrypted = encrypted;
+    return this;
+  }
+
+   /**
+   * Get encrypted
+   * @return encrypted
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getEncrypted() {
+    return encrypted;
+  }
+
+  public void setEncrypted(Integer encrypted) {
+    this.encrypted = encrypted;
+  }
+
+  public SystemInsightsDiskEncryption encryptionStatus(String encryptionStatus) {
+    this.encryptionStatus = encryptionStatus;
+    return this;
+  }
+
+   /**
+   * Get encryptionStatus
+   * @return encryptionStatus
+  **/
+  @ApiModelProperty(value = "")
+  public String getEncryptionStatus() {
+    return encryptionStatus;
+  }
+
+  public void setEncryptionStatus(String encryptionStatus) {
+    this.encryptionStatus = encryptionStatus;
+  }
 
   public SystemInsightsDiskEncryption name(String name) {
     this.name = name;
@@ -73,40 +127,22 @@ public class SystemInsightsDiskEncryption {
     this.name = name;
   }
 
-  public SystemInsightsDiskEncryption uuid(String uuid) {
-    this.uuid = uuid;
+  public SystemInsightsDiskEncryption systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get uuid
-   * @return uuid
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getUuid() {
-    return uuid;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-  public SystemInsightsDiskEncryption encrypted(Integer encrypted) {
-    this.encrypted = encrypted;
-    return this;
-  }
-
-   /**
-   * Get encrypted
-   * @return encrypted
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getEncrypted() {
-    return encrypted;
-  }
-
-  public void setEncrypted(Integer encrypted) {
-    this.encrypted = encrypted;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
   }
 
   public SystemInsightsDiskEncryption type(String type) {
@@ -163,58 +199,22 @@ public class SystemInsightsDiskEncryption {
     this.userUuid = userUuid;
   }
 
-  public SystemInsightsDiskEncryption encryptionStatus(String encryptionStatus) {
-    this.encryptionStatus = encryptionStatus;
+  public SystemInsightsDiskEncryption uuid(String uuid) {
+    this.uuid = uuid;
     return this;
   }
 
    /**
-   * Get encryptionStatus
-   * @return encryptionStatus
+   * Get uuid
+   * @return uuid
   **/
   @ApiModelProperty(value = "")
-  public String getEncryptionStatus() {
-    return encryptionStatus;
+  public String getUuid() {
+    return uuid;
   }
 
-  public void setEncryptionStatus(String encryptionStatus) {
-    this.encryptionStatus = encryptionStatus;
-  }
-
-  public SystemInsightsDiskEncryption jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
-    return this;
-  }
-
-   /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
-  }
-
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
-  }
-
-  public SystemInsightsDiskEncryption jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
-    return this;
-  }
-
-   /**
-   * Get jcSystemId
-   * @return jcSystemId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
-  }
-
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
   }
 
 
@@ -227,20 +227,20 @@ public class SystemInsightsDiskEncryption {
       return false;
     }
     SystemInsightsDiskEncryption systemInsightsDiskEncryption = (SystemInsightsDiskEncryption) o;
-    return Objects.equals(this.name, systemInsightsDiskEncryption.name) &&
-        Objects.equals(this.uuid, systemInsightsDiskEncryption.uuid) &&
+    return Objects.equals(this.collectionTime, systemInsightsDiskEncryption.collectionTime) &&
         Objects.equals(this.encrypted, systemInsightsDiskEncryption.encrypted) &&
+        Objects.equals(this.encryptionStatus, systemInsightsDiskEncryption.encryptionStatus) &&
+        Objects.equals(this.name, systemInsightsDiskEncryption.name) &&
+        Objects.equals(this.systemId, systemInsightsDiskEncryption.systemId) &&
         Objects.equals(this.type, systemInsightsDiskEncryption.type) &&
         Objects.equals(this.uid, systemInsightsDiskEncryption.uid) &&
         Objects.equals(this.userUuid, systemInsightsDiskEncryption.userUuid) &&
-        Objects.equals(this.encryptionStatus, systemInsightsDiskEncryption.encryptionStatus) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsDiskEncryption.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsDiskEncryption.jcSystemId);
+        Objects.equals(this.uuid, systemInsightsDiskEncryption.uuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, uuid, encrypted, type, uid, userUuid, encryptionStatus, jcCollectionTime, jcSystemId);
+    return Objects.hash(collectionTime, encrypted, encryptionStatus, name, systemId, type, uid, userUuid, uuid);
   }
 
 
@@ -249,15 +249,15 @@ public class SystemInsightsDiskEncryption {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsDiskEncryption {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    encrypted: ").append(toIndentedString(encrypted)).append("\n");
+    sb.append("    encryptionStatus: ").append(toIndentedString(encryptionStatus)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    userUuid: ").append(toIndentedString(userUuid)).append("\n");
-    sb.append("    encryptionStatus: ").append(toIndentedString(encryptionStatus)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

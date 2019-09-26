@@ -29,115 +29,25 @@ import java.util.List;
  * See [V1 system user update](https://docs.jumpcloud.com/1.0/systemusers/update-a-system-user) for full list of attributes.
  */
 @ApiModel(description = "See [V1 system user update](https://docs.jumpcloud.com/1.0/systemusers/update-a-system-user) for full list of attributes.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class BulkUserUpdate {
-  @SerializedName("id")
-  private String id = null;
-
-  @SerializedName("username")
-  private String username = null;
-
-  @SerializedName("firstname")
-  private String firstname = null;
-
-  @SerializedName("lastname")
-  private String lastname = null;
+  @SerializedName("attributes")
+  private List<Object> attributes = null;
 
   @SerializedName("email")
   private String email = null;
 
-  @SerializedName("attributes")
-  private List<Object> attributes = null;
+  @SerializedName("firstname")
+  private String firstname = null;
 
-  public BulkUserUpdate id(String id) {
-    this.id = id;
-    return this;
-  }
+  @SerializedName("id")
+  private String id = null;
 
-   /**
-   * Object ID of the systemuser being updated
-   * @return id
-  **/
-  @ApiModelProperty(value = "Object ID of the systemuser being updated")
-  public String getId() {
-    return id;
-  }
+  @SerializedName("lastname")
+  private String lastname = null;
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public BulkUserUpdate username(String username) {
-    this.username = username;
-    return this;
-  }
-
-   /**
-   * Get username
-   * @return username
-  **/
-  @ApiModelProperty(value = "")
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public BulkUserUpdate firstname(String firstname) {
-    this.firstname = firstname;
-    return this;
-  }
-
-   /**
-   * Get firstname
-   * @return firstname
-  **/
-  @ApiModelProperty(value = "")
-  public String getFirstname() {
-    return firstname;
-  }
-
-  public void setFirstname(String firstname) {
-    this.firstname = firstname;
-  }
-
-  public BulkUserUpdate lastname(String lastname) {
-    this.lastname = lastname;
-    return this;
-  }
-
-   /**
-   * Get lastname
-   * @return lastname
-  **/
-  @ApiModelProperty(value = "")
-  public String getLastname() {
-    return lastname;
-  }
-
-  public void setLastname(String lastname) {
-    this.lastname = lastname;
-  }
-
-  public BulkUserUpdate email(String email) {
-    this.email = email;
-    return this;
-  }
-
-   /**
-   * Get email
-   * @return email
-  **/
-  @ApiModelProperty(value = "")
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
+  @SerializedName("username")
+  private String username = null;
 
   public BulkUserUpdate attributes(List<Object> attributes) {
     this.attributes = attributes;
@@ -165,6 +75,96 @@ public class BulkUserUpdate {
     this.attributes = attributes;
   }
 
+  public BulkUserUpdate email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * Get email
+   * @return email
+  **/
+  @ApiModelProperty(value = "")
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public BulkUserUpdate firstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+   /**
+   * Get firstname
+   * @return firstname
+  **/
+  @ApiModelProperty(value = "")
+  public String getFirstname() {
+    return firstname;
+  }
+
+  public void setFirstname(String firstname) {
+    this.firstname = firstname;
+  }
+
+  public BulkUserUpdate id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Object ID of the systemuser being updated
+   * @return id
+  **/
+  @ApiModelProperty(value = "Object ID of the systemuser being updated")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public BulkUserUpdate lastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+   /**
+   * Get lastname
+   * @return lastname
+  **/
+  @ApiModelProperty(value = "")
+  public String getLastname() {
+    return lastname;
+  }
+
+  public void setLastname(String lastname) {
+    this.lastname = lastname;
+  }
+
+  public BulkUserUpdate username(String username) {
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @ApiModelProperty(value = "")
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -175,17 +175,17 @@ public class BulkUserUpdate {
       return false;
     }
     BulkUserUpdate bulkUserUpdate = (BulkUserUpdate) o;
-    return Objects.equals(this.id, bulkUserUpdate.id) &&
-        Objects.equals(this.username, bulkUserUpdate.username) &&
-        Objects.equals(this.firstname, bulkUserUpdate.firstname) &&
-        Objects.equals(this.lastname, bulkUserUpdate.lastname) &&
+    return Objects.equals(this.attributes, bulkUserUpdate.attributes) &&
         Objects.equals(this.email, bulkUserUpdate.email) &&
-        Objects.equals(this.attributes, bulkUserUpdate.attributes);
+        Objects.equals(this.firstname, bulkUserUpdate.firstname) &&
+        Objects.equals(this.id, bulkUserUpdate.id) &&
+        Objects.equals(this.lastname, bulkUserUpdate.lastname) &&
+        Objects.equals(this.username, bulkUserUpdate.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username, firstname, lastname, email, attributes);
+    return Objects.hash(attributes, email, firstname, id, lastname, username);
   }
 
 
@@ -194,12 +194,12 @@ public class BulkUserUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class BulkUserUpdate {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    username: ").append(toIndentedString(username)).append("\n");
-    sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
-    sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Application
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class Application {
   @SerializedName("_id")
   private String id = null;
@@ -35,26 +35,26 @@ public class Application {
   @SerializedName("active")
   private Boolean active = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("config")
+  private ApplicationConfig config = null;
+
+  @SerializedName("displayLabel")
+  private String displayLabel = null;
 
   @SerializedName("displayName")
   private String displayName = null;
 
-  @SerializedName("displayLabel")
-  private String displayLabel = null;
+  @SerializedName("learnMore")
+  private String learnMore = null;
+
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("organization")
   private String organization = null;
 
   @SerializedName("ssoUrl")
   private String ssoUrl = null;
-
-  @SerializedName("learnMore")
-  private String learnMore = null;
-
-  @SerializedName("config")
-  private ApplicationConfig config = null;
 
   public Application id(String id) {
     this.id = id;
@@ -92,22 +92,40 @@ public class Application {
     this.active = active;
   }
 
-  public Application name(String name) {
-    this.name = name;
+  public Application config(ApplicationConfig config) {
+    this.config = config;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get config
+   * @return config
   **/
   @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  public ApplicationConfig getConfig() {
+    return config;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setConfig(ApplicationConfig config) {
+    this.config = config;
+  }
+
+  public Application displayLabel(String displayLabel) {
+    this.displayLabel = displayLabel;
+    return this;
+  }
+
+   /**
+   * Get displayLabel
+   * @return displayLabel
+  **/
+  @ApiModelProperty(value = "")
+  public String getDisplayLabel() {
+    return displayLabel;
+  }
+
+  public void setDisplayLabel(String displayLabel) {
+    this.displayLabel = displayLabel;
   }
 
   public Application displayName(String displayName) {
@@ -128,22 +146,40 @@ public class Application {
     this.displayName = displayName;
   }
 
-  public Application displayLabel(String displayLabel) {
-    this.displayLabel = displayLabel;
+  public Application learnMore(String learnMore) {
+    this.learnMore = learnMore;
     return this;
   }
 
    /**
-   * Get displayLabel
-   * @return displayLabel
+   * Get learnMore
+   * @return learnMore
   **/
   @ApiModelProperty(value = "")
-  public String getDisplayLabel() {
-    return displayLabel;
+  public String getLearnMore() {
+    return learnMore;
   }
 
-  public void setDisplayLabel(String displayLabel) {
-    this.displayLabel = displayLabel;
+  public void setLearnMore(String learnMore) {
+    this.learnMore = learnMore;
+  }
+
+  public Application name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public Application organization(String organization) {
@@ -182,42 +218,6 @@ public class Application {
     this.ssoUrl = ssoUrl;
   }
 
-  public Application learnMore(String learnMore) {
-    this.learnMore = learnMore;
-    return this;
-  }
-
-   /**
-   * Get learnMore
-   * @return learnMore
-  **/
-  @ApiModelProperty(value = "")
-  public String getLearnMore() {
-    return learnMore;
-  }
-
-  public void setLearnMore(String learnMore) {
-    this.learnMore = learnMore;
-  }
-
-  public Application config(ApplicationConfig config) {
-    this.config = config;
-    return this;
-  }
-
-   /**
-   * Get config
-   * @return config
-  **/
-  @ApiModelProperty(value = "")
-  public ApplicationConfig getConfig() {
-    return config;
-  }
-
-  public void setConfig(ApplicationConfig config) {
-    this.config = config;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -230,18 +230,18 @@ public class Application {
     Application application = (Application) o;
     return Objects.equals(this.id, application.id) &&
         Objects.equals(this.active, application.active) &&
-        Objects.equals(this.name, application.name) &&
-        Objects.equals(this.displayName, application.displayName) &&
+        Objects.equals(this.config, application.config) &&
         Objects.equals(this.displayLabel, application.displayLabel) &&
-        Objects.equals(this.organization, application.organization) &&
-        Objects.equals(this.ssoUrl, application.ssoUrl) &&
+        Objects.equals(this.displayName, application.displayName) &&
         Objects.equals(this.learnMore, application.learnMore) &&
-        Objects.equals(this.config, application.config);
+        Objects.equals(this.name, application.name) &&
+        Objects.equals(this.organization, application.organization) &&
+        Objects.equals(this.ssoUrl, application.ssoUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, active, name, displayName, displayLabel, organization, ssoUrl, learnMore, config);
+    return Objects.hash(id, active, config, displayLabel, displayName, learnMore, name, organization, ssoUrl);
   }
 
 
@@ -252,13 +252,13 @@ public class Application {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    displayLabel: ").append(toIndentedString(displayLabel)).append("\n");
+    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    learnMore: ").append(toIndentedString(learnMore)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    ssoUrl: ").append(toIndentedString(ssoUrl)).append("\n");
-    sb.append("    learnMore: ").append(toIndentedString(learnMore)).append("\n");
-    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("}");
     return sb.toString();
   }
