@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * Sshkeypost
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class Sshkeypost {
-  @SerializedName("public_key")
-  private String publicKey = null;
-
   @SerializedName("name")
   private String name = null;
 
-  public Sshkeypost publicKey(String publicKey) {
-    this.publicKey = publicKey;
-    return this;
-  }
-
-   /**
-   * The Public SSH key.
-   * @return publicKey
-  **/
-  @ApiModelProperty(required = true, value = "The Public SSH key.")
-  public String getPublicKey() {
-    return publicKey;
-  }
-
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
-  }
+  @SerializedName("public_key")
+  private String publicKey = null;
 
   public Sshkeypost name(String name) {
     this.name = name;
@@ -70,6 +52,24 @@ public class Sshkeypost {
     this.name = name;
   }
 
+  public Sshkeypost publicKey(String publicKey) {
+    this.publicKey = publicKey;
+    return this;
+  }
+
+   /**
+   * The Public SSH key.
+   * @return publicKey
+  **/
+  @ApiModelProperty(required = true, value = "The Public SSH key.")
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class Sshkeypost {
       return false;
     }
     Sshkeypost sshkeypost = (Sshkeypost) o;
-    return Objects.equals(this.publicKey, sshkeypost.publicKey) &&
-        Objects.equals(this.name, sshkeypost.name);
+    return Objects.equals(this.name, sshkeypost.name) &&
+        Objects.equals(this.publicKey, sshkeypost.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(publicKey, name);
+    return Objects.hash(name, publicKey);
   }
 
 
@@ -95,8 +95,8 @@ public class Sshkeypost {
     StringBuilder sb = new StringBuilder();
     sb.append("class Sshkeypost {\n");
     
-    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

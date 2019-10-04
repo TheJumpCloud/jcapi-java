@@ -4,15 +4,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_interface** | **String** |  |  [optional]
 **address** | **String** |  |  [optional]
-**mask** | **String** |  |  [optional]
 **broadcast** | **String** |  |  [optional]
-**pointToPoint** | **String** |  |  [optional]
-**type** | **String** |  |  [optional]
+**collectionTime** | **String** |  |  [optional]
 **friendlyName** | **String** |  |  [optional]
-**jcCollectionTime** | **String** |  |  [optional]
-**jcSystemId** | **String** |  |  [optional]
+**_interface** | **String** |  |  [optional]
+**mask** | **String** |  |  [optional]
+**pointToPoint** | **String** |  |  [optional]
+**systemId** | **String** |  |  [optional]
+**type** | **String** |  |  [optional]
 
 
 

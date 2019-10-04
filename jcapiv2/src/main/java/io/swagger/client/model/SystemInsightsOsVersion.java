@@ -26,13 +26,19 @@ import java.io.IOException;
 /**
  * SystemInsightsOsVersion
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class SystemInsightsOsVersion {
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("build")
+  private String build = null;
 
-  @SerializedName("version")
-  private String version = null;
+  @SerializedName("codename")
+  private String codename = null;
+
+  @SerializedName("collection_time")
+  private String collectionTime = null;
+
+  @SerializedName("install_date")
+  private String installDate = null;
 
   @SerializedName("major")
   private Integer major = null;
@@ -40,11 +46,11 @@ public class SystemInsightsOsVersion {
   @SerializedName("minor")
   private Integer minor = null;
 
+  @SerializedName("name")
+  private String name = null;
+
   @SerializedName("patch")
   private Integer patch = null;
-
-  @SerializedName("build")
-  private String build = null;
 
   @SerializedName("platform")
   private String platform = null;
@@ -52,52 +58,82 @@ public class SystemInsightsOsVersion {
   @SerializedName("platform_like")
   private String platformLike = null;
 
-  @SerializedName("codename")
-  private String codename = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  @SerializedName("install_date")
-  private String installDate = null;
+  @SerializedName("version")
+  private String version = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
-
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
-
-  public SystemInsightsOsVersion name(String name) {
-    this.name = name;
+  public SystemInsightsOsVersion build(String build) {
+    this.build = build;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get build
+   * @return build
   **/
   @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  public String getBuild() {
+    return build;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setBuild(String build) {
+    this.build = build;
   }
 
-  public SystemInsightsOsVersion version(String version) {
-    this.version = version;
+  public SystemInsightsOsVersion codename(String codename) {
+    this.codename = codename;
     return this;
   }
 
    /**
-   * Get version
-   * @return version
+   * Get codename
+   * @return codename
   **/
   @ApiModelProperty(value = "")
-  public String getVersion() {
-    return version;
+  public String getCodename() {
+    return codename;
   }
 
-  public void setVersion(String version) {
-    this.version = version;
+  public void setCodename(String codename) {
+    this.codename = codename;
+  }
+
+  public SystemInsightsOsVersion collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+    return this;
+  }
+
+   /**
+   * Get collectionTime
+   * @return collectionTime
+  **/
+  @ApiModelProperty(value = "")
+  public String getCollectionTime() {
+    return collectionTime;
+  }
+
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+  }
+
+  public SystemInsightsOsVersion installDate(String installDate) {
+    this.installDate = installDate;
+    return this;
+  }
+
+   /**
+   * Get installDate
+   * @return installDate
+  **/
+  @ApiModelProperty(value = "")
+  public String getInstallDate() {
+    return installDate;
+  }
+
+  public void setInstallDate(String installDate) {
+    this.installDate = installDate;
   }
 
   public SystemInsightsOsVersion major(Integer major) {
@@ -136,6 +172,24 @@ public class SystemInsightsOsVersion {
     this.minor = minor;
   }
 
+  public SystemInsightsOsVersion name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
   public SystemInsightsOsVersion patch(Integer patch) {
     this.patch = patch;
     return this;
@@ -152,24 +206,6 @@ public class SystemInsightsOsVersion {
 
   public void setPatch(Integer patch) {
     this.patch = patch;
-  }
-
-  public SystemInsightsOsVersion build(String build) {
-    this.build = build;
-    return this;
-  }
-
-   /**
-   * Get build
-   * @return build
-  **/
-  @ApiModelProperty(value = "")
-  public String getBuild() {
-    return build;
-  }
-
-  public void setBuild(String build) {
-    this.build = build;
   }
 
   public SystemInsightsOsVersion platform(String platform) {
@@ -208,76 +244,40 @@ public class SystemInsightsOsVersion {
     this.platformLike = platformLike;
   }
 
-  public SystemInsightsOsVersion codename(String codename) {
-    this.codename = codename;
+  public SystemInsightsOsVersion systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get codename
-   * @return codename
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getCodename() {
-    return codename;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setCodename(String codename) {
-    this.codename = codename;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
   }
 
-  public SystemInsightsOsVersion installDate(String installDate) {
-    this.installDate = installDate;
+  public SystemInsightsOsVersion version(String version) {
+    this.version = version;
     return this;
   }
 
    /**
-   * Get installDate
-   * @return installDate
+   * Get version
+   * @return version
   **/
   @ApiModelProperty(value = "")
-  public String getInstallDate() {
-    return installDate;
+  public String getVersion() {
+    return version;
   }
 
-  public void setInstallDate(String installDate) {
-    this.installDate = installDate;
-  }
-
-  public SystemInsightsOsVersion jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
-    return this;
-  }
-
-   /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
-  }
-
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
-  }
-
-  public SystemInsightsOsVersion jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
-    return this;
-  }
-
-   /**
-   * Get jcSystemId
-   * @return jcSystemId
-  **/
-  @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
-  }
-
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -290,23 +290,23 @@ public class SystemInsightsOsVersion {
       return false;
     }
     SystemInsightsOsVersion systemInsightsOsVersion = (SystemInsightsOsVersion) o;
-    return Objects.equals(this.name, systemInsightsOsVersion.name) &&
-        Objects.equals(this.version, systemInsightsOsVersion.version) &&
+    return Objects.equals(this.build, systemInsightsOsVersion.build) &&
+        Objects.equals(this.codename, systemInsightsOsVersion.codename) &&
+        Objects.equals(this.collectionTime, systemInsightsOsVersion.collectionTime) &&
+        Objects.equals(this.installDate, systemInsightsOsVersion.installDate) &&
         Objects.equals(this.major, systemInsightsOsVersion.major) &&
         Objects.equals(this.minor, systemInsightsOsVersion.minor) &&
+        Objects.equals(this.name, systemInsightsOsVersion.name) &&
         Objects.equals(this.patch, systemInsightsOsVersion.patch) &&
-        Objects.equals(this.build, systemInsightsOsVersion.build) &&
         Objects.equals(this.platform, systemInsightsOsVersion.platform) &&
         Objects.equals(this.platformLike, systemInsightsOsVersion.platformLike) &&
-        Objects.equals(this.codename, systemInsightsOsVersion.codename) &&
-        Objects.equals(this.installDate, systemInsightsOsVersion.installDate) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsOsVersion.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsOsVersion.jcSystemId);
+        Objects.equals(this.systemId, systemInsightsOsVersion.systemId) &&
+        Objects.equals(this.version, systemInsightsOsVersion.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, major, minor, patch, build, platform, platformLike, codename, installDate, jcCollectionTime, jcSystemId);
+    return Objects.hash(build, codename, collectionTime, installDate, major, minor, name, patch, platform, platformLike, systemId, version);
   }
 
 
@@ -315,18 +315,18 @@ public class SystemInsightsOsVersion {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsOsVersion {\n");
     
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    build: ").append(toIndentedString(build)).append("\n");
+    sb.append("    codename: ").append(toIndentedString(codename)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
+    sb.append("    installDate: ").append(toIndentedString(installDate)).append("\n");
     sb.append("    major: ").append(toIndentedString(major)).append("\n");
     sb.append("    minor: ").append(toIndentedString(minor)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    patch: ").append(toIndentedString(patch)).append("\n");
-    sb.append("    build: ").append(toIndentedString(build)).append("\n");
     sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
     sb.append("    platformLike: ").append(toIndentedString(platformLike)).append("\n");
-    sb.append("    codename: ").append(toIndentedString(codename)).append("\n");
-    sb.append("    installDate: ").append(toIndentedString(installDate)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

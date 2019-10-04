@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 List an individual system
 
-This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 List All Systems
 
-This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 <a name="systemsPut"></a>
 # **systemsPut**
-> systemsPut(id, contentType, accept, body, date, authorization, xOrgId)
+> System systemsPut(id, contentType, accept, body, date, authorization, xOrgId)
 
 Update a system
 
@@ -251,7 +251,8 @@ String date = "date_example"; // String | Current date header for the System Con
 String authorization = "authorization_example"; // String | Authorization header for the System Context API
 String xOrgId = ""; // String | 
 try {
-    apiInstance.systemsPut(id, contentType, accept, body, date, authorization, xOrgId);
+    System result = apiInstance.systemsPut(id, contentType, accept, body, date, authorization, xOrgId);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SystemsApi#systemsPut");
     e.printStackTrace();
@@ -272,7 +273,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**System**](System.md)
 
 ### Authorization
 

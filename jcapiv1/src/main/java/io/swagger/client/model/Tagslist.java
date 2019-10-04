@@ -29,31 +29,13 @@ import java.util.List;
 /**
  * Tagslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class Tagslist {
-  @SerializedName("totalCount")
-  private Integer totalCount = null;
-
   @SerializedName("results")
   private List<Tag> results = null;
 
-  public Tagslist totalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-    return this;
-  }
-
-   /**
-   * The total number of tags.
-   * @return totalCount
-  **/
-  @ApiModelProperty(value = "The total number of tags.")
-  public Integer getTotalCount() {
-    return totalCount;
-  }
-
-  public void setTotalCount(Integer totalCount) {
-    this.totalCount = totalCount;
-  }
+  @SerializedName("totalCount")
+  private Integer totalCount = null;
 
   public Tagslist results(List<Tag> results) {
     this.results = results;
@@ -81,6 +63,24 @@ public class Tagslist {
     this.results = results;
   }
 
+  public Tagslist totalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
+
+   /**
+   * The total number of tags.
+   * @return totalCount
+  **/
+  @ApiModelProperty(value = "The total number of tags.")
+  public Integer getTotalCount() {
+    return totalCount;
+  }
+
+  public void setTotalCount(Integer totalCount) {
+    this.totalCount = totalCount;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,13 +91,13 @@ public class Tagslist {
       return false;
     }
     Tagslist tagslist = (Tagslist) o;
-    return Objects.equals(this.totalCount, tagslist.totalCount) &&
-        Objects.equals(this.results, tagslist.results);
+    return Objects.equals(this.results, tagslist.results) &&
+        Objects.equals(this.totalCount, tagslist.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalCount, results);
+    return Objects.hash(results, totalCount);
   }
 
 
@@ -106,8 +106,8 @@ public class Tagslist {
     StringBuilder sb = new StringBuilder();
     sb.append("class Tagslist {\n");
     
-    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

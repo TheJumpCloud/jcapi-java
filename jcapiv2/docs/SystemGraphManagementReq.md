@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **attributes** | [**SystemGraphManagementReqAttributes**](SystemGraphManagementReqAttributes.md) |  |  [optional]
+**id** | **String** | The ObjectID of graph object being added or removed as an association. | 
 **op** | [**OpEnum**](#OpEnum) | How to modify the graph connection. | 
 **type** | [**TypeEnum**](#TypeEnum) |  | 
-**id** | **String** | The ObjectID of graph object being added or removed as an association. | 
 
 
 <a name="OpEnum"></a>

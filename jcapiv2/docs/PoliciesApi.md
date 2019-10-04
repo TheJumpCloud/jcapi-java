@@ -658,7 +658,7 @@ Name | Type | Description  | Notes
 
 <a name="policyresultsList"></a>
 # **policyresultsList**
-> List&lt;PolicyResult&gt; policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId)
+> List&lt;PolicyResult&gt; policyresultsList(policyId, contentType, accept, fields, filter, limit, xOrgId, skip, sort)
 
 Lists all the policy results of a policy.
 
@@ -688,12 +688,11 @@ String accept = "application/json"; // String |
 List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
 List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
+String xOrgId = ""; // String | 
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
-String xOrgId = ""; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policyresultsList(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
+    List<PolicyResult> result = apiInstance.policyresultsList(policyId, contentType, accept, fields, filter, limit, xOrgId, skip, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policyresultsList");
@@ -711,10 +710,9 @@ Name | Type | Description  | Notes
  **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional]
  **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -731,7 +729,7 @@ Name | Type | Description  | Notes
 
 <a name="policyresultsList_0"></a>
 # **policyresultsList_0**
-> List&lt;PolicyResult&gt; policyresultsList_0(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId)
+> List&lt;PolicyResult&gt; policyresultsList_0(contentType, accept, fields, filter, limit, xOrgId, skip, sort)
 
 Lists all the policy results for an organization.
 
@@ -757,15 +755,14 @@ x_api_key.setApiKey("YOUR API KEY");
 PoliciesApi apiInstance = new PoliciesApi();
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-List<String> aggregate = Arrays.asList("aggregate_example"); // List<String> | 
 List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
 List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
+String xOrgId = ""; // String | 
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = ""; // String | 
 try {
-    List<PolicyResult> result = apiInstance.policyresultsList_0(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
+    List<PolicyResult> result = apiInstance.policyresultsList_0(contentType, accept, fields, filter, limit, xOrgId, skip, sort);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#policyresultsList_0");
@@ -779,13 +776,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **aggregate** | [**List&lt;String&gt;**](String.md)|  | [optional]
  **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional]
  **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to ]
 
 ### Return type
 

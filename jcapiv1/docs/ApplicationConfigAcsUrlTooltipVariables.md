@@ -1,5 +1,5 @@
 
-# ApplicationConfigIdpEntityIdTooltipVariables
+# ApplicationConfigAcsUrlTooltipVariables
 
 ## Properties
 Name | Type | Description | Notes

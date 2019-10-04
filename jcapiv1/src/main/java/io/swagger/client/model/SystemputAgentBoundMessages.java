@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemputAgentBoundMessages
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class SystemputAgentBoundMessages {
   @SerializedName("cmd")
   private String cmd = null;

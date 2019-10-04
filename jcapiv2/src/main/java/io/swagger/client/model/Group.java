@@ -27,16 +27,16 @@ import java.io.IOException;
 /**
  * Group
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class Group {
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("type")
-  private GroupType type = null;
-
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("type")
+  private GroupType type = null;
 
   public Group id(String id) {
     this.id = id;
@@ -54,24 +54,6 @@ public class Group {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public Group type(GroupType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @ApiModelProperty(value = "")
-  public GroupType getType() {
-    return type;
-  }
-
-  public void setType(GroupType type) {
-    this.type = type;
   }
 
   public Group name(String name) {
@@ -92,6 +74,24 @@ public class Group {
     this.name = name;
   }
 
+  public Group type(GroupType type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public GroupType getType() {
+    return type;
+  }
+
+  public void setType(GroupType type) {
+    this.type = type;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,13 +103,13 @@ public class Group {
     }
     Group group = (Group) o;
     return Objects.equals(this.id, group.id) &&
-        Objects.equals(this.type, group.type) &&
-        Objects.equals(this.name, group.name);
+        Objects.equals(this.name, group.name) &&
+        Objects.equals(this.type, group.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, name);
+    return Objects.hash(id, name, type);
   }
 
 
@@ -119,8 +119,8 @@ public class Group {
     sb.append("class Group {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

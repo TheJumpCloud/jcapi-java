@@ -28,34 +28,10 @@ import java.util.List;
 /**
  * Radiusserver
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class Radiusserver {
   @SerializedName("_id")
   private String id = null;
-
-  @SerializedName("organization")
-  private String organization = null;
-
-  @SerializedName("networkSourceIp")
-  private String networkSourceIp = null;
-
-  @SerializedName("sharedSecret")
-  private String sharedSecret = null;
-
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("tags")
-  private List<String> tags = null;
-
-  @SerializedName("tagNames")
-  private List<String> tagNames = null;
-
-  @SerializedName("userLockoutAction")
-  private String userLockoutAction = null;
-
-  @SerializedName("userPasswordExpirationAction")
-  private String userPasswordExpirationAction = null;
 
   /**
    * Gets or Sets mfa
@@ -111,6 +87,30 @@ public class Radiusserver {
   @SerializedName("mfa")
   private MfaEnum mfa = null;
 
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("networkSourceIp")
+  private String networkSourceIp = null;
+
+  @SerializedName("organization")
+  private String organization = null;
+
+  @SerializedName("sharedSecret")
+  private String sharedSecret = null;
+
+  @SerializedName("tagNames")
+  private List<String> tagNames = null;
+
+  @SerializedName("tags")
+  private List<String> tags = null;
+
+  @SerializedName("userLockoutAction")
+  private String userLockoutAction = null;
+
+  @SerializedName("userPasswordExpirationAction")
+  private String userPasswordExpirationAction = null;
+
   public Radiusserver id(String id) {
     this.id = id;
     return this;
@@ -129,58 +129,22 @@ public class Radiusserver {
     this.id = id;
   }
 
-  public Radiusserver organization(String organization) {
-    this.organization = organization;
+  public Radiusserver mfa(MfaEnum mfa) {
+    this.mfa = mfa;
     return this;
   }
 
    /**
-   * Get organization
-   * @return organization
+   * Get mfa
+   * @return mfa
   **/
   @ApiModelProperty(value = "")
-  public String getOrganization() {
-    return organization;
+  public MfaEnum getMfa() {
+    return mfa;
   }
 
-  public void setOrganization(String organization) {
-    this.organization = organization;
-  }
-
-  public Radiusserver networkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
-    return this;
-  }
-
-   /**
-   * Get networkSourceIp
-   * @return networkSourceIp
-  **/
-  @ApiModelProperty(value = "")
-  public String getNetworkSourceIp() {
-    return networkSourceIp;
-  }
-
-  public void setNetworkSourceIp(String networkSourceIp) {
-    this.networkSourceIp = networkSourceIp;
-  }
-
-  public Radiusserver sharedSecret(String sharedSecret) {
-    this.sharedSecret = sharedSecret;
-    return this;
-  }
-
-   /**
-   * Get sharedSecret
-   * @return sharedSecret
-  **/
-  @ApiModelProperty(value = "")
-  public String getSharedSecret() {
-    return sharedSecret;
-  }
-
-  public void setSharedSecret(String sharedSecret) {
-    this.sharedSecret = sharedSecret;
+  public void setMfa(MfaEnum mfa) {
+    this.mfa = mfa;
   }
 
   public Radiusserver name(String name) {
@@ -201,30 +165,58 @@ public class Radiusserver {
     this.name = name;
   }
 
-  public Radiusserver tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public Radiusserver addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<String>();
-    }
-    this.tags.add(tagsItem);
+  public Radiusserver networkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
     return this;
   }
 
    /**
-   * Get tags
-   * @return tags
+   * Get networkSourceIp
+   * @return networkSourceIp
   **/
   @ApiModelProperty(value = "")
-  public List<String> getTags() {
-    return tags;
+  public String getNetworkSourceIp() {
+    return networkSourceIp;
   }
 
-  public void setTags(List<String> tags) {
-    this.tags = tags;
+  public void setNetworkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
+  }
+
+  public Radiusserver organization(String organization) {
+    this.organization = organization;
+    return this;
+  }
+
+   /**
+   * Get organization
+   * @return organization
+  **/
+  @ApiModelProperty(value = "")
+  public String getOrganization() {
+    return organization;
+  }
+
+  public void setOrganization(String organization) {
+    this.organization = organization;
+  }
+
+  public Radiusserver sharedSecret(String sharedSecret) {
+    this.sharedSecret = sharedSecret;
+    return this;
+  }
+
+   /**
+   * Get sharedSecret
+   * @return sharedSecret
+  **/
+  @ApiModelProperty(value = "")
+  public String getSharedSecret() {
+    return sharedSecret;
+  }
+
+  public void setSharedSecret(String sharedSecret) {
+    this.sharedSecret = sharedSecret;
   }
 
   public Radiusserver tagNames(List<String> tagNames) {
@@ -251,6 +243,32 @@ public class Radiusserver {
 
   public void setTagNames(List<String> tagNames) {
     this.tagNames = tagNames;
+  }
+
+  public Radiusserver tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public Radiusserver addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
   }
 
   public Radiusserver userLockoutAction(String userLockoutAction) {
@@ -289,24 +307,6 @@ public class Radiusserver {
     this.userPasswordExpirationAction = userPasswordExpirationAction;
   }
 
-  public Radiusserver mfa(MfaEnum mfa) {
-    this.mfa = mfa;
-    return this;
-  }
-
-   /**
-   * Get mfa
-   * @return mfa
-  **/
-  @ApiModelProperty(value = "")
-  public MfaEnum getMfa() {
-    return mfa;
-  }
-
-  public void setMfa(MfaEnum mfa) {
-    this.mfa = mfa;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -318,20 +318,20 @@ public class Radiusserver {
     }
     Radiusserver radiusserver = (Radiusserver) o;
     return Objects.equals(this.id, radiusserver.id) &&
-        Objects.equals(this.organization, radiusserver.organization) &&
-        Objects.equals(this.networkSourceIp, radiusserver.networkSourceIp) &&
-        Objects.equals(this.sharedSecret, radiusserver.sharedSecret) &&
+        Objects.equals(this.mfa, radiusserver.mfa) &&
         Objects.equals(this.name, radiusserver.name) &&
-        Objects.equals(this.tags, radiusserver.tags) &&
+        Objects.equals(this.networkSourceIp, radiusserver.networkSourceIp) &&
+        Objects.equals(this.organization, radiusserver.organization) &&
+        Objects.equals(this.sharedSecret, radiusserver.sharedSecret) &&
         Objects.equals(this.tagNames, radiusserver.tagNames) &&
+        Objects.equals(this.tags, radiusserver.tags) &&
         Objects.equals(this.userLockoutAction, radiusserver.userLockoutAction) &&
-        Objects.equals(this.userPasswordExpirationAction, radiusserver.userPasswordExpirationAction) &&
-        Objects.equals(this.mfa, radiusserver.mfa);
+        Objects.equals(this.userPasswordExpirationAction, radiusserver.userPasswordExpirationAction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, organization, networkSourceIp, sharedSecret, name, tags, tagNames, userLockoutAction, userPasswordExpirationAction, mfa);
+    return Objects.hash(id, mfa, name, networkSourceIp, organization, sharedSecret, tagNames, tags, userLockoutAction, userPasswordExpirationAction);
   }
 
 
@@ -341,15 +341,15 @@ public class Radiusserver {
     sb.append("class Radiusserver {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
-    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
-    sb.append("    sharedSecret: ").append(toIndentedString(sharedSecret)).append("\n");
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
+    sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
+    sb.append("    sharedSecret: ").append(toIndentedString(sharedSecret)).append("\n");
     sb.append("    tagNames: ").append(toIndentedString(tagNames)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
     sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
-    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
     sb.append("}");
     return sb.toString();
   }

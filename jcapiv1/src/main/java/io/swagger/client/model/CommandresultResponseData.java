@@ -26,31 +26,13 @@ import java.io.IOException;
 /**
  * CommandresultResponseData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:16.716Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
 public class CommandresultResponseData {
-  @SerializedName("output")
-  private String output = null;
-
   @SerializedName("exitCode")
   private Integer exitCode = null;
 
-  public CommandresultResponseData output(String output) {
-    this.output = output;
-    return this;
-  }
-
-   /**
-   * The output of the command that was executed.
-   * @return output
-  **/
-  @ApiModelProperty(value = "The output of the command that was executed.")
-  public String getOutput() {
-    return output;
-  }
-
-  public void setOutput(String output) {
-    this.output = output;
-  }
+  @SerializedName("output")
+  private String output = null;
 
   public CommandresultResponseData exitCode(Integer exitCode) {
     this.exitCode = exitCode;
@@ -70,6 +52,24 @@ public class CommandresultResponseData {
     this.exitCode = exitCode;
   }
 
+  public CommandresultResponseData output(String output) {
+    this.output = output;
+    return this;
+  }
+
+   /**
+   * The output of the command that was executed.
+   * @return output
+  **/
+  @ApiModelProperty(value = "The output of the command that was executed.")
+  public String getOutput() {
+    return output;
+  }
+
+  public void setOutput(String output) {
+    this.output = output;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,13 +80,13 @@ public class CommandresultResponseData {
       return false;
     }
     CommandresultResponseData commandresultResponseData = (CommandresultResponseData) o;
-    return Objects.equals(this.output, commandresultResponseData.output) &&
-        Objects.equals(this.exitCode, commandresultResponseData.exitCode);
+    return Objects.equals(this.exitCode, commandresultResponseData.exitCode) &&
+        Objects.equals(this.output, commandresultResponseData.output);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(output, exitCode);
+    return Objects.hash(exitCode, output);
   }
 
 
@@ -95,8 +95,8 @@ public class CommandresultResponseData {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommandresultResponseData {\n");
     
-    sb.append("    output: ").append(toIndentedString(output)).append("\n");
     sb.append("    exitCode: ").append(toIndentedString(exitCode)).append("\n");
+    sb.append("    output: ").append(toIndentedString(output)).append("\n");
     sb.append("}");
     return sb.toString();
   }

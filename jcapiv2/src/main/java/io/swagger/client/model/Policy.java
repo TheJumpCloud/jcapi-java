@@ -28,16 +28,16 @@ import java.io.IOException;
  * An instance of a policy template.
  */
 @ApiModel(description = "An instance of a policy template.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class Policy {
   @SerializedName("id")
   private String id = null;
 
-  @SerializedName("template")
-  private PolicyTemplate template = null;
-
   @SerializedName("name")
   private String name = null;
+
+  @SerializedName("template")
+  private PolicyTemplate template = null;
 
   public Policy id(String id) {
     this.id = id;
@@ -55,24 +55,6 @@ public class Policy {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public Policy template(PolicyTemplate template) {
-    this.template = template;
-    return this;
-  }
-
-   /**
-   * Get template
-   * @return template
-  **/
-  @ApiModelProperty(value = "")
-  public PolicyTemplate getTemplate() {
-    return template;
-  }
-
-  public void setTemplate(PolicyTemplate template) {
-    this.template = template;
   }
 
   public Policy name(String name) {
@@ -93,6 +75,24 @@ public class Policy {
     this.name = name;
   }
 
+  public Policy template(PolicyTemplate template) {
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @ApiModelProperty(value = "")
+  public PolicyTemplate getTemplate() {
+    return template;
+  }
+
+  public void setTemplate(PolicyTemplate template) {
+    this.template = template;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -104,13 +104,13 @@ public class Policy {
     }
     Policy policy = (Policy) o;
     return Objects.equals(this.id, policy.id) &&
-        Objects.equals(this.template, policy.template) &&
-        Objects.equals(this.name, policy.name);
+        Objects.equals(this.name, policy.name) &&
+        Objects.equals(this.template, policy.template);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, template, name);
+    return Objects.hash(id, name, template);
   }
 
 
@@ -120,8 +120,8 @@ public class Policy {
     sb.append("class Policy {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("}");
     return sb.toString();
   }

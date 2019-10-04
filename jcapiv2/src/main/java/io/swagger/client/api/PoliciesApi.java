@@ -1632,16 +1632,15 @@ public class PoliciesApi {
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param aggregate  (optional)
-     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call policyresultsListCall(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, List<String> aggregate, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call policyresultsListCall(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1660,16 +1659,14 @@ public class PoliciesApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
         if (sort != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "sort", sort));
-        if (aggregate != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "aggregate", aggregate));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1702,7 +1699,7 @@ public class PoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call policyresultsListValidateBeforeCall(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, List<String> aggregate, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call policyresultsListValidateBeforeCall(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'policyId' is set
         if (policyId == null) {
@@ -1720,7 +1717,7 @@ public class PoliciesApi {
         }
         
 
-        com.squareup.okhttp.Call call = policyresultsListCall(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = policyresultsListCall(policyId, contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1734,15 +1731,14 @@ public class PoliciesApi {
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param aggregate  (optional)
-     * @param xOrgId  (optional, default to )
      * @return List&lt;PolicyResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<PolicyResult> policyresultsList(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, List<String> aggregate, String xOrgId) throws ApiException {
-        ApiResponse<List<PolicyResult>> resp = policyresultsListWithHttpInfo(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId);
+    public List<PolicyResult> policyresultsList(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
+        ApiResponse<List<PolicyResult>> resp = policyresultsListWithHttpInfo(policyId, contentType, accept, fields, filter, limit, xOrgId, skip, sort);
         return resp.getData();
     }
 
@@ -1755,15 +1751,14 @@ public class PoliciesApi {
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param aggregate  (optional)
-     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;PolicyResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<PolicyResult>> policyresultsListWithHttpInfo(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, List<String> aggregate, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = policyresultsListValidateBeforeCall(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId, null, null);
+    public ApiResponse<List<PolicyResult>> policyresultsListWithHttpInfo(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
+        com.squareup.okhttp.Call call = policyresultsListValidateBeforeCall(policyId, contentType, accept, fields, filter, limit, xOrgId, skip, sort, null, null);
         Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1777,15 +1772,14 @@ public class PoliciesApi {
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param aggregate  (optional)
-     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call policyresultsListAsync(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, List<String> aggregate, String xOrgId, final ApiCallback<List<PolicyResult>> callback) throws ApiException {
+    public com.squareup.okhttp.Call policyresultsListAsync(String policyId, String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ApiCallback<List<PolicyResult>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1806,7 +1800,7 @@ public class PoliciesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = policyresultsListValidateBeforeCall(policyId, contentType, accept, fields, filter, limit, skip, sort, aggregate, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = policyresultsListValidateBeforeCall(policyId, contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -1815,19 +1809,18 @@ public class PoliciesApi {
      * Build call for policyresultsList_0
      * @param contentType  (required)
      * @param accept  (required)
-     * @param aggregate  (optional)
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call policyresultsList_0Call(String contentType, String accept, List<String> aggregate, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call policyresultsList_0Call(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1835,8 +1828,6 @@ public class PoliciesApi {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (aggregate != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "aggregate", aggregate));
         if (fields != null)
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "fields", fields));
         if (filter != null)
@@ -1849,12 +1840,12 @@ public class PoliciesApi {
         localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "sort", sort));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
         if (accept != null)
         localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -1887,7 +1878,7 @@ public class PoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call policyresultsList_0ValidateBeforeCall(String contentType, String accept, List<String> aggregate, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call policyresultsList_0ValidateBeforeCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -1900,7 +1891,7 @@ public class PoliciesApi {
         }
         
 
-        com.squareup.okhttp.Call call = policyresultsList_0Call(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = policyresultsList_0Call(contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1910,18 +1901,17 @@ public class PoliciesApi {
      * This endpoint returns all policies results for an organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param aggregate  (optional)
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to )
      * @return List&lt;PolicyResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<PolicyResult> policyresultsList_0(String contentType, String accept, List<String> aggregate, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
-        ApiResponse<List<PolicyResult>> resp = policyresultsList_0WithHttpInfo(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId);
+    public List<PolicyResult> policyresultsList_0(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
+        ApiResponse<List<PolicyResult>> resp = policyresultsList_0WithHttpInfo(contentType, accept, fields, filter, limit, xOrgId, skip, sort);
         return resp.getData();
     }
 
@@ -1930,18 +1920,17 @@ public class PoliciesApi {
      * This endpoint returns all policies results for an organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param aggregate  (optional)
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;PolicyResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<PolicyResult>> policyresultsList_0WithHttpInfo(String contentType, String accept, List<String> aggregate, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = policyresultsList_0ValidateBeforeCall(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId, null, null);
+    public ApiResponse<List<PolicyResult>> policyresultsList_0WithHttpInfo(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
+        com.squareup.okhttp.Call call = policyresultsList_0ValidateBeforeCall(contentType, accept, fields, filter, limit, xOrgId, skip, sort, null, null);
         Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1951,18 +1940,17 @@ public class PoliciesApi {
      * This endpoint returns all policies results for an organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param aggregate  (optional)
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
+     * @param xOrgId  (optional, default to )
      * @param skip The offset into the records to return. (optional, default to 0)
      * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
-     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call policyresultsList_0Async(String contentType, String accept, List<String> aggregate, List<String> fields, List<String> filter, Integer limit, Integer skip, List<String> sort, String xOrgId, final ApiCallback<List<PolicyResult>> callback) throws ApiException {
+    public com.squareup.okhttp.Call policyresultsList_0Async(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ApiCallback<List<PolicyResult>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1983,7 +1971,7 @@ public class PoliciesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = policyresultsList_0ValidateBeforeCall(contentType, accept, aggregate, fields, filter, limit, skip, sort, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = policyresultsList_0ValidateBeforeCall(contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

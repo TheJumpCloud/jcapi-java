@@ -26,16 +26,34 @@ import java.io.IOException;
 /**
  * OrgcryptosettingsSshKeys
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class OrgcryptosettingsSshKeys {
+  @SerializedName("keySize")
+  private Integer keySize = null;
+
   @SerializedName("validate")
   private Boolean validate = null;
 
   @SerializedName("validateKeySize")
   private Boolean validateKeySize = null;
 
-  @SerializedName("keySize")
-  private Integer keySize = null;
+  public OrgcryptosettingsSshKeys keySize(Integer keySize) {
+    this.keySize = keySize;
+    return this;
+  }
+
+   /**
+   * Get keySize
+   * @return keySize
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getKeySize() {
+    return keySize;
+  }
+
+  public void setKeySize(Integer keySize) {
+    this.keySize = keySize;
+  }
 
   public OrgcryptosettingsSshKeys validate(Boolean validate) {
     this.validate = validate;
@@ -73,24 +91,6 @@ public class OrgcryptosettingsSshKeys {
     this.validateKeySize = validateKeySize;
   }
 
-  public OrgcryptosettingsSshKeys keySize(Integer keySize) {
-    this.keySize = keySize;
-    return this;
-  }
-
-   /**
-   * Get keySize
-   * @return keySize
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getKeySize() {
-    return keySize;
-  }
-
-  public void setKeySize(Integer keySize) {
-    this.keySize = keySize;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -101,14 +101,14 @@ public class OrgcryptosettingsSshKeys {
       return false;
     }
     OrgcryptosettingsSshKeys orgcryptosettingsSshKeys = (OrgcryptosettingsSshKeys) o;
-    return Objects.equals(this.validate, orgcryptosettingsSshKeys.validate) &&
-        Objects.equals(this.validateKeySize, orgcryptosettingsSshKeys.validateKeySize) &&
-        Objects.equals(this.keySize, orgcryptosettingsSshKeys.keySize);
+    return Objects.equals(this.keySize, orgcryptosettingsSshKeys.keySize) &&
+        Objects.equals(this.validate, orgcryptosettingsSshKeys.validate) &&
+        Objects.equals(this.validateKeySize, orgcryptosettingsSshKeys.validateKeySize);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(validate, validateKeySize, keySize);
+    return Objects.hash(keySize, validate, validateKeySize);
   }
 
 
@@ -117,9 +117,9 @@ public class OrgcryptosettingsSshKeys {
     StringBuilder sb = new StringBuilder();
     sb.append("class OrgcryptosettingsSshKeys {\n");
     
+    sb.append("    keySize: ").append(toIndentedString(keySize)).append("\n");
     sb.append("    validate: ").append(toIndentedString(validate)).append("\n");
     sb.append("    validateKeySize: ").append(toIndentedString(validateKeySize)).append("\n");
-    sb.append("    keySize: ").append(toIndentedString(keySize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

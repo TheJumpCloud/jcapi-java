@@ -26,34 +26,25 @@ import java.io.IOException;
 /**
  * SystemInsightsChromeExtensions
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-09T16:30:22.486Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
 public class SystemInsightsChromeExtensions {
-  @SerializedName("uid")
-  private String uid = null;
+  @SerializedName("author")
+  private String author = null;
 
-  @SerializedName("name")
-  private String name = null;
-
-  @SerializedName("identifier")
-  private String identifier = null;
-
-  @SerializedName("version")
-  private String version = null;
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("description")
   private String description = null;
 
+  @SerializedName("identifier")
+  private String identifier = null;
+
   @SerializedName("locale")
   private String locale = null;
 
-  @SerializedName("update_url")
-  private String updateUrl = null;
-
-  @SerializedName("author")
-  private String author = null;
-
-  @SerializedName("persistent")
-  private Integer persistent = null;
+  @SerializedName("name")
+  private String name = null;
 
   @SerializedName("path")
   private String path = null;
@@ -61,82 +52,55 @@ public class SystemInsightsChromeExtensions {
   @SerializedName("permissions")
   private String permissions = null;
 
-  @SerializedName("jc_collection_time")
-  private String jcCollectionTime = null;
+  @SerializedName("persistent")
+  private Integer persistent = null;
 
-  @SerializedName("jc_system_id")
-  private String jcSystemId = null;
+  @SerializedName("system_id")
+  private String systemId = null;
 
-  public SystemInsightsChromeExtensions uid(String uid) {
-    this.uid = uid;
+  @SerializedName("uid")
+  private String uid = null;
+
+  @SerializedName("update_url")
+  private String updateUrl = null;
+
+  @SerializedName("version")
+  private String version = null;
+
+  public SystemInsightsChromeExtensions author(String author) {
+    this.author = author;
     return this;
   }
 
    /**
-   * Get uid
-   * @return uid
+   * Get author
+   * @return author
   **/
   @ApiModelProperty(value = "")
-  public String getUid() {
-    return uid;
+  public String getAuthor() {
+    return author;
   }
 
-  public void setUid(String uid) {
-    this.uid = uid;
+  public void setAuthor(String author) {
+    this.author = author;
   }
 
-  public SystemInsightsChromeExtensions name(String name) {
-    this.name = name;
+  public SystemInsightsChromeExtensions collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get collectionTime
+   * @return collectionTime
   **/
   @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
+  public String getCollectionTime() {
+    return collectionTime;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SystemInsightsChromeExtensions identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * Get identifier
-   * @return identifier
-  **/
-  @ApiModelProperty(value = "")
-  public String getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public SystemInsightsChromeExtensions version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * @return version
-  **/
-  @ApiModelProperty(value = "")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
   public SystemInsightsChromeExtensions description(String description) {
@@ -157,6 +121,24 @@ public class SystemInsightsChromeExtensions {
     this.description = description;
   }
 
+  public SystemInsightsChromeExtensions identifier(String identifier) {
+    this.identifier = identifier;
+    return this;
+  }
+
+   /**
+   * Get identifier
+   * @return identifier
+  **/
+  @ApiModelProperty(value = "")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
   public SystemInsightsChromeExtensions locale(String locale) {
     this.locale = locale;
     return this;
@@ -175,58 +157,22 @@ public class SystemInsightsChromeExtensions {
     this.locale = locale;
   }
 
-  public SystemInsightsChromeExtensions updateUrl(String updateUrl) {
-    this.updateUrl = updateUrl;
+  public SystemInsightsChromeExtensions name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get updateUrl
-   * @return updateUrl
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
-  public String getUpdateUrl() {
-    return updateUrl;
+  public String getName() {
+    return name;
   }
 
-  public void setUpdateUrl(String updateUrl) {
-    this.updateUrl = updateUrl;
-  }
-
-  public SystemInsightsChromeExtensions author(String author) {
-    this.author = author;
-    return this;
-  }
-
-   /**
-   * Get author
-   * @return author
-  **/
-  @ApiModelProperty(value = "")
-  public String getAuthor() {
-    return author;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
-  public SystemInsightsChromeExtensions persistent(Integer persistent) {
-    this.persistent = persistent;
-    return this;
-  }
-
-   /**
-   * Get persistent
-   * @return persistent
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getPersistent() {
-    return persistent;
-  }
-
-  public void setPersistent(Integer persistent) {
-    this.persistent = persistent;
+  public void setName(String name) {
+    this.name = name;
   }
 
   public SystemInsightsChromeExtensions path(String path) {
@@ -265,40 +211,94 @@ public class SystemInsightsChromeExtensions {
     this.permissions = permissions;
   }
 
-  public SystemInsightsChromeExtensions jcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public SystemInsightsChromeExtensions persistent(Integer persistent) {
+    this.persistent = persistent;
     return this;
   }
 
    /**
-   * Get jcCollectionTime
-   * @return jcCollectionTime
+   * Get persistent
+   * @return persistent
   **/
   @ApiModelProperty(value = "")
-  public String getJcCollectionTime() {
-    return jcCollectionTime;
+  public Integer getPersistent() {
+    return persistent;
   }
 
-  public void setJcCollectionTime(String jcCollectionTime) {
-    this.jcCollectionTime = jcCollectionTime;
+  public void setPersistent(Integer persistent) {
+    this.persistent = persistent;
   }
 
-  public SystemInsightsChromeExtensions jcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public SystemInsightsChromeExtensions systemId(String systemId) {
+    this.systemId = systemId;
     return this;
   }
 
    /**
-   * Get jcSystemId
-   * @return jcSystemId
+   * Get systemId
+   * @return systemId
   **/
   @ApiModelProperty(value = "")
-  public String getJcSystemId() {
-    return jcSystemId;
+  public String getSystemId() {
+    return systemId;
   }
 
-  public void setJcSystemId(String jcSystemId) {
-    this.jcSystemId = jcSystemId;
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
+  }
+
+  public SystemInsightsChromeExtensions uid(String uid) {
+    this.uid = uid;
+    return this;
+  }
+
+   /**
+   * Get uid
+   * @return uid
+  **/
+  @ApiModelProperty(value = "")
+  public String getUid() {
+    return uid;
+  }
+
+  public void setUid(String uid) {
+    this.uid = uid;
+  }
+
+  public SystemInsightsChromeExtensions updateUrl(String updateUrl) {
+    this.updateUrl = updateUrl;
+    return this;
+  }
+
+   /**
+   * Get updateUrl
+   * @return updateUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getUpdateUrl() {
+    return updateUrl;
+  }
+
+  public void setUpdateUrl(String updateUrl) {
+    this.updateUrl = updateUrl;
+  }
+
+  public SystemInsightsChromeExtensions version(String version) {
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @ApiModelProperty(value = "")
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -311,24 +311,24 @@ public class SystemInsightsChromeExtensions {
       return false;
     }
     SystemInsightsChromeExtensions systemInsightsChromeExtensions = (SystemInsightsChromeExtensions) o;
-    return Objects.equals(this.uid, systemInsightsChromeExtensions.uid) &&
-        Objects.equals(this.name, systemInsightsChromeExtensions.name) &&
-        Objects.equals(this.identifier, systemInsightsChromeExtensions.identifier) &&
-        Objects.equals(this.version, systemInsightsChromeExtensions.version) &&
+    return Objects.equals(this.author, systemInsightsChromeExtensions.author) &&
+        Objects.equals(this.collectionTime, systemInsightsChromeExtensions.collectionTime) &&
         Objects.equals(this.description, systemInsightsChromeExtensions.description) &&
+        Objects.equals(this.identifier, systemInsightsChromeExtensions.identifier) &&
         Objects.equals(this.locale, systemInsightsChromeExtensions.locale) &&
-        Objects.equals(this.updateUrl, systemInsightsChromeExtensions.updateUrl) &&
-        Objects.equals(this.author, systemInsightsChromeExtensions.author) &&
-        Objects.equals(this.persistent, systemInsightsChromeExtensions.persistent) &&
+        Objects.equals(this.name, systemInsightsChromeExtensions.name) &&
         Objects.equals(this.path, systemInsightsChromeExtensions.path) &&
         Objects.equals(this.permissions, systemInsightsChromeExtensions.permissions) &&
-        Objects.equals(this.jcCollectionTime, systemInsightsChromeExtensions.jcCollectionTime) &&
-        Objects.equals(this.jcSystemId, systemInsightsChromeExtensions.jcSystemId);
+        Objects.equals(this.persistent, systemInsightsChromeExtensions.persistent) &&
+        Objects.equals(this.systemId, systemInsightsChromeExtensions.systemId) &&
+        Objects.equals(this.uid, systemInsightsChromeExtensions.uid) &&
+        Objects.equals(this.updateUrl, systemInsightsChromeExtensions.updateUrl) &&
+        Objects.equals(this.version, systemInsightsChromeExtensions.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uid, name, identifier, version, description, locale, updateUrl, author, persistent, path, permissions, jcCollectionTime, jcSystemId);
+    return Objects.hash(author, collectionTime, description, identifier, locale, name, path, permissions, persistent, systemId, uid, updateUrl, version);
   }
 
 
@@ -337,19 +337,19 @@ public class SystemInsightsChromeExtensions {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsChromeExtensions {\n");
     
-    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
-    sb.append("    updateUrl: ").append(toIndentedString(updateUrl)).append("\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
-    sb.append("    persistent: ").append(toIndentedString(persistent)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    jcCollectionTime: ").append(toIndentedString(jcCollectionTime)).append("\n");
-    sb.append("    jcSystemId: ").append(toIndentedString(jcSystemId)).append("\n");
+    sb.append("    persistent: ").append(toIndentedString(persistent)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
+    sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
+    sb.append("    updateUrl: ").append(toIndentedString(updateUrl)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

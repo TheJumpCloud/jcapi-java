@@ -4,12 +4,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**displayName** | **String** |  |  [optional]
-**allowSshPasswordAuthentication** | **Boolean** |  |  [optional]
-**allowSshRootLogin** | **Boolean** |  |  [optional]
+**agentBoundMessages** | [**List&lt;SystemputAgentBoundMessages&gt;**](SystemputAgentBoundMessages.md) |  |  [optional]
 **allowMultiFactorAuthentication** | **Boolean** |  |  [optional]
 **allowPublicKeyAuthentication** | **Boolean** |  |  [optional]
-**agentBoundMessages** | [**List&lt;SystemputAgentBoundMessages&gt;**](SystemputAgentBoundMessages.md) |  |  [optional]
+**allowSshPasswordAuthentication** | **Boolean** |  |  [optional]
+**allowSshRootLogin** | **Boolean** |  |  [optional]
+**displayName** | **String** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
 
 
