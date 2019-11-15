@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **integrationKey** | **String** |  | 
 **name** | **String** |  | 
-**secretKey** | **String** |  | 
 
 
 

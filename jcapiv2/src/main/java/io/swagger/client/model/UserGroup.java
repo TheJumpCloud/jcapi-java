@@ -21,13 +21,17 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.UserGroupAttributes;
 import java.io.IOException;
 
 /**
  * UserGroup
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
 public class UserGroup {
+  @SerializedName("attributes")
+  private UserGroupAttributes attributes = null;
+
   @SerializedName("id")
   private String id = null;
 
@@ -81,6 +85,24 @@ public class UserGroup {
 
   @SerializedName("type")
   private TypeEnum type = null;
+
+  public UserGroup attributes(UserGroupAttributes attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+   /**
+   * Get attributes
+   * @return attributes
+  **/
+  @ApiModelProperty(value = "")
+  public UserGroupAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(UserGroupAttributes attributes) {
+    this.attributes = attributes;
+  }
 
   public UserGroup id(String id) {
     this.id = id;
@@ -146,14 +168,15 @@ public class UserGroup {
       return false;
     }
     UserGroup userGroup = (UserGroup) o;
-    return Objects.equals(this.id, userGroup.id) &&
+    return Objects.equals(this.attributes, userGroup.attributes) &&
+        Objects.equals(this.id, userGroup.id) &&
         Objects.equals(this.name, userGroup.name) &&
         Objects.equals(this.type, userGroup.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type);
+    return Objects.hash(attributes, id, name, type);
   }
 
 
@@ -162,6 +185,7 @@ public class UserGroup {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserGroup {\n");
     
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

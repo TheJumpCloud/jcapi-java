@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 **sudo** | **Boolean** |  |  [optional]
 **systems** | **List&lt;String&gt;** | An array of system IDs to run the command on. Not available if you are using Groups. |  [optional]
 **timeout** | **String** | The time in seconds to allow the command to run for. |  [optional]
-**user** | **String** | The ID of the system user to run the command as. | 
+**trigger** | **String** | The name of the command trigger. |  [optional]
+**user** | **String** | The ID of the system user to run the command as. This field is required when creating a command with a commandType of \&quot;mac\&quot; or \&quot;linux\&quot;. |  [optional]
 
 
 

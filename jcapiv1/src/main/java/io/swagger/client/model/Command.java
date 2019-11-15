@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Command
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:11.958Z")
 public class Command {
   @SerializedName("command")
   private String command = null;
@@ -68,6 +68,9 @@ public class Command {
 
   @SerializedName("timeout")
   private String timeout = null;
+
+  @SerializedName("trigger")
+  private String trigger = null;
 
   @SerializedName("user")
   private String user = null;
@@ -330,16 +333,34 @@ public class Command {
     this.timeout = timeout;
   }
 
+  public Command trigger(String trigger) {
+    this.trigger = trigger;
+    return this;
+  }
+
+   /**
+   * The name of the command trigger.
+   * @return trigger
+  **/
+  @ApiModelProperty(value = "The name of the command trigger.")
+  public String getTrigger() {
+    return trigger;
+  }
+
+  public void setTrigger(String trigger) {
+    this.trigger = trigger;
+  }
+
   public Command user(String user) {
     this.user = user;
     return this;
   }
 
    /**
-   * The ID of the system user to run the command as.
+   * The ID of the system user to run the command as. This field is required when creating a command with a commandType of \&quot;mac\&quot; or \&quot;linux\&quot;.
    * @return user
   **/
-  @ApiModelProperty(required = true, value = "The ID of the system user to run the command as.")
+  @ApiModelProperty(value = "The ID of the system user to run the command as. This field is required when creating a command with a commandType of \"mac\" or \"linux\".")
   public String getUser() {
     return user;
   }
@@ -371,12 +392,13 @@ public class Command {
         Objects.equals(this.sudo, command.sudo) &&
         Objects.equals(this.systems, command.systems) &&
         Objects.equals(this.timeout, command.timeout) &&
+        Objects.equals(this.trigger, command.trigger) &&
         Objects.equals(this.user, command.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(command, commandRunners, commandType, files, launchType, listensTo, name, organization, schedule, scheduleRepeatType, sudo, systems, timeout, user);
+    return Objects.hash(command, commandRunners, commandType, files, launchType, listensTo, name, organization, schedule, scheduleRepeatType, sudo, systems, timeout, trigger, user);
   }
 
 
@@ -398,6 +420,7 @@ public class Command {
     sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
     sb.append("    systems: ").append(toIndentedString(systems)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();

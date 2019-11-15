@@ -61,32 +61,37 @@ Please follow the [installation](#installation) instruction and execute the foll
 import io.swagger.client.*;
 import io.swagger.client.auth.*;
 import io.swagger.client.model.*;
-import io.swagger.client.api.ApplicationsApi;
+import io.swagger.client.api.ApplicationTemplatesApi;
 
 import java.io.File;
 import java.util.*;
 
-public class ApplicationsApiExample {
+public class ApplicationTemplatesApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x_api_key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x-api-key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x_api_key.setApiKeyPrefix("Token");
+        //x-api-key.setApiKeyPrefix("Token");
 
-        ApplicationsApi apiInstance = new ApplicationsApi();
+        ApplicationTemplatesApi apiInstance = new ApplicationTemplatesApi();
         String id = "id_example"; // String | 
-        String contentType = "contentType_example"; // String | 
-        String accept = "accept_example"; // String | 
-        String xOrgId = "xOrgId_example"; // String | 
+        String contentType = "application/json"; // String | 
+        String accept = "application/json"; // String | 
+        String fields = "fields_example"; // String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
+        Integer limit = 56; // Integer | The number of records to return at once.
+        Integer skip = 56; // Integer | The offset into the records to return.
+        String sort = "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending."; // String | 
+        String filter = "filter_example"; // String | A filter to apply to the query.
+        String xOrgId = ""; // String | 
         try {
-            Application result = apiInstance.applicationsDelete(id, contentType, accept, xOrgId);
+            Applicationtemplate result = apiInstance.applicationTemplatesGet(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling ApplicationsApi#applicationsDelete");
+            System.err.println("Exception when calling ApplicationTemplatesApi#applicationTemplatesGet");
             e.printStackTrace();
         }
     }
@@ -100,6 +105,8 @@ All URIs are relative to *https://console.jumpcloud.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*ApplicationTemplatesApi* | [**applicationTemplatesGet**](docs/ApplicationTemplatesApi.md#applicationTemplatesGet) | **GET** /application-templates/{id} | Get an Application Template
+*ApplicationTemplatesApi* | [**applicationTemplatesList**](docs/ApplicationTemplatesApi.md#applicationTemplatesList) | **GET** /application-templates | List Application Templates
 *ApplicationsApi* | [**applicationsDelete**](docs/ApplicationsApi.md#applicationsDelete) | **DELETE** /applications/{id} | Delete an Application
 *ApplicationsApi* | [**applicationsGet**](docs/ApplicationsApi.md#applicationsGet) | **GET** /applications/{id} | Get an Application
 *ApplicationsApi* | [**applicationsList**](docs/ApplicationsApi.md#applicationsList) | **GET** /applications | Applications
@@ -112,13 +119,13 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandFileGet**](docs/CommandsApi.md#commandFileGet) | **GET** /files/command/{id} | Get a Command File
 *CommandsApi* | [**commandsDelete**](docs/CommandsApi.md#commandsDelete) | **DELETE** /commands/{id} | Delete a Command
 *CommandsApi* | [**commandsGet**](docs/CommandsApi.md#commandsGet) | **GET** /commands/{id} | List an individual Command
-*CommandsApi* | [**commandsList**](docs/CommandsApi.md#commandsList) | **GET** /commands/ | List All Commands
-*CommandsApi* | [**commandsPost**](docs/CommandsApi.md#commandsPost) | **POST** /commands/ | Create A Command
+*CommandsApi* | [**commandsList**](docs/CommandsApi.md#commandsList) | **GET** /commands | List All Commands
+*CommandsApi* | [**commandsPost**](docs/CommandsApi.md#commandsPost) | **POST** /commands | Create A Command
 *CommandsApi* | [**commandsPut**](docs/CommandsApi.md#commandsPut) | **PUT** /commands/{id} | Update a Command
 *OrganizationsApi* | [**organizationList**](docs/OrganizationsApi.md#organizationList) | **GET** /organizations | Get Organization Details
 *RadiusServersApi* | [**radiusServersList**](docs/RadiusServersApi.md#radiusServersList) | **GET** /radiusservers | List Radius Servers
 *RadiusServersApi* | [**radiusServersPost**](docs/RadiusServersApi.md#radiusServersPost) | **POST** /radiusservers | Create a Radius Server
-*RadiusServersApi* | [**radiusServersPut**](docs/RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers:id | Update Radius Servers
+*RadiusServersApi* | [**radiusServersPut**](docs/RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers/{id} | Update Radius Servers
 *SearchApi* | [**searchOrganizationsPost**](docs/SearchApi.md#searchOrganizationsPost) | **POST** /search/organizations | Search Organizations
 *SearchApi* | [**searchSystemsPost**](docs/SearchApi.md#searchSystemsPost) | **POST** /search/systems | Search Systems
 *SearchApi* | [**searchSystemusersPost**](docs/SearchApi.md#searchSystemusersPost) | **POST** /search/systemusers | Search System Users
@@ -158,6 +165,9 @@ Class | Method | HTTP request | Description
  - [ApplicationConfigConstantAttributesValue](docs/ApplicationConfigConstantAttributesValue.md)
  - [ApplicationConfigDatabaseAttributes](docs/ApplicationConfigDatabaseAttributes.md)
  - [Applicationslist](docs/Applicationslist.md)
+ - [Applicationtemplate](docs/Applicationtemplate.md)
+ - [ApplicationtemplateJit](docs/ApplicationtemplateJit.md)
+ - [Applicationtemplateslist](docs/Applicationtemplateslist.md)
  - [Body](docs/Body.md)
  - [Body1](docs/Body1.md)
  - [Command](docs/Command.md)

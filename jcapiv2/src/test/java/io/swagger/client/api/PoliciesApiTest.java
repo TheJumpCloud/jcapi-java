@@ -277,7 +277,7 @@ public class PoliciesApiTest {
      *          if the Api call fails
      */
     @Test
-    public void policyresultsList_0Test() throws ApiException {
+    public void policyresultsOrgListTest() throws ApiException {
         String contentType = null;
         String accept = null;
         List<String> fields = null;
@@ -286,7 +286,7 @@ public class PoliciesApiTest {
         String xOrgId = null;
         Integer skip = null;
         List<String> sort = null;
-        List<PolicyResult> response = api.policyresultsList_0(contentType, accept, fields, filter, limit, xOrgId, skip, sort);
+        List<PolicyResult> response = api.policyresultsOrgList(contentType, accept, fields, filter, limit, xOrgId, skip, sort);
 
         // TODO: test validations
     }

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Directory
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
 public class Directory {
   @SerializedName("id")
   private String id = null;
@@ -39,6 +39,8 @@ public class Directory {
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
+    ACTIVE_DIRECTORY("active_directory"),
+    
     G_SUITE("g_suite"),
     
     LDAP_SERVER("ldap_server"),

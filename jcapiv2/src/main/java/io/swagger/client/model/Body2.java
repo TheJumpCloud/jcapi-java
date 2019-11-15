@@ -22,37 +22,50 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * UserGroupPostAttributesPosixGroups
+ * Body2
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
-public class UserGroupPostAttributesPosixGroups {
-  @SerializedName("id")
-  private Integer id = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
+public class Body2 {
+  @SerializedName("groups")
+  private List<String> groups = null;
 
   @SerializedName("name")
   private String name = null;
 
-  public UserGroupPostAttributesPosixGroups id(Integer id) {
-    this.id = id;
+  @SerializedName("users")
+  private List<String> users = null;
+
+  public Body2 groups(List<String> groups) {
+    this.groups = groups;
+    return this;
+  }
+
+  public Body2 addGroupsItem(String groupsItem) {
+    if (this.groups == null) {
+      this.groups = new ArrayList<String>();
+    }
+    this.groups.add(groupsItem);
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get groups
+   * @return groups
   **/
   @ApiModelProperty(value = "")
-  public Integer getId() {
-    return id;
+  public List<String> getGroups() {
+    return groups;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
+  public void setGroups(List<String> groups) {
+    this.groups = groups;
   }
 
-  public UserGroupPostAttributesPosixGroups name(String name) {
+  public Body2 name(String name) {
     this.name = name;
     return this;
   }
@@ -70,6 +83,32 @@ public class UserGroupPostAttributesPosixGroups {
     this.name = name;
   }
 
+  public Body2 users(List<String> users) {
+    this.users = users;
+    return this;
+  }
+
+  public Body2 addUsersItem(String usersItem) {
+    if (this.users == null) {
+      this.users = new ArrayList<String>();
+    }
+    this.users.add(usersItem);
+    return this;
+  }
+
+   /**
+   * Get users
+   * @return users
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getUsers() {
+    return users;
+  }
+
+  public void setUsers(List<String> users) {
+    this.users = users;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -79,24 +118,26 @@ public class UserGroupPostAttributesPosixGroups {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserGroupPostAttributesPosixGroups userGroupPostAttributesPosixGroups = (UserGroupPostAttributesPosixGroups) o;
-    return Objects.equals(this.id, userGroupPostAttributesPosixGroups.id) &&
-        Objects.equals(this.name, userGroupPostAttributesPosixGroups.name);
+    Body2 body2 = (Body2) o;
+    return Objects.equals(this.groups, body2.groups) &&
+        Objects.equals(this.name, body2.name) &&
+        Objects.equals(this.users, body2.users);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name);
+    return Objects.hash(groups, name, users);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserGroupPostAttributesPosixGroups {\n");
+    sb.append("class Body2 {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("}");
     return sb.toString();
   }

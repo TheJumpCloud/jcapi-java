@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Get Organization Details
 
-This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns Organization Details.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -27,10 +27,10 @@ This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 OrganizationsApi apiInstance = new OrganizationsApi();
 String contentType = "application/json"; // String | 

@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * CommandslistResults
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:11.958Z")
 public class CommandslistResults {
   @SerializedName("_id")
   private String id = null;
@@ -136,7 +136,7 @@ public class CommandslistResults {
   }
 
    /**
-   * 
+   * Get listensTo
    * @return listensTo
   **/
   @ApiModelProperty(value = "")
@@ -190,10 +190,10 @@ public class CommandslistResults {
   }
 
    /**
-   * A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
+   * A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately.
    * @return schedule
   **/
-  @ApiModelProperty(value = "A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. ")
+  @ApiModelProperty(value = "A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately.")
   public String getSchedule() {
     return schedule;
   }

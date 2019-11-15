@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * DuoApplication
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
 public class DuoApplication {
   @SerializedName("apiHost")
   private String apiHost = null;
@@ -39,9 +39,6 @@ public class DuoApplication {
 
   @SerializedName("name")
   private String name = null;
-
-  @SerializedName("secretKey")
-  private String secretKey = null;
 
   public DuoApplication apiHost(String apiHost) {
     this.apiHost = apiHost;
@@ -115,24 +112,6 @@ public class DuoApplication {
     this.name = name;
   }
 
-  public DuoApplication secretKey(String secretKey) {
-    this.secretKey = secretKey;
-    return this;
-  }
-
-   /**
-   * Get secretKey
-   * @return secretKey
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getSecretKey() {
-    return secretKey;
-  }
-
-  public void setSecretKey(String secretKey) {
-    this.secretKey = secretKey;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -146,13 +125,12 @@ public class DuoApplication {
     return Objects.equals(this.apiHost, duoApplication.apiHost) &&
         Objects.equals(this.id, duoApplication.id) &&
         Objects.equals(this.integrationKey, duoApplication.integrationKey) &&
-        Objects.equals(this.name, duoApplication.name) &&
-        Objects.equals(this.secretKey, duoApplication.secretKey);
+        Objects.equals(this.name, duoApplication.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiHost, id, integrationKey, name, secretKey);
+    return Objects.hash(apiHost, id, integrationKey, name);
   }
 
 
@@ -165,7 +143,6 @@ public class DuoApplication {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    integrationKey: ").append(toIndentedString(integrationKey)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    secretKey: ").append(toIndentedString(secretKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

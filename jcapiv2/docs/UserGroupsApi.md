@@ -47,10 +47,10 @@ This endpoint returns the _direct_ associations of this User Group.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -114,10 +114,10 @@ This endpoint manages the _direct_ associations of this User Group.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -176,10 +176,10 @@ This endpoint returns all User Groups a User Group is a member of.  #### Sample 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -245,10 +245,10 @@ This endpoint returns the user members of a User Group.  #### Sample Request &#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -310,10 +310,10 @@ This endpoint allows you to manage the user members of a User Group.  #### Sampl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -372,10 +372,10 @@ This endpoint returns all users members that are a member of this User Group.  #
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -441,10 +441,10 @@ This endpoint will return all Active Directory Instances bound to a User Group, 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -508,10 +508,10 @@ This endpoint will return all Applications bound to a User Group, either directl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -575,10 +575,10 @@ This endpoint will return all Directories bound to a User Group, either directly
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -642,10 +642,10 @@ This endpoint will return all G Suite Instances bound to a User Group, either di
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -709,10 +709,10 @@ This endpoint will return all LDAP Servers bound to a User Group, either directl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -776,10 +776,10 @@ This endpoint will return all Office 365 instances bound to a User Group, either
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -843,10 +843,10 @@ This endpoint will return all RADIUS servers bound to a User Group, either direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -910,10 +910,10 @@ This endpoint will return all Systems bound to a User Group, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -977,10 +977,10 @@ This endpoint will return all System Groups bound to a User Group, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -1044,10 +1044,10 @@ This endpoint allows you to delete a User Group.  #### Sample Request &#x60;&#x6
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String id = "id_example"; // String | ObjectID of the User Group.
@@ -1104,10 +1104,10 @@ This endpoint returns the details of a User Group.  #### Sample Request &#x60;&#
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String id = "id_example"; // String | ObjectID of the User Group.
@@ -1165,10 +1165,10 @@ This endpoint returns all User Groups.  Available filter fields:   - &#x60;name&
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String contentType = "application/json"; // String | 
@@ -1234,10 +1234,10 @@ We have hidden PATCH on the systemgroups and usergroups for now; we don&#39;t ha
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String id = "id_example"; // String | ObjectID of the User Group.
@@ -1297,10 +1297,10 @@ This endpoint allows you to create a new User Group.  #### Sample Request &#x60;
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String contentType = "application/json"; // String | 
@@ -1358,10 +1358,10 @@ This endpoint allows you to do a full update of the User Group.  #### Sample Req
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 UserGroupsApi apiInstance = new UserGroupsApi();
 String id = "id_example"; // String | ObjectID of the User Group.

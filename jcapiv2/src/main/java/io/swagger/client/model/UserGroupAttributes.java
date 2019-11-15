@@ -21,31 +21,30 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.UserGroupPostAttributesPosixGroups;
+import io.swagger.client.model.UserGroupAttributesPosixGroups;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The group object&#39;s attributes.
+ * UserGroupAttributes
  */
-@ApiModel(description = "The group object's attributes.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
-public class UserGroupPostAttributes {
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
+public class UserGroupAttributes {
   @SerializedName("posixGroups")
-  private List<UserGroupPostAttributesPosixGroups> posixGroups = null;
+  private List<UserGroupAttributesPosixGroups> posixGroups = null;
 
   @SerializedName("sambaEnabled")
   private Boolean sambaEnabled = null;
 
-  public UserGroupPostAttributes posixGroups(List<UserGroupPostAttributesPosixGroups> posixGroups) {
+  public UserGroupAttributes posixGroups(List<UserGroupAttributesPosixGroups> posixGroups) {
     this.posixGroups = posixGroups;
     return this;
   }
 
-  public UserGroupPostAttributes addPosixGroupsItem(UserGroupPostAttributesPosixGroups posixGroupsItem) {
+  public UserGroupAttributes addPosixGroupsItem(UserGroupAttributesPosixGroups posixGroupsItem) {
     if (this.posixGroups == null) {
-      this.posixGroups = new ArrayList<UserGroupPostAttributesPosixGroups>();
+      this.posixGroups = new ArrayList<UserGroupAttributesPosixGroups>();
     }
     this.posixGroups.add(posixGroupsItem);
     return this;
@@ -56,15 +55,15 @@ public class UserGroupPostAttributes {
    * @return posixGroups
   **/
   @ApiModelProperty(value = "")
-  public List<UserGroupPostAttributesPosixGroups> getPosixGroups() {
+  public List<UserGroupAttributesPosixGroups> getPosixGroups() {
     return posixGroups;
   }
 
-  public void setPosixGroups(List<UserGroupPostAttributesPosixGroups> posixGroups) {
+  public void setPosixGroups(List<UserGroupAttributesPosixGroups> posixGroups) {
     this.posixGroups = posixGroups;
   }
 
-  public UserGroupPostAttributes sambaEnabled(Boolean sambaEnabled) {
+  public UserGroupAttributes sambaEnabled(Boolean sambaEnabled) {
     this.sambaEnabled = sambaEnabled;
     return this;
   }
@@ -91,9 +90,9 @@ public class UserGroupPostAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserGroupPostAttributes userGroupPostAttributes = (UserGroupPostAttributes) o;
-    return Objects.equals(this.posixGroups, userGroupPostAttributes.posixGroups) &&
-        Objects.equals(this.sambaEnabled, userGroupPostAttributes.sambaEnabled);
+    UserGroupAttributes userGroupAttributes = (UserGroupAttributes) o;
+    return Objects.equals(this.posixGroups, userGroupAttributes.posixGroups) &&
+        Objects.equals(this.sambaEnabled, userGroupAttributes.sambaEnabled);
   }
 
   @Override
@@ -105,7 +104,7 @@ public class UserGroupPostAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserGroupPostAttributes {\n");
+    sb.append("class UserGroupAttributes {\n");
     
     sb.append("    posixGroups: ").append(toIndentedString(posixGroups)).append("\n");
     sb.append("    sambaEnabled: ").append(toIndentedString(sambaEnabled)).append("\n");

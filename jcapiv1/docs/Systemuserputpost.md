@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **relationships** | **List&lt;Object&gt;** |  |  [optional]
 **sambaServiceUser** | **Boolean** |  |  [optional]
 **sudo** | **Boolean** |  |  [optional]
+**suspended** | **Boolean** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **unixGuid** | **Integer** |  |  [optional]
 **unixUid** | **Integer** |  |  [optional]

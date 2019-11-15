@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * ApplicationConfig
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:11.958Z")
 public class ApplicationConfig {
   @SerializedName("acsUrl")
   private ApplicationConfigAcsUrl acsUrl = null;
@@ -45,6 +45,9 @@ public class ApplicationConfig {
 
   @SerializedName("idpEntityId")
   private ApplicationConfigAcsUrl idpEntityId = null;
+
+  @SerializedName("idpPrivateKey")
+  private ApplicationConfigAcsUrl idpPrivateKey = null;
 
   @SerializedName("spEntityId")
   private ApplicationConfigAcsUrl spEntityId = null;
@@ -139,6 +142,24 @@ public class ApplicationConfig {
     this.idpEntityId = idpEntityId;
   }
 
+  public ApplicationConfig idpPrivateKey(ApplicationConfigAcsUrl idpPrivateKey) {
+    this.idpPrivateKey = idpPrivateKey;
+    return this;
+  }
+
+   /**
+   * Get idpPrivateKey
+   * @return idpPrivateKey
+  **/
+  @ApiModelProperty(value = "")
+  public ApplicationConfigAcsUrl getIdpPrivateKey() {
+    return idpPrivateKey;
+  }
+
+  public void setIdpPrivateKey(ApplicationConfigAcsUrl idpPrivateKey) {
+    this.idpPrivateKey = idpPrivateKey;
+  }
+
   public ApplicationConfig spEntityId(ApplicationConfigAcsUrl spEntityId) {
     this.spEntityId = spEntityId;
     return this;
@@ -172,12 +193,13 @@ public class ApplicationConfig {
         Objects.equals(this.databaseAttributes, applicationConfig.databaseAttributes) &&
         Objects.equals(this.idpCertificate, applicationConfig.idpCertificate) &&
         Objects.equals(this.idpEntityId, applicationConfig.idpEntityId) &&
+        Objects.equals(this.idpPrivateKey, applicationConfig.idpPrivateKey) &&
         Objects.equals(this.spEntityId, applicationConfig.spEntityId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acsUrl, constantAttributes, databaseAttributes, idpCertificate, idpEntityId, spEntityId);
+    return Objects.hash(acsUrl, constantAttributes, databaseAttributes, idpCertificate, idpEntityId, idpPrivateKey, spEntityId);
   }
 
 
@@ -191,6 +213,7 @@ public class ApplicationConfig {
     sb.append("    databaseAttributes: ").append(toIndentedString(databaseAttributes)).append("\n");
     sb.append("    idpCertificate: ").append(toIndentedString(idpCertificate)).append("\n");
     sb.append("    idpEntityId: ").append(toIndentedString(idpEntityId)).append("\n");
+    sb.append("    idpPrivateKey: ").append(toIndentedString(idpPrivateKey)).append("\n");
     sb.append("    spEntityId: ").append(toIndentedString(spEntityId)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -84,6 +84,28 @@ public class GraphApiTest {
     }
     
     /**
+     * List the Users bound to an Active Directory instance
+     *
+     * This endpoint will return all Users bound to an Active Directory instance, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The &#x60;attributes&#x60; object is a key/value hash of compiled graph attributes for all paths followed.  The &#x60;paths&#x60; array enumerates each path from this Active Directory instance to the corresponding User; this array represents all grouping and/or associations that would have to be removed to deprovision the User from this Active Directory instance.  See &#x60;/members&#x60; and &#x60;/associations&#x60; endpoints to manage those collections.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/users \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void graphActiveDirectoryTraverseUserTest() throws ApiException {
+        String activedirectoryId = null;
+        String contentType = null;
+        String accept = null;
+        List<String> filter = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<GraphObjectWithPaths> response = api.graphActiveDirectoryTraverseUser(activedirectoryId, contentType, accept, filter, limit, xOrgId, skip);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List the User Groups bound to an Active Directory instance
      *
      * This endpoint will return all Users Groups bound to an Active Directory instance, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the group&#39;s type, id, attributes and paths.  The &#x60;attributes&#x60; object is a key/value hash of compiled graph attributes for all paths followed.  The &#x60;paths&#x60; array enumerates each path from this Active Directory instance to the corresponding User Group; this array represents all grouping and/or associations that would have to be removed to deprovision the User Group from this Active Directory instance.  See &#x60;/members&#x60; and &#x60;/associations&#x60; endpoints to manage those collections.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/usergroups \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
@@ -1475,6 +1497,28 @@ public class GraphApiTest {
         List<String> sort = null;
         String xOrgId = null;
         List<GraphObjectWithPaths> response = api.graphUserMemberOf(userId, contentType, accept, filter, limit, skip, sort, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List the Active Directory instances bound to a User
+     *
+     * This endpoint will return all Active Directory Instances bound to a User, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The &#x60;attributes&#x60; object is a key/value hash of compiled graph attributes for all paths followed.  The &#x60;paths&#x60; array enumerates each path from this User to the corresponding Active Directory instance; this array represents all grouping and/or associations that would have to be removed to deprovision the Active Directory instance from this User.  See &#x60;/members&#x60; and &#x60;/associations&#x60; endpoints to manage those collections.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/users/{UserID}/activedirectories \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void graphUserTraverseActiveDirectoryTest() throws ApiException {
+        String userId = null;
+        String contentType = null;
+        String accept = null;
+        List<String> filter = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<GraphObjectWithPaths> response = api.graphUserTraverseActiveDirectory(userId, contentType, accept, filter, limit, xOrgId, skip);
 
         // TODO: test validations
     }

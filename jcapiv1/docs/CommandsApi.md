@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**commandFileGet**](CommandsApi.md#commandFileGet) | **GET** /files/command/{id} | Get a Command File
 [**commandsDelete**](CommandsApi.md#commandsDelete) | **DELETE** /commands/{id} | Delete a Command
 [**commandsGet**](CommandsApi.md#commandsGet) | **GET** /commands/{id} | List an individual Command
-[**commandsList**](CommandsApi.md#commandsList) | **GET** /commands/ | List All Commands
-[**commandsPost**](CommandsApi.md#commandsPost) | **POST** /commands/ | Create A Command
+[**commandsList**](CommandsApi.md#commandsList) | **GET** /commands | List All Commands
+[**commandsPost**](CommandsApi.md#commandsPost) | **POST** /commands | Create A Command
 [**commandsPut**](CommandsApi.md#commandsPut) | **PUT** /commands/{id} | Update a Command
 
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Get a Command File
 
-This endpoint returns the uploaded file(s) associated with a specific command.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/files/command/{commandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;    &#x60;&#x60;&#x60;
+This endpoint returns the uploaded file(s) associated with a specific command.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/files/command/{commandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -32,10 +32,10 @@ This endpoint returns the uploaded file(s) associated with a specific command.  
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String id = "id_example"; // String | 
@@ -99,10 +99,10 @@ This endpoint deletes a specific command based on the Command ID.  #### Sample R
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String id = "id_example"; // String | 
@@ -145,7 +145,7 @@ null (empty response body)
 
 List an individual Command
 
-This endpoint returns a specific command based on the command ID.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commands/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+This endpoint returns a specific command based on the command ID.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/commands/{CommandID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -159,10 +159,10 @@ This endpoint returns a specific command based on the command ID.  #### Sample R
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String id = "id_example"; // String | 
@@ -224,10 +224,10 @@ This endpoint returns all commands.  #### Sample Request &#x60;&#x60;&#x60; curl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String contentType = "application/json"; // String | 
@@ -293,10 +293,10 @@ This endpoint allows you to create a new command.  #### Sample Request  &#x60;&#
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String contentType = "application/json"; // String | 
@@ -354,10 +354,10 @@ This endpoint Updates a command based on the command ID and returns the modified
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 CommandsApi apiInstance = new CommandsApi();
 String id = "id_example"; // String | 

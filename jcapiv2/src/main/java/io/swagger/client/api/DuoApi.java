@@ -30,7 +30,7 @@ import java.io.IOException;
 import io.swagger.client.model.DuoAccount;
 import io.swagger.client.model.DuoApplication;
 import io.swagger.client.model.DuoApplicationReq;
-import io.swagger.client.model.DuoRegistrationApplicationReq;
+import io.swagger.client.model.DuoApplicationUpdateReq;
 import io.swagger.client.model.Errorresponse;
 
 import java.lang.reflect.Type;
@@ -58,6 +58,157 @@ public class DuoApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for duoAccountDelete
+     * @param id ObjectID of the Duo Account (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call duoAccountDeleteCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/duo/accounts/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call duoAccountDeleteValidateBeforeCall(String id, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling duoAccountDelete(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling duoAccountDelete(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling duoAccountDelete(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = duoAccountDeleteCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Delete a Duo Account
+     * Removes the specified Duo account, an error will be returned if the account has some Duo application used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param id ObjectID of the Duo Account (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @return DuoAccount
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DuoAccount duoAccountDelete(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<DuoAccount> resp = duoAccountDeleteWithHttpInfo(id, contentType, accept, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * Delete a Duo Account
+     * Removes the specified Duo account, an error will be returned if the account has some Duo application used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param id ObjectID of the Duo Account (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @return ApiResponse&lt;DuoAccount&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DuoAccount> duoAccountDeleteWithHttpInfo(String id, String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = duoAccountDeleteValidateBeforeCall(id, contentType, accept, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<DuoAccount>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Delete a Duo Account (asynchronously)
+     * Removes the specified Duo account, an error will be returned if the account has some Duo application used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param id ObjectID of the Duo Account (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call duoAccountDeleteAsync(String id, String contentType, String accept, String xOrgId, final ApiCallback<DuoAccount> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = duoAccountDeleteValidateBeforeCall(id, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DuoAccount>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for duoAccountGet
      * @param id ObjectID of the Duo Account (required)
@@ -143,7 +294,7 @@ public class DuoApi {
 
     /**
      * Get a Duo Acount
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
+     * This endpoint returns a specific Duo account.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param id ObjectID of the Duo Account (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -158,7 +309,7 @@ public class DuoApi {
 
     /**
      * Get a Duo Acount
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
+     * This endpoint returns a specific Duo account.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param id ObjectID of the Duo Account (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -174,7 +325,7 @@ public class DuoApi {
 
     /**
      * Get a Duo Acount (asynchronously)
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
+     * This endpoint returns a specific Duo account.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param id ObjectID of the Duo Account (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -211,16 +362,15 @@ public class DuoApi {
     }
     /**
      * Build call for duoAccountList
-     * @param xApiKey  (required)
      * @param contentType  (required)
-     * @param accept  (optional)
-     * @param xOrgId  (optional)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call duoAccountListCall(String xApiKey, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call duoAccountListCall(String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -230,14 +380,12 @@ public class DuoApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (xApiKey != null)
-        localVarHeaderParams.put("x-api-key", apiClient.parameterToString(xApiKey));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
         if (xOrgId != null)
         localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
         if (contentType != null)
         localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -270,67 +418,64 @@ public class DuoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call duoAccountListValidateBeforeCall(String xApiKey, String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'xApiKey' is set
-        if (xApiKey == null) {
-            throw new ApiException("Missing the required parameter 'xApiKey' when calling duoAccountList(Async)");
-        }
+    private com.squareup.okhttp.Call duoAccountListValidateBeforeCall(String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
             throw new ApiException("Missing the required parameter 'contentType' when calling duoAccountList(Async)");
         }
         
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling duoAccountList(Async)");
+        }
+        
 
-        com.squareup.okhttp.Call call = duoAccountListCall(xApiKey, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = duoAccountListCall(contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * List Duo Acounts
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
-     * @param xApiKey  (required)
+     * This endpoint returns all the Duo accounts for your organization. Note: There can currently only be one Duo account for your organization.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
-     * @param accept  (optional)
-     * @param xOrgId  (optional)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @return List&lt;DuoAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<DuoAccount> duoAccountList(String xApiKey, String contentType, String accept, String xOrgId) throws ApiException {
-        ApiResponse<List<DuoAccount>> resp = duoAccountListWithHttpInfo(xApiKey, contentType, accept, xOrgId);
+    public List<DuoAccount> duoAccountList(String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<List<DuoAccount>> resp = duoAccountListWithHttpInfo(contentType, accept, xOrgId);
         return resp.getData();
     }
 
     /**
      * List Duo Acounts
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
-     * @param xApiKey  (required)
+     * This endpoint returns all the Duo accounts for your organization. Note: There can currently only be one Duo account for your organization.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
-     * @param accept  (optional)
-     * @param xOrgId  (optional)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;List&lt;DuoAccount&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<DuoAccount>> duoAccountListWithHttpInfo(String xApiKey, String contentType, String accept, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = duoAccountListValidateBeforeCall(xApiKey, contentType, accept, xOrgId, null, null);
+    public ApiResponse<List<DuoAccount>> duoAccountListWithHttpInfo(String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = duoAccountListValidateBeforeCall(contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<List<DuoAccount>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List Duo Acounts (asynchronously)
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
-     * @param xApiKey  (required)
+     * This endpoint returns all the Duo accounts for your organization. Note: There can currently only be one Duo account for your organization.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
-     * @param accept  (optional)
-     * @param xOrgId  (optional)
+     * @param accept  (required)
+     * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call duoAccountListAsync(String xApiKey, String contentType, String accept, String xOrgId, final ApiCallback<List<DuoAccount>> callback) throws ApiException {
+    public com.squareup.okhttp.Call duoAccountListAsync(String contentType, String accept, String xOrgId, final ApiCallback<List<DuoAccount>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -351,7 +496,7 @@ public class DuoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = duoAccountListValidateBeforeCall(xApiKey, contentType, accept, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = duoAccountListValidateBeforeCall(contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<DuoAccount>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -360,15 +505,14 @@ public class DuoApi {
      * Build call for duoAccountPost
      * @param contentType  (required)
      * @param accept  (required)
-     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call duoAccountPostCall(String contentType, String accept, DuoRegistrationApplicationReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
+    public com.squareup.okhttp.Call duoAccountPostCall(String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/duo/accounts";
@@ -415,7 +559,7 @@ public class DuoApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call duoAccountPostValidateBeforeCall(String contentType, String accept, DuoRegistrationApplicationReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call duoAccountPostValidateBeforeCall(String contentType, String accept, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -428,54 +572,51 @@ public class DuoApi {
         }
         
 
-        com.squareup.okhttp.Call call = duoAccountPostCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = duoAccountPostCall(contentType, accept, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Create Duo Account
-     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;registrationApplication\&quot;: {       \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,       \&quot;integrationKey\&quot;: \&quot;1234\&quot;,       \&quot;secretKey\&quot;: \&quot;5678\&quot;     }   }&#39; &#x60;&#x60;&#x60;
+     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @return DuoAccount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public DuoAccount duoAccountPost(String contentType, String accept, DuoRegistrationApplicationReq body, String xOrgId) throws ApiException {
-        ApiResponse<DuoAccount> resp = duoAccountPostWithHttpInfo(contentType, accept, body, xOrgId);
+    public DuoAccount duoAccountPost(String contentType, String accept, String xOrgId) throws ApiException {
+        ApiResponse<DuoAccount> resp = duoAccountPostWithHttpInfo(contentType, accept, xOrgId);
         return resp.getData();
     }
 
     /**
      * Create Duo Account
-     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;registrationApplication\&quot;: {       \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,       \&quot;integrationKey\&quot;: \&quot;1234\&quot;,       \&quot;secretKey\&quot;: \&quot;5678\&quot;     }   }&#39; &#x60;&#x60;&#x60;
+     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @return ApiResponse&lt;DuoAccount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<DuoAccount> duoAccountPostWithHttpInfo(String contentType, String accept, DuoRegistrationApplicationReq body, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = duoAccountPostValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
+    public ApiResponse<DuoAccount> duoAccountPostWithHttpInfo(String contentType, String accept, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = duoAccountPostValidateBeforeCall(contentType, accept, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<DuoAccount>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create Duo Account (asynchronously)
-     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;registrationApplication\&quot;: {       \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,       \&quot;integrationKey\&quot;: \&quot;1234\&quot;,       \&quot;secretKey\&quot;: \&quot;5678\&quot;     }   }&#39; &#x60;&#x60;&#x60;
+     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{}&#39; &#x60;&#x60;&#x60;
      * @param contentType  (required)
      * @param accept  (required)
-     * @param body  (optional)
      * @param xOrgId  (optional, default to )
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call duoAccountPostAsync(String contentType, String accept, DuoRegistrationApplicationReq body, String xOrgId, final ApiCallback<DuoAccount> callback) throws ApiException {
+    public com.squareup.okhttp.Call duoAccountPostAsync(String contentType, String accept, String xOrgId, final ApiCallback<DuoAccount> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -496,7 +637,7 @@ public class DuoApi {
             };
         }
 
-        com.squareup.okhttp.Call call = duoAccountPostValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = duoAccountPostValidateBeforeCall(contentType, accept, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DuoAccount>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -558,7 +699,7 @@ public class DuoApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -593,7 +734,7 @@ public class DuoApi {
 
     /**
      * Delete a Duo Application
-     * 
+     * Deletes the specified Duo application, an error will be returned if the application is used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60;   curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param applicationId  (required)
      * @param contentType  (required)
@@ -609,7 +750,7 @@ public class DuoApi {
 
     /**
      * Delete a Duo Application
-     * 
+     * Deletes the specified Duo application, an error will be returned if the application is used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60;   curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param applicationId  (required)
      * @param contentType  (required)
@@ -626,7 +767,7 @@ public class DuoApi {
 
     /**
      * Delete a Duo Application (asynchronously)
-     * 
+     * Deletes the specified Duo application, an error will be returned if the application is used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60;   curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param applicationId  (required)
      * @param contentType  (required)
@@ -719,7 +860,7 @@ public class DuoApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -754,7 +895,7 @@ public class DuoApi {
 
     /**
      * Get a Duo application
-     * 
+     * This endpoint returns a specific Duo application that is associated with the specified Duo account.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param applicationId  (required)
      * @param contentType  (required)
@@ -770,7 +911,7 @@ public class DuoApi {
 
     /**
      * Get a Duo application
-     * 
+     * This endpoint returns a specific Duo application that is associated with the specified Duo account.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param applicationId  (required)
      * @param contentType  (required)
@@ -787,7 +928,7 @@ public class DuoApi {
 
     /**
      * Get a Duo application (asynchronously)
-     * 
+     * This endpoint returns a specific Duo application that is associated with the specified Duo account.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param applicationId  (required)
      * @param contentType  (required)
@@ -878,7 +1019,7 @@ public class DuoApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -908,7 +1049,7 @@ public class DuoApi {
 
     /**
      * List Duo Applications
-     * 
+     * This endpoint returns all the Duo applications for the specified Duo account. Note: There can currently only be one Duo application for your organization.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -923,7 +1064,7 @@ public class DuoApi {
 
     /**
      * List Duo Applications
-     * 
+     * This endpoint returns all the Duo applications for the specified Duo account. Note: There can currently only be one Duo application for your organization.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -939,7 +1080,7 @@ public class DuoApi {
 
     /**
      * List Duo Applications (asynchronously)
-     * 
+     * This endpoint returns all the Duo applications for the specified Duo account. Note: There can currently only be one Duo application for your organization.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1030,7 +1171,7 @@ public class DuoApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
@@ -1060,7 +1201,7 @@ public class DuoApi {
 
     /**
      * Create Duo Application
-     * Creates a Duo application for an organization and its account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/obj-id-123/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * Creates a Duo application for your organization and the specified account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1076,7 +1217,7 @@ public class DuoApi {
 
     /**
      * Create Duo Application
-     * Creates a Duo application for an organization and its account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/obj-id-123/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * Creates a Duo application for your organization and the specified account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1093,7 +1234,7 @@ public class DuoApi {
 
     /**
      * Create Duo Application (asynchronously)
-     * Creates a Duo application for an organization and its account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/obj-id-123/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * Creates a Duo application for your organization and the specified account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
      * @param accountId  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -1125,6 +1266,171 @@ public class DuoApi {
         }
 
         com.squareup.okhttp.Call call = duoApplicationPostValidateBeforeCall(accountId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<DuoApplication>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for duoApplicationUpdate
+     * @param accountId  (required)
+     * @param applicationId  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call duoApplicationUpdateCall(String accountId, String applicationId, String contentType, String accept, DuoApplicationUpdateReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/duo/accounts/{account_id}/applications/{application_id}"
+            .replaceAll("\\{" + "account_id" + "\\}", apiClient.escapeString(accountId.toString()))
+            .replaceAll("\\{" + "application_id" + "\\}", apiClient.escapeString(applicationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call duoApplicationUpdateValidateBeforeCall(String accountId, String applicationId, String contentType, String accept, DuoApplicationUpdateReq body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'accountId' is set
+        if (accountId == null) {
+            throw new ApiException("Missing the required parameter 'accountId' when calling duoApplicationUpdate(Async)");
+        }
+        
+        // verify the required parameter 'applicationId' is set
+        if (applicationId == null) {
+            throw new ApiException("Missing the required parameter 'applicationId' when calling duoApplicationUpdate(Async)");
+        }
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling duoApplicationUpdate(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling duoApplicationUpdate(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = duoApplicationUpdateCall(accountId, applicationId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Update Duo Application
+     * Updates the specified Duo application.  #### Sample Request &#x60;&#x60;&#x60;   curl -X PUT https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param accountId  (required)
+     * @param applicationId  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @return DuoApplication
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public DuoApplication duoApplicationUpdate(String accountId, String applicationId, String contentType, String accept, DuoApplicationUpdateReq body, String xOrgId) throws ApiException {
+        ApiResponse<DuoApplication> resp = duoApplicationUpdateWithHttpInfo(accountId, applicationId, contentType, accept, body, xOrgId);
+        return resp.getData();
+    }
+
+    /**
+     * Update Duo Application
+     * Updates the specified Duo application.  #### Sample Request &#x60;&#x60;&#x60;   curl -X PUT https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param accountId  (required)
+     * @param applicationId  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @return ApiResponse&lt;DuoApplication&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<DuoApplication> duoApplicationUpdateWithHttpInfo(String accountId, String applicationId, String contentType, String accept, DuoApplicationUpdateReq body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = duoApplicationUpdateValidateBeforeCall(accountId, applicationId, contentType, accept, body, xOrgId, null, null);
+        Type localVarReturnType = new TypeToken<DuoApplication>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Update Duo Application (asynchronously)
+     * Updates the specified Duo application.  #### Sample Request &#x60;&#x60;&#x60;   curl -X PUT https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * @param accountId  (required)
+     * @param applicationId  (required)
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param body  (optional)
+     * @param xOrgId  (optional, default to )
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call duoApplicationUpdateAsync(String accountId, String applicationId, String contentType, String accept, DuoApplicationUpdateReq body, String xOrgId, final ApiCallback<DuoApplication> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = duoApplicationUpdateValidateBeforeCall(accountId, applicationId, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<DuoApplication>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

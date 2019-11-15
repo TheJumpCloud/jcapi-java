@@ -33,10 +33,10 @@ This endpoint returns the _direct_ associations of this LDAP Server.  A direct a
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -100,10 +100,10 @@ This endpoint allows you to manage the _direct_ associations of a LDAP Server.  
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -162,10 +162,10 @@ This endpoint will return all Users bound to an LDAP Server, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -229,10 +229,10 @@ This endpoint will return all Users Groups bound to a LDAP Server, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -296,10 +296,10 @@ This endpoint returns a specific LDAP server.  ##### Sample Request  &#x60;&#x60
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String id = "id_example"; // String | Unique identifier of the LDAP server.
@@ -357,10 +357,10 @@ This endpoint returns the object IDs of your LDAP servers.   ##### Sample Reques
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String contentType = "application/json"; // String | 
@@ -426,16 +426,16 @@ This endpoint allows updating some attributes of an LDAP server.  Sample Request
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String id = "id_example"; // String | Unique identifier of the LDAP server.
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
-Body body = new Body(); // Body | 
+Body3 body = new Body3(); // Body3 | 
 String xApiKey = "xApiKey_example"; // String | 
 String xOrgId = "xOrgId_example"; // String | 
 try {
@@ -454,7 +454,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the LDAP server. |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **body** | [**Body**](Body.md)|  | [optional]
+ **body** | [**Body3**](Body3.md)|  | [optional]
  **xApiKey** | **String**|  | [optional]
  **xOrgId** | **String**|  | [optional]
 

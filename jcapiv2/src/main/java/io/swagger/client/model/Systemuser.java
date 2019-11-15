@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Systemuser
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
 public class Systemuser {
   @SerializedName("_id")
   private String id = null;
@@ -136,6 +136,9 @@ public class Systemuser {
 
   @SerializedName("sudo")
   private Boolean sudo = null;
+
+  @SerializedName("suspended")
+  private Boolean suspended = null;
 
   @SerializedName("tags")
   private List<String> tags = null;
@@ -799,6 +802,24 @@ public class Systemuser {
     this.sudo = sudo;
   }
 
+  public Systemuser suspended(Boolean suspended) {
+    this.suspended = suspended;
+    return this;
+  }
+
+   /**
+   * Get suspended
+   * @return suspended
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSuspended() {
+    return suspended;
+  }
+
+  public void setSuspended(Boolean suspended) {
+    this.suspended = suspended;
+  }
+
   public Systemuser tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -944,6 +965,7 @@ public class Systemuser {
         Objects.equals(this.sambaServiceUser, systemuser.sambaServiceUser) &&
         Objects.equals(this.sshKeys, systemuser.sshKeys) &&
         Objects.equals(this.sudo, systemuser.sudo) &&
+        Objects.equals(this.suspended, systemuser.suspended) &&
         Objects.equals(this.tags, systemuser.tags) &&
         Objects.equals(this.totpEnabled, systemuser.totpEnabled) &&
         Objects.equals(this.unixGuid, systemuser.unixGuid) &&
@@ -953,7 +975,7 @@ public class Systemuser {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, accountLocked, activated, allowPublicKey, associatedTagCount, attributes, company, costCenter, created, department, description, displayname, email, employeeIdentifier, employeeType, enableManagedUid, enableUserPortalMultifactor, externalDn, externalSourceType, externallyManaged, firstname, jobTitle, lastname, ldapBindingUser, location, mfa, middlename, passwordExpirationDate, passwordExpired, passwordNeverExpires, passwordlessSudo, publicKey, sambaServiceUser, sshKeys, sudo, tags, totpEnabled, unixGuid, unixUid, username);
+    return Objects.hash(id, accountLocked, activated, allowPublicKey, associatedTagCount, attributes, company, costCenter, created, department, description, displayname, email, employeeIdentifier, employeeType, enableManagedUid, enableUserPortalMultifactor, externalDn, externalSourceType, externallyManaged, firstname, jobTitle, lastname, ldapBindingUser, location, mfa, middlename, passwordExpirationDate, passwordExpired, passwordNeverExpires, passwordlessSudo, publicKey, sambaServiceUser, sshKeys, sudo, suspended, tags, totpEnabled, unixGuid, unixUid, username);
   }
 
 
@@ -997,6 +1019,7 @@ public class Systemuser {
     sb.append("    sambaServiceUser: ").append(toIndentedString(sambaServiceUser)).append("\n");
     sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
+    sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    totpEnabled: ").append(toIndentedString(totpEnabled)).append("\n");
     sb.append("    unixGuid: ").append(toIndentedString(unixGuid)).append("\n");

@@ -1,10 +1,9 @@
 
-# UserGroupPutAttributes
+# SalesforceKnowledgeListOutput
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**sambaEnabled** | **Boolean** |  |  [optional]
 
 
 

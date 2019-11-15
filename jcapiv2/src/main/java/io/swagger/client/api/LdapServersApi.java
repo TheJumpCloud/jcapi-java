@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.Body;
+import io.swagger.client.model.Body3;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
@@ -1058,7 +1058,7 @@ public class LdapServersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call ldapserversPatchCall(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversPatchCall(String id, String contentType, String accept, Body3 body, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -1109,7 +1109,7 @@ public class LdapServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call ldapserversPatchValidateBeforeCall(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call ldapserversPatchValidateBeforeCall(String id, String contentType, String accept, Body3 body, String xApiKey, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1144,7 +1144,7 @@ public class LdapServersApi {
      * @return InlineResponse200
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public InlineResponse200 ldapserversPatch(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId) throws ApiException {
+    public InlineResponse200 ldapserversPatch(String id, String contentType, String accept, Body3 body, String xApiKey, String xOrgId) throws ApiException {
         ApiResponse<InlineResponse200> resp = ldapserversPatchWithHttpInfo(id, contentType, accept, body, xApiKey, xOrgId);
         return resp.getData();
     }
@@ -1161,7 +1161,7 @@ public class LdapServersApi {
      * @return ApiResponse&lt;InlineResponse200&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<InlineResponse200> ldapserversPatchWithHttpInfo(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId) throws ApiException {
+    public ApiResponse<InlineResponse200> ldapserversPatchWithHttpInfo(String id, String contentType, String accept, Body3 body, String xApiKey, String xOrgId) throws ApiException {
         com.squareup.okhttp.Call call = ldapserversPatchValidateBeforeCall(id, contentType, accept, body, xApiKey, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<InlineResponse200>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -1180,7 +1180,7 @@ public class LdapServersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call ldapserversPatchAsync(String id, String contentType, String accept, Body body, String xApiKey, String xOrgId, final ApiCallback<InlineResponse200> callback) throws ApiException {
+    public com.squareup.okhttp.Call ldapserversPatchAsync(String id, String contentType, String accept, Body3 body, String xApiKey, String xOrgId, final ApiCallback<InlineResponse200> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

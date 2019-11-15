@@ -104,6 +104,12 @@ Class | Method | HTTP request | Description
 *ActiveDirectoryApi* | [**graphActiveDirectoryAssociationsList**](docs/ActiveDirectoryApi.md#graphActiveDirectoryAssociationsList) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
 *ActiveDirectoryApi* | [**graphActiveDirectoryAssociationsPost**](docs/ActiveDirectoryApi.md#graphActiveDirectoryAssociationsPost) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
 *ActiveDirectoryApi* | [**graphActiveDirectoryTraverseUserGroup**](docs/ActiveDirectoryApi.md#graphActiveDirectoryTraverseUserGroup) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
+*AppleMdmApi* | [**applemdmsDelete**](docs/AppleMdmApi.md#applemdmsDelete) | **DELETE** /applemdms/{apple_mdm_id} | Delete an Apple MDM
+*AppleMdmApi* | [**applemdmsList**](docs/AppleMdmApi.md#applemdmsList) | **GET** /applemdms | List Apple MDMs
+*AppleMdmApi* | [**applemdmsPost**](docs/AppleMdmApi.md#applemdmsPost) | **POST** /applemdms | Create Apple MDM
+*AppleMdmApi* | [**applemdmsPut**](docs/AppleMdmApi.md#applemdmsPut) | **PUT** /applemdms/{apple_mdm_id} | Update an Apple MDM
+*AppleMdmApi* | [**enrollmentprofilesGet**](docs/AppleMdmApi.md#enrollmentprofilesGet) | **GET** /applemdms/{apple_mdm_id}/enrollmentprofiles/{enrollment_profile_id} | Get an Apple MDM Enrollment Profile
+*AppleMdmApi* | [**enrollmentprofilesList**](docs/AppleMdmApi.md#enrollmentprofilesList) | **GET** /applemdms/{apple_mdm_id}/enrollmentprofiles | List Apple MDM Enrollment Profiles
 *ApplicationsApi* | [**graphApplicationAssociationsList**](docs/ApplicationsApi.md#graphApplicationAssociationsList) | **GET** /applications/{application_id}/associations | List the associations of an Application
 *ApplicationsApi* | [**graphApplicationAssociationsPost**](docs/ApplicationsApi.md#graphApplicationAssociationsPost) | **POST** /applications/{application_id}/associations | Manage the associations of an Application
 *ApplicationsApi* | [**graphApplicationTraverseUser**](docs/ApplicationsApi.md#graphApplicationTraverseUser) | **GET** /applications/{application_id}/users | List the Users bound to an Application
@@ -117,7 +123,13 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**graphCommandAssociationsPost**](docs/CommandsApi.md#graphCommandAssociationsPost) | **POST** /commands/{command_id}/associations | Manage the associations of a Command
 *CommandsApi* | [**graphCommandTraverseSystem**](docs/CommandsApi.md#graphCommandTraverseSystem) | **GET** /commands/{command_id}/systems | List the Systems bound to a Command
 *CommandsApi* | [**graphCommandTraverseSystemGroup**](docs/CommandsApi.md#graphCommandTraverseSystemGroup) | **GET** /commands/{command_id}/systemgroups | List the System Groups bound to a Command
+*DefaultApi* | [**jcEnrollmentProfilesDelete**](docs/DefaultApi.md#jcEnrollmentProfilesDelete) | **DELETE** /enrollmentprofiles/{enrollment_profile_id} | Delete Enrollment Profile
+*DefaultApi* | [**jcEnrollmentProfilesGet**](docs/DefaultApi.md#jcEnrollmentProfilesGet) | **GET** /enrollmentprofiles/{enrollment_profile_id} | Get Enrollment Profile
+*DefaultApi* | [**jcEnrollmentProfilesList**](docs/DefaultApi.md#jcEnrollmentProfilesList) | **GET** /enrollmentprofiles | List Enrollment Profiles
+*DefaultApi* | [**jcEnrollmentProfilesPost**](docs/DefaultApi.md#jcEnrollmentProfilesPost) | **POST** /enrollmentprofiles | Create new Enrollment Profile
+*DefaultApi* | [**jcEnrollmentProfilesPut**](docs/DefaultApi.md#jcEnrollmentProfilesPut) | **PUT** /enrollmentprofiles/{enrollment_profile_id} | Update Enrollment Profile
 *DirectoriesApi* | [**directoriesList**](docs/DirectoriesApi.md#directoriesList) | **GET** /directories | List All Directories
+*DuoApi* | [**duoAccountDelete**](docs/DuoApi.md#duoAccountDelete) | **DELETE** /duo/accounts/{id} | Delete a Duo Account
 *DuoApi* | [**duoAccountGet**](docs/DuoApi.md#duoAccountGet) | **GET** /duo/accounts/{id} | Get a Duo Acount
 *DuoApi* | [**duoAccountList**](docs/DuoApi.md#duoAccountList) | **GET** /duo/accounts | List Duo Acounts
 *DuoApi* | [**duoAccountPost**](docs/DuoApi.md#duoAccountPost) | **POST** /duo/accounts | Create Duo Account
@@ -125,6 +137,7 @@ Class | Method | HTTP request | Description
 *DuoApi* | [**duoApplicationGet**](docs/DuoApi.md#duoApplicationGet) | **GET** /duo/accounts/{account_id}/applications/{application_id} | Get a Duo application
 *DuoApi* | [**duoApplicationList**](docs/DuoApi.md#duoApplicationList) | **GET** /duo/accounts/{account_id}/applications | List Duo Applications
 *DuoApi* | [**duoApplicationPost**](docs/DuoApi.md#duoApplicationPost) | **POST** /duo/accounts/{account_id}/applications | Create Duo Application
+*DuoApi* | [**duoApplicationUpdate**](docs/DuoApi.md#duoApplicationUpdate) | **PUT** /duo/accounts/{account_id}/applications/{application_id} | Update Duo Application
 *FdeApi* | [**systemsGetFDEKey**](docs/FdeApi.md#systemsGetFDEKey) | **GET** /systems/{system_id}/fdekey | Get System FDE Key
 *GSuiteApi* | [**graphGSuiteAssociationsList**](docs/GSuiteApi.md#graphGSuiteAssociationsList) | **GET** /gsuites/{gsuite_id}/associations | List the associations of a G Suite instance
 *GSuiteApi* | [**graphGSuiteAssociationsPost**](docs/GSuiteApi.md#graphGSuiteAssociationsPost) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
@@ -138,6 +151,7 @@ Class | Method | HTTP request | Description
 *GSuiteApi* | [**translationRulesGSuitePost**](docs/GSuiteApi.md#translationRulesGSuitePost) | **POST** /gsuites/{gsuite_id}/translationrules | Create a new G Suite Translation Rule
 *GraphApi* | [**graphActiveDirectoryAssociationsList**](docs/GraphApi.md#graphActiveDirectoryAssociationsList) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
 *GraphApi* | [**graphActiveDirectoryAssociationsPost**](docs/GraphApi.md#graphActiveDirectoryAssociationsPost) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
+*GraphApi* | [**graphActiveDirectoryTraverseUser**](docs/GraphApi.md#graphActiveDirectoryTraverseUser) | **GET** /activedirectories/{activedirectory_id}/users | List the Users bound to an Active Directory instance
 *GraphApi* | [**graphActiveDirectoryTraverseUserGroup**](docs/GraphApi.md#graphActiveDirectoryTraverseUserGroup) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
 *GraphApi* | [**graphApplicationAssociationsList**](docs/GraphApi.md#graphApplicationAssociationsList) | **GET** /applications/{application_id}/associations | List the associations of an Application
 *GraphApi* | [**graphApplicationAssociationsPost**](docs/GraphApi.md#graphApplicationAssociationsPost) | **POST** /applications/{application_id}/associations | Manage the associations of an Application
@@ -202,6 +216,7 @@ Class | Method | HTTP request | Description
 *GraphApi* | [**graphUserGroupTraverseSystem**](docs/GraphApi.md#graphUserGroupTraverseSystem) | **GET** /usergroups/{group_id}/systems | List the Systems bound to a User Group
 *GraphApi* | [**graphUserGroupTraverseSystemGroup**](docs/GraphApi.md#graphUserGroupTraverseSystemGroup) | **GET** /usergroups/{group_id}/systemgroups | List the System Groups bound to User Groups
 *GraphApi* | [**graphUserMemberOf**](docs/GraphApi.md#graphUserMemberOf) | **GET** /users/{user_id}/memberof | List the parent Groups of a User
+*GraphApi* | [**graphUserTraverseActiveDirectory**](docs/GraphApi.md#graphUserTraverseActiveDirectory) | **GET** /users/{user_id}/activedirectories | List the Active Directory instances bound to a User
 *GraphApi* | [**graphUserTraverseApplication**](docs/GraphApi.md#graphUserTraverseApplication) | **GET** /users/{user_id}/applications | List the Applications bound to a User
 *GraphApi* | [**graphUserTraverseDirectory**](docs/GraphApi.md#graphUserTraverseDirectory) | **GET** /users/{user_id}/directories | List the Directories bound to a User
 *GraphApi* | [**graphUserTraverseGSuite**](docs/GraphApi.md#graphUserTraverseGSuite) | **GET** /users/{user_id}/gsuites | List the G Suite instances bound to a User
@@ -212,6 +227,7 @@ Class | Method | HTTP request | Description
 *GraphApi* | [**graphUserTraverseSystemGroup**](docs/GraphApi.md#graphUserTraverseSystemGroup) | **GET** /users/{user_id}/systemgroups | List the System Groups bound to a User
 *GraphApi* | [**policystatusesList**](docs/GraphApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 *GroupsApi* | [**groupsList**](docs/GroupsApi.md#groupsList) | **GET** /groups | List All Groups
+*KnowledgeApi* | [**knowledgeSalesforceList**](docs/KnowledgeApi.md#knowledgeSalesforceList) | **GET** /knowledge/salesforce | List Knowledge Articles
 *LdapServersApi* | [**graphLdapServerAssociationsList**](docs/LdapServersApi.md#graphLdapServerAssociationsList) | **GET** /ldapservers/{ldapserver_id}/associations | List the associations of a LDAP Server
 *LdapServersApi* | [**graphLdapServerAssociationsPost**](docs/LdapServersApi.md#graphLdapServerAssociationsPost) | **POST** /ldapservers/{ldapserver_id}/associations | Manage the associations of a LDAP Server
 *LdapServersApi* | [**graphLdapServerTraverseUser**](docs/LdapServersApi.md#graphLdapServerTraverseUser) | **GET** /ldapservers/{ldapserver_id}/users | List the Users bound to a LDAP Server
@@ -240,7 +256,7 @@ Class | Method | HTTP request | Description
 *PoliciesApi* | [**policiesPut**](docs/PoliciesApi.md#policiesPut) | **PUT** /policies/{id} | Update an existing Policy
 *PoliciesApi* | [**policyresultsGet**](docs/PoliciesApi.md#policyresultsGet) | **GET** /policyresults/{id} | Get a specific Policy Result.
 *PoliciesApi* | [**policyresultsList**](docs/PoliciesApi.md#policyresultsList) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
-*PoliciesApi* | [**policyresultsList_0**](docs/PoliciesApi.md#policyresultsList_0) | **GET** /policyresults | Lists all the policy results for an organization.
+*PoliciesApi* | [**policyresultsOrgList**](docs/PoliciesApi.md#policyresultsOrgList) | **GET** /policyresults | Lists all the policy results for an organization.
 *PoliciesApi* | [**policystatusesList**](docs/PoliciesApi.md#policystatusesList) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
 *PoliciesApi* | [**policystatusesList_0**](docs/PoliciesApi.md#policystatusesList_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 *PoliciesApi* | [**policytemplatesGet**](docs/PoliciesApi.md#policytemplatesGet) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -284,47 +300,55 @@ Class | Method | HTTP request | Description
 *SystemGroupsApi* | [**groupsSystemPost**](docs/SystemGroupsApi.md#groupsSystemPost) | **POST** /systemgroups | Create a new System Group
 *SystemGroupsApi* | [**groupsSystemPut**](docs/SystemGroupsApi.md#groupsSystemPut) | **PUT** /systemgroups/{id} | Update a System Group
 *SystemInsightsApi* | [**systeminsightsListApps**](docs/SystemInsightsApi.md#systeminsightsListApps) | **GET** /systeminsights/apps | List System Insights Apps
-*SystemInsightsApi* | [**systeminsightsListApps_0**](docs/SystemInsightsApi.md#systeminsightsListApps_0) | **GET** /systeminsights/{system_id}/apps | List System Insights System Apps
+*SystemInsightsApi* | [**systeminsightsListBattery**](docs/SystemInsightsApi.md#systeminsightsListBattery) | **GET** /systeminsights/battery | List System Insights Battery
 *SystemInsightsApi* | [**systeminsightsListBitlockerInfo**](docs/SystemInsightsApi.md#systeminsightsListBitlockerInfo) | **GET** /systeminsights/bitlocker_info | List System Insights Bitlocker Info
-*SystemInsightsApi* | [**systeminsightsListBitlockerInfo_0**](docs/SystemInsightsApi.md#systeminsightsListBitlockerInfo_0) | **GET** /systeminsights/{system_id}/bitlocker_info | List System Insights System Bitlocker Info
 *SystemInsightsApi* | [**systeminsightsListBrowserPlugins**](docs/SystemInsightsApi.md#systeminsightsListBrowserPlugins) | **GET** /systeminsights/browser_plugins | List System Insights Browser Plugins
-*SystemInsightsApi* | [**systeminsightsListBrowserPlugins_0**](docs/SystemInsightsApi.md#systeminsightsListBrowserPlugins_0) | **GET** /systeminsights/{system_id}/browser_plugins | List System Insights System Browser Plugins
 *SystemInsightsApi* | [**systeminsightsListChromeExtensions**](docs/SystemInsightsApi.md#systeminsightsListChromeExtensions) | **GET** /systeminsights/chrome_extensions | List System Insights Chrome Extensions
-*SystemInsightsApi* | [**systeminsightsListChromeExtensions_0**](docs/SystemInsightsApi.md#systeminsightsListChromeExtensions_0) | **GET** /systeminsights/{system_id}/chrome_extensions | List System Insights System Chrome Extensions
+*SystemInsightsApi* | [**systeminsightsListCrashes**](docs/SystemInsightsApi.md#systeminsightsListCrashes) | **GET** /systeminsights/crashes | List System Insights Crashes
 *SystemInsightsApi* | [**systeminsightsListDiskEncryption**](docs/SystemInsightsApi.md#systeminsightsListDiskEncryption) | **GET** /systeminsights/disk_encryption | List System Insights Disk Encryption
-*SystemInsightsApi* | [**systeminsightsListDiskEncryption_0**](docs/SystemInsightsApi.md#systeminsightsListDiskEncryption_0) | **GET** /systeminsights/{system_id}/disk_encryption | List System Insights System Disk Encryption
 *SystemInsightsApi* | [**systeminsightsListDiskInfo**](docs/SystemInsightsApi.md#systeminsightsListDiskInfo) | **GET** /systeminsights/disk_info | List System Insights Disk Info
-*SystemInsightsApi* | [**systeminsightsListDiskInfo_0**](docs/SystemInsightsApi.md#systeminsightsListDiskInfo_0) | **GET** /systeminsights/{system_id}/disk_info | List System Insights System Disk Info
 *SystemInsightsApi* | [**systeminsightsListEtcHosts**](docs/SystemInsightsApi.md#systeminsightsListEtcHosts) | **GET** /systeminsights/etc_hosts | List System Insights Etc Hosts
-*SystemInsightsApi* | [**systeminsightsListEtcHosts_0**](docs/SystemInsightsApi.md#systeminsightsListEtcHosts_0) | **GET** /systeminsights/{system_id}/etc_hosts | List System Insights System Etc Hosts
 *SystemInsightsApi* | [**systeminsightsListFirefoxAddons**](docs/SystemInsightsApi.md#systeminsightsListFirefoxAddons) | **GET** /systeminsights/firefox_addons | List System Insights Firefox Addons
-*SystemInsightsApi* | [**systeminsightsListFirefoxAddons_0**](docs/SystemInsightsApi.md#systeminsightsListFirefoxAddons_0) | **GET** /systeminsights/{system_id}/firefox_addons | List System Insights System Firefox Addons
 *SystemInsightsApi* | [**systeminsightsListGroups**](docs/SystemInsightsApi.md#systeminsightsListGroups) | **GET** /systeminsights/groups | List System Insights Groups
-*SystemInsightsApi* | [**systeminsightsListGroups_0**](docs/SystemInsightsApi.md#systeminsightsListGroups_0) | **GET** /systeminsights/{system_id}/groups | List System Insights System Groups
+*SystemInsightsApi* | [**systeminsightsListIeExtensions**](docs/SystemInsightsApi.md#systeminsightsListIeExtensions) | **GET** /systeminsights/ie_extensions | List System Insights IE Extensions
 *SystemInsightsApi* | [**systeminsightsListInterfaceAddresses**](docs/SystemInsightsApi.md#systeminsightsListInterfaceAddresses) | **GET** /systeminsights/interface_addresses | List System Insights Interface Addresses
-*SystemInsightsApi* | [**systeminsightsListInterfaceAddresses_0**](docs/SystemInsightsApi.md#systeminsightsListInterfaceAddresses_0) | **GET** /systeminsights/{system_id}/interface_addresses | List System Insights System Interface Addresses
 *SystemInsightsApi* | [**systeminsightsListKernelInfo**](docs/SystemInsightsApi.md#systeminsightsListKernelInfo) | **GET** /systeminsights/kernel_info | List System Insights Kernel Info
-*SystemInsightsApi* | [**systeminsightsListKernelInfo_0**](docs/SystemInsightsApi.md#systeminsightsListKernelInfo_0) | **GET** /systeminsights/{system_id}/kernel_info | List System Insights System Kernel Info
+*SystemInsightsApi* | [**systeminsightsListLaunchd**](docs/SystemInsightsApi.md#systeminsightsListLaunchd) | **GET** /systeminsights/launchd | List System Insights Launchd
+*SystemInsightsApi* | [**systeminsightsListLoggedInUsers**](docs/SystemInsightsApi.md#systeminsightsListLoggedInUsers) | **GET** /systeminsights/logged_in_users | List System Insights Logged-In Users
 *SystemInsightsApi* | [**systeminsightsListLogicalDrives**](docs/SystemInsightsApi.md#systeminsightsListLogicalDrives) | **GET** /systeminsights/logical_drives | List System Insights Logical Drives
-*SystemInsightsApi* | [**systeminsightsListLogicalDrives_0**](docs/SystemInsightsApi.md#systeminsightsListLogicalDrives_0) | **GET** /systeminsights/{system_id}/logical_drives | List System Insights System Logical Drives
 *SystemInsightsApi* | [**systeminsightsListMounts**](docs/SystemInsightsApi.md#systeminsightsListMounts) | **GET** /systeminsights/mounts | List System Insights Mounts
-*SystemInsightsApi* | [**systeminsightsListMounts_0**](docs/SystemInsightsApi.md#systeminsightsListMounts_0) | **GET** /systeminsights/{system_id}/mounts | List System Insights System Mounts
 *SystemInsightsApi* | [**systeminsightsListOsVersion**](docs/SystemInsightsApi.md#systeminsightsListOsVersion) | **GET** /systeminsights/os_version | List System Insights OS Version
-*SystemInsightsApi* | [**systeminsightsListOsVersion_0**](docs/SystemInsightsApi.md#systeminsightsListOsVersion_0) | **GET** /systeminsights/{system_id}/os_version | List System Insights System OS Version
 *SystemInsightsApi* | [**systeminsightsListPatches**](docs/SystemInsightsApi.md#systeminsightsListPatches) | **GET** /systeminsights/patches | List System Insights Patches
-*SystemInsightsApi* | [**systeminsightsListPatches_0**](docs/SystemInsightsApi.md#systeminsightsListPatches_0) | **GET** /systeminsights/{system_id}/patches | List System Insights System Patches
 *SystemInsightsApi* | [**systeminsightsListPrograms**](docs/SystemInsightsApi.md#systeminsightsListPrograms) | **GET** /systeminsights/programs | List System Insights Programs
-*SystemInsightsApi* | [**systeminsightsListPrograms_0**](docs/SystemInsightsApi.md#systeminsightsListPrograms_0) | **GET** /systeminsights/{system_id}/programs | List System Insights System Programs
 *SystemInsightsApi* | [**systeminsightsListSafariExtensions**](docs/SystemInsightsApi.md#systeminsightsListSafariExtensions) | **GET** /systeminsights/safari_extensions | List System Insights Safari Extensions
-*SystemInsightsApi* | [**systeminsightsListSafariExtensions_0**](docs/SystemInsightsApi.md#systeminsightsListSafariExtensions_0) | **GET** /systeminsights/{system_id}/safari_extensions | List System Insights System Safari Extensions
+*SystemInsightsApi* | [**systeminsightsListSystemApps**](docs/SystemInsightsApi.md#systeminsightsListSystemApps) | **GET** /systeminsights/{system_id}/apps | List System Insights System Apps
+*SystemInsightsApi* | [**systeminsightsListSystemBitlockerInfo**](docs/SystemInsightsApi.md#systeminsightsListSystemBitlockerInfo) | **GET** /systeminsights/{system_id}/bitlocker_info | List System Insights System Bitlocker Info
+*SystemInsightsApi* | [**systeminsightsListSystemBrowserPlugins**](docs/SystemInsightsApi.md#systeminsightsListSystemBrowserPlugins) | **GET** /systeminsights/{system_id}/browser_plugins | List System Insights System Browser Plugins
+*SystemInsightsApi* | [**systeminsightsListSystemChromeExtensions**](docs/SystemInsightsApi.md#systeminsightsListSystemChromeExtensions) | **GET** /systeminsights/{system_id}/chrome_extensions | List System Insights System Chrome Extensions
 *SystemInsightsApi* | [**systeminsightsListSystemControls**](docs/SystemInsightsApi.md#systeminsightsListSystemControls) | **GET** /systeminsights/system_controls | List System Insights System Control
-*SystemInsightsApi* | [**systeminsightsListSystemControls_0**](docs/SystemInsightsApi.md#systeminsightsListSystemControls_0) | **GET** /systeminsights/{system_id}/system_controls | List System Insights System System Controls
+*SystemInsightsApi* | [**systeminsightsListSystemDiskEncryption**](docs/SystemInsightsApi.md#systeminsightsListSystemDiskEncryption) | **GET** /systeminsights/{system_id}/disk_encryption | List System Insights System Disk Encryption
+*SystemInsightsApi* | [**systeminsightsListSystemDiskInfo**](docs/SystemInsightsApi.md#systeminsightsListSystemDiskInfo) | **GET** /systeminsights/{system_id}/disk_info | List System Insights System Disk Info
+*SystemInsightsApi* | [**systeminsightsListSystemEtcHosts**](docs/SystemInsightsApi.md#systeminsightsListSystemEtcHosts) | **GET** /systeminsights/{system_id}/etc_hosts | List System Insights System Etc Hosts
+*SystemInsightsApi* | [**systeminsightsListSystemFirefoxAddons**](docs/SystemInsightsApi.md#systeminsightsListSystemFirefoxAddons) | **GET** /systeminsights/{system_id}/firefox_addons | List System Insights System Firefox Addons
+*SystemInsightsApi* | [**systeminsightsListSystemGroups**](docs/SystemInsightsApi.md#systeminsightsListSystemGroups) | **GET** /systeminsights/{system_id}/groups | List System Insights System Groups
 *SystemInsightsApi* | [**systeminsightsListSystemInfo**](docs/SystemInsightsApi.md#systeminsightsListSystemInfo) | **GET** /systeminsights/system_info | List System Insights System Info
-*SystemInsightsApi* | [**systeminsightsListSystemInfo_0**](docs/SystemInsightsApi.md#systeminsightsListSystemInfo_0) | **GET** /systeminsights/{system_id}/system_info | List System Insights System System Info
+*SystemInsightsApi* | [**systeminsightsListSystemInterfaceAddresses**](docs/SystemInsightsApi.md#systeminsightsListSystemInterfaceAddresses) | **GET** /systeminsights/{system_id}/interface_addresses | List System Insights System Interface Addresses
+*SystemInsightsApi* | [**systeminsightsListSystemKernelInfo**](docs/SystemInsightsApi.md#systeminsightsListSystemKernelInfo) | **GET** /systeminsights/{system_id}/kernel_info | List System Insights System Kernel Info
+*SystemInsightsApi* | [**systeminsightsListSystemLogicalDrives**](docs/SystemInsightsApi.md#systeminsightsListSystemLogicalDrives) | **GET** /systeminsights/{system_id}/logical_drives | List System Insights System Logical Drives
+*SystemInsightsApi* | [**systeminsightsListSystemMounts**](docs/SystemInsightsApi.md#systeminsightsListSystemMounts) | **GET** /systeminsights/{system_id}/mounts | List System Insights System Mounts
+*SystemInsightsApi* | [**systeminsightsListSystemOsVersion**](docs/SystemInsightsApi.md#systeminsightsListSystemOsVersion) | **GET** /systeminsights/{system_id}/os_version | List System Insights System OS Version
+*SystemInsightsApi* | [**systeminsightsListSystemPatches**](docs/SystemInsightsApi.md#systeminsightsListSystemPatches) | **GET** /systeminsights/{system_id}/patches | List System Insights System Patches
+*SystemInsightsApi* | [**systeminsightsListSystemPrograms**](docs/SystemInsightsApi.md#systeminsightsListSystemPrograms) | **GET** /systeminsights/{system_id}/programs | List System Insights System Programs
+*SystemInsightsApi* | [**systeminsightsListSystemSafariExtensions**](docs/SystemInsightsApi.md#systeminsightsListSystemSafariExtensions) | **GET** /systeminsights/{system_id}/safari_extensions | List System Insights System Safari Extensions
+*SystemInsightsApi* | [**systeminsightsListSystemSystemControls**](docs/SystemInsightsApi.md#systeminsightsListSystemSystemControls) | **GET** /systeminsights/{system_id}/system_controls | List System Insights System System Controls
+*SystemInsightsApi* | [**systeminsightsListSystemSystemInfo**](docs/SystemInsightsApi.md#systeminsightsListSystemSystemInfo) | **GET** /systeminsights/{system_id}/system_info | List System Insights System System Info
+*SystemInsightsApi* | [**systeminsightsListSystemUptime**](docs/SystemInsightsApi.md#systeminsightsListSystemUptime) | **GET** /systeminsights/{system_id}/uptime | List System Insights System Uptime
+*SystemInsightsApi* | [**systeminsightsListSystemUsers**](docs/SystemInsightsApi.md#systeminsightsListSystemUsers) | **GET** /systeminsights/{system_id}/users | List System Insights System Users
 *SystemInsightsApi* | [**systeminsightsListUptime**](docs/SystemInsightsApi.md#systeminsightsListUptime) | **GET** /systeminsights/uptime | List System Insights Uptime
-*SystemInsightsApi* | [**systeminsightsListUptime_0**](docs/SystemInsightsApi.md#systeminsightsListUptime_0) | **GET** /systeminsights/{system_id}/uptime | List System Insights System Uptime
+*SystemInsightsApi* | [**systeminsightsListUsbDevices**](docs/SystemInsightsApi.md#systeminsightsListUsbDevices) | **GET** /systeminsights/usb_devices | List System Insights USB Devices
+*SystemInsightsApi* | [**systeminsightsListUserGroups**](docs/SystemInsightsApi.md#systeminsightsListUserGroups) | **GET** /systeminsights/user_groups | List System Insights User Groups
 *SystemInsightsApi* | [**systeminsightsListUsers**](docs/SystemInsightsApi.md#systeminsightsListUsers) | **GET** /systeminsights/users | List System Insights Users
-*SystemInsightsApi* | [**systeminsightsListUsers_0**](docs/SystemInsightsApi.md#systeminsightsListUsers_0) | **GET** /systeminsights/{system_id}/users | List System Insights System Users
+*SystemInsightsApi* | [**systeminsightsListWindowsCrashes**](docs/SystemInsightsApi.md#systeminsightsListWindowsCrashes) | **GET** /systeminsights/windows_crashes | List System Insights Windows Crashes
 *SystemsApi* | [**graphSystemAssociationsList**](docs/SystemsApi.md#graphSystemAssociationsList) | **GET** /systems/{system_id}/associations | List the associations of a System
 *SystemsApi* | [**graphSystemAssociationsPost**](docs/SystemsApi.md#graphSystemAssociationsPost) | **POST** /systems/{system_id}/associations | Manage associations of a System
 *SystemsApi* | [**graphSystemMemberOf**](docs/SystemsApi.md#graphSystemMemberOf) | **GET** /systems/{system_id}/memberof | List the parent Groups of a System
@@ -401,21 +425,28 @@ Class | Method | HTTP request | Description
  - [ActiveDirectoryAgentListOutput](docs/ActiveDirectoryAgentListOutput.md)
  - [ActiveDirectoryInput](docs/ActiveDirectoryInput.md)
  - [Administrator](docs/Administrator.md)
+ - [AppleMDM](docs/AppleMDM.md)
+ - [AppleMdmPatchInput](docs/AppleMdmPatchInput.md)
  - [AuthInfo](docs/AuthInfo.md)
  - [AuthInput](docs/AuthInput.md)
  - [AuthInputObject](docs/AuthInputObject.md)
  - [AuthinputBasic](docs/AuthinputBasic.md)
  - [AuthinputOauth](docs/AuthinputOauth.md)
  - [Body](docs/Body.md)
+ - [Body1](docs/Body1.md)
+ - [Body2](docs/Body2.md)
+ - [Body3](docs/Body3.md)
  - [BulkUserCreate](docs/BulkUserCreate.md)
  - [BulkUserUpdate](docs/BulkUserUpdate.md)
  - [Directory](docs/Directory.md)
  - [DuoAccount](docs/DuoAccount.md)
  - [DuoApplication](docs/DuoApplication.md)
  - [DuoApplicationReq](docs/DuoApplicationReq.md)
+ - [DuoApplicationUpdateReq](docs/DuoApplicationUpdateReq.md)
  - [DuoRegistrationApplication](docs/DuoRegistrationApplication.md)
  - [DuoRegistrationApplicationReq](docs/DuoRegistrationApplicationReq.md)
  - [Emailrequest](docs/Emailrequest.md)
+ - [EnrollmentProfile](docs/EnrollmentProfile.md)
  - [Error](docs/Error.md)
  - [Errorresponse](docs/Errorresponse.md)
  - [GSuiteBuiltinTranslation](docs/GSuiteBuiltinTranslation.md)
@@ -432,7 +463,9 @@ Class | Method | HTTP request | Description
  - [GsuitePatchInput](docs/GsuitePatchInput.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse201](docs/InlineResponse201.md)
  - [InlineResponse400](docs/InlineResponse400.md)
+ - [JcEnrollmentProfile](docs/JcEnrollmentProfile.md)
  - [JobDetails](docs/JobDetails.md)
  - [JobId](docs/JobId.md)
  - [JobWorkresult](docs/JobWorkresult.md)
@@ -459,6 +492,8 @@ Class | Method | HTTP request | Description
  - [Provider](docs/Provider.md)
  - [ProviderAdminReq](docs/ProviderAdminReq.md)
  - [ProviderContact](docs/ProviderContact.md)
+ - [SalesforceKnowledgeListOutput](docs/SalesforceKnowledgeListOutput.md)
+ - [SalesforceknowledgelistoutputInner](docs/SalesforceknowledgelistoutputInner.md)
  - [SambaDomainInput](docs/SambaDomainInput.md)
  - [Sshkeylist](docs/Sshkeylist.md)
  - [SystemGraphManagementReq](docs/SystemGraphManagementReq.md)
@@ -469,16 +504,21 @@ Class | Method | HTTP request | Description
  - [SystemGroupGraphManagementReq](docs/SystemGroupGraphManagementReq.md)
  - [SystemGroupMembersReq](docs/SystemGroupMembersReq.md)
  - [SystemInsightsApps](docs/SystemInsightsApps.md)
+ - [SystemInsightsBattery](docs/SystemInsightsBattery.md)
  - [SystemInsightsBitlockerInfo](docs/SystemInsightsBitlockerInfo.md)
  - [SystemInsightsBrowserPlugins](docs/SystemInsightsBrowserPlugins.md)
  - [SystemInsightsChromeExtensions](docs/SystemInsightsChromeExtensions.md)
+ - [SystemInsightsCrashes](docs/SystemInsightsCrashes.md)
  - [SystemInsightsDiskEncryption](docs/SystemInsightsDiskEncryption.md)
  - [SystemInsightsDiskInfo](docs/SystemInsightsDiskInfo.md)
  - [SystemInsightsEtcHosts](docs/SystemInsightsEtcHosts.md)
  - [SystemInsightsFirefoxAddons](docs/SystemInsightsFirefoxAddons.md)
  - [SystemInsightsGroups](docs/SystemInsightsGroups.md)
+ - [SystemInsightsIeExtensions](docs/SystemInsightsIeExtensions.md)
  - [SystemInsightsInterfaceAddresses](docs/SystemInsightsInterfaceAddresses.md)
  - [SystemInsightsKernelInfo](docs/SystemInsightsKernelInfo.md)
+ - [SystemInsightsLaunchd](docs/SystemInsightsLaunchd.md)
+ - [SystemInsightsLoggedInUsers](docs/SystemInsightsLoggedInUsers.md)
  - [SystemInsightsLogicalDrvies](docs/SystemInsightsLogicalDrvies.md)
  - [SystemInsightsMounts](docs/SystemInsightsMounts.md)
  - [SystemInsightsOsVersion](docs/SystemInsightsOsVersion.md)
@@ -488,7 +528,10 @@ Class | Method | HTTP request | Description
  - [SystemInsightsSystemControls](docs/SystemInsightsSystemControls.md)
  - [SystemInsightsSystemInfo](docs/SystemInsightsSystemInfo.md)
  - [SystemInsightsUptime](docs/SystemInsightsUptime.md)
+ - [SystemInsightsUsbDevices](docs/SystemInsightsUsbDevices.md)
+ - [SystemInsightsUserGroups](docs/SystemInsightsUserGroups.md)
  - [SystemInsightsUsers](docs/SystemInsightsUsers.md)
+ - [SystemInsightsWindowsCrashes](docs/SystemInsightsWindowsCrashes.md)
  - [Systemfdekey](docs/Systemfdekey.md)
  - [Systemuser](docs/Systemuser.md)
  - [Systemuserputpost](docs/Systemuserputpost.md)
@@ -496,13 +539,12 @@ Class | Method | HTTP request | Description
  - [SystemuserputpostPhoneNumbers](docs/SystemuserputpostPhoneNumbers.md)
  - [UserGraphManagementReq](docs/UserGraphManagementReq.md)
  - [UserGroup](docs/UserGroup.md)
+ - [UserGroupAttributes](docs/UserGroupAttributes.md)
+ - [UserGroupAttributesPosixGroups](docs/UserGroupAttributesPosixGroups.md)
  - [UserGroupGraphManagementReq](docs/UserGroupGraphManagementReq.md)
  - [UserGroupMembersReq](docs/UserGroupMembersReq.md)
  - [UserGroupPost](docs/UserGroupPost.md)
- - [UserGroupPostAttributes](docs/UserGroupPostAttributes.md)
- - [UserGroupPostAttributesPosixGroups](docs/UserGroupPostAttributesPosixGroups.md)
  - [UserGroupPut](docs/UserGroupPut.md)
- - [UserGroupPutAttributes](docs/UserGroupPutAttributes.md)
  - [WorkdayFields](docs/WorkdayFields.md)
  - [WorkdayInput](docs/WorkdayInput.md)
  - [WorkdayOutput](docs/WorkdayOutput.md)

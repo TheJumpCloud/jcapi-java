@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **sambaServiceUser** | **Boolean** |  |  [optional]
 **sshKeys** | [**List&lt;Sshkeypost&gt;**](Sshkeypost.md) |  |  [optional]
 **sudo** | **Boolean** |  |  [optional]
+**suspended** | **Boolean** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **unixGuid** | **Integer** |  |  [optional]
 **unixUid** | **Integer** |  |  [optional]

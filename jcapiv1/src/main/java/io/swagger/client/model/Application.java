@@ -27,13 +27,13 @@ import java.io.IOException;
 /**
  * Application
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:11.958Z")
 public class Application {
   @SerializedName("_id")
   private String id = null;
 
-  @SerializedName("active")
-  private Boolean active = null;
+  @SerializedName("beta")
+  private Boolean beta = null;
 
   @SerializedName("config")
   private ApplicationConfig config = null;
@@ -74,22 +74,22 @@ public class Application {
     this.id = id;
   }
 
-  public Application active(Boolean active) {
-    this.active = active;
+  public Application beta(Boolean beta) {
+    this.beta = beta;
     return this;
   }
 
    /**
-   * Get active
-   * @return active
+   * Get beta
+   * @return beta
   **/
   @ApiModelProperty(value = "")
-  public Boolean isActive() {
-    return active;
+  public Boolean isBeta() {
+    return beta;
   }
 
-  public void setActive(Boolean active) {
-    this.active = active;
+  public void setBeta(Boolean beta) {
+    this.beta = beta;
   }
 
   public Application config(ApplicationConfig config) {
@@ -229,7 +229,7 @@ public class Application {
     }
     Application application = (Application) o;
     return Objects.equals(this.id, application.id) &&
-        Objects.equals(this.active, application.active) &&
+        Objects.equals(this.beta, application.beta) &&
         Objects.equals(this.config, application.config) &&
         Objects.equals(this.displayLabel, application.displayLabel) &&
         Objects.equals(this.displayName, application.displayName) &&
@@ -241,7 +241,7 @@ public class Application {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, active, config, displayLabel, displayName, learnMore, name, organization, ssoUrl);
+    return Objects.hash(id, beta, config, displayLabel, displayName, learnMore, name, organization, ssoUrl);
   }
 
 
@@ -251,7 +251,7 @@ public class Application {
     sb.append("class Application {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    beta: ").append(toIndentedString(beta)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    displayLabel: ").append(toIndentedString(displayLabel)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");

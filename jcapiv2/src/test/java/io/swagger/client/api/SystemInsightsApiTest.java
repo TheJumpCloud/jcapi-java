@@ -15,16 +15,21 @@ package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
 import io.swagger.client.model.SystemInsightsApps;
+import io.swagger.client.model.SystemInsightsBattery;
 import io.swagger.client.model.SystemInsightsBitlockerInfo;
 import io.swagger.client.model.SystemInsightsBrowserPlugins;
 import io.swagger.client.model.SystemInsightsChromeExtensions;
+import io.swagger.client.model.SystemInsightsCrashes;
 import io.swagger.client.model.SystemInsightsDiskEncryption;
 import io.swagger.client.model.SystemInsightsDiskInfo;
 import io.swagger.client.model.SystemInsightsEtcHosts;
 import io.swagger.client.model.SystemInsightsFirefoxAddons;
 import io.swagger.client.model.SystemInsightsGroups;
+import io.swagger.client.model.SystemInsightsIeExtensions;
 import io.swagger.client.model.SystemInsightsInterfaceAddresses;
 import io.swagger.client.model.SystemInsightsKernelInfo;
+import io.swagger.client.model.SystemInsightsLaunchd;
+import io.swagger.client.model.SystemInsightsLoggedInUsers;
 import io.swagger.client.model.SystemInsightsLogicalDrvies;
 import io.swagger.client.model.SystemInsightsMounts;
 import io.swagger.client.model.SystemInsightsOsVersion;
@@ -34,7 +39,10 @@ import io.swagger.client.model.SystemInsightsSafariExtensions;
 import io.swagger.client.model.SystemInsightsSystemControls;
 import io.swagger.client.model.SystemInsightsSystemInfo;
 import io.swagger.client.model.SystemInsightsUptime;
+import io.swagger.client.model.SystemInsightsUsbDevices;
+import io.swagger.client.model.SystemInsightsUserGroups;
 import io.swagger.client.model.SystemInsightsUsers;
+import io.swagger.client.model.SystemInsightsWindowsCrashes;
 import org.junit.Test;
 import org.junit.Ignore;
 
@@ -74,23 +82,22 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Apps
+     * List System Insights Battery
      *
-     * Valid filter fields are &#x60;bundle_name&#x60;.
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;health&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListApps_0Test() throws ApiException {
-        String systemId = null;
+    public void systeminsightsListBatteryTest() throws ApiException {
         String contentType = null;
         String accept = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsApps> response = api.systeminsightsListApps_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        List<SystemInsightsBattery> response = api.systeminsightsListBattery(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -117,28 +124,6 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Bitlocker Info
-     *
-     * Valid filter fields are &#x60;protection_status&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListBitlockerInfo_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsBitlockerInfo> response = api.systeminsightsListBitlockerInfo_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List System Insights Browser Plugins
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
@@ -155,28 +140,6 @@ public class SystemInsightsApiTest {
         List<String> filter = null;
         String xOrgId = null;
         List<SystemInsightsBrowserPlugins> response = api.systeminsightsListBrowserPlugins(contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List System Insights System Browser Plugins
-     *
-     * Valid filter fields are &#x60;name&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListBrowserPlugins_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsBrowserPlugins> response = api.systeminsightsListBrowserPlugins_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -203,23 +166,22 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Chrome Extensions
+     * List System Insights Crashes
      *
-     * Valid filter fields are &#x60;name&#x60;.
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;identifier&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListChromeExtensions_0Test() throws ApiException {
-        String systemId = null;
+    public void systeminsightsListCrashesTest() throws ApiException {
         String contentType = null;
         String accept = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsChromeExtensions> response = api.systeminsightsListChromeExtensions_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        List<SystemInsightsCrashes> response = api.systeminsightsListCrashes(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -246,28 +208,6 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Disk Encryption
-     *
-     * Valid filter fields are &#x60;encryption_status&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListDiskEncryption_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsDiskEncryption> response = api.systeminsightsListDiskEncryption_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List System Insights Disk Info
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;disk_index&#x60;.
@@ -284,28 +224,6 @@ public class SystemInsightsApiTest {
         List<String> filter = null;
         String xOrgId = null;
         List<SystemInsightsDiskInfo> response = api.systeminsightsListDiskInfo(contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List System Insights System Disk Info
-     *
-     * Valid filter fields are &#x60;disk_index&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListDiskInfo_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsBitlockerInfo> response = api.systeminsightsListDiskInfo_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -332,28 +250,6 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Etc Hosts
-     *
-     * Valid filter fields are &#x60;address&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListEtcHosts_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsBitlockerInfo> response = api.systeminsightsListEtcHosts_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List System Insights Firefox Addons
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
@@ -370,28 +266,6 @@ public class SystemInsightsApiTest {
         List<String> filter = null;
         String xOrgId = null;
         List<SystemInsightsFirefoxAddons> response = api.systeminsightsListFirefoxAddons(contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List System Insights System Firefox Addons
-     *
-     * Valid filter fields are &#x60;name&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListFirefoxAddons_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsFirefoxAddons> response = api.systeminsightsListFirefoxAddons_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -418,23 +292,22 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Groups
+     * List System Insights IE Extensions
      *
-     * Valid filter fields are &#x60;groupname&#x60;.
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListGroups_0Test() throws ApiException {
-        String systemId = null;
+    public void systeminsightsListIeExtensionsTest() throws ApiException {
         String contentType = null;
         String accept = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsGroups> response = api.systeminsightsListGroups_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        List<SystemInsightsIeExtensions> response = api.systeminsightsListIeExtensions(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -461,28 +334,6 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Interface Addresses
-     *
-     * Valid filter fields are &#x60;address&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListInterfaceAddresses_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsInterfaceAddresses> response = api.systeminsightsListInterfaceAddresses_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List System Insights Kernel Info
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;version&#x60;.
@@ -504,23 +355,43 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Kernel Info
+     * List System Insights Launchd
      *
-     * Valid filter fields are &#x60;version&#x60;.
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListKernelInfo_0Test() throws ApiException {
-        String systemId = null;
+    public void systeminsightsListLaunchdTest() throws ApiException {
         String contentType = null;
         String accept = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> filter = null;
+        List<SystemInsightsLaunchd> response = api.systeminsightsListLaunchd(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights Logged-In Users
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;user&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListLoggedInUsersTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
         String xOrgId = null;
-        List<SystemInsightsKernelInfo> response = api.systeminsightsListKernelInfo_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsLoggedInUsers> response = api.systeminsightsListLoggedInUsers(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -547,28 +418,6 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Logical Drives
-     *
-     * Valid filter fields are &#x60;device_id&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListLogicalDrives_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsLogicalDrvies> response = api.systeminsightsListLogicalDrives_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List System Insights Mounts
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;path&#x60;.
@@ -585,28 +434,6 @@ public class SystemInsightsApiTest {
         List<String> filter = null;
         String xOrgId = null;
         List<SystemInsightsMounts> response = api.systeminsightsListMounts(contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List System Insights System Mounts
-     *
-     * Valid filter fields are &#x60;path&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListMounts_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsMounts> response = api.systeminsightsListMounts_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -633,28 +460,6 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System OS Version
-     *
-     * Valid filter fields are &#x60;version&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListOsVersion_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsOsVersion> response = api.systeminsightsListOsVersion_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List System Insights Patches
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;hotfix_id&#x60;.
@@ -671,28 +476,6 @@ public class SystemInsightsApiTest {
         List<String> filter = null;
         String xOrgId = null;
         List<SystemInsightsPatches> response = api.systeminsightsListPatches(contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
-     * List System Insights System Patches
-     *
-     * Valid filter fields are &#x60;hotfix_id  &#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListPatches_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsPatches> response = api.systeminsightsListPatches_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -719,28 +502,6 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Programs
-     *
-     * Valid filter fields are &#x60;name&#x60;.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void systeminsightsListPrograms_0Test() throws ApiException {
-        String systemId = null;
-        String contentType = null;
-        String accept = null;
-        Integer limit = null;
-        Integer skip = null;
-        List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsPrograms> response = api.systeminsightsListPrograms_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
-
-        // TODO: test validations
-    }
-    
-    /**
      * List System Insights Safari Extensions
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
@@ -762,15 +523,15 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Safari Extensions
+     * List System Insights System Apps
      *
-     * Valid filter fields are &#x60;name&#x60;.
+     * Valid filter fields are &#x60;bundle_name&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListSafariExtensions_0Test() throws ApiException {
+    public void systeminsightsListSystemAppsTest() throws ApiException {
         String systemId = null;
         String contentType = null;
         String accept = null;
@@ -778,7 +539,73 @@ public class SystemInsightsApiTest {
         Integer skip = null;
         List<String> filter = null;
         String xOrgId = null;
-        List<SystemInsightsSafariExtensions> response = api.systeminsightsListSafariExtensions_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        List<SystemInsightsApps> response = api.systeminsightsListSystemApps(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Bitlocker Info
+     *
+     * Valid filter fields are &#x60;protection_status&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemBitlockerInfoTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsBitlockerInfo> response = api.systeminsightsListSystemBitlockerInfo(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Browser Plugins
+     *
+     * Valid filter fields are &#x60;name&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemBrowserPluginsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsBrowserPlugins> response = api.systeminsightsListSystemBrowserPlugins(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Chrome Extensions
+     *
+     * Valid filter fields are &#x60;name&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemChromeExtensionsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsChromeExtensions> response = api.systeminsightsListSystemChromeExtensions(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -805,15 +632,15 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System System Controls
+     * List System Insights System Disk Encryption
      *
-     * Valid filter fields are &#x60;name&#x60;.
+     * Valid filter fields are &#x60;encryption_status&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListSystemControls_0Test() throws ApiException {
+    public void systeminsightsListSystemDiskEncryptionTest() throws ApiException {
         String systemId = null;
         String contentType = null;
         String accept = null;
@@ -821,7 +648,95 @@ public class SystemInsightsApiTest {
         Integer skip = null;
         List<String> filter = null;
         String xOrgId = null;
-        List<SystemInsightsSystemControls> response = api.systeminsightsListSystemControls_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        List<SystemInsightsDiskEncryption> response = api.systeminsightsListSystemDiskEncryption(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Disk Info
+     *
+     * Valid filter fields are &#x60;disk_index&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemDiskInfoTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsBitlockerInfo> response = api.systeminsightsListSystemDiskInfo(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Etc Hosts
+     *
+     * Valid filter fields are &#x60;address&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemEtcHostsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsBitlockerInfo> response = api.systeminsightsListSystemEtcHosts(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Firefox Addons
+     *
+     * Valid filter fields are &#x60;name&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemFirefoxAddonsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsFirefoxAddons> response = api.systeminsightsListSystemFirefoxAddons(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Groups
+     *
+     * Valid filter fields are &#x60;groupname&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemGroupsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsGroups> response = api.systeminsightsListSystemGroups(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -848,6 +763,204 @@ public class SystemInsightsApiTest {
     }
     
     /**
+     * List System Insights System Interface Addresses
+     *
+     * Valid filter fields are &#x60;address&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemInterfaceAddressesTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsInterfaceAddresses> response = api.systeminsightsListSystemInterfaceAddresses(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Kernel Info
+     *
+     * Valid filter fields are &#x60;version&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemKernelInfoTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsKernelInfo> response = api.systeminsightsListSystemKernelInfo(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Logical Drives
+     *
+     * Valid filter fields are &#x60;device_id&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemLogicalDrivesTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsLogicalDrvies> response = api.systeminsightsListSystemLogicalDrives(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Mounts
+     *
+     * Valid filter fields are &#x60;path&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemMountsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsMounts> response = api.systeminsightsListSystemMounts(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System OS Version
+     *
+     * Valid filter fields are &#x60;version&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemOsVersionTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsOsVersion> response = api.systeminsightsListSystemOsVersion(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Patches
+     *
+     * Valid filter fields are &#x60;hotfix_id  &#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemPatchesTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsPatches> response = api.systeminsightsListSystemPatches(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Programs
+     *
+     * Valid filter fields are &#x60;name&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemProgramsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsPrograms> response = api.systeminsightsListSystemPrograms(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Safari Extensions
+     *
+     * Valid filter fields are &#x60;name&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemSafariExtensionsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsSafariExtensions> response = api.systeminsightsListSystemSafariExtensions(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System System Controls
+     *
+     * Valid filter fields are &#x60;name&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemSystemControlsTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsSystemControls> response = api.systeminsightsListSystemSystemControls(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List System Insights System System Info
      *
      * Valid filter fields are &#x60;cpu_subtype&#x60;.
@@ -856,7 +969,7 @@ public class SystemInsightsApiTest {
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListSystemInfo_0Test() throws ApiException {
+    public void systeminsightsListSystemSystemInfoTest() throws ApiException {
         String systemId = null;
         String contentType = null;
         String accept = null;
@@ -864,7 +977,51 @@ public class SystemInsightsApiTest {
         Integer skip = null;
         List<String> filter = null;
         String xOrgId = null;
-        List<SystemInsightsSystemInfo> response = api.systeminsightsListSystemInfo_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        List<SystemInsightsSystemInfo> response = api.systeminsightsListSystemSystemInfo(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Uptime
+     *
+     * Valid filter fields are &#x60;days&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemUptimeTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsUptime> response = api.systeminsightsListSystemUptime(systemId, contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights System Users
+     *
+     * Valid filter fields are &#x60;username&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSystemUsersTest() throws ApiException {
+        String systemId = null;
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        Integer skip = null;
+        List<String> filter = null;
+        String xOrgId = null;
+        List<SystemInsightsUsers> response = api.systeminsightsListSystemUsers(systemId, contentType, accept, limit, skip, filter, xOrgId);
 
         // TODO: test validations
     }
@@ -891,23 +1048,43 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Uptime
+     * List System Insights USB Devices
      *
-     * Valid filter fields are &#x60;days&#x60;.
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;model&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListUptime_0Test() throws ApiException {
-        String systemId = null;
+    public void systeminsightsListUsbDevicesTest() throws ApiException {
         String contentType = null;
         String accept = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> filter = null;
+        List<SystemInsightsUsbDevices> response = api.systeminsightsListUsbDevices(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights User Groups
+     *
+     * Only valid filter field is &#x60;system_id&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListUserGroupsTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
         String xOrgId = null;
-        List<SystemInsightsUptime> response = api.systeminsightsListUptime_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsUserGroups> response = api.systeminsightsListUserGroups(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -934,23 +1111,22 @@ public class SystemInsightsApiTest {
     }
     
     /**
-     * List System Insights System Users
+     * List System Insights Windows Crashes
      *
-     * Valid filter fields are &#x60;username&#x60;.
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
-    public void systeminsightsListUsers_0Test() throws ApiException {
-        String systemId = null;
+    public void systeminsightsListWindowsCrashesTest() throws ApiException {
         String contentType = null;
         String accept = null;
         Integer limit = null;
+        String xOrgId = null;
         Integer skip = null;
         List<String> filter = null;
-        String xOrgId = null;
-        List<SystemInsightsUsers> response = api.systeminsightsListUsers_0(systemId, contentType, accept, limit, skip, filter, xOrgId);
+        List<SystemInsightsWindowsCrashes> response = api.systeminsightsListWindowsCrashes(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }

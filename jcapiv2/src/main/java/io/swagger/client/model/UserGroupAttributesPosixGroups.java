@@ -24,30 +24,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * The group object&#39;s attributes.
+ * UserGroupAttributesPosixGroups
  */
-@ApiModel(description = "The group object's attributes.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
-public class UserGroupPutAttributes {
-  @SerializedName("sambaEnabled")
-  private Boolean sambaEnabled = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
+public class UserGroupAttributesPosixGroups {
+  @SerializedName("id")
+  private Integer id = null;
 
-  public UserGroupPutAttributes sambaEnabled(Boolean sambaEnabled) {
-    this.sambaEnabled = sambaEnabled;
+  @SerializedName("name")
+  private String name = null;
+
+  public UserGroupAttributesPosixGroups id(Integer id) {
+    this.id = id;
     return this;
   }
 
    /**
-   * Get sambaEnabled
-   * @return sambaEnabled
+   * Get id
+   * @return id
   **/
   @ApiModelProperty(value = "")
-  public Boolean isSambaEnabled() {
-    return sambaEnabled;
+  public Integer getId() {
+    return id;
   }
 
-  public void setSambaEnabled(Boolean sambaEnabled) {
-    this.sambaEnabled = sambaEnabled;
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public UserGroupAttributesPosixGroups name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -59,22 +79,24 @@ public class UserGroupPutAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserGroupPutAttributes userGroupPutAttributes = (UserGroupPutAttributes) o;
-    return Objects.equals(this.sambaEnabled, userGroupPutAttributes.sambaEnabled);
+    UserGroupAttributesPosixGroups userGroupAttributesPosixGroups = (UserGroupAttributesPosixGroups) o;
+    return Objects.equals(this.id, userGroupAttributesPosixGroups.id) &&
+        Objects.equals(this.name, userGroupAttributesPosixGroups.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sambaEnabled);
+    return Objects.hash(id, name);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserGroupPutAttributes {\n");
+    sb.append("class UserGroupAttributesPosixGroups {\n");
     
-    sb.append("    sambaEnabled: ").append(toIndentedString(sambaEnabled)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

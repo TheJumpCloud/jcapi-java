@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.Body;
+import io.swagger.client.model.Body3;
 import io.swagger.client.model.GraphConnection;
 import io.swagger.client.model.GraphManagementReq;
 import io.swagger.client.model.GraphObjectWithPaths;
@@ -179,7 +179,7 @@ public class LdapServersApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        Body body = null;
+        Body3 body = null;
         String xApiKey = null;
         String xOrgId = null;
         InlineResponse200 response = api.ldapserversPatch(id, contentType, accept, body, xApiKey, xOrgId);

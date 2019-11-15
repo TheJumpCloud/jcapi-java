@@ -23,20 +23,30 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.client.model.CommandslistResults;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Commandslist
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:11.958Z")
 public class Commandslist {
   @SerializedName("results")
-  private CommandslistResults results = null;
+  private List<CommandslistResults> results = null;
 
   @SerializedName("totalCount")
   private Integer totalCount = null;
 
-  public Commandslist results(CommandslistResults results) {
+  public Commandslist results(List<CommandslistResults> results) {
     this.results = results;
+    return this;
+  }
+
+  public Commandslist addResultsItem(CommandslistResults resultsItem) {
+    if (this.results == null) {
+      this.results = new ArrayList<CommandslistResults>();
+    }
+    this.results.add(resultsItem);
     return this;
   }
 
@@ -45,11 +55,11 @@ public class Commandslist {
    * @return results
   **/
   @ApiModelProperty(value = "")
-  public CommandslistResults getResults() {
+  public List<CommandslistResults> getResults() {
     return results;
   }
 
-  public void setResults(CommandslistResults results) {
+  public void setResults(List<CommandslistResults> results) {
     this.results = results;
   }
 
