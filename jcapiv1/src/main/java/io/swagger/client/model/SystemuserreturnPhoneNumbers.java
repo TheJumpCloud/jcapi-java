@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemuserreturnPhoneNumbers
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:11.958Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:09.332Z")
 public class SystemuserreturnPhoneNumbers {
   @SerializedName("id")
   private String id = null;

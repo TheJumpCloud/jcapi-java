@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * SystemGroupData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-15T20:11:23.142Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
 public class SystemGroupData {
   @SerializedName("name")
   private String name = null;
