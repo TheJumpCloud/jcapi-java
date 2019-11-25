@@ -21,21 +21,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.UserGroupPutAttributes;
+import io.swagger.client.model.UserGroupAttributes;
 import java.io.IOException;
 
 /**
  * UserGroupPut
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
 public class UserGroupPut {
   @SerializedName("attributes")
-  private UserGroupPutAttributes attributes = null;
+  private UserGroupAttributes attributes = null;
 
   @SerializedName("name")
   private String name = null;
 
-  public UserGroupPut attributes(UserGroupPutAttributes attributes) {
+  public UserGroupPut attributes(UserGroupAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
@@ -45,11 +45,11 @@ public class UserGroupPut {
    * @return attributes
   **/
   @ApiModelProperty(value = "")
-  public UserGroupPutAttributes getAttributes() {
+  public UserGroupAttributes getAttributes() {
     return attributes;
   }
 
-  public void setAttributes(UserGroupPutAttributes attributes) {
+  public void setAttributes(UserGroupAttributes attributes) {
     this.attributes = attributes;
   }
 

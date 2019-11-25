@@ -18,7 +18,7 @@ import java.util.Objects;
 /**
  * Usersystembinding
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:09.332Z")
 public class Usersystembinding {
 
   @Override

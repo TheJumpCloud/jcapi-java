@@ -1806,7 +1806,7 @@ public class PoliciesApi {
         return call;
     }
     /**
-     * Build call for policyresultsList_0
+     * Build call for policyresultsOrgList
      * @param contentType  (required)
      * @param accept  (required)
      * @param fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  (optional)
@@ -1820,7 +1820,7 @@ public class PoliciesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call policyresultsList_0Call(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call policyresultsOrgListCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1878,20 +1878,20 @@ public class PoliciesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call policyresultsList_0ValidateBeforeCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call policyresultsOrgListValidateBeforeCall(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling policyresultsList_0(Async)");
+            throw new ApiException("Missing the required parameter 'contentType' when calling policyresultsOrgList(Async)");
         }
         
         // verify the required parameter 'accept' is set
         if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling policyresultsList_0(Async)");
+            throw new ApiException("Missing the required parameter 'accept' when calling policyresultsOrgList(Async)");
         }
         
 
-        com.squareup.okhttp.Call call = policyresultsList_0Call(contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = policyresultsOrgListCall(contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
         return call;
 
     }
@@ -1910,8 +1910,8 @@ public class PoliciesApi {
      * @return List&lt;PolicyResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<PolicyResult> policyresultsList_0(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
-        ApiResponse<List<PolicyResult>> resp = policyresultsList_0WithHttpInfo(contentType, accept, fields, filter, limit, xOrgId, skip, sort);
+    public List<PolicyResult> policyresultsOrgList(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
+        ApiResponse<List<PolicyResult>> resp = policyresultsOrgListWithHttpInfo(contentType, accept, fields, filter, limit, xOrgId, skip, sort);
         return resp.getData();
     }
 
@@ -1929,8 +1929,8 @@ public class PoliciesApi {
      * @return ApiResponse&lt;List&lt;PolicyResult&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<PolicyResult>> policyresultsList_0WithHttpInfo(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
-        com.squareup.okhttp.Call call = policyresultsList_0ValidateBeforeCall(contentType, accept, fields, filter, limit, xOrgId, skip, sort, null, null);
+    public ApiResponse<List<PolicyResult>> policyresultsOrgListWithHttpInfo(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort) throws ApiException {
+        com.squareup.okhttp.Call call = policyresultsOrgListValidateBeforeCall(contentType, accept, fields, filter, limit, xOrgId, skip, sort, null, null);
         Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -1950,7 +1950,7 @@ public class PoliciesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call policyresultsList_0Async(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ApiCallback<List<PolicyResult>> callback) throws ApiException {
+    public com.squareup.okhttp.Call policyresultsOrgListAsync(String contentType, String accept, List<String> fields, List<String> filter, Integer limit, String xOrgId, Integer skip, List<String> sort, final ApiCallback<List<PolicyResult>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -1971,7 +1971,7 @@ public class PoliciesApi {
             };
         }
 
-        com.squareup.okhttp.Call call = policyresultsList_0ValidateBeforeCall(contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = policyresultsOrgListValidateBeforeCall(contentType, accept, fields, filter, limit, xOrgId, skip, sort, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<PolicyResult>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

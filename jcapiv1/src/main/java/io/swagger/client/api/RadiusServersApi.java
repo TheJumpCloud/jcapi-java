@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import io.swagger.client.model.Body;
+import io.swagger.client.model.Radiusserver;
 import io.swagger.client.model.Radiusserverpost;
 import io.swagger.client.model.Radiusserverput;
 import io.swagger.client.model.Radiusserverslist;
@@ -312,11 +313,11 @@ public class RadiusServersApi {
      * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
-     * @return Radiusserverslist
+     * @return Radiusserver
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Radiusserverslist radiusServersPost(String contentType, String accept, Radiusserverpost body, String xOrgId) throws ApiException {
-        ApiResponse<Radiusserverslist> resp = radiusServersPostWithHttpInfo(contentType, accept, body, xOrgId);
+    public Radiusserver radiusServersPost(String contentType, String accept, Radiusserverpost body, String xOrgId) throws ApiException {
+        ApiResponse<Radiusserver> resp = radiusServersPostWithHttpInfo(contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
@@ -327,12 +328,12 @@ public class RadiusServersApi {
      * @param accept  (required)
      * @param body  (optional)
      * @param xOrgId  (optional, default to )
-     * @return ApiResponse&lt;Radiusserverslist&gt;
+     * @return ApiResponse&lt;Radiusserver&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Radiusserverslist> radiusServersPostWithHttpInfo(String contentType, String accept, Radiusserverpost body, String xOrgId) throws ApiException {
+    public ApiResponse<Radiusserver> radiusServersPostWithHttpInfo(String contentType, String accept, Radiusserverpost body, String xOrgId) throws ApiException {
         com.squareup.okhttp.Call call = radiusServersPostValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
-        Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
+        Type localVarReturnType = new TypeToken<Radiusserver>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -347,7 +348,7 @@ public class RadiusServersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPostAsync(String contentType, String accept, Radiusserverpost body, String xOrgId, final ApiCallback<Radiusserverslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPostAsync(String contentType, String accept, Radiusserverpost body, String xOrgId, final ApiCallback<Radiusserver> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -369,12 +370,13 @@ public class RadiusServersApi {
         }
 
         com.squareup.okhttp.Call call = radiusServersPostValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Radiusserverslist>(){}.getType();
+        Type localVarReturnType = new TypeToken<Radiusserver>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for radiusServersPut
+     * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -384,11 +386,12 @@ public class RadiusServersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPutCall(String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPutCall(String id, String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/radiusservers:id";
+        String localVarPath = "/radiusservers/{id}"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -432,7 +435,12 @@ public class RadiusServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call radiusServersPutValidateBeforeCall(String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call radiusServersPutValidateBeforeCall(String id, String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling radiusServersPut(Async)");
+        }
         
         // verify the required parameter 'contentType' is set
         if (contentType == null) {
@@ -445,14 +453,15 @@ public class RadiusServersApi {
         }
         
 
-        com.squareup.okhttp.Call call = radiusServersPutCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersPutCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         return call;
 
     }
 
     /**
      * Update Radius Servers
-     * This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -460,14 +469,15 @@ public class RadiusServersApi {
      * @return Radiusserverput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Radiusserverput radiusServersPut(String contentType, String accept, Body body, String xOrgId) throws ApiException {
-        ApiResponse<Radiusserverput> resp = radiusServersPutWithHttpInfo(contentType, accept, body, xOrgId);
+    public Radiusserverput radiusServersPut(String id, String contentType, String accept, Body body, String xOrgId) throws ApiException {
+        ApiResponse<Radiusserverput> resp = radiusServersPutWithHttpInfo(id, contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
     /**
      * Update Radius Servers
-     * This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -475,15 +485,16 @@ public class RadiusServersApi {
      * @return ApiResponse&lt;Radiusserverput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Radiusserverput> radiusServersPutWithHttpInfo(String contentType, String accept, Body body, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(contentType, accept, body, xOrgId, null, null);
+    public ApiResponse<Radiusserverput> radiusServersPutWithHttpInfo(String id, String contentType, String accept, Body body, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Radiusserverput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update Radius Servers (asynchronously)
-     * This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
      * @param body  (optional)
@@ -492,7 +503,7 @@ public class RadiusServersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPutAsync(String contentType, String accept, Body body, String xOrgId, final ApiCallback<Radiusserverput> callback) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPutAsync(String id, String contentType, String accept, Body body, String xOrgId, final ApiCallback<Radiusserverput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -513,7 +524,7 @@ public class RadiusServersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(contentType, accept, body, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Radiusserverput>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

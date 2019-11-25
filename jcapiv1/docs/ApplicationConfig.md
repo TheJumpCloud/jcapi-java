@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **databaseAttributes** | [**ApplicationConfigDatabaseAttributes**](ApplicationConfigDatabaseAttributes.md) |  |  [optional]
 **idpCertificate** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
 **idpEntityId** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
+**idpPrivateKey** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
 **spEntityId** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
 
 

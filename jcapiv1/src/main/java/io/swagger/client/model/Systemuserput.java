@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * Systemuserput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:17:55.126Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:09.332Z")
 public class Systemuserput {
   @SerializedName("account_locked")
   private Boolean accountLocked = null;
@@ -129,6 +129,9 @@ public class Systemuserput {
 
   @SerializedName("sudo")
   private Boolean sudo = null;
+
+  @SerializedName("suspended")
+  private Boolean suspended = null;
 
   @SerializedName("tags")
   private List<String> tags = null;
@@ -758,6 +761,24 @@ public class Systemuserput {
     this.sudo = sudo;
   }
 
+  public Systemuserput suspended(Boolean suspended) {
+    this.suspended = suspended;
+    return this;
+  }
+
+   /**
+   * Get suspended
+   * @return suspended
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isSuspended() {
+    return suspended;
+  }
+
+  public void setSuspended(Boolean suspended) {
+    this.suspended = suspended;
+  }
+
   public Systemuserput tags(List<String> tags) {
     this.tags = tags;
     return this;
@@ -882,6 +903,7 @@ public class Systemuserput {
         Objects.equals(this.sambaServiceUser, systemuserput.sambaServiceUser) &&
         Objects.equals(this.sshKeys, systemuserput.sshKeys) &&
         Objects.equals(this.sudo, systemuserput.sudo) &&
+        Objects.equals(this.suspended, systemuserput.suspended) &&
         Objects.equals(this.tags, systemuserput.tags) &&
         Objects.equals(this.unixGuid, systemuserput.unixGuid) &&
         Objects.equals(this.unixUid, systemuserput.unixUid) &&
@@ -890,7 +912,7 @@ public class Systemuserput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountLocked, addresses, allowPublicKey, attributes, company, costCenter, department, description, displayname, email, employeeIdentifier, employeeType, enableManagedUid, enableUserPortalMultifactor, externalDn, externalSourceType, externallyManaged, firstname, jobTitle, lastname, ldapBindingUser, location, mfa, middlename, password, passwordNeverExpires, phoneNumbers, publicKey, relationships, sambaServiceUser, sshKeys, sudo, tags, unixGuid, unixUid, username);
+    return Objects.hash(accountLocked, addresses, allowPublicKey, attributes, company, costCenter, department, description, displayname, email, employeeIdentifier, employeeType, enableManagedUid, enableUserPortalMultifactor, externalDn, externalSourceType, externallyManaged, firstname, jobTitle, lastname, ldapBindingUser, location, mfa, middlename, password, passwordNeverExpires, phoneNumbers, publicKey, relationships, sambaServiceUser, sshKeys, sudo, suspended, tags, unixGuid, unixUid, username);
   }
 
 
@@ -931,6 +953,7 @@ public class Systemuserput {
     sb.append("    sambaServiceUser: ").append(toIndentedString(sambaServiceUser)).append("\n");
     sb.append("    sshKeys: ").append(toIndentedString(sshKeys)).append("\n");
     sb.append("    sudo: ").append(toIndentedString(sudo)).append("\n");
+    sb.append("    suspended: ").append(toIndentedString(suspended)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    unixGuid: ").append(toIndentedString(unixGuid)).append("\n");
     sb.append("    unixUid: ").append(toIndentedString(unixUid)).append("\n");

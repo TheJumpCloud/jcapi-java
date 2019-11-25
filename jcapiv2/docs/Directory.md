@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 Name | Value
 ---- | -----
+ACTIVE_DIRECTORY | &quot;active_directory&quot;
 G_SUITE | &quot;g_suite&quot;
 LDAP_SERVER | &quot;ldap_server&quot;
 OFFICE_365 | &quot;office_365&quot;

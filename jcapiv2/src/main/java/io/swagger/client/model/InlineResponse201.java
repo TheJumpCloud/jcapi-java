@@ -21,33 +21,54 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.client.model.AppleMDM;
 import java.io.IOException;
 
 /**
- * The group object&#39;s attributes.
+ * InlineResponse201
  */
-@ApiModel(description = "The group object's attributes.")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
-public class UserGroupPutAttributes {
-  @SerializedName("sambaEnabled")
-  private Boolean sambaEnabled = null;
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
+public class InlineResponse201 {
+  @SerializedName("appleMdm")
+  private AppleMDM appleMdm = null;
 
-  public UserGroupPutAttributes sambaEnabled(Boolean sambaEnabled) {
-    this.sambaEnabled = sambaEnabled;
+  @SerializedName("signedCsrPlist")
+  private String signedCsrPlist = null;
+
+  public InlineResponse201 appleMdm(AppleMDM appleMdm) {
+    this.appleMdm = appleMdm;
     return this;
   }
 
    /**
-   * Get sambaEnabled
-   * @return sambaEnabled
+   * Get appleMdm
+   * @return appleMdm
   **/
   @ApiModelProperty(value = "")
-  public Boolean isSambaEnabled() {
-    return sambaEnabled;
+  public AppleMDM getAppleMdm() {
+    return appleMdm;
   }
 
-  public void setSambaEnabled(Boolean sambaEnabled) {
-    this.sambaEnabled = sambaEnabled;
+  public void setAppleMdm(AppleMDM appleMdm) {
+    this.appleMdm = appleMdm;
+  }
+
+  public InlineResponse201 signedCsrPlist(String signedCsrPlist) {
+    this.signedCsrPlist = signedCsrPlist;
+    return this;
+  }
+
+   /**
+   * Get signedCsrPlist
+   * @return signedCsrPlist
+  **/
+  @ApiModelProperty(value = "")
+  public String getSignedCsrPlist() {
+    return signedCsrPlist;
+  }
+
+  public void setSignedCsrPlist(String signedCsrPlist) {
+    this.signedCsrPlist = signedCsrPlist;
   }
 
 
@@ -59,22 +80,24 @@ public class UserGroupPutAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserGroupPutAttributes userGroupPutAttributes = (UserGroupPutAttributes) o;
-    return Objects.equals(this.sambaEnabled, userGroupPutAttributes.sambaEnabled);
+    InlineResponse201 inlineResponse201 = (InlineResponse201) o;
+    return Objects.equals(this.appleMdm, inlineResponse201.appleMdm) &&
+        Objects.equals(this.signedCsrPlist, inlineResponse201.signedCsrPlist);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sambaEnabled);
+    return Objects.hash(appleMdm, signedCsrPlist);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserGroupPutAttributes {\n");
+    sb.append("class InlineResponse201 {\n");
     
-    sb.append("    sambaEnabled: ").append(toIndentedString(sambaEnabled)).append("\n");
+    sb.append("    appleMdm: ").append(toIndentedString(appleMdm)).append("\n");
+    sb.append("    signedCsrPlist: ").append(toIndentedString(signedCsrPlist)).append("\n");
     sb.append("}");
     return sb.toString();
   }

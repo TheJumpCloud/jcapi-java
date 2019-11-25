@@ -17,7 +17,7 @@ import io.swagger.client.ApiException;
 import io.swagger.client.model.DuoAccount;
 import io.swagger.client.model.DuoApplication;
 import io.swagger.client.model.DuoApplicationReq;
-import io.swagger.client.model.DuoRegistrationApplicationReq;
+import io.swagger.client.model.DuoApplicationUpdateReq;
 import io.swagger.client.model.Errorresponse;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -37,9 +37,28 @@ public class DuoApiTest {
 
     
     /**
+     * Delete a Duo Account
+     *
+     * Removes the specified Duo account, an error will be returned if the account has some Duo application used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void duoAccountDeleteTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        String xOrgId = null;
+        DuoAccount response = api.duoAccountDelete(id, contentType, accept, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Get a Duo Acount
      *
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
+     * This endpoint returns a specific Duo account.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts/{id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -58,18 +77,17 @@ public class DuoApiTest {
     /**
      * List Duo Acounts
      *
-     * #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\ &#x60;&#x60;&#x60;
+     * This endpoint returns all the Duo accounts for your organization. Note: There can currently only be one Duo account for your organization.  #### Sample Request &#x60;&#x60;&#x60; curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void duoAccountListTest() throws ApiException {
-        String xApiKey = null;
         String contentType = null;
         String accept = null;
         String xOrgId = null;
-        List<DuoAccount> response = api.duoAccountList(xApiKey, contentType, accept, xOrgId);
+        List<DuoAccount> response = api.duoAccountList(contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -77,7 +95,7 @@ public class DuoApiTest {
     /**
      * Create Duo Account
      *
-     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;registrationApplication\&quot;: {       \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,       \&quot;integrationKey\&quot;: \&quot;1234\&quot;,       \&quot;secretKey\&quot;: \&quot;5678\&quot;     }   }&#39; &#x60;&#x60;&#x60;
+     * Registers a Duo account for an organization. Only one Duo account will be allowed, in case an organization has a Duo account already a 409 (Conflict) code will be returned.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -86,9 +104,8 @@ public class DuoApiTest {
     public void duoAccountPostTest() throws ApiException {
         String contentType = null;
         String accept = null;
-        DuoRegistrationApplicationReq body = null;
         String xOrgId = null;
-        DuoAccount response = api.duoAccountPost(contentType, accept, body, xOrgId);
+        DuoAccount response = api.duoAccountPost(contentType, accept, xOrgId);
 
         // TODO: test validations
     }
@@ -96,7 +113,7 @@ public class DuoApiTest {
     /**
      * Delete a Duo Application
      *
-     * 
+     * Deletes the specified Duo application, an error will be returned if the application is used in a protected resource.  #### Sample Request &#x60;&#x60;&#x60;   curl -X DELETE https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -116,7 +133,7 @@ public class DuoApiTest {
     /**
      * Get a Duo application
      *
-     * 
+     * This endpoint returns a specific Duo application that is associated with the specified Duo account.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -136,7 +153,7 @@ public class DuoApiTest {
     /**
      * List Duo Applications
      *
-     * 
+     * This endpoint returns all the Duo applications for the specified Duo account. Note: There can currently only be one Duo application for your organization.  #### Sample Request &#x60;&#x60;&#x60;   curl https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -155,7 +172,7 @@ public class DuoApiTest {
     /**
      * Create Duo Application
      *
-     * Creates a Duo application for an organization and its account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/obj-id-123/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     * Creates a Duo application for your organization and the specified account.  #### Sample Request &#x60;&#x60;&#x60;   curl -X POST https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -168,6 +185,27 @@ public class DuoApiTest {
         DuoApplicationReq body = null;
         String xOrgId = null;
         DuoApplication response = api.duoApplicationPost(accountId, contentType, accept, body, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update Duo Application
+     *
+     * Updates the specified Duo application.  #### Sample Request &#x60;&#x60;&#x60;   curl -X PUT https://console.jumpcloud.com/api/v2/duo/accounts/{ACCOUNT_ID}/applications/{APPLICATION_ID} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;Application Name\&quot;,     \&quot;apiHost\&quot;: \&quot;api-1234.duosecurity.com\&quot;,     \&quot;integrationKey\&quot;: \&quot;1234\&quot;,     \&quot;secretKey\&quot;: \&quot;5678\&quot;   }&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void duoApplicationUpdateTest() throws ApiException {
+        String accountId = null;
+        String applicationId = null;
+        String contentType = null;
+        String accept = null;
+        DuoApplicationUpdateReq body = null;
+        String xOrgId = null;
+        DuoApplication response = api.duoApplicationUpdate(accountId, applicationId, contentType, accept, body, xOrgId);
 
         // TODO: test validations
     }

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**radiusServersList**](RadiusServersApi.md#radiusServersList) | **GET** /radiusservers | List Radius Servers
 [**radiusServersPost**](RadiusServersApi.md#radiusServersPost) | **POST** /radiusservers | Create a Radius Server
-[**radiusServersPut**](RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers:id | Update Radius Servers
+[**radiusServersPut**](RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers/{id} | Update Radius Servers
 
 
 <a name="radiusServersList"></a>
@@ -29,10 +29,10 @@ This endpoint allows you to get a list of all RADIUS servers in your organizatio
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String contentType = "application/json"; // String | 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 <a name="radiusServersPost"></a>
 # **radiusServersPost**
-> Radiusserverslist radiusServersPost(contentType, accept, body, xOrgId)
+> Radiusserver radiusServersPost(contentType, accept, body, xOrgId)
 
 Create a Radius Server
 
@@ -98,10 +98,10 @@ This endpoint allows you to create RADIUS servers in your organization.  #### Sa
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
 String contentType = "application/json"; // String | 
@@ -109,7 +109,7 @@ String accept = "application/json"; // String |
 Radiusserverpost body = new Radiusserverpost(); // Radiusserverpost | 
 String xOrgId = ""; // String | 
 try {
-    Radiusserverslist result = apiInstance.radiusServersPost(contentType, accept, body, xOrgId);
+    Radiusserver result = apiInstance.radiusServersPost(contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#radiusServersPost");
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Radiusserverslist**](Radiusserverslist.md)
+[**Radiusserver**](Radiusserver.md)
 
 ### Authorization
 
@@ -141,11 +141,11 @@ Name | Type | Description  | Notes
 
 <a name="radiusServersPut"></a>
 # **radiusServersPut**
-> Radiusserverput radiusServersPut(contentType, accept, body, xOrgId)
+> Radiusserverput radiusServersPut(id, contentType, accept, body, xOrgId)
 
 Update Radius Servers
 
-This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -159,18 +159,19 @@ This endpoint allows you to update RADIUS servers in your organization.  ####  &
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x_api_key.setApiKey("YOUR API KEY");
+ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x-api-key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x_api_key.setApiKeyPrefix("Token");
+//x-api-key.setApiKeyPrefix("Token");
 
 RadiusServersApi apiInstance = new RadiusServersApi();
+String id = "id_example"; // String | 
 String contentType = "application/json"; // String | 
 String accept = "application/json"; // String | 
 Body body = new Body(); // Body | 
 String xOrgId = ""; // String | 
 try {
-    Radiusserverput result = apiInstance.radiusServersPut(contentType, accept, body, xOrgId);
+    Radiusserverput result = apiInstance.radiusServersPut(id, contentType, accept, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling RadiusServersApi#radiusServersPut");
@@ -182,6 +183,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
  **contentType** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Body**](Body.md)|  | [optional]

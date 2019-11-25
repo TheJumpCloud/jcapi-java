@@ -21,22 +21,18 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.DuoRegistrationApplication;
 import java.io.IOException;
 
 /**
  * DuoAccount
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
 public class DuoAccount {
   @SerializedName("id")
   private String id = null;
 
   @SerializedName("name")
   private String name = null;
-
-  @SerializedName("registrationApplication")
-  private DuoRegistrationApplication registrationApplication = null;
 
   public DuoAccount id(String id) {
     this.id = id;
@@ -74,24 +70,6 @@ public class DuoAccount {
     this.name = name;
   }
 
-  public DuoAccount registrationApplication(DuoRegistrationApplication registrationApplication) {
-    this.registrationApplication = registrationApplication;
-    return this;
-  }
-
-   /**
-   * Get registrationApplication
-   * @return registrationApplication
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public DuoRegistrationApplication getRegistrationApplication() {
-    return registrationApplication;
-  }
-
-  public void setRegistrationApplication(DuoRegistrationApplication registrationApplication) {
-    this.registrationApplication = registrationApplication;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -103,13 +81,12 @@ public class DuoAccount {
     }
     DuoAccount duoAccount = (DuoAccount) o;
     return Objects.equals(this.id, duoAccount.id) &&
-        Objects.equals(this.name, duoAccount.name) &&
-        Objects.equals(this.registrationApplication, duoAccount.registrationApplication);
+        Objects.equals(this.name, duoAccount.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, registrationApplication);
+    return Objects.hash(id, name);
   }
 
 
@@ -120,7 +97,6 @@ public class DuoAccount {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    registrationApplication: ").append(toIndentedString(registrationApplication)).append("\n");
     sb.append("}");
     return sb.toString();
   }

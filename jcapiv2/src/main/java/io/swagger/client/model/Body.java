@@ -21,75 +21,32 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.LdapServerAction;
 import java.io.IOException;
 
 /**
  * Body
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-09-26T20:18:01.222Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
 public class Body {
-  @SerializedName("id")
-  private String id = null;
+  @SerializedName("name")
+  private String name = null;
 
-  @SerializedName("userLockoutAction")
-  private LdapServerAction userLockoutAction = null;
-
-  @SerializedName("userPasswordExpirationAction")
-  private LdapServerAction userPasswordExpirationAction = null;
-
-  public Body id(String id) {
-    this.id = id;
+  public Body name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * The name used to identify this AppleMDM.
+   * @return name
   **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  @ApiModelProperty(value = "The name used to identify this AppleMDM.")
+  public String getName() {
+    return name;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Body userLockoutAction(LdapServerAction userLockoutAction) {
-    this.userLockoutAction = userLockoutAction;
-    return this;
-  }
-
-   /**
-   * Get userLockoutAction
-   * @return userLockoutAction
-  **/
-  @ApiModelProperty(value = "")
-  public LdapServerAction getUserLockoutAction() {
-    return userLockoutAction;
-  }
-
-  public void setUserLockoutAction(LdapServerAction userLockoutAction) {
-    this.userLockoutAction = userLockoutAction;
-  }
-
-  public Body userPasswordExpirationAction(LdapServerAction userPasswordExpirationAction) {
-    this.userPasswordExpirationAction = userPasswordExpirationAction;
-    return this;
-  }
-
-   /**
-   * Get userPasswordExpirationAction
-   * @return userPasswordExpirationAction
-  **/
-  @ApiModelProperty(value = "")
-  public LdapServerAction getUserPasswordExpirationAction() {
-    return userPasswordExpirationAction;
-  }
-
-  public void setUserPasswordExpirationAction(LdapServerAction userPasswordExpirationAction) {
-    this.userPasswordExpirationAction = userPasswordExpirationAction;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -102,14 +59,12 @@ public class Body {
       return false;
     }
     Body body = (Body) o;
-    return Objects.equals(this.id, body.id) &&
-        Objects.equals(this.userLockoutAction, body.userLockoutAction) &&
-        Objects.equals(this.userPasswordExpirationAction, body.userPasswordExpirationAction);
+    return Objects.equals(this.name, body.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userLockoutAction, userPasswordExpirationAction);
+    return Objects.hash(name);
   }
 
 
@@ -118,9 +73,7 @@ public class Body {
     StringBuilder sb = new StringBuilder();
     sb.append("class Body {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
-    sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
