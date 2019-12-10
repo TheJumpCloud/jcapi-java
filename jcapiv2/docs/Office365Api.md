@@ -34,10 +34,10 @@ This endpoint returns _direct_ associations of an Office 365 instance.   A direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 instance.
@@ -101,10 +101,10 @@ This endpoint allows you to manage the _direct_ associations of a Office 365 ins
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 instance.
@@ -163,10 +163,10 @@ This endpoint will return all Users bound to an Office 365 instance, either dire
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 suite.
@@ -230,10 +230,10 @@ This endpoint will return all Users Groups bound to an Office 365 instance, eith
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 suite.
@@ -297,10 +297,10 @@ This endpoint allows you to delete a translation rule for a specific Office 365 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | 
@@ -357,10 +357,10 @@ This endpoint returns a specific translation rule for a specific Office 365 inst
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | 
@@ -418,10 +418,10 @@ This endpoint returns all translation rules for a specific Office 365 instance. 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | 
@@ -487,10 +487,10 @@ This endpoint allows you to create a translation rule for a specific Office 365 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 Office365Api apiInstance = new Office365Api();
 String office365Id = "office365Id_example"; // String | 

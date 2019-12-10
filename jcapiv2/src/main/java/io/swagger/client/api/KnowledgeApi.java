@@ -55,6 +55,143 @@ public class KnowledgeApi {
     }
 
     /**
+     * Build call for knowledgeArticlesList
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param limit  (optional, default to 10)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call knowledgeArticlesListCall(List<String> filter, Integer skip, List<String> sort, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/knowledge/articles";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (sort != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "sort", sort));
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call knowledgeArticlesListValidateBeforeCall(List<String> filter, Integer skip, List<String> sort, Integer limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = knowledgeArticlesListCall(filter, skip, sort, limit, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List Knowledge Articles
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param limit  (optional, default to 10)
+     * @return SalesforceKnowledgeListOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public SalesforceKnowledgeListOutput knowledgeArticlesList(List<String> filter, Integer skip, List<String> sort, Integer limit) throws ApiException {
+        ApiResponse<SalesforceKnowledgeListOutput> resp = knowledgeArticlesListWithHttpInfo(filter, skip, sort, limit);
+        return resp.getData();
+    }
+
+    /**
+     * List Knowledge Articles
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param limit  (optional, default to 10)
+     * @return ApiResponse&lt;SalesforceKnowledgeListOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<SalesforceKnowledgeListOutput> knowledgeArticlesListWithHttpInfo(List<String> filter, Integer skip, List<String> sort, Integer limit) throws ApiException {
+        com.squareup.okhttp.Call call = knowledgeArticlesListValidateBeforeCall(filter, skip, sort, limit, null, null);
+        Type localVarReturnType = new TypeToken<SalesforceKnowledgeListOutput>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List Knowledge Articles (asynchronously)
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param limit  (optional, default to 10)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call knowledgeArticlesListAsync(List<String> filter, Integer skip, List<String> sort, Integer limit, final ApiCallback<SalesforceKnowledgeListOutput> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = knowledgeArticlesListValidateBeforeCall(filter, skip, sort, limit, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<SalesforceKnowledgeListOutput>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for knowledgeSalesforceList
      * @param fields  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
@@ -128,7 +265,7 @@ public class KnowledgeApi {
 
     /**
      * List Knowledge Articles
-     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/salesforce \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param fields  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
@@ -144,7 +281,7 @@ public class KnowledgeApi {
 
     /**
      * List Knowledge Articles
-     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/salesforce \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param fields  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
@@ -161,7 +298,7 @@ public class KnowledgeApi {
 
     /**
      * List Knowledge Articles (asynchronously)
-     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/salesforce \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      * @param fields  (optional)
      * @param filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)

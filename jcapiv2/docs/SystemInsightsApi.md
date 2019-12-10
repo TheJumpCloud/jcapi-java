@@ -4,6 +4,7 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**systeminsightsListAlf**](SystemInsightsApi.md#systeminsightsListAlf) | **GET** /systeminsights/alf | List System Insights ALF
 [**systeminsightsListApps**](SystemInsightsApi.md#systeminsightsListApps) | **GET** /systeminsights/apps | List System Insights Apps
 [**systeminsightsListBattery**](SystemInsightsApi.md#systeminsightsListBattery) | **GET** /systeminsights/battery | List System Insights Battery
 [**systeminsightsListBitlockerInfo**](SystemInsightsApi.md#systeminsightsListBitlockerInfo) | **GET** /systeminsights/bitlocker_info | List System Insights Bitlocker Info
@@ -21,11 +22,17 @@ Method | HTTP request | Description
 [**systeminsightsListLaunchd**](SystemInsightsApi.md#systeminsightsListLaunchd) | **GET** /systeminsights/launchd | List System Insights Launchd
 [**systeminsightsListLoggedInUsers**](SystemInsightsApi.md#systeminsightsListLoggedInUsers) | **GET** /systeminsights/logged_in_users | List System Insights Logged-In Users
 [**systeminsightsListLogicalDrives**](SystemInsightsApi.md#systeminsightsListLogicalDrives) | **GET** /systeminsights/logical_drives | List System Insights Logical Drives
+[**systeminsightsListManagedPolicies**](SystemInsightsApi.md#systeminsightsListManagedPolicies) | **GET** /systeminsights/managed_policies | List System Insights Managed Policies
 [**systeminsightsListMounts**](SystemInsightsApi.md#systeminsightsListMounts) | **GET** /systeminsights/mounts | List System Insights Mounts
 [**systeminsightsListOsVersion**](SystemInsightsApi.md#systeminsightsListOsVersion) | **GET** /systeminsights/os_version | List System Insights OS Version
 [**systeminsightsListPatches**](SystemInsightsApi.md#systeminsightsListPatches) | **GET** /systeminsights/patches | List System Insights Patches
 [**systeminsightsListPrograms**](SystemInsightsApi.md#systeminsightsListPrograms) | **GET** /systeminsights/programs | List System Insights Programs
 [**systeminsightsListSafariExtensions**](SystemInsightsApi.md#systeminsightsListSafariExtensions) | **GET** /systeminsights/safari_extensions | List System Insights Safari Extensions
+[**systeminsightsListShadow**](SystemInsightsApi.md#systeminsightsListShadow) | **GET** /systeminsights/shadow | LIst System Insights Shadow
+[**systeminsightsListSharedFolders**](SystemInsightsApi.md#systeminsightsListSharedFolders) | **GET** /systeminsights/shared_folders | List System Insights Shared Folders
+[**systeminsightsListSharedResources**](SystemInsightsApi.md#systeminsightsListSharedResources) | **GET** /systeminsights/shared_resources | List System Insights Shared Resources
+[**systeminsightsListSharingPreferences**](SystemInsightsApi.md#systeminsightsListSharingPreferences) | **GET** /systeminsights/sharing_preferences | List System Insights Sharing Preferences
+[**systeminsightsListSipConfig**](SystemInsightsApi.md#systeminsightsListSipConfig) | **GET** /systeminsights/sip_config | List System Insights SIP Config
 [**systeminsightsListSystemApps**](SystemInsightsApi.md#systeminsightsListSystemApps) | **GET** /systeminsights/{system_id}/apps | List System Insights System Apps
 [**systeminsightsListSystemBitlockerInfo**](SystemInsightsApi.md#systeminsightsListSystemBitlockerInfo) | **GET** /systeminsights/{system_id}/bitlocker_info | List System Insights System Bitlocker Info
 [**systeminsightsListSystemBrowserPlugins**](SystemInsightsApi.md#systeminsightsListSystemBrowserPlugins) | **GET** /systeminsights/{system_id}/browser_plugins | List System Insights System Browser Plugins
@@ -52,9 +59,75 @@ Method | HTTP request | Description
 [**systeminsightsListUptime**](SystemInsightsApi.md#systeminsightsListUptime) | **GET** /systeminsights/uptime | List System Insights Uptime
 [**systeminsightsListUsbDevices**](SystemInsightsApi.md#systeminsightsListUsbDevices) | **GET** /systeminsights/usb_devices | List System Insights USB Devices
 [**systeminsightsListUserGroups**](SystemInsightsApi.md#systeminsightsListUserGroups) | **GET** /systeminsights/user_groups | List System Insights User Groups
+[**systeminsightsListUserSshKeys**](SystemInsightsApi.md#systeminsightsListUserSshKeys) | **GET** /systeminsights/user_ssh_keys | List System Insights User SSH Keys
 [**systeminsightsListUsers**](SystemInsightsApi.md#systeminsightsListUsers) | **GET** /systeminsights/users | List System Insights Users
 [**systeminsightsListWindowsCrashes**](SystemInsightsApi.md#systeminsightsListWindowsCrashes) | **GET** /systeminsights/windows_crashes | List System Insights Windows Crashes
 
+
+<a name="systeminsightsListAlf"></a>
+# **systeminsightsListAlf**
+> List&lt;SystemInsightsAlf&gt; systeminsightsListAlf(contentType, accept, limit, xOrgId, filter, skip)
+
+List System Insights ALF
+
+Valid filter fields are &#x60;system_id&#x60; and &#x60;global_state&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemInsightsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+Integer skip = 0; // Integer | The offset into the records to return.
+try {
+    List<SystemInsightsAlf> result = apiInstance.systeminsightsListAlf(contentType, accept, limit, xOrgId, filter, skip);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListAlf");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+
+### Return type
+
+[**List&lt;SystemInsightsAlf&gt;**](SystemInsightsAlf.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="systeminsightsListApps"></a>
 # **systeminsightsListApps**
@@ -76,10 +149,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;bundle_name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -141,10 +214,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;health&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -206,10 +279,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;protection_status&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -271,10 +344,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -336,10 +409,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -401,10 +474,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;identifier&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -466,10 +539,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;encryption_status&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -531,10 +604,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;disk_index&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -596,10 +669,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;address&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -661,10 +734,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -726,10 +799,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;groupname&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -791,10 +864,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -856,10 +929,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;address&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -921,10 +994,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;version&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -986,10 +1059,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1051,10 +1124,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;user&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1116,10 +1189,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;device_id&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1161,6 +1234,71 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="systeminsightsListManagedPolicies"></a>
+# **systeminsightsListManagedPolicies**
+> List&lt;SystemInsightsManagedPolicies&gt; systeminsightsListManagedPolicies(contentType, accept, limit, xOrgId, skip, filter)
+
+List System Insights Managed Policies
+
+Valid filter fields are &#x60;system_id&#x60; and &#x60;domain&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemInsightsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+try {
+    List<SystemInsightsManagedPolicies> result = apiInstance.systeminsightsListManagedPolicies(contentType, accept, limit, xOrgId, skip, filter);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListManagedPolicies");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+
+### Return type
+
+[**List&lt;SystemInsightsManagedPolicies&gt;**](SystemInsightsManagedPolicies.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="systeminsightsListMounts"></a>
 # **systeminsightsListMounts**
 > List&lt;SystemInsightsMounts&gt; systeminsightsListMounts(contentType, accept, limit, skip, filter, xOrgId)
@@ -1181,10 +1319,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;path&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1246,10 +1384,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;version&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1311,10 +1449,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;hotfix_id&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1376,10 +1514,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1441,10 +1579,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1486,6 +1624,321 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="systeminsightsListShadow"></a>
+# **systeminsightsListShadow**
+> List&lt;SystemInsightsShadow&gt; systeminsightsListShadow(contentType, accept, limit, xOrgId, skip, filter)
+
+LIst System Insights Shadow
+
+Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemInsightsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+try {
+    List<SystemInsightsShadow> result = apiInstance.systeminsightsListShadow(contentType, accept, limit, xOrgId, skip, filter);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListShadow");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+
+### Return type
+
+[**List&lt;SystemInsightsShadow&gt;**](SystemInsightsShadow.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="systeminsightsListSharedFolders"></a>
+# **systeminsightsListSharedFolders**
+> List&lt;SystemInsightsSharedFolders&gt; systeminsightsListSharedFolders(contentType, accept, limit, xOrgId, skip, filter)
+
+List System Insights Shared Folders
+
+Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemInsightsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+try {
+    List<SystemInsightsSharedFolders> result = apiInstance.systeminsightsListSharedFolders(contentType, accept, limit, xOrgId, skip, filter);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListSharedFolders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+
+### Return type
+
+[**List&lt;SystemInsightsSharedFolders&gt;**](SystemInsightsSharedFolders.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="systeminsightsListSharedResources"></a>
+# **systeminsightsListSharedResources**
+> List&lt;SystemInsightsSharedResources&gt; systeminsightsListSharedResources(contentType, accept, limit, xOrgId, skip, filter)
+
+List System Insights Shared Resources
+
+Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiException;
+//import io.swagger.client.api.SystemInsightsApi;
+
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+try {
+    List<SystemInsightsSharedResources> result = apiInstance.systeminsightsListSharedResources(contentType, accept, limit, xOrgId, skip, filter);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListSharedResources");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+
+### Return type
+
+[**List&lt;SystemInsightsSharedResources&gt;**](SystemInsightsSharedResources.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="systeminsightsListSharingPreferences"></a>
+# **systeminsightsListSharingPreferences**
+> List&lt;SystemInsightsSharingPreferences&gt; systeminsightsListSharingPreferences(contentType, accept, limit, xOrgId, skip, filter)
+
+List System Insights Sharing Preferences
+
+Only valid filed field is &#x60;system_id&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemInsightsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+try {
+    List<SystemInsightsSharingPreferences> result = apiInstance.systeminsightsListSharingPreferences(contentType, accept, limit, xOrgId, skip, filter);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListSharingPreferences");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+
+### Return type
+
+[**List&lt;SystemInsightsSharingPreferences&gt;**](SystemInsightsSharingPreferences.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="systeminsightsListSipConfig"></a>
+# **systeminsightsListSipConfig**
+> List&lt;SystemInsightsSipConfig&gt; systeminsightsListSipConfig(contentType, accept, limit, xOrgId, skip, filter)
+
+List System Insights SIP Config
+
+Valid filter fields are &#x60;system_id&#x60; and &#x60;enabled&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemInsightsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+try {
+    List<SystemInsightsSipConfig> result = apiInstance.systeminsightsListSipConfig(contentType, accept, limit, xOrgId, skip, filter);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListSipConfig");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+
+### Return type
+
+[**List&lt;SystemInsightsSipConfig&gt;**](SystemInsightsSipConfig.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="systeminsightsListSystemApps"></a>
 # **systeminsightsListSystemApps**
 > List&lt;SystemInsightsApps&gt; systeminsightsListSystemApps(systemId, contentType, accept, limit, skip, filter, xOrgId)
@@ -1506,10 +1959,10 @@ Valid filter fields are &#x60;bundle_name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -1573,10 +2026,10 @@ Valid filter fields are &#x60;protection_status&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -1640,10 +2093,10 @@ Valid filter fields are &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -1707,10 +2160,10 @@ Valid filter fields are &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -1774,10 +2227,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -1839,10 +2292,10 @@ Valid filter fields are &#x60;encryption_status&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -1906,10 +2359,10 @@ Valid filter fields are &#x60;disk_index&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -1973,10 +2426,10 @@ Valid filter fields are &#x60;address&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2040,10 +2493,10 @@ Valid filter fields are &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2107,10 +2560,10 @@ Valid filter fields are &#x60;groupname&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2174,10 +2627,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;cpu_subtype&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -2239,10 +2692,10 @@ Valid filter fields are &#x60;address&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2306,10 +2759,10 @@ Valid filter fields are &#x60;version&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2373,10 +2826,10 @@ Valid filter fields are &#x60;device_id&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2440,10 +2893,10 @@ Valid filter fields are &#x60;path&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2507,10 +2960,10 @@ Valid filter fields are &#x60;version&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2574,10 +3027,10 @@ Valid filter fields are &#x60;hotfix_id  &#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2641,10 +3094,10 @@ Valid filter fields are &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2708,10 +3161,10 @@ Valid filter fields are &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2775,10 +3228,10 @@ Valid filter fields are &#x60;name&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2842,10 +3295,10 @@ Valid filter fields are &#x60;cpu_subtype&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2909,10 +3362,10 @@ Valid filter fields are &#x60;days&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -2976,10 +3429,10 @@ Valid filter fields are &#x60;username&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String systemId = "systemId_example"; // String | 
@@ -3043,10 +3496,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;days&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -3108,10 +3561,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;model&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -3173,10 +3626,10 @@ Only valid filter field is &#x60;system_id&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -3218,6 +3671,71 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="systeminsightsListUserSshKeys"></a>
+# **systeminsightsListUserSshKeys**
+> List&lt;SystemInsightsUserSshKeys&gt; systeminsightsListUserSshKeys(contentType, accept, limit, xOrgId, skip, filter)
+
+List System Insights User SSH Keys
+
+Valid filter fields are &#x60;system_id&#x60; and &#x60;uid&#x60;.
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.SystemInsightsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+SystemInsightsApi apiInstance = new SystemInsightsApi();
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Integer limit = 10; // Integer | 
+String xOrgId = ""; // String | 
+Integer skip = 0; // Integer | The offset into the records to return.
+List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq
+try {
+    List<SystemInsightsUserSshKeys> result = apiInstance.systeminsightsListUserSshKeys(contentType, accept, limit, xOrgId, skip, filter);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling SystemInsightsApi#systeminsightsListUserSshKeys");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq | [optional]
+
+### Return type
+
+[**List&lt;SystemInsightsUserSshKeys&gt;**](SystemInsightsUserSshKeys.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="systeminsightsListUsers"></a>
 # **systeminsightsListUsers**
 > List&lt;SystemInsightsUsers&gt; systeminsightsListUsers(contentType, accept, limit, skip, filter, xOrgId)
@@ -3238,10 +3756,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 
@@ -3303,10 +3821,10 @@ Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 SystemInsightsApi apiInstance = new SystemInsightsApi();
 String contentType = "application/json"; // String | 

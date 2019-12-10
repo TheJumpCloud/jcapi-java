@@ -14,6 +14,8 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.Body;
+import io.swagger.client.model.Organization;
 import io.swagger.client.model.Organizationslist;
 import org.junit.Test;
 import org.junit.Ignore;
@@ -35,7 +37,7 @@ public class OrganizationsApiTest {
     /**
      * Get Organization Details
      *
-     * This endpoint returns Organization Details.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -51,6 +53,45 @@ public class OrganizationsApiTest {
         String sort = null;
         String search = null;
         Organizationslist response = api.organizationList(contentType, accept, fields, filter, limit, skip, sort, search);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update an Organization
+     *
+     * This endpoint allows you to update an Organization.  Note: &#x60;passwordPolicy&#x60; settings are only used when &#x60;passwordCompliance&#x60; is set to \&quot;custom\&quot;. We discourage the use of non-custom passwordCompliance values.  &#x60;hasStripeCustomerId&#x60; is deprecated and will be removed.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;settings\&quot;: {     \&quot;contactName\&quot;: \&quot;Admin Name\&quot;,     \&quot;contactEmail\&quot;: \&quot;admin@company.com\&quot;,     \&quot;systemUsersCanEdit\&quot;:true,     \&quot;passwordPolicy\&quot;: {       \&quot;enableMaxHistory\&quot;: true,       \&quot;maxHistory\&quot;: 3     }   } }&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void organizationPutTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        Body body = null;
+        Organization response = api.organizationPut(id, contentType, accept, body);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Get an Organization
+     *
+     * This endpoint returns a particular Organization.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void organizationsGetTest() throws ApiException {
+        String id = null;
+        String contentType = null;
+        String accept = null;
+        String fields = null;
+        String filter = null;
+        api.organizationsGet(id, contentType, accept, fields, filter);
 
         // TODO: test validations
     }

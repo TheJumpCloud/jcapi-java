@@ -103,10 +103,10 @@ This endpoint returns the direct associations of this Active Directory instance.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String activedirectoryId = "activedirectoryId_example"; // String | 
@@ -170,10 +170,10 @@ This endpoint allows you to manage the _direct_ associations of an Active Direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String activedirectoryId = "activedirectoryId_example"; // String | 
@@ -232,10 +232,10 @@ This endpoint will return all Users bound to an Active Directory instance, eithe
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String activedirectoryId = "activedirectoryId_example"; // String | ObjectID of the Active Directory instance.
@@ -299,10 +299,10 @@ This endpoint will return all Users Groups bound to an Active Directory instance
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String activedirectoryId = "activedirectoryId_example"; // String | ObjectID of the Active Directory instance.
@@ -366,10 +366,10 @@ This endpoint will return the _direct_ associations of an Application. A direct 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
@@ -433,10 +433,10 @@ This endpoint allows you to manage the _direct_ associations of an Application. 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
@@ -495,10 +495,10 @@ This endpoint will return all Users bound to an Application, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
@@ -562,10 +562,10 @@ This endpoint will return all Users Groups bound to an Application, either direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String applicationId = "applicationId_example"; // String | ObjectID of the Application.
@@ -629,10 +629,10 @@ This endpoint will return the _direct_ associations of this Command.  A direct a
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
@@ -696,10 +696,10 @@ This endpoint will allow you to manage the _direct_ associations of this Command
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
@@ -758,10 +758,10 @@ This endpoint will return all Systems bound to a Command, either directly or ind
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
@@ -825,10 +825,10 @@ This endpoint will return all System Groups bound to a Command, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String commandId = "commandId_example"; // String | ObjectID of the Command.
@@ -892,10 +892,10 @@ This endpoint returns the _direct_ associations of this G Suite instance.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
@@ -959,10 +959,10 @@ This endpoint returns the _direct_ associations of this G Suite instance.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
@@ -1017,10 +1017,10 @@ This endpoint will return all Users bound to a G Suite instance, either directly
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
@@ -1084,10 +1084,10 @@ This endpoint will return all User Groups bound to an G Suite instance, either d
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String gsuiteId = "gsuiteId_example"; // String | ObjectID of the G Suite instance.
@@ -1151,10 +1151,10 @@ This endpoint returns the _direct_ associations of this LDAP Server.  A direct a
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -1218,10 +1218,10 @@ This endpoint allows you to manage the _direct_ associations of a LDAP Server.  
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -1280,10 +1280,10 @@ This endpoint will return all Users bound to an LDAP Server, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -1347,10 +1347,10 @@ This endpoint will return all Users Groups bound to a LDAP Server, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
@@ -1414,10 +1414,10 @@ This endpoint returns _direct_ associations of an Office 365 instance.   A direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 instance.
@@ -1481,10 +1481,10 @@ This endpoint allows you to manage the _direct_ associations of a Office 365 ins
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 instance.
@@ -1543,10 +1543,10 @@ This endpoint will return all Users bound to an Office 365 instance, either dire
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 suite.
@@ -1610,10 +1610,10 @@ This endpoint will return all Users Groups bound to an Office 365 instance, eith
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String office365Id = "office365Id_example"; // String | ObjectID of the Office 365 suite.
@@ -1677,10 +1677,10 @@ This endpoint returns the _direct_ associations of a Policy.  A direct associati
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String policyId = "policyId_example"; // String | ObjectID of the Policy.
@@ -1744,10 +1744,10 @@ This endpoint allows you to manage the _direct_ associations of a Policy.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String policyId = "policyId_example"; // String | ObjectID of the Policy.
@@ -1806,10 +1806,10 @@ This endpoint will return all Systems bound to a Policy, either directly or indi
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String policyId = "policyId_example"; // String | ObjectID of the Command.
@@ -1873,10 +1873,10 @@ This endpoint will return all Systems Groups bound to a Policy, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String policyId = "policyId_example"; // String | ObjectID of the Command.
@@ -1940,10 +1940,10 @@ This endpoint returns the _direct_ associations of a Radius Server.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
@@ -2007,10 +2007,10 @@ This endpoint allows you to manage the _direct_ associations of a Radius Server.
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
@@ -2069,10 +2069,10 @@ This endpoint will return all Users bound to a RADIUS Server, either directly or
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
@@ -2136,10 +2136,10 @@ This endpoint will return all Users Groups bound to a RADIUS Server, either dire
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String radiusserverId = "radiusserverId_example"; // String | ObjectID of the Radius Server.
@@ -2203,10 +2203,10 @@ This endpoint returns the _direct_ associations of a System.  A direct associati
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -2274,10 +2274,10 @@ This endpoint allows you to manage the _direct_ associations of a System.  A dir
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -2340,10 +2340,10 @@ This endpoint returns the _direct_ associations of a System Group.  A direct ass
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2407,10 +2407,10 @@ This endpoint allows you to manage the _direct_ associations of a System Group. 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2469,10 +2469,10 @@ This endpoint returns all System Groups a System Group is a member of.  This end
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2538,10 +2538,10 @@ This endpoint returns the system members of a System Group.  #### Sample Request
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2603,10 +2603,10 @@ This endpoint allows you to manage the system members of a System Group.  #### S
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2669,10 +2669,10 @@ This endpoint returns all Systems that are a member of this System Group.  #### 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2738,10 +2738,10 @@ This endpoint will return all Commands bound to a System Group, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2805,10 +2805,10 @@ This endpoint will return all Policies bound to a System Group, either directly 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2872,10 +2872,10 @@ This endpoint will return all Users bound to a System Group, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -2939,10 +2939,10 @@ This endpoint will return all User Groups bound to a System Group, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the System Group.
@@ -3006,10 +3006,10 @@ This endpoint returns all the System Groups a System is a member of.  #### Sampl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -3079,10 +3079,10 @@ This endpoint will return all Commands bound to a System, either directly or ind
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -3146,10 +3146,10 @@ This endpoint will return all Policies bound to a System, either directly or ind
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -3213,10 +3213,10 @@ This endpoint will return all Users bound to a System, either directly or indire
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -3284,10 +3284,10 @@ This endpoint will return all User Groups bound to a System, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.
@@ -3355,10 +3355,10 @@ This endpoint returns the _direct_ associations of a User.  A direct association
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -3422,10 +3422,10 @@ This endpoint allows you to manage the _direct_ associations of a User.  A direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -3484,10 +3484,10 @@ This endpoint returns the _direct_ associations of this User Group.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -3551,10 +3551,10 @@ This endpoint manages the _direct_ associations of this User Group.  A direct as
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -3613,10 +3613,10 @@ This endpoint returns all User Groups a User Group is a member of.  #### Sample 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -3682,10 +3682,10 @@ This endpoint returns the user members of a User Group.  #### Sample Request &#x
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -3747,10 +3747,10 @@ This endpoint allows you to manage the user members of a User Group.  #### Sampl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -3809,10 +3809,10 @@ This endpoint returns all users members that are a member of this User Group.  #
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -3878,10 +3878,10 @@ This endpoint will return all Active Directory Instances bound to a User Group, 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -3945,10 +3945,10 @@ This endpoint will return all Applications bound to a User Group, either directl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4012,10 +4012,10 @@ This endpoint will return all Directories bound to a User Group, either directly
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4079,10 +4079,10 @@ This endpoint will return all G Suite Instances bound to a User Group, either di
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4146,10 +4146,10 @@ This endpoint will return all LDAP Servers bound to a User Group, either directl
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4213,10 +4213,10 @@ This endpoint will return all Office 365 instances bound to a User Group, either
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4280,10 +4280,10 @@ This endpoint will return all RADIUS servers bound to a User Group, either direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4347,10 +4347,10 @@ This endpoint will return all Systems bound to a User Group, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4414,10 +4414,10 @@ This endpoint will return all System Groups bound to a User Group, either direct
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String groupId = "groupId_example"; // String | ObjectID of the User Group.
@@ -4481,10 +4481,10 @@ This endpoint returns all the User Groups a User is a member of.  #### Sample Re
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -4550,10 +4550,10 @@ This endpoint will return all Active Directory Instances bound to a User, either
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -4617,10 +4617,10 @@ This endpoint will return all Applications bound to a User, either directly or i
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -4684,10 +4684,10 @@ This endpoint will return all Directories bound to a User, either directly or in
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -4751,10 +4751,10 @@ This endpoint will return all G-Suite Instances bound to a User, either directly
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -4818,10 +4818,10 @@ This endpoint will return all LDAP Servers bound to a User, either directly or i
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -4885,10 +4885,10 @@ This endpoint will return all Office 365 Instances bound to a User, either direc
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -4952,10 +4952,10 @@ This endpoint will return all RADIUS Servers bound to a User, either directly or
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -5019,10 +5019,10 @@ This endpoint will return all Systems bound to a User, either directly or indire
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -5086,10 +5086,10 @@ This endpoint will return all System Groups bound to a User, either directly or 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String userId = "userId_example"; // String | ObjectID of the User.
@@ -5153,10 +5153,10 @@ This endpoint returns the policy results for a particular system.  ##### Sample 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 GraphApi apiInstance = new GraphApi();
 String systemId = "systemId_example"; // String | ObjectID of the System.

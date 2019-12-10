@@ -35,7 +35,26 @@ public class KnowledgeApiTest {
     /**
      * List Knowledge Articles
      *
-     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/salesforce \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void knowledgeArticlesListTest() throws ApiException {
+        List<String> filter = null;
+        Integer skip = null;
+        List<String> sort = null;
+        Integer limit = null;
+        SalesforceKnowledgeListOutput response = api.knowledgeArticlesList(filter, skip, sort, limit);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List Knowledge Articles
+     *
+     * This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails

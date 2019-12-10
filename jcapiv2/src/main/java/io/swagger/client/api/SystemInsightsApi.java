@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.SystemInsightsAlf;
 import io.swagger.client.model.SystemInsightsApps;
 import io.swagger.client.model.SystemInsightsBattery;
 import io.swagger.client.model.SystemInsightsBitlockerInfo;
@@ -44,16 +45,23 @@ import io.swagger.client.model.SystemInsightsKernelInfo;
 import io.swagger.client.model.SystemInsightsLaunchd;
 import io.swagger.client.model.SystemInsightsLoggedInUsers;
 import io.swagger.client.model.SystemInsightsLogicalDrvies;
+import io.swagger.client.model.SystemInsightsManagedPolicies;
 import io.swagger.client.model.SystemInsightsMounts;
 import io.swagger.client.model.SystemInsightsOsVersion;
 import io.swagger.client.model.SystemInsightsPatches;
 import io.swagger.client.model.SystemInsightsPrograms;
 import io.swagger.client.model.SystemInsightsSafariExtensions;
+import io.swagger.client.model.SystemInsightsShadow;
+import io.swagger.client.model.SystemInsightsSharedFolders;
+import io.swagger.client.model.SystemInsightsSharedResources;
+import io.swagger.client.model.SystemInsightsSharingPreferences;
+import io.swagger.client.model.SystemInsightsSipConfig;
 import io.swagger.client.model.SystemInsightsSystemControls;
 import io.swagger.client.model.SystemInsightsSystemInfo;
 import io.swagger.client.model.SystemInsightsUptime;
 import io.swagger.client.model.SystemInsightsUsbDevices;
 import io.swagger.client.model.SystemInsightsUserGroups;
+import io.swagger.client.model.SystemInsightsUserSshKeys;
 import io.swagger.client.model.SystemInsightsUsers;
 import io.swagger.client.model.SystemInsightsWindowsCrashes;
 
@@ -82,6 +90,165 @@ public class SystemInsightsApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Build call for systeminsightsListAlf
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param filter Supported operators are: eq (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListAlfCall(String contentType, String accept, Integer limit, String xOrgId, List<String> filter, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/alf";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListAlfValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, List<String> filter, Integer skip, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListAlf(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListAlf(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListAlfCall(contentType, accept, limit, xOrgId, filter, skip, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List System Insights ALF
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;global_state&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param filter Supported operators are: eq (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @return List&lt;SystemInsightsAlf&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsAlf> systeminsightsListAlf(String contentType, String accept, Integer limit, String xOrgId, List<String> filter, Integer skip) throws ApiException {
+        ApiResponse<List<SystemInsightsAlf>> resp = systeminsightsListAlfWithHttpInfo(contentType, accept, limit, xOrgId, filter, skip);
+        return resp.getData();
+    }
+
+    /**
+     * List System Insights ALF
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;global_state&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param filter Supported operators are: eq (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @return ApiResponse&lt;List&lt;SystemInsightsAlf&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsAlf>> systeminsightsListAlfWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, List<String> filter, Integer skip) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListAlfValidateBeforeCall(contentType, accept, limit, xOrgId, filter, skip, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsAlf>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List System Insights ALF (asynchronously)
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;global_state&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param filter Supported operators are: eq (optional)
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListAlfAsync(String contentType, String accept, Integer limit, String xOrgId, List<String> filter, Integer skip, final ApiCallback<List<SystemInsightsAlf>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListAlfValidateBeforeCall(contentType, accept, limit, xOrgId, filter, skip, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsAlf>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
     /**
      * Build call for systeminsightsListApps
      * @param contentType  (required)
@@ -2786,6 +2953,165 @@ public class SystemInsightsApi {
         return call;
     }
     /**
+     * Build call for systeminsightsListManagedPolicies
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListManagedPoliciesCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/managed_policies";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListManagedPoliciesValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListManagedPolicies(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListManagedPolicies(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListManagedPoliciesCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List System Insights Managed Policies
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;domain&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return List&lt;SystemInsightsManagedPolicies&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsManagedPolicies> systeminsightsListManagedPolicies(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<SystemInsightsManagedPolicies>> resp = systeminsightsListManagedPoliciesWithHttpInfo(contentType, accept, limit, xOrgId, skip, filter);
+        return resp.getData();
+    }
+
+    /**
+     * List System Insights Managed Policies
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;domain&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return ApiResponse&lt;List&lt;SystemInsightsManagedPolicies&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsManagedPolicies>> systeminsightsListManagedPoliciesWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListManagedPoliciesValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsManagedPolicies>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List System Insights Managed Policies (asynchronously)
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;domain&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListManagedPoliciesAsync(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<SystemInsightsManagedPolicies>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListManagedPoliciesValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsManagedPolicies>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for systeminsightsListMounts
      * @param contentType  (required)
      * @param accept  (required)
@@ -3577,6 +3903,801 @@ public class SystemInsightsApi {
 
         com.squareup.okhttp.Call call = systeminsightsListSafariExtensionsValidateBeforeCall(contentType, accept, limit, skip, filter, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<SystemInsightsSafariExtensions>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systeminsightsListShadow
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListShadowCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/shadow";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListShadowValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListShadow(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListShadow(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListShadowCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * LIst System Insights Shadow
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return List&lt;SystemInsightsShadow&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsShadow> systeminsightsListShadow(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<SystemInsightsShadow>> resp = systeminsightsListShadowWithHttpInfo(contentType, accept, limit, xOrgId, skip, filter);
+        return resp.getData();
+    }
+
+    /**
+     * LIst System Insights Shadow
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return ApiResponse&lt;List&lt;SystemInsightsShadow&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsShadow>> systeminsightsListShadowWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListShadowValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsShadow>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * LIst System Insights Shadow (asynchronously)
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListShadowAsync(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<SystemInsightsShadow>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListShadowValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsShadow>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systeminsightsListSharedFolders
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSharedFoldersCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/shared_folders";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListSharedFoldersValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListSharedFolders(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListSharedFolders(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListSharedFoldersCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List System Insights Shared Folders
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return List&lt;SystemInsightsSharedFolders&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsSharedFolders> systeminsightsListSharedFolders(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<SystemInsightsSharedFolders>> resp = systeminsightsListSharedFoldersWithHttpInfo(contentType, accept, limit, xOrgId, skip, filter);
+        return resp.getData();
+    }
+
+    /**
+     * List System Insights Shared Folders
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return ApiResponse&lt;List&lt;SystemInsightsSharedFolders&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsSharedFolders>> systeminsightsListSharedFoldersWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListSharedFoldersValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSharedFolders>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List System Insights Shared Folders (asynchronously)
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSharedFoldersAsync(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<SystemInsightsSharedFolders>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListSharedFoldersValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSharedFolders>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systeminsightsListSharedResources
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSharedResourcesCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/shared_resources";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListSharedResourcesValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListSharedResources(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListSharedResources(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListSharedResourcesCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List System Insights Shared Resources
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return List&lt;SystemInsightsSharedResources&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsSharedResources> systeminsightsListSharedResources(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<SystemInsightsSharedResources>> resp = systeminsightsListSharedResourcesWithHttpInfo(contentType, accept, limit, xOrgId, skip, filter);
+        return resp.getData();
+    }
+
+    /**
+     * List System Insights Shared Resources
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return ApiResponse&lt;List&lt;SystemInsightsSharedResources&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsSharedResources>> systeminsightsListSharedResourcesWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListSharedResourcesValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSharedResources>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List System Insights Shared Resources (asynchronously)
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSharedResourcesAsync(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<SystemInsightsSharedResources>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListSharedResourcesValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSharedResources>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systeminsightsListSharingPreferences
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSharingPreferencesCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/sharing_preferences";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListSharingPreferencesValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListSharingPreferences(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListSharingPreferences(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListSharingPreferencesCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List System Insights Sharing Preferences
+     * Only valid filed field is &#x60;system_id&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return List&lt;SystemInsightsSharingPreferences&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsSharingPreferences> systeminsightsListSharingPreferences(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<SystemInsightsSharingPreferences>> resp = systeminsightsListSharingPreferencesWithHttpInfo(contentType, accept, limit, xOrgId, skip, filter);
+        return resp.getData();
+    }
+
+    /**
+     * List System Insights Sharing Preferences
+     * Only valid filed field is &#x60;system_id&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return ApiResponse&lt;List&lt;SystemInsightsSharingPreferences&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsSharingPreferences>> systeminsightsListSharingPreferencesWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListSharingPreferencesValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSharingPreferences>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List System Insights Sharing Preferences (asynchronously)
+     * Only valid filed field is &#x60;system_id&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSharingPreferencesAsync(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<SystemInsightsSharingPreferences>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListSharingPreferencesValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSharingPreferences>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systeminsightsListSipConfig
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSipConfigCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/sip_config";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListSipConfigValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListSipConfig(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListSipConfig(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListSipConfigCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List System Insights SIP Config
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;enabled&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return List&lt;SystemInsightsSipConfig&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsSipConfig> systeminsightsListSipConfig(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<SystemInsightsSipConfig>> resp = systeminsightsListSipConfigWithHttpInfo(contentType, accept, limit, xOrgId, skip, filter);
+        return resp.getData();
+    }
+
+    /**
+     * List System Insights SIP Config
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;enabled&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return ApiResponse&lt;List&lt;SystemInsightsSipConfig&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsSipConfig>> systeminsightsListSipConfigWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListSipConfigValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSipConfig>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List System Insights SIP Config (asynchronously)
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;enabled&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListSipConfigAsync(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<SystemInsightsSipConfig>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListSipConfigValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsSipConfig>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
@@ -7921,6 +9042,165 @@ public class SystemInsightsApi {
 
         com.squareup.okhttp.Call call = systeminsightsListUserGroupsValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<SystemInsightsUserGroups>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for systeminsightsListUserSshKeys
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListUserSshKeysCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/systeminsights/user_ssh_keys";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        if (limit != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+        if (skip != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
+        if (filter != null)
+        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("csv", "filter", filter));
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+        if (contentType != null)
+        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
+        if (accept != null)
+        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systeminsightsListUserSshKeysValidateBeforeCall(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'contentType' is set
+        if (contentType == null) {
+            throw new ApiException("Missing the required parameter 'contentType' when calling systeminsightsListUserSshKeys(Async)");
+        }
+        
+        // verify the required parameter 'accept' is set
+        if (accept == null) {
+            throw new ApiException("Missing the required parameter 'accept' when calling systeminsightsListUserSshKeys(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = systeminsightsListUserSshKeysCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * List System Insights User SSH Keys
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;uid&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return List&lt;SystemInsightsUserSshKeys&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<SystemInsightsUserSshKeys> systeminsightsListUserSshKeys(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        ApiResponse<List<SystemInsightsUserSshKeys>> resp = systeminsightsListUserSshKeysWithHttpInfo(contentType, accept, limit, xOrgId, skip, filter);
+        return resp.getData();
+    }
+
+    /**
+     * List System Insights User SSH Keys
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;uid&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @return ApiResponse&lt;List&lt;SystemInsightsUserSshKeys&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<SystemInsightsUserSshKeys>> systeminsightsListUserSshKeysWithHttpInfo(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter) throws ApiException {
+        com.squareup.okhttp.Call call = systeminsightsListUserSshKeysValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, null, null);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsUserSshKeys>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * List System Insights User SSH Keys (asynchronously)
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;uid&#x60;.
+     * @param contentType  (required)
+     * @param accept  (required)
+     * @param limit  (optional, default to 10)
+     * @param xOrgId  (optional, default to )
+     * @param skip The offset into the records to return. (optional, default to 0)
+     * @param filter Supported operators are: eq (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systeminsightsListUserSshKeysAsync(String contentType, String accept, Integer limit, String xOrgId, Integer skip, List<String> filter, final ApiCallback<List<SystemInsightsUserSshKeys>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systeminsightsListUserSshKeysValidateBeforeCall(contentType, accept, limit, xOrgId, skip, filter, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<SystemInsightsUserSshKeys>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

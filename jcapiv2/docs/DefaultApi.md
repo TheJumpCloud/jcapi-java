@@ -29,10 +29,10 @@ Delete Enrollment Profile
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String enrollmentProfileId = "enrollmentProfileId_example"; // String | 
@@ -82,10 +82,10 @@ Get Enrollment Profile
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String enrollmentProfileId = "enrollmentProfileId_example"; // String | 
@@ -136,10 +136,10 @@ List Enrollment Profiles
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 Integer limit = 10; // Integer | 
@@ -191,10 +191,10 @@ Create new Enrollment Profile
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 Body1 body = new Body1(); // Body1 | 
@@ -244,10 +244,10 @@ Update Enrollment Profile
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 DefaultApi apiInstance = new DefaultApi();
 String enrollmentProfileId = "enrollmentProfileId_example"; // String | 

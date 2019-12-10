@@ -227,6 +227,7 @@ Class | Method | HTTP request | Description
 *GraphApi* | [**graphUserTraverseSystemGroup**](docs/GraphApi.md#graphUserTraverseSystemGroup) | **GET** /users/{user_id}/systemgroups | List the System Groups bound to a User
 *GraphApi* | [**policystatusesList**](docs/GraphApi.md#policystatusesList) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 *GroupsApi* | [**groupsList**](docs/GroupsApi.md#groupsList) | **GET** /groups | List All Groups
+*KnowledgeApi* | [**knowledgeArticlesList**](docs/KnowledgeApi.md#knowledgeArticlesList) | **GET** /knowledge/articles | List Knowledge Articles
 *KnowledgeApi* | [**knowledgeSalesforceList**](docs/KnowledgeApi.md#knowledgeSalesforceList) | **GET** /knowledge/salesforce | List Knowledge Articles
 *LdapServersApi* | [**graphLdapServerAssociationsList**](docs/LdapServersApi.md#graphLdapServerAssociationsList) | **GET** /ldapservers/{ldapserver_id}/associations | List the associations of a LDAP Server
 *LdapServersApi* | [**graphLdapServerAssociationsPost**](docs/LdapServersApi.md#graphLdapServerAssociationsPost) | **POST** /ldapservers/{ldapserver_id}/associations | Manage the associations of a LDAP Server
@@ -299,6 +300,7 @@ Class | Method | HTTP request | Description
 *SystemGroupsApi* | [**groupsSystemPatch**](docs/SystemGroupsApi.md#groupsSystemPatch) | **PATCH** /systemgroups/{id} | Partial update a System Group
 *SystemGroupsApi* | [**groupsSystemPost**](docs/SystemGroupsApi.md#groupsSystemPost) | **POST** /systemgroups | Create a new System Group
 *SystemGroupsApi* | [**groupsSystemPut**](docs/SystemGroupsApi.md#groupsSystemPut) | **PUT** /systemgroups/{id} | Update a System Group
+*SystemInsightsApi* | [**systeminsightsListAlf**](docs/SystemInsightsApi.md#systeminsightsListAlf) | **GET** /systeminsights/alf | List System Insights ALF
 *SystemInsightsApi* | [**systeminsightsListApps**](docs/SystemInsightsApi.md#systeminsightsListApps) | **GET** /systeminsights/apps | List System Insights Apps
 *SystemInsightsApi* | [**systeminsightsListBattery**](docs/SystemInsightsApi.md#systeminsightsListBattery) | **GET** /systeminsights/battery | List System Insights Battery
 *SystemInsightsApi* | [**systeminsightsListBitlockerInfo**](docs/SystemInsightsApi.md#systeminsightsListBitlockerInfo) | **GET** /systeminsights/bitlocker_info | List System Insights Bitlocker Info
@@ -316,11 +318,17 @@ Class | Method | HTTP request | Description
 *SystemInsightsApi* | [**systeminsightsListLaunchd**](docs/SystemInsightsApi.md#systeminsightsListLaunchd) | **GET** /systeminsights/launchd | List System Insights Launchd
 *SystemInsightsApi* | [**systeminsightsListLoggedInUsers**](docs/SystemInsightsApi.md#systeminsightsListLoggedInUsers) | **GET** /systeminsights/logged_in_users | List System Insights Logged-In Users
 *SystemInsightsApi* | [**systeminsightsListLogicalDrives**](docs/SystemInsightsApi.md#systeminsightsListLogicalDrives) | **GET** /systeminsights/logical_drives | List System Insights Logical Drives
+*SystemInsightsApi* | [**systeminsightsListManagedPolicies**](docs/SystemInsightsApi.md#systeminsightsListManagedPolicies) | **GET** /systeminsights/managed_policies | List System Insights Managed Policies
 *SystemInsightsApi* | [**systeminsightsListMounts**](docs/SystemInsightsApi.md#systeminsightsListMounts) | **GET** /systeminsights/mounts | List System Insights Mounts
 *SystemInsightsApi* | [**systeminsightsListOsVersion**](docs/SystemInsightsApi.md#systeminsightsListOsVersion) | **GET** /systeminsights/os_version | List System Insights OS Version
 *SystemInsightsApi* | [**systeminsightsListPatches**](docs/SystemInsightsApi.md#systeminsightsListPatches) | **GET** /systeminsights/patches | List System Insights Patches
 *SystemInsightsApi* | [**systeminsightsListPrograms**](docs/SystemInsightsApi.md#systeminsightsListPrograms) | **GET** /systeminsights/programs | List System Insights Programs
 *SystemInsightsApi* | [**systeminsightsListSafariExtensions**](docs/SystemInsightsApi.md#systeminsightsListSafariExtensions) | **GET** /systeminsights/safari_extensions | List System Insights Safari Extensions
+*SystemInsightsApi* | [**systeminsightsListShadow**](docs/SystemInsightsApi.md#systeminsightsListShadow) | **GET** /systeminsights/shadow | LIst System Insights Shadow
+*SystemInsightsApi* | [**systeminsightsListSharedFolders**](docs/SystemInsightsApi.md#systeminsightsListSharedFolders) | **GET** /systeminsights/shared_folders | List System Insights Shared Folders
+*SystemInsightsApi* | [**systeminsightsListSharedResources**](docs/SystemInsightsApi.md#systeminsightsListSharedResources) | **GET** /systeminsights/shared_resources | List System Insights Shared Resources
+*SystemInsightsApi* | [**systeminsightsListSharingPreferences**](docs/SystemInsightsApi.md#systeminsightsListSharingPreferences) | **GET** /systeminsights/sharing_preferences | List System Insights Sharing Preferences
+*SystemInsightsApi* | [**systeminsightsListSipConfig**](docs/SystemInsightsApi.md#systeminsightsListSipConfig) | **GET** /systeminsights/sip_config | List System Insights SIP Config
 *SystemInsightsApi* | [**systeminsightsListSystemApps**](docs/SystemInsightsApi.md#systeminsightsListSystemApps) | **GET** /systeminsights/{system_id}/apps | List System Insights System Apps
 *SystemInsightsApi* | [**systeminsightsListSystemBitlockerInfo**](docs/SystemInsightsApi.md#systeminsightsListSystemBitlockerInfo) | **GET** /systeminsights/{system_id}/bitlocker_info | List System Insights System Bitlocker Info
 *SystemInsightsApi* | [**systeminsightsListSystemBrowserPlugins**](docs/SystemInsightsApi.md#systeminsightsListSystemBrowserPlugins) | **GET** /systeminsights/{system_id}/browser_plugins | List System Insights System Browser Plugins
@@ -347,6 +355,7 @@ Class | Method | HTTP request | Description
 *SystemInsightsApi* | [**systeminsightsListUptime**](docs/SystemInsightsApi.md#systeminsightsListUptime) | **GET** /systeminsights/uptime | List System Insights Uptime
 *SystemInsightsApi* | [**systeminsightsListUsbDevices**](docs/SystemInsightsApi.md#systeminsightsListUsbDevices) | **GET** /systeminsights/usb_devices | List System Insights USB Devices
 *SystemInsightsApi* | [**systeminsightsListUserGroups**](docs/SystemInsightsApi.md#systeminsightsListUserGroups) | **GET** /systeminsights/user_groups | List System Insights User Groups
+*SystemInsightsApi* | [**systeminsightsListUserSshKeys**](docs/SystemInsightsApi.md#systeminsightsListUserSshKeys) | **GET** /systeminsights/user_ssh_keys | List System Insights User SSH Keys
 *SystemInsightsApi* | [**systeminsightsListUsers**](docs/SystemInsightsApi.md#systeminsightsListUsers) | **GET** /systeminsights/users | List System Insights Users
 *SystemInsightsApi* | [**systeminsightsListWindowsCrashes**](docs/SystemInsightsApi.md#systeminsightsListWindowsCrashes) | **GET** /systeminsights/windows_crashes | List System Insights Windows Crashes
 *SystemsApi* | [**graphSystemAssociationsList**](docs/SystemsApi.md#graphSystemAssociationsList) | **GET** /systems/{system_id}/associations | List the associations of a System
@@ -503,6 +512,7 @@ Class | Method | HTTP request | Description
  - [SystemGroupData](docs/SystemGroupData.md)
  - [SystemGroupGraphManagementReq](docs/SystemGroupGraphManagementReq.md)
  - [SystemGroupMembersReq](docs/SystemGroupMembersReq.md)
+ - [SystemInsightsAlf](docs/SystemInsightsAlf.md)
  - [SystemInsightsApps](docs/SystemInsightsApps.md)
  - [SystemInsightsBattery](docs/SystemInsightsBattery.md)
  - [SystemInsightsBitlockerInfo](docs/SystemInsightsBitlockerInfo.md)
@@ -520,16 +530,23 @@ Class | Method | HTTP request | Description
  - [SystemInsightsLaunchd](docs/SystemInsightsLaunchd.md)
  - [SystemInsightsLoggedInUsers](docs/SystemInsightsLoggedInUsers.md)
  - [SystemInsightsLogicalDrvies](docs/SystemInsightsLogicalDrvies.md)
+ - [SystemInsightsManagedPolicies](docs/SystemInsightsManagedPolicies.md)
  - [SystemInsightsMounts](docs/SystemInsightsMounts.md)
  - [SystemInsightsOsVersion](docs/SystemInsightsOsVersion.md)
  - [SystemInsightsPatches](docs/SystemInsightsPatches.md)
  - [SystemInsightsPrograms](docs/SystemInsightsPrograms.md)
  - [SystemInsightsSafariExtensions](docs/SystemInsightsSafariExtensions.md)
+ - [SystemInsightsShadow](docs/SystemInsightsShadow.md)
+ - [SystemInsightsSharedFolders](docs/SystemInsightsSharedFolders.md)
+ - [SystemInsightsSharedResources](docs/SystemInsightsSharedResources.md)
+ - [SystemInsightsSharingPreferences](docs/SystemInsightsSharingPreferences.md)
+ - [SystemInsightsSipConfig](docs/SystemInsightsSipConfig.md)
  - [SystemInsightsSystemControls](docs/SystemInsightsSystemControls.md)
  - [SystemInsightsSystemInfo](docs/SystemInsightsSystemInfo.md)
  - [SystemInsightsUptime](docs/SystemInsightsUptime.md)
  - [SystemInsightsUsbDevices](docs/SystemInsightsUsbDevices.md)
  - [SystemInsightsUserGroups](docs/SystemInsightsUserGroups.md)
+ - [SystemInsightsUserSshKeys](docs/SystemInsightsUserSshKeys.md)
  - [SystemInsightsUsers](docs/SystemInsightsUsers.md)
  - [SystemInsightsWindowsCrashes](docs/SystemInsightsWindowsCrashes.md)
  - [Systemfdekey](docs/Systemfdekey.md)

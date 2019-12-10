@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * DuoRegistrationApplicationReq
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-09T23:54:01.559Z")
 public class DuoRegistrationApplicationReq {
   @SerializedName("registrationApplication")
   private DuoRegistrationApplication registrationApplication = null;

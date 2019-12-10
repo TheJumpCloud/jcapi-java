@@ -22,53 +22,197 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.threeten.bp.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Body1
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:09.332Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-09T23:53:52.741Z")
 public class Body1 {
-  @SerializedName("exclusion")
-  private Boolean exclusion = null;
+  /**
+   * Gets or Sets mfa
+   */
+  @JsonAdapter(MfaEnum.Adapter.class)
+  public enum MfaEnum {
+    DISABLED("DISABLED"),
+    
+    ENABLED("ENABLED"),
+    
+    REQUIRED("REQUIRED"),
+    
+    ALWAYS("ALWAYS");
 
-  @SerializedName("exclusionUntil")
-  private OffsetDateTime exclusionUntil = null;
+    private String value;
 
-  public Body1 exclusion(Boolean exclusion) {
-    this.exclusion = exclusion;
+    MfaEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MfaEnum fromValue(String text) {
+      for (MfaEnum b : MfaEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<MfaEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MfaEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MfaEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return MfaEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("mfa")
+  private MfaEnum mfa = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("networkSourceIp")
+  private String networkSourceIp = null;
+
+  @SerializedName("tags")
+  private List<String> tags = null;
+
+  @SerializedName("userLockoutAction")
+  private String userLockoutAction = null;
+
+  @SerializedName("userPasswordExpirationAction")
+  private String userPasswordExpirationAction = null;
+
+  public Body1 mfa(MfaEnum mfa) {
+    this.mfa = mfa;
     return this;
   }
 
    /**
-   * Get exclusion
-   * @return exclusion
+   * Get mfa
+   * @return mfa
   **/
   @ApiModelProperty(value = "")
-  public Boolean isExclusion() {
-    return exclusion;
+  public MfaEnum getMfa() {
+    return mfa;
   }
 
-  public void setExclusion(Boolean exclusion) {
-    this.exclusion = exclusion;
+  public void setMfa(MfaEnum mfa) {
+    this.mfa = mfa;
   }
 
-  public Body1 exclusionUntil(OffsetDateTime exclusionUntil) {
-    this.exclusionUntil = exclusionUntil;
+  public Body1 name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * Get exclusionUntil
-   * @return exclusionUntil
+   * Get name
+   * @return name
   **/
-  @ApiModelProperty(value = "")
-  public OffsetDateTime getExclusionUntil() {
-    return exclusionUntil;
+  @ApiModelProperty(required = true, value = "")
+  public String getName() {
+    return name;
   }
 
-  public void setExclusionUntil(OffsetDateTime exclusionUntil) {
-    this.exclusionUntil = exclusionUntil;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public Body1 networkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
+    return this;
+  }
+
+   /**
+   * Get networkSourceIp
+   * @return networkSourceIp
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getNetworkSourceIp() {
+    return networkSourceIp;
+  }
+
+  public void setNetworkSourceIp(String networkSourceIp) {
+    this.networkSourceIp = networkSourceIp;
+  }
+
+  public Body1 tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
+
+  public Body1 addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<String>();
+    }
+    this.tags.add(tagsItem);
+    return this;
+  }
+
+   /**
+   * Get tags
+   * @return tags
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
+
+  public Body1 userLockoutAction(String userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+    return this;
+  }
+
+   /**
+   * Get userLockoutAction
+   * @return userLockoutAction
+  **/
+  @ApiModelProperty(value = "")
+  public String getUserLockoutAction() {
+    return userLockoutAction;
+  }
+
+  public void setUserLockoutAction(String userLockoutAction) {
+    this.userLockoutAction = userLockoutAction;
+  }
+
+  public Body1 userPasswordExpirationAction(String userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
+    return this;
+  }
+
+   /**
+   * Get userPasswordExpirationAction
+   * @return userPasswordExpirationAction
+  **/
+  @ApiModelProperty(value = "")
+  public String getUserPasswordExpirationAction() {
+    return userPasswordExpirationAction;
+  }
+
+  public void setUserPasswordExpirationAction(String userPasswordExpirationAction) {
+    this.userPasswordExpirationAction = userPasswordExpirationAction;
   }
 
 
@@ -81,13 +225,17 @@ public class Body1 {
       return false;
     }
     Body1 body1 = (Body1) o;
-    return Objects.equals(this.exclusion, body1.exclusion) &&
-        Objects.equals(this.exclusionUntil, body1.exclusionUntil);
+    return Objects.equals(this.mfa, body1.mfa) &&
+        Objects.equals(this.name, body1.name) &&
+        Objects.equals(this.networkSourceIp, body1.networkSourceIp) &&
+        Objects.equals(this.tags, body1.tags) &&
+        Objects.equals(this.userLockoutAction, body1.userLockoutAction) &&
+        Objects.equals(this.userPasswordExpirationAction, body1.userPasswordExpirationAction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exclusion, exclusionUntil);
+    return Objects.hash(mfa, name, networkSourceIp, tags, userLockoutAction, userPasswordExpirationAction);
   }
 
 
@@ -96,8 +244,12 @@ public class Body1 {
     StringBuilder sb = new StringBuilder();
     sb.append("class Body1 {\n");
     
-    sb.append("    exclusion: ").append(toIndentedString(exclusion)).append("\n");
-    sb.append("    exclusionUntil: ").append(toIndentedString(exclusionUntil)).append("\n");
+    sb.append("    mfa: ").append(toIndentedString(mfa)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    networkSourceIp: ").append(toIndentedString(networkSourceIp)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    userLockoutAction: ").append(toIndentedString(userLockoutAction)).append("\n");
+    sb.append("    userPasswordExpirationAction: ").append(toIndentedString(userPasswordExpirationAction)).append("\n");
     sb.append("}");
     return sb.toString();
   }

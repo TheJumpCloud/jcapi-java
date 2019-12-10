@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * System
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:09.332Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-09T23:53:52.741Z")
 public class System {
   @SerializedName("_id")
   private String id = null;
@@ -72,6 +72,12 @@ public class System {
 
   @SerializedName("fde")
   private Fde fde = null;
+
+  @SerializedName("fileSystem")
+  private String fileSystem = null;
+
+  @SerializedName("hasServiceAccount")
+  private Boolean hasServiceAccount = null;
 
   @SerializedName("hostname")
   private String hostname = null;
@@ -355,6 +361,42 @@ public class System {
 
   public void setFde(Fde fde) {
     this.fde = fde;
+  }
+
+  public System fileSystem(String fileSystem) {
+    this.fileSystem = fileSystem;
+    return this;
+  }
+
+   /**
+   * Get fileSystem
+   * @return fileSystem
+  **/
+  @ApiModelProperty(value = "")
+  public String getFileSystem() {
+    return fileSystem;
+  }
+
+  public void setFileSystem(String fileSystem) {
+    this.fileSystem = fileSystem;
+  }
+
+  public System hasServiceAccount(Boolean hasServiceAccount) {
+    this.hasServiceAccount = hasServiceAccount;
+    return this;
+  }
+
+   /**
+   * Get hasServiceAccount
+   * @return hasServiceAccount
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isHasServiceAccount() {
+    return hasServiceAccount;
+  }
+
+  public void setHasServiceAccount(Boolean hasServiceAccount) {
+    this.hasServiceAccount = hasServiceAccount;
   }
 
   public System hostname(String hostname) {
@@ -656,6 +698,8 @@ public class System {
         Objects.equals(this.created, system.created) &&
         Objects.equals(this.displayName, system.displayName) &&
         Objects.equals(this.fde, system.fde) &&
+        Objects.equals(this.fileSystem, system.fileSystem) &&
+        Objects.equals(this.hasServiceAccount, system.hasServiceAccount) &&
         Objects.equals(this.hostname, system.hostname) &&
         Objects.equals(this.lastContact, system.lastContact) &&
         Objects.equals(this.modifySSHDConfig, system.modifySSHDConfig) &&
@@ -674,7 +718,7 @@ public class System {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, active, agentVersion, allowMultiFactorAuthentication, allowPublicKeyAuthentication, allowSshPasswordAuthentication, allowSshRootLogin, amazonInstanceID, arch, connectionHistory, created, displayName, fde, hostname, lastContact, modifySSHDConfig, networkInterfaces, organization, os, remoteIP, sshRootEnabled, sshdParams, systemInsights, systemTimezone, tags, templateName, version);
+    return Objects.hash(id, active, agentVersion, allowMultiFactorAuthentication, allowPublicKeyAuthentication, allowSshPasswordAuthentication, allowSshRootLogin, amazonInstanceID, arch, connectionHistory, created, displayName, fde, fileSystem, hasServiceAccount, hostname, lastContact, modifySSHDConfig, networkInterfaces, organization, os, remoteIP, sshRootEnabled, sshdParams, systemInsights, systemTimezone, tags, templateName, version);
   }
 
 
@@ -696,6 +740,8 @@ public class System {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    fde: ").append(toIndentedString(fde)).append("\n");
+    sb.append("    fileSystem: ").append(toIndentedString(fileSystem)).append("\n");
+    sb.append("    hasServiceAccount: ").append(toIndentedString(hasServiceAccount)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    lastContact: ").append(toIndentedString(lastContact)).append("\n");
     sb.append("    modifySSHDConfig: ").append(toIndentedString(modifySSHDConfig)).append("\n");

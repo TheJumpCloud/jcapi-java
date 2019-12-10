@@ -72,10 +72,10 @@ public class ApplicationTemplatesApiExample {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
         
         // Configure API key authorization: x-api-key
-        ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-        x-api-key.setApiKey("YOUR API KEY");
+        ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+        x_api_key.setApiKey("YOUR API KEY");
         // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //x-api-key.setApiKeyPrefix("Token");
+        //x_api_key.setApiKeyPrefix("Token");
 
         ApplicationTemplatesApi apiInstance = new ApplicationTemplatesApi();
         String id = "id_example"; // String | 
@@ -123,12 +123,15 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandsPost**](docs/CommandsApi.md#commandsPost) | **POST** /commands | Create A Command
 *CommandsApi* | [**commandsPut**](docs/CommandsApi.md#commandsPut) | **PUT** /commands/{id} | Update a Command
 *OrganizationsApi* | [**organizationList**](docs/OrganizationsApi.md#organizationList) | **GET** /organizations | Get Organization Details
+*OrganizationsApi* | [**organizationPut**](docs/OrganizationsApi.md#organizationPut) | **PUT** /organizations/{id} | Update an Organization
+*OrganizationsApi* | [**organizationsGet**](docs/OrganizationsApi.md#organizationsGet) | **GET** /organizations/{id} | Get an Organization
 *RadiusServersApi* | [**radiusServersList**](docs/RadiusServersApi.md#radiusServersList) | **GET** /radiusservers | List Radius Servers
 *RadiusServersApi* | [**radiusServersPost**](docs/RadiusServersApi.md#radiusServersPost) | **POST** /radiusservers | Create a Radius Server
 *RadiusServersApi* | [**radiusServersPut**](docs/RadiusServersApi.md#radiusServersPut) | **PUT** /radiusservers/{id} | Update Radius Servers
 *SearchApi* | [**searchOrganizationsPost**](docs/SearchApi.md#searchOrganizationsPost) | **POST** /search/organizations | Search Organizations
 *SearchApi* | [**searchSystemsPost**](docs/SearchApi.md#searchSystemsPost) | **POST** /search/systems | Search Systems
 *SearchApi* | [**searchSystemusersPost**](docs/SearchApi.md#searchSystemusersPost) | **POST** /search/systemusers | Search System Users
+*SupportApi* | [**casePost**](docs/SupportApi.md#casePost) | **POST** /api/cases | Create a Case
 *SystemsApi* | [**systemsDelete**](docs/SystemsApi.md#systemsDelete) | **DELETE** /systems/{id} | Delete a System
 *SystemsApi* | [**systemsGet**](docs/SystemsApi.md#systemsGet) | **GET** /systems/{id} | List an individual system
 *SystemsApi* | [**systemsList**](docs/SystemsApi.md#systemsList) | **GET** /systems | List All Systems
@@ -170,6 +173,7 @@ Class | Method | HTTP request | Description
  - [Applicationtemplateslist](docs/Applicationtemplateslist.md)
  - [Body](docs/Body.md)
  - [Body1](docs/Body1.md)
+ - [Body2](docs/Body2.md)
  - [Command](docs/Command.md)
  - [Commandfilereturn](docs/Commandfilereturn.md)
  - [CommandfilereturnResults](docs/CommandfilereturnResults.md)
@@ -181,7 +185,15 @@ Class | Method | HTTP request | Description
  - [CommandslistResults](docs/CommandslistResults.md)
  - [Errorresponse](docs/Errorresponse.md)
  - [Fde](docs/Fde.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [Mfa](docs/Mfa.md)
+ - [ModelCase](docs/ModelCase.md)
+ - [Organization](docs/Organization.md)
+ - [Organizationsettings](docs/Organizationsettings.md)
+ - [OrganizationsettingsFeatures](docs/OrganizationsettingsFeatures.md)
+ - [OrganizationsettingsFeaturesSystemInsights](docs/OrganizationsettingsFeaturesSystemInsights.md)
+ - [OrganizationsettingsPasswordPolicy](docs/OrganizationsettingsPasswordPolicy.md)
+ - [OrganizationsettingsUserPortal](docs/OrganizationsettingsUserPortal.md)
  - [Organizationslist](docs/Organizationslist.md)
  - [OrganizationslistResults](docs/OrganizationslistResults.md)
  - [Radiusserver](docs/Radiusserver.md)

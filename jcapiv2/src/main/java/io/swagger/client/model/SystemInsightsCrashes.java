@@ -26,8 +26,11 @@ import java.io.IOException;
 /**
  * SystemInsightsCrashes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-09T23:54:01.559Z")
 public class SystemInsightsCrashes {
+  @SerializedName("collection_time")
+  private String collectionTime = null;
+
   @SerializedName("crash_path")
   private String crashPath = null;
 
@@ -67,6 +70,9 @@ public class SystemInsightsCrashes {
   @SerializedName("stack_trace")
   private String stackTrace = null;
 
+  @SerializedName("system_id")
+  private String systemId = null;
+
   @SerializedName("type")
   private String type = null;
 
@@ -75,6 +81,24 @@ public class SystemInsightsCrashes {
 
   @SerializedName("version")
   private String version = null;
+
+  public SystemInsightsCrashes collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+    return this;
+  }
+
+   /**
+   * Get collectionTime
+   * @return collectionTime
+  **/
+  @ApiModelProperty(value = "")
+  public String getCollectionTime() {
+    return collectionTime;
+  }
+
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+  }
 
   public SystemInsightsCrashes crashPath(String crashPath) {
     this.crashPath = crashPath;
@@ -310,6 +334,24 @@ public class SystemInsightsCrashes {
     this.stackTrace = stackTrace;
   }
 
+  public SystemInsightsCrashes systemId(String systemId) {
+    this.systemId = systemId;
+    return this;
+  }
+
+   /**
+   * Get systemId
+   * @return systemId
+  **/
+  @ApiModelProperty(value = "")
+  public String getSystemId() {
+    return systemId;
+  }
+
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
+  }
+
   public SystemInsightsCrashes type(String type) {
     this.type = type;
     return this;
@@ -374,7 +416,8 @@ public class SystemInsightsCrashes {
       return false;
     }
     SystemInsightsCrashes systemInsightsCrashes = (SystemInsightsCrashes) o;
-    return Objects.equals(this.crashPath, systemInsightsCrashes.crashPath) &&
+    return Objects.equals(this.collectionTime, systemInsightsCrashes.collectionTime) &&
+        Objects.equals(this.crashPath, systemInsightsCrashes.crashPath) &&
         Objects.equals(this.crashedThread, systemInsightsCrashes.crashedThread) &&
         Objects.equals(this.datetime, systemInsightsCrashes.datetime) &&
         Objects.equals(this.exceptionCodes, systemInsightsCrashes.exceptionCodes) &&
@@ -387,6 +430,7 @@ public class SystemInsightsCrashes {
         Objects.equals(this.registers, systemInsightsCrashes.registers) &&
         Objects.equals(this.responsible, systemInsightsCrashes.responsible) &&
         Objects.equals(this.stackTrace, systemInsightsCrashes.stackTrace) &&
+        Objects.equals(this.systemId, systemInsightsCrashes.systemId) &&
         Objects.equals(this.type, systemInsightsCrashes.type) &&
         Objects.equals(this.uid, systemInsightsCrashes.uid) &&
         Objects.equals(this.version, systemInsightsCrashes.version);
@@ -394,7 +438,7 @@ public class SystemInsightsCrashes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crashPath, crashedThread, datetime, exceptionCodes, exceptionNotes, exceptionType, identifier, parent, path, pid, registers, responsible, stackTrace, type, uid, version);
+    return Objects.hash(collectionTime, crashPath, crashedThread, datetime, exceptionCodes, exceptionNotes, exceptionType, identifier, parent, path, pid, registers, responsible, stackTrace, systemId, type, uid, version);
   }
 
 
@@ -403,6 +447,7 @@ public class SystemInsightsCrashes {
     StringBuilder sb = new StringBuilder();
     sb.append("class SystemInsightsCrashes {\n");
     
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    crashPath: ").append(toIndentedString(crashPath)).append("\n");
     sb.append("    crashedThread: ").append(toIndentedString(crashedThread)).append("\n");
     sb.append("    datetime: ").append(toIndentedString(datetime)).append("\n");
@@ -416,6 +461,7 @@ public class SystemInsightsCrashes {
     sb.append("    registers: ").append(toIndentedString(registers)).append("\n");
     sb.append("    responsible: ").append(toIndentedString(responsible)).append("\n");
     sb.append("    stackTrace: ").append(toIndentedString(stackTrace)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uid: ").append(toIndentedString(uid)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

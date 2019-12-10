@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **created** | **String** |  |  [optional]
 **displayName** | **String** |  |  [optional]
 **fde** | [**Fde**](Fde.md) |  |  [optional]
+**fileSystem** | **String** |  |  [optional]
+**hasServiceAccount** | **Boolean** |  |  [optional]
 **hostname** | **String** |  |  [optional]
 **lastContact** | **String** |  |  [optional]
 **modifySSHDConfig** | **Boolean** |  |  [optional]

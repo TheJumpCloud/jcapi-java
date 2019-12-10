@@ -14,7 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.model.Body;
+import io.swagger.client.model.Body1;
 import io.swagger.client.model.Radiusserver;
 import io.swagger.client.model.Radiusserverpost;
 import io.swagger.client.model.Radiusserverput;
@@ -81,7 +81,7 @@ public class RadiusServersApiTest {
     /**
      * Update Radius Servers
      *
-     * This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
      *
      * @throws ApiException
      *          if the Api call fails
@@ -91,7 +91,7 @@ public class RadiusServersApiTest {
         String id = null;
         String contentType = null;
         String accept = null;
-        Body body = null;
+        Body1 body = null;
         String xOrgId = null;
         Radiusserverput response = api.radiusServersPut(id, contentType, accept, body, xOrgId);
 

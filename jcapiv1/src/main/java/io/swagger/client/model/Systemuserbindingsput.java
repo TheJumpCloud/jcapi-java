@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Systemuserbindingsput
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:09.332Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-09T23:53:52.741Z")
 public class Systemuserbindingsput {
   @SerializedName("add")
   private List<String> add = new ArrayList<String>();

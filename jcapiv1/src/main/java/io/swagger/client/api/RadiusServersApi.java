@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import io.swagger.client.model.Body;
+import io.swagger.client.model.Body1;
 import io.swagger.client.model.Radiusserver;
 import io.swagger.client.model.Radiusserverpost;
 import io.swagger.client.model.Radiusserverput;
@@ -386,7 +386,7 @@ public class RadiusServersApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPutCall(String id, String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPutCall(String id, String contentType, String accept, Body1 body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -435,7 +435,7 @@ public class RadiusServersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call radiusServersPutValidateBeforeCall(String id, String contentType, String accept, Body body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call radiusServersPutValidateBeforeCall(String id, String contentType, String accept, Body1 body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -460,7 +460,7 @@ public class RadiusServersApi {
 
     /**
      * Update Radius Servers
-     * This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -469,14 +469,14 @@ public class RadiusServersApi {
      * @return Radiusserverput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Radiusserverput radiusServersPut(String id, String contentType, String accept, Body body, String xOrgId) throws ApiException {
+    public Radiusserverput radiusServersPut(String id, String contentType, String accept, Body1 body, String xOrgId) throws ApiException {
         ApiResponse<Radiusserverput> resp = radiusServersPutWithHttpInfo(id, contentType, accept, body, xOrgId);
         return resp.getData();
     }
 
     /**
      * Update Radius Servers
-     * This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -485,7 +485,7 @@ public class RadiusServersApi {
      * @return ApiResponse&lt;Radiusserverput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Radiusserverput> radiusServersPutWithHttpInfo(String id, String contentType, String accept, Body body, String xOrgId) throws ApiException {
+    public ApiResponse<Radiusserverput> radiusServersPutWithHttpInfo(String id, String contentType, String accept, Body1 body, String xOrgId) throws ApiException {
         com.squareup.okhttp.Call call = radiusServersPutValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<Radiusserverput>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
@@ -493,7 +493,7 @@ public class RadiusServersApi {
 
     /**
      * Update Radius Servers (asynchronously)
-     * This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
      * @param id  (required)
      * @param contentType  (required)
      * @param accept  (required)
@@ -503,7 +503,7 @@ public class RadiusServersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call radiusServersPutAsync(String id, String contentType, String accept, Body body, String xOrgId, final ApiCallback<Radiusserverput> callback) throws ApiException {
+    public com.squareup.okhttp.Call radiusServersPutAsync(String id, String contentType, String accept, Body1 body, String xOrgId, final ApiCallback<Radiusserverput> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;

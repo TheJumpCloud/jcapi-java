@@ -26,10 +26,13 @@ import java.io.IOException;
 /**
  * SystemInsightsWindowsCrashes
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-11-21T20:17:34.763Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-12-09T23:54:01.559Z")
 public class SystemInsightsWindowsCrashes {
   @SerializedName("build_number")
   private Integer buildNumber = null;
+
+  @SerializedName("collection_time")
+  private String collectionTime = null;
 
   @SerializedName("command_line")
   private String commandLine = null;
@@ -79,6 +82,9 @@ public class SystemInsightsWindowsCrashes {
   @SerializedName("stack_trace")
   private String stackTrace = null;
 
+  @SerializedName("system_id")
+  private String systemId = null;
+
   @SerializedName("tid")
   private String tid = null;
 
@@ -107,6 +113,24 @@ public class SystemInsightsWindowsCrashes {
 
   public void setBuildNumber(Integer buildNumber) {
     this.buildNumber = buildNumber;
+  }
+
+  public SystemInsightsWindowsCrashes collectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
+    return this;
+  }
+
+   /**
+   * Get collectionTime
+   * @return collectionTime
+  **/
+  @ApiModelProperty(value = "")
+  public String getCollectionTime() {
+    return collectionTime;
+  }
+
+  public void setCollectionTime(String collectionTime) {
+    this.collectionTime = collectionTime;
   }
 
   public SystemInsightsWindowsCrashes commandLine(String commandLine) {
@@ -397,6 +421,24 @@ public class SystemInsightsWindowsCrashes {
     this.stackTrace = stackTrace;
   }
 
+  public SystemInsightsWindowsCrashes systemId(String systemId) {
+    this.systemId = systemId;
+    return this;
+  }
+
+   /**
+   * Get systemId
+   * @return systemId
+  **/
+  @ApiModelProperty(value = "")
+  public String getSystemId() {
+    return systemId;
+  }
+
+  public void setSystemId(String systemId) {
+    this.systemId = systemId;
+  }
+
   public SystemInsightsWindowsCrashes tid(String tid) {
     this.tid = tid;
     return this;
@@ -480,6 +522,7 @@ public class SystemInsightsWindowsCrashes {
     }
     SystemInsightsWindowsCrashes systemInsightsWindowsCrashes = (SystemInsightsWindowsCrashes) o;
     return Objects.equals(this.buildNumber, systemInsightsWindowsCrashes.buildNumber) &&
+        Objects.equals(this.collectionTime, systemInsightsWindowsCrashes.collectionTime) &&
         Objects.equals(this.commandLine, systemInsightsWindowsCrashes.commandLine) &&
         Objects.equals(this.crashPath, systemInsightsWindowsCrashes.crashPath) &&
         Objects.equals(this.currentDirectory, systemInsightsWindowsCrashes.currentDirectory) &&
@@ -496,6 +539,7 @@ public class SystemInsightsWindowsCrashes {
         Objects.equals(this.processUptime, systemInsightsWindowsCrashes.processUptime) &&
         Objects.equals(this.registers, systemInsightsWindowsCrashes.registers) &&
         Objects.equals(this.stackTrace, systemInsightsWindowsCrashes.stackTrace) &&
+        Objects.equals(this.systemId, systemInsightsWindowsCrashes.systemId) &&
         Objects.equals(this.tid, systemInsightsWindowsCrashes.tid) &&
         Objects.equals(this.type, systemInsightsWindowsCrashes.type) &&
         Objects.equals(this.username, systemInsightsWindowsCrashes.username) &&
@@ -504,7 +548,7 @@ public class SystemInsightsWindowsCrashes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(buildNumber, commandLine, crashPath, currentDirectory, datetime, exceptionAddress, exceptionCode, exceptionMessage, machineName, majorVersion, minorVersion, module, path, pid, processUptime, registers, stackTrace, tid, type, username, version);
+    return Objects.hash(buildNumber, collectionTime, commandLine, crashPath, currentDirectory, datetime, exceptionAddress, exceptionCode, exceptionMessage, machineName, majorVersion, minorVersion, module, path, pid, processUptime, registers, stackTrace, systemId, tid, type, username, version);
   }
 
 
@@ -514,6 +558,7 @@ public class SystemInsightsWindowsCrashes {
     sb.append("class SystemInsightsWindowsCrashes {\n");
     
     sb.append("    buildNumber: ").append(toIndentedString(buildNumber)).append("\n");
+    sb.append("    collectionTime: ").append(toIndentedString(collectionTime)).append("\n");
     sb.append("    commandLine: ").append(toIndentedString(commandLine)).append("\n");
     sb.append("    crashPath: ").append(toIndentedString(crashPath)).append("\n");
     sb.append("    currentDirectory: ").append(toIndentedString(currentDirectory)).append("\n");
@@ -530,6 +575,7 @@ public class SystemInsightsWindowsCrashes {
     sb.append("    processUptime: ").append(toIndentedString(processUptime)).append("\n");
     sb.append("    registers: ").append(toIndentedString(registers)).append("\n");
     sb.append("    stackTrace: ").append(toIndentedString(stackTrace)).append("\n");
+    sb.append("    systemId: ").append(toIndentedString(systemId)).append("\n");
     sb.append("    tid: ").append(toIndentedString(tid)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");

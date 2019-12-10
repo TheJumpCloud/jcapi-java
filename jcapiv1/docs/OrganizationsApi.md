@@ -5,6 +5,8 @@ All URIs are relative to *https://console.jumpcloud.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**organizationList**](OrganizationsApi.md#organizationList) | **GET** /organizations | Get Organization Details
+[**organizationPut**](OrganizationsApi.md#organizationPut) | **PUT** /organizations/{id} | Update an Organization
+[**organizationsGet**](OrganizationsApi.md#organizationsGet) | **GET** /organizations/{id} | Get an Organization
 
 
 <a name="organizationList"></a>
@@ -13,7 +15,7 @@ Method | HTTP request | Description
 
 Get Organization Details
 
-This endpoint returns Organization Details.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -27,10 +29,10 @@ This endpoint returns Organization Details.  #### Sample Request  &#x60;&#x60;&#
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
 // Configure API key authorization: x-api-key
-ApiKeyAuth x-api-key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
-x-api-key.setApiKey("YOUR API KEY");
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//x-api-key.setApiKeyPrefix("Token");
+//x_api_key.setApiKeyPrefix("Token");
 
 OrganizationsApi apiInstance = new OrganizationsApi();
 String contentType = "application/json"; // String | 
@@ -66,6 +68,129 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Organizationslist**](Organizationslist.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="organizationPut"></a>
+# **organizationPut**
+> Organization organizationPut(id, contentType, accept, body)
+
+Update an Organization
+
+This endpoint allows you to update an Organization.  Note: &#x60;passwordPolicy&#x60; settings are only used when &#x60;passwordCompliance&#x60; is set to \&quot;custom\&quot;. We discourage the use of non-custom passwordCompliance values.  &#x60;hasStripeCustomerId&#x60; is deprecated and will be removed.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;settings\&quot;: {     \&quot;contactName\&quot;: \&quot;Admin Name\&quot;,     \&quot;contactEmail\&quot;: \&quot;admin@company.com\&quot;,     \&quot;systemUsersCanEdit\&quot;:true,     \&quot;passwordPolicy\&quot;: {       \&quot;enableMaxHistory\&quot;: true,       \&quot;maxHistory\&quot;: 3     }   } }&#39; &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.OrganizationsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+OrganizationsApi apiInstance = new OrganizationsApi();
+String id = "id_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+Body body = new Body(); // Body | 
+try {
+    Organization result = apiInstance.organizationPut(id, contentType, accept, body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrganizationsApi#organizationPut");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**Body**](Body.md)|  | [optional]
+
+### Return type
+
+[**Organization**](Organization.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="organizationsGet"></a>
+# **organizationsGet**
+> organizationsGet(id, contentType, accept, fields, filter)
+
+Get an Organization
+
+This endpoint returns a particular Organization.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+
+### Example
+```java
+// Import classes:
+//import io.swagger.client.ApiClient;
+//import io.swagger.client.ApiException;
+//import io.swagger.client.Configuration;
+//import io.swagger.client.auth.*;
+//import io.swagger.client.api.OrganizationsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure API key authorization: x-api-key
+ApiKeyAuth x_api_key = (ApiKeyAuth) defaultClient.getAuthentication("x-api-key");
+x_api_key.setApiKey("YOUR API KEY");
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//x_api_key.setApiKeyPrefix("Token");
+
+OrganizationsApi apiInstance = new OrganizationsApi();
+String id = "id_example"; // String | 
+String contentType = "application/json"; // String | 
+String accept = "application/json"; // String | 
+String fields = ""; // String | Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
+String filter = "filter_example"; // String | A filter to apply to the query.
+try {
+    apiInstance.organizationsGet(id, contentType, accept, fields, filter);
+} catch (ApiException e) {
+    System.err.println("Exception when calling OrganizationsApi#organizationsGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  |
+ **contentType** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional]
+
+### Return type
+
+null (empty response body)
 
 ### Authorization
 

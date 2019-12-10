@@ -14,6 +14,7 @@
 package io.swagger.client.api;
 
 import io.swagger.client.ApiException;
+import io.swagger.client.model.SystemInsightsAlf;
 import io.swagger.client.model.SystemInsightsApps;
 import io.swagger.client.model.SystemInsightsBattery;
 import io.swagger.client.model.SystemInsightsBitlockerInfo;
@@ -31,16 +32,23 @@ import io.swagger.client.model.SystemInsightsKernelInfo;
 import io.swagger.client.model.SystemInsightsLaunchd;
 import io.swagger.client.model.SystemInsightsLoggedInUsers;
 import io.swagger.client.model.SystemInsightsLogicalDrvies;
+import io.swagger.client.model.SystemInsightsManagedPolicies;
 import io.swagger.client.model.SystemInsightsMounts;
 import io.swagger.client.model.SystemInsightsOsVersion;
 import io.swagger.client.model.SystemInsightsPatches;
 import io.swagger.client.model.SystemInsightsPrograms;
 import io.swagger.client.model.SystemInsightsSafariExtensions;
+import io.swagger.client.model.SystemInsightsShadow;
+import io.swagger.client.model.SystemInsightsSharedFolders;
+import io.swagger.client.model.SystemInsightsSharedResources;
+import io.swagger.client.model.SystemInsightsSharingPreferences;
+import io.swagger.client.model.SystemInsightsSipConfig;
 import io.swagger.client.model.SystemInsightsSystemControls;
 import io.swagger.client.model.SystemInsightsSystemInfo;
 import io.swagger.client.model.SystemInsightsUptime;
 import io.swagger.client.model.SystemInsightsUsbDevices;
 import io.swagger.client.model.SystemInsightsUserGroups;
+import io.swagger.client.model.SystemInsightsUserSshKeys;
 import io.swagger.client.model.SystemInsightsUsers;
 import io.swagger.client.model.SystemInsightsWindowsCrashes;
 import org.junit.Test;
@@ -59,6 +67,27 @@ public class SystemInsightsApiTest {
 
     private final SystemInsightsApi api = new SystemInsightsApi();
 
+    
+    /**
+     * List System Insights ALF
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;global_state&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListAlfTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        List<String> filter = null;
+        Integer skip = null;
+        List<SystemInsightsAlf> response = api.systeminsightsListAlf(contentType, accept, limit, xOrgId, filter, skip);
+
+        // TODO: test validations
+    }
     
     /**
      * List System Insights Apps
@@ -418,6 +447,27 @@ public class SystemInsightsApiTest {
     }
     
     /**
+     * List System Insights Managed Policies
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;domain&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListManagedPoliciesTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsManagedPolicies> response = api.systeminsightsListManagedPolicies(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List System Insights Mounts
      *
      * Valid filter fields are &#x60;system_id&#x60; and &#x60;path&#x60;.
@@ -518,6 +568,111 @@ public class SystemInsightsApiTest {
         List<String> filter = null;
         String xOrgId = null;
         List<SystemInsightsSafariExtensions> response = api.systeminsightsListSafariExtensions(contentType, accept, limit, skip, filter, xOrgId);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * LIst System Insights Shadow
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListShadowTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsShadow> response = api.systeminsightsListShadow(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights Shared Folders
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSharedFoldersTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsSharedFolders> response = api.systeminsightsListSharedFolders(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights Shared Resources
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSharedResourcesTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsSharedResources> response = api.systeminsightsListSharedResources(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights Sharing Preferences
+     *
+     * Only valid filed field is &#x60;system_id&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSharingPreferencesTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsSharingPreferences> response = api.systeminsightsListSharingPreferences(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights SIP Config
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;enabled&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListSipConfigTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsSipConfig> response = api.systeminsightsListSipConfig(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
@@ -1085,6 +1240,27 @@ public class SystemInsightsApiTest {
         Integer skip = null;
         List<String> filter = null;
         List<SystemInsightsUserGroups> response = api.systeminsightsListUserGroups(contentType, accept, limit, xOrgId, skip, filter);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List System Insights User SSH Keys
+     *
+     * Valid filter fields are &#x60;system_id&#x60; and &#x60;uid&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void systeminsightsListUserSshKeysTest() throws ApiException {
+        String contentType = null;
+        String accept = null;
+        Integer limit = null;
+        String xOrgId = null;
+        Integer skip = null;
+        List<String> filter = null;
+        List<SystemInsightsUserSshKeys> response = api.systeminsightsListUserSshKeys(contentType, accept, limit, xOrgId, skip, filter);
 
         // TODO: test validations
     }
