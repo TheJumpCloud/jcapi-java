@@ -1,4 +1,3 @@
-
 # SystemInsightsLoggedInUsers
 
 ## Properties
@@ -12,6 +11,3 @@ Name | Type | Description | Notes
 **tty** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
 **user** | **String** |  |  [optional]
-
-
-

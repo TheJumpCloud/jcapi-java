@@ -1,9 +1,9 @@
-
 # SystemInsightsCrashes
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**collectionTime** | **String** |  |  [optional]
 **crashPath** | **String** |  |  [optional]
 **crashedThread** | **String** |  |  [optional]
 **datetime** | **String** |  |  [optional]
@@ -17,9 +17,7 @@ Name | Type | Description | Notes
 **registers** | **String** |  |  [optional]
 **responsible** | **String** |  |  [optional]
 **stackTrace** | **String** |  |  [optional]
+**systemId** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
 **uid** | **Integer** |  |  [optional]
 **version** | **String** |  |  [optional]
-
-
-

@@ -1,4 +1,3 @@
-
 # PolicyWithDetails
 
 ## Properties
@@ -9,6 +8,3 @@ Name | Type | Description | Notes
 **name** | **String** | The description for this specific Policy. |  [optional]
 **template** | [**PolicyTemplate**](PolicyTemplate.md) |  |  [optional]
 **values** | [**List&lt;PolicyValue&gt;**](PolicyValue.md) |  |  [optional]
-
-
-

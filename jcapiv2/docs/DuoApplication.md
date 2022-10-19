@@ -1,4 +1,3 @@
-
 # DuoApplication
 
 ## Properties
@@ -8,6 +7,3 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **integrationKey** | **String** |  | 
 **name** | **String** |  | 
-
-
-

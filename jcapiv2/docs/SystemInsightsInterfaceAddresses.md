@@ -1,4 +1,3 @@
-
 # SystemInsightsInterfaceAddresses
 
 ## Properties
@@ -13,6 +12,3 @@ Name | Type | Description | Notes
 **pointToPoint** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
-
-
-

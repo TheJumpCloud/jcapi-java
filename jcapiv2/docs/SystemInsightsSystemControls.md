@@ -1,4 +1,3 @@
-
 # SystemInsightsSystemControls
 
 ## Properties
@@ -13,6 +12,3 @@ Name | Type | Description | Notes
 **subsystem** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
-
-
-

@@ -1,4 +1,3 @@
-
 # SystemInsightsLaunchd
 
 ## Properties
@@ -27,6 +26,3 @@ Name | Type | Description | Notes
 **username** | **String** |  |  [optional]
 **watchPaths** | **String** |  |  [optional]
 **workingDirectory** | **String** |  |  [optional]
-
-
-

@@ -1,13 +1,9 @@
-
 # DuoApplicationUpdateReq
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apiHost** | **String** |  |  [optional]
-**integrationKey** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
+**apiHost** | **String** |  | 
+**integrationKey** | **String** |  | 
+**name** | **String** |  | 
 **secretKey** | **String** |  |  [optional]
-
-
-

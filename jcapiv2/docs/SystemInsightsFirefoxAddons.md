@@ -1,4 +1,3 @@
-
 # SystemInsightsFirefoxAddons
 
 ## Properties
@@ -20,6 +19,3 @@ Name | Type | Description | Notes
 **uid** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
 **visible** | **Integer** |  |  [optional]
-
-
-

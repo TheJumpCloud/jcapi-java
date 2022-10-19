@@ -1,4 +1,3 @@
-
 # SystemInsightsEtcHosts
 
 ## Properties
@@ -8,6 +7,3 @@ Name | Type | Description | Notes
 **collectionTime** | **String** |  |  [optional]
 **hostnames** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
-
-
-

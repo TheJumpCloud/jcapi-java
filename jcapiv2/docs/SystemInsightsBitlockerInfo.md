@@ -1,4 +1,3 @@
-
 # SystemInsightsBitlockerInfo
 
 ## Properties
@@ -12,6 +11,3 @@ Name | Type | Description | Notes
 **persistentVolumeId** | **String** |  |  [optional]
 **protectionStatus** | **Integer** |  |  [optional]
 **systemId** | **String** |  |  [optional]
-
-
-

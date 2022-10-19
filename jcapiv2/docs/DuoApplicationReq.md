@@ -1,4 +1,3 @@
-
 # DuoApplicationReq
 
 ## Properties
@@ -8,6 +7,3 @@ Name | Type | Description | Notes
 **integrationKey** | **String** |  | 
 **name** | **String** |  | 
 **secretKey** | **String** |  | 
-
-
-

@@ -1,4 +1,3 @@
-
 # SystemInsightsUptime
 
 ## Properties
@@ -11,6 +10,3 @@ Name | Type | Description | Notes
 **seconds** | **Integer** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **totalSeconds** | **String** |  |  [optional]
-
-
-

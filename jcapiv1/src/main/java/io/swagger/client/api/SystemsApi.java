@@ -1,15 +1,14 @@
 /*
- * JumpCloud APIs
- *  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+ * JumpCloud API
+ * # Overview  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, and system users.  # API Key  ## Access Your API Key  To locate your API Key:  1. Log into the [JumpCloud Admin Console](https://console.jumpcloud.com/). 2. Go to the username drop down located in the top-right of the Console. 3. Retrieve your API key from API Settings.  ## API Key Considerations  This API key is associated to the currently logged in administrator. Other admins will have different API keys.  **WARNING** Please keep this API key secret, as it grants full access to any data accessible via your JumpCloud console account.  You can also reset your API key in the same location in the JumpCloud Admin Console.  ## Recycling or Resetting Your API Key  In order to revoke access with the current API key, simply reset your API key. This will render all calls using the previous API key inaccessible.  Your API key will be passed in as a header with the header name \"x-api-key\".  ```bash curl -H \"x-api-key: [YOUR_API_KEY_HERE]\" \"https://console.jumpcloud.com/api/systemusers\" ```  # System Context  * [Introduction](#introduction) * [Supported endpoints](#supported-endpoints) * [Response codes](#response-codes) * [Authentication](#authentication) * [Additional examples](#additional-examples) * [Third party](#third-party)  ## Introduction  JumpCloud System Context Authorization is an alternative way to authenticate with a subset of JumpCloud's REST APIs. Using this method, a system can manage its information and resource associations, allowing modern auto provisioning environments to scale as needed.  **Notes:**   * The following documentation applies to Linux Operating Systems only.  * Systems that have been automatically enrolled using Apple's Device Enrollment Program (DEP) or systems enrolled using the User Portal install are not eligible to use the System Context API to prevent unauthorized access to system groups and resources. If a script that utilizes the System Context API is invoked on a system enrolled in this way, it will display an error.  ## Supported Endpoints  JumpCloud System Context Authorization can be used in conjunction with Systems endpoints found in the V1 API and certain System Group endpoints found in the v2 API.  * A system may fetch, alter, and delete metadata about itself, including manipulating a system's Group and Systemuser associations,   * `/api/systems/{system_id}` | [`GET`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_get) [`PUT`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_put) * A system may delete itself from your JumpCloud organization   * `/api/systems/{system_id}` | [`DELETE`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_delete) * A system may fetch its direct resource associations under v2 (Groups)   * `/api/v2/systems/{system_id}/memberof` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemGroupMembership)   * `/api/v2/systems/{system_id}/associations` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemAssociationsList)   * `/api/v2/systems/{system_id}/users` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemTraverseUser) * A system may alter its direct resource associations under v2 (Groups)   * `/api/v2/systems/{system_id}/associations` | [`POST`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemAssociationsPost) * A system may alter its System Group associations   * `/api/v2/systemgroups/{group_id}/members` | [`POST`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemGroupMembersPost)     * _NOTE_ If a system attempts to alter the system group membership of a different system the request will be rejected  ## Response Codes  If endpoints other than those described above are called using the System Context API, the server will return a `401` response.  ## Authentication  To allow for secure access to our APIs, you must authenticate each API request. JumpCloud System Context Authorization uses [HTTP Signatures](https://tools.ietf.org/html/draft-cavage-http-signatures-00) to authenticate API requests. The HTTP Signatures sent with each request are similar to the signatures used by the Amazon Web Services REST API. To help with the request-signing process, we have provided an [example bash script](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/shell/SigningExample.sh). This example API request simply requests the entire system record. You must be root, or have permissions to access the contents of the `/opt/jc` directory to generate a signature.  Here is a breakdown of the example script with explanations.  First, the script extracts the systemKey from the JSON formatted `/opt/jc/jcagent.conf` file.  ```bash #!/bin/bash conf=\"`cat /opt/jc/jcagent.conf`\" regex=\"systemKey\\\":\\\"(\\w+)\\\"\"  if [[ $conf =~ $regex ]] ; then   systemKey=\"${BASH_REMATCH[1]}\" fi ```  Then, the script retrieves the current date in the correct format.  ```bash now=`date -u \"+%a, %d %h %Y %H:%M:%S GMT\"`; ```  Next, we build a signing string to demonstrate the expected signature format. The signed string must consist of the [request-line](https://tools.ietf.org/html/rfc2616#page-35) and the date header, separated by a newline character.  ```bash signstr=\"GET /api/systems/${systemKey} HTTP/1.1\\ndate: ${now}\" ```  The next step is to calculate and apply the signature. This is a two-step process:  1. Create a signature from the signing string using the JumpCloud Agent private key: ``printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key`` 2. Then Base64-encode the signature string and trim off the newline characters: ``| openssl enc -e -a | tr -d '\\n'``  The combined steps above result in:  ```bash signature=`printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key | openssl enc -e -a | tr -d '\\n'` ; ```  Finally, we make sure the API call sending the signature has the same Authorization and Date header values, HTTP method, and URL that were used in the signing string.  ```bash curl -iq \\   -H \"Accept: application/json\" \\   -H \"Content-Type: application/json\" \\   -H \"Date: ${now}\" \\   -H \"Authorization: Signature keyId=\\\"system/${systemKey}\\\",headers=\\\"request-line date\\\",algorithm=\\\"rsa-sha256\\\",signature=\\\"${signature}\\\"\" \\   --url https://console.jumpcloud.com/api/systems/${systemKey} ```  ### Input Data  All PUT and POST methods should use the HTTP Content-Type header with a value of 'application/json'. PUT methods are used for updating a record. POST methods are used to create a record.  The following example demonstrates how to update the `displayName` of the system.  ```bash signstr=\"PUT /api/systems/${systemKey} HTTP/1.1\\ndate: ${now}\" signature=`printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key | openssl enc -e -a | tr -d '\\n'` ;  curl -iq \\   -d \"{\\\"displayName\\\" : \\\"updated-system-name-1\\\"}\" \\   -X \"PUT\" \\   -H \"Content-Type: application/json\" \\   -H \"Accept: application/json\" \\   -H \"Date: ${now}\" \\   -H \"Authorization: Signature keyId=\\\"system/${systemKey}\\\",headers=\\\"request-line date\\\",algorithm=\\\"rsa-sha256\\\",signature=\\\"${signature}\\\"\" \\   --url https://console.jumpcloud.com/api/systems/${systemKey} ```  ### Output Data  All results will be formatted as JSON.  Here is an abbreviated example of response output:  ```json {   \"_id\": \"525ee96f52e144993e000015\",   \"agentServer\": \"lappy386\",   \"agentVersion\": \"0.9.42\",   \"arch\": \"x86_64\",   \"connectionKey\": \"127.0.0.1_51812\",   \"displayName\": \"ubuntu-1204\",   \"firstContact\": \"2013-10-16T19:30:55.611Z\",   \"hostname\": \"ubuntu-1204\"   ... ```  ## Additional Examples  ### Signing Authentication Example  This example demonstrates how to make an authenticated request to fetch the JumpCloud record for this system.  [SigningExample.sh](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/shell/SigningExample.sh)  ### Shutdown Hook  This example demonstrates how to make an authenticated request on system shutdown. Using an init.d script registered at run level 0, you can call the System Context API as the system is shutting down.  [Instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) is an example of an init.d script that only runs at system shutdown.  After customizing the [instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) script, you should install it on the system(s) running the JumpCloud agent.  1. Copy the modified [instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) to `/etc/init.d/instance-shutdown`. 2. On Ubuntu systems, run `update-rc.d instance-shutdown defaults`. On RedHat/CentOS systems, run `chkconfig --add instance-shutdown`.  ## Third Party  ### Chef Cookbooks  [https://github.com/nshenry03/jumpcloud](https://github.com/nshenry03/jumpcloud)  [https://github.com/cjs226/jumpcloud](https://github.com/cjs226/jumpcloud)  # Multi-Tenant Portal Headers  Multi-Tenant Organization API Headers are available for JumpCloud Admins to use when making API requests from Organizations that have multiple managed organizations.  The `x-org-id` is a required header for all multi-tenant admins when making API requests to JumpCloud. This header will define to which organization you would like to make the request.  **NOTE** Single Tenant Admins do not need to provide this header when making an API request.  ## Header Value  `x-org-id`  ## API Response Codes  * `400` Malformed ID. * `400` x-org-id and Organization path ID do not match. * `401` ID not included for multi-tenant admin * `403` ID included on unsupported route. * `404` Organization ID Not Found.  ```bash curl -X GET https://console.jumpcloud.com/api/v2/directories \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -H 'x-org-id: {ORG_ID}'  ```  ## To Obtain an Individual Organization ID via the UI  As a prerequisite, your Primary Organization will need to be setup for Multi-Tenancy. This provides access to the Multi-Tenant Organization Admin Portal.  1. Log into JumpCloud [Admin Console](https://console.jumpcloud.com). If you are a multi-tenant Admin, you will automatically be routed to the Multi-Tenant Admin Portal. 2. From the Multi-Tenant Portal's primary navigation bar, select the Organization you'd like to access. 3. You will automatically be routed to that Organization's Admin Console. 4. Go to Settings in the sub-tenant's primary navigation. 5. You can obtain your Organization ID below your Organization's Contact Information on the Settings page.  ## To Obtain All Organization IDs via the API  * You can make an API request to this endpoint using the API key of your Primary Organization.  `https://console.jumpcloud.com/api/organizations/` This will return all your managed organizations.  ```bash curl -X GET \\   https://console.jumpcloud.com/api/organizations/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```  # SDKs  You can find language specific SDKs that can help you kickstart your Integration with JumpCloud in the following GitHub repositories:  * [Python](https://github.com/TheJumpCloud/jcapi-python) * [Go](https://github.com/TheJumpCloud/jcapi-go) * [Ruby](https://github.com/TheJumpCloud/jcapi-ruby) * [Java](https://github.com/TheJumpCloud/jcapi-java) 
  *
  * OpenAPI spec version: 1.0
- * 
+ * Contact: support@jumpcloud.com
  *
  * NOTE: This class is auto generated by the swagger code generator program.
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-
 
 package io.swagger.client.api;
 
@@ -27,11 +26,10 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.swagger.client.model.Error;
 import io.swagger.client.model.System;
 import io.swagger.client.model.Systemput;
 import io.swagger.client.model.Systemslist;
-import io.swagger.client.model.Systemuserbinding;
-import io.swagger.client.model.Systemuserbindingsput;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -59,21 +57,527 @@ public class SystemsApi {
     }
 
     /**
-     * Build call for systemsDelete
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param date Current date header for the System Context API (optional)
-     * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * Build call for systemsCommandBuiltinErase
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemsDeleteCall(String id, String contentType, String accept, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemsCommandBuiltinEraseCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/systems/{system_id}/command/builtin/erase"
+            .replaceAll("\\{" + "system_id" + "\\}", apiClient.escapeString(systemId.toString()));
 
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systemsCommandBuiltinEraseValidateBeforeCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'systemId' is set
+        if (systemId == null) {
+            throw new ApiException("Missing the required parameter 'systemId' when calling systemsCommandBuiltinErase(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = systemsCommandBuiltinEraseCall(systemId, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Erase a System
+     * This endpoint allows you to run the erase command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/erase \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void systemsCommandBuiltinErase(String systemId, String xOrgId) throws ApiException {
+        systemsCommandBuiltinEraseWithHttpInfo(systemId, xOrgId);
+    }
+
+    /**
+     * Erase a System
+     * This endpoint allows you to run the erase command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/erase \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> systemsCommandBuiltinEraseWithHttpInfo(String systemId, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsCommandBuiltinEraseValidateBeforeCall(systemId, xOrgId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Erase a System (asynchronously)
+     * This endpoint allows you to run the erase command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/erase \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systemsCommandBuiltinEraseAsync(String systemId, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systemsCommandBuiltinEraseValidateBeforeCall(systemId, xOrgId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for systemsCommandBuiltinLock
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systemsCommandBuiltinLockCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/systems/{system_id}/command/builtin/lock"
+            .replaceAll("\\{" + "system_id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systemsCommandBuiltinLockValidateBeforeCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'systemId' is set
+        if (systemId == null) {
+            throw new ApiException("Missing the required parameter 'systemId' when calling systemsCommandBuiltinLock(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = systemsCommandBuiltinLockCall(systemId, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Lock a System
+     * This endpoint allows you to run the lock command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/lock \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void systemsCommandBuiltinLock(String systemId, String xOrgId) throws ApiException {
+        systemsCommandBuiltinLockWithHttpInfo(systemId, xOrgId);
+    }
+
+    /**
+     * Lock a System
+     * This endpoint allows you to run the lock command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/lock \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> systemsCommandBuiltinLockWithHttpInfo(String systemId, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsCommandBuiltinLockValidateBeforeCall(systemId, xOrgId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Lock a System (asynchronously)
+     * This endpoint allows you to run the lock command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/lock \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systemsCommandBuiltinLockAsync(String systemId, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systemsCommandBuiltinLockValidateBeforeCall(systemId, xOrgId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for systemsCommandBuiltinRestart
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systemsCommandBuiltinRestartCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/systems/{system_id}/command/builtin/restart"
+            .replaceAll("\\{" + "system_id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systemsCommandBuiltinRestartValidateBeforeCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'systemId' is set
+        if (systemId == null) {
+            throw new ApiException("Missing the required parameter 'systemId' when calling systemsCommandBuiltinRestart(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = systemsCommandBuiltinRestartCall(systemId, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Restart a System
+     * This endpoint allows you to run the restart command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/restart \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void systemsCommandBuiltinRestart(String systemId, String xOrgId) throws ApiException {
+        systemsCommandBuiltinRestartWithHttpInfo(systemId, xOrgId);
+    }
+
+    /**
+     * Restart a System
+     * This endpoint allows you to run the restart command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/restart \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> systemsCommandBuiltinRestartWithHttpInfo(String systemId, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsCommandBuiltinRestartValidateBeforeCall(systemId, xOrgId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Restart a System (asynchronously)
+     * This endpoint allows you to run the restart command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/restart \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systemsCommandBuiltinRestartAsync(String systemId, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systemsCommandBuiltinRestartValidateBeforeCall(systemId, xOrgId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for systemsCommandBuiltinShutdown
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systemsCommandBuiltinShutdownCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/systems/{system_id}/command/builtin/shutdown"
+            .replaceAll("\\{" + "system_id" + "\\}", apiClient.escapeString(systemId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        if (xOrgId != null)
+        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "x-api-key" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call systemsCommandBuiltinShutdownValidateBeforeCall(String systemId, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        // verify the required parameter 'systemId' is set
+        if (systemId == null) {
+            throw new ApiException("Missing the required parameter 'systemId' when calling systemsCommandBuiltinShutdown(Async)");
+        }
+        
+        com.squareup.okhttp.Call call = systemsCommandBuiltinShutdownCall(systemId, xOrgId, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * Shutdown a System
+     * This endpoint allows you to run the shutdown command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/shutdown \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public void systemsCommandBuiltinShutdown(String systemId, String xOrgId) throws ApiException {
+        systemsCommandBuiltinShutdownWithHttpInfo(systemId, xOrgId);
+    }
+
+    /**
+     * Shutdown a System
+     * This endpoint allows you to run the shutdown command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/shutdown \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Void> systemsCommandBuiltinShutdownWithHttpInfo(String systemId, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsCommandBuiltinShutdownValidateBeforeCall(systemId, xOrgId, null, null);
+        return apiClient.execute(call);
+    }
+
+    /**
+     * Shutdown a System (asynchronously)
+     * This endpoint allows you to run the shutdown command on the specified device. If a device is offline, the command will be run when the device becomes available.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systems/{system_id}/command/builtin/shutdown \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d {} &#x60;&#x60;&#x60;
+     * @param systemId  (required)
+     * @param xOrgId  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call systemsCommandBuiltinShutdownAsync(String systemId, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = systemsCommandBuiltinShutdownValidateBeforeCall(systemId, xOrgId, progressListener, progressRequestListener);
+        apiClient.executeAsync(call, callback);
+        return call;
+    }
+    /**
+     * Build call for systemsDelete
+     * @param id  (required)
+     * @param date Current date header for the System Context API (optional)
+     * @param authorization Authorization header for the System Context API (optional)
+     * @param xOrgId  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call systemsDeleteCall(String id, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
         // create path and map variables
         String localVarPath = "/systems/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -82,10 +586,6 @@ public class SystemsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (contentType != null)
-        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
         if (date != null)
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
@@ -102,7 +602,7 @@ public class SystemsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -122,80 +622,66 @@ public class SystemsApi {
         String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-
+    
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsDeleteValidateBeforeCall(String id, String contentType, String accept, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    private com.squareup.okhttp.Call systemsDeleteValidateBeforeCall(String id, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling systemsDelete(Async)");
         }
         
-        // verify the required parameter 'contentType' is set
-        if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling systemsDelete(Async)");
-        }
-        
-        // verify the required parameter 'accept' is set
-        if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling systemsDelete(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = systemsDeleteCall(id, contentType, accept, date, authorization, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsDeleteCall(id, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
+        
+        
+        
+        
     }
 
     /**
      * Delete a System
-     * This endpoint allows you to delete a system. This command will cause the system to uninstall the JumpCloud agent from its self which can can take about a minute. If the system is not connected to JumpCloud the system record will simply be removed.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint allows you to delete a system. This command will cause the system to uninstall the JumpCloud agent from its self which can can take about a minute. If the system is not connected to JumpCloud the system record will simply be removed.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;   &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @return System
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public System systemsDelete(String id, String contentType, String accept, String date, String authorization, String xOrgId) throws ApiException {
-        ApiResponse<System> resp = systemsDeleteWithHttpInfo(id, contentType, accept, date, authorization, xOrgId);
+    public System systemsDelete(String id, String date, String authorization, String xOrgId) throws ApiException {
+        ApiResponse<System> resp = systemsDeleteWithHttpInfo(id, date, authorization, xOrgId);
         return resp.getData();
     }
 
     /**
      * Delete a System
-     * This endpoint allows you to delete a system. This command will cause the system to uninstall the JumpCloud agent from its self which can can take about a minute. If the system is not connected to JumpCloud the system record will simply be removed.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint allows you to delete a system. This command will cause the system to uninstall the JumpCloud agent from its self which can can take about a minute. If the system is not connected to JumpCloud the system record will simply be removed.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;   &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @return ApiResponse&lt;System&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<System> systemsDeleteWithHttpInfo(String id, String contentType, String accept, String date, String authorization, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemsDeleteValidateBeforeCall(id, contentType, accept, date, authorization, xOrgId, null, null);
+    public ApiResponse<System> systemsDeleteWithHttpInfo(String id, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsDeleteValidateBeforeCall(id, date, authorization, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Delete a System (asynchronously)
-     * This endpoint allows you to delete a system. This command will cause the system to uninstall the JumpCloud agent from its self which can can take about a minute. If the system is not connected to JumpCloud the system record will simply be removed.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint allows you to delete a system. This command will cause the system to uninstall the JumpCloud agent from its self which can can take about a minute. If the system is not connected to JumpCloud the system record will simply be removed.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;   &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsDeleteAsync(String id, String contentType, String accept, String date, String authorization, String xOrgId, final ApiCallback<System> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsDeleteAsync(String id, String date, String authorization, String xOrgId, final ApiCallback<System> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -216,7 +702,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemsDeleteValidateBeforeCall(id, contentType, accept, date, authorization, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsDeleteValidateBeforeCall(id, date, authorization, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -224,21 +710,19 @@ public class SystemsApi {
     /**
      * Build call for systemsGet
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemsGetCall(String id, String contentType, String accept, String fields, String filter, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemsGetCall(String id, String fields, String filter, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-
+        
         // create path and map variables
         String localVarPath = "/systems/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -251,10 +735,6 @@ public class SystemsApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (contentType != null)
-        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
         if (date != null)
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
@@ -271,7 +751,7 @@ public class SystemsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -291,86 +771,72 @@ public class SystemsApi {
         String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-
+    
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsGetValidateBeforeCall(String id, String contentType, String accept, String fields, String filter, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    private com.squareup.okhttp.Call systemsGetValidateBeforeCall(String id, String fields, String filter, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling systemsGet(Async)");
         }
         
-        // verify the required parameter 'contentType' is set
-        if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling systemsGet(Async)");
-        }
-        
-        // verify the required parameter 'accept' is set
-        if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling systemsGet(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = systemsGetCall(id, contentType, accept, fields, filter, date, authorization, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsGetCall(id, fields, filter, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
+        
+        
+        
+        
     }
 
     /**
      * List an individual system
-     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;   &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @return System
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public System systemsGet(String id, String contentType, String accept, String fields, String filter, String date, String authorization, String xOrgId) throws ApiException {
-        ApiResponse<System> resp = systemsGetWithHttpInfo(id, contentType, accept, fields, filter, date, authorization, xOrgId);
+    public System systemsGet(String id, String fields, String filter, String date, String authorization, String xOrgId) throws ApiException {
+        ApiResponse<System> resp = systemsGetWithHttpInfo(id, fields, filter, date, authorization, xOrgId);
         return resp.getData();
     }
 
     /**
      * List an individual system
-     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;   &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @return ApiResponse&lt;System&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<System> systemsGetWithHttpInfo(String id, String contentType, String accept, String fields, String filter, String date, String authorization, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, contentType, accept, fields, filter, date, authorization, xOrgId, null, null);
+    public ApiResponse<System> systemsGetWithHttpInfo(String id, String fields, String filter, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, fields, filter, date, authorization, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List an individual system (asynchronously)
-     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+     * This endpoint returns an individual system.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;   &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsGetAsync(String id, String contentType, String accept, String fields, String filter, String date, String authorization, String xOrgId, final ApiCallback<System> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsGetAsync(String id, String fields, String filter, String date, String authorization, String xOrgId, final ApiCallback<System> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -391,30 +857,28 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, contentType, accept, fields, filter, date, authorization, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsGetValidateBeforeCall(id, fields, filter, date, authorization, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
      * Build call for systemsList
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
-     * @param search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on. (optional)
+     * @param xOrgId  (optional)
+     * @param search A nested object containing a &#x60;searchTerm&#x60; string or array of strings and a list of &#x60;fields&#x60; to search on. (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemsListCall(String contentType, String accept, String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemsListCall(String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-
+        
         // create path and map variables
         String localVarPath = "/systems";
 
@@ -436,10 +900,6 @@ public class SystemsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         if (xOrgId != null)
         localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
-        if (contentType != null)
-        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
@@ -450,7 +910,7 @@ public class SystemsApi {
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+            
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
@@ -470,84 +930,71 @@ public class SystemsApi {
         String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-
+    
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsListValidateBeforeCall(String contentType, String accept, String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call systemsListValidateBeforeCall(String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        // verify the required parameter 'contentType' is set
-        if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling systemsList(Async)");
-        }
-        
-        // verify the required parameter 'accept' is set
-        if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling systemsList(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = systemsListCall(contentType, accept, fields, limit, xOrgId, search, skip, sort, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsListCall(fields, limit, xOrgId, search, skip, sort, filter, progressListener, progressRequestListener);
         return call;
 
+        
+        
+        
+        
     }
 
     /**
      * List All Systems
-     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
+     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;  &#x60;&#x60;&#x60;
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
-     * @param search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on. (optional)
+     * @param xOrgId  (optional)
+     * @param search A nested object containing a &#x60;searchTerm&#x60; string or array of strings and a list of &#x60;fields&#x60; to search on. (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @return Systemslist
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Systemslist systemsList(String contentType, String accept, String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter) throws ApiException {
-        ApiResponse<Systemslist> resp = systemsListWithHttpInfo(contentType, accept, fields, limit, xOrgId, search, skip, sort, filter);
+    public Systemslist systemsList(String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter) throws ApiException {
+        ApiResponse<Systemslist> resp = systemsListWithHttpInfo(fields, limit, xOrgId, search, skip, sort, filter);
         return resp.getData();
     }
 
     /**
      * List All Systems
-     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
+     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;  &#x60;&#x60;&#x60;
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
-     * @param search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on. (optional)
+     * @param xOrgId  (optional)
+     * @param search A nested object containing a &#x60;searchTerm&#x60; string or array of strings and a list of &#x60;fields&#x60; to search on. (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @return ApiResponse&lt;Systemslist&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Systemslist> systemsListWithHttpInfo(String contentType, String accept, String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter) throws ApiException {
-        com.squareup.okhttp.Call call = systemsListValidateBeforeCall(contentType, accept, fields, limit, xOrgId, search, skip, sort, filter, null, null);
+    public ApiResponse<Systemslist> systemsListWithHttpInfo(String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter) throws ApiException {
+        com.squareup.okhttp.Call call = systemsListValidateBeforeCall(fields, limit, xOrgId, search, skip, sort, filter, null, null);
         Type localVarReturnType = new TypeToken<Systemslist>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * List All Systems (asynchronously)
-     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
+     * This endpoint returns all Systems.  #### Sample Requests &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systems \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;  &#x60;&#x60;&#x60;
+     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional)
      * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param xOrgId  (optional, default to )
-     * @param search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on. (optional)
+     * @param xOrgId  (optional)
+     * @param search A nested object containing a &#x60;searchTerm&#x60; string or array of strings and a list of &#x60;fields&#x60; to search on. (optional)
      * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
+     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional)
+     * @param filter A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsListAsync(String contentType, String accept, String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter, final ApiCallback<Systemslist> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsListAsync(String fields, Integer limit, String xOrgId, String search, Integer skip, String sort, String filter, final ApiCallback<Systemslist> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -568,7 +1015,7 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemsListValidateBeforeCall(contentType, accept, fields, limit, xOrgId, search, skip, sort, filter, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsListValidateBeforeCall(fields, limit, xOrgId, search, skip, sort, filter, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Systemslist>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -576,20 +1023,18 @@ public class SystemsApi {
     /**
      * Build call for systemsPut
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call systemsPutCall(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call systemsPutCall(String id, Systemput body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-
+        
         // create path and map variables
         String localVarPath = "/systems/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -598,10 +1043,6 @@ public class SystemsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (contentType != null)
-        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
         if (date != null)
         localVarHeaderParams.put("Date", apiClient.parameterToString(date));
         if (authorization != null)
@@ -638,83 +1079,69 @@ public class SystemsApi {
         String[] localVarAuthNames = new String[] { "x-api-key" };
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-
+    
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsPutValidateBeforeCall(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    private com.squareup.okhttp.Call systemsPutValidateBeforeCall(String id, Systemput body, String date, String authorization, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling systemsPut(Async)");
         }
         
-        // verify the required parameter 'contentType' is set
-        if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling systemsPut(Async)");
-        }
-        
-        // verify the required parameter 'accept' is set
-        if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling systemsPut(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = systemsPutCall(id, contentType, accept, body, date, authorization, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsPutCall(id, body, date, authorization, xOrgId, progressListener, progressRequestListener);
         return call;
 
+        
+        
+        
+        
     }
 
     /**
      * Update a system
-     * This endpoint allows you to update a system.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;displayName\&quot;:\&quot;Name_Update\&quot;,  \&quot;allowSshPasswordAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowSshRootLogin\&quot;:\&quot;true\&quot;,  \&quot;allowMultiFactorAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowPublicKeyAuthentication\&quot;:\&quot;false\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update a system.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d &#x27;{  \&quot;displayName\&quot;:\&quot;Name_Update\&quot;,  \&quot;allowSshPasswordAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowSshRootLogin\&quot;:\&quot;true\&quot;,  \&quot;allowMultiFactorAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowPublicKeyAuthentication\&quot;:\&quot;false\&quot; }&#x27; &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @return System
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public System systemsPut(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
-        ApiResponse<System> resp = systemsPutWithHttpInfo(id, contentType, accept, body, date, authorization, xOrgId);
+    public System systemsPut(String id, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
+        ApiResponse<System> resp = systemsPutWithHttpInfo(id, body, date, authorization, xOrgId);
         return resp.getData();
     }
 
     /**
      * Update a system
-     * This endpoint allows you to update a system.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;displayName\&quot;:\&quot;Name_Update\&quot;,  \&quot;allowSshPasswordAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowSshRootLogin\&quot;:\&quot;true\&quot;,  \&quot;allowMultiFactorAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowPublicKeyAuthentication\&quot;:\&quot;false\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update a system.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d &#x27;{  \&quot;displayName\&quot;:\&quot;Name_Update\&quot;,  \&quot;allowSshPasswordAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowSshRootLogin\&quot;:\&quot;true\&quot;,  \&quot;allowMultiFactorAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowPublicKeyAuthentication\&quot;:\&quot;false\&quot; }&#x27; &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @return ApiResponse&lt;System&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<System> systemsPutWithHttpInfo(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemsPutValidateBeforeCall(id, contentType, accept, body, date, authorization, xOrgId, null, null);
+    public ApiResponse<System> systemsPutWithHttpInfo(String id, Systemput body, String date, String authorization, String xOrgId) throws ApiException {
+        com.squareup.okhttp.Call call = systemsPutValidateBeforeCall(id, body, date, authorization, xOrgId, null, null);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update a system (asynchronously)
-     * This endpoint allows you to update a system.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;displayName\&quot;:\&quot;Name_Update\&quot;,  \&quot;allowSshPasswordAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowSshRootLogin\&quot;:\&quot;true\&quot;,  \&quot;allowMultiFactorAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowPublicKeyAuthentication\&quot;:\&quot;false\&quot; }&#39; &#x60;&#x60;&#x60;
+     * This endpoint allows you to update a system.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/systems/{SystemID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d &#x27;{  \&quot;displayName\&quot;:\&quot;Name_Update\&quot;,  \&quot;allowSshPasswordAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowSshRootLogin\&quot;:\&quot;true\&quot;,  \&quot;allowMultiFactorAuthentication\&quot;:\&quot;true\&quot;,  \&quot;allowPublicKeyAuthentication\&quot;:\&quot;false\&quot; }&#x27; &#x60;&#x60;&#x60;
      * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
      * @param body  (optional)
      * @param date Current date header for the System Context API (optional)
      * @param authorization Authorization header for the System Context API (optional)
-     * @param xOrgId  (optional, default to )
+     * @param xOrgId  (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call systemsPutAsync(String id, String contentType, String accept, Systemput body, String date, String authorization, String xOrgId, final ApiCallback<System> callback) throws ApiException {
+    public com.squareup.okhttp.Call systemsPutAsync(String id, Systemput body, String date, String authorization, String xOrgId, final ApiCallback<System> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -735,341 +1162,9 @@ public class SystemsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = systemsPutValidateBeforeCall(id, contentType, accept, body, date, authorization, xOrgId, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = systemsPutValidateBeforeCall(id, body, date, authorization, xOrgId, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<System>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for systemsSystemusersBindingList
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
-     * @param xOrgId  (optional, default to )
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call systemsSystemusersBindingListCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/systems/{id}/systemusers"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (fields != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("fields", fields));
-        if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
-        if (skip != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("skip", skip));
-        if (sort != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sort", sort));
-        if (filter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("filter", filter));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (contentType != null)
-        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "x-api-key" };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsSystemusersBindingListValidateBeforeCall(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling systemsSystemusersBindingList(Async)");
-        }
-        
-        // verify the required parameter 'contentType' is set
-        if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling systemsSystemusersBindingList(Async)");
-        }
-        
-        // verify the required parameter 'accept' is set
-        if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling systemsSystemusersBindingList(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = systemsSystemusersBindingListCall(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * List system user bindings
-     * Hidden as Tags is deprecated  List system user bindings for a specific system in a system and user binding format.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  #### Sample Request  *List system user bindings for specific system*  &#x60;&#x60;&#x60; curl -X https://console.jumpcloud.com/api/systems/{SystemID}/systemusers\\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   \&quot; &#x60;&#x60;&#x60;
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
-     * @param xOrgId  (optional, default to )
-     * @return Systemuserbinding
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Systemuserbinding systemsSystemusersBindingList(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId) throws ApiException {
-        ApiResponse<Systemuserbinding> resp = systemsSystemusersBindingListWithHttpInfo(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId);
-        return resp.getData();
-    }
-
-    /**
-     * List system user bindings
-     * Hidden as Tags is deprecated  List system user bindings for a specific system in a system and user binding format.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  #### Sample Request  *List system user bindings for specific system*  &#x60;&#x60;&#x60; curl -X https://console.jumpcloud.com/api/systems/{SystemID}/systemusers\\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   \&quot; &#x60;&#x60;&#x60;
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
-     * @param xOrgId  (optional, default to )
-     * @return ApiResponse&lt;Systemuserbinding&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Systemuserbinding> systemsSystemusersBindingListWithHttpInfo(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemsSystemusersBindingListValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId, null, null);
-        Type localVarReturnType = new TypeToken<Systemuserbinding>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * List system user bindings (asynchronously)
-     * Hidden as Tags is deprecated  List system user bindings for a specific system in a system and user binding format.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  #### Sample Request  *List system user bindings for specific system*  &#x60;&#x60;&#x60; curl -X https://console.jumpcloud.com/api/systems/{SystemID}/systemusers\\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   \&quot; &#x60;&#x60;&#x60;
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (optional, default to )
-     * @param limit The number of records to return at once. Limited to 100. (optional, default to 10)
-     * @param skip The offset into the records to return. (optional, default to 0)
-     * @param sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (optional, default to )
-     * @param filter A filter to apply to the query. (optional)
-     * @param xOrgId  (optional, default to )
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call systemsSystemusersBindingListAsync(String id, String contentType, String accept, String fields, Integer limit, Integer skip, String sort, String filter, String xOrgId, final ApiCallback<Systemuserbinding> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = systemsSystemusersBindingListValidateBeforeCall(id, contentType, accept, fields, limit, skip, sort, filter, xOrgId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Systemuserbinding>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for systemsSystemusersBindingPut
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param body  (optional)
-     * @param xOrgId  (optional, default to )
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call systemsSystemusersBindingPutCall(String id, String contentType, String accept, Systemuserbindingsput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-
-        // create path and map variables
-        String localVarPath = "/systems/{id}/systemusers"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (contentType != null)
-        localVarHeaderParams.put("Content-Type", apiClient.parameterToString(contentType));
-        if (accept != null)
-        localVarHeaderParams.put("Accept", apiClient.parameterToString(accept));
-        if (xOrgId != null)
-        localVarHeaderParams.put("x-org-id", apiClient.parameterToString(xOrgId));
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] { "x-api-key" };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call systemsSystemusersBindingPutValidateBeforeCall(String id, String contentType, String accept, Systemuserbindingsput body, String xOrgId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling systemsSystemusersBindingPut(Async)");
-        }
-        
-        // verify the required parameter 'contentType' is set
-        if (contentType == null) {
-            throw new ApiException("Missing the required parameter 'contentType' when calling systemsSystemusersBindingPut(Async)");
-        }
-        
-        // verify the required parameter 'accept' is set
-        if (accept == null) {
-            throw new ApiException("Missing the required parameter 'accept' when calling systemsSystemusersBindingPut(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = systemsSystemusersBindingPutCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Update a system&#39;s or user&#39;s binding
-     * Hidden as Tags is deprecated  Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  #### Sample Request  *Add (or remove) a system user to (from) a system*  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_USER_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_USER_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param body  (optional)
-     * @param xOrgId  (optional, default to )
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public void systemsSystemusersBindingPut(String id, String contentType, String accept, Systemuserbindingsput body, String xOrgId) throws ApiException {
-        systemsSystemusersBindingPutWithHttpInfo(id, contentType, accept, body, xOrgId);
-    }
-
-    /**
-     * Update a system&#39;s or user&#39;s binding
-     * Hidden as Tags is deprecated  Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  #### Sample Request  *Add (or remove) a system user to (from) a system*  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_USER_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_USER_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param body  (optional)
-     * @param xOrgId  (optional, default to )
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Void> systemsSystemusersBindingPutWithHttpInfo(String id, String contentType, String accept, Systemuserbindingsput body, String xOrgId) throws ApiException {
-        com.squareup.okhttp.Call call = systemsSystemusersBindingPutValidateBeforeCall(id, contentType, accept, body, xOrgId, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Update a system&#39;s or user&#39;s binding (asynchronously)
-     * Hidden as Tags is deprecated  Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  #### Sample Request  *Add (or remove) a system user to (from) a system*  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_USER_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_USER_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers
-     * @param id  (required)
-     * @param contentType  (required)
-     * @param accept  (required)
-     * @param body  (optional)
-     * @param xOrgId  (optional, default to )
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call systemsSystemusersBindingPutAsync(String id, String contentType, String accept, Systemuserbindingsput body, String xOrgId, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = systemsSystemusersBindingPutValidateBeforeCall(id, contentType, accept, body, xOrgId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
         return call;
     }
 }

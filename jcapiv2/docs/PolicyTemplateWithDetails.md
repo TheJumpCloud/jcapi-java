@@ -1,4 +1,3 @@
-
 # PolicyTemplateWithDetails
 
 ## Properties
@@ -12,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **String** | ObjectId uniquely identifying a Policy Template. |  [optional]
 **name** | **String** | The unique name for the Policy Template. |  [optional]
 **osMetaFamily** | [**OsMetaFamilyEnum**](#OsMetaFamilyEnum) |  |  [optional]
-
+**osRestrictions** | [**List&lt;OSRestriction&gt;**](OSRestriction.md) |  |  [optional]
 
 <a name="OsMetaFamilyEnum"></a>
 ## Enum: OsMetaFamilyEnum
@@ -21,6 +20,5 @@ Name | Value
 LINUX | &quot;linux&quot;
 DARWIN | &quot;darwin&quot;
 WINDOWS | &quot;windows&quot;
-
-
-
+IOS | &quot;ios&quot;
+UNIVERSAL | &quot;universal&quot;

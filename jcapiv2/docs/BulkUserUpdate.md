@@ -1,4 +1,3 @@
-
 # BulkUserUpdate
 
 ## Properties
@@ -10,6 +9,3 @@ Name | Type | Description | Notes
 **id** | **String** | Object ID of the systemuser being updated |  [optional]
 **lastname** | **String** |  |  [optional]
 **username** | **String** |  |  [optional]
-
-
-

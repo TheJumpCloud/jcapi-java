@@ -1,4 +1,3 @@
-
 # SystemInsightsGroups
 
 ## Properties
@@ -11,6 +10,3 @@ Name | Type | Description | Notes
 **groupSid** | **String** |  |  [optional]
 **groupname** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
-
-
-

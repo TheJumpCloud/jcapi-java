@@ -1,4 +1,3 @@
-
 # SystemInsightsIeExtensions
 
 ## Properties
@@ -10,6 +9,3 @@ Name | Type | Description | Notes
 **registryPath** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
-
-
-

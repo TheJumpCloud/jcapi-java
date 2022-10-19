@@ -1,11 +1,6 @@
-
 # InlineResponse201
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**appleMdm** | [**AppleMDM**](AppleMDM.md) |  |  [optional]
-**signedCsrPlist** | **String** |  |  [optional]
-
-
-
+**integrationId** | **String** | The identifier of the created integration | 
