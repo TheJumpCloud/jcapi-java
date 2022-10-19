@@ -1,4 +1,3 @@
-
 # SystemInsightsSystemInfo
 
 ## Properties
@@ -21,6 +20,3 @@ Name | Type | Description | Notes
 **physicalMemory** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **uuid** | **String** |  |  [optional]
-
-
-

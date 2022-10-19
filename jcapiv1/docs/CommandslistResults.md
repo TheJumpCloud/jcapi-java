@@ -1,10 +1,9 @@
-
 # CommandslistResults
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | The ID of the command. |  [optional]
+**_id** | **String** | The ID of the command. |  [optional]
 **command** | **String** | The Command to execute. |  [optional]
 **commandType** | **String** | The Command OS. |  [optional]
 **launchType** | **String** | How the Command is executed. |  [optional]
@@ -14,6 +13,3 @@ Name | Type | Description | Notes
 **schedule** | **String** | A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. |  [optional]
 **scheduleRepeatType** | **String** | When the command will repeat. |  [optional]
 **trigger** | **String** | Trigger to execute command. |  [optional]
-
-
-

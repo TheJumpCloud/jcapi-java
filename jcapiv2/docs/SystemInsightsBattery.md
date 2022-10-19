@@ -1,10 +1,9 @@
-
 # SystemInsightsBattery
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amgerage** | **Integer** |  |  [optional]
+**amperage** | **Integer** |  |  [optional]
 **charged** | **Integer** |  |  [optional]
 **charging** | **Integer** |  |  [optional]
 **collectionTime** | **String** |  |  [optional]
@@ -24,6 +23,3 @@ Name | Type | Description | Notes
 **state** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **voltage** | **Integer** |  |  [optional]
-
-
-

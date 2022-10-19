@@ -1,4 +1,3 @@
-
 # ApplicationConfig
 
 ## Properties
@@ -11,6 +10,3 @@ Name | Type | Description | Notes
 **idpEntityId** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
 **idpPrivateKey** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
 **spEntityId** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  |  [optional]
-
-
-

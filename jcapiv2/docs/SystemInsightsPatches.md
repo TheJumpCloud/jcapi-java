@@ -1,4 +1,3 @@
-
 # SystemInsightsPatches
 
 ## Properties
@@ -14,6 +13,3 @@ Name | Type | Description | Notes
 **installedBy** | **String** |  |  [optional]
 **installedOn** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
-
-
-

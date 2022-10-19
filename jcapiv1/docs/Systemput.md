@@ -1,4 +1,3 @@
-
 # Systemput
 
 ## Properties
@@ -11,6 +10,3 @@ Name | Type | Description | Notes
 **allowSshRootLogin** | **Boolean** |  |  [optional]
 **displayName** | **String** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
-
-
-

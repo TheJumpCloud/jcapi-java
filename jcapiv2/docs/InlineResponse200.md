@@ -1,13 +1,7 @@
-
 # InlineResponse200
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
-**name** | **String** |  |  [optional]
-**userLockoutAction** | [**LdapServerAction**](LdapServerAction.md) |  |  [optional]
-**userPasswordExpirationAction** | [**LdapServerAction**](LdapServerAction.md) |  |  [optional]
-
-
-
+**eventsCount** | **Integer** |  |  [optional]
+**results** | [**List&lt;ScheduledUserstateResult&gt;**](ScheduledUserstateResult.md) |  |  [optional]

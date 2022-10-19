@@ -1,4 +1,3 @@
-
 # SystemInsightsBrowserPlugins
 
 ## Properties
@@ -16,6 +15,3 @@ Name | Type | Description | Notes
 **systemId** | **String** |  |  [optional]
 **uid** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
-
-
-

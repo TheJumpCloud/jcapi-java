@@ -1,4 +1,3 @@
-
 # SystemInsightsUsbDevices
 
 ## Properties
@@ -18,6 +17,3 @@ Name | Type | Description | Notes
 **vendor** | **String** |  |  [optional]
 **vendorId** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
-
-
-

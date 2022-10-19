@@ -1,4 +1,3 @@
-
 # PolicyResult
 
 ## Properties
@@ -15,6 +14,3 @@ Name | Type | Description | Notes
 **stdOut** | **String** | The STDOUT output from applying the policy. |  [optional]
 **success** | **Boolean** | True if the policy was successfully applied; false otherwise. |  [optional]
 **systemID** | **String** | ObjectId uniquely identifying the parent System. |  [optional]
-
-
-

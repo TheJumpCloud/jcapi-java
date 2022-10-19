@@ -6,14 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**commandTriggerWebhookPost**](CommandTriggersApi.md#commandTriggerWebhookPost) | **POST** /command/trigger/{triggername} | Launch a command via a Trigger
 
-
 <a name="commandTriggerWebhookPost"></a>
 # **commandTriggerWebhookPost**
-> commandTriggerWebhookPost(triggername, contentType, accept, xOrgId)
+> Triggerreturn commandTriggerWebhookPost(triggername, body, xOrgId)
 
 Launch a command via a Trigger
 
-This endpoint allows you to launch a command based on a defined trigger.  #### Sample Requests  **Launch a Command via a Trigger**  &#x60;&#x60;&#x60; curl --silent \\      -X &#39;POST&#39; \\      -H \&quot;x-api-key: {API_KEY}\&quot; \\      \&quot;https://console.jumpcloud.com/api/command/trigger/{TriggerName}\&quot; &#x60;&#x60;&#x60; **Launch a Command via a Trigger passing a JSON object to the command** &#x60;&#x60;&#x60; curl --silent \\      -X &#39;POST&#39; \\      -H \&quot;x-api-key: {API_KEY}\&quot; \\      -H &#39;Accept: application/json&#39; \\      -H &#39;Content-Type: application/json&#39; \\      -d &#39;{ \&quot;srcip\&quot;:\&quot;192.168.2.32\&quot;, \&quot;attack\&quot;:\&quot;Cross Site Scripting Attempt\&quot; }&#39; \\      \&quot;https://console.jumpcloud.com/api/command/trigger/{TriggerName}\&quot; &#x60;&#x60;&#x60;
+This endpoint allows you to launch a command based on a defined trigger.  #### Sample Requests  **Launch a Command via a Trigger**  &#x60;&#x60;&#x60; curl --silent \\      -X &#x27;POST&#x27; \\      -H \&quot;x-api-key: {API_KEY}\&quot; \\      \&quot;https://console.jumpcloud.com/api/command/trigger/{TriggerName}\&quot; &#x60;&#x60;&#x60; **Launch a Command via a Trigger passing a JSON object to the command** &#x60;&#x60;&#x60; curl --silent \\      -X &#x27;POST&#x27; \\      -H \&quot;x-api-key: {API_KEY}\&quot; \\      -H &#x27;Accept: application/json&#x27; \\      -H &#x27;Content-Type: application/json&#x27; \\      -d &#x27;{ \&quot;srcip\&quot;:\&quot;192.168.2.32\&quot;, \&quot;attack\&quot;:\&quot;Cross Site Scripting Attempt\&quot; }&#x27; \\      \&quot;https://console.jumpcloud.com/api/command/trigger/{TriggerName}\&quot; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -34,11 +33,11 @@ x-api-key.setApiKey("YOUR API KEY");
 
 CommandTriggersApi apiInstance = new CommandTriggersApi();
 String triggername = "triggername_example"; // String | 
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
-String xOrgId = ""; // String | 
+Object body = null; // Object | 
+String xOrgId = "xOrgId_example"; // String | 
 try {
-    apiInstance.commandTriggerWebhookPost(triggername, contentType, accept, xOrgId);
+    Triggerreturn result = apiInstance.commandTriggerWebhookPost(triggername, body, xOrgId);
+    System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling CommandTriggersApi#commandTriggerWebhookPost");
     e.printStackTrace();
@@ -50,13 +49,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **triggername** | **String**|  |
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to ]
+ **body** | [**Object**](Object.md)|  | [optional]
+ **xOrgId** | **String**|  | [optional]
 
 ### Return type
 
-null (empty response body)
+[**Triggerreturn**](Triggerreturn.md)
 
 ### Authorization
 

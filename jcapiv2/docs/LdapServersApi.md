@@ -12,14 +12,13 @@ Method | HTTP request | Description
 [**ldapserversList**](LdapServersApi.md#ldapserversList) | **GET** /ldapservers | List LDAP Servers
 [**ldapserversPatch**](LdapServersApi.md#ldapserversPatch) | **PATCH** /ldapservers/{id} | Update existing LDAP server
 
-
 <a name="graphLdapServerAssociationsList"></a>
 # **graphLdapServerAssociationsList**
-> List&lt;GraphConnection&gt; graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip, xOrgId)
+> List&lt;GraphConnection&gt; graphLdapServerAssociationsList(ldapserverId, targets, limit, skip, xOrgId)
 
 List the associations of a LDAP Server
 
-This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request  &#x60;&#x60;&#x60;  curl -X GET &#39;https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets&#x3D;user_group \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request  &#x60;&#x60;&#x60;  curl -X GET &#x27;https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets&#x3D;user_group \\   -H &#x27;accept: application/json&#x27; \\   -H &#x27;content-type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -40,14 +39,12 @@ x-api-key.setApiKey("YOUR API KEY");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
-List<String> targets = Arrays.asList("targets_example"); // List<String> | 
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
+List<String> targets = Arrays.asList("targets_example"); // List<String> | Targets which a \"ldap_server\" can be associated to.
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
-String xOrgId = ""; // String | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 try {
-    List<GraphConnection> result = apiInstance.graphLdapServerAssociationsList(ldapserverId, targets, contentType, accept, limit, skip, xOrgId);
+    List<GraphConnection> result = apiInstance.graphLdapServerAssociationsList(ldapserverId, targets, limit, skip, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerAssociationsList");
@@ -60,12 +57,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserverId** | **String**| ObjectID of the LDAP Server. |
- **targets** | [**List&lt;String&gt;**](String.md)|  | [enum: active_directory, application, command, g_suite, ldap_server, office_365, policy, radius_server, system, system_group, user, user_group]
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
+ **targets** | [**List&lt;String&gt;**](String.md)| Targets which a \&quot;ldap_server\&quot; can be associated to. | [enum: user, user_group]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **xOrgId** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0] [enum: ]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
 
 ### Return type
 
@@ -77,16 +72,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="graphLdapServerAssociationsPost"></a>
 # **graphLdapServerAssociationsPost**
-> graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body, xOrgId)
+> graphLdapServerAssociationsPost(ldapserverId, body, xOrgId)
 
 Manage the associations of a LDAP Server
 
-This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{User_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
+This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d &#x27;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{User_ID}\&quot;   }&#x27; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -107,12 +102,10 @@ x-api-key.setApiKey("YOUR API KEY");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
-GraphManagementReq body = new GraphManagementReq(); // GraphManagementReq | 
-String xOrgId = ""; // String | 
+GraphOperationLdapServer body = new GraphOperationLdapServer(); // GraphOperationLdapServer | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 try {
-    apiInstance.graphLdapServerAssociationsPost(ldapserverId, contentType, accept, body, xOrgId);
+    apiInstance.graphLdapServerAssociationsPost(ldapserverId, body, xOrgId);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerAssociationsPost");
     e.printStackTrace();
@@ -124,10 +117,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserverId** | **String**| ObjectID of the LDAP Server. |
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional]
- **xOrgId** | **String**|  | [optional] [default to ]
+ **body** | [**GraphOperationLdapServer**](GraphOperationLdapServer.md)|  | [optional]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
 
 ### Return type
 
@@ -140,15 +131,15 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 <a name="graphLdapServerTraverseUser"></a>
 # **graphLdapServerTraverseUser**
-> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, xOrgId, skip, filter)
+> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUser(ldapserverId, limit, xOrgId, skip, filter)
 
 List the Users bound to a LDAP Server
 
-This endpoint will return all Users bound to an LDAP Server, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The &#x60;attributes&#x60; object is a key/value hash of compiled graph attributes for all paths followed.  The &#x60;paths&#x60; array enumerates each path from this LDAP server instance to the corresponding User; this array represents all grouping and/or associations that would have to be removed to deprovision the User from this LDAP server instance.  See &#x60;/members&#x60; and &#x60;/associations&#x60; endpoints to manage those collections.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/users \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint will return all Users bound to an LDAP Server, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The &#x60;attributes&#x60; object is a key/value hash of compiled graph attributes for all paths followed.  The &#x60;paths&#x60; array enumerates each path from this LDAP server instance to the corresponding User; this array represents all grouping and/or associations that would have to be removed to deprovision the User from this LDAP server instance.  See &#x60;/members&#x60; and &#x60;/associations&#x60; endpoints to manage those collections.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/users \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -169,14 +160,12 @@ x-api-key.setApiKey("YOUR API KEY");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-String xOrgId = ""; // String | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUser(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
+    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUser(ldapserverId, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerTraverseUser");
@@ -189,12 +178,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserverId** | **String**| ObjectID of the LDAP Server. |
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **xOrgId** | **String**|  | [optional] [default to ]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0] [enum: ]
+ **filter** | [**List&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional]
 
 ### Return type
 
@@ -206,16 +193,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="graphLdapServerTraverseUserGroup"></a>
 # **graphLdapServerTraverseUserGroup**
-> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, xOrgId, skip, filter)
+> List&lt;GraphObjectWithPaths&gt; graphLdapServerTraverseUserGroup(ldapserverId, limit, xOrgId, skip, filter)
 
 List the User Groups bound to a LDAP Server
 
-This endpoint will return all Users Groups bound to a LDAP Server, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the group&#39;s type, id, attributes and paths.  The &#x60;attributes&#x60; object is a key/value hash of compiled graph attributes for all paths followed.  The &#x60;paths&#x60; array enumerates each path from this LDAP server instance to the corresponding User Group; this array represents all grouping and/or associations that would have to be removed to deprovision the User Group from this LDAP server instance.  See &#x60;/members&#x60; and &#x60;/associations&#x60; endpoints to manage those collections.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/usergroups \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint will return all Users Groups bound to a LDAP Server, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the group&#x27;s type, id, attributes and paths.  The &#x60;attributes&#x60; object is a key/value hash of compiled graph attributes for all paths followed.  The &#x60;paths&#x60; array enumerates each path from this LDAP server instance to the corresponding User Group; this array represents all grouping and/or associations that would have to be removed to deprovision the User Group from this LDAP server instance.  See &#x60;/members&#x60; and &#x60;/associations&#x60; endpoints to manage those collections.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/usergroups \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -236,14 +223,12 @@ x-api-key.setApiKey("YOUR API KEY");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String ldapserverId = "ldapserverId_example"; // String | ObjectID of the LDAP Server.
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
-String xOrgId = ""; // String | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 Integer skip = 0; // Integer | The offset into the records to return.
-List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
 try {
-    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUserGroup(ldapserverId, contentType, accept, limit, xOrgId, skip, filter);
+    List<GraphObjectWithPaths> result = apiInstance.graphLdapServerTraverseUserGroup(ldapserverId, limit, xOrgId, skip, filter);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#graphLdapServerTraverseUserGroup");
@@ -256,12 +241,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserverId** | **String**| ObjectID of the LDAP Server. |
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **xOrgId** | **String**|  | [optional] [default to ]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0] [enum: ]
+ **filter** | [**List&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional]
 
 ### Return type
 
@@ -273,16 +256,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="ldapserversGet"></a>
 # **ldapserversGet**
-> LdapServerOutput ldapserversGet(id, contentType, accept, xOrgId)
+> LdapServerOutput ldapserversGet(id, xOrgId)
 
 Get LDAP Server
 
-This endpoint returns a specific LDAP server.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+This endpoint returns a specific LDAP server.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -303,11 +286,9 @@ x-api-key.setApiKey("YOUR API KEY");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String id = "id_example"; // String | Unique identifier of the LDAP server.
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
-String xOrgId = ""; // String | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 try {
-    LdapServerOutput result = apiInstance.ldapserversGet(id, contentType, accept, xOrgId);
+    LdapServerOutput result = apiInstance.ldapserversGet(id, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#ldapserversGet");
@@ -320,9 +301,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Unique identifier of the LDAP server. |
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **xOrgId** | **String**|  | [optional] [default to ]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
 
 ### Return type
 
@@ -334,16 +313,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="ldapserversList"></a>
 # **ldapserversList**
-> List&lt;LdapServerOutput&gt; ldapserversList(contentType, accept, fields, filter, limit, skip, sort, xOrgId)
+> List&lt;LdapServerOutput&gt; ldapserversList(fields, filter, limit, skip, sort, xOrgId)
 
 List LDAP Servers
 
-This endpoint returns the object IDs of your LDAP servers.   ##### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;
+This endpoint returns the object IDs of your LDAP servers.   ##### Sample Request  &#x60;&#x60;&#x60;   curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/ \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27;
 
 ### Example
 ```java
@@ -363,16 +342,14 @@ x-api-key.setApiKey("YOUR API KEY");
 //x-api-key.setApiKeyPrefix("Token");
 
 LdapServersApi apiInstance = new LdapServersApi();
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
 List<String> fields = Arrays.asList("fields_example"); // List<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
-List<String> filter = Arrays.asList("filter_example"); // List<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+List<String> filter = Arrays.asList("filter_example"); // List<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
 Integer limit = 10; // Integer | The number of records to return at once. Limited to 100.
 Integer skip = 0; // Integer | The offset into the records to return.
 List<String> sort = Arrays.asList("sort_example"); // List<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-String xOrgId = ""; // String | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 try {
-    List<LdapServerOutput> result = apiInstance.ldapserversList(contentType, accept, fields, filter, limit, skip, sort, xOrgId);
+    List<LdapServerOutput> result = apiInstance.ldapserversList(fields, filter, limit, skip, sort, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#ldapserversList");
@@ -384,14 +361,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **fields** | [**List&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional]
- **filter** | [**List&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional]
+ **filter** | [**List&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0] [enum: ]
  **sort** | [**List&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional]
- **xOrgId** | **String**|  | [optional] [default to ]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
 
 ### Return type
 
@@ -403,16 +378,16 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="ldapserversPatch"></a>
 # **ldapserversPatch**
-> InlineResponse200 ldapserversPatch(id, contentType, accept, body, xApiKey, xOrgId)
+> InlineResponse20010 ldapserversPatch(id, body, xOrgId)
 
 Update existing LDAP server
 
-This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#x27;Accept: application/json&#x27; \\   -H &#x27;Content-Type: application/json&#x27; \\   -H &#x27;x-api-key: {API_KEY}&#x27; \\   -d &#x27;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#x27; &#x60;&#x60;&#x60;
 
 ### Example
 ```java
@@ -433,13 +408,10 @@ x-api-key.setApiKey("YOUR API KEY");
 
 LdapServersApi apiInstance = new LdapServersApi();
 String id = "id_example"; // String | Unique identifier of the LDAP server.
-String contentType = "application/json"; // String | 
-String accept = "application/json"; // String | 
-Body3 body = new Body3(); // Body3 | 
-String xApiKey = "xApiKey_example"; // String | 
-String xOrgId = "xOrgId_example"; // String | 
+LdapserversIdBody body = new LdapserversIdBody(); // LdapserversIdBody | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 try {
-    InlineResponse200 result = apiInstance.ldapserversPatch(id, contentType, accept, body, xApiKey, xOrgId);
+    InlineResponse20010 result = apiInstance.ldapserversPatch(id, body, xOrgId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LdapServersApi#ldapserversPatch");
@@ -452,15 +424,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Unique identifier of the LDAP server. |
- **contentType** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **body** | [**Body3**](Body3.md)|  | [optional]
- **xApiKey** | **String**|  | [optional]
- **xOrgId** | **String**|  | [optional]
+ **body** | [**LdapserversIdBody**](LdapserversIdBody.md)|  | [optional]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 

@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**systemsGetFDEKey**](FdeApi.md#systemsGetFDEKey) | **GET** /systems/{system_id}/fdekey | Get System FDE Key
 
-
 <a name="systemsGetFDEKey"></a>
 # **systemsGetFDEKey**
 > Systemfdekey systemsGetFDEKey(systemId, xOrgId)
@@ -34,7 +33,7 @@ x-api-key.setApiKey("YOUR API KEY");
 
 FdeApi apiInstance = new FdeApi();
 String systemId = "systemId_example"; // String | 
-String xOrgId = ""; // String | 
+String xOrgId = "xOrgId_example"; // String | Organization identifier that can be obtained from console settings.
 try {
     Systemfdekey result = apiInstance.systemsGetFDEKey(systemId, xOrgId);
     System.out.println(result);
@@ -49,7 +48,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **systemId** | **String**|  |
- **xOrgId** | **String**|  | [optional] [default to ]
+ **xOrgId** | **String**| Organization identifier that can be obtained from console settings. | [optional]
 
 ### Return type
 
@@ -61,6 +60,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

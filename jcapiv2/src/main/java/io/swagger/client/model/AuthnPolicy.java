@@ -1,0 +1,255 @@
+/*
+ * JumpCloud API
+ * # Overview  JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.  # Directory Objects  This API offers the ability to interact with some of our core features; otherwise known as Directory Objects. The Directory Objects are:  * Commands * Policies * Policy Groups * Applications * Systems * Users * User Groups * System Groups * Radius Servers * Directories: Office 365, LDAP,G-Suite, Active Directory * Duo accounts and applications.  The Directory Object is an important concept to understand in order to successfully use JumpCloud API.  ## JumpCloud Graph  We've also introduced the concept of the JumpCloud Graph along with  Directory Objects. The Graph is a powerful aspect of our platform which will enable you to associate objects with each other, or establish membership for certain objects to become members of other objects.  Specific `GET` endpoints will allow you to traverse the JumpCloud Graph to return all indirect and directly bound objects in your organization.  | ![alt text](https://s3.amazonaws.com/jumpcloud-kb/Knowledge+Base+Photos/API+Docs/jumpcloud_graph.png \"JumpCloud Graph Model Example\") | |:--:| | **This diagram highlights our association and membership model as it relates to Directory Objects.** |  # API Key  ## Access Your API Key  To locate your API Key:  1. Log into the [JumpCloud Admin Console](https://console.jumpcloud.com/). 2. Go to the username drop down located in the top-right of the Console. 3. Retrieve your API key from API Settings.  ## API Key Considerations  This API key is associated to the currently logged in administrator. Other admins will have different API keys.  **WARNING** Please keep this API key secret, as it grants full access to any data accessible via your JumpCloud console account.  You can also reset your API key in the same location in the JumpCloud Admin Console.  ## Recycling or Resetting Your API Key  In order to revoke access with the current API key, simply reset your API key. This will render all calls using the previous API key inaccessible.  Your API key will be passed in as a header with the header name \"x-api-key\".  ```bash curl -H \"x-api-key: [YOUR_API_KEY_HERE]\" \"https://console.jumpcloud.com/api/v2/systemgroups\" ```  # System Context  * [Introduction](#introduction) * [Supported endpoints](#supported-endpoints) * [Response codes](#response-codes) * [Authentication](#authentication) * [Additional examples](#additional-examples) * [Third party](#third-party)  ## Introduction  JumpCloud System Context Authorization is an alternative way to authenticate with a subset of JumpCloud's REST APIs. Using this method, a system can manage its information and resource associations, allowing modern auto provisioning environments to scale as needed.  **Notes:**   * The following documentation applies to Linux Operating Systems only.  * Systems that have been automatically enrolled using Apple's Device Enrollment Program (DEP) or systems enrolled using the User Portal install are not eligible to use the System Context API to prevent unauthorized access to system groups and resources. If a script that utilizes the System Context API is invoked on a system enrolled in this way, it will display an error.  ## Supported Endpoints  JumpCloud System Context Authorization can be used in conjunction with Systems endpoints found in the V1 API and certain System Group endpoints found in the v2 API.  * A system may fetch, alter, and delete metadata about itself, including manipulating a system's Group and Systemuser associations,   * `/api/systems/{system_id}` | [`GET`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_get) [`PUT`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_put) * A system may delete itself from your JumpCloud organization   * `/api/systems/{system_id}` | [`DELETE`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_delete) * A system may fetch its direct resource associations under v2 (Groups)   * `/api/v2/systems/{system_id}/memberof` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemGroupMembership)   * `/api/v2/systems/{system_id}/associations` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemAssociationsList)   * `/api/v2/systems/{system_id}/users` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemTraverseUser) * A system may alter its direct resource associations under v2 (Groups)   * `/api/v2/systems/{system_id}/associations` | [`POST`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemAssociationsPost) * A system may alter its System Group associations   * `/api/v2/systemgroups/{group_id}/members` | [`POST`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemGroupMembersPost)     * _NOTE_ If a system attempts to alter the system group membership of a different system the request will be rejected  ## Response Codes  If endpoints other than those described above are called using the System Context API, the server will return a `401` response.  ## Authentication  To allow for secure access to our APIs, you must authenticate each API request. JumpCloud System Context Authorization uses [HTTP Signatures](https://tools.ietf.org/html/draft-cavage-http-signatures-00) to authenticate API requests. The HTTP Signatures sent with each request are similar to the signatures used by the Amazon Web Services REST API. To help with the request-signing process, we have provided an [example bash script](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/shell/SigningExample.sh). This example API request simply requests the entire system record. You must be root, or have permissions to access the contents of the `/opt/jc` directory to generate a signature.  Here is a breakdown of the example script with explanations.  First, the script extracts the systemKey from the JSON formatted `/opt/jc/jcagent.conf` file.  ```bash #!/bin/bash conf=\"`cat /opt/jc/jcagent.conf`\" regex=\"systemKey\\\":\\\"(\\w+)\\\"\"  if [[ $conf =~ $regex ]] ; then   systemKey=\"${BASH_REMATCH[1]}\" fi ```  Then, the script retrieves the current date in the correct format.  ```bash now=`date -u \"+%a, %d %h %Y %H:%M:%S GMT\"`; ```  Next, we build a signing string to demonstrate the expected signature format. The signed string must consist of the [request-line](https://tools.ietf.org/html/rfc2616#page-35) and the date header, separated by a newline character.  ```bash signstr=\"GET /api/systems/${systemKey} HTTP/1.1\\ndate: ${now}\" ```  The next step is to calculate and apply the signature. This is a two-step process:  1. Create a signature from the signing string using the JumpCloud Agent private key: ``printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key`` 2. Then Base64-encode the signature string and trim off the newline characters: ``| openssl enc -e -a | tr -d '\\n'``  The combined steps above result in:  ```bash signature=`printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key | openssl enc -e -a | tr -d '\\n'` ; ```  Finally, we make sure the API call sending the signature has the same Authorization and Date header values, HTTP method, and URL that were used in the signing string.  ```bash curl -iq \\   -H \"Accept: application/json\" \\   -H \"Content-Type: application/json\" \\   -H \"Date: ${now}\" \\   -H \"Authorization: Signature keyId=\\\"system/${systemKey}\\\",headers=\\\"request-line date\\\",algorithm=\\\"rsa-sha256\\\",signature=\\\"${signature}\\\"\" \\   --url https://console.jumpcloud.com/api/systems/${systemKey} ```  ### Input Data  All PUT and POST methods should use the HTTP Content-Type header with a value of 'application/json'. PUT methods are used for updating a record. POST methods are used to create a record.  The following example demonstrates how to update the `displayName` of the system.  ```bash signstr=\"PUT /api/systems/${systemKey} HTTP/1.1\\ndate: ${now}\" signature=`printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key | openssl enc -e -a | tr -d '\\n'` ;  curl -iq \\   -d \"{\\\"displayName\\\" : \\\"updated-system-name-1\\\"}\" \\   -X \"PUT\" \\   -H \"Content-Type: application/json\" \\   -H \"Accept: application/json\" \\   -H \"Date: ${now}\" \\   -H \"Authorization: Signature keyId=\\\"system/${systemKey}\\\",headers=\\\"request-line date\\\",algorithm=\\\"rsa-sha256\\\",signature=\\\"${signature}\\\"\" \\   --url https://console.jumpcloud.com/api/systems/${systemKey} ```  ### Output Data  All results will be formatted as JSON.  Here is an abbreviated example of response output:  ```json {   \"_id\": \"525ee96f52e144993e000015\",   \"agentServer\": \"lappy386\",   \"agentVersion\": \"0.9.42\",   \"arch\": \"x86_64\",   \"connectionKey\": \"127.0.0.1_51812\",   \"displayName\": \"ubuntu-1204\",   \"firstContact\": \"2013-10-16T19:30:55.611Z\",   \"hostname\": \"ubuntu-1204\"   ... ```  ## Additional Examples  ### Signing Authentication Example  This example demonstrates how to make an authenticated request to fetch the JumpCloud record for this system.  [SigningExample.sh](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/shell/SigningExample.sh)  ### Shutdown Hook  This example demonstrates how to make an authenticated request on system shutdown. Using an init.d script registered at run level 0, you can call the System Context API as the system is shutting down.  [Instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) is an example of an init.d script that only runs at system shutdown.  After customizing the [instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) script, you should install it on the system(s) running the JumpCloud agent.  1. Copy the modified [instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) to `/etc/init.d/instance-shutdown`. 2. On Ubuntu systems, run `update-rc.d instance-shutdown defaults`. On RedHat/CentOS systems, run `chkconfig --add instance-shutdown`.  ## Third Party  ### Chef Cookbooks  [https://github.com/nshenry03/jumpcloud](https://github.com/nshenry03/jumpcloud)  [https://github.com/cjs226/jumpcloud](https://github.com/cjs226/jumpcloud)  # Multi-Tenant Portal Headers  Multi-Tenant Organization API Headers are available for JumpCloud Admins to use when making API requests from Organizations that have multiple managed organizations.  The `x-org-id` is a required header for all multi-tenant admins when making API requests to JumpCloud. This header will define to which organization you would like to make the request.  **NOTE** Single Tenant Admins do not need to provide this header when making an API request.  ## Header Value  `x-org-id`  ## API Response Codes  * `400` Malformed ID. * `400` x-org-id and Organization path ID do not match. * `401` ID not included for multi-tenant admin * `403` ID included on unsupported route. * `404` Organization ID Not Found.  ```bash curl -X GET https://console.jumpcloud.com/api/v2/directories \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -H 'x-org-id: {ORG_ID}'  ```  ## To Obtain an Individual Organization ID via the UI  As a prerequisite, your Primary Organization will need to be setup for Multi-Tenancy. This provides access to the Multi-Tenant Organization Admin Portal.  1. Log into JumpCloud [Admin Console](https://console.jumpcloud.com). If you are a multi-tenant Admin, you will automatically be routed to the Multi-Tenant Admin Portal. 2. From the Multi-Tenant Portal's primary navigation bar, select the Organization you'd like to access. 3. You will automatically be routed to that Organization's Admin Console. 4. Go to Settings in the sub-tenant's primary navigation. 5. You can obtain your Organization ID below your Organization's Contact Information on the Settings page.  ## To Obtain All Organization IDs via the API  * You can make an API request to this endpoint using the API key of your Primary Organization.  `https://console.jumpcloud.com/api/organizations/` This will return all your managed organizations.  ```bash curl -X GET \\   https://console.jumpcloud.com/api/organizations/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```  # SDKs  You can find language specific SDKs that can help you kickstart your Integration with JumpCloud in the following GitHub repositories:  * [Python](https://github.com/TheJumpCloud/jcapi-python) * [Go](https://github.com/TheJumpCloud/jcapi-go) * [Ruby](https://github.com/TheJumpCloud/jcapi-ruby) * [Java](https://github.com/TheJumpCloud/jcapi-java) 
+ *
+ * OpenAPI spec version: 2.0
+ * Contact: support@jumpcloud.com
+ *
+ * NOTE: This class is auto generated by the swagger code generator program.
+ * https://github.com/swagger-api/swagger-codegen.git
+ * Do not edit the class manually.
+ */
+
+package io.swagger.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.client.model.AuthnPolicyEffect;
+import io.swagger.client.model.AuthnPolicyTargets;
+import io.swagger.client.model.AuthnPolicyType;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
+/**
+ * This represents an authentication policy.  See the details of each field for valid values and restrictions.  Conditions may be added to an authentication policy using the following conditional language:  &#x60;&#x60;&#x60; &lt;conditions&gt; ::&#x3D; &lt;expression&gt; &lt;expression&gt; ::&#x3D; &lt;ipAddressIn&gt; | &lt;deviceManaged&gt; | &lt;locationIn&gt; | &lt;notExpression&gt; | &lt;allExpression&gt; | &lt;anyExpression&gt; &lt;ipAddressIn&gt; ::&#x3D; { \&quot;ipAddressIn\&quot;: [ &lt;objectId&gt;, ... ] } &lt;deviceManaged&gt; ::&#x3D; { \&quot;deviceManaged\&quot;: &lt;boolean&gt; } &lt;locationIn&gt; ::&#x3D; { \&quot;locationIn\&quot;: { \&quot;countries\&quot;: [ &lt;iso_3166_country_code&gt;, ... ] } } &lt;notExpression&gt; ::&#x3D; { \&quot;not\&quot;: &lt;expression&gt; } &lt;allExpression&gt; ::&#x3D; { \&quot;all\&quot;: [ &lt;expression&gt;, ... ] } &lt;anyExpression&gt; ::&#x3D; { \&quot;any\&quot;: [ &lt;expression&gt;, ... ] } &#x60;&#x60;&#x60;  For example, to add a condition that applies to IP address in a given list the following condition can be added:  &#x60;{\&quot;ipAddressIn\&quot;: [ &lt;ip_list_object_id&gt; ]}&#x60;  If you would rather exclude IP addresses in the given lists, the following condition could be added:  &#x60;{   \&quot;not\&quot;: {     \&quot;ipAddressIn\&quot;: [ &lt;ip_list_object_id_1&gt;, &lt;ip_list_object_id_2&gt; ]   } }&#x60;  You may also include more than one condition and choose whether \&quot;all\&quot; or \&quot;any\&quot; of them must be met for the policy to apply.  &#x60;{   \&quot;all\&quot;: [     {       \&quot;ipAddressIn\&quot;: [ &lt;ip_list_object_id&gt;, ... ]     },     {       \&quot;deviceManaged\&quot;: true     },     {       \&quot;locationIn\&quot;: {         countries: [ &lt;iso_3166_country_code&gt;, ... ]       }     }   ] }&#x60;
+ */
+@Schema(description = "This represents an authentication policy.  See the details of each field for valid values and restrictions.  Conditions may be added to an authentication policy using the following conditional language:  ``` <conditions> ::= <expression> <expression> ::= <ipAddressIn> | <deviceManaged> | <locationIn> | <notExpression> | <allExpression> | <anyExpression> <ipAddressIn> ::= { \"ipAddressIn\": [ <objectId>, ... ] } <deviceManaged> ::= { \"deviceManaged\": <boolean> } <locationIn> ::= { \"locationIn\": { \"countries\": [ <iso_3166_country_code>, ... ] } } <notExpression> ::= { \"not\": <expression> } <allExpression> ::= { \"all\": [ <expression>, ... ] } <anyExpression> ::= { \"any\": [ <expression>, ... ] } ```  For example, to add a condition that applies to IP address in a given list the following condition can be added:  `{\"ipAddressIn\": [ <ip_list_object_id> ]}`  If you would rather exclude IP addresses in the given lists, the following condition could be added:  `{   \"not\": {     \"ipAddressIn\": [ <ip_list_object_id_1>, <ip_list_object_id_2> ]   } }`  You may also include more than one condition and choose whether \"all\" or \"any\" of them must be met for the policy to apply.  `{   \"all\": [     {       \"ipAddressIn\": [ <ip_list_object_id>, ... ]     },     {       \"deviceManaged\": true     },     {       \"locationIn\": {         countries: [ <iso_3166_country_code>, ... ]       }     }   ] }`")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2022-10-19T07:49:49.516358Z[Etc/UTC]")
+public class AuthnPolicy {
+  @SerializedName("conditions")
+  private Object conditions = null;
+
+  @SerializedName("description")
+  private String description = null;
+
+  @SerializedName("disabled")
+  private Boolean disabled = null;
+
+  @SerializedName("effect")
+  private AuthnPolicyEffect effect = null;
+
+  @SerializedName("id")
+  private String id = null;
+
+  @SerializedName("name")
+  private String name = null;
+
+  @SerializedName("targets")
+  private AuthnPolicyTargets targets = null;
+
+  @SerializedName("type")
+  private AuthnPolicyType type = null;
+
+  public AuthnPolicy conditions(Object conditions) {
+    this.conditions = conditions;
+    return this;
+  }
+
+   /**
+   * Get conditions
+   * @return conditions
+  **/
+  @Schema(description = "")
+  public Object getConditions() {
+    return conditions;
+  }
+
+  public void setConditions(Object conditions) {
+    this.conditions = conditions;
+  }
+
+  public AuthnPolicy description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * Get description
+   * @return description
+  **/
+  @Schema(description = "")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public AuthnPolicy disabled(Boolean disabled) {
+    this.disabled = disabled;
+    return this;
+  }
+
+   /**
+   * Get disabled
+   * @return disabled
+  **/
+  @Schema(description = "")
+  public Boolean isDisabled() {
+    return disabled;
+  }
+
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
+  }
+
+  public AuthnPolicy effect(AuthnPolicyEffect effect) {
+    this.effect = effect;
+    return this;
+  }
+
+   /**
+   * Get effect
+   * @return effect
+  **/
+  @Schema(description = "")
+  public AuthnPolicyEffect getEffect() {
+    return effect;
+  }
+
+  public void setEffect(AuthnPolicyEffect effect) {
+    this.effect = effect;
+  }
+
+  public AuthnPolicy id(String id) {
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @Schema(description = "")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public AuthnPolicy name(String name) {
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @Schema(description = "")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public AuthnPolicy targets(AuthnPolicyTargets targets) {
+    this.targets = targets;
+    return this;
+  }
+
+   /**
+   * Get targets
+   * @return targets
+  **/
+  @Schema(description = "")
+  public AuthnPolicyTargets getTargets() {
+    return targets;
+  }
+
+  public void setTargets(AuthnPolicyTargets targets) {
+    this.targets = targets;
+  }
+
+  public AuthnPolicy type(AuthnPolicyType type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @Schema(description = "")
+  public AuthnPolicyType getType() {
+    return type;
+  }
+
+  public void setType(AuthnPolicyType type) {
+    this.type = type;
+  }
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AuthnPolicy authnPolicy = (AuthnPolicy) o;
+    return Objects.equals(this.conditions, authnPolicy.conditions) &&
+        Objects.equals(this.description, authnPolicy.description) &&
+        Objects.equals(this.disabled, authnPolicy.disabled) &&
+        Objects.equals(this.effect, authnPolicy.effect) &&
+        Objects.equals(this.id, authnPolicy.id) &&
+        Objects.equals(this.name, authnPolicy.name) &&
+        Objects.equals(this.targets, authnPolicy.targets) &&
+        Objects.equals(this.type, authnPolicy.type);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(conditions, description, disabled, effect, id, name, targets, type);
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AuthnPolicy {\n");
+    
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
+    sb.append("    effect: ").append(toIndentedString(effect)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+}

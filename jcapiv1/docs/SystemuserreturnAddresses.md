@@ -1,4 +1,3 @@
-
 # SystemuserreturnAddresses
 
 ## Properties
@@ -13,6 +12,3 @@ Name | Type | Description | Notes
 **region** | **String** |  |  [optional]
 **streetAddress** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
-
-
-

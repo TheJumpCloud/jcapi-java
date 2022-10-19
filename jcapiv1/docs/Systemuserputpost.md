@@ -1,4 +1,3 @@
-
 # Systemuserputpost
 
 ## Properties
@@ -8,11 +7,13 @@ Name | Type | Description | Notes
 **activated** | **Boolean** |  |  [optional]
 **addresses** | [**List&lt;SystemuserputpostAddresses&gt;**](SystemuserputpostAddresses.md) |  |  [optional]
 **allowPublicKey** | **Boolean** |  |  [optional]
-**attributes** | **List&lt;Object&gt;** |  |  [optional]
+**alternateEmail** | **String** |  |  [optional]
+**attributes** | [**List&lt;SystemuserputAttributes&gt;**](SystemuserputAttributes.md) |  |  [optional]
 **company** | **String** |  |  [optional]
 **costCenter** | **String** |  |  [optional]
 **department** | **String** |  |  [optional]
 **description** | **String** |  |  [optional]
+**disableDeviceMaxLoginAttempts** | **Boolean** |  |  [optional]
 **displayname** | **String** |  |  [optional]
 **email** | **String** |  | 
 **employeeIdentifier** | **String** | Must be unique per user.  |  [optional]
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **enableManagedUid** | **Boolean** |  |  [optional]
 **enableUserPortalMultifactor** | **Boolean** |  |  [optional]
 **externalDn** | **String** |  |  [optional]
+**externalPasswordExpirationDate** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
 **externalSourceType** | **String** |  |  [optional]
 **externallyManaged** | **Boolean** |  |  [optional]
 **firstname** | **String** |  |  [optional]
@@ -27,6 +29,8 @@ Name | Type | Description | Notes
 **lastname** | **String** |  |  [optional]
 **ldapBindingUser** | **Boolean** |  |  [optional]
 **location** | **String** |  |  [optional]
+**managedAppleId** | **String** |  |  [optional]
+**manager** | **String** | Relation with another systemuser to identify the last as a manager. |  [optional]
 **mfa** | [**Mfa**](Mfa.md) |  |  [optional]
 **middlename** | **String** |  |  [optional]
 **password** | **String** |  |  [optional]
@@ -34,8 +38,10 @@ Name | Type | Description | Notes
 **passwordlessSudo** | **Boolean** |  |  [optional]
 **phoneNumbers** | [**List&lt;SystemuserputpostPhoneNumbers&gt;**](SystemuserputpostPhoneNumbers.md) |  |  [optional]
 **publicKey** | **String** |  |  [optional]
-**relationships** | **List&lt;Object&gt;** |  |  [optional]
+**recoveryEmail** | [**SystemuserputpostRecoveryEmail**](SystemuserputpostRecoveryEmail.md) |  |  [optional]
+**relationships** | [**List&lt;SystemuserputRelationships&gt;**](SystemuserputRelationships.md) |  |  [optional]
 **sambaServiceUser** | **Boolean** |  |  [optional]
+**state** | [**StateEnum**](#StateEnum) |  |  [optional]
 **sudo** | **Boolean** |  |  [optional]
 **suspended** | **Boolean** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
@@ -43,5 +49,10 @@ Name | Type | Description | Notes
 **unixUid** | **Integer** |  |  [optional]
 **username** | **String** |  | 
 
-
-
+<a name="StateEnum"></a>
+## Enum: StateEnum
+Name | Value
+---- | -----
+STAGED | &quot;STAGED&quot;
+ACTIVATED | &quot;ACTIVATED&quot;
+SUSPENDED | &quot;SUSPENDED&quot;

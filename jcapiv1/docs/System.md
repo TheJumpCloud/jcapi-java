@@ -1,10 +1,9 @@
-
 # System
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  |  [optional]
+**_id** | **String** |  |  [optional]
 **active** | **Boolean** |  |  [optional]
 **agentVersion** | **String** |  |  [optional]
 **allowMultiFactorAuthentication** | **Boolean** |  |  [optional]
@@ -13,24 +12,35 @@ Name | Type | Description | Notes
 **allowSshRootLogin** | **Boolean** |  |  [optional]
 **amazonInstanceID** | **String** |  |  [optional]
 **arch** | **String** |  |  [optional]
+**azureAdJoined** | **Boolean** |  |  [optional]
+**builtInCommands** | [**List&lt;SystemBuiltInCommands&gt;**](SystemBuiltInCommands.md) |  |  [optional]
 **connectionHistory** | **List&lt;Object&gt;** |  |  [optional]
-**created** | **String** |  |  [optional]
+**created** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**description** | **String** |  |  [optional]
+**displayManager** | **String** |  |  [optional]
 **displayName** | **String** |  |  [optional]
+**domainInfo** | [**SystemDomainInfo**](SystemDomainInfo.md) |  |  [optional]
 **fde** | [**Fde**](Fde.md) |  |  [optional]
+**fileSystem** | **String** |  |  [optional]
+**hasServiceAccount** | **Boolean** |  |  [optional]
 **hostname** | **String** |  |  [optional]
-**lastContact** | **String** |  |  [optional]
+**lastContact** | [**OffsetDateTime**](OffsetDateTime.md) |  |  [optional]
+**mdm** | [**SystemMdm**](SystemMdm.md) |  |  [optional]
 **modifySSHDConfig** | **Boolean** |  |  [optional]
 **networkInterfaces** | [**List&lt;SystemNetworkInterfaces&gt;**](SystemNetworkInterfaces.md) |  |  [optional]
 **organization** | **String** |  |  [optional]
 **os** | **String** |  |  [optional]
+**osFamily** | **String** |  |  [optional]
+**osVersionDetail** | [**SystemOsVersionDetail**](SystemOsVersionDetail.md) |  |  [optional]
+**provisionMetadata** | [**SystemProvisionMetadata**](SystemProvisionMetadata.md) |  |  [optional]
 **remoteIP** | **String** |  |  [optional]
+**serialNumber** | **String** |  |  [optional]
+**serviceAccountState** | [**SystemServiceAccountState**](SystemServiceAccountState.md) |  |  [optional]
 **sshRootEnabled** | **Boolean** |  |  [optional]
 **sshdParams** | [**List&lt;SystemSshdParams&gt;**](SystemSshdParams.md) |  |  [optional]
 **systemInsights** | [**SystemSystemInsights**](SystemSystemInsights.md) |  |  [optional]
 **systemTimezone** | **Integer** |  |  [optional]
 **tags** | **List&lt;String&gt;** |  |  [optional]
 **templateName** | **String** |  |  [optional]
+**userMetrics** | [**List&lt;SystemUserMetrics&gt;**](SystemUserMetrics.md) |  |  [optional]
 **version** | **String** |  |  [optional]
-
-
-

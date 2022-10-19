@@ -1,4 +1,3 @@
-
 # SystemInsightsDiskInfo
 
 ## Properties
@@ -17,6 +16,3 @@ Name | Type | Description | Notes
 **serial** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
-
-
-

@@ -1,4 +1,3 @@
-
 # SystemInsightsPrograms
 
 ## Properties
@@ -15,6 +14,3 @@ Name | Type | Description | Notes
 **systemId** | **String** |  |  [optional]
 **uninstallString** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
-
-
-

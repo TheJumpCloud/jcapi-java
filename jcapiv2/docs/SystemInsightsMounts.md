@@ -1,4 +1,3 @@
-
 # SystemInsightsMounts
 
 ## Properties
@@ -17,6 +16,3 @@ Name | Type | Description | Notes
 **path** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **type** | **String** |  |  [optional]
-
-
-

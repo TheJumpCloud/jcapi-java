@@ -1,4 +1,3 @@
-
 # WorkdayOutput
 
 ## Properties
@@ -9,6 +8,3 @@ Name | Type | Description | Notes
 **lastImport** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **reportUrl** | **String** |  |  [optional]
-
-
-

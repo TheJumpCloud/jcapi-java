@@ -1,4 +1,3 @@
-
 # SystemInsightsOsVersion
 
 ## Properties
@@ -16,6 +15,3 @@ Name | Type | Description | Notes
 **platformLike** | **String** |  |  [optional]
 **systemId** | **String** |  |  [optional]
 **version** | **String** |  |  [optional]
-
-
-
