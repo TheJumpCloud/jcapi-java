@@ -1,4 +1,4 @@
-### Swagger Code Generation
+# Swagger Code Generation
 
 This repository relies on the following Dockerfile in order to run
 Swagger Codegen inside a Docker container:
@@ -6,7 +6,7 @@ https://hub.docker.com/r/parsertongue/swagger-codegen-cli.
 
 We're currently using version 3.0.32 of Swagger Codegen.
 
-### Generating the API Client
+## Generating the API Client
 
 Copy the Swagger specification YAML files to the local `./input` directory.
 
@@ -41,11 +41,12 @@ mv output/jcapiv1 .
 rm -rf jcapiv2
 mv output/jcapiv2 .
 ```
+
 There is currently a bug with Swagger Codegen where invalid variable names get
 generated in the doc files. In order to fix this, run the following commands in
 the root directory of this repository:
 
-```
+```bash
 
 grep -rl 'x-api-key.' jcapiv1/ | xargs sed -i '' 's/x-api-key\./x_api_key\./g'
 grep -rl 'x-api-key =' jcapiv1/ | xargs sed -i '' 's/x-api-key =/x_api_key =/g'
