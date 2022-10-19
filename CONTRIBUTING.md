@@ -47,7 +47,6 @@ generated in the doc files. In order to fix this, run the following commands in
 the root directory of this repository:
 
 ```bash
-
 grep -rl 'x-api-key.' jcapiv1/ | xargs sed -i '' 's/x-api-key\./x_api_key\./g'
 grep -rl 'x-api-key =' jcapiv1/ | xargs sed -i '' 's/x-api-key =/x_api_key =/g'
 
