@@ -22,8 +22,8 @@ API v1 and v2 specification files are `./input/index1.yaml` and
 `./input/index2.yaml`):
 
 ```
-docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index1.yaml -l java -c /config/config_v1.json -o /swagger-api/out/jcapiv1
-docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index2.yaml -l java -c /config/config_v2.json -o /swagger-api/out/jcapiv2
+docker compose run --rm swagger-codegen generate -i /swagger-api/yaml/index1.yaml -l java -c /config/config_v1.json -o /swagger-api/out/jcapiv1
+docker compose run --rm swagger-codegen generate -i /swagger-api/yaml/index2.yaml -l java -c /config/config_v2.json -o /swagger-api/out/jcapiv2
 ```
 
 This will generate the API v1 and v2 client files under the local
